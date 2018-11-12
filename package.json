@@ -1,0 +1,21 @@
+{
+  "name": "@habx/lib-backoffx",
+  "version": "1.0.0",
+  "description": "UI Library for client-crm-v2 and client-housings",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/habx/lib-backoffx.git"
+  },
+  "author": "Habx Team",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/habx/lib-backoffx/issues"
+  },
+  "homepage": "https://github.com/habx/lib-backoffx#readme",
+  "dependencies": {
+    "prop-types": "^15.6.2",
+    "styled-components": "^4.0.3"
+  }
+}
