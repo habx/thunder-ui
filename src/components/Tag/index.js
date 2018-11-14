@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 
-import { generateColorFromSeed } from '../../utils/colors'
+import { generateColorFromSeed } from '../../internal/colors'
 
 const Tag = styled.div`
   background: ${({ colorSeed }) => generateColorFromSeed(colorSeed)};

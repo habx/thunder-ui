@@ -1,3 +1,8 @@
-export { default as Tag } from './components/Tag/index'
+export { default as Tag } from './components/Tag'
 
-export { default as theme } from './theme'
+export { default as Title } from './components/Title'
+export { default as Subtitle } from './components/Subtitle'
+export { default as SectionTitle } from './components/SectionTitle'
+
+export * from './utils'
+export * from './theme'
