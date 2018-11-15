@@ -49,3 +49,5 @@ flow-coverage/
 
 .next
 .storybook-static
+
+lib/
