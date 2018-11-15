@@ -29,7 +29,10 @@ const NavBarItemsContainer = styled.div`
 
 const NavBar = ({ title, children, backgroundColor }) => (
   <NavBarContainer backgroundcolor={backgroundColor}>
-    <NavBarTitle>{title}</NavBarTitle>
+    {
+      title &&
+      <NavBarTitle>{title}</NavBarTitle>
+    }
     <NavBarItemsContainer>
       {children}
     </NavBarItemsContainer>
@@ -38,7 +41,7 @@ const NavBar = ({ title, children, backgroundColor }) => (
 
 NavBar.propTypes = {
   backgroundColor: PropTypes.string,
-  title: PropTypes.node.isRequired,
+  title: PropTypes.node,
   children: PropTypes.arrayOf(PropTypes.node).isRequired,
 }
 NavBar.defaultProps = {

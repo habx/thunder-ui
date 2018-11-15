@@ -14,6 +14,7 @@ const NavBarItemTooltip = styled.span`
   border-bottom-right-radius: 100px;
   font-family: "Inter UI", sans-serif;
   font-size: 14px;
+  white-space: nowrap;
 `
 
 const NavBarItemContainer = styled.div`
