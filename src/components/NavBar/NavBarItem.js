@@ -1,56 +1,70 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 const NavBarItemTooltip = styled.span`
-  display: none;
+  max-width: 44px;
+  overflow: hidden;
   position: absolute;
-  left: 50px;
+  top: 8px;
+  left: 0;
   z-index: 50;
-  height: 44px;
-  line-height: 44px;
-  padding: 0 16px 0 8px;
-  border-top-right-radius: 100px;
-  border-bottom-right-radius: 100px;
+  height: calc(100% - 16px);
+  line-height: calc(100% - 16px);
+  border-radius: 22px;
   font-family: "Inter UI", sans-serif;
   font-size: 14px;
   white-space: nowrap;
+  background-color: ${({ hovercolor }) => hovercolor};
+  transition: max-width 150ms linear;
+  
+  display: flex;
+  align-items: center;
+`
+
+const NavBarItemTooltipContent = styled.span`
+  padding: 0 16px 0 8px;
 `
 
 const NavBarItemContainer = styled.div`
   position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   font-size: 12px;
   font-weight: bold;
   padding: 8px 0;
-  width: 100%;
   color: #f9f9fb;
+  
   i {
     padding: 12px;
     font-size: 20px;
   }
+  
   &.active i {
     background-color: ${({ hovercolor }) => hovercolor};
-    border-radius: 100%;
+    border-radius: 50%;
   }
+  
   &:hover {
-      ${NavBarItemTooltip} {
-        display: block;
-        background-color: ${({ hovercolor }) => hovercolor};
-      }
-     i {
-        background-color: ${({ hovercolor }) => hovercolor};
-        border-radius: 100% 0 0 100% !important;
-      }
+    ${NavBarItemTooltip} {
+      max-width: 250px;
+    }
   }
 `
 
 const NavBarItem = ({ icon, tooltip, hoverColor, ...props }) => (
   <NavBarItemContainer activeClassName='active' hovercolor={hoverColor} {...props}>
     {icon}
-    <NavBarItemTooltip>{tooltip}</NavBarItemTooltip>
+    {
+      tooltip && (
+        <Fragment>
+          <NavBarItemTooltip hovercolor={hoverColor}>
+            {icon}
+            <NavBarItemTooltipContent>
+              {tooltip}
+            </NavBarItemTooltipContent>
+          </NavBarItemTooltip>
+        </Fragment>
+      )
+    }
   </NavBarItemContainer>
 )
 

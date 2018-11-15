@@ -7,6 +7,7 @@ const NavBarContainer = styled.nav`
     color: white;
     height: 100vh;
     width: 65px;
+    
     a {
       color: inherit;
       &:hover {
@@ -24,6 +25,9 @@ const NavBarTitle = styled.h4`
 
 const NavBarItemsContainer = styled.div`
   margin-top: 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `
 
 
