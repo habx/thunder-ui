@@ -6,11 +6,6 @@
   "scripts": {
     "compile": "NODE_ENV=production ./node_modules/.bin/babel src --out-dir lib"
   },
-  "husky": {
-    "hooks": {
-      "pre-push": "npm run compile"
-    }
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/habx/lib-client-backoffx.git"
