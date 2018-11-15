@@ -20,7 +20,7 @@ pipeline:
     environment:
       - NPM_TOKEN=${NPM_TOKEN}
     commands:
-      - rm -rf build && rm -rf dist &&  echo 104.18.94.96 registry.npmjs.org >> /etc/hosts && npm install
+      - rm -rf build && rm -rf dist &&  echo 104.18.94.96 registry.npmjs.org >> /etc/hosts && npm ci
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
 
