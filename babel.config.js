@@ -1,4 +1,5 @@
 const presets = [
+  "react-app",
   [
     "@babel/env",
     {
