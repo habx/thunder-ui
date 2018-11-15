@@ -1,0 +1,43 @@
+clone:
+  git:
+    image: plugins/git:next
+    pull: true
+
+pipeline:
+  restore-cache:
+    image: drillster/drone-volume-cache
+    restore: true
+    mount:
+      - node_modules
+    volumes:
+      - /tmp/cache:/cache
+      - /var/run/docker.sock:/var/run/docker.sock
+
+  clean-build-and-install:
+    image: habx/node-base:9-alpine-npm6
+    secrets: [ NPM_TOKEN ]
+    group: npm-install
+    environment:
+      - NPM_TOKEN=${NPM_TOKEN}
+    commands:
+      - rm -rf build && rm -rf dist &&  echo 104.18.94.96 registry.npmjs.org >> /etc/hosts && npm install
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+
+  publish-on-tag:
+    image: habx/node-base:9-alpine-npm6
+    secrets: [ NPM_TOKEN ]
+    environment:
+      - NPM_TOKEN=${NPM_TOKEN}
+    commands:
+      - npm publish
+    when:
+      event: tag
+
+  rebuild-cache:
+    image: drillster/drone-volume-cache
+    rebuild: true
+    mount:
+      - node_modules
+    volumes:
+      - /tmp/cache:/cache
