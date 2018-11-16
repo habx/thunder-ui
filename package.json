@@ -4,7 +4,8 @@
   "description": "UI Library for client-crm-v2 and client-housings",
   "main": "lib/index.js",
   "scripts": {
-    "compile": "NODE_ENV=production ./node_modules/.bin/babel src --out-dir lib"
+    "compile": "NODE_ENV=production ./node_modules/.bin/babel src --out-dir lib",
+    "watch": "NODE_ENV=development ./node_modules/.bin/babel src --out-dir lib --watch"
   },
   "repository": {
     "type": "git",
@@ -24,8 +25,8 @@
     "@babel/core": "^7.1.5",
     "@babel/preset-env": "^7.1.5",
     "@babel/preset-react": "^7.0.0",
+    "babel-plugin-styled-components": "^1.8.0",
     "babel-preset-env": "^1.7.0",
-    "husky": "^1.1.3",
     "prop-types": "^15.6.2",
     "react": "16.3.0 - 16.7.X",
     "react-dom": "16.3.0 - 16.7.X",
