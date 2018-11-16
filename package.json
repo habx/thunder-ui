@@ -5,7 +5,8 @@
   "main": "lib/index.js",
   "scripts": {
     "compile": "NODE_ENV=production ./node_modules/.bin/babel src --out-dir lib",
-    "watch": "NODE_ENV=development ./node_modules/.bin/babel src --out-dir lib --watch"
+    "watch": "NODE_ENV=development ./node_modules/.bin/babel src --out-dir lib --watch",
+    "storybook": "start-storybook -p 9001 -c .storybook -s ./assets"
   },
   "repository": {
     "type": "git",
@@ -25,6 +26,11 @@
     "@babel/core": "^7.1.5",
     "@babel/preset-env": "^7.1.5",
     "@babel/preset-react": "^7.0.0",
+    "@storybook/addon-centered": "^4.0.7",
+    "@storybook/addon-knobs": "^4.0.7",
+    "@storybook/react": "^4.0.7",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^8.0.4",
     "babel-plugin-styled-components": "^1.8.0",
     "babel-preset-env": "^1.7.0",
     "prop-types": "^15.6.2",

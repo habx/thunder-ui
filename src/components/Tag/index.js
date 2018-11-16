@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import { generateColorFromSeed } from '../../internal/colors'
 
 const Tag = styled.div`
-  background: ${({ colorSeed }) => generateColorFromSeed(colorSeed)};
+  background: ${({ colorSeed, color }) => color || generateColorFromSeed(colorSeed)};
 
   padding: 2px 8px;
   display: inline;
@@ -16,7 +16,8 @@ const Tag = styled.div`
 `
 
 Tag.propTypes = {
-  colorSeed: PropTypes.string.isRequired
+  colorSeed: PropTypes.string,
+  color: PropTypes.string
 }
 
 export default Tag
