@@ -4,6 +4,6 @@ export { default as Title } from './components/Title'
 export { default as Subtitle } from './components/Subtitle'
 export { default as SectionTitle } from './components/SectionTitle'
 export { default as NavBar, NavBarItem } from './components/NavBar'
+export { default as Button } from './components/Button'
 
-export * from './utils'
 export * from './theme'

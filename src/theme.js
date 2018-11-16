@@ -16,6 +16,18 @@ export const colors = {
   popstar: COLOR_POPSTAR
 }
 
+export const fontSizes = {
+  tiny: '12px',
+  small: '14px',
+  regular: '16px',
+  large: '18px'
+}
+
+export const borderRadius = {
+  narrow: '2px',
+  wide: '8px'
+}
+
 export const theme = {
   colors
 }
