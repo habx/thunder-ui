@@ -1,20 +1,29 @@
 import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
+import color from 'color'
+
+import { Context } from './context'
+import { colors } from '../../theme'
+
+const WHITE = color('#fff')
 
 const NavBarContainer = styled.nav`
-    background-color: ${({ backgroundcolor }) => backgroundcolor};
-    color: white;
-    height: 100vh;
-    width: 65px;
+  flex: 0 0 auto;
+  height: 100vh;
+  width: 64px;
+  
+  background-color: ${({ backgroundcolor }) => backgroundcolor};
+  color: white;
+  
+  a {
+    color: inherit;
     
-    a {
+    &:hover {
       color: inherit;
-      &:hover {
-        color: inherit;
-        text-decoration: none;
-      }
+      text-decoration: none;
     }
+  }
 `
 
 const NavBarTitle = styled.h4`
@@ -30,26 +39,38 @@ const NavBarItemsContainer = styled.div`
   align-items: center;
 `
 
+const prepareProps = props => {
+  const baseColor = props.backgroundColor || colors.trueBlue
 
-const NavBar = ({ title, children, backgroundColor }) => (
-  <NavBarContainer backgroundcolor={backgroundColor}>
-    {
-      title &&
-      <NavBarTitle>{title}</NavBarTitle>
-    }
-    <NavBarItemsContainer>
-      {children}
-    </NavBarItemsContainer>
-  </NavBarContainer>
-)
+  return {
+    backgroundColor: baseColor,
+    activeColor: props.activeColor || color(baseColor).mix(WHITE, 0.2).string(),
+    ...props
+  }
+}
+
+const NavBar = props => {
+  const { backgroundColor, activeColor, title, children } = prepareProps(props)
+
+  return (
+    <Context.Provider value={{ activeColor }}>
+      <NavBarContainer backgroundcolor={backgroundColor}>
+        {
+          title &&
+          <NavBarTitle>{title}</NavBarTitle>
+        }
+        <NavBarItemsContainer>
+          {children}
+        </NavBarItemsContainer>
+      </NavBarContainer>
+    </Context.Provider>
+  )
+}
 
 NavBar.propTypes = {
   backgroundColor: PropTypes.string,
   title: PropTypes.node,
   children: PropTypes.arrayOf(PropTypes.node).isRequired,
-}
-NavBar.defaultProps = {
-  backgroundColor: 'transparent',
 }
 
 export default NavBar

@@ -1,7 +1,5 @@
-import NavBarComponent from './NavBar'
-import NavBarItemComponent from './NavBarItem'
+import NavBar from './NavBar'
 
-export const NavBar = NavBarComponent
-export const NavBarItem = NavBarItemComponent
+export default NavBar
 
-export default NavBarComponent
+export { default as NavBarItem } from './NavBarItem'
