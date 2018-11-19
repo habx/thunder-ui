@@ -21,7 +21,7 @@ const findBaseColor = props => {
   return colors.trueBlue
 }
 
-export const prepareProps = props => {
+const prepareProps = props => {
   const baseColor = findBaseColor(props)
 
   return  {
@@ -43,7 +43,6 @@ const Button = styled.button.attrs(prepareProps)`
   cursor: pointer;
   outline: none;
   user-select: none;
-  transition: all 0.5s;
   vertical-align: middle;
   text-align: left;
   text-decoration: none;
@@ -51,13 +50,15 @@ const Button = styled.button.attrs(prepareProps)`
   color: #fff;
   
   background-color: ${({ color }) => color};
+  
+  transition: background-color 150ms ease-in-out;
 
-  :hover,
-  :active {
+  &:hover,
+  &:active {
     background-color: ${({ hoverColor }) => hoverColor};
   }
-
-  :disabled {
+  
+  &:disabled {
     pointer-events: none;
     filter: grayscale();
   }
@@ -72,7 +73,7 @@ const Button = styled.button.attrs(prepareProps)`
     padding: 16px 24px;
     font-size: ${fontSizes.large};
     line-height: 1.11;
-  `}
+  `};
 `
 
 export default Button
