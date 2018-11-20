@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components'
 import { colors } from '../../theme'
 
 const prepareProps = props => ({
-  color: props.color || colors.maastrichtBlue
+  color: props.color || colors.maastrichtBlue,
 })
 
 const Title = styled.h1.attrs(prepareProps)`

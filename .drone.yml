@@ -24,6 +24,17 @@ pipeline:
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
 
+  lint:
+    image: habx/node-base:9-alpine-npm6
+    secrets: [ NPM_TOKEN ]
+    group: tests-and-lint
+    environment:
+    - NPM_TOKEN=${NPM_TOKEN}
+    commands:
+    - npm run lint
+    volumes:
+    - /var/run/docker.sock:/var/run/docker.sock
+
   build:
     image: habx/node-base:9-alpine-npm6
     secrets: [ NPM_TOKEN ]

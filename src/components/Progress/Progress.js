@@ -15,7 +15,7 @@ const getProgressionColor = progression => {
 }
 
 const prepareProps = props => ({
-  color: props.color || getProgressionColor(props.progression)
+  color: props.color || getProgressionColor(props.progression),
 })
 
 const Progress = styled.div.attrs(prepareProps)`

@@ -17,7 +17,7 @@ const Tag = styled.div`
 
 Tag.propTypes = {
   colorSeed: PropTypes.string,
-  color: PropTypes.string
+  color: PropTypes.string,
 }
 
 export default Tag

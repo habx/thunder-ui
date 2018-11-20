@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { colors } from '../../theme'
 
 const prepareProps = props => ({
-  color: props.color || colors.maastrichtBlue
+  color: props.color || colors.maastrichtBlue,
 })
 
 const Subtitle = styled.h2.attrs(prepareProps)`
