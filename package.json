@@ -22,28 +22,31 @@
   "homepage": "https://github.com/habx/lib-client-backoffx#readme",
   "dependencies": {
     "@babel/polyfill": "^7.0.0",
-    "babel-eslint": "^10.0.1",
     "color": "^3.1.0",
-    "eslint": "^5.9.0",
-    "eslint-config-habx": "^1.2.0",
-    "eslint-plugin-jsx-a11y": "^6.1.2",
-    "eslint-plugin-react": "^7.11.1"
+    "rc-slider": "^8.6.3"
   },
   "devDependencies": {
     "@babel/cli": "^7.1.5",
     "@babel/core": "^7.1.5",
     "@babel/preset-env": "^7.1.5",
     "@babel/preset-react": "^7.0.0",
+    "@storybook/addon-actions": "^4.0.7",
     "@storybook/addon-centered": "^4.0.7",
     "@storybook/addon-knobs": "^4.0.7",
     "@storybook/react": "^4.0.7",
     "babel-core": "^6.26.3",
+    "babel-eslint": "^10.0.1",
     "babel-loader": "^8.0.4",
     "babel-plugin-styled-components": "^1.8.0",
     "babel-preset-env": "^1.7.0",
+    "eslint": "^5.9.0",
+    "eslint-config-habx": "^1.2.0",
+    "eslint-plugin-jsx-a11y": "^6.1.2",
+    "eslint-plugin-react": "^7.11.1",
     "prop-types": "^15.6.2",
     "react": "16.3.0 - 16.7.X",
     "react-dom": "16.3.0 - 16.7.X",
+    "recompose": "^0.30.0",
     "rimraf": "^2.6.2",
     "styled-components": "^4.1.1"
   }
