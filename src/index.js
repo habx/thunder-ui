@@ -10,6 +10,7 @@ export { default as SectionTitle } from './components/SectionTitle'
  */
 export { default as NavBar, NavBarItem } from './components/NavBar'
 
+
 /*
   Actions
  */
@@ -21,5 +22,6 @@ export { default as TextButton } from './components/TextButton'
  */
 export { default as Progress } from './components/Progress'
 export { default as Tag } from './components/Tag'
+export { default as Notification } from './components/Notification'
 
 export * from './theme'
