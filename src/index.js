@@ -11,7 +11,6 @@ export { default as SectionTitle } from './components/SectionTitle'
 export { default as NavBar, NavBarItem } from './components/NavBar'
 
 
-
 /*
   Actions
  */
