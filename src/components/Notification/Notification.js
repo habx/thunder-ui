@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import React from 'react'
+import PropTypes from 'prop-types'
 import color from 'color'
 
 import { fontSizes, borderRadius, colors } from '../../theme'
@@ -59,8 +60,22 @@ const CloseContainer = styled.div`
 `
 
 
-export default ({ children, onClose, illustration, backgroundColor, closeIcon, error, warning, ...props }) => (
-  <NotificationContainer backgroundColor={backgroundColor} error={error} warning={warning} {...props}>
+const Notification = ({
+  children,
+  onClose,
+  illustration,
+  backgroundColor,
+  closeIcon,
+  error,
+  warning,
+  ...props
+}) => (
+  <NotificationContainer
+    backgroundColor={backgroundColor}
+    error={error}
+    warning={warning}
+    {...props}
+  >
     {illustration && <NotificationIllustration>{illustration}</NotificationIllustration>}
     <NotificationContent>{children}</NotificationContent>
     <CloseContainer onClick={onClose}>
@@ -68,6 +83,23 @@ export default ({ children, onClose, illustration, backgroundColor, closeIcon, e
     </CloseContainer>
   </NotificationContainer>
 )
+
+Notification.propTypes = {
+  onClose: PropTypes.func,
+  illustration: PropTypes.node,
+  backgroundColor: PropTypes.string,
+  closeIcon: PropTypes.node,
+  error: PropTypes.bool,
+  warning: PropTypes.bool,
+}
+Notification.defaultProps = {
+  onClose: () => {},
+  illustration: null,
+  backgroundColor: null,
+  closeIcon: null,
+  error: false,
+  warning: false,
+}
 
 
 export default Notification
