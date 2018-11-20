@@ -18,7 +18,7 @@ const NavBarItemTooltip = styled.span`
   font-family: "Inter UI", sans-serif;
   font-size: 14px;
   white-space: nowrap;
-  background-color: ${({ activecolor }) => activecolor};
+  background-color: ${({ activebackgroundcolor }) => activebackgroundcolor};
   transition: max-width 150ms linear;
   
   display: flex;
@@ -43,12 +43,12 @@ const NavBarItemContainer = styled.div`
   }
   
   &.active i {
-    background-color: ${({ activecolor }) => activecolor};
+    background-color: ${({ activebackgroundcolor }) => activebackgroundcolor};
   }
   
   ${({ active }) => active && css`
     i {
-      background-color: ${({ activecolor }) => activecolor};
+      background-color: ${({ activebackgroundcolor }) => activebackgroundcolor};
     }
   `}
   
@@ -60,13 +60,17 @@ const NavBarItemContainer = styled.div`
   }
 `
 
-const NavBarItem = ({ icon, tooltip, activeColor, ...props }) => (
-  <NavBarItemContainer activeClassName='active' activecolor={activeColor} {...props}>
+const NavBarItem = ({ icon, tooltip, activeBackgroundColor, ...props }) => (
+  <NavBarItemContainer
+    activeClassName='active'
+    activebackgroundcolor={activeBackgroundColor}
+    {...props}
+  >
     {icon}
     {
       tooltip && (
         <Fragment>
-          <NavBarItemTooltip activecolor={activeColor}>
+          <NavBarItemTooltip activebackgroundcolor={activeBackgroundColor}>
             {icon}
             <NavBarItemTooltipContent>
               {tooltip}
@@ -81,7 +85,11 @@ const NavBarItem = ({ icon, tooltip, activeColor, ...props }) => (
 NavBarItem.propTypes = {
   icon: PropTypes.node.isRequired,
   tooltip: PropTypes.string.isRequired,
-  hoverColor: PropTypes.string,
+  activeBackgroundColor: PropTypes.string,
+}
+
+NavBarItem.defaultProps = {
+  activeBackgroundColor: '',
 }
 
 export default withContext(NavBarItem)

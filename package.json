@@ -4,6 +4,7 @@
   "description": "UI Library for client-crm-v2 and client-housings",
   "main": "lib/index.js",
   "scripts": {
+    "lint": "eslint ./src/",
     "compile": "NODE_ENV=production ./node_modules/.bin/babel src --out-dir lib",
     "watch": "NODE_ENV=development ./node_modules/.bin/babel src --out-dir lib --watch",
     "storybook": "start-storybook -p 9001 -c .storybook -s ./assets",
@@ -21,7 +22,12 @@
   "homepage": "https://github.com/habx/lib-client-backoffx#readme",
   "dependencies": {
     "@babel/polyfill": "^7.0.0",
-    "color": "^3.1.0"
+    "babel-eslint": "^10.0.1",
+    "color": "^3.1.0",
+    "eslint": "^5.9.0",
+    "eslint-config-habx": "^1.2.0",
+    "eslint-plugin-jsx-a11y": "^6.1.2",
+    "eslint-plugin-react": "^7.11.1"
   },
   "devDependencies": {
     "@babel/cli": "^7.1.5",
