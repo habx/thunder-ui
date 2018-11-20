@@ -44,16 +44,16 @@ const prepareProps = props => {
 
   return {
     backgroundColor: baseColor,
-    activeColor: props.activeColor || color(baseColor).mix(WHITE, 0.2).string(),
-    ...props
+    activeBackgroundColor: props.activeBackgroundColor || color(baseColor).mix(WHITE, 0.2).string(),
+    ...props,
   }
 }
 
 const NavBar = props => {
-  const { backgroundColor, activeColor, title, children } = prepareProps(props)
+  const { backgroundColor, activeBackgroundColor, title, children } = prepareProps(props)
 
   return (
-    <Context.Provider value={{ activeColor }}>
+    <Context.Provider value={{ activeBackgroundColor }}>
       <NavBarContainer backgroundcolor={backgroundColor}>
         {
           title &&
@@ -71,6 +71,11 @@ NavBar.propTypes = {
   backgroundColor: PropTypes.string,
   title: PropTypes.node,
   children: PropTypes.arrayOf(PropTypes.node).isRequired,
+}
+
+NavBar.defaultProps = {
+  backgroundColor: '',
+  title: null,
 }
 
 export default NavBar

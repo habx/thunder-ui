@@ -1,0 +1,9 @@
+{
+  "extends": ["habx/react"],
+  "globals": {
+    "browser": true
+  },
+  "rules": {
+    "react/no-unused-prop-types": 0
+  }
+}

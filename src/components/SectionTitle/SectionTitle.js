@@ -2,8 +2,8 @@ import styled, { css } from 'styled-components'
 
 import { colors } from '../../theme'
 
-const prepareProps = props => console.log(props) || ({
-  color: props.color || colors.maastrichtBlue
+const prepareProps = props => ({
+  color: props.color || colors.maastrichtBlue,
 })
 
 const SectionTitle = styled.h3.attrs(prepareProps)`
@@ -21,7 +21,7 @@ const SectionTitle = styled.h3.attrs(prepareProps)`
       content: '';
       height: 3px;
       width: 100%;
-      background-color: ${({ color }) => color};
+      background-color: ${({ backgroundColor }) => backgroundColor};
     }
   `}
 `

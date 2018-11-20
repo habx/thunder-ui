@@ -1,7 +1,7 @@
-import styled, { css } from 'styled-components'
+import styled from 'styled-components'
 import color from 'color'
 
-import {  fontSizes, colors } from '../../theme'
+import { fontSizes, colors } from '../../theme'
 
 const WHITE = color('#fff')
 
@@ -24,9 +24,9 @@ const findBaseColor = props => {
 const prepareProps = props => {
   const baseColor = findBaseColor(props)
 
-  return  {
+  return {
     color: baseColor,
-    hoverColor: props.hoverColor || color(baseColor).mix(WHITE, 0.2).string()
+    hoverColor: props.hoverColor || color(baseColor).mix(WHITE, 0.2).string(),
   }
 }
 
@@ -43,13 +43,13 @@ const TextButton = styled.button.attrs(prepareProps)`
   
   transition: color 150ms ease-in-out;
   
-  color: ${({ color }) => color };
+  color: ${({ color: textColor }) => textColor};
   
   cursor: pointer;
   
   &:hover,
   &:active {
-    color: ${({ hoverColor }) => hoverColor };
+    color: ${({ hoverColor }) => hoverColor};
   }
   
   &:disabled {

@@ -1,17 +1,16 @@
+import { colors } from '../theme'
+
 export const generateColorFromSeed = seed => {
-  function hashCode (str) {
-    var hash = 0
-    for (var i = 0; i < str.length; i++) {
-      hash = str.charCodeAt(i) + ((hash << 5) - hash)
-    }
-    return hash
+  if (!seed) {
+    return colors.trueBlue
   }
 
-  function intToRGB (i) {
-    var c = (i & 0x00ffffff).toString(16).toUpperCase()
+  const hash = [...seed].reduce((acc, letter) => (
+    letter.charCodeAt(0) + ((acc << 5) - acc) // eslint-disable-line no-bitwise
+  ), 0)
 
-    return '00000'.substring(0, 6 - c.length) + c
-  }
+  const hashBase16 = (hash & 0x00ffffff).toString(16).toUpperCase() // eslint-disable-line no-bitwise
+  const rgbCode = '00000'.substring(0, 6 - hashBase16.length) + hashBase16
 
-  return `#${intToRGB(hashCode(seed))}`
+  return `#${rgbCode}`
 }

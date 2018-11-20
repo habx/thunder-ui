@@ -53,26 +53,26 @@ storiesOf('NavBar', module)
   .addDecorator(navDecorator)
   .add('basic', () => (
     <NavBar>
-      <NavBarItem icon={<HomeIcon />} tooltip="Accueil" active />
-      <NavBarItem icon={<UserIcon />} tooltip="Profil" />
+      <NavBarItem icon={<HomeIcon />} tooltip='Accueil' active />
+      <NavBarItem icon={<UserIcon />} tooltip='Profil' />
     </NavBar>
   ))
   .add('with custom background color', () => (
     <NavBar backgroundColor={colors.maastrichtBlue}>
-      <NavBarItem icon={<HomeIcon />} tooltip="Accueil" active />
-      <NavBarItem icon={<UserIcon />} tooltip="Profil" />
+      <NavBarItem icon={<HomeIcon />} tooltip='Accueil' active />
+      <NavBarItem icon={<UserIcon />} tooltip='Profil' />
     </NavBar>
   ))
   .add('with custom active color', () => (
     <NavBar activeColor={colors.brightCerualean}>
-      <NavBarItem icon={<HomeIcon />} tooltip="Accueil" active />
-      <NavBarItem icon={<UserIcon />} tooltip="Profil" />
+      <NavBarItem icon={<HomeIcon />} tooltip='Accueil' active />
+      <NavBarItem icon={<UserIcon />} tooltip='Profil' />
     </NavBar>
   ))
   .add('with custom active color on second item', () => (
     <NavBar>
-      <NavBarItem icon={<HomeIcon />} tooltip="Accueil" active />
-      <NavBarItem icon={<UserIcon />} tooltip="Profil" activeColor={colors.brightCerualean} />
+      <NavBarItem icon={<HomeIcon />} tooltip='Accueil' active />
+      <NavBarItem icon={<UserIcon />} tooltip='Profil' activeColor={colors.brightCerualean} />
     </NavBar>
   ))
 
