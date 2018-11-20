@@ -13,21 +13,21 @@ export const colors = {
   brightCerualean: COLOR_BRIGHT_CERUALEAN,
   internationalOrange: COLOR_INTERNATIONAL_ORANGE,
   uscGold: COLOR_USC_GOLD,
-  popstar: COLOR_POPSTAR
+  popstar: COLOR_POPSTAR,
 }
 
 export const fontSizes = {
   tiny: '12px',
   small: '14px',
   regular: '16px',
-  large: '18px'
+  large: '18px',
 }
 
 export const borderRadius = {
   narrow: '2px',
-  wide: '8px'
+  wide: '8px',
 }
 
 export const theme = {
-  colors
+  colors,
 }
