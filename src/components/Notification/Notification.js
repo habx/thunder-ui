@@ -56,9 +56,9 @@ const CloseContainer = styled.div`
 `
 
 
-export default ({ children, onClose, illustration, backgroundColor, closeIcon, error, warning }) => (
-  <NotificationContainer backgroundColor={backgroundColor} error={error} warning={warning}>
-    <NotificationIllustration>{illustration}</NotificationIllustration>
+export default ({ children, onClose, illustration, backgroundColor, closeIcon, error, warning, ...props }) => (
+  <NotificationContainer backgroundColor={backgroundColor} error={error} warning={warning} {...props}>
+    {illustration && <NotificationIllustration>{illustration}</NotificationIllustration>}
     <NotificationContent>{children}</NotificationContent>
     <CloseContainer onClick={onClose}>
       {closeIcon || <CloseIcon />}
