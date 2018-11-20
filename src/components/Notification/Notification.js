@@ -1,0 +1,67 @@
+import styled  from 'styled-components'
+import React from 'react'
+import color from 'color'
+
+import { fontSizes, borderRadius, colors } from '../../theme'
+
+const NotificationContainer = styled.div`
+  background-color: ${({ backgroundColor, error, warning }) => {
+    if (error) {
+      return colors.popstar
+    }
+  if (warning) {
+    return colors.uscGold
+  }
+    return colors.brightCerualean || backgroundColor
+  }};
+  border-radius: ${borderRadius.narrow};
+  box-shadow: ${({ backgroundColor, error, warning }) => {
+    if (error) {
+      return `0 6px 18px 0 ${color(colors.popstar).fade(0.5)}`
+    }
+  if (warning) {
+    return `0 6px 18px 0 ${color(colors.uscGold).fade(0.5)}`
+  }
+    return `0 6px 18px 0 ${color(colors.brightCerualean || backgroundColor).fade(0.5)}`  
+  }};
+  display: flex;
+`
+const NotificationIllustration = styled.div`
+  padding: 16px 0 16px 32px;
+  font-size: ${fontSizes.regular};
+  color: #ffffff;
+`
+const NotificationContent = styled.p`
+  padding: 16px 32px;
+  font-size: ${fontSizes.regular};
+  color: #ffffff;
+`
+
+const CloseIcon = styled.i`
+  :before {
+    font: normal normal normal 16px/1 'Habx';
+    font-size: ${fontSizes.regular};
+    content: "\u274C";
+  }
+`
+const CloseContainer = styled.div`
+  padding: 8px;
+  margin-right: 8px;
+  margin-top: 8px;
+  color: #ffffff;
+  height: fit-content;
+  :hover {
+    cursor: pointer;
+  }
+`
+
+
+export default ({ children, onClose, illustration, backgroundColor, closeIcon, error, warning }) => (
+  <NotificationContainer backgroundColor={backgroundColor} error={error} warning={warning}>
+    <NotificationIllustration>{illustration}</NotificationIllustration>
+    <NotificationContent>{children}</NotificationContent>
+    <CloseContainer onClick={onClose}>
+      {closeIcon || <CloseIcon />}
+    </CloseContainer>
+  </NotificationContainer>
+)
