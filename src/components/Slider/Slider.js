@@ -30,7 +30,7 @@ class CustomSlider extends Component {
   }
 
   static getDerivedStateFromProps(nextProps, prevState) {
-    if (nextProps.value !== prevState.rawValue && !!nextProps.value) {
+    if (nextProps.value !== prevState.rawValue && nextProps.value != null) {
       return {
         value: nextProps.value,
         rawValue: nextProps.value,
@@ -47,7 +47,7 @@ class CustomSlider extends Component {
   getInitialValue() {
     const { value, range, min, max } = this.props
 
-    if (!value) {
+    if (value == null) {
       return range ? [min, max] : min
     }
 
