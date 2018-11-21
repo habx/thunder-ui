@@ -1,4 +1,4 @@
-import { withThunderContext, withSectionContext } from '../utils/context'
+import { withThunderContext, withSectionContext } from '../context'
 
 import Item from './Item'
 

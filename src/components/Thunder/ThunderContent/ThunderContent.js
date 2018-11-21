@@ -1,8 +1,8 @@
 import React, { Component, createRef } from 'react'
 import PropTypes from 'prop-types'
-import { get, orderBy, omit } from 'lodash'
+import { get, orderBy, omit, head } from 'lodash'
 
-import { ThunderContext } from '../utils/context'
+import { ThunderContext } from '../context'
 import thunderIcon from '../thunder.svg'
 import { ThunderSearch, ThunderSections } from './style'
 
@@ -58,6 +58,29 @@ export default class Thunder extends Component {
     }
   }
 
+  handleToggle = () => {
+    this.setState({ selectedItem: null })
+    this.props.onToggle()
+  }
+
+  handleSearch = e => {
+    this.setState({ selectedItem: null })
+    this.props.onQueryChange(e.target.value)
+  }
+
+  handleFocus = () => this.setState({ selectedItem: null })
+
+  handleSearchKeyPress = event => {
+    const { key } = event
+
+    if (key === 'Enter') {
+      const firstItem = head(this.getAllItemKeys())
+      if (firstItem) {
+        firstItem.onSubmit(event)
+      }
+    }
+  }
+
   registerItem = (section, item) => this.setState(state => ({
     items: {
       ...state.items,
@@ -75,27 +98,6 @@ export default class Thunder extends Component {
         [section]: omit(prevState.items[section], [key]),
       },
     }))
-  }
-
-  handleToggle = () => {
-    this.setState({ selectedItem: null })
-    this.props.onToggle()
-  }
-
-  handleSearch = e => {
-    this.setState({ selectedItem: null })
-    this.props.onQueryChange(e.target.value)
-  }
-
-  handleFocus = () => this.setState({ selectedItem: null })
-
-  handleSearchKeyPress = ({ key }) => {
-    if (key === 'Enter') {
-      const firstItemUrl = get(this.getAllItemKeys(), '[0].href')
-      if (firstItemUrl) {
-        window.location.replace(firstItemUrl)
-      }
-    }
   }
 
   render() {

@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const ItemContainer = styled.a`
+export const ItemContainer = styled.div`
   position: relative;
   display: flex;
   padding: 16px 32px;

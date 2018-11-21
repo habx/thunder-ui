@@ -1,10 +1,11 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
+import { action } from '@storybook/addon-actions'
 import { filter, map } from 'lodash'
 import { withState } from 'recompose'
 
 import FontIcon from '../FontIcon'
-import { Thunder, Section, Item } from './index'
+import { Thunder, Section, Item, WelcomeMessage } from './index'
 
 import { searchInString } from '../../internal/strings'
 
@@ -16,16 +17,16 @@ const withQueryControl = withState('query', 'onQueryChange', 'france')
 
 const BasicSection = ({ query }) => map(
   filter(data.countries, country => searchInString(country, query)),
-  (country, index) => <Item key={country} title={country} href='#' index={index} />
+  (country, index) => <Item key={country} title={country} index={index} />
 )
 
-storiesOf('Thunder', module)
+storiesOf('Thunder/thunder options', module)
   .add('basic uncontrolled', () => (
     <Thunder open data={data}>
       <Section
         name='countries'
         filter={(query, country) => searchInString(country, query)}
-        renderItem={(country, index) => <Item key={country} title={country} href='#' index={index} />}
+        renderItem={(country, index) => <Item key={country} title={country} index={index} />}
       />
     </Thunder>
   ))
@@ -37,22 +38,48 @@ storiesOf('Thunder', module)
         <Section
           name='countries'
           filter={(query, country) => searchInString(country, query)}
-          renderItem={(country, index) => <Item key={country} title={country} href='#' index={index} />}
+          renderItem={(country, index) => <Item key={country} title={country} index={index} />}
           maxItems={5}
         />
       </ControlledThunder>
     )
   })
+
+storiesOf('Thunder/section options')
   .add('with 5 items max', () => (
     <Thunder open data={data}>
       <Section
         name='countries'
         filter={(query, country) => searchInString(country, query)}
-        renderItem={(country, index) => <Item key={country} title={country} href='#' index={index} />}
+        renderItem={(country, index) => <Item key={country} title={country} index={index} />}
         maxItems={5}
       />
     </Thunder>
   ))
+  .add('with section title', () => (
+    <Thunder open data={data}>
+      <Section
+        name='countries'
+        title='Countries'
+        filter={(query, country) => searchInString(country, query)}
+        renderItem={(country, index) => (
+          <Item
+            key={country}
+            title={country}
+            index={index}
+          />
+        )}
+        maxItems={5}
+      />
+    </Thunder>
+  ))
+  .add('with custom section', () => (
+    <Thunder open data={data}>
+      <Section name='countries' render={props => <BasicSection {...props} />} />
+    </Thunder>
+  ))
+
+storiesOf('Thunder/item options')
   .add('with icons on items', () => (
     <Thunder open data={data}>
       <Section
@@ -62,7 +89,6 @@ storiesOf('Thunder', module)
           <Item
             key={country}
             title={country}
-            href='#'
             index={index}
             icon={<FontIcon icon='envelope' />}
           />
@@ -80,7 +106,6 @@ storiesOf('Thunder', module)
           <Item
             key={country}
             title={country}
-            href='#'
             index={index}
             icon={<FontIcon icon='envelope' />}
             subtitle={`Subtitle for ${country}`}
@@ -90,8 +115,47 @@ storiesOf('Thunder', module)
       />
     </Thunder>
   ))
-  .add('with custom section', () => (
+  .add('with custom onClick on item', () => (
     <Thunder open data={data}>
-      <Section name='countries' render={props => <BasicSection {...props} />} />
+      <Section
+        name='countries'
+        filter={(query, country) => searchInString(country, query)}
+        renderItem={(country, index) => (
+          <Item
+            key={country}
+            title={country}
+            index={index}
+            onClick={action('Item click')}
+          />
+        )}
+        maxItems={5}
+      />
+    </Thunder>
+  ))
+  .add('with href on item', () => (
+    <Thunder open data={data}>
+      <Section
+        name='countries'
+        filter={(query, country) => searchInString(country, query)}
+        renderItem={(country, index) => (
+          <Item
+            key={country}
+            title={country}
+            index={index}
+            href='https://habx.fr'
+            target='_BLANK'
+          />
+        )}
+        maxItems={5}
+      />
+    </Thunder>
+  ))
+
+storiesOf('Thunder/welcome message')
+  .add('basic', () => (
+    <Thunder open>
+      <WelcomeMessage>
+        This is a welcome message on the Thunder
+      </WelcomeMessage>
     </Thunder>
   ))

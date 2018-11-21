@@ -2,7 +2,8 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { get, map, take, filter as lodashFilter } from 'lodash'
 
-import { SectionContext } from '../utils/context'
+import { SectionContext } from '../context'
+import SectionTitle from '../SectionTitle'
 
 import { SectionContainer } from './style'
 
@@ -40,9 +41,12 @@ class Section extends Component {
   }
 
   render() {
+    const { title } = this.props
+
     return (
       <SectionContext.Provider value={{ name }}>
         <SectionContainer>
+          { title && <SectionTitle>{ title }</SectionTitle>}
           { this.renderContent() }
         </SectionContainer>
       </SectionContext.Provider>

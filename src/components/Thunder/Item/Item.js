@@ -7,16 +7,16 @@ import { ItemContainer, ItemContent, ItemTitle, ItemIcon, Title, Subtitle } from
 
 class Item extends Component {
   static propTypes = {
+    index: PropTypes.number.isRequired,
     title: PropTypes.string.isRequired,
     subtitle: PropTypes.string,
     icon: PropTypes.string,
-    href: PropTypes.string.isRequired,
+    href: PropTypes.string,
     onDelete: PropTypes.func,
     onEdit: PropTypes.func,
     focusOnRender: PropTypes.bool,
     iconStyle: PropTypes.objectOf(PropTypes.any),
     onClick: PropTypes.func,
-    index: PropTypes.number.isRequired,
     thunder: PropTypes.shape({
       query: PropTypes.string,
       selectedItemKey: PropTypes.number,
@@ -36,6 +36,7 @@ class Item extends Component {
     focusOnRender: false,
     iconStyle: null,
     icon: null,
+    href: null,
   }
 
   constructor(props) {
@@ -54,40 +55,25 @@ class Item extends Component {
   componentDidMount() {
     const {
       focusOnRender,
-      index,
-      title,
-      href,
-      thunder: {
-        registerItem,
-      },
-      section: {
-        name,
-      },
     } = this.props
 
     if (focusOnRender) {
       this.focusInput()
     }
 
-    registerItem(name, { index, title, href, key: this.key })
+    this.register()
   }
 
   componentDidUpdate(prevProps) {
     const {
       index,
-      title,
-      href,
       thunder: {
-        registerItem,
         selectedItemKey,
-      },
-      section: {
-        name,
       },
     } = this.props
 
     if (prevProps.index !== index) {
-      registerItem(name, { title, href, key: this.key, index })
+      this.register()
     }
 
     if (selectedItemKey === this.key) {
@@ -106,6 +92,52 @@ class Item extends Component {
     } = this.props
 
     unRegisterItem(name, this.key)
+  }
+
+  getItemComponent() {
+    const { href, as } = this.props
+
+    if (as) {
+      return as
+    }
+
+    if (href) {
+      return 'a'
+    }
+
+    return 'div'
+  }
+
+  register() {
+    const {
+      index,
+      title,
+      thunder: {
+        registerItem,
+      },
+      section: {
+        name,
+      },
+    } = this.props
+
+    registerItem(name, {
+      title,
+      index,
+      key: this.key,
+      onSubmit: this.handleSubmit,
+    })
+  }
+
+  handleSubmit = event => {
+    const { href, onClick } = this.props
+
+    if (onClick) {
+      onClick(event)
+    }
+
+    if (href) {
+      window.location.replace(href)
+    }
   }
 
   handleClick = action => e => {
@@ -145,20 +177,19 @@ class Item extends Component {
       title,
       subtitle,
       icon,
-      href,
       onDelete,
       onEdit,
       iconStyle,
-      onClick,
       thunder: {
         query,
       },
+      ...rest
     } = this.props
 
     const { edit, value } = this.state
 
     return (
-      <ItemContainer href={href} ref={this.link} onClick={onClick}>
+      <ItemContainer {...rest} as={this.getItemComponent()} ref={this.link} tabIndex={0}>
         {
           icon && (
             <ItemIcon style={iconStyle}>

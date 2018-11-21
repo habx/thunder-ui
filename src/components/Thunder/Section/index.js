@@ -1,4 +1,4 @@
-import { withThunderContext } from '../utils/context'
+import { withThunderContext } from '../context'
 
 import Section from './Section'
 
