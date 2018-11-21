@@ -1,6 +1,8 @@
-export const getItems = key => JSON.parse(window.localStorage.getItem(`thunder.${key}`))
+const KEY_PREFIX = 'thunder.'
 
-export const setItems = key => item => window.localStorage.setItem(`thunder.${key}`, JSON.stringify(item))
+export const getItems = key => JSON.parse(window.localStorage.getItem(`${KEY_PREFIX}${key}`))
+
+export const setItems = key => item => window.localStorage.setItem(`${KEY_PREFIX}${key}`, JSON.stringify(item))
 
 export const upsertItem = key => (itemKey, item) =>
   setItems(key)({
