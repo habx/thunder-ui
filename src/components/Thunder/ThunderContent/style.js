@@ -2,6 +2,7 @@ import styled from 'styled-components'
 
 export const ThunderSections = styled.div`
   overflow-y: auto;
+  overflow-x: hidden;
 `
 
 export const ThunderSearch = styled.div`

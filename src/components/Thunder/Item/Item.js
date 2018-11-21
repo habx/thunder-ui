@@ -1,9 +1,10 @@
 import React, { Component, createRef } from 'react'
 import PropTypes from 'prop-types'
 
+import FontIcon from '../../FontIcon'
 import Highlight from '../Highlight'
 
-import { ItemContainer, ItemContent, ItemTitle, ItemIcon, Title, Subtitle } from './style'
+import { ItemContainer, ItemContent, ItemTitle, ItemActions, ItemIcon, Title, Subtitle } from './style'
 
 class Item extends Component {
   static propTypes = {
@@ -214,8 +215,10 @@ class Item extends Component {
                 <Highlight query={query}>{title}</Highlight>
               </Title>
             )}
-            {onEdit && !edit && <i className='material-icons' onClick={this.handleEdit}>edit</i>}
-            {onDelete && !edit && <i className='material-icons' onClick={this.handleClick(onDelete)}>delete</i>}
+            <ItemActions>
+              {onEdit && !edit && <FontIcon icon='pencil' onClick={this.handleEdit} />}
+              {onDelete && !edit && <FontIcon icon='trash' onClick={this.handleClick(onDelete)} />}
+            </ItemActions>
           </ItemTitle>
           {
             subtitle &&

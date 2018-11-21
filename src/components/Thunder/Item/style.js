@@ -20,44 +20,26 @@ export const ItemContainer = styled.div`
 `
 
 export const ItemContent = styled.div`
-  width: 100%;
-  
-  mark {
-    padding: 0;
-  }
+  flex: 1 1 100%;
+  white-space: nowrap;
+  min-width: 0;
 `
 
 export const ItemTitle = styled.div`
-  width: 100%;
   display: flex;
   height: 32px;
-  
-  > span {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: inline-block;
-    width: calc(100% - 100px);
-  }
+  align-items: baseline;
   
   input {
-    width: 100%;
     font-family: EuclidCircularB;
     font-size: 23px;
     border: none;
     background: none;
+    flex: 1 1 100%;
     
     &:focus {
       outline: none;
     }
-  }
-  
-  i {
-    margin: 0 8px;
-    vertical-align: baseline;
-    transition: all ease-in-out 200ms;
-    opacity: 0;
-    font-size: 18px;
-    color: #5a6e85;
   }
   
   &:hover {
@@ -69,6 +51,19 @@ export const ItemTitle = styled.div`
         opacity: 0.7;
       }
     }
+  }
+`
+
+export const ItemActions = styled.div`
+  margin-left: 8px;
+  
+  & > i {
+    margin: 0 8px;
+    vertical-align: baseline;
+    transition: all ease-in-out 200ms;
+    opacity: 0;
+    font-size: 18px;
+    color: #5a6e85;
   }
 `
 
@@ -87,14 +82,15 @@ export const Title = styled.div`
   color: #061a3c;
   font-family: EuclidCircularB;
   font-size: 23px;
+  overflow: hidden;
+  text-overflow: ellipsis;
 `
 
 export const Subtitle = styled.div`
   color: #061a3c;
   font-family: Inter UI;
+  height: 15px;
+  font-size: 11px;
   overflow: hidden;
   text-overflow: ellipsis;
-  height: 15px;
-  display: block;  
-  font-size: 11px;
 `

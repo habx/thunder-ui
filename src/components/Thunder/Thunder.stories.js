@@ -56,7 +56,7 @@ storiesOf('Thunder/section options')
       />
     </Thunder>
   ))
-  .add('with section title', () => (
+  .add('with title', () => (
     <Thunder open data={data}>
       <Section
         name='countries'
@@ -80,7 +80,7 @@ storiesOf('Thunder/section options')
   ))
 
 storiesOf('Thunder/item options')
-  .add('with icons on items', () => (
+  .add('with icons', () => (
     <Thunder open data={data}>
       <Section
         name='countries'
@@ -97,7 +97,7 @@ storiesOf('Thunder/item options')
       />
     </Thunder>
   ))
-  .add('with subtitle on items', () => (
+  .add('with subtitle', () => (
     <Thunder open data={data}>
       <Section
         name='countries'
@@ -115,7 +115,7 @@ storiesOf('Thunder/item options')
       />
     </Thunder>
   ))
-  .add('with custom onClick on item', () => (
+  .add('with custom onClick', () => (
     <Thunder open data={data}>
       <Section
         name='countries'
@@ -132,7 +132,7 @@ storiesOf('Thunder/item options')
       />
     </Thunder>
   ))
-  .add('with href on item', () => (
+  .add('with href', () => (
     <Thunder open data={data}>
       <Section
         name='countries'
@@ -144,6 +144,24 @@ storiesOf('Thunder/item options')
             index={index}
             href='https://habx.fr'
             target='_BLANK'
+          />
+        )}
+        maxItems={5}
+      />
+    </Thunder>
+  ))
+  .add('with onEdit and onDelete', () => (
+    <Thunder open data={data}>
+      <Section
+        name='countries'
+        filter={(query, country) => searchInString(country, query)}
+        renderItem={(country, index) => (
+          <Item
+            key={country}
+            title={country}
+            index={index}
+            onEdit={action('Item edit')}
+            onDelete={action('Item delete')}
           />
         )}
         maxItems={5}

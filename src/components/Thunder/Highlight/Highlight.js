@@ -138,8 +138,12 @@ const findQueryInText = (rawTest, rawQuery) => {
 }
 
 const HighlightContainer = styled.div`
+  overflow: hidden;
+  text-overflow: ellipsis;
+  
   & mark {
     padding: 0;
+    background-color: #fcf8e3;
   }
 `
 
