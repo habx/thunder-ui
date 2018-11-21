@@ -28,6 +28,7 @@ export { default as Select } from './components/Select'
  */
 export { default as Progress } from './components/Progress'
 export { default as Tag } from './components/Tag'
+export { default as Slider } from './components/Slider'
 export { default as Notification } from './components/Notification'
 export { default as FontIcon } from './components/FontIcon'
 
