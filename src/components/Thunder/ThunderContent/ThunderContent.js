@@ -10,7 +10,7 @@ export default class Thunder extends Component {
   static propTypes = {
     onToggle: PropTypes.func.isRequired,
     onQueryChange: PropTypes.func.isRequired,
-    data: PropTypes.objectOf(PropTypes.array)
+    data: PropTypes.objectOf(PropTypes.array),
   }
 
   static defaultProps = {
