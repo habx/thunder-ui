@@ -15,6 +15,7 @@ class CustomSlider extends Component {
     min: PropTypes.number,
     max: PropTypes.number,
     color: PropTypes.string,
+    step: PropTypes.number,
   }
 
   static defaultProps = {
@@ -25,10 +26,11 @@ class CustomSlider extends Component {
     min: 0,
     max: 100,
     color: colors.brightCerualean,
+    step: 5,
   }
 
   static getDerivedStateFromProps(nextProps, prevState) {
-    if (nextProps.value !== prevState.rawValue) {
+    if (nextProps.value !== prevState.rawValue && !!nextProps.value) {
       return {
         value: nextProps.value,
         rawValue: nextProps.value,
@@ -45,7 +47,7 @@ class CustomSlider extends Component {
   getInitialValue() {
     const { value, range, min, max } = this.props
 
-    if (value === null) {
+    if (!value) {
       return range ? [min, max] : min
     }
 
@@ -55,12 +57,12 @@ class CustomSlider extends Component {
   handleChange = value => this.setState({ value })
 
   render() {
-    const { onChange, range, max, customValues, toolTipSuffix, min, color } = this.props
+    const { onChange, range, max, customValues, toolTipSuffix, min, color, step } = this.props
     const { value } = this.state
 
     const SliderComponent = range ? Range : Slider
-    const realMax = customValues ? customValues.length - 1 : (max || 100) - ((max || 100) % 5)
-    const realMin = customValues ? min : min - (min % 5)
+    const realMax = customValues ? customValues.length - 1 : (max || 100) - ((max || 100) % step)
+    const realMin = customValues ? min : min - (min % step)
 
     const isValueArray = Array.isArray(value)
 
@@ -73,7 +75,7 @@ class CustomSlider extends Component {
           dots={!!customValues}
           max={realMax}
           min={realMin}
-          step={customValues ? 1 : 5}
+          step={customValues ? 1 : step}
         />
         <Label key={value} value={isValueArray ? value[0] : value} max={realMax}>
           {
