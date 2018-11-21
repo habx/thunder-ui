@@ -161,8 +161,8 @@ class Item extends Component {
       <ItemContainer href={href} ref={this.link} onClick={onClick}>
         {
           icon && (
-            <ItemIcon>
-              <i className='material-icons' style={iconStyle}>{icon}</i>
+            <ItemIcon style={iconStyle}>
+              {icon}
             </ItemIcon>
           )
         }
@@ -186,9 +186,12 @@ class Item extends Component {
             {onEdit && !edit && <i className='material-icons' onClick={this.handleEdit}>edit</i>}
             {onDelete && !edit && <i className='material-icons' onClick={this.handleClick(onDelete)}>delete</i>}
           </ItemTitle>
-          <Subtitle>
-            <Highlight query={query}>{subtitle}</Highlight>
-          </Subtitle>
+          {
+            subtitle &&
+            <Subtitle>
+              <Highlight query={query}>{subtitle}</Highlight>
+            </Subtitle>
+          }
         </ItemContent>
       </ItemContainer>
     )

@@ -71,6 +71,25 @@ storiesOf('Thunder', module)
       />
     </Thunder>
   ))
+  .add('with subtitle on items', () => (
+    <Thunder open data={data}>
+      <Section
+        name='countries'
+        filter={(query, country) => searchInString(country, query)}
+        renderItem={(country, index) => (
+          <Item
+            key={country}
+            title={country}
+            href='#'
+            index={index}
+            icon={<FontIcon icon='envelope' />}
+            subtitle={`Subtitle for ${country}`}
+          />
+        )}
+        maxItems={5}
+      />
+    </Thunder>
+  ))
   .add('with custom section', () => (
     <Thunder open data={data}>
       <Section name='countries' render={props => <BasicSection {...props} />} />
