@@ -16,9 +16,11 @@ class CustomSlider extends Component {
     max: PropTypes.number,
     color: PropTypes.string,
     step: PropTypes.number,
+    labelFormatter: PropTypes.func,
   }
 
   static defaultProps = {
+    labelFormatter: label => label,
     range: false,
     customValues: null,
     value: null,
@@ -57,7 +59,8 @@ class CustomSlider extends Component {
   handleChange = value => this.setState({ value })
 
   render() {
-    const { onChange, range, max, customValues, toolTipSuffix, min, color, step } = this.props
+    const { onChange, range, max, customValues, toolTipSuffix,
+      min, color, step, labelFormatter } = this.props
     const { value } = this.state
 
     const SliderComponent = range ? Range : Slider
@@ -80,8 +83,8 @@ class CustomSlider extends Component {
         <Label key={value} value={isValueArray ? value[0] : value} max={realMax}>
           {
             isValueArray
-              ? `${value[0]} à ${value[1]}${toolTipSuffix}`
-              : `${(customValues ? customValues[value] : `${value || 0}${toolTipSuffix}`)}`
+              ? `${labelFormatter(value[0])} à ${labelFormatter(value[1])}${toolTipSuffix}`
+              : `${(customValues ? customValues[value] : `${labelFormatter(value) || 0}${toolTipSuffix}`)}`
           }
         </Label>
       </SliderContainer>
