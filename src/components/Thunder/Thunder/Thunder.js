@@ -89,6 +89,7 @@ export default class Thunder extends Component {
   }
 
   handleClick = event => {
+    return null
     if (this.modalRef && !this.modalRef.current.contains(event.target) && this.state.open) {
       this.handleToggle()
     }
@@ -131,6 +132,7 @@ export default class Thunder extends Component {
             onToggle={this.handleToggle}
             query={this.getQuery()}
             onQueryChange={this.handleQueryChange}
+            inputRef={this.inputRef}
           />
         </ThunderModal>
       </ThunderModalContainer>

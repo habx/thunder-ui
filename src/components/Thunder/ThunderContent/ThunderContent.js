@@ -11,6 +11,9 @@ export default class Thunder extends Component {
     onToggle: PropTypes.func.isRequired,
     onQueryChange: PropTypes.func.isRequired,
     data: PropTypes.objectOf(PropTypes.array),
+    inputRef: PropTypes.shape({
+      current: PropTypes.object,
+    }).isRequired,
   }
 
   static defaultProps = {
@@ -43,6 +46,7 @@ export default class Thunder extends Component {
 
   handleKeyDown = ({ key }) => {
     const { selectedItem } = this.state
+    const { inputRef } = this.props
 
     if (key === 'ArrowUp' && selectedItem > 0) {
       this.setState({ selectedItem: selectedItem - 1 })
@@ -50,7 +54,7 @@ export default class Thunder extends Component {
 
     if (key === 'ArrowUp' && this.state.selectedItem === 0) {
       this.setState({ selectedItem: null })
-      setTimeout(() => this.inputRef.current.select(), 0)
+      setTimeout(() => inputRef.current.select(), 0)
     }
 
     if (key === 'ArrowDown' && selectedItem < this.getAllItemKeys().length) {
@@ -101,7 +105,7 @@ export default class Thunder extends Component {
   }
 
   render() {
-    const { children, query, data } = this.props
+    const { children, query, data, inputRef } = this.props
 
     const { selectedItem } = this.state
 
@@ -122,7 +126,7 @@ export default class Thunder extends Component {
           <img src={thunderIcon} alt='icon' />
           <input
             onKeyPress={this.handleSearchKeyPress}
-            ref={this.inputRef}
+            ref={inputRef}
             onFocus={this.handleFocus}
             value={query}
             onChange={this.handleSearch}
