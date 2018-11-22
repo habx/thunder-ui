@@ -1,4 +1,4 @@
-import React, { Component, createRef } from 'react'
+import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { get, orderBy, omit, head } from 'lodash'
 
@@ -18,12 +18,6 @@ export default class Thunder extends Component {
 
   static defaultProps = {
     data: {},
-  }
-
-  constructor() {
-    super()
-
-    this.inputRef = createRef()
   }
 
   state = {
