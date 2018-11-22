@@ -91,12 +91,12 @@ export default class Thunder extends Component {
 
   handleClick = () => {
     if (this.state.open) {
-      this.handleToggle()
+      this.handleClose()
     }
   }
 
-  handleToggle = () => this.setState(prevState => ({
-    open: !prevState.open,
+  handleClose = () => this.setState(() => ({
+    open: false,
     query: '',
   }))
 
@@ -129,7 +129,7 @@ export default class Thunder extends Component {
         <ThunderModal ref={this.modalRef} onClick={stopEvent}>
           <ThunderContent
             {...this.props}
-            onToggle={this.handleToggle}
+            onClose={this.handleClose}
             query={this.getQuery()}
             onQueryChange={this.handleQueryChange}
             inputRef={this.inputRef}

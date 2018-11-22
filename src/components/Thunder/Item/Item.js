@@ -17,6 +17,7 @@ class Item extends Component {
     onDelete: PropTypes.func,
     onEdit: PropTypes.func,
     focusOnRender: PropTypes.bool,
+    refPropName: PropTypes.string,
     onClick: PropTypes.func,
     thunder: PropTypes.shape({
       query: PropTypes.string,
@@ -27,6 +28,7 @@ class Item extends Component {
     section: PropTypes.shape({
       name: PropTypes.string.isRequired,
     }).isRequired,
+    as: PropTypes.oneOfType([PropTypes.string, PropTypes.func])
   }
 
   static defaultProps = {
@@ -35,16 +37,20 @@ class Item extends Component {
     onDelete: null,
     onEdit: null,
     focusOnRender: false,
+    refPropName: 'ref',
     iconStyle: null,
     icon: null,
     href: null,
+    as: 'div',
   }
 
   constructor(props) {
     super(props)
 
+    this.container = { current: null }
+    this.itemContainer = createRef()
     this.inputRef = createRef()
-    this.link = createRef()
+
     this.key = Math.random()
   }
 
@@ -78,7 +84,7 @@ class Item extends Component {
     }
 
     if (selectedItemKey === this.key) {
-      this.link.current.focus()
+      this.itemContainer.current.focus()
     }
   }
 
@@ -95,7 +101,17 @@ class Item extends Component {
     unRegisterItem(name, this.key)
   }
 
-  getItemComponent() {
+  getContainerProps() {
+    const { refPropName } = this.props
+
+    const ref = node => {
+      this.container.current = node
+    }
+
+    return { [refPropName]: ref }
+  }
+
+  getContainerComponent() {
     const { href, as } = this.props
 
     if (as) {
@@ -130,15 +146,13 @@ class Item extends Component {
   }
 
   handleSubmit = event => {
-    const { href, onClick } = this.props
+    const { onClick, thunder } = this.props
 
     if (onClick) {
-      onClick(event)
+      onClick(event, { thunder })
     }
 
-    if (href) {
-      window.location.replace(href)
-    }
+    this.container.current.click()
   }
 
   handleClick = action => e => {
@@ -158,6 +172,12 @@ class Item extends Component {
   }
 
   handleKeyPress = e => {
+    if (e.key === 'Enter' && document.activeElement === this.itemContainer.current) {
+      this.handleSubmit(e)
+    }
+  }
+
+  handleInputKeyPress = e => {
     if (e.key === 'Enter') {
       this.handleStopEditing()
     }
@@ -181,6 +201,10 @@ class Item extends Component {
       onDelete,
       onEdit,
       iconStyle,
+      focusOnRender,
+      refPropName,
+      onClick,
+      as,
       thunder: {
         query,
       },
@@ -189,42 +213,51 @@ class Item extends Component {
 
     const { edit, value } = this.state
 
+    const Container = this.getContainerComponent()
+
     return (
-      <ItemContainer {...rest} as={this.getItemComponent()} ref={this.link} tabIndex={0}>
-        {
-          icon && (
-            <ItemIcon style={iconStyle}>
-              {icon}
-            </ItemIcon>
-          )
-        }
-        <ItemContent>
-          <ItemTitle>
-            <ItemTitleInput
-              ref={this.inputRef}
-              value={value}
-              onKeyPress={this.handleKeyPress}
-              onChange={this.handleChange}
-              onClick={this.handleClick()}
-              onBlur={this.handleStopEditing}
-              data-editing={edit}
-            />
-            <Title data-editing={edit}>
-              <Highlight query={query}>{title}</Highlight>
-            </Title>
-            <ItemActions data-editing={edit}>
-              {onEdit && <FontIcon icon='pencil' onClick={this.handleEdit} />}
-              {onDelete && <FontIcon icon='trash' onClick={this.handleClick(onDelete)} />}
-            </ItemActions>
-          </ItemTitle>
+      <Container {...this.getContainerProps()} {...rest}>
+        <ItemContainer
+          ref={this.itemContainer}
+          tabIndex={0}
+          onClick={this.handleSubmit}
+          onKeyPress={this.handleKeyPress}
+        >
           {
-            subtitle &&
-            <Subtitle>
-              <Highlight query={query}>{subtitle}</Highlight>
-            </Subtitle>
+            icon && (
+              <ItemIcon style={iconStyle}>
+                {icon}
+              </ItemIcon>
+            )
           }
-        </ItemContent>
-      </ItemContainer>
+          <ItemContent>
+            <ItemTitle>
+              <ItemTitleInput
+                ref={this.inputRef}
+                value={value}
+                onKeyPress={this.handleInputKeyPress}
+                onChange={this.handleChange}
+                onClick={this.handleClick()}
+                onBlur={this.handleStopEditing}
+                data-editing={edit}
+              />
+              <Title data-editing={edit}>
+                <Highlight query={query}>{title}</Highlight>
+              </Title>
+              <ItemActions data-editing={edit}>
+                {onEdit && <FontIcon icon='pencil' onClick={this.handleEdit} />}
+                {onDelete && <FontIcon icon='trash' onClick={this.handleClick(onDelete)} />}
+              </ItemActions>
+            </ItemTitle>
+            {
+              subtitle &&
+              <Subtitle>
+                <Highlight query={query}>{subtitle}</Highlight>
+              </Subtitle>
+            }
+          </ItemContent>
+        </ItemContainer>
+      </Container>
     )
   }
 }
