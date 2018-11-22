@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import FontIcon from '../../FontIcon'
 import Highlight from '../Highlight'
 
-import { ItemContainer, ItemContent, ItemTitle, ItemActions, ItemIcon, Title, Subtitle } from './style'
+import { ItemContainer, ItemContent, ItemTitle, ItemActions, ItemIcon, ItemTitleInput, Title, Subtitle } from './style'
 
 class Item extends Component {
   static propTypes = {
@@ -200,24 +200,21 @@ class Item extends Component {
         }
         <ItemContent>
           <ItemTitle>
-            {edit ? (
-              <input
-                ref={this.inputRef}
-                type='text'
-                onKeyPress={this.handleKeyPress}
-                value={value}
-                onChange={this.handleChange}
-                onClick={this.handleClick()}
-                onBlur={this.handleStopEditing}
-              />
-            ) : (
-              <Title>
-                <Highlight query={query}>{title}</Highlight>
-              </Title>
-            )}
-            <ItemActions>
-              {onEdit && !edit && <FontIcon icon='pencil' onClick={this.handleEdit} />}
-              {onDelete && !edit && <FontIcon icon='trash' onClick={this.handleClick(onDelete)} />}
+            <ItemTitleInput
+              ref={this.inputRef}
+              value={value}
+              onKeyPress={this.handleKeyPress}
+              onChange={this.handleChange}
+              onClick={this.handleClick()}
+              onBlur={this.handleStopEditing}
+              data-editing={edit}
+            />
+            <Title data-editing={edit}>
+              <Highlight query={query}>{title}</Highlight>
+            </Title>
+            <ItemActions data-editing={edit}>
+              {onEdit && <FontIcon icon='pencil' onClick={this.handleEdit} />}
+              {onDelete && <FontIcon icon='trash' onClick={this.handleClick(onDelete)} />}
             </ItemActions>
           </ItemTitle>
           {

@@ -1,5 +1,7 @@
 import styled from 'styled-components'
 
+import { colors } from '../../../theme'
+
 export const ItemContainer = styled.div`
   position: relative;
   display: flex;
@@ -30,18 +32,6 @@ export const ItemTitle = styled.div`
   height: 32px;
   align-items: baseline;
   
-  input {
-    font-family: EuclidCircularB;
-    font-size: 23px;
-    border: none;
-    background: none;
-    flex: 1 1 100%;
-    
-    &:focus {
-      outline: none;
-    }
-  }
-  
   &:hover {
     i {
       transition: all ease-in-out 200ms;
@@ -51,6 +41,23 @@ export const ItemTitle = styled.div`
         opacity: 0.7;
       }
     }
+  }
+`
+
+export const ItemTitleInput = styled.input.attrs(() => ({ type: 'text' }))`
+  font-family: EuclidCircularB;
+  font-size: 23px;
+  border: none;
+  background: none;
+  flex: 1 1 100%;
+  display: none;
+  
+  &:focus {
+    outline: none;
+  }
+  
+  &[data-editing="true"] {
+    display: initial;
   }
 `
 
@@ -65,17 +72,26 @@ export const ItemActions = styled.div`
     font-size: 18px;
     color: #5a6e85;
   }
+  
+  &[data-editing="true"] {
+    display: none;
+  }
 `
 
 export const ItemIcon = styled.div`
-  > i {
-    margin-top: 4px;
-    background-color: #1dcad3;
-    border-radius: 100%;
-    padding: 8px;
-    color: #f8f7f8;
-    margin-right: 20px;
-  }
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-self: center;
+  flex: 0 0 auto;
+  
+  border-radius: 50%;
+  margin-right: 20px;
+  height: 40px;
+  width: 40px;
+
+  background-color: ${colors.brightCerualean};
+  color: #f8f7f8;
 `
 
 export const Title = styled.div`
@@ -84,6 +100,10 @@ export const Title = styled.div`
   font-size: 23px;
   overflow: hidden;
   text-overflow: ellipsis;
+  
+  &[data-editing="true"] {
+    display: none;
+  }
 `
 
 export const Subtitle = styled.div`

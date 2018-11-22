@@ -8,6 +8,8 @@ import { ThunderModalContainer, ThunderModal } from './style'
 
 const DOUBLE_KEY_PRESS_DURATION = 200
 
+const stopEvent = e => e.stopPropagation()
+
 export default class Thunder extends Component {
   static propTypes = {
     onOpen: PropTypes.func,
@@ -32,6 +34,7 @@ export default class Thunder extends Component {
     super()
 
     this.modalRef = createRef()
+    this.inputRef = createRef()
   }
 
 
@@ -43,12 +46,10 @@ export default class Thunder extends Component {
 
   componentDidMount() {
     window.addEventListener('keydown', this.handleKeyDown)
-    window.addEventListener('click', this.handleClick)
   }
 
   componentWillUnmount() {
     window.removeEventListener('keydown', this.handleKeyDown)
-    window.removeEventListener('click', this.handleClick)
   }
 
   getQuery() {
@@ -88,8 +89,8 @@ export default class Thunder extends Component {
     }
   }
 
-  handleClick = event => {
-    if (this.modalRef && !this.modalRef.current.contains(event.target) && this.state.open) {
+  handleClick = () => {
+    if (this.state.open) {
       this.handleToggle()
     }
   }
@@ -124,13 +125,14 @@ export default class Thunder extends Component {
     }
 
     return (
-      <ThunderModalContainer>
-        <ThunderModal ref={this.modalRef}>
+      <ThunderModalContainer onClick={this.handleClick}>
+        <ThunderModal ref={this.modalRef} onClick={stopEvent}>
           <ThunderContent
             {...this.props}
             onToggle={this.handleToggle}
             query={this.getQuery()}
             onQueryChange={this.handleQueryChange}
+            inputRef={this.inputRef}
           />
         </ThunderModal>
       </ThunderModalContainer>
