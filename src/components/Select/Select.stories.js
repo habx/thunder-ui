@@ -33,7 +33,7 @@ storiesOf('Select', module)
   })
   .add('multi items with icon', () => {
     const SelectWithState = enhance(({ value, onChange }) => (
-      <Select isMulti options={options} label='Projets' value={value} onChange={onChange} icon={<FontIcon icon='envelope' />} />
+      <Select isMulti options={options} label='Projets' value={value} onChange={onChange} icon={<FontIcon icon='camera_enhance' />} />
     ))
     return <SelectWithState />
   })

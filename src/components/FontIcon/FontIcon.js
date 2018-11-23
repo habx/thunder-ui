@@ -1,15 +1,30 @@
+import React from 'react'
 import styled, { css } from 'styled-components'
 
-import icons from './icons'
 
 const FontIcon = styled.i`
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;  /* Preferred icon size */
   display: inline-block;
-  font: normal normal normal 16px/1 'Habx';
-  font-size: inherit;
-  text-rendering: auto;
+  line-height: 1;
   text-transform: none;
-  line-height: inherit;
-  vertical-align: bottom;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Support for IE. */
+  font-feature-settings: 'liga';
   
   ${({ onClick }) => onClick && css`
     cursor: pointer;
@@ -18,10 +33,7 @@ const FontIcon = styled.i`
       opacity: 0.8;
     }
   `};
-  
-  &:before {
-    content: "${({ icon }) => icons[icon] || icon}";
-  }
 `
 
-export default FontIcon
+export default ({ icon, ...props }) =>
+  <FontIcon {...props}>{icon}</FontIcon>
