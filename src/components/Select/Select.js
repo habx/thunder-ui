@@ -180,7 +180,7 @@ class Select extends Component {
       annotation,
       canReset,
       value: unusedValue,
-      onClick: unusedClick,
+      onChange: unusedOnChange,
       ...rest
     } = this.props
 
