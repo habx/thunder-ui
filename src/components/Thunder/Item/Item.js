@@ -1,10 +1,28 @@
 import React, { Component, createRef } from 'react'
 import PropTypes from 'prop-types'
+import { omit } from 'lodash'
 
 import FontIcon from '../../FontIcon'
 import Highlight from '../Highlight'
 
 import { ItemContainer, ItemContent, ItemTitle, ItemActions, ItemIcon, ItemTitleInput, Title, Subtitle } from './style'
+
+
+const INTERNAL_PROPS = [
+  'index',
+  'title',
+  'subtitle',
+  'icon',
+  'iconStyle',
+  'onDelete',
+  'onEdit',
+  'onClick',
+  'focusOnRender',
+  'refPropName',
+  'thunder',
+  'section',
+  'as',
+]
 
 class Item extends Component {
   static propTypes = {
@@ -16,9 +34,9 @@ class Item extends Component {
     href: PropTypes.string,
     onDelete: PropTypes.func,
     onEdit: PropTypes.func,
+    onClick: PropTypes.func,
     focusOnRender: PropTypes.bool,
     refPropName: PropTypes.string,
-    onClick: PropTypes.func,
     thunder: PropTypes.shape({
       query: PropTypes.string,
       selectedItemKey: PropTypes.number,
@@ -201,14 +219,9 @@ class Item extends Component {
       onDelete,
       onEdit,
       iconStyle,
-      focusOnRender,
-      refPropName,
-      onClick,
-      as,
       thunder: {
         query,
       },
-      ...rest
     } = this.props
 
     const { edit, value } = this.state
@@ -216,7 +229,7 @@ class Item extends Component {
     const Container = this.getContainerComponent()
 
     return (
-      <Container {...this.getContainerProps()} {...rest}>
+      <Container {...this.getContainerProps()} {...omit(this.props, INTERNAL_PROPS)}>
         <ItemContainer
           ref={this.itemContainer}
           tabIndex={0}
@@ -244,7 +257,7 @@ class Item extends Component {
               <Title data-editing={edit}>
                 <Highlight query={query}>{title}</Highlight>
               </Title>
-              <ItemActions data-editing={edit}>
+              <ItemActions data-editing={edit} onClick={e => e.stopPropagation()}>
                 {onEdit && <FontIcon icon='pencil' onClick={this.handleEdit} />}
                 {onDelete && <FontIcon icon='trash' onClick={this.handleClick(onDelete)} />}
               </ItemActions>
