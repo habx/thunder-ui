@@ -5,6 +5,11 @@ export const RadioSelectContainer = styled.div`
   display: flex;
   border: solid 1px ${({ color }) => color};
   border-radius: 3px;
+  
+  &[data-disabled="true"] {
+    pointer-events: none;
+    filter: grayscale();
+  }
 `
 
 export const RadioSelectElement = styled.div`

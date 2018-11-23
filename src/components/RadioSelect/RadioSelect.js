@@ -6,7 +6,15 @@ import { colors } from '../../theme'
 import { RadioSelectContainer, RadioSelectElement } from './style'
 
 
-const RadioSelect = ({ options, onChange, value: currentValue, canBeEmpty, color, isMulti }) => {
+const RadioSelect = ({
+  options,
+  onChange,
+  value: currentValue,
+  canBeEmpty,
+  color,
+  isMulti,
+  disabled,
+}) => {
   const getNewValue = item => {
     if (isMulti) {
       if (includes(currentValue, item)) {
@@ -44,7 +52,7 @@ const RadioSelect = ({ options, onChange, value: currentValue, canBeEmpty, color
   }
 
   return (
-    <RadioSelectContainer color={color}>
+    <RadioSelectContainer color={color} data-disabled={disabled}>
       {map(options, ({ value, label }) => (
         <RadioSelectElement
           key={value}
@@ -67,13 +75,15 @@ RadioSelect.propTypes = {
   onChange: PropTypes.func.isRequired,
   canBeEmpty: PropTypes.bool,
   isMulti: PropTypes.bool,
-  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.bool]),
+  disabled: PropTypes.bool,
+  value: PropTypes.any, // eslint-disable-line react/forbid-prop-types
   color: PropTypes.string,
 }
 
 RadioSelect.defaultProps = {
   canBeEmpty: true,
   isMulti: false,
+  disabled: false,
   value: null,
   color: colors.brightCerualean,
 }
