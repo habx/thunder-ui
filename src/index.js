@@ -22,6 +22,7 @@ export { default as TextButton } from './components/TextButton'
   Inputs
  */
 export { default as Select } from './components/Select'
+export { default as RadioSelect } from './components/RadioSelect'
 
 /*
   Misc
