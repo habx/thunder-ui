@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 
-import { OptionContainer, CheckboxIcon } from './style'
+import { OptionContainer } from './style'
+import FontIcon from '../FontIcon/FontIcon'
 
 class Option extends Component {
   constructor() {
@@ -32,10 +33,8 @@ class Option extends Component {
         ref={this.ref}
         tabIndex='0'
       >
-        {
-          isMulti &&
-          <CheckboxIcon data-selected={selected} />
-        }
+        {isMulti && <FontIcon icon={selected ? 'check_box' : 'check_box_outline_blank'} />}
+
         { label }
       </OptionContainer>
     )

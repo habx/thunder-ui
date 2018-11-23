@@ -1,6 +1,5 @@
 import styled from 'styled-components'
 
-import FontIcon from '../FontIcon/FontIcon'
 import { colors, fontSizes } from '../../theme'
 
 export const SelectContainer = styled.div`
@@ -131,43 +130,21 @@ export const CustomIconContainer = styled.div`
   color: ${colors.paynesGrey};
 `
 
-export const CheckboxIcon = styled(FontIcon)`
-  font-size: 24px;
-  height: 30px;
-  margin: -4px 8px -4px 0;
-  transition: color ease-in 150ms;
-  vertical-align: bottom;
-  color: ${colors.paynesGrey};
-  
-  &[data-selected="true"] {
-    &:before {
-      content: "\\1F5F9";
-    }
-  }
-  
-  &:not([data-selected="true"]) {
-    &:before {
-      content: "\\2610";
-    }
-  }
-`
-
 export const OptionContainer = styled.div`
-  margin-bottom: 8px;
   transition: color ease-in 150ms;
   outline: none;
   cursor: pointer;
   user-select: none;
-
+  margin-bottom: 8px;
   font-size: ${fontSizes.small};
+  i {
+    vertical-align: middle;
+    margin-right: 4px;
+  }
   
   &:hover,
   &:focus,
   &[data-selected="true"] {
     color: ${colors.internationalOrange};
-    
-    ${CheckboxIcon} {
-      color: ${colors.internationalOrange};
-    }
   }
 `

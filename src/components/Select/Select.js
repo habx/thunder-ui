@@ -63,7 +63,6 @@ class Select extends Component {
     super(props)
 
     this.wrapperRef = createRef()
-    this.inputRef = createRef()
   }
 
   state = {
@@ -180,6 +179,7 @@ class Select extends Component {
       annotation,
       canReset,
       value: unusedValue,
+      onChange: unusedOnChange,
       ...rest
     } = this.props
 
@@ -195,9 +195,9 @@ class Select extends Component {
     return (
       <SelectContainer ref={this.wrapperRef} onClick={this.stopDefaultAndPropagation} {...rest}>
         <Label
-          className={filledIndicator && labelClassName}
+          className={labelClassName}
           data-empty={isEmpty(value)}
-          data-open={open}
+          data-open={!filledIndicator || open}
           onClick={this.toggle}
         >
           {
@@ -210,14 +210,13 @@ class Select extends Component {
             onChange={this.handleSearch}
             onFocus={this.handleFocus}
             onBlur={this.handleBlur}
-            ref={this.inputRef}
           />
           <LabelIcons>
             {
               showRemoveIcon &&
-              <FontIcon onClick={this.handleRemove} icon='remove' />
+              <FontIcon onClick={this.handleRemove} icon='close' />
             }
-            <FontIcon icon={open ? 'chevron-up' : 'chevron-down'} />
+            <FontIcon icon={open ? 'arrow_drop_up' : 'arrow_drop_down'} />
           </LabelIcons>
         </Label>
         <Options data-open={open}>

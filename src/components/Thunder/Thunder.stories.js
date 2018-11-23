@@ -90,7 +90,7 @@ storiesOf('Thunder/item options')
             key={country}
             title={country}
             index={index}
-            icon={<FontIcon icon='envelope' />}
+            icon={<FontIcon icon='favorite' />}
           />
         )}
         maxItems={5}
@@ -107,7 +107,7 @@ storiesOf('Thunder/item options')
             key={country}
             title={country}
             index={index}
-            icon={<FontIcon icon='envelope' />}
+            icon={<FontIcon icon='favorite' />}
             subtitle={`Subtitle for ${country}`}
           />
         )}

@@ -258,8 +258,8 @@ class Item extends Component {
                 <Highlight query={query}>{title}</Highlight>
               </Title>
               <ItemActions data-editing={edit} onClick={e => e.stopPropagation()}>
-                {onEdit && <FontIcon icon='pencil' onClick={this.handleEdit} />}
-                {onDelete && <FontIcon icon='trash' onClick={this.handleClick(onDelete)} />}
+                {onEdit && <FontIcon icon='edit' onClick={this.handleEdit} />}
+                {onDelete && <FontIcon icon='delete' onClick={this.handleClick(onDelete)} />}
               </ItemActions>
             </ItemTitle>
             {
