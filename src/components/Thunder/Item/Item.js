@@ -28,7 +28,7 @@ class Item extends Component {
     section: PropTypes.shape({
       name: PropTypes.string.isRequired,
     }).isRequired,
-    as: PropTypes.oneOfType([PropTypes.string, PropTypes.func])
+    as: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
   }
 
   static defaultProps = {
