@@ -9,7 +9,7 @@
     "watch": "NODE_ENV=development ./node_modules/.bin/babel src --out-dir lib --watch --copy-files",
     "storybook": "start-storybook -p 9001 -c .storybook -s ./assets",
     "build-storybook": "build-storybook -c .storybook -s ./assets -o .storybook-static",
-    "install:local": "npm ci && npm link styled-components"
+    "install:local": "npm ci && npm link styled-components && npm link react && && npm link react-dom"
   },
   "repository": {
     "type": "git",
@@ -46,12 +46,14 @@
     "eslint-config-habx": "^1.2.0",
     "eslint-plugin-jsx-a11y": "^6.1.2",
     "eslint-plugin-react": "^7.11.1",
-    "lodash": "^4.17.11",
     "prop-types": "^15.6.2",
-    "react": "16.3.0 - 16.7.X",
     "react-dom": "16.3.0 - 16.7.X",
     "recompose": "^0.30.0",
-    "rimraf": "^2.6.2",
-    "styled-components": "^4.1.1"
+    "rimraf": "^2.6.2"
+  },
+  "peerDependencies": {
+    "styled-components": "^4.1.1",
+    "react": "16.3.0 - 16.7.X",
+    "lodash": "^4.17.11"
   }
 }
