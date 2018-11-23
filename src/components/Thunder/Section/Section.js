@@ -41,7 +41,7 @@ class Section extends Component {
   }
 
   render() {
-    const { title } = this.props
+    const { title, name } = this.props
 
     return (
       <SectionContext.Provider value={{ name }}>

@@ -107,7 +107,6 @@ export default class Thunder extends Component {
   handleThunderOpen() {
     this.setState({ open: true })
     this.inputRef.current.focus()
-    this.inputRef.current.focus()
     this.props.onOpen()
   }
 
