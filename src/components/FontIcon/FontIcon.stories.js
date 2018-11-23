@@ -22,7 +22,7 @@ const iconDecorator = storyFn => (
   </Container>
 )
 
-storiesOf('FontIcon', module)
+storiesOf('Miscellaneous/FontIcon', module)
   .addDecorator(iconDecorator)
   .add('simple icons', () => map(icons, icon => (
     <SimpleIconContainer>

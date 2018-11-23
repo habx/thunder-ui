@@ -20,7 +20,7 @@ const sliderDecorator = storyFn => (
   </Container>
 )
 
-storiesOf('Slider', module)
+storiesOf('Inputs/Slider', module)
   .addDecorator(sliderDecorator)
   .add('Basic', () => (
     <Slider onChange={action('Slider change')} value={40} />

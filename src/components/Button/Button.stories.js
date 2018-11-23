@@ -5,7 +5,7 @@ import { colors } from '../../theme'
 
 import Button from './index'
 
-storiesOf('Button', module)
+storiesOf('Actions/Button', module)
   .add('with manual background color', () => <Button backgroundColor={colors.trueBlue}>Click on me !</Button>)
   .add('disabled', () => <Button disabled>{'Don\'t click one me !'}</Button>)
   .add('warning', () => <Button warning>Click on me !</Button>)
