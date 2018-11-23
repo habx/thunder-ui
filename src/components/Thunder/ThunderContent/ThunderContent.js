@@ -21,8 +21,7 @@ export default class Thunder extends Component {
   }
 
   state = {
-    selectedItem: null,
-    items: {},
+    selectedItem: -1,
   }
 
   componentDidMount() {
@@ -33,26 +32,28 @@ export default class Thunder extends Component {
     window.removeEventListener('keydown', this.handleKeyDown)
   }
 
-  getAllItemKeys = () => Object.values(this.state.items).reduce((context, sectionItems) => [
+  getAllItemKeys = () => Object.values(this.items).reduce((context, sectionItems) => [
     ...context,
     ...orderBy(sectionItems, ['index'], ['asc']),
   ], [])
 
-  handleKeyDown = ({ key }) => {
+  handleKeyDown = event => {
+    const { key } = event
     const { selectedItem } = this.state
     const { inputRef } = this.props
 
-    if (key === 'ArrowUp' && selectedItem > 0) {
+    if (key === 'ArrowUp') {
       this.setState({ selectedItem: selectedItem - 1 })
-    }
+      event.preventDefault()
 
-    if (key === 'ArrowUp' && this.state.selectedItem === 0) {
-      this.setState({ selectedItem: null })
-      setTimeout(() => inputRef.current.select(), 0)
+      if (selectedItem === 0) {
+        setTimeout(() => inputRef.current.select(), 0)
+      }
     }
 
     if (key === 'ArrowDown' && selectedItem < this.getAllItemKeys().length) {
       this.setState({ selectedItem: selectedItem + 1 })
+      event.preventDefault()
     }
   }
 
@@ -66,7 +67,7 @@ export default class Thunder extends Component {
     this.props.onQueryChange(e.target.value)
   }
 
-  handleFocus = () => this.setState({ selectedItem: null })
+  handleFocus = () => this.setState({ selectedItem: -1 })
 
   handleSearchKeyPress = event => {
     const { key } = event
@@ -79,31 +80,30 @@ export default class Thunder extends Component {
     }
   }
 
-  registerItem = (section, item) => this.setState(state => ({
-    items: {
-      ...state.items,
+  registerItem = (section, item) => {
+    this.items = {
+      ...this.items,
       [section]: {
-        ...get(state.items, section),
+        ...get(this.items, section),
         [item.key]: item,
       },
-    },
-  }))
+    }
+  }
 
   unRegisterItem = (section, key) => {
-    this.setState(prevState => ({
-      items: {
-        ...prevState.items,
-        [section]: omit(prevState.items[section], [key]),
-      },
-    }))
+    this.items = {
+      ...this.items,
+      [section]: omit(this.items[section], [key]),
+    }
   }
+
+  items = {}
 
   render() {
     const { children, query, data, inputRef } = this.props
-
     const { selectedItem } = this.state
 
-    const selectedItemKey = get(this.getAllItemKeys(), [selectedItem - 1, 'key'])
+    const selectedItemKey = get(this.getAllItemKeys(), [selectedItem, 'key'])
 
     return (
       <ThunderContext.Provider

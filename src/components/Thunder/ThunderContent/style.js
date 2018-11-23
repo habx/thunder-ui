@@ -1,5 +1,7 @@
 import styled from 'styled-components'
 
+import { get } from '../theme'
+
 export const ThunderSections = styled.div`
   overflow-y: auto;
   overflow-x: hidden;
@@ -7,12 +9,12 @@ export const ThunderSections = styled.div`
 
 export const ThunderSearch = styled.div`
   display: flex;
-  align-items: baseline;
+  align-items: center;
   flex: 0 0 auto;
   
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
-  border-bottom: solid 1px #f8f7f8;
+  border-bottom: solid 1px ${get('border')};
   padding: 16px 32px;
   
   input {

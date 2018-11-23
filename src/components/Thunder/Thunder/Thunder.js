@@ -1,8 +1,10 @@
 import React, { Component, createRef } from 'react'
 import PropTypes from 'prop-types'
-import { isBoolean, isString, isFunction } from 'lodash'
+import { isBoolean, isString, isFunction, merge } from 'lodash'
+import { ThemeProvider } from 'styled-components'
 
 import ThunderContent from '../ThunderContent'
+import { DEFAULT_THEME } from '../theme'
 
 import { ThunderModalContainer, ThunderModal } from './style'
 
@@ -15,12 +17,14 @@ export default class Thunder extends Component {
     onOpen: PropTypes.func,
     className: PropTypes.string,
     style: PropTypes.shape({}),
+    theme: PropTypes.object,
   }
 
   static defaultProps = {
     onOpen: () => {},
     className: '',
     style: null,
+    theme: null,
   }
 
   static getDerivedStateFromProps(nextProps, prevState) {
@@ -120,6 +124,14 @@ export default class Thunder extends Component {
     return this.state.open
   }
 
+  generateTheme() {
+    const { theme, customTheme } = this.props
+
+    const thunderTheme = customTheme || DEFAULT_THEME
+
+    return merge({}, theme, { _thunder: thunderTheme })
+  }
+
   lastOpenKeyPress = 0
 
   render() {
@@ -134,17 +146,19 @@ export default class Thunder extends Component {
     }
 
     return (
-      <ThunderModalContainer onClick={this.handleClick}>
-        <ThunderModal ref={this.modalRef} onClick={stopEvent} className={className} style={style}>
-          <ThunderContent
-            {...rest}
-            onClose={this.handleClose}
-            query={this.getQuery()}
-            onQueryChange={this.handleQueryChange}
-            inputRef={this.inputRef}
-          />
-        </ThunderModal>
-      </ThunderModalContainer>
+      <ThemeProvider theme={this.generateTheme()}>
+        <ThunderModalContainer onClick={this.handleClick}>
+          <ThunderModal ref={this.modalRef} onClick={stopEvent} className={className} style={style}>
+            <ThunderContent
+              {...rest}
+              onClose={this.handleClose}
+              query={this.getQuery()}
+              onQueryChange={this.handleQueryChange}
+              inputRef={this.inputRef}
+            />
+          </ThunderModal>
+        </ThunderModalContainer>
+      </ThemeProvider>
     )
   }
 }
