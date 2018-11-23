@@ -63,7 +63,6 @@ class Select extends Component {
     super(props)
 
     this.wrapperRef = createRef()
-    this.inputRef = createRef()
   }
 
   state = {
@@ -211,7 +210,6 @@ class Select extends Component {
             onChange={this.handleSearch}
             onFocus={this.handleFocus}
             onBlur={this.handleBlur}
-            ref={this.inputRef}
           />
           <LabelIcons>
             {
