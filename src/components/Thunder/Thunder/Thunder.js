@@ -13,10 +13,14 @@ const stopEvent = e => e.stopPropagation()
 export default class Thunder extends Component {
   static propTypes = {
     onOpen: PropTypes.func,
+    className: PropTypes.string,
+    style: PropTypes.shape({}),
   }
 
   static defaultProps = {
     onOpen: () => {},
+    className: '',
+    style: null,
   }
 
   static getDerivedStateFromProps(nextProps, prevState) {
@@ -91,12 +95,12 @@ export default class Thunder extends Component {
 
   handleClick = () => {
     if (this.state.open) {
-      this.handleToggle()
+      this.handleClose()
     }
   }
 
-  handleToggle = () => this.setState(prevState => ({
-    open: !prevState.open,
+  handleClose = () => this.setState(() => ({
+    open: false,
     query: '',
   }))
 
@@ -120,16 +124,22 @@ export default class Thunder extends Component {
   lastOpenKeyPress = 0
 
   render() {
+    const {
+      className,
+      style,
+      ...rest
+    } = this.props
+
     if (!this.isOpen()) {
       return null
     }
 
     return (
       <ThunderModalContainer onClick={this.handleClick}>
-        <ThunderModal ref={this.modalRef} onClick={stopEvent}>
+        <ThunderModal ref={this.modalRef} onClick={stopEvent} className={className} style={style}>
           <ThunderContent
-            {...this.props}
-            onToggle={this.handleToggle}
+            {...rest}
+            onClose={this.handleClose}
             query={this.getQuery()}
             onQueryChange={this.handleQueryChange}
             inputRef={this.inputRef}

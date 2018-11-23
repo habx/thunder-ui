@@ -3,12 +3,12 @@ import PropTypes from 'prop-types'
 import { get, orderBy, omit, head } from 'lodash'
 
 import { ThunderContext } from '../context'
-import thunderIcon from '../thunder.svg'
+import ThunderIcon from './icon'
 import { ThunderSearch, ThunderSections } from './style'
 
 export default class Thunder extends Component {
   static propTypes = {
-    onToggle: PropTypes.func.isRequired,
+    onClose: PropTypes.func.isRequired,
     onQueryChange: PropTypes.func.isRequired,
     data: PropTypes.objectOf(PropTypes.array),
     inputRef: PropTypes.shape({
@@ -56,9 +56,9 @@ export default class Thunder extends Component {
     }
   }
 
-  handleToggle = () => {
+  handleClose = () => {
     this.setState({ selectedItem: null })
-    this.props.onToggle()
+    this.props.onClose()
   }
 
   handleSearch = e => {
@@ -113,11 +113,11 @@ export default class Thunder extends Component {
           data,
           registerItem: this.registerItem,
           unRegisterItem: this.unRegisterItem,
-          toggleThunder: this.handleToggle,
+          close: this.handleClose,
         }}
       >
         <ThunderSearch>
-          <img src={thunderIcon} alt='icon' />
+          <ThunderIcon />
           <input
             onKeyPress={this.handleSearchKeyPress}
             ref={inputRef}

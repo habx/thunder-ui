@@ -15,11 +15,6 @@ export const ThunderSearch = styled.div`
   border-bottom: solid 1px #f8f7f8;
   padding: 16px 32px;
   
-  > img {
-    margin-right: 8px;
-    vertical-align: inherit;
-  }
-  
   input {
     font-family: EuclidCircularB;
     box-shadow: none;
