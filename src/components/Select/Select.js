@@ -196,8 +196,8 @@ class Select extends Component {
       <SelectContainer ref={this.wrapperRef} onClick={this.stopDefaultAndPropagation} {...rest}>
         <Label
           className={labelClassName}
-          data-empty={isEmpty(value)}
-          data-open={!filledIndicator || open}
+          data-empty={!filledIndicator || isEmpty(value)}
+          data-open={open}
           onClick={this.toggle}
         >
           {
