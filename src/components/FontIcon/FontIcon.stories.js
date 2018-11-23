@@ -4,6 +4,7 @@ import { storiesOf } from '@storybook/react'
 import { map } from 'lodash'
 
 import FontIcon from './index'
+import icons from './icons'
 
 const Container = styled.div`
   display: flex;
@@ -23,7 +24,7 @@ const iconDecorator = storyFn => (
 
 const icons = ['person']
 
-storiesOf('FontIcon', module)
+storiesOf('Miscellaneous/FontIcon', module)
   .addDecorator(iconDecorator)
   .add('simple icons', () => map(icons, icon => (
     <SimpleIconContainer>
