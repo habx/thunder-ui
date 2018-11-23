@@ -12,7 +12,7 @@ const enhance = withState('value', 'onChange', [{ value: 'sartrouville', label: 
 const enhanceOne = withState('value', 'onChange', { value: 'sartrouville', label: 'Résidence Aurore' })
 
 
-storiesOf('Select', module)
+storiesOf('Inputs/Select', module)
   .add('single item', () => {
     const SelectWithState = enhanceOne(({ value, onChange }) => (
       <Select options={options} label='Projet' value={value} onChange={onChange} />

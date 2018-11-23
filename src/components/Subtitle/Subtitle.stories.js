@@ -5,6 +5,6 @@ import Subtitle from './index'
 
 import { colors } from '../../theme'
 
-storiesOf('Subtitle', module)
+storiesOf('Typography/Subtitle', module)
   .add('with manual color', () => <Subtitle color={colors.trueBlue}>This is a subtitle</Subtitle>)
 
