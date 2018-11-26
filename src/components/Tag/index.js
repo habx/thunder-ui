@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import { generateColorFromSeed } from '../../internal/colors'
 
 const Tag = styled.div`
-  background: ${({ colorSeed, color }) => color || generateColorFromSeed(colorSeed)};
+  background-color: ${({ colorSeed, color }) => color || generateColorFromSeed(colorSeed)};
 
   padding: 2px 8px;
   display: inline;

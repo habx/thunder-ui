@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { colors } from '../../../theme'
+import { get } from '../theme'
 
 export const ItemContainer = styled.div`
   position: relative;
@@ -11,7 +11,7 @@ export const ItemContainer = styled.div`
   
   &:hover, 
   &:focus {
-    background-color: #fbf8f7;
+    background-color: ${get('item.focus')};
     cursor: pointer;
     text-decoration: none;
     border: none;
@@ -29,7 +29,6 @@ export const ItemContent = styled.div`
 
 export const ItemTitle = styled.div`
   display: flex;
-  height: 32px;
   align-items: baseline;
   
   &:hover {
@@ -58,6 +57,7 @@ export const ItemTitleInput = styled.input.attrs(() => ({ type: 'text' }))`
   
   &[data-editing="true"] {
     display: initial;
+    margin-top: -2px;
   }
 `
 
@@ -70,7 +70,7 @@ export const ItemActions = styled.div`
     transition: all ease-in-out 200ms;
     opacity: 0;
     font-size: 18px;
-    color: #5a6e85;
+    color: ${get('item.actionIcon')};
   }
   
   &[data-editing="true"] {
@@ -90,12 +90,12 @@ export const ItemIcon = styled.div`
   height: 40px;
   width: 40px;
 
-  background-color: ${colors.brightCerualean};
-  color: #f8f7f8;
+  background-color: ${get('item.iconBackground')};
+  color: ${get('item.icon')};
 `
 
 export const Title = styled.div`
-  color: #061a3c;
+  color: ${get('item.title')};
   font-family: EuclidCircularB;
   font-size: 23px;
   overflow: hidden;
@@ -107,7 +107,7 @@ export const Title = styled.div`
 `
 
 export const Subtitle = styled.div`
-  color: #061a3c;
+  color: ${get('item.subtitle')};
   font-family: Inter UI;
   height: 15px;
   font-size: 11px;

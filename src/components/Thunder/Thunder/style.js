@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { get } from '../theme'
 
 export const ThunderModalContainer = styled.div`
   background-color: rgba(0,0,0, 0.1);
@@ -16,7 +17,7 @@ export const ThunderModalContainer = styled.div`
 `
 
 export const ThunderModal = styled.div`
-  background-color: white;
+  background-color: ${get('background')};
   width: 600px;
   border-radius: 8px;
   padding: 0 0 32px;

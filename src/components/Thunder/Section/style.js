@@ -1,6 +1,8 @@
 import styled from 'styled-components'
 
+import { get } from '../theme'
+
 export const SectionContainer = styled.div`
-  color: #5a6e85;
+  color: ${get('text')};
   font-family: EuclidCircularB;
 `

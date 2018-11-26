@@ -1,7 +1,10 @@
 import styled from 'styled-components'
 
+import { get } from '../theme'
+
 const WelcomeMessage = styled.div`
-  background-color: #0071ce;
+  background-color: ${get('welcome.background')};
+  color: ${get('welcome.color')};
   padding: 16px;
   margin: 16px;
   border-radius: 8px;
@@ -10,7 +13,6 @@ const WelcomeMessage = styled.div`
   
   > span {
     padding: 8px;
-    color: #f8f7f8;
     display: block;
     text-align: justify;
     margin-top: 4px;
@@ -20,7 +22,6 @@ const WelcomeMessage = styled.div`
     position: absolute;
     top: 10px;
     right: 10px;
-    color: #f8f7f8;
     
     &:hover {
       opacity: 0.7;

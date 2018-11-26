@@ -5,7 +5,7 @@ export const SectionTitleContainer = styled.div`
   user-select: none;
   
   > i {
-    border-radius: 100%;
+    border-radius: 50%;
     background-color: #5a6e85;
     color: #f8f7f8;
     padding: 4px;
