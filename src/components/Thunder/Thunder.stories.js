@@ -45,7 +45,7 @@ storiesOf('Thunder/thunder options', module)
     )
   })
 
-storiesOf('Thunder/section options')
+storiesOf('Thunder/section options', module)
   .add('with 5 items max', () => (
     <Thunder open data={data}>
       <Section
@@ -79,7 +79,7 @@ storiesOf('Thunder/section options')
     </Thunder>
   ))
 
-storiesOf('Thunder/item options')
+storiesOf('Thunder/item options', module)
   .add('with icons', () => (
     <Thunder open data={data}>
       <Section
@@ -169,7 +169,7 @@ storiesOf('Thunder/item options')
     </Thunder>
   ))
 
-storiesOf('Thunder/welcome message')
+storiesOf('Thunder/welcome message', module)
   .add('basic', () => (
     <Thunder open>
       <WelcomeMessage>

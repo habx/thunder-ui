@@ -58,12 +58,12 @@ export default class Thunder extends Component {
   }
 
   handleClose = () => {
-    this.setState({ selectedItem: null })
+    this.setState({ selectedItem: -1 })
     this.props.onClose()
   }
 
   handleSearch = e => {
-    this.setState({ selectedItem: null })
+    this.setState({ selectedItem: -1 })
     this.props.onQueryChange(e.target.value)
   }
 

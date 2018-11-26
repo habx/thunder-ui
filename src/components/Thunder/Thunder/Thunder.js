@@ -17,7 +17,7 @@ export default class Thunder extends Component {
     onOpen: PropTypes.func,
     className: PropTypes.string,
     style: PropTypes.shape({}),
-    theme: PropTypes.object,
+    theme: PropTypes.shape({}),
   }
 
   static defaultProps = {
@@ -127,9 +127,7 @@ export default class Thunder extends Component {
   generateTheme() {
     const { theme, customTheme } = this.props
 
-    const thunderTheme = customTheme || DEFAULT_THEME
-
-    return merge({}, theme, { _thunder: thunderTheme })
+    return merge({}, theme, { _thunder: customTheme }, { _thunder: DEFAULT_THEME })
   }
 
   lastOpenKeyPress = 0
