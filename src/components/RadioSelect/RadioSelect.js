@@ -43,22 +43,24 @@ const RadioSelect = ({
     return item
   }
 
-  const isSelected = item => {
+  const selected = map(options, ({ value }) => {
     if (isMulti) {
-      return includes(currentValue, item)
+      return includes(currentValue, value)
     }
 
-    return item === currentValue
-  }
+    return value === currentValue
+  })
 
   return (
     <RadioSelectContainer color={color} data-disabled={disabled}>
-      {map(options, ({ value, label }) => (
+      {map(options, ({ value, label }, index) => (
         <RadioSelectElement
+          isNextSelected={index < options.length - 1 && selected[index + 1]}
+          isPreviousSelected={index > 0 && selected[index - 1]}
           key={value}
           color={color}
           onClick={() => onChange(getNewValue(value))}
-          data-checked={isSelected(value)}
+          data-checked={selected[index]}
         >
           {label}
         </RadioSelectElement>

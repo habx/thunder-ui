@@ -69,7 +69,7 @@ storiesOf('Inputs/RadioSelect', module)
   ))
   .add('with multi selection', () => (
     <RadioSelectWithState
-      value={['E', 'W']}
+      value={['E', 'W', 'S']}
       options={CARDINAL_POINTS}
       isMulti
     />
