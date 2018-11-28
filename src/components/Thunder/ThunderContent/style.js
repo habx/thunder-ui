@@ -22,7 +22,7 @@ export const ThunderSearch = styled.div`
     border: none;
     font-size: 24px;
     flex: 1 1 100%;
-    background-color: ${get('background')};
+    background-color: transparent;
     color: ${get('text')};
     
     &:focus {
