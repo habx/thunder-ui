@@ -1,8 +1,11 @@
 import styled from 'styled-components'
 
+import { get } from '../theme'
+
 export const SectionTitleContainer = styled.div`
   padding: 16px 32px;
   user-select: none;
+  color: ${get('section.title')};
   
   > i {
     border-radius: 50%;

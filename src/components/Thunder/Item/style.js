@@ -44,7 +44,6 @@ export const ItemTitle = styled.div`
 `
 
 export const ItemTitleInput = styled.input.attrs(() => ({ type: 'text' }))`
-  font-family: EuclidCircularB;
   font-size: 23px;
   border: none;
   background: none;
@@ -96,7 +95,6 @@ export const ItemIcon = styled.div`
 
 export const Title = styled.div`
   color: ${get('item.title')};
-  font-family: EuclidCircularB;
   font-size: 23px;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -108,7 +106,7 @@ export const Title = styled.div`
 
 export const Subtitle = styled.div`
   color: ${get('item.subtitle')};
-  font-family: Inter UI;
+  font-family: ${get('item.subtitleFont')};
   height: 15px;
   font-size: 11px;
   overflow: hidden;

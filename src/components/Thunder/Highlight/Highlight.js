@@ -146,6 +146,7 @@ const HighlightContainer = styled.div`
   & mark {
     padding: 0;
     background-color: ${get('item.highlight')};
+    color: inherit;
   }
 `
 

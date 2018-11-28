@@ -4,5 +4,4 @@ import { get } from '../theme'
 
 export const SectionContainer = styled.div`
   color: ${get('text')};
-  font-family: EuclidCircularB;
 `

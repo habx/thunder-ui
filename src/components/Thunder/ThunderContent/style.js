@@ -18,11 +18,12 @@ export const ThunderSearch = styled.div`
   padding: 16px 32px;
   
   input {
-    font-family: EuclidCircularB;
     box-shadow: none;
     border: none;
     font-size: 24px;
     flex: 1 1 100%;
+    background-color: transparent;
+    color: ${get('text')};
     
     &:focus {
       outline: none;

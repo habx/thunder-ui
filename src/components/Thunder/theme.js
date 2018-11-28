@@ -7,6 +7,14 @@ export const DEFAULT_THEME = {
   border: colors.whiteSmoke,
   text: colors.paynesGrey,
 
+  modal: {
+    overlayOpacity: 0.1,
+  },
+
+  section: {
+    title: colors.paynesGrey,
+  },
+
   item: {
     title: colors.maastrichtBlue,
     subtitle: colors.maastrichtBlue,
@@ -15,6 +23,7 @@ export const DEFAULT_THEME = {
     icon: colors.whiteSmoke,
     iconBackground: colors.trueBlue,
     highlight: colors.oldLace,
+    subtitleFont: 'Inter UI',
   },
 
   welcome: {

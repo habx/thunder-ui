@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import { get } from '../theme'
 
 export const ThunderModalContainer = styled.div`
-  background-color: rgba(0,0,0, 0.1);
+  background-color: rgba(0,0,0, ${get('modal.overlayOpacity')});
   position: fixed;
   height: 100vh;
   width: 100vw;
