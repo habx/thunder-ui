@@ -127,7 +127,7 @@ export default class Thunder extends Component {
   generateTheme() {
     const { theme, customTheme } = this.props
 
-    return merge({}, theme, { _thunder: customTheme }, { _thunder: DEFAULT_THEME })
+    return merge({}, theme, { _thunder: DEFAULT_THEME }, { _thunder: customTheme })
   }
 
   lastOpenKeyPress = 0
@@ -138,6 +138,7 @@ export default class Thunder extends Component {
       style,
       ...rest
     } = this.props
+
 
     if (!this.isOpen()) {
       return null
