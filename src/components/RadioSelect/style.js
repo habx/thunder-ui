@@ -5,6 +5,7 @@ export const RadioSelectContainer = styled.div`
   display: flex;
   border: solid 1px ${({ color }) => color};
   border-radius: 3px;
+  margin: 2px 0;
   
   &[data-disabled="true"] {
     pointer-events: none;
