@@ -38,6 +38,10 @@ export const borderRadius = {
   wide: '8px',
 }
 
+export const shadows = {
+  light: '0 2px 6px 0 rgba(6, 26, 60, 0.16)',
+}
+
 export const theme = {
   colors,
 }
