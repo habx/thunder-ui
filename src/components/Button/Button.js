@@ -1,13 +1,15 @@
+import React from 'react'
 import styled, { css } from 'styled-components'
 import color from 'color'
 
 import { fontSizes, borderRadius, colors } from '../../theme'
 
 const WHITE = color('#fff')
+const BLACK = color('#000')
 
-const findBackgroundColor = props => {
-  if (props.color) {
-    return props.color
+const findMainColor = props => {
+  if (props.backgroundColor) {
+    return props.backgroundColor
   }
 
   if (props.info) {
@@ -21,14 +23,31 @@ const findBackgroundColor = props => {
   return colors.trueBlue
 }
 
-const prepareProps = props => {
-  const backgroundColor = findBackgroundColor(props)
+const findSecondaryColor = props => {
+  if (props.textColor) {
+    return props.textColor
+  }
+  return '#fff'
+}
 
+const prepareProps = props => {
+  const backgroundColor = props.reverse ? findSecondaryColor(props) : findMainColor(props)
+  const textColor = props.reverse ? findMainColor(props) : findSecondaryColor(props)
+  const hoverMixColor = props.reverse ? BLACK : WHITE
   return {
     backgroundColor,
-    hoverColor: props.hoverColor || color(backgroundColor).mix(WHITE, 0.2).string(),
+    textColor,
+    hoverColor: props.hoverColor || color(backgroundColor).mix(hoverMixColor, 0.2).string(),
   }
 }
+
+const IconContainer = styled.span`
+  i {
+    vertical-align: top;
+    margin-right: ${({ left }) => (left ? '4px' : 0)};
+    margin-left: ${({ right }) => (right ? '4px' : 0)};
+  }
+`
 
 
 const Button = styled.button.attrs(prepareProps)`
@@ -38,7 +57,7 @@ const Button = styled.button.attrs(prepareProps)`
   
   border-radius: ${borderRadius.narrow};
   border: none;
-   
+  box-shadow: 0 2px 4px 0 rgba(6, 26, 60, 0.16);
   box-sizing: border-box;
   cursor: pointer;
   outline: none;
@@ -47,15 +66,21 @@ const Button = styled.button.attrs(prepareProps)`
   text-align: left;
   text-decoration: none;
   line-height: 22px;
-  color: #fff;
+  color: ${({ textColor }) => textColor};
   
   background-color: ${({ backgroundColor }) => backgroundColor};
   
   transition: background-color 150ms ease-in-out;
+  
+  margin: 0 4px;
 
   &:hover,
   &:active {
     background-color: ${({ hoverColor }) => hoverColor};
+  }
+  
+  &:focus {
+    outline: none;
   }
   
   &:disabled {
@@ -64,8 +89,8 @@ const Button = styled.button.attrs(prepareProps)`
   }
   
   ${({ small }) => small && css`
-    padding: 8px 16px;
-    font-size: ${fontSizes.regular};
+    padding: 4px 8px;
+    font-size: ${fontSizes.small};
     line-height: 1.25;
   `};
   
@@ -74,6 +99,13 @@ const Button = styled.button.attrs(prepareProps)`
     font-size: ${fontSizes.large};
     line-height: 1.11;
   `};
+  
 `
 
-export default Button
+export default ({ iconLeft, iconRight, children, ...otherProps }) => (
+  <Button {...otherProps}>
+    {iconLeft && <IconContainer left>{iconLeft}</IconContainer>}
+    {children}
+    {iconRight && <IconContainer right>{iconRight}</IconContainer>}
+  </Button>
+)
