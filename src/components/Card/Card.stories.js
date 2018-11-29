@@ -24,7 +24,7 @@ storiesOf('Miscellaneous/Card', module)
     </Card>
   ))
   .add('with onClick', () => (
-    <Card onClick={action('Card click')}>
+    <Card clickable onClick={action('Card click')}>
       <Content />
     </Card>
   ))
