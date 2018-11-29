@@ -2,7 +2,7 @@ import React from 'react'
 import styled, { css } from 'styled-components'
 import color from 'color'
 
-import { fontSizes, borderRadius, colors } from '../../theme'
+import { fontSizes, borderRadius, colors, shadows } from '../../theme'
 
 const WHITE = color('#fff')
 const BLACK = color('#000')
@@ -57,7 +57,7 @@ const Button = styled.button.attrs(prepareProps)`
   
   border-radius: ${borderRadius.narrow};
   border: none;
-  box-shadow: 0 2px 4px 0 rgba(6, 26, 60, 0.16);
+  box-shadow: ${shadows.light};
   box-sizing: border-box;
   cursor: pointer;
   outline: none;
