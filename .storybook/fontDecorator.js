@@ -7,6 +7,20 @@ const Fonts = createGlobalStyle`
   }
   
   @font-face {
+    font-family: "Inter UI";
+    font-style: normal;
+    font-weight: 500;
+    src: url("fonts/Inter UI/Inter-UI-Regular.otf") format("opentype");
+  }
+  
+  @font-face {
+    font-family: "Inter UI";
+    font-style: normal;
+    font-weight: 600;
+    src: url("fonts/Inter UI/Inter-UI-SemiBold.otf") format("opentype");
+  }
+  
+  @font-face {
     font-family: 'Material Icons';
     font-style: normal;
     font-weight: 400;
