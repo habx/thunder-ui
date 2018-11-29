@@ -32,7 +32,7 @@ export { default as Progress } from './components/Progress'
 export { default as Tag } from './components/Tag'
 export { default as Notification } from './components/Notification'
 export { default as FontIcon } from './components/FontIcon'
-
+export { default as Menu } from './components/Menu'
 
 export { Thunder } from './components/Thunder'
 
