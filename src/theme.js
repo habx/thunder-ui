@@ -5,6 +5,7 @@ const COLOR_BRIGHT_CERUALEAN = '#1dcad3'
 const COLOR_INTERNATIONAL_ORANGE = '#ff5100'
 const COLOR_USC_GOLD = '#ffce00'
 const COLOR_POPSTAR = '#be3b5d'
+const COLOR_PLATINIUM = '#d0e4e6'
 const COLOR_WHITE = '#fff'
 
 // Thunder colors
@@ -20,6 +21,7 @@ export const colors = {
   internationalOrange: COLOR_INTERNATIONAL_ORANGE,
   uscGold: COLOR_USC_GOLD,
   popstar: COLOR_POPSTAR,
+  platinium: COLOR_PLATINIUM,
   white: COLOR_WHITE,
   whiteSmoke: COLOR_WHITE_SMOKE,
   snow: COLOR_SNOW,
