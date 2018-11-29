@@ -2,7 +2,6 @@
   Typography
  */
 export { default as Title } from './components/Title'
-export { default as Subtitle } from './components/Subtitle'
 export { default as SectionTitle } from './components/SectionTitle'
 export { default as Annotation } from './components/Annotation'
 
@@ -34,6 +33,7 @@ export { default as Tag } from './components/Tag'
 export { default as Notification } from './components/Notification'
 export { default as FontIcon } from './components/FontIcon'
 export { default as Menu, MenuItem } from './components/Menu'
+export { default as Card } from './components/Card'
 
 /*
   Helpers
