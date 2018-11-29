@@ -23,6 +23,7 @@
   "homepage": "https://github.com/habx/lib-client-backoffx#readme",
   "dependencies": {
     "@babel/polyfill": "^7.0.0",
+    "clean-tag": "^2.0.2",
     "color": "^3.1.0",
     "rc-slider": "^8.6.3"
   },
