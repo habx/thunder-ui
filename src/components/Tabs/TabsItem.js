@@ -1,5 +1,8 @@
+import React from 'react'
 import styled, { css } from 'styled-components'
 import colorUtil from 'color'
+import PropTypes from 'prop-types'
+import tag from 'clean-tag'
 import { fontSizes, colors } from '../../theme'
 import { withContext } from './context'
 
@@ -16,7 +19,7 @@ const prepareProps = props => {
   })
 }
 
-const TabsItem = styled.div.attrs(prepareProps)`
+const StyledTabsItem = styled(tag).attrs(prepareProps)`
   display: flex;
   padding: 16px 8px;
   margin: 0 8px;
@@ -37,5 +40,21 @@ const TabsItem = styled.div.attrs(prepareProps)`
     color: ${({ hoverColor }) => hoverColor};
   }
 `
+
+const TabsItem = props => (
+  <StyledTabsItem blacklist={['activeColor', 'borderBottom', 'hoverColor', 'closed']} {...props} />
+)
+
+TabsItem.propTypes = {
+  activeColor: PropTypes.string,
+  hoverColor: PropTypes.string,
+  closed: PropTypes.bool,
+}
+
+TabsItem.defaultProps = {
+  activeColor: null,
+  hoverColor: null,
+  closed: false,
+}
 
 export default withContext(TabsItem)
