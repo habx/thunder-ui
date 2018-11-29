@@ -36,7 +36,7 @@ export const fontSizes = {
 }
 
 export const borderRadius = {
-  narrow: '2px',
+  narrow: '3px',
   wide: '8px',
 }
 

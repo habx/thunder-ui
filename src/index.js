@@ -10,7 +10,7 @@ export { default as Annotation } from './components/Annotation'
   Navigation
  */
 export { default as NavBar, NavBarItem } from './components/NavBar'
-
+export { default as Tabs, TabsItem, TabsSection, TabsSeparator } from './components/Tabs'
 
 /*
   Actions
