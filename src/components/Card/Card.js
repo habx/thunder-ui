@@ -9,7 +9,7 @@ const CardContainer = styled.div`
   border-radius: ${borderRadius.narrow};
   
   
-  ${({ onClick }) => onClick && css`
+  ${({ clickable }) => clickable && css`
     cursor: pointer;
     transition: box-shadow 150ms ease-in-out;
     

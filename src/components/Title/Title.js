@@ -30,7 +30,7 @@ const Title1 = styled(BaseTitle)`
   
   &::after {
     width: 128px;
-    height: 18px;
+    height: 12px;
   }
 `
 
