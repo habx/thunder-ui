@@ -32,7 +32,7 @@ class Section extends Component {
     if (renderItem && thunder.data && name) {
       const items = this.getMatchingItems()
 
-      const limitItems = maxItems ? take(items, maxItems) : items
+      const limitItems = maxItems > -1 ? take(items, maxItems) : items
 
       return map(limitItems, renderItem)
     }
@@ -58,10 +58,12 @@ Section.propTypes = {
   name: PropTypes.string.isRequired,
   thunder: PropTypes.shape({}).isRequired,
   render: PropTypes.func,
+  maxItems: PropTypes.number,
 }
 
 Section.defaultProps = {
   render: null,
+  maxItems: -1,
 }
 
 export default Section

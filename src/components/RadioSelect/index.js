@@ -1,3 +1,4 @@
+import withLabel from '../../helpers/withLabel'
 import RadioSelect from './RadioSelect'
 
-export default RadioSelect
+export default withLabel(RadioSelect)

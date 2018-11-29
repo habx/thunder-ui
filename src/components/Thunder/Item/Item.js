@@ -146,7 +146,6 @@ class Item extends Component {
   register() {
     const {
       index,
-      title,
       thunder: {
         registerItem,
       },
@@ -156,7 +155,6 @@ class Item extends Component {
     } = this.props
 
     registerItem(name, {
-      title,
       index,
       key: this.key,
       onSubmit: this.handleSubmit,
@@ -175,6 +173,7 @@ class Item extends Component {
 
   handleClick = action => e => {
     e.preventDefault()
+
     if (action) {
       action()
     }

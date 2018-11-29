@@ -1,10 +1,11 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
 export const RadioSelectContainer = styled.div`
   font-family: EuclidCircularB;
   display: flex;
   border: solid 1px ${({ color }) => color};
   border-radius: 3px;
+  margin: 2px 0;
   
   &[data-disabled="true"] {
     pointer-events: none;
@@ -37,12 +38,22 @@ export const RadioSelectElement = styled.div`
   }
   
   &[data-checked="true"] {
-    border-radius: 3px;
     color: #ffffff;
-    box-shadow: 0 4px 12px 0 rgba(3, 54, 61, 0.16);
     background-color: ${({ color }) => color};
     margin: -2px 0;
     padding-top: 6px;
     min-height: 36px;
+    box-shadow: 6px 4px 12px 0 rgba(3, 54, 61, 0.16);
+    
+    ${({ isNextSelected }) => !isNextSelected && css`
+      border-top-right-radius: 3px;
+      border-bottom-right-radius: 3px;
+      
+    `};
+    
+    ${({ isPreviousSelected }) => !isPreviousSelected && css`
+      border-top-left-radius: 3px;
+      border-bottom-left-radius: 3px;
+    `};
   }
 `

@@ -21,6 +21,7 @@ const SectionTitle = styled.h3.attrs(prepareProps)`
       content: '';
       height: 3px;
       width: 100%;
+      flex: 0 0 auto;
       background-color: ${({ color }) => color};
     }
   `}
