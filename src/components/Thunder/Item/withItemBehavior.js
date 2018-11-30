@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { omit } from 'lodash'
 
+import { withThunderContext, withSectionContext } from '../context'
+
 const withItemBehavior = WrappedComponent => class Wrapper extends Component {
   constructor() {
     super()
@@ -83,4 +85,4 @@ const withItemBehavior = WrappedComponent => class Wrapper extends Component {
   }
 }
 
-export default withItemBehavior
+export default Wrapped => withSectionContext(withThunderContext(withItemBehavior(Wrapped)))
