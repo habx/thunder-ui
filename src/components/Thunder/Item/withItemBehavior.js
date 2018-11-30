@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { omit, pick, mapValues } from 'lodash'
+import { omit, pick, mapValues, memoize } from 'lodash'
 
 import { withThunderContext, withSectionContext } from '../context'
 
@@ -41,12 +41,14 @@ const withItemBehavior = WrappedComponent => class Wrapper extends Component {
     unRegisterItem(name, this.id)
   }
 
+  handleEvent = memoize(actionName => e => {
+    const { thunder, section } = this.props
+    return this.props[actionName](e, { thunder, section })
+  })
+
   wrapActions = () => mapValues(
     pick(this.props, ACTIONS),
-    action => e => {
-      const { thunder, section } = this.props
-      return action(e, { thunder, section })
-    }
+    (_, actionName) => this.handleEvent(actionName)
   )
 
   register() {
