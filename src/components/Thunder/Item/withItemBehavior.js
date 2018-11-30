@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
-import { omit } from 'lodash'
+import { omit, pick, mapValues } from 'lodash'
 
 import { withThunderContext, withSectionContext } from '../context'
+
+const ACTIONS = ['onClick', 'onFocus', 'onBlur']
 
 const withItemBehavior = WrappedComponent => class Wrapper extends Component {
   constructor() {
@@ -39,11 +41,13 @@ const withItemBehavior = WrappedComponent => class Wrapper extends Component {
     unRegisterItem(name, this.id)
   }
 
-  handleClick = e => {
-    const { onClick, thunder, section } = this.props
-
-    onClick(e, { thunder, section })
-  }
+  wrapActions = () => mapValues(
+    pick(this.props, ACTIONS),
+    action => e => {
+      const { thunder, section } = this.props
+      return action(e, { thunder, section })
+    }
+  )
 
   register() {
     const {
@@ -70,7 +74,7 @@ const withItemBehavior = WrappedComponent => class Wrapper extends Component {
   actions = {}
 
   render() {
-    const { thunder: { selectedItemKey, query }, onClick } = this.props
+    const { thunder: { selectedItemKey, query } } = this.props
     const selected = this.id === selectedItemKey
 
     return (
@@ -79,7 +83,7 @@ const withItemBehavior = WrappedComponent => class Wrapper extends Component {
         query={query}
         selected={selected}
         registerActions={this.registerActions}
-        onClick={onClick && this.handleClick}
+        {...this.wrapActions()}
       />
     )
   }
