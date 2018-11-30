@@ -11,6 +11,7 @@ export default class Thunder extends Component {
     onClose: PropTypes.func.isRequired,
     onQueryChange: PropTypes.func.isRequired,
     data: PropTypes.objectOf(PropTypes.array),
+    placeholder: PropTypes.string,
     inputRef: PropTypes.shape({
       current: PropTypes.object,
     }).isRequired,
@@ -18,6 +19,7 @@ export default class Thunder extends Component {
 
   static defaultProps = {
     data: {},
+    placeholder: 'Aller à...',
   }
 
   state = {
@@ -42,7 +44,7 @@ export default class Thunder extends Component {
     const { selectedItem } = this.state
     const { inputRef } = this.props
 
-    if (key === 'ArrowUp') {
+    if (key === 'ArrowUp' && selectedItem >= 0) {
       this.setState({ selectedItem: selectedItem - 1 })
       event.preventDefault()
 
@@ -100,7 +102,7 @@ export default class Thunder extends Component {
   items = {}
 
   render() {
-    const { children, query, data, inputRef } = this.props
+    const { children, query, data, placeholder, inputRef } = this.props
     const { selectedItem } = this.state
 
     const selectedItemKey = get(this.getAllItemKeys(), [selectedItem, 'key'])
@@ -124,7 +126,7 @@ export default class Thunder extends Component {
             onFocus={this.handleFocus}
             value={query}
             onChange={this.handleSearch}
-            placeholder='Aller à...'
+            placeholder={placeholder}
             type='text'
           />
         </ThunderSearch>
