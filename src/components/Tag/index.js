@@ -9,14 +9,15 @@ import { colors } from '../../theme'
 const Tag = styled.div`
   background-color: ${({ colorSeed, color }) => color || generateColorFromSeed(colorSeed)};
 
-  padding: 4px 16px;
+  padding: 2px 16px;
   display: inline;
   border-radius: 12px;
   
   font-weight: ${({ bold }) => (bold ? 'bold' : 'normal')};
 
   color: ${({ colorSeed }) => (colorSeed ? 'white' : colorUtil(colors.paynesGrey).fade(0.28).toString())};
-  font-size: 14px;
+  font-size: 13px;
+  height: 22px;
 `
 
 Tag.propTypes = {
