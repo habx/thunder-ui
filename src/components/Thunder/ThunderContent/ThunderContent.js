@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import { get, orderBy, omit, head, union, some, keys } from 'lodash'
+import { get, orderBy, omit, head } from 'lodash'
 
 import { ThunderContext } from '../context'
 import ThunderIcon from './icon'
