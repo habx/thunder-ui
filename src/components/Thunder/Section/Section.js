@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import { get, map, take, filter as lodashFilter } from 'lodash'
+import { get, map, take, memoize, filter as lodashFilter } from 'lodash'
 
 import { SectionContext } from '../context'
 import SectionTitle from '../SectionTitle'
@@ -21,6 +21,8 @@ class Section extends Component {
 
     return sectionData
   }
+
+  buildContext = memoize(name => ({ name }))
 
   renderContent() {
     const { render, thunder, renderItem, name, maxItems } = this.props
@@ -44,7 +46,7 @@ class Section extends Component {
     const { title, name } = this.props
 
     return (
-      <SectionContext.Provider value={{ name }}>
+      <SectionContext.Provider value={this.buildContext(name)}>
         <SectionContainer>
           { title && <SectionTitle>{ title }</SectionTitle>}
           { this.renderContent() }

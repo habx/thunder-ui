@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import { get, orderBy, omit, head } from 'lodash'
+import { get, orderBy, omit, head, union, some, keys } from 'lodash'
 
 import { ThunderContext } from '../context'
 import ThunderIcon from './icon'
@@ -104,7 +104,6 @@ export default class Thunder extends Component {
   render() {
     const { children, query, data, placeholder, inputRef } = this.props
     const { selectedItem } = this.state
-
     const selectedItemKey = get(this.getAllItemKeys(), [selectedItem, 'key'])
 
     return (
