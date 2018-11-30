@@ -60,11 +60,13 @@ const Input = styled.input.attrs(prepareProps)`
   
   font-size: ${fontSizes.small};
   line-height: 1.5;
-
-  border-bottom: 1px solid ${({ borderColor }) => borderColor};
+  transition: border-bottom-color 150ms ease-in-out;
+  border-bottom: 1px solid transparent;
+  &:hover {
+    border-bottom-color: ${({ borderColor }) => borderColor};
+  }
   background-color: transparent;
   color: ${({ color }) => color};
-  transition: border-bottom-color 150ms ease-in-out;
 
   &::placeholder {
     color: ${({ color }) => color};
