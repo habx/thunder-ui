@@ -61,7 +61,7 @@ const Input = styled.input.attrs(prepareProps)`
   font-size: ${fontSizes.small};
   line-height: 1.5;
   transition: border-bottom-color 150ms ease-in-out;
-  border-bottom: 1px solid transparent;
+  border-bottom: 1px solid ${({ error, borderColor }) => (error ? borderColor : 'transparent')};
   &:hover {
     border-bottom-color: ${({ borderColor }) => borderColor};
   }

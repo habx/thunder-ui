@@ -18,6 +18,7 @@ const Tag = styled.div`
   color: ${({ colorSeed }) => (colorSeed ? 'white' : colorUtil(colors.paynesGrey).fade(0.28).toString())};
   font-size: 13px;
   height: 22px;
+  white-space: nowrap;
 `
 
 Tag.propTypes = {

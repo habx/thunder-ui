@@ -4,7 +4,7 @@ import { storiesOf } from '@storybook/react'
 import { withState } from 'recompose'
 
 import TextInput from './index'
-import FontIcon from '../FontIcon/FontIcon'
+import FontIcon from '../FontIcon'
 
 const HABX_ADDRESS = '55 Rue d\'Amsterdam, 75008 Paris'
 
