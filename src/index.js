@@ -24,6 +24,7 @@ export { default as TextInput } from './components/TextInput'
 export { default as Select } from './components/Select'
 export { default as RadioSelect } from './components/RadioSelect'
 export { default as Slider } from './components/Slider'
+export { default as ArrayInput } from './components/ArrayInput'
 
 /*
   Miscellaneous
