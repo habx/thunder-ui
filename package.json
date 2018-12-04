@@ -5,8 +5,8 @@
   "main": "lib/index.js",
   "scripts": {
     "lint": "eslint ./src/",
-    "compile": "NODE_ENV=production ./node_modules/.bin/babel src --out-dir lib --copy-files",
-    "watch": "NODE_ENV=development ./node_modules/.bin/babel src --out-dir lib --watch --copy-files",
+    "compile": "NODE_ENV=production ./node_modules/.bin/babel src --out-dir lib",
+    "watch": "NODE_ENV=development ./node_modules/.bin/babel src --out-dir lib --watch",
     "storybook": "start-storybook -p 9001 -c .storybook -s ./assets",
     "build-storybook": "build-storybook -c .storybook -s ./assets -o .storybook-static",
     "install:local": "npm ci && npm link styled-components && npm link react && && npm link react-dom"
