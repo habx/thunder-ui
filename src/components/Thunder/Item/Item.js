@@ -1,4 +1,4 @@
-import React, { Component, createRef } from 'react'
+import React, { PureComponent, createRef } from 'react'
 import PropTypes from 'prop-types'
 import { omit } from 'lodash'
 
@@ -9,7 +9,6 @@ import { ItemContainer, ItemContent, ItemTitle, ItemActions, ItemIcon, ItemTitle
 
 
 const INTERNAL_PROPS = [
-  'index',
   'title',
   'subtitle',
   'icon',
@@ -19,14 +18,13 @@ const INTERNAL_PROPS = [
   'onClick',
   'focusOnRender',
   'refPropName',
+  'registerActions',
   'thunder',
-  'section',
   'as',
 ]
 
-class Item extends Component {
+class Item extends PureComponent {
   static propTypes = {
-    index: PropTypes.number.isRequired,
     title: PropTypes.string.isRequired,
     subtitle: PropTypes.string,
     icon: PropTypes.node,
@@ -35,17 +33,11 @@ class Item extends Component {
     onDelete: PropTypes.func,
     onEdit: PropTypes.func,
     onClick: PropTypes.func,
+    registerActions: PropTypes.func.isRequired,
     focusOnRender: PropTypes.bool,
     refPropName: PropTypes.string,
-    thunder: PropTypes.shape({
-      query: PropTypes.string,
-      selectedItemKey: PropTypes.number,
-      registerItem: PropTypes.func.isRequired,
-      unRegisterItem: PropTypes.func.isRequired,
-    }).isRequired,
-    section: PropTypes.shape({
-      name: PropTypes.string.isRequired,
-    }).isRequired,
+    query: PropTypes.string.isRequired,
+    selected: PropTypes.bool.isRequired,
     as: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
   }
 
@@ -68,8 +60,6 @@ class Item extends Component {
     this.container = { current: null }
     this.itemContainer = createRef()
     this.inputRef = createRef()
-
-    this.key = Math.random()
   }
 
   state = {
@@ -80,43 +70,22 @@ class Item extends Component {
   componentDidMount() {
     const {
       focusOnRender,
+      registerActions,
     } = this.props
 
     if (focusOnRender) {
       this.focusInput()
     }
 
-    this.register()
+    registerActions('submit', this.handleSubmit)
   }
 
-  componentDidUpdate(prevProps) {
-    const {
-      index,
-      thunder: {
-        selectedItemKey,
-      },
-    } = this.props
+  componentDidUpdate() {
+    const { selected } = this.props
 
-    if (prevProps.index !== index) {
-      this.register()
-    }
-
-    if (selectedItemKey === this.key) {
+    if (selected) {
       this.itemContainer.current.focus()
     }
-  }
-
-  componentWillUnmount() {
-    const {
-      thunder: {
-        unRegisterItem,
-      },
-      section: {
-        name,
-      },
-    } = this.props
-
-    unRegisterItem(name, this.key)
   }
 
   getContainerProps() {
@@ -143,29 +112,11 @@ class Item extends Component {
     return 'div'
   }
 
-  register() {
-    const {
-      index,
-      thunder: {
-        registerItem,
-      },
-      section: {
-        name,
-      },
-    } = this.props
-
-    registerItem(name, {
-      index,
-      key: this.key,
-      onSubmit: this.handleSubmit,
-    })
-  }
-
   handleSubmit = event => {
-    const { onClick, thunder } = this.props
+    const { onClick } = this.props
 
     if (onClick) {
-      onClick(event, { thunder })
+      onClick(event)
     }
 
     this.container.current.click()
@@ -218,9 +169,7 @@ class Item extends Component {
       onDelete,
       onEdit,
       iconStyle,
-      thunder: {
-        query,
-      },
+      query,
     } = this.props
 
     const { edit, value } = this.state
