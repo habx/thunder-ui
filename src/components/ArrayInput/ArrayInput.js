@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import { map, pick, memoize } from 'lodash'
 
 import Button from '../Button'
@@ -70,6 +71,24 @@ class ArrayInput extends Component {
       </ArrayContext.Provider>
     )
   }
+}
+
+ArrayInput.propTypes = {
+  addButtonLabel: PropTypes.string,
+  items: PropTypes.array.isRequired, // eslint-disable-line react/forbid-prop-types
+  itemTitle: PropTypes.func.isRequired,
+  itemDescription: PropTypes.func,
+  itemComponent: PropTypes.func.isRequired,
+  canBeReordered: PropTypes.bool,
+  onDelete: PropTypes.func.isRequired,
+  onReorder: PropTypes.func,
+}
+
+ArrayInput.defaultProps = {
+  addButtonLabel: 'Ajouter un élément',
+  itemDescription: null,
+  canBeReordered: false,
+  onReorder: null,
 }
 
 export default ArrayInput

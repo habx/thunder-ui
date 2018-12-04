@@ -109,3 +109,9 @@ storiesOf('Inputs/ArrayInput', module)
       canBeReordered
     />
   ))
+  .add('with add button custom label', () => (
+    <CountryArrayInput
+      itemTitle={item => (item.name ? `${item.name} (${item.country})` : 'Empty element')}
+      addButtonLabel='Add a city'
+    />
+  ))
