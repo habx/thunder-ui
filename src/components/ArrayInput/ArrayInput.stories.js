@@ -1,7 +1,7 @@
 import React, { Component, createContext, Fragment } from 'react'
 import styled from 'styled-components'
 import { storiesOf } from '@storybook/react'
-import { take, takeRight } from 'lodash'
+import { take, takeRight, clone } from 'lodash'
 
 import ArrayInput from './index'
 import TextInput from '../TextInput'
@@ -21,20 +21,28 @@ const Container = styled.div`
   width: 600px;
 `
 
+const InputContainer = styled.div`
+  padding-bottom: 16px;
+`
+
 const CountryArrayInputElement = ({ value, index }) => (
   <Context.Consumer>
     {({ onChange }) => (
       <Fragment>
-        <TextInput
-          value={value.name}
-          onChange={name => onChange({ ...value, name }, index)}
-          label='City'
-        />
-        <TextInput
-          value={value.country}
-          onChange={country => onChange({ ...value, country }, index)}
-          label='Country'
-        />
+        <InputContainer>
+          <TextInput
+            value={value.name}
+            onChange={name => onChange({ ...value, name }, index)}
+            label='City'
+          />
+        </InputContainer>
+        <InputContainer>
+          <TextInput
+            value={value.country}
+            onChange={country => onChange({ ...value, country }, index)}
+            label='Country'
+          />
+        </InputContainer>
       </Fragment>
     )}
   </Context.Consumer>
@@ -55,6 +63,14 @@ class CountryArrayInput extends Component {
     items: [...take(items, index), ...takeRight(items, items.length - index - 1)],
   }))
 
+  handleReorder = (oldPosition, newPosition) => this.setState(prevState => {
+    const items = clone(prevState.items)
+    items.splice(newPosition > oldPosition ? newPosition + 1 : newPosition, 0, items[oldPosition])
+    items.splice(newPosition > oldPosition ? oldPosition : oldPosition + 1, 1)
+
+    return { items }
+  })
+
   render() {
     const { items } = this.state
 
@@ -62,10 +78,12 @@ class CountryArrayInput extends Component {
       <Container>
         <Context.Provider value={{ onChange: this.handleChange }}>
           <ArrayInput
-            {...this.props}
             items={items}
             onAppend={this.handleAppend}
             onDelete={this.handleDelete}
+            onReorder={this.handleReorder}
+            itemComponent={CountryArrayInputElement}
+            {...this.props}
           />
         </Context.Provider>
       </Container>
@@ -73,11 +91,21 @@ class CountryArrayInput extends Component {
   }
 }
 
-storiesOf('ArrayInput', module)
+storiesOf('Inputs/ArrayInput', module)
   .add('basic', () => (
     <CountryArrayInput
-      items={FIELDS}
       itemTitle={item => (item.name ? `${item.name} (${item.country})` : 'Empty element')}
-      itemComponent={CountryArrayInputElement}
+    />
+  ))
+  .add('with description line', () => (
+    <CountryArrayInput
+      itemTitle={item => item.name}
+      itemDescription={item => `Country: ${item.country}`}
+    />
+  ))
+  .add('with order change allowed', () => (
+    <CountryArrayInput
+      itemTitle={item => (item.name ? `${item.name} (${item.country})` : 'Empty element')}
+      canBeReordered
     />
   ))

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { map, pick } from 'lodash'
+import { map, pick, memoize } from 'lodash'
 
 import Button from '../Button'
 
@@ -28,21 +28,27 @@ class ArrayInput extends Component {
     items: null,
   }
 
-  handleEditStart = index => this.setState(() => ({ editing: index }))
+  handleEditStart = memoize(index => () => this.setState(() => ({ editing: index })))
 
-  handleEditStop = () => this.setState(() => ({ editing: null }))
+  handleEditStop = memoize(() => () => this.setState(() => ({ editing: null })))
 
-  handleDelete = index => {
+  handleDelete = memoize(index => () => {
     this.setState(() => ({ editing: null }), this.props.onDelete(index))
+  })
+
+  handleReorder = (oldPosition, newPosition) => {
+    this.setState(() => ({ editing: null }), this.props.onReorder(oldPosition, newPosition))
   }
 
   buildContext() {
     return {
-      ...pick(this.props, ['itemTitle', 'itemComponent']),
+      ...pick(this.props, ['itemTitle', 'itemDescription', 'itemComponent', 'canBeReordered']),
       ...pick(this.state, ['editing']),
+      amount: this.props.items.length,
       onOpen: this.handleEditStart,
       onClose: this.handleEditStop,
       onDelete: this.handleDelete,
+      onReorder: this.handleReorder,
     }
   }
 
@@ -56,7 +62,7 @@ class ArrayInput extends Component {
             <Item item={item} index={index} />
           ))}
           <ArrayInputAction>
-            <Button onClick={onAppend}>
+            <Button onClick={onAppend} reverse>
               Ajouter un élément
             </Button>
           </ArrayInputAction>
