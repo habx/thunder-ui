@@ -54,7 +54,7 @@ class ArrayInput extends Component {
   }
 
   render() {
-    const { items, onAppend } = this.props
+    const { items, onAppend, addButtonLabel } = this.props
 
     return (
       <ArrayContext.Provider value={this.buildContext()}>
@@ -64,7 +64,7 @@ class ArrayInput extends Component {
           ))}
           <ArrayInputAction>
             <Button onClick={onAppend} reverse>
-              Ajouter un élément
+              { addButtonLabel }
             </Button>
           </ArrayInputAction>
         </ArrayInputContainer>
