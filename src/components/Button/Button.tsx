@@ -1,4 +1,4 @@
-import React from 'react'
+import * as React from 'react'
 import styled, { css } from 'styled-components'
 import color from 'color'
 
@@ -102,10 +102,17 @@ const Button = styled.button.attrs(prepareProps)`
   
 `
 
-export default ({ iconLeft, iconRight, children, ...otherProps }) => (
+interface ButtonProps extends React.HTMLAttributes<Element> {
+   iconLeft?: string
+   iconRight?: string
+}
+
+const Btn: React.FC<ButtonProps> = ({ iconLeft, iconRight, children, ...otherProps }) => (
   <Button {...otherProps}>
     {iconLeft && <IconContainer left>{iconLeft}</IconContainer>}
     {children}
     {iconRight && <IconContainer right>{iconRight}</IconContainer>}
   </Button>
 )
+
+export default Btn

@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import * as React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 
@@ -8,7 +8,22 @@ const MenuWrapper = styled.div`
   position: relative;
 `
 
-class Menu extends Component {
+interface MenuProps {
+  triggerElement: React.ReactElement<any>
+  position: 'left' | 'right'
+}
+
+class Menu extends React.Component<MenuProps> {
+  static propTypes = {
+    position: PropTypes.oneOf(['left', 'right']),
+  }
+
+  static defaultProps = {
+    position: 'left',
+  }
+
+  wrapperRef: React.RefObject<Element>
+
   constructor(props) {
     super(props)
     this.wrapperRef = React.createRef()
@@ -51,20 +66,6 @@ class Menu extends Component {
       </MenuWrapper>
     )
   }
-}
-
-Menu.propTypes = {
-  open: PropTypes.bool,
-  children: PropTypes.node,
-  position: PropTypes.oneOf(['left', 'right']),
-  onClick: PropTypes.func,
-}
-
-Menu.defaultProps = {
-  open: false,
-  children: null,
-  position: 'left',
-  onClick: () => {},
 }
 
 export default Menu

@@ -1,3 +1,4 @@
+import * as React from 'react'
 import styled from 'styled-components'
 
 import { shadows, borderRadius, colors, fontSizes } from '../../theme'
@@ -7,7 +8,11 @@ const prepareProps = ({ position }) => ({
   right: position === 'right' ? '4px' : 'unset',
 })
 
-export const MenuContainer = styled.div.attrs(prepareProps)`
+interface MenuContainerProps extends React.HTMLAttributes<Element> {
+  position: 'left' | 'right'
+}
+
+export const MenuContainer: React.FC<MenuContainerProps> = styled.div.attrs(prepareProps)`
   position: absolute;
   top: calc(100% + 4px);
   left: ${({ left }) => left};

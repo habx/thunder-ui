@@ -1,4 +1,4 @@
-import React from 'react'
+import * as React from 'react'
 import styled, { css } from 'styled-components'
 
 import Title from '../Title'
@@ -27,7 +27,12 @@ const SubtitleContainer = styled.div`
   padding: 0 24px 8px 24px;
 `
 
-const Card = ({ title, subtitle, children, ...props }) => (
+interface CardProps extends React.HTMLAttributes<Element> {
+  title?: string
+  subtitle?: string
+}
+
+const Card: React.FC<CardProps> = ({ title, subtitle, children, ...props }: CardProps) => (
   <CardContainer {...props}>
     {
       title &&

@@ -1,0 +1,20 @@
+{
+  "env": {
+    "browser": true
+  },
+  "rules": {
+    "typedef": [true, "member-variable-declaration"],
+    "variable-name": [true, "ban-keywords", "check-format", "allow-pascal-case"],
+    "trailing-comma": [true, {"multiline": "always", "singleline": "never"}],
+    "one-line": true,
+    "curly": false,
+    "no-boolean-literal-compare": true,
+    "space-before-function-paren": false,
+    "no-angle-bracket-type-assertion": false,
+    "no-floating-promises": false,
+    "await-promise": [true, "Bluebird"]
+  },
+  "extends": [
+    "tslint-config-standard"
+  ]
+}
