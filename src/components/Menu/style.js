@@ -13,6 +13,7 @@ export const MenuContainer = styled.div.attrs(prepareProps)`
   left: ${({ left }) => left};
   right: ${({ right }) => right};
   opacity: 0;
+  z-index: 100;
   background-color: white;
   
   transition: opacity ease-in-out 150ms;
