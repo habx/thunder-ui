@@ -18,6 +18,7 @@ export const MenuContainer: React.FC<MenuContainerProps> = styled.div.attrs(prep
   left: ${({ left }) => left};
   right: ${({ right }) => right};
   opacity: 0;
+  z-index: 100;
   background-color: white;
 
   transition: opacity ease-in-out 150ms;
