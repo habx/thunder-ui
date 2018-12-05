@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import React from 'react'
+import * as React from 'react'
 import PropTypes from 'prop-types'
 import color from 'color'
 
@@ -59,8 +59,16 @@ const CloseContainer = styled.div`
   }
 `
 
+interface NotificationProps extends React.HTMLAttributes<Element> {
+  onClose?: () => void
+  illustration?: React.ReactNode
+  backgroundColor?: string
+  error?: boolean
+  warning?: boolean
+  closeIcon?: React.ReactNode
+}
 
-const Notification = ({
+const Notification: React.FC<NotificationProps> = ({
   children,
   onClose,
   illustration,
@@ -84,14 +92,6 @@ const Notification = ({
   </NotificationContainer>
 )
 
-Notification.propTypes = {
-  onClose: PropTypes.func,
-  illustration: PropTypes.node,
-  backgroundColor: PropTypes.string,
-  closeIcon: PropTypes.node,
-  error: PropTypes.bool,
-  warning: PropTypes.bool,
-}
 Notification.defaultProps = {
   onClose: () => {},
   illustration: null,

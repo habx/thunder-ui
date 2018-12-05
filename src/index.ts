@@ -41,7 +41,6 @@ export { default as Card } from './components/Card'
  */
 export { default as withLabel } from './helpers/withLabel'
 
-
 export { Thunder } from './components/Thunder'
 
 export * from './theme'

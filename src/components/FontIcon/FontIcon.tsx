@@ -1,4 +1,4 @@
-import React from 'react'
+import * as React from 'react'
 import styled, { css } from 'styled-components'
 
 
@@ -35,5 +35,11 @@ const FontIcon = styled.i`
   `};
 `
 
-export default ({ icon, ...props }) =>
+interface FIProps extends React.HTMLAttributes<Element> {
+  icon: string
+}
+
+const FI: React.FC<FIProps> = ({ icon, ...props }) =>
   <FontIcon {...props}>{icon}</FontIcon>
+
+export default FI
