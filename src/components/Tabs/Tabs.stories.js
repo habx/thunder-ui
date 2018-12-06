@@ -59,3 +59,21 @@ storiesOf('Navigation/Tabs', module)
       </TabsSection>
     </Tabs>
   ))
+  .add('with scroll', () => (
+    <Tabs>
+      <TabsSection label='Contact' style={{ maxWidth: 200 }}>
+        <TabsItem>Documents</TabsItem>
+        <TabsItem active>Infos</TabsItem>
+        <TabsSeparator />
+        <TabsItem>Echanges</TabsItem>
+        <TabsItem>Activités</TabsItem>
+        <TabsItem>Documents</TabsItem>
+        <TabsSeparator />
+      </TabsSection>
+      <TabsSection label='Candidatures'>
+        <TabsItem>Zelmis</TabsItem>
+        <TabsSeparator />
+        <TabsItem active>Groslay</TabsItem>
+      </TabsSection>
+    </Tabs>
+  ))
