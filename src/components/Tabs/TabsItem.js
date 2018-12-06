@@ -27,6 +27,7 @@ const StyledTabsItem = styled(tag).attrs(prepareProps)`
   color: ${({ color }) => color};
   transition: all 150ms ease-in-out;
   border-bottom: 3px solid transparent;
+  white-space: nowrap;
   ${({ closed }) => closed && css`
     opacity: 0.7;
     text-decoration: line-through;
