@@ -1,12 +1,17 @@
+import * as React from 'react'
 import styled from 'styled-components'
-import PropTypes from 'prop-types'
-
 import colorUtil from 'color'
 
 import { generateColorFromSeed } from '../../internal/colors'
 import { colors } from '../../theme'
 
-const Tag = styled.div`
+export interface TagProps {
+  bold?: boolean
+  colorSeed?: string
+  color?: string
+}
+
+const Tag: React.FC<TagProps> = styled.div`
   background-color: ${({ colorSeed, color }) => color || generateColorFromSeed(colorSeed)};
 
   padding: 2px 16px;
@@ -20,11 +25,5 @@ const Tag = styled.div`
   height: 22px;
   white-space: nowrap;
 `
-
-Tag.propTypes = {
-  bold: PropTypes.bool,
-  colorSeed: PropTypes.string,
-  color: PropTypes.string,
-}
 
 export default Tag

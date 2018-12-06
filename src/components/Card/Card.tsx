@@ -4,12 +4,14 @@ import styled, { css } from 'styled-components'
 import Title from '../Title'
 import { borderRadius, colors, shadows } from '../../theme'
 
+import CardProps from './interface'
+
 const CardContainer = styled.div`
   box-shadow: ${shadows.light};
   border-radius: ${borderRadius.narrow};
   
   
-  ${({ clickable }) => clickable && css`
+  ${({ interactive }) => interactive && css`
     cursor: pointer;
     transition: box-shadow 150ms ease-in-out;
     
@@ -26,11 +28,6 @@ const TitleContainer = styled.div`
 const SubtitleContainer = styled.div`
   padding: 0 24px 8px 24px;
 `
-
-interface CardProps extends React.HTMLAttributes<Element> {
-  title?: string
-  subtitle?: string
-}
 
 const Card: React.FC<CardProps> = ({ title, subtitle, children, ...props }: CardProps) => (
   <CardContainer {...props}>

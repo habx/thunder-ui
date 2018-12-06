@@ -30,7 +30,7 @@ export { default as ArrayInput } from './components/ArrayInput'
   Miscellaneous
  */
 export { default as Progress } from './components/Progress'
-export { default as Tag } from './components/Tag'
+export { default as Tag } from './components/Tag/index'
 export { default as Notification } from './components/Notification'
 export { default as FontIcon } from './components/FontIcon'
 export { default as Menu, MenuItem } from './components/Menu'

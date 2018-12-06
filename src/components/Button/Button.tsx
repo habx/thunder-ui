@@ -103,8 +103,8 @@ const Button = styled.button.attrs(prepareProps)`
 `
 
 interface ButtonProps extends React.HTMLAttributes<Element> {
-   iconLeft?: string
-   iconRight?: string
+  iconLeft?: string
+  iconRight?: string
 }
 
 const Btn: React.FC<ButtonProps> = ({ iconLeft, iconRight, children, ...otherProps }) => (
