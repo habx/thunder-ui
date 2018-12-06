@@ -16,10 +16,17 @@ const TabsSectionLabel = styled.span`
   color: ${({ labelColor }) => labelColor || color(colors.maastrichtBlue).fade(0.52).toString()}
 `
 
-const TabsSection = ({ children, label, labelColor }) => (
+const TabsContainer = styled.div`
+  display: flex;
+  overflow-x: auto;
+`
+
+const TabsSection = ({ children, label, labelColor, ...props }) => (
   <TabsSectionContainer>
     {label && <TabsSectionLabel labelColor={labelColor}>{label}</TabsSectionLabel>}
-    {children}
+    <TabsContainer {...props}>
+      {children}
+    </TabsContainer>
   </TabsSectionContainer>
 )
 
