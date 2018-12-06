@@ -13,5 +13,5 @@ module.exports = {
       },
     ],
   ],
-  ignore: ['**/*.stories.js'],
+  ignore: process.env.NODE_ENV === 'production' ? ['**/*.stories.js'] : [],
 }

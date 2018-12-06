@@ -11,17 +11,10 @@ const Container = styled.div`
 `
 
 class MenuWrapper extends Component {
-  state = {
-    open: true,
-  }
-
   render() {
-    const { open } = this.state
-
     return (
       <Container>
-        <Button onClick={() => this.setState({ open: !open })}>{ open ? 'Close' : 'Open'}</Button>
-        <Menu open={open} {...this.props} />
+        <Menu {...this.props} triggerElement={<Button>Menu</Button>} />
       </Container>
     )
   }

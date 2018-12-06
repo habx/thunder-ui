@@ -16,6 +16,7 @@ interface MenuProps {
 class Menu extends React.Component<MenuProps> {
   static propTypes = {
     position: PropTypes.oneOf(['left', 'right']),
+    triggerElement: PropTypes.node,
   }
 
   static defaultProps = {
@@ -48,7 +49,7 @@ class Menu extends React.Component<MenuProps> {
     }
   }
 
-  handleClick = () => this.setState({ open: true })
+  handleClick = () => this.setState({ open: !this.state.open })
 
   render() {
     const { triggerElement, children, position, ...props } = this.props
