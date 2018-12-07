@@ -26,7 +26,7 @@ const icons = ['person']
 storiesOf('Miscellaneous/FontIcon', module)
   .addDecorator(iconDecorator)
   .add('simple icons', () => map(icons, icon => (
-    <SimpleIconContainer>
+    <SimpleIconContainer key={icon}>
       <FontIcon icon={icon} />
     </SimpleIconContainer>
   )))

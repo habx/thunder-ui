@@ -60,7 +60,7 @@ class ArrayInput extends Component {
       <ArrayContext.Provider value={this.buildContext()}>
         <ArrayInputContainer>
           {map(items, (item, index) => (
-            <Item item={item} index={index} />
+            <Item item={item} index={index} key={index} />
           ))}
           <ArrayInputAction>
             <Button onClick={onAppend} reverse>
