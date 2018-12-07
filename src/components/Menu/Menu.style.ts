@@ -1,4 +1,3 @@
-import * as React from 'react'
 import styled from 'styled-components'
 
 import { shadows, borderRadius, colors, fontSizes } from '../../theme'
@@ -8,11 +7,7 @@ const prepareProps = ({ position }) => ({
   right: position === 'right' ? '4px' : 'unset',
 })
 
-interface MenuContainerProps extends React.HTMLAttributes<Element> {
-  position: 'left' | 'right'
-}
-
-export const MenuContainer: React.FC<MenuContainerProps> = styled.div.attrs(prepareProps)`
+export const MenuContainer = styled.div.attrs(prepareProps)`
   position: absolute;
   top: calc(100% + 4px);
   left: ${({ left }) => left};
@@ -38,29 +33,6 @@ export const MenuContent = styled.ul`
   list-style-type: none;
 `
 
-export const MenuItemContainer = styled.li`
-  display: flex;
-  align-items: center;
-
-  padding: 0 16px;
-
-  cursor: pointer;
-
-  font-size: ${fontSizes.small};
-  white-space: nowrap;
-  color: ${colors.paynesGrey};
-
-  transition: background-color ease-in-out 150ms;
-
-  &:hover {
-    background-color: ${colors.snow};
-  }
-`
-
-export const MenuItemContent = styled.div`
-  line-height: 3;
-`
-
-export const IconContainer = styled.div`
-  margin-right: 8px;
+export const MenuWrapper = styled.div`
+  position: relative;
 `

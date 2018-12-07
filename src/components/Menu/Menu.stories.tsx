@@ -10,7 +10,7 @@ const Container = styled.div`
   position: relative;
 `
 
-class MenuWrapper extends Component {
+class MenuWrapper extends Component<any> {
   render() {
     return (
       <Container>

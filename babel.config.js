@@ -12,6 +12,7 @@ module.exports = {
         displayName: process.env.NODE_ENV === 'development',
       },
     ],
+    'lodash',
   ],
-  ignore: process.env.NODE_ENV === 'production' ? ['**/*.stories.js'] : [],
+  ignore: process.env.NODE_ENV === 'production' ? ['**/*.stories.*'] : [],
 }

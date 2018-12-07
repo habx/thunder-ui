@@ -5,7 +5,7 @@ import fontDecorator from './fontDecorator'
 addDecorator(centered)
 addDecorator(fontDecorator)
 
-const req = require.context('../src/components', true, /\.stories\.js$/)
+const req = require.context('../src/components', true, /\.stories\.(js|tsx)$/)
 
 function loadStories() {
   req.keys().forEach(filename => req(filename))

@@ -4,7 +4,7 @@ import { storiesOf } from '@storybook/react'
 
 import { colors } from '../../theme'
 
-import NavBar, { NavBarItem } from './index'
+import NavBar, { NavBarItem } from '.'
 
 const Container = styled.div`
   position: fixed;
@@ -63,7 +63,7 @@ storiesOf('Navigation/NavBar', module)
     </NavBar>
   ))
   .add('with custom active color', () => (
-    <NavBar activeColor={colors.brightCerualean}>
+    <NavBar activeBackgroundColor={colors.brightCerualean}>
       <NavBarItem icon={<HomeIcon />} tooltip='Accueil' active />
       <NavBarItem icon={<UserIcon />} tooltip='Profil' />
     </NavBar>
@@ -71,7 +71,6 @@ storiesOf('Navigation/NavBar', module)
   .add('with custom active color on second item', () => (
     <NavBar>
       <NavBarItem icon={<HomeIcon />} tooltip='Accueil' active />
-      <NavBarItem icon={<UserIcon />} tooltip='Profil' activeColor={colors.brightCerualean} />
+      <NavBarItem icon={<UserIcon />} tooltip='Profil' activeBackgroundColor={colors.brightCerualean} />
     </NavBar>
   ))
-

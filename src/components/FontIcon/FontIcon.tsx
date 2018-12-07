@@ -1,45 +1,9 @@
 import * as React from 'react'
-import styled, { css } from 'styled-components'
 
+import FontIconProps from './FontIcon.interface'
+import { FontIconContainer } from './FontIcon.style'
 
-const FontIcon = styled.i`
-  font-family: 'Material Icons';
-  font-weight: normal;
-  font-style: normal;
-  font-size: 24px;  /* Preferred icon size */
-  display: inline-block;
-  line-height: 1;
-  text-transform: none;
-  letter-spacing: normal;
-  word-wrap: normal;
-  white-space: nowrap;
-  direction: ltr;
+const FontIcon: React.StatelessComponent<FontIconProps> = ({ icon, ...props }) =>
+  <FontIconContainer {...props}>{icon}</FontIconContainer>
 
-  /* Support for all WebKit browsers. */
-  -webkit-font-smoothing: antialiased;
-  /* Support for Safari and Chrome. */
-  text-rendering: optimizeLegibility;
-
-  /* Support for Firefox. */
-  -moz-osx-font-smoothing: grayscale;
-
-  /* Support for IE. */
-  font-feature-settings: 'liga';
-  
-  ${({ onClick }) => onClick && css`
-    cursor: pointer;
-    
-    &:hover {
-      opacity: 0.8;
-    }
-  `};
-`
-
-interface FIProps extends React.HTMLAttributes<Element> {
-  icon: string
-}
-
-const FI: React.FC<FIProps> = ({ icon, ...props }) =>
-  <FontIcon {...props}>{icon}</FontIcon>
-
-export default FI
+export default FontIcon
