@@ -37,9 +37,4 @@ const NavBar: React.StatelessComponent<NavBarProps> = props => {
   )
 }
 
-NavBar.defaultProps = {
-  backgroundColor: '',
-  title: null,
-}
-
 export default NavBar

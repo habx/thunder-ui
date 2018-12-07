@@ -27,8 +27,4 @@ const NavBarItem: React.StatelessComponent<NavBarItemProps> = ({ icon, tooltip, 
   </NavBarItemContainer>
 )
 
-NavBarItem.defaultProps = {
-  activeBackgroundColor: '',
-}
-
 export default withContext(NavBarItem)

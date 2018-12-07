@@ -71,6 +71,6 @@ storiesOf('Navigation/NavBar', module)
   .add('with custom active color on second item', () => (
     <NavBar>
       <NavBarItem icon={<HomeIcon />} tooltip='Accueil' active />
-      <NavBarItem icon={<UserIcon />} tooltip='Profil' activeColor={colors.brightCerualean} />
+      <NavBarItem icon={<UserIcon />} tooltip='Profil' activeBackgroundColor={colors.brightCerualean} />
     </NavBar>
   ))
