@@ -8,7 +8,7 @@
     "lint": "tslint --project tsconfig.json 'src/**/*.ts' &&  eslint ./src/",
     "type-check": "tsc --noEmit",
     "type-check:watch": "npm run type-check -- --watch",
-    "compile": "NODE_ENV=production npm run build:js && npm run build:types",
+    "compile": "rimraf ./lib && NODE_ENV=production npm run build:js && npm run build:types",
     "watch": "NODE_ENV=development npm run build:js:watch",
     "build:js": "NODE_ENV=production ./node_modules/.bin/babel src --out-dir lib --extensions '.es6,.js,.es,.jsx,.mjs,.ts,.tsx'",
     "build:types": "tsc --emitDeclarationOnly",

@@ -1,9 +1,9 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import * as React from 'react'
 
-import { MenuItemContainer, MenuItemContent, IconContainer } from './style'
+import { MenuItemContainer, MenuItemContent, IconContainer } from './MenuItem.style'
+import MenuItemProps from './MenuItem.interface'
 
-const MenuItem = ({ children, icon, ...props }) => (
+const MenuItem: React.StatelessComponent<MenuItemProps> = ({ children, icon, ...props }) => (
   <MenuItemContainer {...props}>
     { icon && <IconContainer>{ icon }</IconContainer>}
     <MenuItemContent>
@@ -11,15 +11,5 @@ const MenuItem = ({ children, icon, ...props }) => (
     </MenuItemContent>
   </MenuItemContainer>
 )
-
-MenuItem.propTypes = {
-  children: PropTypes.node,
-  icon: PropTypes.node,
-}
-
-MenuItem.defaultProps = {
-  children: null,
-  icon: null,
-}
 
 export default MenuItem

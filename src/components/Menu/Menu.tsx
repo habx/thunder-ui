@@ -1,24 +1,9 @@
 import * as React from 'react'
-import styled from 'styled-components'
-import PropTypes from 'prop-types'
 
-import { MenuContainer, MenuContent } from './style'
-
-const MenuWrapper = styled.div`
-  position: relative;
-`
-
-interface MenuProps {
-  triggerElement: React.ReactElement<any>
-  position: 'left' | 'right'
-}
+import MenuProps from './Menu.interface'
+import { MenuWrapper, MenuContainer, MenuContent } from './Menu.style'
 
 class Menu extends React.Component<MenuProps> {
-  static propTypes = {
-    position: PropTypes.oneOf(['left', 'right']),
-    triggerElement: PropTypes.node,
-  }
-
   static defaultProps = {
     position: 'left',
   }
@@ -27,9 +12,13 @@ class Menu extends React.Component<MenuProps> {
 
   constructor(props) {
     super(props)
+
     this.wrapperRef = React.createRef()
   }
-  state = { open: false }
+
+  state = {
+    open: false,
+  }
 
   componentDidMount() {
     window.addEventListener('click', this.handleClickOutside)

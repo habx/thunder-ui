@@ -1,7 +1,9 @@
-import React from 'react'
+import * as React from 'react'
 import styled from 'styled-components'
-import PropTypes from 'prop-types'
+
 import { Context } from './context'
+
+import TabsProps from './Tabs.interface'
 
 const TabsContainer = styled.div`
   display: flex;
@@ -10,18 +12,11 @@ const TabsContainer = styled.div`
   }
 `
 
-const Tabs = ({ color, hoverColor, activeColor, children, ...other }) => (
+const Tabs: React.StatelessComponent<TabsProps> = ({ color, hoverColor, activeColor, children, ...other }) => (
   <Context.Provider value={{ hoverColor, activeColor, color }}>
     <TabsContainer {...other}>{children}</TabsContainer>
   </Context.Provider>
 )
-
-Tabs.propTypes = {
-  hoverColor: PropTypes.string,
-  activeColor: PropTypes.string,
-  color: PropTypes.string,
-  children: PropTypes.arrayOf(PropTypes.node).isRequired,
-}
 
 Tabs.defaultProps = {
   hoverColor: null,

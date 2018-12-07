@@ -1,43 +1,13 @@
-import React from 'react'
-import styled from 'styled-components'
-import PropTypes from 'prop-types'
+import * as React from 'react'
 import color from 'color'
 
-import { Context } from './context'
 import { colors } from '../../theme'
+import { Context } from './context'
+
+import { NavBarContainer, NavBarItemsContainer, NavBarTitle } from './NavBar.style'
+import NavBarProps from './NavBar.interface'
 
 const WHITE = color('#fff')
-
-const NavBarContainer = styled.nav`
-  flex: 0 0 auto;
-  height: 100vh;
-  width: 64px;
-  
-  background-color: ${({ backgroundcolor }) => backgroundcolor};
-  color: white;
-  
-  a {
-    color: inherit;
-    
-    &:hover {
-      color: inherit;
-      text-decoration: none;
-    }
-  }
-`
-
-const NavBarTitle = styled.h4`
-  font-family: Habx;
-  padding: 32px 0;
-  text-align: center;
-`
-
-const NavBarItemsContainer = styled.div`
-  margin-top: 32px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-`
 
 const prepareProps = props => {
   const baseColor = props.backgroundColor || colors.trueBlue
@@ -49,7 +19,7 @@ const prepareProps = props => {
   }
 }
 
-const NavBar = props => {
+const NavBar: React.StatelessComponent<NavBarProps> = props => {
   const { backgroundColor, activeBackgroundColor, title, children } = prepareProps(props)
 
   return (
@@ -65,12 +35,6 @@ const NavBar = props => {
       </NavBarContainer>
     </Context.Provider>
   )
-}
-
-NavBar.propTypes = {
-  backgroundColor: PropTypes.string,
-  title: PropTypes.node,
-  children: PropTypes.arrayOf(PropTypes.node).isRequired,
 }
 
 NavBar.defaultProps = {

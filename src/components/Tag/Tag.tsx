@@ -5,19 +5,15 @@ import colorUtil from 'color'
 import { generateColorFromSeed } from '../../internal/colors'
 import { colors } from '../../theme'
 
-export interface TagProps {
-  bold?: boolean
-  colorSeed?: string
-  color?: string
-}
+import TagProps from './Tag.interface'
 
-const Tag: React.FC<TagProps> = styled.div`
+const Tag: React.StatelessComponent<TagProps> = styled.div`
   background-color: ${({ colorSeed, color }) => color || generateColorFromSeed(colorSeed)};
 
   padding: 2px 16px;
   display: inline;
   border-radius: 12px;
-  
+
   font-weight: ${({ bold }) => (bold ? 'bold' : 'normal')};
 
   color: ${({ colorSeed }) => (colorSeed ? 'white' : colorUtil(colors.paynesGrey).fade(0.28).toString())};

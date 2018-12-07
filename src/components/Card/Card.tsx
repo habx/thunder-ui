@@ -1,35 +1,12 @@
 import * as React from 'react'
-import styled, { css } from 'styled-components'
 
 import Title from '../Title'
 import { borderRadius, colors, shadows } from '../../theme'
 
-import CardProps from './interface'
+import CardProps from './Card.interface'
+import { CardContainer, TitleContainer, SubtitleContainer } from './Card.style'
 
-const CardContainer = styled.div`
-  box-shadow: ${shadows.light};
-  border-radius: ${borderRadius.narrow};
-  
-  
-  ${({ interactive }) => interactive && css`
-    cursor: pointer;
-    transition: box-shadow 150ms ease-in-out;
-    
-    &:hover {
-      box-shadow: ${shadows.strong};
-    }
-  `};
-`
-
-const TitleContainer = styled.div`
-  padding: 24px 24px 8px 24px;
-`
-
-const SubtitleContainer = styled.div`
-  padding: 0 24px 8px 24px;
-`
-
-const Card: React.FC<CardProps> = ({ title, subtitle, children, ...props }: CardProps) => (
+const Card: React.StatelessComponent<CardProps> = ({ title, subtitle, children, ...props }) => (
   <CardContainer {...props}>
     {
       title &&

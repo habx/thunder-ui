@@ -1,6 +1,9 @@
+import * as React from 'react'
 import styled from 'styled-components'
 
 import { borderRadius, colors } from '../../theme'
+
+import ProgressProps from './Progress.interface'
 
 const getProgressionColor = progression => {
   if (progression <= 30) {
@@ -18,7 +21,7 @@ const prepareProps = props => ({
   color: props.color || getProgressionColor(props.progression),
 })
 
-const Progress = styled.div.attrs(prepareProps)`
+const Progress: React.StatelessComponent<ProgressProps> = styled.div.attrs(prepareProps)`
   position: relative;
   
   height: 9px;

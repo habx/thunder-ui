@@ -1,10 +1,12 @@
 import React from 'react'
 import styled, { css } from 'styled-components'
 import colorUtil from 'color'
-import PropTypes from 'prop-types'
 import tag from 'clean-tag'
-import { fontSizes, colors } from '../../theme'
-import { withContext } from './context'
+
+import { fontSizes, colors } from '../../../theme'
+import { withContext } from '../context'
+
+import TabsItemProps from './TabsItem.interface'
 
 const prepareProps = props => {
   const activeColor = props.activeColor || colors.trueBlue
@@ -42,15 +44,9 @@ const StyledTabsItem = styled(tag).attrs(prepareProps)`
   }
 `
 
-const TabsItem = props => (
+const TabsItem: React.StatelessComponent<TabsItemProps> = props => (
   <StyledTabsItem blacklist={['activeColor', 'borderBottom', 'hoverColor', 'closed']} {...props} />
 )
-
-TabsItem.propTypes = {
-  activeColor: PropTypes.string,
-  hoverColor: PropTypes.string,
-  closed: PropTypes.bool,
-}
 
 TabsItem.defaultProps = {
   activeColor: null,

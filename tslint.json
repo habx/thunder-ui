@@ -3,7 +3,7 @@
     "browser": true
   },
   "rules": {
-    "typedef": [true, "member-variable-declaration"],
+    "typedef": false,
     "variable-name": [true, "ban-keywords", "check-format", "allow-pascal-case"],
     "trailing-comma": [true, {"multiline": "always", "singleline": "never"}],
     "one-line": true,

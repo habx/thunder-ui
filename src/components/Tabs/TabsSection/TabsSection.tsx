@@ -1,7 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
 import color from 'color'
-import { fontSizes, colors } from '../../theme'
+import { fontSizes, colors } from '../../../theme'
+
+import TabsSectionProps from './TabsSection.interface'
 
 const TabsSectionContainer = styled.div`
   display: flex;
@@ -21,7 +23,7 @@ const TabsContainer = styled.div`
   overflow-x: auto;
 `
 
-const TabsSection = ({ children, label, labelColor, ...props }) => (
+const TabsSection: React.StatelessComponent<TabsSectionProps> = ({ children, label, labelColor, ...props }) => (
   <TabsSectionContainer>
     {label && <TabsSectionLabel labelColor={labelColor}>{label}</TabsSectionLabel>}
     <TabsContainer {...props}>
