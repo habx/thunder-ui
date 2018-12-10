@@ -2,6 +2,7 @@ import styled from 'styled-components'
 import color from 'color'
 
 import { fontSizes, colors } from '../../theme'
+import TextButtonProps from './TextButton.interface'
 
 const WHITE = color('#fff')
 
@@ -30,28 +31,27 @@ const prepareProps = props => {
   }
 }
 
-
-const TextButton = styled.button.attrs(prepareProps)`
+const TextButton: React.StatelessComponent<TextButtonProps> = styled.button.attrs(prepareProps)`
   border: none;
   outline: none;
   background-color: unset;
-  
+
   font-size: ${fontSizes.small};
   font-weight: 600;
   line-height: 1.43;
   text-transform: uppercase;
-  
+
   transition: color 150ms ease-in-out;
-  
+
   color: ${({ color: textColor }) => textColor};
-  
+
   cursor: pointer;
-  
+
   &:hover,
   &:active {
     color: ${({ hoverColor }) => hoverColor};
   }
-  
+
   &:disabled {
     pointer-events: none;
     filter: grayscale();

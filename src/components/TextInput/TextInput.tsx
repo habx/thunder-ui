@@ -1,9 +1,9 @@
-import React from 'react'
+import * as React from 'react'
 import styled, { css } from 'styled-components'
-import PropTypes from 'prop-types'
 
 import { colors, fontSizes } from '../../theme'
 import Spinner from '../Spinner'
+import TextInputProps from './TextInput.interface'
 
 
 const prepareProps = props => {
@@ -84,7 +84,7 @@ const Input = styled.input.attrs(prepareProps)`
   `};
 `
 
-const TextInput = ({ onChange, isLoading, rightHoverElement, rightElement, ...props }) => (
+const TextInput: React.StatelessComponent<TextInputProps> = ({ onChange, isLoading, rightHoverElement, rightElement, ...props }) => (
   <InputContainer {...props}>
     <Input {...props} onChange={e => onChange(e.target.value)} isLoading={isLoading} />
     {isLoading && <InputSpinner size={15} />}
@@ -92,13 +92,6 @@ const TextInput = ({ onChange, isLoading, rightHoverElement, rightElement, ...pr
     {rightElement && <RightElementContainer {...props}>{rightElement}</RightElementContainer>}
   </InputContainer>
 )
-
-TextInput.propTypes = {
-  onChange: PropTypes.func,
-  isLoading: PropTypes.bool,
-  rightElement: PropTypes.node,
-  rightHoverElement: PropTypes.node,
-}
 
 TextInput.defaultProps = {
   onChange: () => {},
