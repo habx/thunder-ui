@@ -1,24 +1,11 @@
-import React, { Component } from 'react'
-import PropTypes from 'prop-types'
+import * as React from 'react'
 import Slider, { Range } from 'rc-slider'
 
 import { colors } from '../../theme'
-import { SliderContainer, Label } from './style'
+import { SliderContainer, Label } from './Slider.style'
+import SliderProps from './Slider.interface'
 
-class CustomSlider extends Component {
-  static propTypes = {
-    onChange: PropTypes.func.isRequired,
-    value: PropTypes.oneOfType([PropTypes.number, PropTypes.array]),
-    range: PropTypes.bool,
-    customValues: PropTypes.arrayOf(PropTypes.string),
-    toolTipSuffix: PropTypes.string,
-    min: PropTypes.number,
-    max: PropTypes.number,
-    color: PropTypes.string,
-    step: PropTypes.number,
-    labelFormatter: PropTypes.func,
-  }
-
+class CustomSlider extends React.Component<SliderProps> {
   static defaultProps = {
     labelFormatter: label => label,
     range: false,
@@ -84,7 +71,7 @@ class CustomSlider extends Component {
           {
             isValueArray
               ? `${labelFormatter(value[0])} à ${labelFormatter(value[1])}${toolTipSuffix}`
-              : `${(customValues ? customValues[value] : `${labelFormatter(value) || 0}${toolTipSuffix}`)}`
+              : `${(customValues ? customValues[(value as number)] : `${labelFormatter(value) || 0}${toolTipSuffix}`)}`
           }
         </Label>
       </SliderContainer>

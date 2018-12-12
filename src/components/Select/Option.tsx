@@ -1,11 +1,13 @@
-import React, { Component } from 'react'
+import * as React from 'react'
 
-import { OptionContainer } from './style'
+import { OptionContainer } from './Select.style'
 import FontIcon from '../FontIcon/FontIcon'
+import OptionProps from './Option.interface'
 
-class Option extends Component {
-  constructor() {
-    super()
+class Option extends React.Component<OptionProps> {
+  private ref: React.RefObject<any>
+  constructor(props) {
+    super(props)
 
     this.ref = React.createRef()
   }

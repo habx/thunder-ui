@@ -1,8 +1,8 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import * as React from 'react'
 import styled, { css } from 'styled-components'
 
 import { colors } from '../../theme'
+import TitleProps from './Title.interface';
 
 const prepareProps = props => ({
   color: props.color || colors.maastrichtBlue,
@@ -52,7 +52,7 @@ const Title4 = styled(BaseTitle.withComponent('h4'))`
   font-weight: normal;
 `
 
-const Title = ({ size, ...props }) => {
+const Title: React.StatelessComponent<TitleProps> = ({ size, ...props }) => {
   if (size === 1) {
     return (
       <Title1 {...props} />
@@ -72,10 +72,6 @@ const Title = ({ size, ...props }) => {
   }
 
   return <Title4 {...props} />
-}
-
-Title.propTypes = {
-  size: PropTypes.number,
 }
 
 Title.defaultProps = {

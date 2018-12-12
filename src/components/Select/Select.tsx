@@ -1,9 +1,9 @@
-import React, { Component, Fragment, createRef } from 'react'
-import PropTypes from 'prop-types'
+import * as React from 'react'
 import { find, filter, findIndex, isEmpty, get, some } from 'lodash'
 
 import Annotation from '../Annotation'
 import FontIcon from '../FontIcon'
+import SelectProps from './Select.interface'
 import { searchInString } from '../../internal/strings'
 
 import {
@@ -16,38 +16,11 @@ import {
   OptionsActions,
   OptionAction,
   CustomIconContainer,
-} from './style'
+} from './Select.style'
 
 import Option from './Option'
 
-
-class Select extends Component {
-  static propTypes = {
-    label: PropTypes.string.isRequired,
-    options: PropTypes.arrayOf(PropTypes.shape({
-      label: PropTypes.string,
-      value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-    })).isRequired,
-    value: PropTypes.oneOfType([
-      PropTypes.arrayOf(
-        PropTypes.shape({
-          label: PropTypes.string,
-          value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-        }
-        )),
-      PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.number, PropTypes.string])),
-      PropTypes.objectOf(PropTypes.any),
-    ]),
-    onChange: PropTypes.func.isRequired,
-    isMulti: PropTypes.bool,
-    description: PropTypes.string,
-    filledIndicator: PropTypes.bool,
-    labelClassName: PropTypes.string,
-    icon: PropTypes.node,
-    annotation: PropTypes.string,
-    canReset: PropTypes.bool,
-  }
-
+class Select extends React.Component<SelectProps> {
   static defaultProps = {
     isMulti: false,
     value: null,
@@ -58,11 +31,12 @@ class Select extends Component {
     annotation: null,
     canReset: true,
   }
+  wrapperRef: React.RefObject<any>
 
   constructor(props) {
     super(props)
 
-    this.wrapperRef = createRef()
+    this.wrapperRef = React.createRef()
   }
 
   state = {
@@ -87,7 +61,7 @@ class Select extends Component {
     const { search } = this.state
     return filter(options,
       option => (searchInString(option.value, search) || searchInString(option.label, search)) &&
-        !(!isMulti && value && option.value === value.value)
+        !(!isMulti && value && option.value === (value as formOptionInterface).value),
     )
   }
 
@@ -132,8 +106,9 @@ class Select extends Component {
   handleSelectOne = option => this.props.onChange(option)
 
   handleSelectMulti = option => {
-    let currentValue = this.props.value || []
+    let currentValue = (this.props.value as formValue[]) || []
     if (typeof get(currentValue, '[0]') === 'string' || typeof get(currentValue, '[0]') === 'number') {
+      // @ts-ignore
       currentValue = currentValue.map(v => find(this.getOptions(), { value: v }) || { value: v })
     }
     const optionIndex = findIndex(currentValue, { value: option.value })
@@ -180,13 +155,13 @@ class Select extends Component {
       canReset,
       value: unusedValue,
       onChange: unusedOnChange,
-      ...rest
-    } = this.props
+      ...rest } = this.props
 
     const options = this.getOptions()
     let { value } = this.props
 
     if (Array.isArray(value) && (typeof get(value, '[0]') === 'string' || typeof get(value, '[0]') === 'number')) {
+      // @ts-ignore
       value = value.map(v => find(options, { value: v }))
     }
 
@@ -206,7 +181,7 @@ class Select extends Component {
           }
           <SearchInput
             value={search}
-            placeholder={!isMulti && value ? value.label : label}
+            placeholder={!isMulti && value ? (value as formOptionInterface).label : label}
             onChange={this.handleSearch}
             onFocus={this.handleFocus}
             onBlur={this.handleBlur}
@@ -228,7 +203,7 @@ class Select extends Component {
           )}
           {options.length > 0
             ? (
-              <Fragment>
+              <React.Fragment>
                 {isMulti &&
                 <OptionsActions>
                   <OptionAction small onClick={this.handleSelectAll}>
@@ -240,7 +215,8 @@ class Select extends Component {
                 </OptionsActions>
                 }
                 {options.map(option => {
-                  const selected = some(value, { value: option.value })
+                  // @ts-ignore
+                  const selected = some((value as formOptionInterface), { value: option.value })
                   return (
                     <Option
                       key={option.value}
@@ -252,7 +228,7 @@ class Select extends Component {
                     />
                   )
                 })}
-              </Fragment>
+              </React.Fragment>
             ) : (
               <div>Aucune option</div>
             )
@@ -263,6 +239,4 @@ class Select extends Component {
   }
 }
 
-
 export default Select
-
