@@ -13,6 +13,7 @@ export const MenuContainer = styled.div.attrs(prepareProps)`
   left: ${({ left }) => left};
   right: ${({ right }) => right};
   opacity: 0;
+  z-index: 100;
   pointer-events: none;
   background-color: white;
 
@@ -21,7 +22,6 @@ export const MenuContainer = styled.div.attrs(prepareProps)`
   &[data-open="true"] {
     pointer-events: auto;
     opacity: 1;
-    z-index: 100;
   }
 `
 

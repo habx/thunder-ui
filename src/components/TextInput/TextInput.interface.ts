@@ -1,3 +1,4 @@
+import * as React from 'react'
 import DOMInterface from '../../internal/domInterface'
 
 export default interface TextInputProps extends DOMInterface {
