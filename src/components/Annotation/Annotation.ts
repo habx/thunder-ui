@@ -8,7 +8,7 @@ const prepareProps = props => ({
   color: props.color || colors.paynesGrey,
 })
 
-const Annotation: React.StatelessComponent<AnnotationProps> = styled.span.attrs(prepareProps)`
+const Annotation: React.FunctionComponent<AnnotationProps> = styled.span.attrs(prepareProps)`
   font-size: ${fontSizes.tiny};
   color: ${({ color }) => color}
 `

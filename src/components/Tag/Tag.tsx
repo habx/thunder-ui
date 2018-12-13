@@ -7,7 +7,7 @@ import { colors } from '../../theme'
 
 import TagProps from './Tag.interface'
 
-const Tag: React.StatelessComponent<TagProps> = styled.div`
+const Tag: React.FunctionComponent<TagProps> = styled.div`
   background-color: ${({ colorSeed, color }) => color || generateColorFromSeed(colorSeed)};
 
   padding: 2px 16px;

@@ -5,7 +5,7 @@ import { withContext } from './context'
 import NavBarItemProps from './NavBarItem.interface'
 import { NavBarItemContainer, NavBarItemTooltip, NavBarItemTooltipContent } from './NavBarItem.style'
 
-const NavBarItem: React.StatelessComponent<NavBarItemProps> = ({ icon, tooltip, activeBackgroundColor, ...props }) => (
+const NavBarItem: React.FunctionComponent<NavBarItemProps> = ({ icon, tooltip, activeBackgroundColor, ...props }) => (
   <NavBarItemContainer
     activeClassName='active'
     activebackgroundcolor={activeBackgroundColor}

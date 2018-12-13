@@ -47,7 +47,7 @@ const SpinnerElement = styled.svg`
   }
 `
 
-const Spinner: React.StatelessComponent<SpinnerProps> = ({ color, size = 50, ...props }) => (
+const Spinner: React.FunctionComponent<SpinnerProps> = ({ color, size = 50, ...props }) => (
   <SpinnerContainer {...props} size={size}>
     <SpinnerElement viewBox={`0 0 ${size} ${size}`} size={size}>
       <circle className='path' cx={size / 2} cy={size / 2} r={(size / 2) - (size / 10)} fill='none' strokeWidth='3' stroke={color || colors.trueBlue} />

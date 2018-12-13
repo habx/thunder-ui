@@ -2,7 +2,7 @@ import * as React from 'react'
 import styled from 'styled-components'
 import DOMInterface from '../../internal/domInterface'
 
-const TabsSeparator: React.StatelessComponent<DOMInterface> = styled.div`
+const TabsSeparator: React.FunctionComponent<DOMInterface> = styled.div`
   background-color: #e0e0e0;
   height: 32px;
   margin-top: 12px;

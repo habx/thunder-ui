@@ -52,7 +52,7 @@ const Title4 = styled(BaseTitle.withComponent('h4'))`
   font-weight: normal;
 `
 
-const Title: React.StatelessComponent<TitleProps> = ({ size, ...props }) => {
+const Title: React.FunctionComponent<TitleProps> = ({ size, ...props }) => {
   if (size === 1) {
     return (
       <Title1 {...props} />

@@ -3,7 +3,7 @@ import * as React from 'react'
 import ButtonProps from './Button.interface'
 import { ButtonContainer, IconContainer } from './Button.style'
 
-const Button: React.StatelessComponent<ButtonProps> = ({ iconLeft, iconRight, children, ...otherProps }) => (
+const Button: React.FunctionComponent<ButtonProps> = ({ iconLeft, iconRight, children, ...otherProps }) => (
   <ButtonContainer {...otherProps}>
     {iconLeft && <IconContainer left>{iconLeft}</IconContainer>}
     {children}

@@ -4,7 +4,7 @@ import DOMInterface from '../../internal/domInterface'
 export default interface ItemProps extends DOMInterface {
   context: {
     editing: number,
-    itemComponent: React.ComponentClass<any> | React.StatelessComponent<any>,
+    itemComponent: React.ComponentClass<any> | React.FunctionComponent<any>,
     itemDescription: (item, index) => string,
     addButtonLabel?: string,
     items: any[]

@@ -6,7 +6,7 @@ import { borderRadius, colors, shadows } from '../../theme'
 import CardProps from './Card.interface'
 import { CardContainer, TitleContainer, SubtitleContainer } from './Card.style'
 
-const Card: React.StatelessComponent<CardProps> = ({ title, subtitle, children, ...props }) => (
+const Card: React.FunctionComponent<CardProps> = ({ title, subtitle, children, ...props }) => (
   <CardContainer {...props}>
     {
       title &&

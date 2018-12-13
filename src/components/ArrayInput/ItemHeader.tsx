@@ -7,7 +7,7 @@ import { withArrayContext } from './context'
 import { ItemHeaderContainer, ItemHeaderContent, ItemActions } from './style'
 import ItemProps from './Item.interface'
 
-const ItemHeader: React.StatelessComponent<ItemProps> = ({ context, item, index }) => {
+const ItemHeader: React.FunctionComponent<ItemProps> = ({ context, item, index }) => {
   const isOpen = context.editing === index
 
   return (

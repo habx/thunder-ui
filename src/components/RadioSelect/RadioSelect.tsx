@@ -5,7 +5,7 @@ import { colors } from '../../theme'
 import { RadioSelectContainer, RadioSelectElement } from './style'
 import RadioSelectProps from './RadioSelect.interface'
 
-const RadioSelect: React.StatelessComponent<RadioSelectProps> = ({
+const RadioSelect: React.FunctionComponent<RadioSelectProps> = ({
   options,
   onChange,
   value: currentValue,
