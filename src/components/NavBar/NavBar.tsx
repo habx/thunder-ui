@@ -19,7 +19,7 @@ const prepareProps = props => {
   }
 }
 
-const NavBar: React.FunctionComponent<NavBarProps> = props => {
+const NavBar: React.StatelessComponent<NavBarProps> = props => {
   const { backgroundColor, activeBackgroundColor, title, children } = prepareProps(props)
 
   return (

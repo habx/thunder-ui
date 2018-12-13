@@ -44,7 +44,7 @@ const StyledTabsItem = styled(tag).attrs(prepareProps)`
   }
 `
 
-const TabsItem: React.FunctionComponent<TabsItemProps> = props => (
+const TabsItem: React.StatelessComponent<TabsItemProps> = props => (
   <StyledTabsItem blacklist={['activeColor', 'borderBottom', 'hoverColor', 'closed']} {...props} />
 )
 

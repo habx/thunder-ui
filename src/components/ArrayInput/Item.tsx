@@ -6,7 +6,7 @@ import { withArrayContext } from './context'
 import { ItemContainer, ItemContent, ItemDescription } from './style'
 import ItemProps from './Item.interface'
 
-const Item: React.FunctionComponent<ItemProps> = ({
+const Item: React.StatelessComponent<ItemProps> = ({
   context: { editing, itemComponent: ItemComponent, itemDescription },
   index,
   item,

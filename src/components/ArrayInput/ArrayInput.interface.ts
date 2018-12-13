@@ -6,7 +6,7 @@ export default interface ArrayInputProps extends DOMInterface {
   items: any[]
   itemTitle: (item: any, index: number) => string,
   itemDescription?: (item: any, index: number) => string,
-  itemComponent: React.ComponentClass<any> | React.FunctionComponent<any>,
+  itemComponent: React.ComponentClass<any> | React.StatelessComponent<any>,
   canBeReordered?: boolean,
   onDelete: (item) => void,
   onReorder?: (oldPosition: number, newPosition: number) => void,

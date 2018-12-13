@@ -7,7 +7,7 @@ const prepareProps = props => ({
   color: props.color || colors.maastrichtBlue,
 })
 
-const SectionTitle: React.FunctionComponent<SectionTitleProps> = styled.h3.attrs(prepareProps)`
+const SectionTitle: React.StatelessComponent<SectionTitleProps> = styled.h3.attrs(prepareProps)`
   display: flex;
   flex-direction: column;
 

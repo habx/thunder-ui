@@ -31,7 +31,7 @@ const prepareProps = props => {
   }
 }
 
-const TextButton: React.FunctionComponent<TextButtonProps> = styled.button.attrs(prepareProps)`
+const TextButton: React.StatelessComponent<TextButtonProps> = styled.button.attrs(prepareProps)`
   border: none;
   outline: none;
   background-color: unset;

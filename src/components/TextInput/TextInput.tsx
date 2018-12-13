@@ -84,7 +84,7 @@ const Input = styled.input.attrs(prepareProps)`
   `};
 `
 
-const TextInput: React.FunctionComponent<TextInputProps> = ({ onChange, isLoading, rightHoverElement, rightElement, ...props }) => (
+const TextInput: React.StatelessComponent<TextInputProps> = ({ onChange, isLoading, rightHoverElement, rightElement, ...props }) => (
   <InputContainer {...props}>
     <Input {...props} onChange={e => onChange(e.target.value)} isLoading={isLoading} />
     {isLoading && <InputSpinner size={15} />}
