@@ -1,10 +1,9 @@
-import React from 'react'
+import * as React from 'react'
 import { storiesOf } from '@storybook/react'
 import { withState } from 'recompose'
 
 import RadioSelect from './RadioSelect'
 import { colors } from '../../theme'
-
 
 const SIMPLE_OPTIONS = [
   { value: 0, label: 'Aucune' },
@@ -27,7 +26,6 @@ const RadioSelectWithState = ({ value, ...props }) => {
   return <Component {...props} />
 }
 
-
 storiesOf('Inputs/RadioSelect', module)
   .add('basic', () => (
     <RadioSelectWithState
@@ -44,6 +42,7 @@ storiesOf('Inputs/RadioSelect', module)
   ))
   .add('without selected item', () => (
     <RadioSelectWithState
+      value={1}
       options={SIMPLE_OPTIONS}
     />
   ))

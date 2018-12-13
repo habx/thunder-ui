@@ -1,13 +1,12 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import * as React from 'react'
 
 import ItemHeader from './ItemHeader'
 
 import { withArrayContext } from './context'
 import { ItemContainer, ItemContent, ItemDescription } from './style'
+import ItemProps from './Item.interface'
 
-
-const Item = ({
+const Item: React.StatelessComponent<ItemProps> = ({
   context: { editing, itemComponent: ItemComponent, itemDescription },
   index,
   item,
@@ -35,8 +34,4 @@ const Item = ({
   )
 }
 
-Item.propTypes = {
-  index: PropTypes.number.isRequired,
-  item: PropTypes.any.isRequired, // eslint-disable-line react/forbid-prop-types
-}
 export default withArrayContext(Item)

@@ -1,12 +1,11 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import * as React from 'react'
 import { map, includes, filter, isEmpty } from 'lodash'
 
 import { colors } from '../../theme'
 import { RadioSelectContainer, RadioSelectElement } from './style'
+import RadioSelectProps from './RadioSelect.interface'
 
-
-const RadioSelect = ({
+const RadioSelect: React.StatelessComponent<RadioSelectProps> = ({
   options,
   onChange,
   value: currentValue,
@@ -16,7 +15,7 @@ const RadioSelect = ({
   disabled,
 }) => {
   const getNewValue = item => {
-    if (isMulti) {
+    if (isMulti && Array.isArray(currentValue)) {
       if (includes(currentValue, item)) {
         const newValue = filter(currentValue, value => value !== item)
 
@@ -44,7 +43,7 @@ const RadioSelect = ({
   }
 
   const selected = map(options, ({ value }) => {
-    if (isMulti) {
+    if (isMulti && Array.isArray(currentValue)) {
       return includes(currentValue, value)
     }
 
@@ -69,19 +68,6 @@ const RadioSelect = ({
   )
 }
 
-RadioSelect.propTypes = {
-  options: PropTypes.arrayOf(PropTypes.shape({
-    label: PropTypes.string,
-    value: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.bool]),
-  })).isRequired,
-  onChange: PropTypes.func.isRequired,
-  canBeEmpty: PropTypes.bool,
-  isMulti: PropTypes.bool,
-  disabled: PropTypes.bool,
-  value: PropTypes.any, // eslint-disable-line react/forbid-prop-types
-  color: PropTypes.string,
-}
-
 RadioSelect.defaultProps = {
   canBeEmpty: true,
   isMulti: false,
@@ -89,6 +75,5 @@ RadioSelect.defaultProps = {
   value: null,
   color: colors.brightCerualean,
 }
-
 
 export default RadioSelect

@@ -14,10 +14,9 @@ const LabelContainer = styled.div`
   font-weight: 500;
   color: ${colors.paynesGrey};
   user-select: none;
-  
+
   padding-bottom: 4px;
 `
-
 
 const withLabel = WrappedComponent => {
   const Field = ({ label, ...props }) => {
