@@ -60,7 +60,7 @@ class Select extends React.Component<SelectProps> {
     const { options, value, isMulti } = this.props
     const { search } = this.state
     return filter(options,
-      option => (searchInString(option.value, search) || searchInString(option.label, search)) &&
+      option => (searchInString(`${option.value}`, search) || searchInString(option.label, search)) &&
         !(!isMulti && value && option.value === (value as formOptionInterface).value),
     )
   }

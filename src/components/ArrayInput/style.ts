@@ -39,16 +39,16 @@ export const ItemActions = styled.div`
   flex: 0 0 auto;
   padding-left: 32px;
   user-select: none;
-  
+
   i {
     color: ${colors.maastrichtBlue};
     font-size: ${fontSizes.large};
     cursor: pointer;
-    
+
     &:not(:first-child) {
       margin-left: 4px;
     }
-    
+
     &[data-disabled="true"] {
       pointer-events: none;
       color: ${colors.paynesGrey};

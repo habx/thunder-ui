@@ -1,4 +1,4 @@
-import React from 'react'
+import * as React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
@@ -14,10 +14,9 @@ const LabelContainer = styled.div`
   font-weight: 500;
   color: ${colors.paynesGrey};
   user-select: none;
-  
+
   padding-bottom: 4px;
 `
-
 
 const withLabel = WrappedComponent => {
   const Field = ({ label, ...props }) => {

@@ -7,4 +7,5 @@ export default interface ButtonProps extends DOMInterface {
   backgroundColor?: string
   iconLeft?: string
   iconRight?: string
+  reverse?: boolean
 }

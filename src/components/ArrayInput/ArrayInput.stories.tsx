@@ -1,11 +1,10 @@
-import React, { Component, createContext, Fragment } from 'react'
+import * as React from 'react'
 import styled from 'styled-components'
 import { storiesOf } from '@storybook/react'
 import { take, takeRight, clone } from 'lodash'
 
 import ArrayInput from './index'
 import TextInput from '../TextInput'
-
 
 const FIELDS = [
   { name: 'Paris', country: 'France' },
@@ -15,7 +14,7 @@ const FIELDS = [
 
 const DEFAULT_FIELD = { name: '', country: '' }
 
-const Context = createContext({})
+const Context = React.createContext({ onChange: (value, name) => null })
 
 const Container = styled.div`
   width: 600px;
@@ -28,7 +27,7 @@ const InputContainer = styled.div`
 const CountryArrayInputElement = ({ value, index }) => (
   <Context.Consumer>
     {({ onChange }) => (
-      <Fragment>
+      <React.Fragment>
         <InputContainer>
           <TextInput
             value={value.name}
@@ -43,12 +42,12 @@ const CountryArrayInputElement = ({ value, index }) => (
             label='Country'
           />
         </InputContainer>
-      </Fragment>
+      </React.Fragment>
     )}
   </Context.Consumer>
 )
 
-class CountryArrayInput extends Component {
+class CountryArrayInput extends React.Component<any, any> {
   state = {
     items: FIELDS,
   }
@@ -83,6 +82,7 @@ class CountryArrayInput extends Component {
             onDelete={this.handleDelete}
             onReorder={this.handleReorder}
             itemComponent={CountryArrayInputElement}
+            itemTitle={() => 'Title here'}
             {...this.props}
           />
         </Context.Provider>

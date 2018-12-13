@@ -1,4 +1,4 @@
-import React from 'react'
+import * as React from 'react'
 import styled, { css } from 'styled-components'
 import colorUtil from 'color'
 import tag from 'clean-tag'
