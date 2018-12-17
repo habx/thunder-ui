@@ -87,9 +87,13 @@ export const ButtonContainer = styled.button.attrs(prepareProps)`
   }
 
   ${({ small }) => small && css`
-    padding: 4px 8px;
+    padding: 6px 16px;
     font-size: ${fontSizes.small};
     line-height: 1.25;
+    border-radius: ${borderRadius.round};
+    i {
+      font-size: 18px;
+    }
   `};
 
   ${({ small }) => !small && css`
