@@ -53,7 +53,7 @@ const CloseContainer = styled.div`
   margin-top: 8px;
   color: #ffffff;
   height: fit-content;
-  
+
   :hover {
     cursor: pointer;
   }
@@ -68,7 +68,7 @@ interface NotificationProps extends React.HTMLAttributes<Element> {
   closeIcon?: React.ReactNode
 }
 
-const Notification: React.FC<NotificationProps> = ({
+const Notification: React.StatelessComponent<NotificationProps> = ({
   children,
   onClose,
   illustration,
@@ -93,13 +93,12 @@ const Notification: React.FC<NotificationProps> = ({
 )
 
 Notification.defaultProps = {
-  onClose: () => {},
+  onClose: () => null,
   illustration: null,
   backgroundColor: null,
   closeIcon: null,
   error: false,
   warning: false,
 }
-
 
 export default Notification

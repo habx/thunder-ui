@@ -1,27 +1,41 @@
 import * as React from 'react'
 
 import Title from '../Title'
-import { borderRadius, colors, shadows } from '../../theme'
+import { colors } from '../../theme'
 
 import CardProps from './Card.interface'
-import { CardContainer, TitleContainer, SubtitleContainer } from './Card.style'
+import { CardContainer, TitleContainer, SubtitleContainer, TitleCount } from './Card.style'
 
-const Card: React.StatelessComponent<CardProps> = ({ title, subtitle, children, ...props }) => (
-  <CardContainer {...props}>
+const Card: React.StatelessComponent<CardProps> = ({ headerPosition, action, title, titleCount, subtitle, children, ...props }) => (
+  <React.Fragment>
     {
-      title &&
+      title && headerPosition === 'outside' &&
       <TitleContainer>
-        <Title size={3}>{ title }</Title>
+        <Title size={3}>{ title }{titleCount && <TitleCount>({ titleCount })</TitleCount>}</Title>
+        { action }
       </TitleContainer>
     }
-    {
-      subtitle &&
-      <SubtitleContainer>
-        <Title size={4} color={colors.paynesGrey}>{ subtitle }</Title>
-      </SubtitleContainer>
-    }
-    { children }
-  </CardContainer>
+    <CardContainer {...props}>
+      {
+        title && headerPosition === 'inside' &&
+        <TitleContainer>
+          <Title size={3}>{ title }{titleCount ? <TitleCount>({ titleCount })</TitleCount> : null}</Title>
+          { action }
+        </TitleContainer>
+      }
+      {
+        subtitle &&
+        <SubtitleContainer>
+          <Title size={4} color={colors.paynesGrey}>{ subtitle }</Title>
+        </SubtitleContainer>
+      }
+      { children }
+    </CardContainer>
+  </React.Fragment>
 )
+
+Card.defaultProps = {
+  headerPosition: 'inside',
+}
 
 export default Card
