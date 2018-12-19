@@ -44,7 +44,6 @@
     "@babel/preset-typescript": "^7.1.0",
     "@storybook/addon-actions": "^4.0.7",
     "@storybook/addon-centered": "^4.0.7",
-    "@storybook/addon-info": "^4.1.2",
     "@storybook/addon-knobs": "^4.0.7",
     "@storybook/addon-storyshots": "^4.1.2",
     "@storybook/react": "^4.0.7",
