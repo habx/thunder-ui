@@ -18,7 +18,3 @@ storiesOf('Typography/Title/h2 (size = 2)', module)
 storiesOf('Typography/Title/h3 (size = 3)', module)
   .add('basic', () => <Title size={3}>This is a title</Title>)
   .add('with manual color', () => <Title color={colors.paynesGrey} size={3}>This is a title</Title>)
-
-storiesOf('Typography/Title/h3 (size = 3)', module)
-  .add('basic', () => <Title size={3}>This is a title</Title>)
-  .add('with manual color', () => <Title color={colors.paynesGrey} size={3}>This is a title</Title>)

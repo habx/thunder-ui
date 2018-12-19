@@ -35,6 +35,18 @@ pipeline:
     volumes:
     - /var/run/docker.sock:/var/run/docker.sock
 
+  test:
+    image: habx/node-base:9-alpine-npm6
+    secrets: [ NPM_TOKEN ]
+    group: tests-and-lint
+    environment:
+      - NPM_TOKEN=${NPM_TOKEN}
+      - NODE_ENV="test"
+    commands:
+      - npm run jest
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+
   build:
     image: habx/node-base:9-alpine-npm6
     secrets: [ NPM_TOKEN ]
