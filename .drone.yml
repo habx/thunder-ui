@@ -43,7 +43,7 @@ pipeline:
       - NPM_TOKEN=${NPM_TOKEN}
       - NODE_ENV="test"
     commands:
-      - npm run jest
+      - npm run test
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
 
