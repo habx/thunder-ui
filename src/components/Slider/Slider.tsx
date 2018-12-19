@@ -55,6 +55,9 @@ class CustomSlider extends React.Component<SliderProps> {
     const realMin = customValues ? min : min - (min % step)
 
     const isValueArray = Array.isArray(value)
+    const label = isValueArray
+      ? `${labelFormatter(value[0])} à ${labelFormatter(value[1])}${toolTipSuffix}`
+      : `${(customValues ? customValues[(value as number)] : `${labelFormatter(value) || 0}${toolTipSuffix}`)}`
 
     return (
       <SliderContainer color={color}>
@@ -68,11 +71,7 @@ class CustomSlider extends React.Component<SliderProps> {
           step={customValues ? 1 : step}
         />
         <Label key={value} value={isValueArray ? value[0] : value} max={realMax}>
-          {
-            isValueArray
-              ? `${labelFormatter(value[0])} à ${labelFormatter(value[1])}${toolTipSuffix}`
-              : `${(customValues ? customValues[(value as number)] : `${labelFormatter(value) || 0}${toolTipSuffix}`)}`
-          }
+          {label ? label : ''}
         </Label>
       </SliderContainer>
     )
