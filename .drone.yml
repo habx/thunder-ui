@@ -41,7 +41,7 @@ pipeline:
     group: tests-and-lint
     environment:
       - NPM_TOKEN=${NPM_TOKEN}
-      - NODE_ENV="test"
+      - NODE_ENV=test
     commands:
       - npm run test
     volumes:
