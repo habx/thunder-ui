@@ -1,0 +1,5755 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots Actions/Button disabled 1`] = `
+<div
+  style={
+    Object {
+      "alignItems": "center",
+      "bottom": 0,
+      "display": "flex",
+      "left": 0,
+      "overflow": "auto",
+      "position": "fixed",
+      "right": 0,
+      "top": 0,
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "margin": "auto",
+        "maxHeight": "100%",
+      }
+    }
+  >
+    <button
+      className="sc-htpNat bSLcSv"
+      disabled={true}
+    >
+      Don't click one me !
+    </button>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Actions/Button small 1`] = `
+<div
+  style={
+    Object {
+      "alignItems": "center",
+      "bottom": 0,
+      "display": "flex",
+      "left": 0,
+      "overflow": "auto",
+      "position": "fixed",
+      "right": 0,
+      "top": 0,
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "margin": "auto",
+        "maxHeight": "100%",
+      }
+    }
+  >
+    <button
+      className="sc-htpNat eadtdx"
+    >
+      Click on me !
+    </button>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Actions/Button warning 1`] = `
+<div
+  style={
+    Object {
+      "alignItems": "center",
+      "bottom": 0,
+      "display": "flex",
+      "left": 0,
+      "overflow": "auto",
+      "position": "fixed",
+      "right": 0,
+      "top": 0,
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "margin": "auto",
+        "maxHeight": "100%",
+      }
+    }
+  >
+    <button
+      className="sc-htpNat enPAVr"
+    >
+      Click on me !
+    </button>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Actions/Button with manual background color 1`] = `
+<div
+  style={
+    Object {
+      "alignItems": "center",
+      "bottom": 0,
+      "display": "flex",
+      "left": 0,
+      "overflow": "auto",
+      "position": "fixed",
+      "right": 0,
+      "top": 0,
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "margin": "auto",
+        "maxHeight": "100%",
+      }
+    }
+  >
+    <button
+      className="sc-htpNat bSLcSv"
+    >
+      Click on me !
+    </button>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Actions/TextButton disabled 1`] = `
+<div
+  style={
+    Object {
+      "alignItems": "center",
+      "bottom": 0,
+      "display": "flex",
+      "left": 0,
+      "overflow": "auto",
+      "position": "fixed",
+      "right": 0,
+      "top": 0,
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "margin": "auto",
+        "maxHeight": "100%",
+      }
+    }
+  >
+    <button
+      className="sc-elJkPf dFTWuK"
+      color="#0071ce"
+      disabled={true}
+    >
+      Don't click one me !
+    </button>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Actions/TextButton warning 1`] = `
+<div
+  style={
+    Object {
+      "alignItems": "center",
+      "bottom": 0,
+      "display": "flex",
+      "left": 0,
+      "overflow": "auto",
+      "position": "fixed",
+      "right": 0,
+      "top": 0,
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "margin": "auto",
+        "maxHeight": "100%",
+      }
+    }
+  >
+    <button
+      className="sc-elJkPf dvZDsv"
+      color="#be3b5d"
+    >
+      Click on me !
+    </button>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Actions/TextButton with manual color 1`] = `
+<div
+  style={
+    Object {
+      "alignItems": "center",
+      "bottom": 0,
+      "display": "flex",
+      "left": 0,
+      "overflow": "auto",
+      "position": "fixed",
+      "right": 0,
+      "top": 0,
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "margin": "auto",
+        "maxHeight": "100%",
+      }
+    }
+  >
+    <button
+      className="sc-elJkPf dFTWuK"
+      color="#0071ce"
+    >
+      Click on me !
+    </button>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Inputs/ArrayInput basic 1`] = `
+<div
+  style={
+    Object {
+      "alignItems": "center",
+      "bottom": 0,
+      "display": "flex",
+      "left": 0,
+      "overflow": "auto",
+      "position": "fixed",
+      "right": 0,
+      "top": 0,
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "margin": "auto",
+        "maxHeight": "100%",
+      }
+    }
+  >
+    <div
+      className="sc-kgoBCf iUVkMu"
+    >
+      <div
+        className="sc-ifAKCX cFlEyZ"
+      >
+        <div
+          className="sc-EHOje drUzaR"
+        >
+          <div
+            className="sc-gzVnrw lckwxy"
+          >
+            <div
+              className="sc-dnqmqq edfbfr"
+            >
+              Paris (France)
+            </div>
+            <div
+              className="sc-iwsKbI eYDiNP"
+            >
+              <i
+                className="sc-bxivhb ikqPoS"
+                onClick={[Function]}
+              >
+                edit
+              </i>
+            </div>
+          </div>
+        </div>
+        <div
+          className="sc-EHOje drUzaR"
+        >
+          <div
+            className="sc-gzVnrw lckwxy"
+          >
+            <div
+              className="sc-dnqmqq edfbfr"
+            >
+              London (United Kingdom)
+            </div>
+            <div
+              className="sc-iwsKbI eYDiNP"
+            >
+              <i
+                className="sc-bxivhb ikqPoS"
+                onClick={[Function]}
+              >
+                edit
+              </i>
+            </div>
+          </div>
+        </div>
+        <div
+          className="sc-EHOje drUzaR"
+        >
+          <div
+            className="sc-gzVnrw lckwxy"
+          >
+            <div
+              className="sc-dnqmqq edfbfr"
+            >
+              Madrid (Spain)
+            </div>
+            <div
+              className="sc-iwsKbI eYDiNP"
+            >
+              <i
+                className="sc-bxivhb ikqPoS"
+                onClick={[Function]}
+              >
+                edit
+              </i>
+            </div>
+          </div>
+        </div>
+        <div
+          className="sc-bZQynM heQzFS"
+        >
+          <button
+            className="sc-htpNat ijTOZV"
+            onClick={[Function]}
+          >
+            Ajouter un élément
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Inputs/ArrayInput with add button custom label 1`] = `
+<div
+  style={
+    Object {
+      "alignItems": "center",
+      "bottom": 0,
+      "display": "flex",
+      "left": 0,
+      "overflow": "auto",
+      "position": "fixed",
+      "right": 0,
+      "top": 0,
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "margin": "auto",
+        "maxHeight": "100%",
+      }
+    }
+  >
+    <div
+      className="sc-kgoBCf iUVkMu"
+    >
+      <div
+        className="sc-ifAKCX cFlEyZ"
+      >
+        <div
+          className="sc-EHOje drUzaR"
+        >
+          <div
+            className="sc-gzVnrw lckwxy"
+          >
+            <div
+              className="sc-dnqmqq edfbfr"
+            >
+              Paris (France)
+            </div>
+            <div
+              className="sc-iwsKbI eYDiNP"
+            >
+              <i
+                className="sc-bxivhb ikqPoS"
+                onClick={[Function]}
+              >
+                edit
+              </i>
+            </div>
+          </div>
+        </div>
+        <div
+          className="sc-EHOje drUzaR"
+        >
+          <div
+            className="sc-gzVnrw lckwxy"
+          >
+            <div
+              className="sc-dnqmqq edfbfr"
+            >
+              London (United Kingdom)
+            </div>
+            <div
+              className="sc-iwsKbI eYDiNP"
+            >
+              <i
+                className="sc-bxivhb ikqPoS"
+                onClick={[Function]}
+              >
+                edit
+              </i>
+            </div>
+          </div>
+        </div>
+        <div
+          className="sc-EHOje drUzaR"
+        >
+          <div
+            className="sc-gzVnrw lckwxy"
+          >
+            <div
+              className="sc-dnqmqq edfbfr"
+            >
+              Madrid (Spain)
+            </div>
+            <div
+              className="sc-iwsKbI eYDiNP"
+            >
+              <i
+                className="sc-bxivhb ikqPoS"
+                onClick={[Function]}
+              >
+                edit
+              </i>
+            </div>
+          </div>
+        </div>
+        <div
+          className="sc-bZQynM heQzFS"
+        >
+          <button
+            className="sc-htpNat ijTOZV"
+            onClick={[Function]}
+          >
+            Add a city
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Inputs/ArrayInput with description line 1`] = `
+<div
+  style={
+    Object {
+      "alignItems": "center",
+      "bottom": 0,
+      "display": "flex",
+      "left": 0,
+      "overflow": "auto",
+      "position": "fixed",
+      "right": 0,
+      "top": 0,
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "margin": "auto",
+        "maxHeight": "100%",
+      }
+    }
+  >
+    <div
+      className="sc-kgoBCf iUVkMu"
+    >
+      <div
+        className="sc-ifAKCX cFlEyZ"
+      >
+        <div
+          className="sc-EHOje drUzaR"
+        >
+          <div
+            className="sc-gzVnrw lckwxy"
+          >
+            <div
+              className="sc-dnqmqq edfbfr"
+            >
+              Paris
+            </div>
+            <div
+              className="sc-iwsKbI eYDiNP"
+            >
+              <i
+                className="sc-bxivhb ikqPoS"
+                onClick={[Function]}
+              >
+                edit
+              </i>
+            </div>
+          </div>
+          <div
+            className="sc-gZMcBi ilMHPi"
+          >
+            Country: France
+          </div>
+        </div>
+        <div
+          className="sc-EHOje drUzaR"
+        >
+          <div
+            className="sc-gzVnrw lckwxy"
+          >
+            <div
+              className="sc-dnqmqq edfbfr"
+            >
+              London
+            </div>
+            <div
+              className="sc-iwsKbI eYDiNP"
+            >
+              <i
+                className="sc-bxivhb ikqPoS"
+                onClick={[Function]}
+              >
+                edit
+              </i>
+            </div>
+          </div>
+          <div
+            className="sc-gZMcBi ilMHPi"
+          >
+            Country: United Kingdom
+          </div>
+        </div>
+        <div
+          className="sc-EHOje drUzaR"
+        >
+          <div
+            className="sc-gzVnrw lckwxy"
+          >
+            <div
+              className="sc-dnqmqq edfbfr"
+            >
+              Madrid
+            </div>
+            <div
+              className="sc-iwsKbI eYDiNP"
+            >
+              <i
+                className="sc-bxivhb ikqPoS"
+                onClick={[Function]}
+              >
+                edit
+              </i>
+            </div>
+          </div>
+          <div
+            className="sc-gZMcBi ilMHPi"
+          >
+            Country: Spain
+          </div>
+        </div>
+        <div
+          className="sc-bZQynM heQzFS"
+        >
+          <button
+            className="sc-htpNat ijTOZV"
+            onClick={[Function]}
+          >
+            Ajouter un élément
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Inputs/ArrayInput with order change allowed 1`] = `
+<div
+  style={
+    Object {
+      "alignItems": "center",
+      "bottom": 0,
+      "display": "flex",
+      "left": 0,
+      "overflow": "auto",
+      "position": "fixed",
+      "right": 0,
+      "top": 0,
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "margin": "auto",
+        "maxHeight": "100%",
+      }
+    }
+  >
+    <div
+      className="sc-kgoBCf iUVkMu"
+    >
+      <div
+        className="sc-ifAKCX cFlEyZ"
+      >
+        <div
+          className="sc-EHOje drUzaR"
+        >
+          <div
+            className="sc-gzVnrw lckwxy"
+          >
+            <div
+              className="sc-dnqmqq edfbfr"
+            >
+              Paris (France)
+            </div>
+            <div
+              className="sc-iwsKbI eYDiNP"
+            >
+              <i
+                className="sc-bxivhb ikqPoS"
+                data-disabled={true}
+                onClick={[Function]}
+              >
+                arrow_upward
+              </i>
+              <i
+                className="sc-bxivhb ikqPoS"
+                data-disabled={false}
+                onClick={[Function]}
+              >
+                arrow_downward
+              </i>
+              <i
+                className="sc-bxivhb ikqPoS"
+                onClick={[Function]}
+              >
+                edit
+              </i>
+            </div>
+          </div>
+        </div>
+        <div
+          className="sc-EHOje drUzaR"
+        >
+          <div
+            className="sc-gzVnrw lckwxy"
+          >
+            <div
+              className="sc-dnqmqq edfbfr"
+            >
+              London (United Kingdom)
+            </div>
+            <div
+              className="sc-iwsKbI eYDiNP"
+            >
+              <i
+                className="sc-bxivhb ikqPoS"
+                data-disabled={false}
+                onClick={[Function]}
+              >
+                arrow_upward
+              </i>
+              <i
+                className="sc-bxivhb ikqPoS"
+                data-disabled={false}
+                onClick={[Function]}
+              >
+                arrow_downward
+              </i>
+              <i
+                className="sc-bxivhb ikqPoS"
+                onClick={[Function]}
+              >
+                edit
+              </i>
+            </div>
+          </div>
+        </div>
+        <div
+          className="sc-EHOje drUzaR"
+        >
+          <div
+            className="sc-gzVnrw lckwxy"
+          >
+            <div
+              className="sc-dnqmqq edfbfr"
+            >
+              Madrid (Spain)
+            </div>
+            <div
+              className="sc-iwsKbI eYDiNP"
+            >
+              <i
+                className="sc-bxivhb ikqPoS"
+                data-disabled={false}
+                onClick={[Function]}
+              >
+                arrow_upward
+              </i>
+              <i
+                className="sc-bxivhb ikqPoS"
+                data-disabled={true}
+                onClick={[Function]}
+              >
+                arrow_downward
+              </i>
+              <i
+                className="sc-bxivhb ikqPoS"
+                onClick={[Function]}
+              >
+                edit
+              </i>
+            </div>
+          </div>
+        </div>
+        <div
+          className="sc-bZQynM heQzFS"
+        >
+          <button
+            className="sc-htpNat ijTOZV"
+            onClick={[Function]}
+          >
+            Ajouter un élément
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Inputs/RadioSelect basic 1`] = `
+<div
+  style={
+    Object {
+      "alignItems": "center",
+      "bottom": 0,
+      "display": "flex",
+      "left": 0,
+      "overflow": "auto",
+      "position": "fixed",
+      "right": 0,
+      "top": 0,
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "margin": "auto",
+        "maxHeight": "100%",
+      }
+    }
+  >
+    <div
+      className="sc-hmzhuo kUqmav"
+      color="#1dcad3"
+      data-disabled={false}
+    >
+      <div
+        className="sc-frDJqD ijxYLn"
+        color="#1dcad3"
+        data-checked={false}
+        onClick={[Function]}
+      >
+        Aucune
+      </div>
+      <div
+        className="sc-frDJqD dkSYVR"
+        color="#1dcad3"
+        data-checked={true}
+        onClick={[Function]}
+      >
+        1 place
+      </div>
+      <div
+        className="sc-frDJqD fskHMh"
+        color="#1dcad3"
+        data-checked={false}
+        onClick={[Function]}
+      >
+        2 places
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Inputs/RadioSelect can't be empty 1`] = `
+<div
+  style={
+    Object {
+      "alignItems": "center",
+      "bottom": 0,
+      "display": "flex",
+      "left": 0,
+      "overflow": "auto",
+      "position": "fixed",
+      "right": 0,
+      "top": 0,
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "margin": "auto",
+        "maxHeight": "100%",
+      }
+    }
+  >
+    <div
+      className="sc-hmzhuo kUqmav"
+      color="#1dcad3"
+      data-disabled={false}
+    >
+      <div
+        className="sc-frDJqD ijxYLn"
+        color="#1dcad3"
+        data-checked={false}
+        onClick={[Function]}
+      >
+        Aucune
+      </div>
+      <div
+        className="sc-frDJqD dkSYVR"
+        color="#1dcad3"
+        data-checked={true}
+        onClick={[Function]}
+      >
+        1 place
+      </div>
+      <div
+        className="sc-frDJqD fskHMh"
+        color="#1dcad3"
+        data-checked={false}
+        onClick={[Function]}
+      >
+        2 places
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Inputs/RadioSelect with custom color 1`] = `
+<div
+  style={
+    Object {
+      "alignItems": "center",
+      "bottom": 0,
+      "display": "flex",
+      "left": 0,
+      "overflow": "auto",
+      "position": "fixed",
+      "right": 0,
+      "top": 0,
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "margin": "auto",
+        "maxHeight": "100%",
+      }
+    }
+  >
+    <div
+      className="sc-hmzhuo dkrvVp"
+      color="#0071ce"
+      data-disabled={false}
+    >
+      <div
+        className="sc-frDJqD jbqwiW"
+        color="#0071ce"
+        data-checked={false}
+        onClick={[Function]}
+      >
+        Aucune
+      </div>
+      <div
+        className="sc-frDJqD brAZDj"
+        color="#0071ce"
+        data-checked={true}
+        onClick={[Function]}
+      >
+        1 place
+      </div>
+      <div
+        className="sc-frDJqD hHLBgX"
+        color="#0071ce"
+        data-checked={false}
+        onClick={[Function]}
+      >
+        2 places
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Inputs/RadioSelect with many option 1`] = `
+<div
+  style={
+    Object {
+      "alignItems": "center",
+      "bottom": 0,
+      "display": "flex",
+      "left": 0,
+      "overflow": "auto",
+      "position": "fixed",
+      "right": 0,
+      "top": 0,
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "margin": "auto",
+        "maxHeight": "100%",
+      }
+    }
+  >
+    <div
+      className="sc-hmzhuo kUqmav"
+      color="#1dcad3"
+      data-disabled={false}
+    >
+      <div
+        className="sc-frDJqD dkSYVR"
+        color="#1dcad3"
+        data-checked={false}
+        onClick={[Function]}
+      >
+        0
+      </div>
+      <div
+        className="sc-frDJqD dkSYVR"
+        color="#1dcad3"
+        data-checked={false}
+        onClick={[Function]}
+      >
+        1
+      </div>
+      <div
+        className="sc-frDJqD dkSYVR"
+        color="#1dcad3"
+        data-checked={false}
+        onClick={[Function]}
+      >
+        2
+      </div>
+      <div
+        className="sc-frDJqD ijxYLn"
+        color="#1dcad3"
+        data-checked={false}
+        onClick={[Function]}
+      >
+        3
+      </div>
+      <div
+        className="sc-frDJqD dkSYVR"
+        color="#1dcad3"
+        data-checked={true}
+        onClick={[Function]}
+      >
+        4
+      </div>
+      <div
+        className="sc-frDJqD fskHMh"
+        color="#1dcad3"
+        data-checked={false}
+        onClick={[Function]}
+      >
+        5
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Inputs/RadioSelect with multi selection 1`] = `
+<div
+  style={
+    Object {
+      "alignItems": "center",
+      "bottom": 0,
+      "display": "flex",
+      "left": 0,
+      "overflow": "auto",
+      "position": "fixed",
+      "right": 0,
+      "top": 0,
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "margin": "auto",
+        "maxHeight": "100%",
+      }
+    }
+  >
+    <div
+      className="sc-hmzhuo kUqmav"
+      color="#1dcad3"
+      data-disabled={false}
+    >
+      <div
+        className="sc-frDJqD ijxYLn"
+        color="#1dcad3"
+        data-checked={false}
+        onClick={[Function]}
+      >
+        North
+      </div>
+      <div
+        className="sc-frDJqD ijxYLn"
+        color="#1dcad3"
+        data-checked={true}
+        onClick={[Function]}
+      >
+        East
+      </div>
+      <div
+        className="sc-frDJqD koGqra"
+        color="#1dcad3"
+        data-checked={true}
+        onClick={[Function]}
+      >
+        South
+      </div>
+      <div
+        className="sc-frDJqD fskHMh"
+        color="#1dcad3"
+        data-checked={true}
+        onClick={[Function]}
+      >
+        West
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Inputs/RadioSelect with multi selection and can't be empty 1`] = `
+<div
+  style={
+    Object {
+      "alignItems": "center",
+      "bottom": 0,
+      "display": "flex",
+      "left": 0,
+      "overflow": "auto",
+      "position": "fixed",
+      "right": 0,
+      "top": 0,
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "margin": "auto",
+        "maxHeight": "100%",
+      }
+    }
+  >
+    <div
+      className="sc-hmzhuo kUqmav"
+      color="#1dcad3"
+      data-disabled={false}
+    >
+      <div
+        className="sc-frDJqD ijxYLn"
+        color="#1dcad3"
+        data-checked={false}
+        onClick={[Function]}
+      >
+        North
+      </div>
+      <div
+        className="sc-frDJqD dkSYVR"
+        color="#1dcad3"
+        data-checked={true}
+        onClick={[Function]}
+      >
+        East
+      </div>
+      <div
+        className="sc-frDJqD koGqra"
+        color="#1dcad3"
+        data-checked={false}
+        onClick={[Function]}
+      >
+        South
+      </div>
+      <div
+        className="sc-frDJqD dkSYVR"
+        color="#1dcad3"
+        data-checked={true}
+        onClick={[Function]}
+      >
+        West
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Inputs/RadioSelect without selected item 1`] = `
+<div
+  style={
+    Object {
+      "alignItems": "center",
+      "bottom": 0,
+      "display": "flex",
+      "left": 0,
+      "overflow": "auto",
+      "position": "fixed",
+      "right": 0,
+      "top": 0,
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "margin": "auto",
+        "maxHeight": "100%",
+      }
+    }
+  >
+    <div
+      className="sc-hmzhuo kUqmav"
+      color="#1dcad3"
+      data-disabled={false}
+    >
+      <div
+        className="sc-frDJqD ijxYLn"
+        color="#1dcad3"
+        data-checked={false}
+        onClick={[Function]}
+      >
+        Aucune
+      </div>
+      <div
+        className="sc-frDJqD dkSYVR"
+        color="#1dcad3"
+        data-checked={true}
+        onClick={[Function]}
+      >
+        1 place
+      </div>
+      <div
+        className="sc-frDJqD fskHMh"
+        color="#1dcad3"
+        data-checked={false}
+        onClick={[Function]}
+      >
+        2 places
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Inputs/Select multi items 1`] = `
+<div
+  style={
+    Object {
+      "alignItems": "center",
+      "bottom": 0,
+      "display": "flex",
+      "left": 0,
+      "overflow": "auto",
+      "position": "fixed",
+      "right": 0,
+      "top": 0,
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "margin": "auto",
+        "maxHeight": "100%",
+      }
+    }
+  >
+    <div
+      className="sc-hqyNC dymbXe"
+      onClick={[Function]}
+    >
+      <div
+        className="sc-jbKcbu fziNAi"
+        data-empty={false}
+        data-open={false}
+        onClick={[Function]}
+      >
+        <input
+          className="sc-dNLxif vpcei"
+          onBlur={[Function]}
+          onChange={[Function]}
+          onFocus={[Function]}
+          placeholder="Projets"
+          type="text"
+          value=""
+        />
+        <div
+          className="sc-jqCOkK bRsHUR"
+        >
+          <i
+            className="sc-bxivhb dmtZxs"
+          >
+            arrow_drop_down
+          </i>
+        </div>
+      </div>
+      <div
+        className="sc-uJMKN XMcMF"
+        data-open={false}
+      >
+        <div
+          className="sc-bbmXgH hoqbrb"
+        >
+          <span
+            className="sc-gGBfsJ ehQHaD"
+            onClick={[Function]}
+          >
+            Tout selectionner
+          </span>
+          <span
+            className="sc-gGBfsJ ehQHaD"
+            onClick={[Function]}
+          >
+            Tout déselectionner
+          </span>
+        </div>
+        <div
+          className="sc-tilXH beytvI"
+          data-selected={true}
+          onClick={[Function]}
+          tabIndex="0"
+          value="sartrouville"
+        >
+          <i
+            className="sc-bxivhb dmtZxs"
+          >
+            check_box
+          </i>
+          Résidence Aurore
+        </div>
+        <div
+          className="sc-tilXH beytvI"
+          data-selected={false}
+          onClick={[Function]}
+          tabIndex="0"
+          value="saint-maur-raspail"
+        >
+          <i
+            className="sc-bxivhb dmtZxs"
+          >
+            check_box_outline_blank
+          </i>
+          saint-maur-raspail
+        </div>
+        <div
+          className="sc-tilXH beytvI"
+          data-selected={false}
+          onClick={[Function]}
+          tabIndex="0"
+          value="toulouse-croix-de-pierre"
+        >
+          <i
+            className="sc-bxivhb dmtZxs"
+          >
+            check_box_outline_blank
+          </i>
+          Croix de Pierre
+        </div>
+        <div
+          className="sc-tilXH beytvI"
+          data-selected={false}
+          onClick={[Function]}
+          tabIndex="0"
+          value="toulouse-colombes"
+        >
+          <i
+            className="sc-bxivhb dmtZxs"
+          >
+            check_box_outline_blank
+          </i>
+          Les Colombes
+        </div>
+        <div
+          className="sc-tilXH beytvI"
+          data-selected={false}
+          onClick={[Function]}
+          tabIndex="0"
+          value="paris-edison"
+        >
+          <i
+            className="sc-bxivhb dmtZxs"
+          >
+            check_box_outline_blank
+          </i>
+          Edison Lite
+        </div>
+        <div
+          className="sc-tilXH beytvI"
+          data-selected={false}
+          onClick={[Function]}
+          tabIndex="0"
+          value="toulouse-la-ramee"
+        >
+          <i
+            className="sc-bxivhb dmtZxs"
+          >
+            check_box_outline_blank
+          </i>
+          La Ramée
+        </div>
+        <div
+          className="sc-tilXH beytvI"
+          data-selected={false}
+          onClick={[Function]}
+          tabIndex="0"
+          value="sarcelles"
+        >
+          <i
+            className="sc-bxivhb dmtZxs"
+          >
+            check_box_outline_blank
+          </i>
+          Sarcelles Village
+        </div>
+        <div
+          className="sc-tilXH beytvI"
+          data-selected={false}
+          onClick={[Function]}
+          tabIndex="0"
+          value="toulouse-le-galy"
+        >
+          <i
+            className="sc-bxivhb dmtZxs"
+          >
+            check_box_outline_blank
+          </i>
+          Résidence Le Galy
+        </div>
+        <div
+          className="sc-tilXH beytvI"
+          data-selected={false}
+          onClick={[Function]}
+          tabIndex="0"
+          value="noisy-le-grand"
+        >
+          <i
+            className="sc-bxivhb dmtZxs"
+          >
+            check_box_outline_blank
+          </i>
+          Noisy-le-Grand
+        </div>
+        <div
+          className="sc-tilXH beytvI"
+          data-selected={false}
+          onClick={[Function]}
+          tabIndex="0"
+          value="toulouse-madera"
+        >
+          <i
+            className="sc-bxivhb dmtZxs"
+          >
+            check_box_outline_blank
+          </i>
+          Résidence Madera
+        </div>
+        <div
+          className="sc-tilXH beytvI"
+          data-selected={false}
+          onClick={[Function]}
+          tabIndex="0"
+          value="soisy-bailly"
+        >
+          <i
+            className="sc-bxivhb dmtZxs"
+          >
+            check_box_outline_blank
+          </i>
+          Résidence Le Bailly
+        </div>
+        <div
+          className="sc-tilXH beytvI"
+          data-selected={false}
+          onClick={[Function]}
+          tabIndex="0"
+          value="toulouse-roseraie"
+        >
+          <i
+            className="sc-bxivhb dmtZxs"
+          >
+            check_box_outline_blank
+          </i>
+          La Roseraie
+        </div>
+        <div
+          className="sc-tilXH beytvI"
+          data-selected={false}
+          onClick={[Function]}
+          tabIndex="0"
+          value="bussy-saint-georges"
+        >
+          <i
+            className="sc-bxivhb dmtZxs"
+          >
+            check_box_outline_blank
+          </i>
+          Le Hameau du Chêneu
+        </div>
+        <div
+          className="sc-tilXH beytvI"
+          data-selected={false}
+          onClick={[Function]}
+          tabIndex="0"
+          value="toulouse-lodges"
+        >
+          <i
+            className="sc-bxivhb dmtZxs"
+          >
+            check_box_outline_blank
+          </i>
+          Résidence Cyrano
+        </div>
+        <div
+          className="sc-tilXH beytvI"
+          data-selected={false}
+          onClick={[Function]}
+          tabIndex="0"
+          value="begles-carrelets"
+        >
+          <i
+            className="sc-bxivhb dmtZxs"
+          >
+            check_box_outline_blank
+          </i>
+          Les Carrelets de l'Estey
+        </div>
+        <div
+          className="sc-tilXH beytvI"
+          data-selected={false}
+          onClick={[Function]}
+          tabIndex="0"
+          value="groslay"
+        >
+          <i
+            className="sc-bxivhb dmtZxs"
+          >
+            check_box_outline_blank
+          </i>
+          NordWood
+        </div>
+        <div
+          className="sc-tilXH beytvI"
+          data-selected={false}
+          onClick={[Function]}
+          tabIndex="0"
+          value="toulouse-malepere"
+        >
+          <i
+            className="sc-bxivhb dmtZxs"
+          >
+            check_box_outline_blank
+          </i>
+          Malepère
+        </div>
+        <div
+          className="sc-tilXH beytvI"
+          data-selected={false}
+          onClick={[Function]}
+          tabIndex="0"
+          value="bagneux-petit"
+        >
+          <i
+            className="sc-bxivhb dmtZxs"
+          >
+            check_box_outline_blank
+          </i>
+          Résidence Onyx
+        </div>
+        <div
+          className="sc-tilXH beytvI"
+          data-selected={false}
+          onClick={[Function]}
+          tabIndex="0"
+          value="antony-marche"
+        >
+          <i
+            className="sc-bxivhb dmtZxs"
+          >
+            check_box_outline_blank
+          </i>
+          Antony-Marché
+        </div>
+        <div
+          className="sc-tilXH beytvI"
+          data-selected={false}
+          onClick={[Function]}
+          tabIndex="0"
+          value="vernouillet"
+        >
+          <i
+            className="sc-bxivhb dmtZxs"
+          >
+            check_box_outline_blank
+          </i>
+          Résidence Eugénie
+        </div>
+        <div
+          className="sc-tilXH beytvI"
+          data-selected={false}
+          onClick={[Function]}
+          tabIndex="0"
+          value="grenoble-cambridge"
+        >
+          <i
+            className="sc-bxivhb dmtZxs"
+          >
+            check_box_outline_blank
+          </i>
+          Résidence Ginkgo
+        </div>
+        <div
+          className="sc-tilXH beytvI"
+          data-selected={false}
+          onClick={[Function]}
+          tabIndex="0"
+          value="paris-18"
+        >
+          <i
+            className="sc-bxivhb dmtZxs"
+          >
+            check_box_outline_blank
+          </i>
+          La Parenthèse
+        </div>
+        <div
+          className="sc-tilXH beytvI"
+          data-selected={false}
+          onClick={[Function]}
+          tabIndex="0"
+          value="levallois-zelmis"
+        >
+          <i
+            className="sc-bxivhb dmtZxs"
+          >
+            check_box_outline_blank
+          </i>
+          Zelmis
+        </div>
+        <div
+          className="sc-tilXH beytvI"
+          data-selected={false}
+          onClick={[Function]}
+          tabIndex="0"
+          value="torcy-le-perchoir"
+        >
+          <i
+            className="sc-bxivhb dmtZxs"
+          >
+            check_box_outline_blank
+          </i>
+          Le Perchoir
+        </div>
+        <div
+          className="sc-tilXH beytvI"
+          data-selected={false}
+          onClick={[Function]}
+          tabIndex="0"
+          value="massy-vilgenis"
+        >
+          <i
+            className="sc-bxivhb dmtZxs"
+          >
+            check_box_outline_blank
+          </i>
+          Massy-Vilgénis
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Inputs/Select multi items with icon 1`] = `
+<div
+  style={
+    Object {
+      "alignItems": "center",
+      "bottom": 0,
+      "display": "flex",
+      "left": 0,
+      "overflow": "auto",
+      "position": "fixed",
+      "right": 0,
+      "top": 0,
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "margin": "auto",
+        "maxHeight": "100%",
+      }
+    }
+  >
+    <div
+      className="sc-hqyNC dymbXe"
+      onClick={[Function]}
+    >
+      <div
+        className="sc-jbKcbu fziNAi"
+        data-empty={false}
+        data-open={false}
+        onClick={[Function]}
+      >
+        <div
+          className="sc-fYxtnH eBSVLI"
+        >
+          <i
+            className="sc-bxivhb dmtZxs"
+          >
+            camera_enhance
+          </i>
+        </div>
+        <input
+          className="sc-dNLxif vpcei"
+          onBlur={[Function]}
+          onChange={[Function]}
+          onFocus={[Function]}
+          placeholder="Projets"
+          type="text"
+          value=""
+        />
+        <div
+          className="sc-jqCOkK bRsHUR"
+        >
+          <i
+            className="sc-bxivhb dmtZxs"
+          >
+            arrow_drop_down
+          </i>
+        </div>
+      </div>
+      <div
+        className="sc-uJMKN XMcMF"
+        data-open={false}
+      >
+        <div
+          className="sc-bbmXgH hoqbrb"
+        >
+          <span
+            className="sc-gGBfsJ ehQHaD"
+            onClick={[Function]}
+          >
+            Tout selectionner
+          </span>
+          <span
+            className="sc-gGBfsJ ehQHaD"
+            onClick={[Function]}
+          >
+            Tout déselectionner
+          </span>
+        </div>
+        <div
+          className="sc-tilXH beytvI"
+          data-selected={true}
+          onClick={[Function]}
+          tabIndex="0"
+          value="sartrouville"
+        >
+          <i
+            className="sc-bxivhb dmtZxs"
+          >
+            check_box
+          </i>
+          Résidence Aurore
+        </div>
+        <div
+          className="sc-tilXH beytvI"
+          data-selected={false}
+          onClick={[Function]}
+          tabIndex="0"
+          value="saint-maur-raspail"
+        >
+          <i
+            className="sc-bxivhb dmtZxs"
+          >
+            check_box_outline_blank
+          </i>
+          saint-maur-raspail
+        </div>
+        <div
+          className="sc-tilXH beytvI"
+          data-selected={false}
+          onClick={[Function]}
+          tabIndex="0"
+          value="toulouse-croix-de-pierre"
+        >
+          <i
+            className="sc-bxivhb dmtZxs"
+          >
+            check_box_outline_blank
+          </i>
+          Croix de Pierre
+        </div>
+        <div
+          className="sc-tilXH beytvI"
+          data-selected={false}
+          onClick={[Function]}
+          tabIndex="0"
+          value="toulouse-colombes"
+        >
+          <i
+            className="sc-bxivhb dmtZxs"
+          >
+            check_box_outline_blank
+          </i>
+          Les Colombes
+        </div>
+        <div
+          className="sc-tilXH beytvI"
+          data-selected={false}
+          onClick={[Function]}
+          tabIndex="0"
+          value="paris-edison"
+        >
+          <i
+            className="sc-bxivhb dmtZxs"
+          >
+            check_box_outline_blank
+          </i>
+          Edison Lite
+        </div>
+        <div
+          className="sc-tilXH beytvI"
+          data-selected={false}
+          onClick={[Function]}
+          tabIndex="0"
+          value="toulouse-la-ramee"
+        >
+          <i
+            className="sc-bxivhb dmtZxs"
+          >
+            check_box_outline_blank
+          </i>
+          La Ramée
+        </div>
+        <div
+          className="sc-tilXH beytvI"
+          data-selected={false}
+          onClick={[Function]}
+          tabIndex="0"
+          value="sarcelles"
+        >
+          <i
+            className="sc-bxivhb dmtZxs"
+          >
+            check_box_outline_blank
+          </i>
+          Sarcelles Village
+        </div>
+        <div
+          className="sc-tilXH beytvI"
+          data-selected={false}
+          onClick={[Function]}
+          tabIndex="0"
+          value="toulouse-le-galy"
+        >
+          <i
+            className="sc-bxivhb dmtZxs"
+          >
+            check_box_outline_blank
+          </i>
+          Résidence Le Galy
+        </div>
+        <div
+          className="sc-tilXH beytvI"
+          data-selected={false}
+          onClick={[Function]}
+          tabIndex="0"
+          value="noisy-le-grand"
+        >
+          <i
+            className="sc-bxivhb dmtZxs"
+          >
+            check_box_outline_blank
+          </i>
+          Noisy-le-Grand
+        </div>
+        <div
+          className="sc-tilXH beytvI"
+          data-selected={false}
+          onClick={[Function]}
+          tabIndex="0"
+          value="toulouse-madera"
+        >
+          <i
+            className="sc-bxivhb dmtZxs"
+          >
+            check_box_outline_blank
+          </i>
+          Résidence Madera
+        </div>
+        <div
+          className="sc-tilXH beytvI"
+          data-selected={false}
+          onClick={[Function]}
+          tabIndex="0"
+          value="soisy-bailly"
+        >
+          <i
+            className="sc-bxivhb dmtZxs"
+          >
+            check_box_outline_blank
+          </i>
+          Résidence Le Bailly
+        </div>
+        <div
+          className="sc-tilXH beytvI"
+          data-selected={false}
+          onClick={[Function]}
+          tabIndex="0"
+          value="toulouse-roseraie"
+        >
+          <i
+            className="sc-bxivhb dmtZxs"
+          >
+            check_box_outline_blank
+          </i>
+          La Roseraie
+        </div>
+        <div
+          className="sc-tilXH beytvI"
+          data-selected={false}
+          onClick={[Function]}
+          tabIndex="0"
+          value="bussy-saint-georges"
+        >
+          <i
+            className="sc-bxivhb dmtZxs"
+          >
+            check_box_outline_blank
+          </i>
+          Le Hameau du Chêneu
+        </div>
+        <div
+          className="sc-tilXH beytvI"
+          data-selected={false}
+          onClick={[Function]}
+          tabIndex="0"
+          value="toulouse-lodges"
+        >
+          <i
+            className="sc-bxivhb dmtZxs"
+          >
+            check_box_outline_blank
+          </i>
+          Résidence Cyrano
+        </div>
+        <div
+          className="sc-tilXH beytvI"
+          data-selected={false}
+          onClick={[Function]}
+          tabIndex="0"
+          value="begles-carrelets"
+        >
+          <i
+            className="sc-bxivhb dmtZxs"
+          >
+            check_box_outline_blank
+          </i>
+          Les Carrelets de l'Estey
+        </div>
+        <div
+          className="sc-tilXH beytvI"
+          data-selected={false}
+          onClick={[Function]}
+          tabIndex="0"
+          value="groslay"
+        >
+          <i
+            className="sc-bxivhb dmtZxs"
+          >
+            check_box_outline_blank
+          </i>
+          NordWood
+        </div>
+        <div
+          className="sc-tilXH beytvI"
+          data-selected={false}
+          onClick={[Function]}
+          tabIndex="0"
+          value="toulouse-malepere"
+        >
+          <i
+            className="sc-bxivhb dmtZxs"
+          >
+            check_box_outline_blank
+          </i>
+          Malepère
+        </div>
+        <div
+          className="sc-tilXH beytvI"
+          data-selected={false}
+          onClick={[Function]}
+          tabIndex="0"
+          value="bagneux-petit"
+        >
+          <i
+            className="sc-bxivhb dmtZxs"
+          >
+            check_box_outline_blank
+          </i>
+          Résidence Onyx
+        </div>
+        <div
+          className="sc-tilXH beytvI"
+          data-selected={false}
+          onClick={[Function]}
+          tabIndex="0"
+          value="antony-marche"
+        >
+          <i
+            className="sc-bxivhb dmtZxs"
+          >
+            check_box_outline_blank
+          </i>
+          Antony-Marché
+        </div>
+        <div
+          className="sc-tilXH beytvI"
+          data-selected={false}
+          onClick={[Function]}
+          tabIndex="0"
+          value="vernouillet"
+        >
+          <i
+            className="sc-bxivhb dmtZxs"
+          >
+            check_box_outline_blank
+          </i>
+          Résidence Eugénie
+        </div>
+        <div
+          className="sc-tilXH beytvI"
+          data-selected={false}
+          onClick={[Function]}
+          tabIndex="0"
+          value="grenoble-cambridge"
+        >
+          <i
+            className="sc-bxivhb dmtZxs"
+          >
+            check_box_outline_blank
+          </i>
+          Résidence Ginkgo
+        </div>
+        <div
+          className="sc-tilXH beytvI"
+          data-selected={false}
+          onClick={[Function]}
+          tabIndex="0"
+          value="paris-18"
+        >
+          <i
+            className="sc-bxivhb dmtZxs"
+          >
+            check_box_outline_blank
+          </i>
+          La Parenthèse
+        </div>
+        <div
+          className="sc-tilXH beytvI"
+          data-selected={false}
+          onClick={[Function]}
+          tabIndex="0"
+          value="levallois-zelmis"
+        >
+          <i
+            className="sc-bxivhb dmtZxs"
+          >
+            check_box_outline_blank
+          </i>
+          Zelmis
+        </div>
+        <div
+          className="sc-tilXH beytvI"
+          data-selected={false}
+          onClick={[Function]}
+          tabIndex="0"
+          value="torcy-le-perchoir"
+        >
+          <i
+            className="sc-bxivhb dmtZxs"
+          >
+            check_box_outline_blank
+          </i>
+          Le Perchoir
+        </div>
+        <div
+          className="sc-tilXH beytvI"
+          data-selected={false}
+          onClick={[Function]}
+          tabIndex="0"
+          value="massy-vilgenis"
+        >
+          <i
+            className="sc-bxivhb dmtZxs"
+          >
+            check_box_outline_blank
+          </i>
+          Massy-Vilgénis
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Inputs/Select single item 1`] = `
+<div
+  style={
+    Object {
+      "alignItems": "center",
+      "bottom": 0,
+      "display": "flex",
+      "left": 0,
+      "overflow": "auto",
+      "position": "fixed",
+      "right": 0,
+      "top": 0,
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "margin": "auto",
+        "maxHeight": "100%",
+      }
+    }
+  >
+    <div
+      className="sc-hqyNC dymbXe"
+      onClick={[Function]}
+    >
+      <div
+        className="sc-jbKcbu fziNAi"
+        data-empty={false}
+        data-open={false}
+        onClick={[Function]}
+      >
+        <input
+          className="sc-dNLxif vpcei"
+          onBlur={[Function]}
+          onChange={[Function]}
+          onFocus={[Function]}
+          placeholder="Résidence Aurore"
+          type="text"
+          value=""
+        />
+        <div
+          className="sc-jqCOkK bRsHUR"
+        >
+          <i
+            className="sc-bxivhb ikqPoS"
+            onClick={[Function]}
+          >
+            close
+          </i>
+          <i
+            className="sc-bxivhb dmtZxs"
+          >
+            arrow_drop_down
+          </i>
+        </div>
+      </div>
+      <div
+        className="sc-uJMKN XMcMF"
+        data-open={false}
+      >
+        <div
+          className="sc-tilXH beytvI"
+          data-selected={false}
+          onClick={[Function]}
+          tabIndex="0"
+          value="saint-maur-raspail"
+        >
+          saint-maur-raspail
+        </div>
+        <div
+          className="sc-tilXH beytvI"
+          data-selected={false}
+          onClick={[Function]}
+          tabIndex="0"
+          value="toulouse-croix-de-pierre"
+        >
+          Croix de Pierre
+        </div>
+        <div
+          className="sc-tilXH beytvI"
+          data-selected={false}
+          onClick={[Function]}
+          tabIndex="0"
+          value="toulouse-colombes"
+        >
+          Les Colombes
+        </div>
+        <div
+          className="sc-tilXH beytvI"
+          data-selected={false}
+          onClick={[Function]}
+          tabIndex="0"
+          value="paris-edison"
+        >
+          Edison Lite
+        </div>
+        <div
+          className="sc-tilXH beytvI"
+          data-selected={false}
+          onClick={[Function]}
+          tabIndex="0"
+          value="toulouse-la-ramee"
+        >
+          La Ramée
+        </div>
+        <div
+          className="sc-tilXH beytvI"
+          data-selected={false}
+          onClick={[Function]}
+          tabIndex="0"
+          value="sarcelles"
+        >
+          Sarcelles Village
+        </div>
+        <div
+          className="sc-tilXH beytvI"
+          data-selected={false}
+          onClick={[Function]}
+          tabIndex="0"
+          value="toulouse-le-galy"
+        >
+          Résidence Le Galy
+        </div>
+        <div
+          className="sc-tilXH beytvI"
+          data-selected={false}
+          onClick={[Function]}
+          tabIndex="0"
+          value="noisy-le-grand"
+        >
+          Noisy-le-Grand
+        </div>
+        <div
+          className="sc-tilXH beytvI"
+          data-selected={false}
+          onClick={[Function]}
+          tabIndex="0"
+          value="toulouse-madera"
+        >
+          Résidence Madera
+        </div>
+        <div
+          className="sc-tilXH beytvI"
+          data-selected={false}
+          onClick={[Function]}
+          tabIndex="0"
+          value="soisy-bailly"
+        >
+          Résidence Le Bailly
+        </div>
+        <div
+          className="sc-tilXH beytvI"
+          data-selected={false}
+          onClick={[Function]}
+          tabIndex="0"
+          value="toulouse-roseraie"
+        >
+          La Roseraie
+        </div>
+        <div
+          className="sc-tilXH beytvI"
+          data-selected={false}
+          onClick={[Function]}
+          tabIndex="0"
+          value="bussy-saint-georges"
+        >
+          Le Hameau du Chêneu
+        </div>
+        <div
+          className="sc-tilXH beytvI"
+          data-selected={false}
+          onClick={[Function]}
+          tabIndex="0"
+          value="toulouse-lodges"
+        >
+          Résidence Cyrano
+        </div>
+        <div
+          className="sc-tilXH beytvI"
+          data-selected={false}
+          onClick={[Function]}
+          tabIndex="0"
+          value="begles-carrelets"
+        >
+          Les Carrelets de l'Estey
+        </div>
+        <div
+          className="sc-tilXH beytvI"
+          data-selected={false}
+          onClick={[Function]}
+          tabIndex="0"
+          value="groslay"
+        >
+          NordWood
+        </div>
+        <div
+          className="sc-tilXH beytvI"
+          data-selected={false}
+          onClick={[Function]}
+          tabIndex="0"
+          value="toulouse-malepere"
+        >
+          Malepère
+        </div>
+        <div
+          className="sc-tilXH beytvI"
+          data-selected={false}
+          onClick={[Function]}
+          tabIndex="0"
+          value="bagneux-petit"
+        >
+          Résidence Onyx
+        </div>
+        <div
+          className="sc-tilXH beytvI"
+          data-selected={false}
+          onClick={[Function]}
+          tabIndex="0"
+          value="antony-marche"
+        >
+          Antony-Marché
+        </div>
+        <div
+          className="sc-tilXH beytvI"
+          data-selected={false}
+          onClick={[Function]}
+          tabIndex="0"
+          value="vernouillet"
+        >
+          Résidence Eugénie
+        </div>
+        <div
+          className="sc-tilXH beytvI"
+          data-selected={false}
+          onClick={[Function]}
+          tabIndex="0"
+          value="grenoble-cambridge"
+        >
+          Résidence Ginkgo
+        </div>
+        <div
+          className="sc-tilXH beytvI"
+          data-selected={false}
+          onClick={[Function]}
+          tabIndex="0"
+          value="paris-18"
+        >
+          La Parenthèse
+        </div>
+        <div
+          className="sc-tilXH beytvI"
+          data-selected={false}
+          onClick={[Function]}
+          tabIndex="0"
+          value="levallois-zelmis"
+        >
+          Zelmis
+        </div>
+        <div
+          className="sc-tilXH beytvI"
+          data-selected={false}
+          onClick={[Function]}
+          tabIndex="0"
+          value="torcy-le-perchoir"
+        >
+          Le Perchoir
+        </div>
+        <div
+          className="sc-tilXH beytvI"
+          data-selected={false}
+          onClick={[Function]}
+          tabIndex="0"
+          value="massy-vilgenis"
+        >
+          Massy-Vilgénis
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Inputs/Select single item without reset 1`] = `
+<div
+  style={
+    Object {
+      "alignItems": "center",
+      "bottom": 0,
+      "display": "flex",
+      "left": 0,
+      "overflow": "auto",
+      "position": "fixed",
+      "right": 0,
+      "top": 0,
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "margin": "auto",
+        "maxHeight": "100%",
+      }
+    }
+  >
+    <div
+      className="sc-hqyNC dymbXe"
+      onClick={[Function]}
+    >
+      <div
+        className="sc-jbKcbu fziNAi"
+        data-empty={false}
+        data-open={false}
+        onClick={[Function]}
+      >
+        <input
+          className="sc-dNLxif vpcei"
+          onBlur={[Function]}
+          onChange={[Function]}
+          onFocus={[Function]}
+          placeholder="Résidence Aurore"
+          type="text"
+          value=""
+        />
+        <div
+          className="sc-jqCOkK bRsHUR"
+        >
+          <i
+            className="sc-bxivhb dmtZxs"
+          >
+            arrow_drop_down
+          </i>
+        </div>
+      </div>
+      <div
+        className="sc-uJMKN XMcMF"
+        data-open={false}
+      >
+        <div
+          className="sc-tilXH beytvI"
+          data-selected={false}
+          onClick={[Function]}
+          tabIndex="0"
+          value="saint-maur-raspail"
+        >
+          saint-maur-raspail
+        </div>
+        <div
+          className="sc-tilXH beytvI"
+          data-selected={false}
+          onClick={[Function]}
+          tabIndex="0"
+          value="toulouse-croix-de-pierre"
+        >
+          Croix de Pierre
+        </div>
+        <div
+          className="sc-tilXH beytvI"
+          data-selected={false}
+          onClick={[Function]}
+          tabIndex="0"
+          value="toulouse-colombes"
+        >
+          Les Colombes
+        </div>
+        <div
+          className="sc-tilXH beytvI"
+          data-selected={false}
+          onClick={[Function]}
+          tabIndex="0"
+          value="paris-edison"
+        >
+          Edison Lite
+        </div>
+        <div
+          className="sc-tilXH beytvI"
+          data-selected={false}
+          onClick={[Function]}
+          tabIndex="0"
+          value="toulouse-la-ramee"
+        >
+          La Ramée
+        </div>
+        <div
+          className="sc-tilXH beytvI"
+          data-selected={false}
+          onClick={[Function]}
+          tabIndex="0"
+          value="sarcelles"
+        >
+          Sarcelles Village
+        </div>
+        <div
+          className="sc-tilXH beytvI"
+          data-selected={false}
+          onClick={[Function]}
+          tabIndex="0"
+          value="toulouse-le-galy"
+        >
+          Résidence Le Galy
+        </div>
+        <div
+          className="sc-tilXH beytvI"
+          data-selected={false}
+          onClick={[Function]}
+          tabIndex="0"
+          value="noisy-le-grand"
+        >
+          Noisy-le-Grand
+        </div>
+        <div
+          className="sc-tilXH beytvI"
+          data-selected={false}
+          onClick={[Function]}
+          tabIndex="0"
+          value="toulouse-madera"
+        >
+          Résidence Madera
+        </div>
+        <div
+          className="sc-tilXH beytvI"
+          data-selected={false}
+          onClick={[Function]}
+          tabIndex="0"
+          value="soisy-bailly"
+        >
+          Résidence Le Bailly
+        </div>
+        <div
+          className="sc-tilXH beytvI"
+          data-selected={false}
+          onClick={[Function]}
+          tabIndex="0"
+          value="toulouse-roseraie"
+        >
+          La Roseraie
+        </div>
+        <div
+          className="sc-tilXH beytvI"
+          data-selected={false}
+          onClick={[Function]}
+          tabIndex="0"
+          value="bussy-saint-georges"
+        >
+          Le Hameau du Chêneu
+        </div>
+        <div
+          className="sc-tilXH beytvI"
+          data-selected={false}
+          onClick={[Function]}
+          tabIndex="0"
+          value="toulouse-lodges"
+        >
+          Résidence Cyrano
+        </div>
+        <div
+          className="sc-tilXH beytvI"
+          data-selected={false}
+          onClick={[Function]}
+          tabIndex="0"
+          value="begles-carrelets"
+        >
+          Les Carrelets de l'Estey
+        </div>
+        <div
+          className="sc-tilXH beytvI"
+          data-selected={false}
+          onClick={[Function]}
+          tabIndex="0"
+          value="groslay"
+        >
+          NordWood
+        </div>
+        <div
+          className="sc-tilXH beytvI"
+          data-selected={false}
+          onClick={[Function]}
+          tabIndex="0"
+          value="toulouse-malepere"
+        >
+          Malepère
+        </div>
+        <div
+          className="sc-tilXH beytvI"
+          data-selected={false}
+          onClick={[Function]}
+          tabIndex="0"
+          value="bagneux-petit"
+        >
+          Résidence Onyx
+        </div>
+        <div
+          className="sc-tilXH beytvI"
+          data-selected={false}
+          onClick={[Function]}
+          tabIndex="0"
+          value="antony-marche"
+        >
+          Antony-Marché
+        </div>
+        <div
+          className="sc-tilXH beytvI"
+          data-selected={false}
+          onClick={[Function]}
+          tabIndex="0"
+          value="vernouillet"
+        >
+          Résidence Eugénie
+        </div>
+        <div
+          className="sc-tilXH beytvI"
+          data-selected={false}
+          onClick={[Function]}
+          tabIndex="0"
+          value="grenoble-cambridge"
+        >
+          Résidence Ginkgo
+        </div>
+        <div
+          className="sc-tilXH beytvI"
+          data-selected={false}
+          onClick={[Function]}
+          tabIndex="0"
+          value="paris-18"
+        >
+          La Parenthèse
+        </div>
+        <div
+          className="sc-tilXH beytvI"
+          data-selected={false}
+          onClick={[Function]}
+          tabIndex="0"
+          value="levallois-zelmis"
+        >
+          Zelmis
+        </div>
+        <div
+          className="sc-tilXH beytvI"
+          data-selected={false}
+          onClick={[Function]}
+          tabIndex="0"
+          value="torcy-le-perchoir"
+        >
+          Le Perchoir
+        </div>
+        <div
+          className="sc-tilXH beytvI"
+          data-selected={false}
+          onClick={[Function]}
+          tabIndex="0"
+          value="massy-vilgenis"
+        >
+          Massy-Vilgénis
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Inputs/Slider Basic 1`] = `
+<div
+  style={
+    Object {
+      "alignItems": "center",
+      "bottom": 0,
+      "display": "flex",
+      "left": 0,
+      "overflow": "auto",
+      "position": "fixed",
+      "right": 0,
+      "top": 0,
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "margin": "auto",
+        "maxHeight": "100%",
+      }
+    }
+  >
+    <div
+      className="sc-kafWEX hBqJao"
+    >
+      <div
+        className="sc-ktHwxA sc-cIShpX jrYnHC"
+        color="#1dcad3"
+      >
+        <div
+          className="rc-slider"
+          onBlur={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          onMouseDown={[Function]}
+          onMouseUp={[Function]}
+          onTouchStart={[Function]}
+        >
+          <div
+            className="rc-slider-rail"
+            style={Object {}}
+          />
+          <div
+            className="rc-slider-track"
+            style={
+              Object {
+                "left": "0%",
+                "width": "40%",
+              }
+            }
+          />
+          <div
+            className="rc-slider-step"
+          />
+          <div
+            aria-disabled={false}
+            aria-valuemax={100}
+            aria-valuemin={0}
+            aria-valuenow={40}
+            className="rc-slider-handle"
+            onBlur={[Function]}
+            onKeyDown={[Function]}
+            role="slider"
+            style={
+              Object {
+                "left": "40%",
+              }
+            }
+            tabIndex={0}
+          />
+          <div
+            className="rc-slider-mark"
+          />
+        </div>
+        <span
+          className="sc-hEsumM cGwGYS"
+          max={100}
+          style={
+            Object {
+              "left": "calc(100%/100*40)",
+            }
+          }
+          value={40}
+        >
+          40
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Inputs/Slider with custom color 1`] = `
+<div
+  style={
+    Object {
+      "alignItems": "center",
+      "bottom": 0,
+      "display": "flex",
+      "left": 0,
+      "overflow": "auto",
+      "position": "fixed",
+      "right": 0,
+      "top": 0,
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "margin": "auto",
+        "maxHeight": "100%",
+      }
+    }
+  >
+    <div
+      className="sc-kafWEX hBqJao"
+    >
+      <div
+        className="sc-ktHwxA sc-cIShpX cAVgHY"
+        color="#0071ce"
+      >
+        <div
+          className="rc-slider"
+          onBlur={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          onMouseDown={[Function]}
+          onMouseUp={[Function]}
+          onTouchStart={[Function]}
+        >
+          <div
+            className="rc-slider-rail"
+            style={Object {}}
+          />
+          <div
+            className="rc-slider-track"
+            style={
+              Object {
+                "left": "0%",
+                "width": "40%",
+              }
+            }
+          />
+          <div
+            className="rc-slider-step"
+          />
+          <div
+            aria-disabled={false}
+            aria-valuemax={100}
+            aria-valuemin={0}
+            aria-valuenow={40}
+            className="rc-slider-handle"
+            onBlur={[Function]}
+            onKeyDown={[Function]}
+            role="slider"
+            style={
+              Object {
+                "left": "40%",
+              }
+            }
+            tabIndex={0}
+          />
+          <div
+            className="rc-slider-mark"
+          />
+        </div>
+        <span
+          className="sc-hEsumM cGwGYS"
+          max={100}
+          style={
+            Object {
+              "left": "calc(100%/100*40)",
+            }
+          }
+          value={40}
+        >
+          40
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Inputs/Slider with custom values 1`] = `
+<div
+  style={
+    Object {
+      "alignItems": "center",
+      "bottom": 0,
+      "display": "flex",
+      "left": 0,
+      "overflow": "auto",
+      "position": "fixed",
+      "right": 0,
+      "top": 0,
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "margin": "auto",
+        "maxHeight": "100%",
+      }
+    }
+  >
+    <div
+      className="sc-kafWEX hBqJao"
+    >
+      <div
+        className="sc-ktHwxA sc-cIShpX jrYnHC"
+        color="#1dcad3"
+      >
+        <div
+          className="rc-slider"
+          onBlur={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          onMouseDown={[Function]}
+          onMouseUp={[Function]}
+          onTouchStart={[Function]}
+        >
+          <div
+            className="rc-slider-rail"
+            style={Object {}}
+          />
+          <div
+            className="rc-slider-track"
+            style={
+              Object {
+                "left": "0%",
+                "width": "0%",
+              }
+            }
+          />
+          <div
+            className="rc-slider-step"
+          >
+            <span
+              className="rc-slider-dot rc-slider-dot-active"
+              style={
+                Object {
+                  "left": "0%",
+                }
+              }
+            />
+            <span
+              className="rc-slider-dot"
+              style={
+                Object {
+                  "left": "16.666666666666664%",
+                }
+              }
+            />
+            <span
+              className="rc-slider-dot"
+              style={
+                Object {
+                  "left": "33.33333333333333%",
+                }
+              }
+            />
+            <span
+              className="rc-slider-dot"
+              style={
+                Object {
+                  "left": "50%",
+                }
+              }
+            />
+            <span
+              className="rc-slider-dot"
+              style={
+                Object {
+                  "left": "66.66666666666666%",
+                }
+              }
+            />
+            <span
+              className="rc-slider-dot"
+              style={
+                Object {
+                  "left": "83.33333333333334%",
+                }
+              }
+            />
+            <span
+              className="rc-slider-dot"
+              style={
+                Object {
+                  "left": "100%",
+                }
+              }
+            />
+          </div>
+          <div
+            aria-disabled={false}
+            aria-valuemax={6}
+            aria-valuemin={0}
+            aria-valuenow={0}
+            className="rc-slider-handle"
+            onBlur={[Function]}
+            onKeyDown={[Function]}
+            role="slider"
+            style={
+              Object {
+                "left": "0%",
+              }
+            }
+            tabIndex={0}
+          />
+          <div
+            className="rc-slider-mark"
+          />
+        </div>
+        <span
+          className="sc-hEsumM cGwGYS"
+          max={6}
+          style={
+            Object {
+              "left": "calc(100%/6*0)",
+            }
+          }
+          value={0}
+        >
+          Cabane
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Inputs/Slider with range 1`] = `
+<div
+  style={
+    Object {
+      "alignItems": "center",
+      "bottom": 0,
+      "display": "flex",
+      "left": 0,
+      "overflow": "auto",
+      "position": "fixed",
+      "right": 0,
+      "top": 0,
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "margin": "auto",
+        "maxHeight": "100%",
+      }
+    }
+  >
+    <div
+      className="sc-kafWEX hBqJao"
+    >
+      <div
+        className="sc-ktHwxA sc-cIShpX jrYnHC"
+        color="#1dcad3"
+      >
+        <div
+          className="rc-slider"
+          onBlur={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          onMouseDown={[Function]}
+          onMouseUp={[Function]}
+          onTouchStart={[Function]}
+        >
+          <div
+            className="rc-slider-rail"
+            style={Object {}}
+          />
+          <div
+            className="rc-slider-track rc-slider-track-1"
+            style={
+              Object {
+                "left": "20%",
+                "width": "40%",
+              }
+            }
+          />
+          <div
+            className="rc-slider-step"
+          />
+          <div
+            aria-disabled={false}
+            aria-valuemax={100}
+            aria-valuemin={0}
+            aria-valuenow={20}
+            className="rc-slider-handle rc-slider-handle-1"
+            onBlur={[Function]}
+            onKeyDown={[Function]}
+            role="slider"
+            style={
+              Object {
+                "left": "20%",
+              }
+            }
+            tabIndex={0}
+          />
+          <div
+            aria-disabled={false}
+            aria-valuemax={100}
+            aria-valuemin={0}
+            aria-valuenow={60}
+            className="rc-slider-handle rc-slider-handle-2"
+            onBlur={[Function]}
+            onKeyDown={[Function]}
+            role="slider"
+            style={
+              Object {
+                "left": "60%",
+              }
+            }
+            tabIndex={0}
+          />
+          <div
+            className="rc-slider-mark"
+          />
+        </div>
+        <span
+          className="sc-hEsumM cGwGYS"
+          max={100}
+          style={
+            Object {
+              "left": "calc(100%/100*20)",
+            }
+          }
+          value={20}
+        >
+          20 à 60
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Inputs/Slider with tooltip suffix 1`] = `
+<div
+  style={
+    Object {
+      "alignItems": "center",
+      "bottom": 0,
+      "display": "flex",
+      "left": 0,
+      "overflow": "auto",
+      "position": "fixed",
+      "right": 0,
+      "top": 0,
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "margin": "auto",
+        "maxHeight": "100%",
+      }
+    }
+  >
+    <div
+      className="sc-kafWEX hBqJao"
+    >
+      <div
+        className="sc-ktHwxA sc-cIShpX jrYnHC"
+        color="#1dcad3"
+      >
+        <div
+          className="rc-slider"
+          onBlur={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          onMouseDown={[Function]}
+          onMouseUp={[Function]}
+          onTouchStart={[Function]}
+        >
+          <div
+            className="rc-slider-rail"
+            style={Object {}}
+          />
+          <div
+            className="rc-slider-track"
+            style={
+              Object {
+                "left": "0%",
+                "width": "5%",
+              }
+            }
+          />
+          <div
+            className="rc-slider-step"
+          />
+          <div
+            aria-disabled={false}
+            aria-valuemax={100}
+            aria-valuemin={0}
+            aria-valuenow={5}
+            className="rc-slider-handle"
+            onBlur={[Function]}
+            onKeyDown={[Function]}
+            role="slider"
+            style={
+              Object {
+                "left": "5%",
+              }
+            }
+            tabIndex={0}
+          />
+          <div
+            className="rc-slider-mark"
+          />
+        </div>
+        <span
+          className="sc-hEsumM cGwGYS"
+          max={100}
+          style={
+            Object {
+              "left": "calc(100%/100*3)",
+            }
+          }
+          value={3}
+        >
+          3m²
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Inputs/TextInput basic 1`] = `
+<div
+  style={
+    Object {
+      "alignItems": "center",
+      "bottom": 0,
+      "display": "flex",
+      "left": 0,
+      "overflow": "auto",
+      "position": "fixed",
+      "right": 0,
+      "top": 0,
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "margin": "auto",
+        "maxHeight": "100%",
+      }
+    }
+  >
+    <div
+      className="sc-jtRfpW lmzaFj"
+    >
+      <div
+        className="sc-jzJRlG kWXQMC"
+        color="#52627a"
+        value="55 Rue d'Amsterdam, 75008 Paris"
+      >
+        <input
+          className="sc-chPdSV koeleK"
+          color="#52627a"
+          onChange={[Function]}
+          value="55 Rue d'Amsterdam, 75008 Paris"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Inputs/TextInput disabled 1`] = `
+<div
+  style={
+    Object {
+      "alignItems": "center",
+      "bottom": 0,
+      "display": "flex",
+      "left": 0,
+      "overflow": "auto",
+      "position": "fixed",
+      "right": 0,
+      "top": 0,
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "margin": "auto",
+        "maxHeight": "100%",
+      }
+    }
+  >
+    <div
+      className="sc-jtRfpW lmzaFj"
+    >
+      <div
+        className="sc-jzJRlG kWXQMC"
+        color="#52627a"
+        disabled={true}
+        value="55 Rue d'Amsterdam, 75008 Paris"
+      >
+        <input
+          className="sc-chPdSV koeleK"
+          color="#52627a"
+          disabled={true}
+          onChange={[Function]}
+          value="55 Rue d'Amsterdam, 75008 Paris"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Inputs/TextInput with error 1`] = `
+<div
+  style={
+    Object {
+      "alignItems": "center",
+      "bottom": 0,
+      "display": "flex",
+      "left": 0,
+      "overflow": "auto",
+      "position": "fixed",
+      "right": 0,
+      "top": 0,
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "margin": "auto",
+        "maxHeight": "100%",
+      }
+    }
+  >
+    <div
+      className="sc-jtRfpW lmzaFj"
+    >
+      <div
+        className="sc-jzJRlG ikHotb"
+        color="#52627a"
+        value="55 Rue d'Amsterdam, 75008 Paris"
+      >
+        <input
+          className="sc-chPdSV iQKrdf"
+          color="#52627a"
+          onChange={[Function]}
+          value="55 Rue d'Amsterdam, 75008 Paris"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Inputs/TextInput with hover icon 1`] = `
+<div
+  style={
+    Object {
+      "alignItems": "center",
+      "bottom": 0,
+      "display": "flex",
+      "left": 0,
+      "overflow": "auto",
+      "position": "fixed",
+      "right": 0,
+      "top": 0,
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "margin": "auto",
+        "maxHeight": "100%",
+      }
+    }
+  >
+    <div
+      className="sc-jtRfpW lmzaFj"
+    >
+      <div
+        className="sc-jzJRlG kWXQMC"
+        color="#52627a"
+        value="55 Rue d'Amsterdam, 75008 Paris"
+      >
+        <input
+          className="sc-chPdSV koeleK"
+          color="#52627a"
+          onChange={[Function]}
+          value="55 Rue d'Amsterdam, 75008 Paris"
+        />
+        <div
+          className="hover-element-right sc-kAzzGY hpXjdQ"
+          color="#52627a"
+          value="55 Rue d'Amsterdam, 75008 Paris"
+        >
+          <i
+            className="sc-bxivhb dmtZxs"
+          >
+            edit
+          </i>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Inputs/TextInput with icon 1`] = `
+<div
+  style={
+    Object {
+      "alignItems": "center",
+      "bottom": 0,
+      "display": "flex",
+      "left": 0,
+      "overflow": "auto",
+      "position": "fixed",
+      "right": 0,
+      "top": 0,
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "margin": "auto",
+        "maxHeight": "100%",
+      }
+    }
+  >
+    <div
+      className="sc-jtRfpW lmzaFj"
+    >
+      <div
+        className="sc-jzJRlG kWXQMC"
+        color="#52627a"
+        value="55 Rue d'Amsterdam, 75008 Paris"
+      >
+        <input
+          className="sc-chPdSV koeleK"
+          color="#52627a"
+          onChange={[Function]}
+          value="55 Rue d'Amsterdam, 75008 Paris"
+        />
+        <div
+          className="sc-kAzzGY hpXjdQ"
+          color="#52627a"
+          value="55 Rue d'Amsterdam, 75008 Paris"
+        >
+          <i
+            className="sc-bxivhb dmtZxs"
+          >
+            edit
+          </i>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Inputs/TextInput with label 1`] = `
+<div
+  style={
+    Object {
+      "alignItems": "center",
+      "bottom": 0,
+      "display": "flex",
+      "left": 0,
+      "overflow": "auto",
+      "position": "fixed",
+      "right": 0,
+      "top": 0,
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "margin": "auto",
+        "maxHeight": "100%",
+      }
+    }
+  >
+    <div
+      className="sc-jtRfpW lmzaFj"
+    >
+      <div
+        className="sc-gqjmRU gKJxEj"
+      >
+        <div
+          className="sc-VigVT eQWvpC"
+        >
+          Adresse d'Habx
+        </div>
+        <div
+          className="sc-jzJRlG kWXQMC"
+          color="#52627a"
+          value="55 Rue d'Amsterdam, 75008 Paris"
+        >
+          <input
+            className="sc-chPdSV koeleK"
+            color="#52627a"
+            onChange={[Function]}
+            value="55 Rue d'Amsterdam, 75008 Paris"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Inputs/TextInput with loader 1`] = `
+<div
+  style={
+    Object {
+      "alignItems": "center",
+      "bottom": 0,
+      "display": "flex",
+      "left": 0,
+      "overflow": "auto",
+      "position": "fixed",
+      "right": 0,
+      "top": 0,
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "margin": "auto",
+        "maxHeight": "100%",
+      }
+    }
+  >
+    <div
+      className="sc-jtRfpW lmzaFj"
+    >
+      <div
+        className="sc-jzJRlG kWXQMC"
+        color="#52627a"
+        value="55 Rue d'Amsterdam, 75008 Paris"
+      >
+        <input
+          className="sc-chPdSV koeleK"
+          color="#52627a"
+          onChange={[Function]}
+          value="55 Rue d'Amsterdam, 75008 Paris"
+        />
+        <div
+          className="sc-cSHVUG kbXhSz sc-jTzLTM iYkgqI"
+          size={15}
+        >
+          <svg
+            className="sc-fjdhpX klDghD"
+            size={15}
+            viewBox="0 0 15 15"
+          >
+            <circle
+              className="path"
+              cx={7.5}
+              cy={7.5}
+              fill="none"
+              r={6}
+              stroke="#0071ce"
+              strokeWidth="3"
+            />
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Miscellaneous/Card basic 1`] = `
+<div
+  style={
+    Object {
+      "alignItems": "center",
+      "bottom": 0,
+      "display": "flex",
+      "left": 0,
+      "overflow": "auto",
+      "position": "fixed",
+      "right": 0,
+      "top": 0,
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "margin": "auto",
+        "maxHeight": "100%",
+      }
+    }
+  >
+    <div
+      className="sc-iAyFgw klijOa"
+    >
+      <div
+        className="sc-jWBwVP SeRpx"
+      >
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Miscellaneous/Card with onClick 1`] = `
+<div
+  style={
+    Object {
+      "alignItems": "center",
+      "bottom": 0,
+      "display": "flex",
+      "left": 0,
+      "overflow": "auto",
+      "position": "fixed",
+      "right": 0,
+      "top": 0,
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "margin": "auto",
+        "maxHeight": "100%",
+      }
+    }
+  >
+    <div
+      className="sc-iAyFgw fctgc"
+      onClick={[Function]}
+    >
+      <div
+        className="sc-jWBwVP SeRpx"
+      >
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Miscellaneous/Card with subtitle 1`] = `
+<div
+  style={
+    Object {
+      "alignItems": "center",
+      "bottom": 0,
+      "display": "flex",
+      "left": 0,
+      "overflow": "auto",
+      "position": "fixed",
+      "right": 0,
+      "top": 0,
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "margin": "auto",
+        "maxHeight": "100%",
+      }
+    }
+  >
+    <div
+      className="sc-iAyFgw klijOa"
+    >
+      <div
+        className="sc-hSdWYo jfQyiz"
+      >
+        <h3
+          className="sc-eNQAEJ sc-hMqMXs elJQLp"
+          color="#061a3c"
+        >
+          Le Zelmis
+        </h3>
+      </div>
+      <div
+        className="sc-eHgmQL iEsUrc"
+      >
+        <h4
+          className="sc-kEYyzF sc-kkGfuU dOGewu"
+          color="#52627a"
+        >
+          Levallois Peret
+        </h4>
+      </div>
+      <div
+        className="sc-jWBwVP SeRpx"
+      >
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Miscellaneous/Card with title 1`] = `
+<div
+  style={
+    Object {
+      "alignItems": "center",
+      "bottom": 0,
+      "display": "flex",
+      "left": 0,
+      "overflow": "auto",
+      "position": "fixed",
+      "right": 0,
+      "top": 0,
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "margin": "auto",
+        "maxHeight": "100%",
+      }
+    }
+  >
+    <div
+      className="sc-iAyFgw klijOa"
+    >
+      <div
+        className="sc-hSdWYo jfQyiz"
+      >
+        <h3
+          className="sc-eNQAEJ sc-hMqMXs elJQLp"
+          color="#061a3c"
+        >
+          Tâches
+        </h3>
+      </div>
+      <div
+        className="sc-jWBwVP SeRpx"
+      >
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Miscellaneous/FontIcon simple icons 1`] = `
+<div
+  style={
+    Object {
+      "alignItems": "center",
+      "bottom": 0,
+      "display": "flex",
+      "left": 0,
+      "overflow": "auto",
+      "position": "fixed",
+      "right": 0,
+      "top": 0,
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "margin": "auto",
+        "maxHeight": "100%",
+      }
+    }
+  >
+    <div
+      className="sc-brqgnP fPBIxN"
+    >
+      <div
+        className="sc-cMljjf tnooh"
+      >
+        <i
+          className="sc-bxivhb dmtZxs"
+        >
+          person
+        </i>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Miscellaneous/Menu basic 1`] = `
+<div
+  style={
+    Object {
+      "alignItems": "center",
+      "bottom": 0,
+      "display": "flex",
+      "left": 0,
+      "overflow": "auto",
+      "position": "fixed",
+      "right": 0,
+      "top": 0,
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "margin": "auto",
+        "maxHeight": "100%",
+      }
+    }
+  >
+    <div
+      className="sc-csuQGl dlqfCR"
+    >
+      <div
+        className="sc-gPEVay hclups"
+      >
+        <button
+          className="sc-htpNat bSLcSv"
+          onClick={[Function]}
+        >
+          Menu
+        </button>
+        <div
+          className="sc-jAaTju iLAYTu"
+          data-open={false}
+        >
+          <ul
+            className="sc-jDwBTQ cJHvXy"
+            onClick={[Function]}
+          >
+            <li
+              className="sc-iRbamj jruuZF"
+            >
+              <div
+                className="sc-jlyJG fMNUAy"
+              >
+                Gestion des contacts
+              </div>
+            </li>
+            <li
+              className="sc-iRbamj jruuZF"
+            >
+              <div
+                className="sc-jlyJG fMNUAy"
+              >
+                Gestion des projets
+              </div>
+            </li>
+            <li
+              className="sc-iRbamj jruuZF"
+            >
+              <div
+                className="sc-jlyJG fMNUAy"
+              >
+                Gestion des pages
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Miscellaneous/Menu with icons 1`] = `
+<div
+  style={
+    Object {
+      "alignItems": "center",
+      "bottom": 0,
+      "display": "flex",
+      "left": 0,
+      "overflow": "auto",
+      "position": "fixed",
+      "right": 0,
+      "top": 0,
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "margin": "auto",
+        "maxHeight": "100%",
+      }
+    }
+  >
+    <div
+      className="sc-csuQGl dlqfCR"
+    >
+      <div
+        className="sc-gPEVay hclups"
+      >
+        <button
+          className="sc-htpNat bSLcSv"
+          onClick={[Function]}
+        >
+          Menu
+        </button>
+        <div
+          className="sc-jAaTju iLAYTu"
+          data-open={false}
+        >
+          <ul
+            className="sc-jDwBTQ cJHvXy"
+            onClick={[Function]}
+          >
+            <li
+              className="sc-iRbamj jruuZF"
+            >
+              <div
+                className="sc-gipzik jILoUQ"
+              >
+                <i
+                  className="sc-bxivhb dmtZxs"
+                >
+                  people
+                </i>
+              </div>
+              <div
+                className="sc-jlyJG fMNUAy"
+              >
+                Gestion des contacts
+              </div>
+            </li>
+            <li
+              className="sc-iRbamj jruuZF"
+            >
+              <div
+                className="sc-gipzik jILoUQ"
+              >
+                <i
+                  className="sc-bxivhb dmtZxs"
+                >
+                  location_city
+                </i>
+              </div>
+              <div
+                className="sc-jlyJG fMNUAy"
+              >
+                Gestion des projets
+              </div>
+            </li>
+            <li
+              className="sc-iRbamj jruuZF"
+            >
+              <div
+                className="sc-gipzik jILoUQ"
+              >
+                <i
+                  className="sc-bxivhb dmtZxs"
+                >
+                  create
+                </i>
+              </div>
+              <div
+                className="sc-jlyJG fMNUAy"
+              >
+                Gestion des pages
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Miscellaneous/Menu with position aligned right 1`] = `
+<div
+  style={
+    Object {
+      "alignItems": "center",
+      "bottom": 0,
+      "display": "flex",
+      "left": 0,
+      "overflow": "auto",
+      "position": "fixed",
+      "right": 0,
+      "top": 0,
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "margin": "auto",
+        "maxHeight": "100%",
+      }
+    }
+  >
+    <div
+      className="sc-csuQGl dlqfCR"
+    >
+      <div
+        className="sc-gPEVay hclups"
+      >
+        <button
+          className="sc-htpNat bSLcSv"
+          onClick={[Function]}
+        >
+          Menu
+        </button>
+        <div
+          className="sc-jAaTju hOBTvl"
+          data-open={false}
+        >
+          <ul
+            className="sc-jDwBTQ cJHvXy"
+            onClick={[Function]}
+          >
+            <li
+              className="sc-iRbamj jruuZF"
+            >
+              <div
+                className="sc-jlyJG fMNUAy"
+              >
+                Gestion des contacts
+              </div>
+            </li>
+            <li
+              className="sc-iRbamj jruuZF"
+            >
+              <div
+                className="sc-jlyJG fMNUAy"
+              >
+                Gestion des projets
+              </div>
+            </li>
+            <li
+              className="sc-iRbamj jruuZF"
+            >
+              <div
+                className="sc-jlyJG fMNUAy"
+              >
+                Gestion des pages
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Miscellaneous/Notification basic 1`] = `
+<div
+  style={
+    Object {
+      "alignItems": "center",
+      "bottom": 0,
+      "display": "flex",
+      "left": 0,
+      "overflow": "auto",
+      "position": "fixed",
+      "right": 0,
+      "top": 0,
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "margin": "auto",
+        "maxHeight": "100%",
+      }
+    }
+  >
+    <div
+      className="sc-kjoXOD bMykkz"
+    >
+      <p
+        className="sc-TOsTZ gSeoGX"
+      >
+        Impossible de modifier l'email
+      </p>
+      <div
+        className="sc-cJSrbW loYjfv"
+        onClick={[Function]}
+      >
+        <i
+          className="sc-kgAjT jlVHRr"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Miscellaneous/Notification error 1`] = `
+<div
+  style={
+    Object {
+      "alignItems": "center",
+      "bottom": 0,
+      "display": "flex",
+      "left": 0,
+      "overflow": "auto",
+      "position": "fixed",
+      "right": 0,
+      "top": 0,
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "margin": "auto",
+        "maxHeight": "100%",
+      }
+    }
+  >
+    <div
+      className="sc-kjoXOD bRWDws"
+    >
+      <p
+        className="sc-TOsTZ gSeoGX"
+      >
+        Impossible de modifier l'email
+      </p>
+      <div
+        className="sc-cJSrbW loYjfv"
+        onClick={[Function]}
+      >
+        <i
+          className="sc-kgAjT jlVHRr"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Miscellaneous/Notification warning 1`] = `
+<div
+  style={
+    Object {
+      "alignItems": "center",
+      "bottom": 0,
+      "display": "flex",
+      "left": 0,
+      "overflow": "auto",
+      "position": "fixed",
+      "right": 0,
+      "top": 0,
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "margin": "auto",
+        "maxHeight": "100%",
+      }
+    }
+  >
+    <div
+      className="sc-kjoXOD bkCJFh"
+    >
+      <p
+        className="sc-TOsTZ gSeoGX"
+      >
+        Impossible de modifier l'email
+      </p>
+      <div
+        className="sc-cJSrbW loYjfv"
+        onClick={[Function]}
+      >
+        <i
+          className="sc-kgAjT jlVHRr"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Miscellaneous/Notification with illustration 1`] = `
+<div
+  style={
+    Object {
+      "alignItems": "center",
+      "bottom": 0,
+      "display": "flex",
+      "left": 0,
+      "overflow": "auto",
+      "position": "fixed",
+      "right": 0,
+      "top": 0,
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "margin": "auto",
+        "maxHeight": "100%",
+      }
+    }
+  >
+    <div
+      className="sc-kjoXOD bMykkz"
+    >
+      <div
+        className="sc-cHGsZl izPGiM"
+      >
+        <span
+          aria-label="Icone de la notification"
+          role="img"
+          style={
+            Object {
+              "fontSize": "50px",
+            }
+          }
+        >
+          🎉
+        </span>
+      </div>
+      <p
+        className="sc-TOsTZ gSeoGX"
+      >
+        Impossible de modifier l'email
+      </p>
+      <div
+        className="sc-cJSrbW loYjfv"
+        onClick={[Function]}
+      >
+        <i
+          className="sc-kgAjT jlVHRr"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Miscellaneous/Progress with high progression 1`] = `
+<div
+  style={
+    Object {
+      "alignItems": "center",
+      "bottom": 0,
+      "display": "flex",
+      "left": 0,
+      "overflow": "auto",
+      "position": "fixed",
+      "right": 0,
+      "top": 0,
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "margin": "auto",
+        "maxHeight": "100%",
+      }
+    }
+  >
+    <div
+      className="sc-ksYbfQ fuzMWn"
+      color="#1dcad3"
+    />
+  </div>
+</div>
+`;
+
+exports[`Storyshots Miscellaneous/Progress with low progression 1`] = `
+<div
+  style={
+    Object {
+      "alignItems": "center",
+      "bottom": 0,
+      "display": "flex",
+      "left": 0,
+      "overflow": "auto",
+      "position": "fixed",
+      "right": 0,
+      "top": 0,
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "margin": "auto",
+        "maxHeight": "100%",
+      }
+    }
+  >
+    <div
+      className="sc-ksYbfQ ofcEH"
+      color="#ff5100"
+    />
+  </div>
+</div>
+`;
+
+exports[`Storyshots Miscellaneous/Progress with manual color 1`] = `
+<div
+  style={
+    Object {
+      "alignItems": "center",
+      "bottom": 0,
+      "display": "flex",
+      "left": 0,
+      "overflow": "auto",
+      "position": "fixed",
+      "right": 0,
+      "top": 0,
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "margin": "auto",
+        "maxHeight": "100%",
+      }
+    }
+  >
+    <div
+      className="sc-ksYbfQ bgOLoX"
+      color="#be3b5d"
+    />
+  </div>
+</div>
+`;
+
+exports[`Storyshots Miscellaneous/Progress with medium progression 1`] = `
+<div
+  style={
+    Object {
+      "alignItems": "center",
+      "bottom": 0,
+      "display": "flex",
+      "left": 0,
+      "overflow": "auto",
+      "position": "fixed",
+      "right": 0,
+      "top": 0,
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "margin": "auto",
+        "maxHeight": "100%",
+      }
+    }
+  >
+    <div
+      className="sc-ksYbfQ ekLstW"
+      color="#ffce00"
+    />
+  </div>
+</div>
+`;
+
+exports[`Storyshots Miscellaneous/Spinner Basic 1`] = `
+<div
+  style={
+    Object {
+      "alignItems": "center",
+      "bottom": 0,
+      "display": "flex",
+      "left": 0,
+      "overflow": "auto",
+      "position": "fixed",
+      "right": 0,
+      "top": 0,
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "margin": "auto",
+        "maxHeight": "100%",
+      }
+    }
+  >
+    <div
+      className="sc-jTzLTM iMIgtH"
+      size={50}
+    >
+      <svg
+        className="sc-fjdhpX kARBtI"
+        size={50}
+        viewBox="0 0 50 50"
+      >
+        <circle
+          className="path"
+          cx={25}
+          cy={25}
+          fill="none"
+          r={20}
+          stroke="#0071ce"
+          strokeWidth="3"
+        />
+      </svg>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Miscellaneous/Spinner Custom color 1`] = `
+<div
+  style={
+    Object {
+      "alignItems": "center",
+      "bottom": 0,
+      "display": "flex",
+      "left": 0,
+      "overflow": "auto",
+      "position": "fixed",
+      "right": 0,
+      "top": 0,
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "margin": "auto",
+        "maxHeight": "100%",
+      }
+    }
+  >
+    <div
+      className="sc-jTzLTM iMIgtH"
+      size={50}
+    >
+      <svg
+        className="sc-fjdhpX kARBtI"
+        size={50}
+        viewBox="0 0 50 50"
+      >
+        <circle
+          className="path"
+          cx={25}
+          cy={25}
+          fill="none"
+          r={20}
+          stroke="red"
+          strokeWidth="3"
+        />
+      </svg>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Miscellaneous/Spinner Custom size 1`] = `
+<div
+  style={
+    Object {
+      "alignItems": "center",
+      "bottom": 0,
+      "display": "flex",
+      "left": 0,
+      "overflow": "auto",
+      "position": "fixed",
+      "right": 0,
+      "top": 0,
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "margin": "auto",
+        "maxHeight": "100%",
+      }
+    }
+  >
+    <div
+      className="sc-jTzLTM bRlSlY"
+      size={20}
+    >
+      <svg
+        className="sc-fjdhpX ccrZJm"
+        size={20}
+        viewBox="0 0 20 20"
+      >
+        <circle
+          className="path"
+          cx={10}
+          cy={10}
+          fill="none"
+          r={8}
+          stroke="#0071ce"
+          strokeWidth="3"
+        />
+      </svg>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Miscellaneous/Tag bold 1`] = `
+<div
+  style={
+    Object {
+      "alignItems": "center",
+      "bottom": 0,
+      "display": "flex",
+      "left": 0,
+      "overflow": "auto",
+      "position": "fixed",
+      "right": 0,
+      "top": 0,
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "margin": "auto",
+        "maxHeight": "100%",
+      }
+    }
+  >
+    <div
+      className="sc-bYSBpT gNXdVy"
+      color="#f9e38f"
+    >
+      groslay
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Miscellaneous/Tag with generated color 1`] = `
+<div
+  style={
+    Object {
+      "alignItems": "center",
+      "bottom": 0,
+      "display": "flex",
+      "left": 0,
+      "overflow": "auto",
+      "position": "fixed",
+      "right": 0,
+      "top": 0,
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "margin": "auto",
+        "maxHeight": "100%",
+      }
+    }
+  >
+    <div
+      className="sc-bYSBpT gzgwi"
+    >
+      groslay
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Miscellaneous/Tag with manual color 1`] = `
+<div
+  style={
+    Object {
+      "alignItems": "center",
+      "bottom": 0,
+      "display": "flex",
+      "left": 0,
+      "overflow": "auto",
+      "position": "fixed",
+      "right": 0,
+      "top": 0,
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "margin": "auto",
+        "maxHeight": "100%",
+      }
+    }
+  >
+    <div
+      className="sc-bYSBpT fTHjM"
+      color="#f9e38f"
+    >
+      groslay
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Navigation/NavBar basic 1`] = `
+<div
+  style={
+    Object {
+      "alignItems": "center",
+      "bottom": 0,
+      "display": "flex",
+      "left": 0,
+      "overflow": "auto",
+      "position": "fixed",
+      "right": 0,
+      "top": 0,
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "margin": "auto",
+        "maxHeight": "100%",
+      }
+    }
+  >
+    <div
+      className="sc-dVhcbM gzJrov"
+    >
+      <nav
+        className="sc-Rmtcm fqLcVy"
+      >
+        <div
+          className="sc-hzDkRC ktZjuL"
+        >
+          <div
+            className="sc-fMiknA cpvFYi"
+          >
+            <i
+              className="sc-fAjcbJ sc-caSCKo fZEUgx"
+            />
+            <span
+              className="sc-jhAzac onWjt"
+            >
+              <i
+                className="sc-fAjcbJ sc-caSCKo fZEUgx"
+              />
+              <div
+                className="sc-fBuWsC dehEiL"
+              >
+                Accueil
+              </div>
+            </span>
+          </div>
+          <div
+            className="sc-fMiknA cjeHZI"
+          >
+            <i
+              className="sc-fAjcbJ sc-gisBJw gNQIQn"
+            />
+            <span
+              className="sc-jhAzac onWjt"
+            >
+              <i
+                className="sc-fAjcbJ sc-gisBJw gNQIQn"
+              />
+              <div
+                className="sc-fBuWsC dehEiL"
+              >
+                Profil
+              </div>
+            </span>
+          </div>
+        </div>
+      </nav>
+      <div
+        className="sc-eqIVtm kFIxXN"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Navigation/NavBar with custom active color 1`] = `
+<div
+  style={
+    Object {
+      "alignItems": "center",
+      "bottom": 0,
+      "display": "flex",
+      "left": 0,
+      "overflow": "auto",
+      "position": "fixed",
+      "right": 0,
+      "top": 0,
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "margin": "auto",
+        "maxHeight": "100%",
+      }
+    }
+  >
+    <div
+      className="sc-dVhcbM gzJrov"
+    >
+      <nav
+        className="sc-Rmtcm fqLcVy"
+      >
+        <div
+          className="sc-hzDkRC ktZjuL"
+        >
+          <div
+            className="sc-fMiknA fcxWx"
+          >
+            <i
+              className="sc-fAjcbJ sc-caSCKo fZEUgx"
+            />
+            <span
+              className="sc-jhAzac jCvsXT"
+            >
+              <i
+                className="sc-fAjcbJ sc-caSCKo fZEUgx"
+              />
+              <div
+                className="sc-fBuWsC dehEiL"
+              >
+                Accueil
+              </div>
+            </span>
+          </div>
+          <div
+            className="sc-fMiknA cPjSXr"
+          >
+            <i
+              className="sc-fAjcbJ sc-gisBJw gNQIQn"
+            />
+            <span
+              className="sc-jhAzac jCvsXT"
+            >
+              <i
+                className="sc-fAjcbJ sc-gisBJw gNQIQn"
+              />
+              <div
+                className="sc-fBuWsC dehEiL"
+              >
+                Profil
+              </div>
+            </span>
+          </div>
+        </div>
+      </nav>
+      <div
+        className="sc-eqIVtm kFIxXN"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Navigation/NavBar with custom active color on second item 1`] = `
+<div
+  style={
+    Object {
+      "alignItems": "center",
+      "bottom": 0,
+      "display": "flex",
+      "left": 0,
+      "overflow": "auto",
+      "position": "fixed",
+      "right": 0,
+      "top": 0,
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "margin": "auto",
+        "maxHeight": "100%",
+      }
+    }
+  >
+    <div
+      className="sc-dVhcbM gzJrov"
+    >
+      <nav
+        className="sc-Rmtcm fqLcVy"
+      >
+        <div
+          className="sc-hzDkRC ktZjuL"
+        >
+          <div
+            className="sc-fMiknA cpvFYi"
+          >
+            <i
+              className="sc-fAjcbJ sc-caSCKo fZEUgx"
+            />
+            <span
+              className="sc-jhAzac onWjt"
+            >
+              <i
+                className="sc-fAjcbJ sc-caSCKo fZEUgx"
+              />
+              <div
+                className="sc-fBuWsC dehEiL"
+              >
+                Accueil
+              </div>
+            </span>
+          </div>
+          <div
+            className="sc-fMiknA cPjSXr"
+          >
+            <i
+              className="sc-fAjcbJ sc-gisBJw gNQIQn"
+            />
+            <span
+              className="sc-jhAzac jCvsXT"
+            >
+              <i
+                className="sc-fAjcbJ sc-gisBJw gNQIQn"
+              />
+              <div
+                className="sc-fBuWsC dehEiL"
+              >
+                Profil
+              </div>
+            </span>
+          </div>
+        </div>
+      </nav>
+      <div
+        className="sc-eqIVtm kFIxXN"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Navigation/NavBar with custom background color 1`] = `
+<div
+  style={
+    Object {
+      "alignItems": "center",
+      "bottom": 0,
+      "display": "flex",
+      "left": 0,
+      "overflow": "auto",
+      "position": "fixed",
+      "right": 0,
+      "top": 0,
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "margin": "auto",
+        "maxHeight": "100%",
+      }
+    }
+  >
+    <div
+      className="sc-dVhcbM gzJrov"
+    >
+      <nav
+        className="sc-Rmtcm evTOLF"
+      >
+        <div
+          className="sc-hzDkRC ktZjuL"
+        >
+          <div
+            className="sc-fMiknA lioQpz"
+          >
+            <i
+              className="sc-fAjcbJ sc-caSCKo fZEUgx"
+            />
+            <span
+              className="sc-jhAzac bwohCH"
+            >
+              <i
+                className="sc-fAjcbJ sc-caSCKo fZEUgx"
+              />
+              <div
+                className="sc-fBuWsC dehEiL"
+              >
+                Accueil
+              </div>
+            </span>
+          </div>
+          <div
+            className="sc-fMiknA EOHvZ"
+          >
+            <i
+              className="sc-fAjcbJ sc-gisBJw gNQIQn"
+            />
+            <span
+              className="sc-jhAzac bwohCH"
+            >
+              <i
+                className="sc-fAjcbJ sc-gisBJw gNQIQn"
+              />
+              <div
+                className="sc-fBuWsC dehEiL"
+              >
+                Profil
+              </div>
+            </span>
+          </div>
+        </div>
+      </nav>
+      <div
+        className="sc-eqIVtm kFIxXN"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Navigation/Tabs customized 1`] = `
+<div
+  style={
+    Object {
+      "alignItems": "center",
+      "bottom": 0,
+      "display": "flex",
+      "left": 0,
+      "overflow": "auto",
+      "position": "fixed",
+      "right": 0,
+      "top": 0,
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "margin": "auto",
+        "maxHeight": "100%",
+      }
+    }
+  >
+    <div
+      className="sc-feJyhm cNlOsf"
+    >
+      <div
+        className="sc-iELTvK oyXnw"
+      >
+        <span
+          className="sc-cmTdod bgWnBt"
+        >
+          Contact
+        </span>
+        <div
+          className="sc-jwKygS bPYRGu"
+        >
+          <div
+            activeClassName="active"
+            className="sc-btzYZH undefined  hkeowj"
+            color="green"
+          >
+            Merry
+          </div>
+          <div
+            active={true}
+            activeClassName="active"
+            className="sc-btzYZH undefined active hkeowj"
+            color="green"
+          >
+            Christmas
+          </div>
+        </div>
+      </div>
+      <div
+        className="sc-iELTvK oyXnw"
+      >
+        <span
+          className="sc-cmTdod bgWnBt"
+        >
+          Candidatures
+        </span>
+        <div
+          className="sc-jwKygS bPYRGu"
+        >
+          <div
+            activeClassName="active"
+            className="sc-btzYZH undefined  hkeowj"
+            color="green"
+          >
+            Happy
+          </div>
+          <div
+            active={true}
+            activeClassName="active"
+            className="sc-btzYZH undefined active hkeowj"
+            color="green"
+          >
+            New
+          </div>
+          <div
+            activeClassName="active"
+            className="sc-btzYZH undefined  hkeowj"
+            color="green"
+          >
+            Year
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Navigation/Tabs default 1`] = `
+<div
+  style={
+    Object {
+      "alignItems": "center",
+      "bottom": 0,
+      "display": "flex",
+      "left": 0,
+      "overflow": "auto",
+      "position": "fixed",
+      "right": 0,
+      "top": 0,
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "margin": "auto",
+        "maxHeight": "100%",
+      }
+    }
+  >
+    <div
+      className="sc-feJyhm cNlOsf"
+    >
+      <div
+        activeClassName="active"
+        className="sc-btzYZH undefined  gnodqE"
+        color={null}
+      >
+        Documents
+      </div>
+      <div
+        active={true}
+        activeClassName="active"
+        className="sc-btzYZH undefined active gnodqE"
+        color={null}
+      >
+        Infos
+      </div>
+      <div
+        activeClassName="active"
+        className="sc-btzYZH undefined  gnodqE"
+        color={null}
+      >
+        Echanges
+      </div>
+      <div
+        activeClassName="active"
+        className="sc-btzYZH undefined  gnodqE"
+        color={null}
+      >
+        Activités
+      </div>
+      <div
+        activeClassName="active"
+        className="sc-btzYZH undefined  gnodqE"
+        color={null}
+      >
+        Documents
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Navigation/Tabs with scroll 1`] = `
+<div
+  style={
+    Object {
+      "alignItems": "center",
+      "bottom": 0,
+      "display": "flex",
+      "left": 0,
+      "overflow": "auto",
+      "position": "fixed",
+      "right": 0,
+      "top": 0,
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "margin": "auto",
+        "maxHeight": "100%",
+      }
+    }
+  >
+    <div
+      className="sc-feJyhm cNlOsf"
+    >
+      <div
+        className="sc-iELTvK oyXnw"
+      >
+        <span
+          className="sc-cmTdod kCULTu"
+        >
+          Contact
+        </span>
+        <div
+          className="sc-jwKygS bPYRGu"
+          style={
+            Object {
+              "maxWidth": 200,
+            }
+          }
+        >
+          <div
+            activeClassName="active"
+            className="sc-btzYZH undefined  gnodqE"
+            color={null}
+          >
+            Documents
+          </div>
+          <div
+            active={true}
+            activeClassName="active"
+            className="sc-btzYZH undefined active gnodqE"
+            color={null}
+          >
+            Infos
+          </div>
+          <div
+            className="sc-lhVmIH jdOLke"
+          />
+          <div
+            activeClassName="active"
+            className="sc-btzYZH undefined  gnodqE"
+            color={null}
+          >
+            Echanges
+          </div>
+          <div
+            activeClassName="active"
+            className="sc-btzYZH undefined  gnodqE"
+            color={null}
+          >
+            Activités
+          </div>
+          <div
+            activeClassName="active"
+            className="sc-btzYZH undefined  gnodqE"
+            color={null}
+          >
+            Documents
+          </div>
+          <div
+            className="sc-lhVmIH jdOLke"
+          />
+        </div>
+      </div>
+      <div
+        className="sc-iELTvK oyXnw"
+      >
+        <span
+          className="sc-cmTdod kCULTu"
+        >
+          Candidatures
+        </span>
+        <div
+          className="sc-jwKygS bPYRGu"
+        >
+          <div
+            activeClassName="active"
+            className="sc-btzYZH undefined  gnodqE"
+            color={null}
+          >
+            Zelmis
+          </div>
+          <div
+            className="sc-lhVmIH jdOLke"
+          />
+          <div
+            active={true}
+            activeClassName="active"
+            className="sc-btzYZH undefined active gnodqE"
+            color={null}
+          >
+            Groslay
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Navigation/Tabs with sections 1`] = `
+<div
+  style={
+    Object {
+      "alignItems": "center",
+      "bottom": 0,
+      "display": "flex",
+      "left": 0,
+      "overflow": "auto",
+      "position": "fixed",
+      "right": 0,
+      "top": 0,
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "margin": "auto",
+        "maxHeight": "100%",
+      }
+    }
+  >
+    <div
+      className="sc-feJyhm cNlOsf"
+    >
+      <div
+        className="sc-iELTvK oyXnw"
+      >
+        <span
+          className="sc-cmTdod kCULTu"
+        >
+          Contact
+        </span>
+        <div
+          className="sc-jwKygS bPYRGu"
+        >
+          <div
+            activeClassName="active"
+            className="sc-btzYZH undefined  gnodqE"
+            color={null}
+          >
+            Documents
+          </div>
+          <div
+            active={true}
+            activeClassName="active"
+            className="sc-btzYZH undefined active gnodqE"
+            color={null}
+          >
+            Infos
+          </div>
+          <div
+            activeClassName="active"
+            className="sc-btzYZH undefined  gnodqE"
+            color={null}
+          >
+            Echanges
+          </div>
+          <div
+            activeClassName="active"
+            className="sc-btzYZH undefined  gnodqE"
+            color={null}
+          >
+            Activités
+          </div>
+          <div
+            activeClassName="active"
+            className="sc-btzYZH undefined  gnodqE"
+            color={null}
+          >
+            Documents
+          </div>
+        </div>
+      </div>
+      <div
+        className="sc-iELTvK oyXnw"
+      >
+        <span
+          className="sc-cmTdod kCULTu"
+        >
+          Candidatures
+        </span>
+        <div
+          className="sc-jwKygS bPYRGu"
+        >
+          <div
+            activeClassName="active"
+            className="sc-btzYZH undefined  gnodqE"
+            color={null}
+          >
+            Zelmis
+          </div>
+          <div
+            active={true}
+            activeClassName="active"
+            className="sc-btzYZH undefined active gnodqE"
+            color={null}
+          >
+            Groslay
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Navigation/Tabs with separators 1`] = `
+<div
+  style={
+    Object {
+      "alignItems": "center",
+      "bottom": 0,
+      "display": "flex",
+      "left": 0,
+      "overflow": "auto",
+      "position": "fixed",
+      "right": 0,
+      "top": 0,
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "margin": "auto",
+        "maxHeight": "100%",
+      }
+    }
+  >
+    <div
+      className="sc-feJyhm cNlOsf"
+    >
+      <div
+        className="sc-iELTvK oyXnw"
+      >
+        <span
+          className="sc-cmTdod kCULTu"
+        >
+          Contact
+        </span>
+        <div
+          className="sc-jwKygS bPYRGu"
+        >
+          <div
+            activeClassName="active"
+            className="sc-btzYZH undefined  gnodqE"
+            color={null}
+          >
+            Documents
+          </div>
+          <div
+            active={true}
+            activeClassName="active"
+            className="sc-btzYZH undefined active gnodqE"
+            color={null}
+          >
+            Infos
+          </div>
+          <div
+            className="sc-lhVmIH jdOLke"
+          />
+          <div
+            activeClassName="active"
+            className="sc-btzYZH undefined  gnodqE"
+            color={null}
+          >
+            Echanges
+          </div>
+          <div
+            activeClassName="active"
+            className="sc-btzYZH undefined  gnodqE"
+            color={null}
+          >
+            Activités
+          </div>
+          <div
+            activeClassName="active"
+            className="sc-btzYZH undefined  gnodqE"
+            color={null}
+          >
+            Documents
+          </div>
+          <div
+            className="sc-lhVmIH jdOLke"
+          />
+        </div>
+      </div>
+      <div
+        className="sc-iELTvK oyXnw"
+      >
+        <span
+          className="sc-cmTdod kCULTu"
+        >
+          Candidatures
+        </span>
+        <div
+          className="sc-jwKygS bPYRGu"
+        >
+          <div
+            activeClassName="active"
+            className="sc-btzYZH undefined  gnodqE"
+            color={null}
+          >
+            Zelmis
+          </div>
+          <div
+            className="sc-lhVmIH jdOLke"
+          />
+          <div
+            active={true}
+            activeClassName="active"
+            className="sc-btzYZH undefined active gnodqE"
+            color={null}
+          >
+            Groslay
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Typography/Annotation basic 1`] = `
+<div
+  style={
+    Object {
+      "alignItems": "center",
+      "bottom": 0,
+      "display": "flex",
+      "left": 0,
+      "overflow": "auto",
+      "position": "fixed",
+      "right": 0,
+      "top": 0,
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "margin": "auto",
+        "maxHeight": "100%",
+      }
+    }
+  >
+    <span
+      className="sc-bdVaJa ETYzI"
+      color="#52627a"
+    >
+      This is an annotation
+    </span>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Typography/Annotation with manual color 1`] = `
+<div
+  style={
+    Object {
+      "alignItems": "center",
+      "bottom": 0,
+      "display": "flex",
+      "left": 0,
+      "overflow": "auto",
+      "position": "fixed",
+      "right": 0,
+      "top": 0,
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "margin": "auto",
+        "maxHeight": "100%",
+      }
+    }
+  >
+    <span
+      className="sc-bdVaJa ceVvZa"
+      color="#0071ce"
+    >
+      This is an annotation
+    </span>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Typography/SectionTitle active 1`] = `
+<div
+  style={
+    Object {
+      "alignItems": "center",
+      "bottom": 0,
+      "display": "flex",
+      "left": 0,
+      "overflow": "auto",
+      "position": "fixed",
+      "right": 0,
+      "top": 0,
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "margin": "auto",
+        "maxHeight": "100%",
+      }
+    }
+  >
+    <h3
+      className="sc-kvZOFW eJuQSj"
+      color="#0071ce"
+    >
+      This is a section title
+    </h3>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Typography/SectionTitle with manual color 1`] = `
+<div
+  style={
+    Object {
+      "alignItems": "center",
+      "bottom": 0,
+      "display": "flex",
+      "left": 0,
+      "overflow": "auto",
+      "position": "fixed",
+      "right": 0,
+      "top": 0,
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "margin": "auto",
+        "maxHeight": "100%",
+      }
+    }
+  >
+    <h3
+      className="sc-kvZOFW gsjyES"
+      color="#0071ce"
+    >
+      This is a section title
+    </h3>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Typography/Title/h1 (size = 1) basic 1`] = `
+<div
+  style={
+    Object {
+      "alignItems": "center",
+      "bottom": 0,
+      "display": "flex",
+      "left": 0,
+      "overflow": "auto",
+      "position": "fixed",
+      "right": 0,
+      "top": 0,
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "margin": "auto",
+        "maxHeight": "100%",
+      }
+    }
+  >
+    <h1
+      className="sc-kpOJdX sc-dxgOiQ cxOeU"
+      color="#061a3c"
+    >
+      This is a title
+    </h1>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Typography/Title/h1 (size = 1) with manual color 1`] = `
+<div
+  style={
+    Object {
+      "alignItems": "center",
+      "bottom": 0,
+      "display": "flex",
+      "left": 0,
+      "overflow": "auto",
+      "position": "fixed",
+      "right": 0,
+      "top": 0,
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "margin": "auto",
+        "maxHeight": "100%",
+      }
+    }
+  >
+    <h1
+      className="sc-kpOJdX sc-dxgOiQ kxIABG"
+      color="#52627a"
+    >
+      This is a title
+    </h1>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Typography/Title/h1 (size = 1) with underline 1`] = `
+<div
+  style={
+    Object {
+      "alignItems": "center",
+      "bottom": 0,
+      "display": "flex",
+      "left": 0,
+      "overflow": "auto",
+      "position": "fixed",
+      "right": 0,
+      "top": 0,
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "margin": "auto",
+        "maxHeight": "100%",
+      }
+    }
+  >
+    <h1
+      className="sc-kpOJdX sc-dxgOiQ htCZaN"
+      color="#061a3c"
+    >
+      This is a title
+    </h1>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Typography/Title/h2 (size = 2) basic 1`] = `
+<div
+  style={
+    Object {
+      "alignItems": "center",
+      "bottom": 0,
+      "display": "flex",
+      "left": 0,
+      "overflow": "auto",
+      "position": "fixed",
+      "right": 0,
+      "top": 0,
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "margin": "auto",
+        "maxHeight": "100%",
+      }
+    }
+  >
+    <h2
+      className="sc-ckVGcZ sc-jKJlTe dQcGkC"
+      color="#061a3c"
+    >
+      This is a title
+    </h2>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Typography/Title/h2 (size = 2) with manual color 1`] = `
+<div
+  style={
+    Object {
+      "alignItems": "center",
+      "bottom": 0,
+      "display": "flex",
+      "left": 0,
+      "overflow": "auto",
+      "position": "fixed",
+      "right": 0,
+      "top": 0,
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "margin": "auto",
+        "maxHeight": "100%",
+      }
+    }
+  >
+    <h2
+      className="sc-ckVGcZ sc-jKJlTe bLnqdW"
+      color="#52627a"
+    >
+      This is a title
+    </h2>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Typography/Title/h2 (size = 2) with underline 1`] = `
+<div
+  style={
+    Object {
+      "alignItems": "center",
+      "bottom": 0,
+      "display": "flex",
+      "left": 0,
+      "overflow": "auto",
+      "position": "fixed",
+      "right": 0,
+      "top": 0,
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "margin": "auto",
+        "maxHeight": "100%",
+      }
+    }
+  >
+    <h2
+      className="sc-ckVGcZ sc-jKJlTe kSWUBH"
+      color="#061a3c"
+    >
+      This is a title
+    </h2>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Typography/Title/h3 (size = 3) basic 1`] = `
+<div
+  style={
+    Object {
+      "alignItems": "center",
+      "bottom": 0,
+      "display": "flex",
+      "left": 0,
+      "overflow": "auto",
+      "position": "fixed",
+      "right": 0,
+      "top": 0,
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "margin": "auto",
+        "maxHeight": "100%",
+      }
+    }
+  >
+    <h3
+      className="sc-eNQAEJ sc-hMqMXs elJQLp"
+      color="#061a3c"
+    >
+      This is a title
+    </h3>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Typography/Title/h3 (size = 3) with manual color 1`] = `
+<div
+  style={
+    Object {
+      "alignItems": "center",
+      "bottom": 0,
+      "display": "flex",
+      "left": 0,
+      "overflow": "auto",
+      "position": "fixed",
+      "right": 0,
+      "top": 0,
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "margin": "auto",
+        "maxHeight": "100%",
+      }
+    }
+  >
+    <h3
+      className="sc-eNQAEJ sc-hMqMXs euzvoD"
+      color="#52627a"
+    >
+      This is a title
+    </h3>
+  </div>
+</div>
+`;

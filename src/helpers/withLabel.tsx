@@ -1,5 +1,4 @@
 import * as React from 'react'
-import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 import { colors, fontSizes } from '../theme'
@@ -32,10 +31,6 @@ const withLabel = WrappedComponent => {
     }
 
     return <WrappedComponent {...props} />
-  }
-
-  Field.propTypes = {
-    label: PropTypes.string,
   }
 
   Field.defaultProps = {
