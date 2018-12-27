@@ -15,7 +15,7 @@ const prepareProps = props => {
   return {
     backgroundColor: baseColor,
     activeBackgroundColor: props.activeBackgroundColor || color(baseColor).mix(WHITE, 0.2).string(),
-    ...props,
+    ...props
   }
 }
 

@@ -18,23 +18,23 @@ const getProgressionColor = progression => {
 }
 
 const prepareProps = props => ({
-  color: props.color || getProgressionColor(props.progression),
+  color: props.color || getProgressionColor(props.progression)
 })
 
 const Progress: React.StatelessComponent<ProgressProps> = styled.div.attrs(prepareProps)`
   position: relative;
-  
+
   height: 9px;
   width: 392px;
   max-width: 100%;
   border-radius: ${borderRadius.narrow};
   background-color: ${colors.paynesGrey};
   overflow: hidden;
-  
+
   &::after {
     content: "";
     background-color: ${({ color }) => color};
-    
+
     position: absolute;
     top: 0;
     bottom: 0;

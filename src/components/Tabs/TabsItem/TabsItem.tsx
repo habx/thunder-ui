@@ -17,7 +17,7 @@ const prepareProps = props => {
     borderBottom: `3px solid ${activeColor}`,
     hoverColor: activeColor || props.hoverColor,
     activeClassName: 'active',
-    className: `${props.className} ${props.active ? 'active' : ''}`,
+    className: `${props.className} ${props.active ? 'active' : ''}`
   })
 }
 
@@ -30,10 +30,12 @@ const StyledTabsItem = styled(tag).attrs(prepareProps)`
   transition: all 150ms ease-in-out;
   border-bottom: 3px solid transparent;
   white-space: nowrap;
+
   ${({ closed }) => closed && css`
     opacity: 0.7;
     text-decoration: line-through;
   `}
+
   &.active {
     border-bottom: ${({ borderBottom }) => borderBottom};
     color: ${({ activeColor }) => activeColor};
@@ -51,7 +53,7 @@ const TabsItem: React.StatelessComponent<TabsItemProps> = props => (
 TabsItem.defaultProps = {
   activeColor: null,
   hoverColor: null,
-  closed: false,
+  closed: false
 }
 
 export default withContext(TabsItem)

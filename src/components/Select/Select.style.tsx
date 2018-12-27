@@ -8,31 +8,31 @@ export const SelectContainer = styled.div`
 `
 
 export const Label = styled.div`
-  
+
   position: relative;
   display: flex;
   align-items: baseline;
   box-sizing: border-box;
-  
+
   z-index: 0;
   padding: 8px 20px;
   height: 40px;
   line-height: 24px;
   border-radius: 4px;
   border-left: 0;
-  
+
   font-size: ${fontSizes.regular};
   user-select: none;
 
   background-color: #ffffff;
   box-shadow: 0 4px 12px 0 rgba(3, 54, 61, 0.16);
-  
+
   transition: background-color ease-in-out 200ms, z-index ease-in 1s, border-left ease-in 200ms;
-  
+
   &:not([data-empty="true"]) {
     border-left: 4px solid ${colors.internationalOrange};
   }
-  
+
   &[data-open="true"] {
     transition: z-index ease-in 0s;
     z-index: 10;
@@ -45,7 +45,7 @@ export const Label = styled.div`
 `
 
 export const SearchInput = styled.input.attrs(() => ({
-  type: 'text',
+  type: 'text'
 }))`
   flex: 1 1 100%;
 
@@ -55,11 +55,11 @@ export const SearchInput = styled.input.attrs(() => ({
   color: ${colors.maastrichtBlue};
   font-size: inherit;
   align-self: stretch;
-  
+
   &:hover {
     cursor: pointer;
   }
-  
+
   &:focus {
     outline: none;
     box-shadow: none;
@@ -69,7 +69,7 @@ export const SearchInput = styled.input.attrs(() => ({
 export const LabelIcons = styled.div`
   flex: 0 0 auto;
   display: flex;
-  
+
   i {
     margin: 0 12px;
   }
@@ -82,7 +82,7 @@ export const Options = styled.div`
   top: 0;
   padding: 0 24px;
   overflow-y: scroll;
-  
+
   width: calc(100% - 24px);
   margin-right: 12px;
   margin-left: 12px;
@@ -90,7 +90,7 @@ export const Options = styled.div`
   border-radius: 0 0 4px 4px;
   height: 0;
   z-index: 5;
-  
+
   transition: all ease-in-out 300ms;
 
   &[data-open="true"] {
@@ -111,7 +111,7 @@ export const OptionsActions = styled.div`
 export const OptionAction = styled.span`
   user-select: none;
   font-size: ${fontSizes.tiny};
-  
+
   &:hover {
     opacity: .8;
     cursor: pointer;
@@ -141,7 +141,7 @@ export const OptionContainer = styled.div`
     vertical-align: middle;
     margin-right: 4px;
   }
-  
+
   &:hover,
   &:focus,
   &[data-selected="true"] {

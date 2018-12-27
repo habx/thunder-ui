@@ -1,7 +1,5 @@
 import styled from 'styled-components'
 
-import { colors } from '../../theme'
-
 export const NavBarContainer = styled.nav`
   flex: 0 0 auto;
   height: 100vh;

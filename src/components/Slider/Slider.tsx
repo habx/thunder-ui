@@ -15,14 +15,14 @@ class CustomSlider extends React.Component<SliderProps> {
     min: 0,
     max: 100,
     color: colors.brightCerualean,
-    step: 5,
+    step: 5
   }
 
-  static getDerivedStateFromProps(nextProps, prevState) {
+  static getDerivedStateFromProps (nextProps, prevState) {
     if (nextProps.value !== prevState.rawValue && nextProps.value != null) {
       return {
         value: nextProps.value,
-        rawValue: nextProps.value,
+        rawValue: nextProps.value
       }
     }
 
@@ -30,10 +30,10 @@ class CustomSlider extends React.Component<SliderProps> {
   }
 
   state = {
-    value: this.getInitialValue(),
+    value: this.getInitialValue()
   }
 
-  getInitialValue() {
+  getInitialValue () {
     const { value, range, min, max } = this.props
 
     if (value == null) {
@@ -45,9 +45,18 @@ class CustomSlider extends React.Component<SliderProps> {
 
   handleChange = value => this.setState({ value })
 
-  render() {
-    const { onChange, range, max, customValues, toolTipSuffix,
-      min, color, step, labelFormatter } = this.props
+  render () {
+    const {
+      onChange,
+      range,
+      max,
+      customValues,
+      toolTipSuffix,
+      min,
+      color,
+      step,
+      labelFormatter
+    } = this.props
     const { value } = this.state
 
     const SliderComponent = range ? Range : Slider

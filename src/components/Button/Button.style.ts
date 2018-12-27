@@ -36,7 +36,7 @@ const prepareProps = props => {
   return {
     backgroundColor,
     textColor,
-    hoverColor: props.hoverColor || color(backgroundColor).mix(hoverMixColor, 0.2).string(),
+    hoverColor: props.hoverColor || color(backgroundColor).mix(hoverMixColor, 0.2).string()
   }
 }
 

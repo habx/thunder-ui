@@ -4,5 +4,5 @@ export type formValue = formOption | string | number
 
 export type thunderContext = {
   query: string,
-  data: any,
+  data: any
 }

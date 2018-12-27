@@ -4,7 +4,7 @@ import FontIcon from '../FontIcon'
 
 import { withArrayContext } from './context'
 
-import { ItemHeaderContainer, ItemHeaderContent, ItemActions } from './style'
+import { ItemHeaderContainer, ItemHeaderContent, ItemActions } from './ArrayInput.style'
 import ItemProps from './Item.interface'
 
 const ItemHeader: React.StatelessComponent<ItemProps> = ({ context, item, index }) => {

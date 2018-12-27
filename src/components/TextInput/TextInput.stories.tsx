@@ -24,7 +24,6 @@ const TextInputWithState = ({ value = '', ...props }) => {
   )
 }
 
-
 storiesOf('Inputs/TextInput', module)
   .add('basic', () => <TextInputWithState value={HABX_ADDRESS} />)
   .add('disabled', () => <TextInputWithState disabled value={HABX_ADDRESS} />)
@@ -33,4 +32,3 @@ storiesOf('Inputs/TextInput', module)
   .add('with loader', () => <TextInputWithState isLoading value={HABX_ADDRESS} />)
   .add('with icon', () => <TextInputWithState value={HABX_ADDRESS} rightElement={<FontIcon icon='edit' />} />)
   .add('with hover icon', () => <TextInputWithState value={HABX_ADDRESS} rightHoverElement={<FontIcon icon='edit' />} />)
-

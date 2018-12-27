@@ -5,7 +5,6 @@ import { colors, fontSizes } from '../../theme'
 import Spinner from '../Spinner'
 import TextInputProps from './TextInput.interface'
 
-
 const prepareProps = props => {
   const errorColor = props.errorColor || colors.internationalOrange
   const borderColor = props.borderColor || colors.platinium
@@ -13,7 +12,7 @@ const prepareProps = props => {
   return {
     color: props.color || colors.paynesGrey,
     borderColor: props.error ? errorColor : borderColor,
-    activeBorderColor: props.activeBorderColor || colors.trueBlue,
+    activeBorderColor: props.activeBorderColor || colors.trueBlue
   }
 }
 
@@ -29,7 +28,7 @@ const InputContainer = styled.div.attrs(prepareProps)`
   &:hover {
    .hover-element-right {
       opacity: 1;
-      transition: opacity 150ms ease-in-out; 
+      transition: opacity 150ms ease-in-out;
     }
   }
 `
@@ -53,11 +52,11 @@ const RightElementContainer = styled.div.attrs(prepareProps)`
 const Input = styled.input.attrs(prepareProps)`
   border: none;
   outline: none;
-  
+
   padding: 2px 0;
 
   width: 100%;
-  
+
   font-size: ${fontSizes.small};
   line-height: 1.5;
   transition: border-bottom-color 150ms ease-in-out;
@@ -76,7 +75,7 @@ const Input = styled.input.attrs(prepareProps)`
     color: ${({ color }) => color};
     border-bottom-color: transparent;
   }
-  
+
   ${({ error }) => !error && css`
     &:not(:disabled):focus {
       border-bottom-color: ${({ activeBorderColor }) => activeBorderColor};
@@ -94,10 +93,10 @@ const TextInput: React.StatelessComponent<TextInputProps> = ({ onChange, isLoadi
 )
 
 TextInput.defaultProps = {
-  onChange: () => {},
+  onChange: () => null,
   isLoading: false,
   rightElement: null,
-  rightHoverElement: null,
+  rightHoverElement: null
 }
 
 export default TextInput

@@ -6,7 +6,6 @@ import ThunderProps from './Thunder.interface'
 
 const EndhancedThunder = withTheme(Thunder)
 
-
 const Wrapper: React.StatelessComponent<ThunderProps> = ({ theme, ...props }) => (
   <EndhancedThunder customTheme={theme} {...props} />
 )

@@ -2,7 +2,7 @@ import * as React from 'react'
 import { map, includes, filter, isEmpty } from 'lodash'
 
 import { colors } from '../../theme'
-import { RadioSelectContainer, RadioSelectElement } from './style'
+import { RadioSelectContainer, RadioSelectElement } from './RadioSelect.style'
 import RadioSelectProps from './RadioSelect.interface'
 
 const RadioSelect: React.StatelessComponent<RadioSelectProps> = ({
@@ -12,7 +12,7 @@ const RadioSelect: React.StatelessComponent<RadioSelectProps> = ({
   canBeEmpty,
   color,
   isMulti,
-  disabled,
+  disabled
 }) => {
   const getNewValue = item => {
     if (isMulti && Array.isArray(currentValue)) {
@@ -73,7 +73,7 @@ RadioSelect.defaultProps = {
   isMulti: false,
   disabled: false,
   value: null,
-  color: colors.brightCerualean,
+  color: colors.brightCerualean
 }
 
 export default RadioSelect

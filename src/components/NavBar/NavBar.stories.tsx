@@ -4,7 +4,7 @@ import { storiesOf } from '@storybook/react'
 
 import { colors } from '../../theme'
 
-import NavBar, { NavBarItem } from '.'
+import NavBar, { NavBarItem } from './index'
 
 const Container = styled.div`
   position: fixed;

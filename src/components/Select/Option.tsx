@@ -5,28 +5,29 @@ import FontIcon from '../FontIcon/FontIcon'
 import OptionProps from './Option.interface'
 
 class Option extends React.Component<OptionProps> {
-  private ref: React.RefObject<any>
-  constructor(props) {
+  private readonly ref: React.RefObject<any>
+
+  constructor (props) {
     super(props)
 
     this.ref = React.createRef()
   }
 
-  componentDidMount() {
+  componentDidMount () {
     this.handleFocus()
   }
 
-  componentDidUpdate() {
+  componentDidUpdate () {
     this.handleFocus()
   }
 
-  handleFocus() {
+  handleFocus () {
     if (this.props.focused && this.ref.current) {
       this.ref.current.focus()
     }
   }
 
-  render() {
+  render () {
     const { isMulti, label, selected, ...props } = this.props
     return (
       <OptionContainer

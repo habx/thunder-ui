@@ -27,7 +27,7 @@ const prepareProps = props => {
 
   return {
     color: baseColor,
-    hoverColor: props.hoverColor || color(baseColor).mix(WHITE, 0.2).string(),
+    hoverColor: props.hoverColor || color(baseColor).mix(WHITE, 0.2).string()
   }
 }
 

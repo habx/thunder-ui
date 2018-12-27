@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { storiesOf } from '@storybook/react'
 
-import Tabs, { TabsSection, TabsItem, TabsSeparator } from '.'
+import Tabs, { TabsSection, TabsItem, TabsSeparator } from './index'
 
 storiesOf('Navigation/Tabs', module)
   .add('default', () => (

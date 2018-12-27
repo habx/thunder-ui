@@ -16,7 +16,7 @@ import {
   Description,
   OptionsActions,
   OptionAction,
-  CustomIconContainer,
+  CustomIconContainer
 } from './Select.style'
 
 import Option from './Option'
@@ -30,11 +30,12 @@ class Select extends React.Component<SelectProps> {
     labelClassName: '',
     icon: null,
     annotation: null,
-    canReset: true,
+    canReset: true
   }
+
   wrapperRef: React.RefObject<any>
 
-  constructor(props) {
+  constructor (props) {
     super(props)
 
     this.wrapperRef = React.createRef()
@@ -44,15 +45,15 @@ class Select extends React.Component<SelectProps> {
     open: false,
     search: '',
     isInputFocus: false,
-    focusedItem: null,
+    focusedItem: null
   }
 
-  componentDidMount() {
+  componentDidMount () {
     window.addEventListener('click', this.handleClickOutside)
     window.addEventListener('keydown', this.handleKeyDown)
   }
 
-  componentWillUnmount() {
+  componentWillUnmount () {
     window.removeEventListener('click', this.handleClickOutside)
     window.removeEventListener('keydown', this.handleKeyDown)
   }
@@ -62,7 +63,7 @@ class Select extends React.Component<SelectProps> {
     const { search } = this.state
     return filter(options,
       option => (searchInString(`${option.value}`, search) || searchInString(option.label, search)) &&
-        !(!isMulti && value && option.value === (value as formOption).value),
+        !(!isMulti && value && option.value === (value as formOption).value)
     )
   }
 
@@ -143,7 +144,7 @@ class Select extends React.Component<SelectProps> {
     e.preventDefault()
   }
 
-  render() {
+  render () {
     const { open, search, focusedItem } = this.state
     const {
       label,
@@ -156,7 +157,8 @@ class Select extends React.Component<SelectProps> {
       canReset,
       value: unusedValue,
       onChange: unusedOnChange,
-      ...rest } = this.props
+      ...rest
+    } = this.props
 
     const options = this.getOptions()
     let { value } = this.props
@@ -217,7 +219,7 @@ class Select extends React.Component<SelectProps> {
                 }
                 {options.map(option => {
                   // @ts-ignore
-                  const selected = some((value as formOptionInterface), { value: option.value })
+                  const selected = some((value as formOption), { value: option.value })
                   return (
                     <Option
                       key={option.value}

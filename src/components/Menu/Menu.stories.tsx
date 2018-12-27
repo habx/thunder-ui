@@ -11,7 +11,7 @@ const Container = styled.div`
 `
 
 class MenuWrapper extends Component<any> {
-  render() {
+  render () {
     return (
       <Container>
         <Menu {...this.props} triggerElement={<Button>Menu</Button>} />

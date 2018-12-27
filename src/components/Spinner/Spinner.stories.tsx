@@ -2,7 +2,6 @@ import * as React from 'react'
 import { storiesOf } from '@storybook/react'
 import Spinner from './index'
 
-
 storiesOf('Miscellaneous/Spinner', module)
   .add('Basic', () => (
     <Spinner />

@@ -1,39 +1,39 @@
 import DOMInterface from '../../../internal/domInterface'
 
 type themeType = {
-  background?: string,
-  border?: string,
-  text?: string,
+  background?: string
+  border?: string
+  text?: string
 
   modal?: {
-    overlayOpacity?: number,
+    overlayOpacity?: number
   },
 
   section?: {
-    title?: string,
-  },
+    title?: string
+  }
 
   item?: {
-    title?: string,
-    subtitle?: string,
-    focus?: string,
-    actionIcon?: string,
-    icon?: string,
-    iconBackground?: string,
-    highlight?: string,
-    subtitleFont?: string,
+    title?: string
+    subtitle?: string
+    focus?: string
+    actionIcon?: string
+    icon?: string
+    iconBackground?: string
+    highlight?: string
+    subtitleFont?: string
   },
 
   welcome?: {
-    background?: string,
-    color?: string,
-  },
+    background?: string
+    color?: string
+  }
 }
 
 export default interface ThunderProps extends DOMInterface {
   query?: string
   data?: Array<any> | object
-  open?: boolean,
+  open?: boolean
   onOpen?: () => void
   onQueryChange?: (query: string) => void
   placeholder?: string

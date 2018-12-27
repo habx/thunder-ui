@@ -1,10 +1,10 @@
 import styled from 'styled-components'
 
-import { shadows, borderRadius, colors, fontSizes } from '../../theme'
+import { shadows, borderRadius } from '../../theme'
 
 const prepareProps = ({ position }) => ({
   left: position === 'left' ? '4px' : 'unset',
-  right: position === 'right' ? '4px' : 'unset',
+  right: position === 'right' ? '4px' : 'unset'
 })
 
 export const MenuContainer = styled.div.attrs(prepareProps)`
