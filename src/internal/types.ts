@@ -1,7 +1,8 @@
-type formOptionInterface = { value: number | string, label: string }
-type formValue = formOptionInterface | string | number
+export type formOption = { value: number | string, label: string }
 
-type thunderContext = {
+export type formValue = formOption | string | number
+
+export type thunderContext = {
   query: string,
   data: any,
 }
