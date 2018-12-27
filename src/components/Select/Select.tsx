@@ -5,6 +5,7 @@ import Annotation from '../Annotation'
 import FontIcon from '../FontIcon'
 import SelectProps from './Select.interface'
 import { searchInString } from '../../internal/strings'
+import { formOption, formValue } from '../../internal/types'
 
 import {
   SelectContainer,
@@ -61,7 +62,7 @@ class Select extends React.Component<SelectProps> {
     const { search } = this.state
     return filter(options,
       option => (searchInString(`${option.value}`, search) || searchInString(option.label, search)) &&
-        !(!isMulti && value && option.value === (value as formOptionInterface).value),
+        !(!isMulti && value && option.value === (value as formOption).value),
     )
   }
 
@@ -181,7 +182,7 @@ class Select extends React.Component<SelectProps> {
           }
           <SearchInput
             value={search}
-            placeholder={!isMulti && value ? (value as formOptionInterface).label : label}
+            placeholder={!isMulti && value ? (value as formOption).label : label}
             onChange={this.handleSearch}
             onFocus={this.handleFocus}
             onBlur={this.handleBlur}

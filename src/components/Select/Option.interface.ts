@@ -4,5 +4,5 @@ export default interface OptionProps extends DOMInterface {
   focused: boolean,
   isMulti: boolean,
   label: string,
-  selected: string,
+  selected: boolean,
 }
