@@ -2,7 +2,6 @@ import * as React from 'react'
 
 import DOMInterface from '../../../internal/domInterface'
 
-
 export default interface ItemProps extends DOMInterface {
   index: number
   title: string

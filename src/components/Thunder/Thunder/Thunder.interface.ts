@@ -35,7 +35,7 @@ export default interface ThunderProps extends DOMInterface {
   data?: Array<any> | object
   open?: boolean,
   onOpen?: () => void
-  onQueryChange?: (string) => void
+  onQueryChange?: (query: string) => void
   placeholder?: string
   theme?: themeType
 }

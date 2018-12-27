@@ -8,8 +8,8 @@ export const ItemContainer = styled.div`
   padding: 16px 32px;
   transition: background-color ease-in-out 200ms;
   text-decoration: none;
-  
-  &:hover, 
+
+  &:hover,
   &:focus {
     background-color: ${get('item.focus')};
     cursor: pointer;
@@ -30,12 +30,12 @@ export const ItemContent = styled.div`
 export const ItemTitle = styled.div`
   display: flex;
   align-items: baseline;
-  
+
   &:hover {
     i {
       transition: all ease-in-out 200ms;
       opacity: 1;
-      
+
       &:hover {
         opacity: 0.7;
       }
@@ -49,11 +49,11 @@ export const ItemTitleInput = styled.input.attrs(() => ({ type: 'text' }))`
   background: none;
   flex: 1 1 100%;
   display: none;
-  
+
   &:focus {
     outline: none;
   }
-  
+
   &[data-editing="true"] {
     display: initial;
     margin-top: -2px;
@@ -62,7 +62,7 @@ export const ItemTitleInput = styled.input.attrs(() => ({ type: 'text' }))`
 
 export const ItemActions = styled.div`
   margin-left: 8px;
-  
+
   & > i {
     margin: 0 8px;
     vertical-align: baseline;
@@ -71,7 +71,7 @@ export const ItemActions = styled.div`
     font-size: 18px;
     color: ${get('item.actionIcon')};
   }
-  
+
   &[data-editing="true"] {
     display: none;
   }
@@ -83,7 +83,7 @@ export const ItemIcon = styled.div`
   justify-content: center;
   align-self: center;
   flex: 0 0 auto;
-  
+
   border-radius: 50%;
   margin-right: 20px;
   height: 40px;
@@ -98,7 +98,7 @@ export const Title = styled.div`
   font-size: 23px;
   overflow: hidden;
   text-overflow: ellipsis;
-  
+
   &[data-editing="true"] {
     display: none;
   }

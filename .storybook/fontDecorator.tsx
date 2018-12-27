@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import * as React from 'react'
 import { createGlobalStyle } from 'styled-components'
 
 const Fonts = createGlobalStyle`
@@ -78,10 +78,10 @@ const Fonts = createGlobalStyle`
 `
 
 const fontDecorator = storyFn => (
-  <Fragment>
+  <React.Fragment>
     { storyFn() }
     <Fonts />
-  </Fragment>
+  </React.Fragment>
 )
 
 export default fontDecorator

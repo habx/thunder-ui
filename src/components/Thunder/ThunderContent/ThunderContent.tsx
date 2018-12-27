@@ -1,22 +1,11 @@
 import * as React from 'react'
-import PropTypes from 'prop-types'
 import { get, orderBy, omit, head, reduce } from 'lodash'
 
 import { ThunderContext } from '../context'
 import ThunderIcon from './icon'
-import { ThunderSearch, ThunderSections } from './Thunder.style'
+import { ThunderSearch, ThunderSections } from './ThunderContent.style'
 
 export default class ThunderContent extends React.Component<any> {
-  static propTypes = {
-    onClose: PropTypes.func.isRequired,
-    onQueryChange: PropTypes.func.isRequired,
-    data: PropTypes.objectOf(PropTypes.array),
-    placeholder: PropTypes.string,
-    inputRef: PropTypes.shape({
-      current: PropTypes.object,
-    }).isRequired,
-  }
-
   static defaultProps = {
     data: {},
     placeholder: 'Aller à...',

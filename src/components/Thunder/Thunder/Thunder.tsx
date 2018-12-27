@@ -1,5 +1,4 @@
 import * as React from 'react'
-import PropTypes from 'prop-types'
 import { isBoolean, isString, isFunction, merge } from 'lodash'
 import { ThemeProvider } from 'styled-components'
 
@@ -14,15 +13,8 @@ const DOUBLE_KEY_PRESS_DURATION = 200
 const stopEvent = e => e.stopPropagation()
 
 export default class Thunder extends React.Component<ThunderInnerProps> {
-  static propTypes = {
-    onOpen: PropTypes.func,
-    className: PropTypes.string,
-    style: PropTypes.shape({}),
-    theme: PropTypes.shape({}),
-  }
-
   static defaultProps = {
-    onOpen: () => {},
+    onOpen: () => null,
     className: '',
     style: null,
     theme: null,
@@ -45,7 +37,6 @@ export default class Thunder extends React.Component<ThunderInnerProps> {
     this.modalRef = React.createRef()
     this.inputRef = React.createRef()
   }
-
 
   state = {
     open: false,
@@ -136,12 +127,7 @@ export default class Thunder extends React.Component<ThunderInnerProps> {
   inputRef = null
 
   render() {
-    const {
-      className,
-      style,
-      ...rest
-    } = this.props
-
+    const { className, style, ...rest } = this.props
 
     if (!this.isOpen()) {
       return null

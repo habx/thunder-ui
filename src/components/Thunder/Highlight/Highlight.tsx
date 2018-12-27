@@ -1,4 +1,3 @@
-/* eslint-disable */
 import * as React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
@@ -108,13 +107,12 @@ const prepareMap = () => {
 
 const removalMap = prepareMap()
 
-export const cleanString = string => string.replace(/[^\u0000-\u007E]/g, a => removalMap[a] || a)
+export const cleanString = (str: string) => str.replace(/[^\u0000-\u007E]/g, a => removalMap[a] || a)
 
 const findQueryInText = (rawTest, rawQuery) => {
-  const query = [...cleanString(rawQuery).toLowerCase()]
-  const text = [...rawTest]
+  const query = cleanString(rawQuery).toLowerCase().split('')
 
-  return text.reduce((accumulator, letter) => {
+  return rawTest.split('').reduce((accumulator, letter) => {
     const { text, match } = accumulator
     const cleanLetter = removalMap[letter] || letter
 
@@ -122,19 +120,19 @@ const findQueryInText = (rawTest, rawQuery) => {
       if (match.length === query.length - 1) {
         return {
           text: `${text}<mark>${match}${letter}</mark>`,
-          match: ''
+          match: '',
         }
       }
 
       return {
         text,
-        match: `${match}${letter}`
+        match: `${match}${letter}`,
       }
     }
 
     return {
       text: `${text}${match}${letter}`,
-      match: ''
+      match: '',
     }
   }, { text: '', match: '' })
 }
@@ -142,7 +140,7 @@ const findQueryInText = (rawTest, rawQuery) => {
 const HighlightContainer = styled.div`
   overflow: hidden;
   text-overflow: ellipsis;
-  
+
   & mark {
     padding: 0;
     background-color: ${get('item.highlight')};
