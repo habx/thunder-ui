@@ -3,7 +3,7 @@
   "version": "2.0.5",
   "description": "UI Library for client-crm-v2 and client-housings",
   "main": "lib/index.js",
-  "types": "lib/index.d.ts",
+  "types": "./lib/index.d.ts",
   "scripts": {
     "test": "jest",
     "lint": "tslint --project tsconfig.json 'src/**/*.ts'",
