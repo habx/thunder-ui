@@ -2,7 +2,7 @@
 .env
 
 # Build output folders
-build/
+lib/
 out/
 
 # Logs
@@ -41,13 +41,6 @@ flow-typed/
 # Flow Coverage Report
 flow-coverage/
 
-# Happypack
-.happypack
-
 # OSX Files
 .DS_Store
 
-.next
-.storybook-static
-
-lib/
