@@ -1,6 +1,6 @@
 {
   "name": "@habx/lib-client-backoffx",
-  "version": "2.0.4",
+  "version": "2.0.5",
   "description": "UI Library for client-crm-v2 and client-housings",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
