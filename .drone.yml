@@ -53,7 +53,7 @@ pipeline:
     environment:
     - NPM_TOKEN=${NPM_TOKEN}
     commands:
-    - npm run compile
+    - npm run build
     when:
       event: tag
 
