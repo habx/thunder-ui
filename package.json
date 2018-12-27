@@ -7,9 +7,9 @@
   "scripts": {
     "test": "jest",
     "lint": "tslint --project tsconfig.json 'src/**/*.ts'",
-    "type-check": "tsc --noEmit",
-    "build": "rimraf ./lib && NODE_ENV=production tsc",
-    "build:watch": "NODE_ENV=development tsc --watch",
+    "type-check": "tsc --noEmit -p",
+    "build": "rimraf ./lib && NODE_ENV=production tsc -p ./tsconfig.json",
+    "build:watch": "NODE_ENV=development tsc --watch -p ./tsconfig.json",
     "storybook": "start-storybook -p 9001 -c .storybook -s ./assets",
     "build-storybook": "build-storybook -c .storybook -s ./assets -o .storybook-static",
     "install:local": "npm ci && npm link styled-components && npm link react && npm link react-dom"
