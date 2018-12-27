@@ -1,8 +1,10 @@
+import * as React from 'react'
 import styled from 'styled-components'
 
 import { get } from '../theme'
+import WelcomeMessageProps from './WelcomeMessage.interface'
 
-const WelcomeMessage = styled.div`
+const WelcomeMessage: React.StatelessComponent<WelcomeMessageProps> = styled.div`
   background-color: ${get('welcome.background')};
   color: ${get('welcome.color')};
   padding: 16px;

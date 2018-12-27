@@ -1,13 +1,13 @@
-import React, { Component } from 'react'
+import * as React from 'react'
 import { omit, pick, mapValues, memoize } from 'lodash'
 
 import { withThunderContext, withSectionContext } from '../context'
 
 const ACTIONS = ['onClick', 'onFocus', 'onBlur']
 
-const withItemBehavior = WrappedComponent => class Wrapper extends Component {
-  constructor() {
-    super()
+const withItemBehavior = WrappedComponent => class Wrapper extends React.Component<any> {
+  constructor(props) {
+    super(props)
 
     this.id = Math.random()
   }
@@ -17,14 +17,10 @@ const withItemBehavior = WrappedComponent => class Wrapper extends Component {
   }
 
   componentDidUpdate(prevProps) {
-    const { index, selected } = this.props
+    const { index } = this.props
 
     if (prevProps.index !== index) {
       this.register()
-    }
-
-    if (selected) {
-      this.itemContainer.current.focus()
     }
   }
 
@@ -51,6 +47,8 @@ const withItemBehavior = WrappedComponent => class Wrapper extends Component {
     (_, actionName) => this.handleEvent(actionName)
   )
 
+  id = null
+
   register() {
     const {
       index,
@@ -73,7 +71,9 @@ const withItemBehavior = WrappedComponent => class Wrapper extends Component {
     this.actions[actionName] = action
   }
 
-  actions = {}
+  actions = {
+    submit: (...args) => null
+  }
 
   render() {
     const { thunder: { selectedItemKey, query } } = this.props

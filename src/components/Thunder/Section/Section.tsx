@@ -1,13 +1,13 @@
-import React, { Component } from 'react'
-import PropTypes from 'prop-types'
+import * as React from 'react'
 import { get, map, take, memoize, filter as lodashFilter } from 'lodash'
 
 import { SectionContext } from '../context'
 import SectionTitle from '../SectionTitle'
 
-import { SectionContainer } from './style'
+import { SectionInnerProps } from './Section.interface'
+import { SectionContainer } from './Section.style'
 
-class Section extends Component {
+class Section extends React.Component<SectionInnerProps> {
   getMatchingItems = () => {
     const { thunder, filter, name } = this.props
     const sectionData = get(thunder.data, name)
@@ -54,18 +54,6 @@ class Section extends Component {
       </SectionContext.Provider>
     )
   }
-}
-
-Section.propTypes = {
-  name: PropTypes.string.isRequired,
-  thunder: PropTypes.shape({}).isRequired,
-  render: PropTypes.func,
-  maxItems: PropTypes.number,
-}
-
-Section.defaultProps = {
-  render: null,
-  maxItems: -1,
 }
 
 export default Section

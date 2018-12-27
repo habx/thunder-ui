@@ -1,4 +1,4 @@
-import React, { Component, createRef } from 'react'
+import * as React from 'react'
 import PropTypes from 'prop-types'
 import { isBoolean, isString, isFunction, merge } from 'lodash'
 import { ThemeProvider } from 'styled-components'
@@ -6,13 +6,14 @@ import { ThemeProvider } from 'styled-components'
 import ThunderContent from '../ThunderContent'
 import { DEFAULT_THEME } from '../theme'
 
-import { ThunderModalContainer, ThunderModal } from './style'
+import { ThunderModalContainer, ThunderModal } from './Thunder.style'
+import { ThunderInnerProps } from './Thunder.interface'
 
 const DOUBLE_KEY_PRESS_DURATION = 200
 
 const stopEvent = e => e.stopPropagation()
 
-export default class Thunder extends Component {
+export default class Thunder extends React.Component<ThunderInnerProps> {
   static propTypes = {
     onOpen: PropTypes.func,
     className: PropTypes.string,
@@ -38,11 +39,11 @@ export default class Thunder extends Component {
     return null
   }
 
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
 
-    this.modalRef = createRef()
-    this.inputRef = createRef()
+    this.modalRef = React.createRef()
+    this.inputRef = React.createRef()
   }
 
 
@@ -131,6 +132,8 @@ export default class Thunder extends Component {
   }
 
   lastOpenKeyPress = 0
+  modalRef = null
+  inputRef = null
 
   render() {
     const {
