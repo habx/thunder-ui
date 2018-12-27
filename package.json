@@ -8,8 +8,8 @@
     "test": "jest",
     "lint": "tslint --project tsconfig.json 'src/**/*.ts'",
     "type-check": "tsc --noEmit",
-    "compile": "rimraf ./lib && NODE_ENV=production tsc",
-    "watch": "NODE_ENV=development tsc --watch",
+    "build": "rimraf ./lib && NODE_ENV=production tsc",
+    "build:watch": "NODE_ENV=development tsc --watch",
     "storybook": "start-storybook -p 9001 -c .storybook -s ./assets",
     "build-storybook": "build-storybook -c .storybook -s ./assets -o .storybook-static",
     "install:local": "npm ci && npm link styled-components && npm link react && npm link react-dom"
