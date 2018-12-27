@@ -2,8 +2,8 @@ import styled from 'styled-components'
 
 export const Label = styled.span.attrs(({ value, max }) => ({
   style: {
-    left: `calc(100%/${max}*${value})`,
-  },
+    left: `calc(100%/${max}*${value})`
+  }
 }))`
   position: absolute;
   margin-top: 10px;

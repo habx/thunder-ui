@@ -5,26 +5,26 @@ import { MenuWrapper, MenuContainer, MenuContent } from './Menu.style'
 
 class Menu extends React.Component<MenuProps> {
   static defaultProps = {
-    position: 'left',
+    position: 'left'
   }
 
   wrapperRef: React.RefObject<Element>
 
-  constructor(props) {
+  constructor (props) {
     super(props)
 
     this.wrapperRef = React.createRef()
   }
 
   state = {
-    open: false,
+    open: false
   }
 
-  componentDidMount() {
+  componentDidMount () {
     window.addEventListener('click', this.handleClickOutside)
   }
 
-  componentWillUnmount() {
+  componentWillUnmount () {
     window.removeEventListener('click', this.handleClickOutside)
   }
 
@@ -40,7 +40,7 @@ class Menu extends React.Component<MenuProps> {
 
   handleClick = () => this.setState({ open: !this.state.open })
 
-  render() {
+  render () {
     const { triggerElement, children, position, ...props } = this.props
     const triggerElementWithAction =
       React.cloneElement(triggerElement, { onClick: this.handleClick })

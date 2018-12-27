@@ -5,7 +5,7 @@ import { fontSizes, colors } from '../../theme'
 import AnnotationProps from './Annotation.interface'
 
 const prepareProps = props => ({
-  color: props.color || colors.paynesGrey,
+  color: props.color || colors.paynesGrey
 })
 
 const Annotation: React.StatelessComponent<AnnotationProps> = styled.span.attrs(prepareProps)`

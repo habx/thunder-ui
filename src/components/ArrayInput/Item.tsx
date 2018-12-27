@@ -3,13 +3,13 @@ import * as React from 'react'
 import ItemHeader from './ItemHeader'
 
 import { withArrayContext } from './context'
-import { ItemContainer, ItemContent, ItemDescription } from './style'
+import { ItemContainer, ItemContent, ItemDescription } from './ArrayInput.style'
 import ItemProps from './Item.interface'
 
 const Item: React.StatelessComponent<ItemProps> = ({
   context: { editing, itemComponent: ItemComponent, itemDescription },
   index,
-  item,
+  item
 }) => {
   const isEditing = editing === index
 

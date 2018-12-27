@@ -7,7 +7,6 @@ import { withState } from 'recompose'
 import Slider from './Slider'
 import { colors } from '../../theme'
 
-
 const Container = styled.div`
   min-width: 300px;
 `
@@ -52,4 +51,3 @@ storiesOf('Inputs/Slider', module)
   .add('with custom color', () => (
     <Slider onChange={action('Slider change')} value={40} color={colors.trueBlue} />
   ))
-

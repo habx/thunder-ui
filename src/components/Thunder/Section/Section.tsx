@@ -24,7 +24,7 @@ class Section extends React.Component<SectionInnerProps> {
 
   buildContext = memoize(name => ({ name }))
 
-  renderContent() {
+  renderContent () {
     const { render, thunder, renderItem, name, maxItems } = this.props
 
     if (render) {
@@ -42,7 +42,7 @@ class Section extends React.Component<SectionInnerProps> {
     return null
   }
 
-  render() {
+  render () {
     const { title, name } = this.props
 
     return (

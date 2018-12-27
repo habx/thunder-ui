@@ -1,5 +1,4 @@
 import * as React from 'react'
-import PropTypes from 'prop-types'
 import { omit } from 'lodash'
 
 import FontIcon from '../../FontIcon'
@@ -20,29 +19,16 @@ const INTERNAL_PROPS = [
   'refPropName',
   'registerActions',
   'thunder',
-  'as',
+  'as'
 ]
 
 class Item extends React.PureComponent<ItemInnerProps> {
-  static propTypes = {
-    title: PropTypes.string.isRequired,
-    subtitle: PropTypes.string,
-    icon: PropTypes.node,
-    iconStyle: PropTypes.objectOf(PropTypes.any),
-    href: PropTypes.string,
-    onDelete: PropTypes.func,
-    onEdit: PropTypes.func,
-    onClick: PropTypes.func,
-    registerActions: PropTypes.func.isRequired,
-    focusOnRender: PropTypes.bool,
-    refPropName: PropTypes.string,
-    query: PropTypes.string.isRequired,
-    selected: PropTypes.bool.isRequired,
-    as: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
-  }
+  private readonly containerRef: { current: HTMLDivElement}
+  private readonly inputRef: React.RefObject<any>
+  private readonly itemContainerRef: React.RefObject<any>
 
   static defaultProps = {
-    onClick: () => {},
+    onClick: () => null,
     subtitle: '',
     onDelete: null,
     onEdit: null,
@@ -51,26 +37,26 @@ class Item extends React.PureComponent<ItemInnerProps> {
     iconStyle: null,
     icon: null,
     href: null,
-    as: 'div',
+    as: 'div'
   }
 
-  constructor(props) {
+  constructor (props) {
     super(props)
 
-    this.container = { current: null }
-    this.itemContainer = React.createRef()
+    this.containerRef = { current: null }
+    this.itemContainerRef = React.createRef()
     this.inputRef = React.createRef()
   }
 
   state = {
     edit: this.props.focusOnRender,
-    value: this.props.title,
+    value: this.props.title
   }
 
-  componentDidMount() {
+  componentDidMount () {
     const {
       focusOnRender,
-      registerActions,
+      registerActions
     } = this.props
 
     if (focusOnRender) {
@@ -80,25 +66,25 @@ class Item extends React.PureComponent<ItemInnerProps> {
     registerActions('submit', this.handleSubmit)
   }
 
-  componentDidUpdate() {
+  componentDidUpdate () {
     const { selected } = this.props
 
     if (selected) {
-      this.itemContainer.current.focus()
+      this.itemContainerRef.current.focus()
     }
   }
 
-  getContainerProps() {
+  getContainerProps () {
     const { refPropName } = this.props
 
     const ref = node => {
-      this.container.current = node
+      this.containerRef.current = node
     }
 
     return { [refPropName]: ref }
   }
 
-  getContainerComponent(): React.ComponentClass<any> | React.StatelessComponent<any> | string {
+  getContainerComponent (): React.ComponentClass<any> | React.StatelessComponent<any> | string {
     const { href, as } = this.props
 
     if (as) {
@@ -119,7 +105,7 @@ class Item extends React.PureComponent<ItemInnerProps> {
       onClick(event)
     }
 
-    this.container.current.click()
+    this.containerRef.current.click()
   }
 
   handleClick = (action ?: () => void) => e => {
@@ -140,7 +126,7 @@ class Item extends React.PureComponent<ItemInnerProps> {
   }
 
   handleKeyPress = e => {
-    if (e.key === 'Enter' && document.activeElement === this.itemContainer.current) {
+    if (e.key === 'Enter' && document.activeElement === this.itemContainerRef.current) {
       this.handleSubmit(e)
     }
   }
@@ -161,11 +147,7 @@ class Item extends React.PureComponent<ItemInnerProps> {
     this.inputRef.current.select()
   }
 
-  container = null
-  inputRef = null
-  itemContainer = null
-
-  render() {
+  render () {
     const {
       title,
       subtitle,
@@ -173,7 +155,7 @@ class Item extends React.PureComponent<ItemInnerProps> {
       onDelete,
       onEdit,
       iconStyle,
-      query,
+      query
     } = this.props
 
     const { edit, value } = this.state
@@ -183,7 +165,7 @@ class Item extends React.PureComponent<ItemInnerProps> {
     return (
       <Container {...this.getContainerProps()} {...omit(this.props, INTERNAL_PROPS)}>
         <ItemContainer
-          ref={this.itemContainer}
+          ref={this.itemContainerRef}
           tabIndex={0}
           onClick={this.handleSubmit}
           onKeyPress={this.handleKeyPress}

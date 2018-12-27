@@ -25,27 +25,27 @@ export const colors = {
   white: COLOR_WHITE,
   whiteSmoke: COLOR_WHITE_SMOKE,
   snow: COLOR_SNOW,
-  oldLace: COLOR_OLD_LACE,
+  oldLace: COLOR_OLD_LACE
 }
 
 export const fontSizes = {
   tiny: '12px',
   small: '14px',
   regular: '16px',
-  large: '18px',
+  large: '18px'
 }
 
 export const borderRadius = {
   narrow: '3px',
   wide: '8px',
-  round: '16px',
+  round: '16px'
 }
 
 export const shadows = {
   strong: '0 4px 12px 0 rgba(80, 79, 79, 0.24)',
-  light: '0 2px 6px 0 rgba(6, 26, 60, 0.16)',
+  light: '0 2px 6px 0 rgba(6, 26, 60, 0.16)'
 }
 
 export const theme = {
-  colors,
+  colors
 }

@@ -15,4 +15,3 @@ export const withSectionContext = Component => props => (
     {context => <Component {...props} section={context} />}
   </SectionContext.Consumer>
 )
-

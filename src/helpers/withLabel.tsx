@@ -34,7 +34,7 @@ const withLabel = WrappedComponent => {
   }
 
   Field.defaultProps = {
-    label: '',
+    label: ''
   }
 
   return Field

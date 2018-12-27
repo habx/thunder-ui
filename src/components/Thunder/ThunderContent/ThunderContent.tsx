@@ -8,24 +8,24 @@ import { ThunderSearch, ThunderSections } from './ThunderContent.style'
 export default class ThunderContent extends React.Component<any> {
   static defaultProps = {
     data: {},
-    placeholder: 'Aller à...',
+    placeholder: 'Aller à...'
   }
 
   state = {
-    selectedItem: -1,
+    selectedItem: -1
   }
 
-  componentDidMount() {
+  componentDidMount () {
     window.addEventListener('keydown', this.handleKeyDown)
   }
 
-  componentWillUnmount() {
+  componentWillUnmount () {
     window.removeEventListener('keydown', this.handleKeyDown)
   }
 
   getAllItemKeys = () => reduce(this.items, (context, sectionItems) => [
     ...context,
-    ...orderBy(sectionItems, ['index'], ['asc']),
+    ...orderBy(sectionItems, ['index'], ['asc'])
   ], [])
 
   handleKeyDown = event => {
@@ -76,21 +76,21 @@ export default class ThunderContent extends React.Component<any> {
       ...this.items,
       [section]: {
         ...get(this.items, section, {}),
-        [item.key]: item,
-      },
+        [item.key]: item
+      }
     }
   }
 
   unRegisterItem = (section, key) => {
     this.items = {
       ...this.items,
-      [section]: omit(this.items[section], [key]),
+      [section]: omit(this.items[section], [key])
     }
   }
 
   items = {}
 
-  render() {
+  render () {
     const { children, query, data, placeholder, inputRef } = this.props
     const { selectedItem } = this.state
     const selectedItemKey = get(this.getAllItemKeys(), [selectedItem, 'key'])
@@ -103,7 +103,7 @@ export default class ThunderContent extends React.Component<any> {
           data,
           registerItem: this.registerItem,
           unRegisterItem: this.unRegisterItem,
-          close: this.handleClose,
+          close: this.handleClose
         }}
       >
         <ThunderSearch>

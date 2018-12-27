@@ -4,7 +4,7 @@ import { colors } from '../../theme'
 import SectionTitleProps from './SectionTitle.interface'
 
 const prepareProps = props => ({
-  color: props.color || colors.maastrichtBlue,
+  color: props.color || colors.maastrichtBlue
 })
 
 const SectionTitle: React.StatelessComponent<SectionTitleProps> = styled.h3.attrs(prepareProps)`

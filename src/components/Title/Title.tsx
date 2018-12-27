@@ -2,10 +2,10 @@ import * as React from 'react'
 import styled, { css } from 'styled-components'
 
 import { colors } from '../../theme'
-import TitleProps from './Title.interface';
+import TitleProps from './Title.interface'
 
 const prepareProps = props => ({
-  color: props.color || colors.maastrichtBlue,
+  color: props.color || colors.maastrichtBlue
 })
 
 const BaseTitle = styled.h1.attrs(prepareProps)`
@@ -13,21 +13,21 @@ const BaseTitle = styled.h1.attrs(prepareProps)`
   font-weight: bold;
   color: ${({ color }) => color};
   margin: 0;
-  
+
   ${({ underline }) => underline && css`
     display: flex;
     flex-direction: column;
-  
+
     &::after {
       content: '';
       background-color: ${({ color }) => color};
     }
-  `}  
+  `}
 `
 
 const Title1 = styled(BaseTitle)`
   font-size: 54px;
-  
+
   &::after {
     width: 128px;
     height: 12px;
@@ -40,7 +40,7 @@ const Title2 = styled(BaseTitle.withComponent('h2'))`
   &::after {
     width: 64px;
     height: 6px;
-  }  
+  }
 `
 
 const Title3 = styled(BaseTitle.withComponent('h3'))`
@@ -75,7 +75,7 @@ const Title: React.StatelessComponent<TitleProps> = ({ size, ...props }) => {
 }
 
 Title.defaultProps = {
-  size: 1,
+  size: 1
 }
 
 export default Title

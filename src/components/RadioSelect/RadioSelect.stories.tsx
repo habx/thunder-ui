@@ -8,14 +8,14 @@ import { colors } from '../../theme'
 const SIMPLE_OPTIONS = [
   { value: 0, label: 'Aucune' },
   { value: 1, label: '1 place' },
-  { value: 2, label: '2 places' },
+  { value: 2, label: '2 places' }
 ]
 
 const CARDINAL_POINTS = [
   { value: 'N', label: 'North' },
   { value: 'E', label: 'East' },
   { value: 'S', label: 'South' },
-  { value: 'W', label: 'West' },
+  { value: 'W', label: 'West' }
 ]
 
 const RadioSelectWithState = ({ value, ...props }) => {
@@ -62,7 +62,7 @@ storiesOf('Inputs/RadioSelect', module)
         { value: 2, label: '2' },
         { value: 3, label: '3' },
         { value: 4, label: '4' },
-        { value: 5, label: '5' },
+        { value: 5, label: '5' }
       ]}
     />
   ))

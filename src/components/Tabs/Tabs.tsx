@@ -21,7 +21,7 @@ const Tabs: React.StatelessComponent<TabsProps> = ({ color, hoverColor, activeCo
 Tabs.defaultProps = {
   hoverColor: null,
   activeColor: null,
-  color: null,
+  color: null
 }
 
 export default Tabs

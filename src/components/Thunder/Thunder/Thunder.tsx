@@ -13,25 +13,29 @@ const DOUBLE_KEY_PRESS_DURATION = 200
 const stopEvent = e => e.stopPropagation()
 
 export default class Thunder extends React.Component<ThunderInnerProps> {
+  private readonly modalRef: React.RefObject<any>
+  private readonly inputRef: React.RefObject<any>
+  private lastOpenKeyPress: number = 0
+
   static defaultProps = {
     onOpen: () => null,
     className: '',
     style: null,
-    theme: null,
+    theme: null
   }
 
-  static getDerivedStateFromProps(nextProps, prevState) {
+  static getDerivedStateFromProps (nextProps, prevState) {
     if (nextProps.open !== prevState.propsOpen) {
       return {
         open: nextProps.open,
-        propsOpen: nextProps.open,
+        propsOpen: nextProps.open
       }
     }
 
     return null
   }
 
-  constructor(props) {
+  constructor (props) {
     super(props)
 
     this.modalRef = React.createRef()
@@ -41,18 +45,18 @@ export default class Thunder extends React.Component<ThunderInnerProps> {
   state = {
     open: false,
     propsOpen: null,
-    query: '',
+    query: ''
   }
 
-  componentDidMount() {
+  componentDidMount () {
     window.addEventListener('keydown', this.handleKeyDown)
   }
 
-  componentWillUnmount() {
+  componentWillUnmount () {
     window.removeEventListener('keydown', this.handleKeyDown)
   }
 
-  getQuery() {
+  getQuery () {
     const { query } = this.props
     if (isString(query)) {
       return query
@@ -97,16 +101,16 @@ export default class Thunder extends React.Component<ThunderInnerProps> {
 
   handleClose = () => this.setState(() => ({
     open: false,
-    query: '',
+    query: ''
   }))
 
-  handleThunderOpen() {
+  handleThunderOpen () {
     this.setState({ open: true })
     this.inputRef.current.focus()
     this.props.onOpen()
   }
 
-  isOpen() {
+  isOpen () {
     const { open: propsOpen } = this.props
 
     if (isBoolean(propsOpen)) {
@@ -116,17 +120,13 @@ export default class Thunder extends React.Component<ThunderInnerProps> {
     return this.state.open
   }
 
-  generateTheme() {
+  generateTheme () {
     const { theme, customTheme } = this.props
 
     return merge({}, theme, { _thunder: DEFAULT_THEME }, { _thunder: customTheme })
   }
 
-  lastOpenKeyPress = 0
-  modalRef = null
-  inputRef = null
-
-  render() {
+  render () {
     const { className, style, ...rest } = this.props
 
     if (!this.isOpen()) {

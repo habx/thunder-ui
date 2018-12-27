@@ -35,7 +35,7 @@ const Card: React.StatelessComponent<CardProps> = ({ headerPosition, action, tit
 )
 
 Card.defaultProps = {
-  headerPosition: 'inside',
+  headerPosition: 'inside'
 }
 
 export default Card

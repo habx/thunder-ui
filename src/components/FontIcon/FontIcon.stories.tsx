@@ -1,7 +1,6 @@
 import * as React from 'react'
 import styled from 'styled-components'
 import { storiesOf } from '@storybook/react'
-import { map } from 'lodash'
 
 import FontIcon from './index'
 
@@ -25,7 +24,7 @@ const icons = ['person']
 
 storiesOf('Miscellaneous/FontIcon', module)
   .addDecorator(iconDecorator)
-  .add('simple icons', () => map(icons, icon => (
+  .add('simple icons', () => icons.map(icon => (
     <SimpleIconContainer key={icon}>
       <FontIcon icon={icon} />
     </SimpleIconContainer>

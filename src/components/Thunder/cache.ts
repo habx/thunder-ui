@@ -7,7 +7,7 @@ export const setItems = key => item => window.localStorage.setItem(`${KEY_PREFIX
 export const upsertItem = key => (itemKey, item) =>
   setItems(key)({
     ...getItems(key),
-    [itemKey]: item,
+    [itemKey]: item
   })
 
 export const deleteItem = key => itemKey => {

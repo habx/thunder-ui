@@ -6,7 +6,7 @@
   "types": "./lib/index.d.ts",
   "scripts": {
     "test": "jest",
-    "lint": "tslint --project tsconfig.json 'src/**/*.ts'",
+    "lint": "tslint -p tsconfig.json",
     "type-check": "tsc --noEmit -p",
     "build": "rimraf ./lib && NODE_ENV=production tsc -p ./tsconfig.json",
     "build:watch": "NODE_ENV=development tsc --watch -p ./tsconfig.json",

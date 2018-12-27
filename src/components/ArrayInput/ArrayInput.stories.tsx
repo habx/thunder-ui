@@ -9,7 +9,7 @@ import TextInput from '../TextInput'
 const FIELDS = [
   { name: 'Paris', country: 'France' },
   { name: 'London', country: 'United Kingdom' },
-  { name: 'Madrid', country: 'Spain' },
+  { name: 'Madrid', country: 'Spain' }
 ]
 
 const DEFAULT_FIELD = { name: '', country: '' }
@@ -49,17 +49,17 @@ const CountryArrayInputElement = ({ value, index }) => (
 
 class CountryArrayInput extends React.Component<any, any> {
   state = {
-    items: FIELDS,
+    items: FIELDS
   }
 
   handleChange = (value, index) => this.setState(({ items }) => ({
-    items: [...take(items, index), value, ...takeRight(items, items.length - index - 1)],
+    items: [...take(items, index), value, ...takeRight(items, items.length - index - 1)]
   }))
 
   handleAppend = () => this.setState(({ items }) => ({ items: [...items, DEFAULT_FIELD] }))
 
   handleDelete = index => this.setState(({ items }) => ({
-    items: [...take(items, index), ...takeRight(items, items.length - index - 1)],
+    items: [...take(items, index), ...takeRight(items, items.length - index - 1)]
   }))
 
   handleReorder = (oldPosition, newPosition) => this.setState(prevState => {
@@ -70,7 +70,7 @@ class CountryArrayInput extends React.Component<any, any> {
     return { items }
   })
 
-  render() {
+  render () {
     const { items } = this.state
 
     return (

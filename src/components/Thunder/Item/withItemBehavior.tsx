@@ -6,17 +6,19 @@ import { withThunderContext, withSectionContext } from '../context'
 const ACTIONS = ['onClick', 'onFocus', 'onBlur']
 
 const withItemBehavior = WrappedComponent => class Wrapper extends React.Component<any> {
-  constructor(props) {
+  private readonly id: number
+
+  constructor (props) {
     super(props)
 
     this.id = Math.random()
   }
 
-  componentDidMount() {
+  componentDidMount () {
     this.register()
   }
 
-  componentDidUpdate(prevProps) {
+  componentDidUpdate (prevProps) {
     const { index } = this.props
 
     if (prevProps.index !== index) {
@@ -24,14 +26,14 @@ const withItemBehavior = WrappedComponent => class Wrapper extends React.Compone
     }
   }
 
-  componentWillUnmount() {
+  componentWillUnmount () {
     const {
       thunder: {
-        unRegisterItem,
+        unRegisterItem
       },
       section: {
-        name,
-      },
+        name
+      }
     } = this.props
 
     unRegisterItem(name, this.id)
@@ -47,23 +49,21 @@ const withItemBehavior = WrappedComponent => class Wrapper extends React.Compone
     (_, actionName) => this.handleEvent(actionName)
   )
 
-  id = null
-
-  register() {
+  register () {
     const {
       index,
       thunder: {
-        registerItem,
+        registerItem
       },
       section: {
-        name,
-      },
+        name
+      }
     } = this.props
 
     registerItem(name, {
       index,
       key: this.id,
-      onSubmit: (...args) => this.actions.submit(...args),
+      onSubmit: (...args) => this.actions.submit(...args)
     })
   }
 
@@ -75,7 +75,7 @@ const withItemBehavior = WrappedComponent => class Wrapper extends React.Compone
     submit: (...args) => null
   }
 
-  render() {
+  render () {
     const { thunder: { selectedItemKey, query } } = this.props
     const selected = this.id === selectedItemKey
 

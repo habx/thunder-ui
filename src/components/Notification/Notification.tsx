@@ -1,6 +1,5 @@
 import styled from 'styled-components'
 import * as React from 'react'
-import PropTypes from 'prop-types'
 import color from 'color'
 
 import { fontSizes, borderRadius, colors } from '../../theme'
@@ -98,7 +97,7 @@ Notification.defaultProps = {
   backgroundColor: null,
   closeIcon: null,
   error: false,
-  warning: false,
+  warning: false
 }
 
 export default Notification
