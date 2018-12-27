@@ -1,22 +1,11 @@
-import React, { Component } from 'react'
-import PropTypes from 'prop-types'
-import { get, orderBy, omit, head } from 'lodash'
+import * as React from 'react'
+import { get, orderBy, omit, head, reduce } from 'lodash'
 
 import { ThunderContext } from '../context'
 import ThunderIcon from './icon'
-import { ThunderSearch, ThunderSections } from './style'
+import { ThunderSearch, ThunderSections } from './ThunderContent.style'
 
-export default class Thunder extends Component {
-  static propTypes = {
-    onClose: PropTypes.func.isRequired,
-    onQueryChange: PropTypes.func.isRequired,
-    data: PropTypes.objectOf(PropTypes.array),
-    placeholder: PropTypes.string,
-    inputRef: PropTypes.shape({
-      current: PropTypes.object,
-    }).isRequired,
-  }
-
+export default class ThunderContent extends React.Component<any> {
   static defaultProps = {
     data: {},
     placeholder: 'Aller à...',
@@ -34,7 +23,7 @@ export default class Thunder extends Component {
     window.removeEventListener('keydown', this.handleKeyDown)
   }
 
-  getAllItemKeys = () => Object.values(this.items).reduce((context, sectionItems) => [
+  getAllItemKeys = () => reduce(this.items, (context, sectionItems) => [
     ...context,
     ...orderBy(sectionItems, ['index'], ['asc']),
   ], [])
@@ -86,7 +75,7 @@ export default class Thunder extends Component {
     this.items = {
       ...this.items,
       [section]: {
-        ...get(this.items, section),
+        ...get(this.items, section, {}),
         [item.key]: item,
       },
     }

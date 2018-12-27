@@ -11,12 +11,12 @@ export const ThunderSearch = styled.div`
   display: flex;
   align-items: center;
   flex: 0 0 auto;
-  
+
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
   border-bottom: solid 1px ${get('border')};
   padding: 16px 32px;
-  
+
   input {
     box-shadow: none;
     border: none;
@@ -24,7 +24,7 @@ export const ThunderSearch = styled.div`
     flex: 1 1 100%;
     background-color: transparent;
     color: ${get('text')};
-    
+
     &:focus {
       outline: none;
     }

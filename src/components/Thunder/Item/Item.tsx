@@ -1,12 +1,12 @@
-import React, { PureComponent, createRef } from 'react'
+import * as React from 'react'
 import PropTypes from 'prop-types'
 import { omit } from 'lodash'
 
 import FontIcon from '../../FontIcon'
 import Highlight from '../Highlight'
 
-import { ItemContainer, ItemContent, ItemTitle, ItemActions, ItemIcon, ItemTitleInput, Title, Subtitle } from './style'
-
+import { ItemContainer, ItemContent, ItemTitle, ItemActions, ItemIcon, ItemTitleInput, Title, Subtitle } from './Item.style'
+import { ItemInnerProps } from './Item.interface'
 
 const INTERNAL_PROPS = [
   'title',
@@ -23,7 +23,7 @@ const INTERNAL_PROPS = [
   'as',
 ]
 
-class Item extends PureComponent {
+class Item extends React.PureComponent<ItemInnerProps> {
   static propTypes = {
     title: PropTypes.string.isRequired,
     subtitle: PropTypes.string,
@@ -58,8 +58,8 @@ class Item extends PureComponent {
     super(props)
 
     this.container = { current: null }
-    this.itemContainer = createRef()
-    this.inputRef = createRef()
+    this.itemContainer = React.createRef()
+    this.inputRef = React.createRef()
   }
 
   state = {
@@ -98,7 +98,7 @@ class Item extends PureComponent {
     return { [refPropName]: ref }
   }
 
-  getContainerComponent() {
+  getContainerComponent(): React.ComponentClass<any> | React.StatelessComponent<any> | string {
     const { href, as } = this.props
 
     if (as) {
@@ -122,7 +122,7 @@ class Item extends PureComponent {
     this.container.current.click()
   }
 
-  handleClick = action => e => {
+  handleClick = (action ?: () => void) => e => {
     e.preventDefault()
 
     if (action) {
@@ -160,6 +160,10 @@ class Item extends PureComponent {
     this.inputRef.current.focus()
     this.inputRef.current.select()
   }
+
+  container = null
+  inputRef = null
+  itemContainer = null
 
   render() {
     const {

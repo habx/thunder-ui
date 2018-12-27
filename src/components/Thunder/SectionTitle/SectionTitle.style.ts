@@ -6,7 +6,7 @@ export const SectionTitleContainer = styled.div`
   padding: 16px 32px;
   user-select: none;
   color: ${get('section.title')};
-  
+
   > i {
     border-radius: 50%;
     background-color: #5a6e85;
@@ -16,7 +16,7 @@ export const SectionTitleContainer = styled.div`
     margin-left: 10px;
     vertical-align: bottom;
     transition: all ease-in 100ms;
-    
+
     &:hover {
       opacity: 0.8;
       cursor: pointer;

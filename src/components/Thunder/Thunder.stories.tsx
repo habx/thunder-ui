@@ -5,7 +5,7 @@ import { filter, map } from 'lodash'
 import { withState } from 'recompose'
 
 import FontIcon from '../FontIcon'
-import { Thunder, Section, Item, WelcomeMessage } from './index'
+import { Thunder, Section, Item, WelcomeMessage } from '.'
 
 import { searchInString } from '../../internal/strings'
 
@@ -37,9 +37,13 @@ const DARK_THEME = {
 
 const withQueryControl = withState('query', 'onQueryChange', 'france')
 
-const BasicSection = ({ query }) => map(
-  filter(data.countries, country => searchInString(country, query)),
-  (country, index) => <Item key={country} title={country} index={index} />
+const BasicSection: React.StatelessComponent<any> = ({ query }) => (
+  <React.Fragment>
+    {map(
+      filter(data.countries, country => searchInString(country, query)),
+      (country, index) => <Item key={country} title={country} index={index} />
+    )}
+  </React.Fragment>
 )
 
 storiesOf('Thunder/thunder options', module)
