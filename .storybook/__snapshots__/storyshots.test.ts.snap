@@ -8089,6 +8089,8 @@ exports[`Storyshots Miscellaneous/Card basic 1`] = `
   border-radius: 3px;
   background: #fff;
   padding: 32px;
+  height: 100%;
+  overflow-y: auto;
 }
 
 .c1 {
@@ -8138,6 +8140,8 @@ exports[`Storyshots Miscellaneous/Card with onClick 1`] = `
   border-radius: 3px;
   background: #fff;
   padding: 32px;
+  height: 100%;
+  overflow-y: auto;
   cursor: pointer;
   -webkit-transition: box-shadow 150ms ease-in-out;
   transition: box-shadow 150ms ease-in-out;
@@ -8212,6 +8216,8 @@ exports[`Storyshots Miscellaneous/Card with subtitle 1`] = `
   border-radius: 3px;
   background: #fff;
   padding: 32px;
+  height: 100%;
+  overflow-y: auto;
 }
 
 .c1 {
@@ -8305,6 +8311,8 @@ exports[`Storyshots Miscellaneous/Card with title 1`] = `
   border-radius: 3px;
   background: #fff;
   padding: 32px;
+  height: 100%;
+  overflow-y: auto;
 }
 
 .c1 {
