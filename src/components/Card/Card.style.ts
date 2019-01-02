@@ -6,6 +6,8 @@ export const CardContainer = styled.div`
   border-radius: ${borderRadius.narrow};
   background: #fff;
   padding: 32px;
+  height: 100%;
+  overflow-y: auto;
 
   ${({ interactive }) => interactive && css`
     cursor: pointer;
