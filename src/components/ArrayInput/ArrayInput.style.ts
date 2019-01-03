@@ -33,6 +33,8 @@ export const ItemContent = styled.div`
 
 export const ItemHeaderContent = styled.div`
   flex: 1 1 auto;
+  color: ${colors.paynesGrey};
+  font-size: ${fontSizes.small};
 `
 
 export const ItemActions = styled.div`
