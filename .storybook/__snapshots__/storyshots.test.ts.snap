@@ -523,50 +523,22 @@ exports[`Storyshots Actions/TextButton with manual color 1`] = `
 
 exports[`Storyshots Inputs/ArrayInput basic 1`] = `
 .c7 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  border-radius: 3px;
   border: none;
-  box-shadow: 0 2px 6px 0 rgba(6,26,60,0.16);
-  box-sizing: border-box;
-  cursor: pointer;
   outline: none;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  vertical-align: middle;
-  text-align: left;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  line-height: 22px;
+  background-color: unset;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.43;
+  text-transform: uppercase;
+  -webkit-transition: color 150ms ease-in-out;
+  transition: color 150ms ease-in-out;
   color: #0071ce;
-  background-color: #fff;
-  -webkit-transition: background-color 150ms ease-in-out;
-  transition: background-color 150ms ease-in-out;
-  margin: 0 4px;
-  padding: 16px 24px;
-  font-size: 18px;
-  line-height: 1.11;
+  cursor: pointer;
 }
 
 .c7:hover,
 .c7:active {
-  background-color: rgb(204,204,204);
-}
-
-.c7:focus {
-  outline: none;
+  color: rgb(51,141,216);
 }
 
 .c7:disabled {
@@ -607,11 +579,11 @@ exports[`Storyshots Inputs/ArrayInput basic 1`] = `
 
 .c1:not(:last-child) {
   padding-bottom: 8px;
-  border-bottom: 2px solid #52627a;
+  border-bottom: 1px solid #52627a;
 }
 
 .c6 {
-  padding-top: 16px;
+  padding-top: 24px;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -776,6 +748,7 @@ exports[`Storyshots Inputs/ArrayInput basic 1`] = `
         >
           <button
             className="c7"
+            color="#0071ce"
             onClick={[Function]}
           >
             Ajouter un élément
@@ -789,50 +762,22 @@ exports[`Storyshots Inputs/ArrayInput basic 1`] = `
 
 exports[`Storyshots Inputs/ArrayInput with add button custom label 1`] = `
 .c7 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  border-radius: 3px;
   border: none;
-  box-shadow: 0 2px 6px 0 rgba(6,26,60,0.16);
-  box-sizing: border-box;
-  cursor: pointer;
   outline: none;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  vertical-align: middle;
-  text-align: left;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  line-height: 22px;
+  background-color: unset;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.43;
+  text-transform: uppercase;
+  -webkit-transition: color 150ms ease-in-out;
+  transition: color 150ms ease-in-out;
   color: #0071ce;
-  background-color: #fff;
-  -webkit-transition: background-color 150ms ease-in-out;
-  transition: background-color 150ms ease-in-out;
-  margin: 0 4px;
-  padding: 16px 24px;
-  font-size: 18px;
-  line-height: 1.11;
+  cursor: pointer;
 }
 
 .c7:hover,
 .c7:active {
-  background-color: rgb(204,204,204);
-}
-
-.c7:focus {
-  outline: none;
+  color: rgb(51,141,216);
 }
 
 .c7:disabled {
@@ -873,11 +818,11 @@ exports[`Storyshots Inputs/ArrayInput with add button custom label 1`] = `
 
 .c1:not(:last-child) {
   padding-bottom: 8px;
-  border-bottom: 2px solid #52627a;
+  border-bottom: 1px solid #52627a;
 }
 
 .c6 {
-  padding-top: 16px;
+  padding-top: 24px;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -1042,6 +987,7 @@ exports[`Storyshots Inputs/ArrayInput with add button custom label 1`] = `
         >
           <button
             className="c7"
+            color="#0071ce"
             onClick={[Function]}
           >
             Add a city
@@ -1055,50 +1001,22 @@ exports[`Storyshots Inputs/ArrayInput with add button custom label 1`] = `
 
 exports[`Storyshots Inputs/ArrayInput with description line 1`] = `
 .c8 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  border-radius: 3px;
   border: none;
-  box-shadow: 0 2px 6px 0 rgba(6,26,60,0.16);
-  box-sizing: border-box;
-  cursor: pointer;
   outline: none;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  vertical-align: middle;
-  text-align: left;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  line-height: 22px;
+  background-color: unset;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.43;
+  text-transform: uppercase;
+  -webkit-transition: color 150ms ease-in-out;
+  transition: color 150ms ease-in-out;
   color: #0071ce;
-  background-color: #fff;
-  -webkit-transition: background-color 150ms ease-in-out;
-  transition: background-color 150ms ease-in-out;
-  margin: 0 4px;
-  padding: 16px 24px;
-  font-size: 18px;
-  line-height: 1.11;
+  cursor: pointer;
 }
 
 .c8:hover,
 .c8:active {
-  background-color: rgb(204,204,204);
-}
-
-.c8:focus {
-  outline: none;
+  color: rgb(51,141,216);
 }
 
 .c8:disabled {
@@ -1139,11 +1057,11 @@ exports[`Storyshots Inputs/ArrayInput with description line 1`] = `
 
 .c1:not(:last-child) {
   padding-bottom: 8px;
-  border-bottom: 2px solid #52627a;
+  border-bottom: 1px solid #52627a;
 }
 
 .c7 {
-  padding-top: 16px;
+  padding-top: 24px;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -1328,6 +1246,7 @@ exports[`Storyshots Inputs/ArrayInput with description line 1`] = `
         >
           <button
             className="c8"
+            color="#0071ce"
             onClick={[Function]}
           >
             Ajouter un élément
@@ -1341,50 +1260,22 @@ exports[`Storyshots Inputs/ArrayInput with description line 1`] = `
 
 exports[`Storyshots Inputs/ArrayInput with order change allowed 1`] = `
 .c7 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  border-radius: 3px;
   border: none;
-  box-shadow: 0 2px 6px 0 rgba(6,26,60,0.16);
-  box-sizing: border-box;
-  cursor: pointer;
   outline: none;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  vertical-align: middle;
-  text-align: left;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  line-height: 22px;
+  background-color: unset;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.43;
+  text-transform: uppercase;
+  -webkit-transition: color 150ms ease-in-out;
+  transition: color 150ms ease-in-out;
   color: #0071ce;
-  background-color: #fff;
-  -webkit-transition: background-color 150ms ease-in-out;
-  transition: background-color 150ms ease-in-out;
-  margin: 0 4px;
-  padding: 16px 24px;
-  font-size: 18px;
-  line-height: 1.11;
+  cursor: pointer;
 }
 
 .c7:hover,
 .c7:active {
-  background-color: rgb(204,204,204);
-}
-
-.c7:focus {
-  outline: none;
+  color: rgb(51,141,216);
 }
 
 .c7:disabled {
@@ -1425,11 +1316,11 @@ exports[`Storyshots Inputs/ArrayInput with order change allowed 1`] = `
 
 .c1:not(:last-child) {
   padding-bottom: 8px;
-  border-bottom: 2px solid #52627a;
+  border-bottom: 1px solid #52627a;
 }
 
 .c6 {
-  padding-top: 16px;
+  padding-top: 24px;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -1636,6 +1527,7 @@ exports[`Storyshots Inputs/ArrayInput with order change allowed 1`] = `
         >
           <button
             className="c7"
+            color="#0071ce"
             onClick={[Function]}
           >
             Ajouter un élément
@@ -8645,6 +8537,27 @@ exports[`Storyshots Miscellaneous/Menu basic 1`] = `
 `;
 
 exports[`Storyshots Miscellaneous/Menu with icons 1`] = `
+.c7 {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  -webkit-letter-spacing: normal;
+  -moz-letter-spacing: normal;
+  -ms-letter-spacing: normal;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -moz-osx-font-smoothing: grayscale;
+  font-feature-settings: 'liga';
+}
+
 .c2 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -8696,27 +8609,6 @@ exports[`Storyshots Miscellaneous/Menu with icons 1`] = `
   pointer-events: none;
   -webkit-filter: grayscale();
   filter: grayscale();
-}
-
-.c7 {
-  font-family: 'Material Icons';
-  font-weight: normal;
-  font-style: normal;
-  font-size: 24px;
-  display: inline-block;
-  line-height: 1;
-  text-transform: none;
-  -webkit-letter-spacing: normal;
-  -moz-letter-spacing: normal;
-  -ms-letter-spacing: normal;
-  letter-spacing: normal;
-  word-wrap: normal;
-  white-space: nowrap;
-  direction: ltr;
-  -webkit-font-smoothing: antialiased;
-  text-rendering: optimizeLegibility;
-  -moz-osx-font-smoothing: grayscale;
-  font-feature-settings: 'liga';
 }
 
 .c3 {

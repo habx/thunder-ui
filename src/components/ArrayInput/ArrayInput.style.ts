@@ -11,12 +11,12 @@ export const ItemContainer = styled.div`
 
   &:not(:last-child) {
     padding-bottom: 8px;
-    border-bottom: 2px solid ${colors.paynesGrey};
+    border-bottom: 1px solid ${colors.paynesGrey};
   }
 `
 
 export const ArrayInputAction = styled.div`
-  padding-top: 16px;
+  padding-top: 24px;
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -28,7 +28,8 @@ export const ItemHeaderContainer = styled.div`
 `
 
 export const ItemContent = styled.div`
-  padding-top: 8px;
+  padding-top: 16px;
+  padding-left: 8px;
 `
 
 export const ItemHeaderContent = styled.div`
