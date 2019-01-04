@@ -1,7 +1,7 @@
 import * as React from 'react'
-import { map, pick, memoize } from 'lodash'
+import { map, pick } from 'lodash'
 
-import Button from '../Button'
+import TextButton from '../TextButton'
 
 import { ArrayContext } from './context'
 import Item from './Item'
@@ -71,9 +71,9 @@ class ArrayInput extends React.Component<ArrayInputProps, ArrayInputState> {
             <Item item={item} index={index} key={index} />
           ))}
           <ArrayInputAction>
-            <Button onClick={onAppend} reverse>
+            <TextButton onClick={onAppend}>
               { addButtonLabel }
-            </Button>
+            </TextButton>
           </ArrayInputAction>
         </ArrayInputContainer>
       </ArrayContext.Provider>
