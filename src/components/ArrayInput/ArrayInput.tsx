@@ -36,13 +36,14 @@ class ArrayInput extends React.Component<ArrayInputProps, ArrayInputState> {
     items: null
   }
 
-  handleEditStart = memoize(index => () => this.setState(() => ({ editing: index })))
+  handleEditStart = index => this.setState(() => ({ editing: index }))
 
-  handleEditStop = memoize(() => () => this.setState(() => ({ editing: null })))
+  handleEditStop = () => this.setState(() => ({ editing: null }))
 
-  handleDelete = memoize(index => () => {
-    this.setState(() => ({ editing: null }), () => this.props.onDelete(index))
-  })
+  handleDelete = index => this.setState(
+    () => ({ editing: null }),
+    () => this.props.onDelete(index)
+  )
 
   handleReorder = (oldPosition, newPosition) => {
     this.setState(() => ({ editing: null }), () => this.props.onReorder(oldPosition, newPosition))
