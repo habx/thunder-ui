@@ -13,25 +13,25 @@ const enhanceOne = withState('value', 'onChange', { value: 'sartrouville', label
 storiesOf('Inputs/Select', module)
   .add('single item', () => {
     const SelectWithState = enhanceOne(({ value, onChange }) => (
-      <Select options={options} label='Projet' value={value} onChange={onChange} />
+      <Select options={options} placeholder='Projet' value={value} onChange={onChange} />
     ))
     return <SelectWithState />
   })
   .add('single item without reset', () => {
     const SelectWithState = enhanceOne(({ value, onChange }) => (
-      <Select options={options} label='Projet' value={value} onChange={onChange} canReset={false} />
+      <Select options={options} placeholder='Projet' value={value} onChange={onChange} canReset={false} />
     ))
     return <SelectWithState />
   })
   .add('multi items', () => {
     const SelectWithState = enhance(({ value, onChange }) => (
-      <Select isMulti options={options} label='Projets' value={value} onChange={onChange} />
+      <Select isMulti options={options} placeholder='Projets' value={value} onChange={onChange} />
     ))
     return <SelectWithState />
   })
   .add('multi items with icon', () => {
     const SelectWithState = enhance(({ value, onChange }) => (
-      <Select isMulti options={options} label='Projets' value={value} onChange={onChange} icon={<FontIcon icon='camera_enhance' />} />
+      <Select isMulti options={options} placeholder='Projets' value={value} onChange={onChange} icon={<FontIcon icon='camera_enhance' />} />
     ))
     return <SelectWithState />
   })

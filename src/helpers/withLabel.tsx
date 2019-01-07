@@ -18,7 +18,7 @@ const LabelContainer = styled.div`
 `
 
 const withLabel = (config: { padding?: number } = {}) => WrappedComponent => {
-  const Field = ({ label, ...props }) => {
+  const Field: React.StatelessComponent<any> = ({ label, ...props }) => {
     if (label) {
       const { padding = 4 } = config
       return (

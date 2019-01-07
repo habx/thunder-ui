@@ -11,8 +11,8 @@ export default interface SelectProps extends DOMInterface {
   isMulti?: boolean
   description?: string
   filledIndicator?: boolean
-  labelClassName?: string
-  icon: React.ReactNode
+  placeholderClassName?: string
+  icon?: React.ReactNode
   annotation?: string
   canReset?: boolean
 }

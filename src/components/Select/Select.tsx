@@ -27,7 +27,7 @@ class Select extends React.Component<SelectProps> {
     value: null,
     description: null,
     filledIndicator: true,
-    labelClassName: '',
+    placeholderClassName: '',
     icon: null,
     annotation: null,
     canReset: true
@@ -161,7 +161,7 @@ class Select extends React.Component<SelectProps> {
       isMulti,
       description,
       filledIndicator,
-      labelClassName,
+      placeholderClassName,
       icon,
       annotation,
       canReset,
@@ -183,7 +183,7 @@ class Select extends React.Component<SelectProps> {
     return (
       <SelectContainer ref={this.wrapperRef} onClick={this.stopDefaultAndPropagation} {...rest}>
         <Label
-          className={labelClassName}
+          className={placeholderClassName}
           data-empty={!filledIndicator || isEmpty(value)}
           data-open={open}
           onClick={this.toggle}
