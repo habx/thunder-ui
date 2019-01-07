@@ -67,6 +67,16 @@ class Select extends React.Component<SelectProps> {
     )
   }
 
+  getPlaceholder (value) {
+    const { isMulti, placeholder } = this.props
+
+    if (isMulti) {
+      return placeholder
+    }
+
+    return value ? (value as formOption).label : placeholder
+  }
+
   handleClickOutside = () => {
     if (this.wrapperRef && !this.wrapperRef.current.contains(event.target) && this.state.open) {
       this.toggle()
@@ -147,7 +157,7 @@ class Select extends React.Component<SelectProps> {
   render () {
     const { open, search, focusedItem } = this.state
     const {
-      label,
+      placeholder,
       isMulti,
       description,
       filledIndicator,
@@ -184,7 +194,7 @@ class Select extends React.Component<SelectProps> {
           }
           <SearchInput
             value={search}
-            placeholder={!isMulti && value ? (value as formOption).label : label}
+            placeholder={this.getPlaceholder(value)}
             onChange={this.handleSearch}
             onFocus={this.handleFocus}
             onBlur={this.handleBlur}
