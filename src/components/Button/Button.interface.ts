@@ -8,4 +8,5 @@ export default interface ButtonProps extends DOMInterface {
   iconLeft?: string
   iconRight?: string
   reverse?: boolean
+  isLoading?: boolean
 }

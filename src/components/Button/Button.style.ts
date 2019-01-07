@@ -1,5 +1,6 @@
 import styled, { css } from 'styled-components'
 import color from 'color'
+import Spinner from '../../components/Spinner'
 
 import { borderRadius, shadows, colors, fontSizes } from '../../theme'
 
@@ -83,7 +84,9 @@ export const ButtonContainer = styled.button.attrs(prepareProps)`
 
   &:disabled {
     pointer-events: none;
-    filter: grayscale();
+    ${({ isLoading }) => !isLoading && css`
+      filter:  grayscale();
+    `}}
   }
 
   ${({ small }) => small && css`
@@ -102,4 +105,10 @@ export const ButtonContainer = styled.button.attrs(prepareProps)`
     line-height: 1.11;
   `};
 
+`
+
+export const ButtonSpinner = styled(Spinner)`
+  position: absolute;
+  margin: auto;
+  padding-left: 4px;
 `
