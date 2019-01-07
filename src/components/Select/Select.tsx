@@ -27,7 +27,7 @@ class Select extends React.Component<SelectProps> {
     value: null,
     description: null,
     filledIndicator: true,
-    labelClassName: '',
+    placeholderClassName: '',
     icon: null,
     annotation: null,
     canReset: true
@@ -65,6 +65,16 @@ class Select extends React.Component<SelectProps> {
       option => (searchInString(`${option.value}`, search) || searchInString(option.label, search)) &&
         !(!isMulti && value && option.value === (value as formOption).value)
     )
+  }
+
+  getPlaceholder (value) {
+    const { isMulti, placeholder } = this.props
+
+    if (isMulti) {
+      return placeholder
+    }
+
+    return value ? (value as formOption).label : placeholder
   }
 
   handleClickOutside = () => {
@@ -147,11 +157,11 @@ class Select extends React.Component<SelectProps> {
   render () {
     const { open, search, focusedItem } = this.state
     const {
-      label,
+      placeholder,
       isMulti,
       description,
       filledIndicator,
-      labelClassName,
+      placeholderClassName,
       icon,
       annotation,
       canReset,
@@ -173,7 +183,7 @@ class Select extends React.Component<SelectProps> {
     return (
       <SelectContainer ref={this.wrapperRef} onClick={this.stopDefaultAndPropagation} {...rest}>
         <Label
-          className={labelClassName}
+          className={placeholderClassName}
           data-empty={!filledIndicator || isEmpty(value)}
           data-open={open}
           onClick={this.toggle}
@@ -184,7 +194,7 @@ class Select extends React.Component<SelectProps> {
           }
           <SearchInput
             value={search}
-            placeholder={!isMulti && value ? (value as formOption).label : label}
+            placeholder={this.getPlaceholder(value)}
             onChange={this.handleSearch}
             onFocus={this.handleFocus}
             onBlur={this.handleBlur}

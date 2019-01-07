@@ -14,15 +14,16 @@ const LabelContainer = styled.div`
   color: ${colors.paynesGrey};
   user-select: none;
 
-  padding-bottom: 4px;
+  padding-bottom: ${({ padding }) => padding}px;
 `
 
-const withLabel = WrappedComponent => {
-  const Field = ({ label, ...props }) => {
+const withLabel = (config: { padding?: number } = {}) => WrappedComponent => {
+  const Field: React.StatelessComponent<any> = ({ label, ...props }) => {
     if (label) {
+      const { padding = 4 } = config
       return (
         <FieldWithLabelContainer>
-          <LabelContainer>
+          <LabelContainer padding={padding}>
             {label}
           </LabelContainer>
           <WrappedComponent {...props} />
