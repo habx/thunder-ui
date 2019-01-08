@@ -7993,7 +7993,6 @@ exports[`Storyshots Miscellaneous/Card basic 1`] = `
 
 .c1 {
   max-width: 500px;
-  padding: 12px 24px 24px 24px;
   line-height: 1.5;
 }
 
@@ -8049,7 +8048,6 @@ exports[`Storyshots Miscellaneous/Card with onClick 1`] = `
 
 .c1 {
   max-width: 500px;
-  padding: 12px 24px 24px 24px;
   line-height: 1.5;
 }
 
@@ -8132,7 +8130,6 @@ exports[`Storyshots Miscellaneous/Card with subtitle 1`] = `
 
 .c5 {
   max-width: 500px;
-  padding: 12px 24px 24px 24px;
   line-height: 1.5;
 }
 
@@ -8221,7 +8218,6 @@ exports[`Storyshots Miscellaneous/Card with title 1`] = `
 
 .c3 {
   max-width: 500px;
-  padding: 12px 24px 24px 24px;
   line-height: 1.5;
 }
 
@@ -8961,6 +8957,741 @@ exports[`Storyshots Miscellaneous/Menu with position aligned right 1`] = `
               </div>
             </li>
           </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Miscellaneous/Modal large 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  border-radius: 3px;
+  border: none;
+  box-shadow: 0 2px 6px 0 rgba(6,26,60,0.16);
+  box-sizing: border-box;
+  cursor: pointer;
+  outline: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  vertical-align: middle;
+  text-align: left;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  line-height: 22px;
+  color: #fff;
+  background-color: #0071ce;
+  -webkit-transition: background-color 150ms ease-in-out;
+  transition: background-color 150ms ease-in-out;
+  margin: 0 4px;
+  padding: 16px 24px;
+  font-size: 18px;
+  line-height: 1.11;
+}
+
+.c0:hover,
+.c0:active {
+  background-color: rgb(51,141,216);
+}
+
+.c0:focus {
+  outline: none;
+}
+
+.c0:disabled {
+  pointer-events: none;
+  -webkit-filter: grayscale();
+  filter: grayscale();
+}
+
+.c4 {
+  box-shadow: 0 2px 6px 0 rgba(6,26,60,0.16);
+  border-radius: 3px;
+  background: #fff;
+  padding: 32px;
+}
+
+.c3 {
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16),0 3px 6px rgba(0,0,0,0.23);
+  position: relative;
+  max-width: 800px;
+  max-height: calc(100vh - 64px);
+  overflow-x: hidden;
+  overflow-y: auto;
+  -webkit-transform: translateY(32px);
+  -ms-transform: translateY(32px);
+  transform: translateY(32px);
+  -webkit-transition: -webkit-transform 300ms ease-in-out;
+  -webkit-transition: transform 300ms ease-in-out;
+  transition: transform 300ms ease-in-out;
+}
+
+.c1 {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0,0,0,0.35);
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  z-index: 99999;
+}
+
+.c1[data-state="opening"] {
+  -webkit-animation: eMLfYp 300ms linear 0ms;
+  animation: eMLfYp 300ms linear 0ms;
+}
+
+.c1[data-state="closing"] {
+  -webkit-animation: eMLfYp 300ms linear 0ms reverse;
+  animation: eMLfYp 300ms linear 0ms reverse;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.c1[data-state="closed"] {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.c1[data-state="closing"] .c2,
+.c1[data-state="closed"] .c2 {
+  -webkit-transform: translateY(0px);
+  -ms-transform: translateY(0px);
+  transform: translateY(0px);
+}
+
+.c5 {
+  line-height: 1.5;
+}
+
+<div
+  style={
+    Object {
+      "alignItems": "center",
+      "bottom": 0,
+      "display": "flex",
+      "left": 0,
+      "overflow": "auto",
+      "position": "fixed",
+      "right": 0,
+      "top": 0,
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "margin": "auto",
+        "maxHeight": "100%",
+      }
+    }
+  >
+    <button
+      className="c0"
+      onClick={[Function]}
+    >
+      open
+    </button>
+    <div
+      className="c1"
+      data-state="closed"
+    >
+      <div>
+        <div
+          className="c2 c3 c4"
+        >
+          <div
+            className="c5"
+          >
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Miscellaneous/Modal small 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  border-radius: 3px;
+  border: none;
+  box-shadow: 0 2px 6px 0 rgba(6,26,60,0.16);
+  box-sizing: border-box;
+  cursor: pointer;
+  outline: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  vertical-align: middle;
+  text-align: left;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  line-height: 22px;
+  color: #fff;
+  background-color: #0071ce;
+  -webkit-transition: background-color 150ms ease-in-out;
+  transition: background-color 150ms ease-in-out;
+  margin: 0 4px;
+  padding: 16px 24px;
+  font-size: 18px;
+  line-height: 1.11;
+}
+
+.c0:hover,
+.c0:active {
+  background-color: rgb(51,141,216);
+}
+
+.c0:focus {
+  outline: none;
+}
+
+.c0:disabled {
+  pointer-events: none;
+  -webkit-filter: grayscale();
+  filter: grayscale();
+}
+
+.c4 {
+  box-shadow: 0 2px 6px 0 rgba(6,26,60,0.16);
+  border-radius: 3px;
+  background: #fff;
+  padding: 32px;
+}
+
+.c3 {
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16),0 3px 6px rgba(0,0,0,0.23);
+  position: relative;
+  max-width: 800px;
+  max-height: calc(100vh - 64px);
+  overflow-x: hidden;
+  overflow-y: auto;
+  -webkit-transform: translateY(32px);
+  -ms-transform: translateY(32px);
+  transform: translateY(32px);
+  -webkit-transition: -webkit-transform 300ms ease-in-out;
+  -webkit-transition: transform 300ms ease-in-out;
+  transition: transform 300ms ease-in-out;
+}
+
+.c1 {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0,0,0,0.35);
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  z-index: 99999;
+}
+
+.c1[data-state="opening"] {
+  -webkit-animation: eMLfYp 300ms linear 0ms;
+  animation: eMLfYp 300ms linear 0ms;
+}
+
+.c1[data-state="closing"] {
+  -webkit-animation: eMLfYp 300ms linear 0ms reverse;
+  animation: eMLfYp 300ms linear 0ms reverse;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.c1[data-state="closed"] {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.c1[data-state="closing"] .c2,
+.c1[data-state="closed"] .c2 {
+  -webkit-transform: translateY(0px);
+  -ms-transform: translateY(0px);
+  transform: translateY(0px);
+}
+
+.c5 {
+  line-height: 1.5;
+}
+
+<div
+  style={
+    Object {
+      "alignItems": "center",
+      "bottom": 0,
+      "display": "flex",
+      "left": 0,
+      "overflow": "auto",
+      "position": "fixed",
+      "right": 0,
+      "top": 0,
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "margin": "auto",
+        "maxHeight": "100%",
+      }
+    }
+  >
+    <button
+      className="c0"
+      onClick={[Function]}
+    >
+      open
+    </button>
+    <div
+      className="c1"
+      data-state="closed"
+    >
+      <div>
+        <div
+          className="c2 c3 c4"
+        >
+          <div
+            className="c5"
+          >
+            This is a simple modal
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Miscellaneous/Modal with scroll 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  border-radius: 3px;
+  border: none;
+  box-shadow: 0 2px 6px 0 rgba(6,26,60,0.16);
+  box-sizing: border-box;
+  cursor: pointer;
+  outline: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  vertical-align: middle;
+  text-align: left;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  line-height: 22px;
+  color: #fff;
+  background-color: #0071ce;
+  -webkit-transition: background-color 150ms ease-in-out;
+  transition: background-color 150ms ease-in-out;
+  margin: 0 4px;
+  padding: 16px 24px;
+  font-size: 18px;
+  line-height: 1.11;
+}
+
+.c0:hover,
+.c0:active {
+  background-color: rgb(51,141,216);
+}
+
+.c0:focus {
+  outline: none;
+}
+
+.c0:disabled {
+  pointer-events: none;
+  -webkit-filter: grayscale();
+  filter: grayscale();
+}
+
+.c4 {
+  box-shadow: 0 2px 6px 0 rgba(6,26,60,0.16);
+  border-radius: 3px;
+  background: #fff;
+  padding: 32px;
+}
+
+.c3 {
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16),0 3px 6px rgba(0,0,0,0.23);
+  position: relative;
+  max-width: 800px;
+  max-height: calc(100vh - 64px);
+  overflow-x: hidden;
+  overflow-y: auto;
+  -webkit-transform: translateY(32px);
+  -ms-transform: translateY(32px);
+  transform: translateY(32px);
+  -webkit-transition: -webkit-transform 300ms ease-in-out;
+  -webkit-transition: transform 300ms ease-in-out;
+  transition: transform 300ms ease-in-out;
+}
+
+.c1 {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0,0,0,0.35);
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  z-index: 99999;
+}
+
+.c1[data-state="opening"] {
+  -webkit-animation: eMLfYp 300ms linear 0ms;
+  animation: eMLfYp 300ms linear 0ms;
+}
+
+.c1[data-state="closing"] {
+  -webkit-animation: eMLfYp 300ms linear 0ms reverse;
+  animation: eMLfYp 300ms linear 0ms reverse;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.c1[data-state="closed"] {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.c1[data-state="closing"] .c2,
+.c1[data-state="closed"] .c2 {
+  -webkit-transform: translateY(0px);
+  -ms-transform: translateY(0px);
+  transform: translateY(0px);
+}
+
+.c5 {
+  line-height: 1.5;
+}
+
+<div
+  style={
+    Object {
+      "alignItems": "center",
+      "bottom": 0,
+      "display": "flex",
+      "left": 0,
+      "overflow": "auto",
+      "position": "fixed",
+      "right": 0,
+      "top": 0,
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "margin": "auto",
+        "maxHeight": "100%",
+      }
+    }
+  >
+    <button
+      className="c0"
+      onClick={[Function]}
+    >
+      open
+    </button>
+    <div
+      className="c1"
+      data-state="closed"
+    >
+      <div>
+        <div
+          className="c2 c3 c4"
+        >
+          <div
+            className="c5"
+          >
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Miscellaneous/Modal with title 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  border-radius: 3px;
+  border: none;
+  box-shadow: 0 2px 6px 0 rgba(6,26,60,0.16);
+  box-sizing: border-box;
+  cursor: pointer;
+  outline: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  vertical-align: middle;
+  text-align: left;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  line-height: 22px;
+  color: #fff;
+  background-color: #0071ce;
+  -webkit-transition: background-color 150ms ease-in-out;
+  transition: background-color 150ms ease-in-out;
+  margin: 0 4px;
+  padding: 16px 24px;
+  font-size: 18px;
+  line-height: 1.11;
+}
+
+.c0:hover,
+.c0:active {
+  background-color: rgb(51,141,216);
+}
+
+.c0:focus {
+  outline: none;
+}
+
+.c0:disabled {
+  pointer-events: none;
+  -webkit-filter: grayscale();
+  filter: grayscale();
+}
+
+.c6 {
+  font-family: Inter UI;
+  font-weight: bold;
+  color: #061a3c;
+  margin: 0;
+  font-size: 18px;
+}
+
+.c4 {
+  box-shadow: 0 2px 6px 0 rgba(6,26,60,0.16);
+  border-radius: 3px;
+  background: #fff;
+  padding: 32px;
+}
+
+.c5 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.c3 {
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16),0 3px 6px rgba(0,0,0,0.23);
+  position: relative;
+  max-width: 800px;
+  max-height: calc(100vh - 64px);
+  overflow-x: hidden;
+  overflow-y: auto;
+  -webkit-transform: translateY(32px);
+  -ms-transform: translateY(32px);
+  transform: translateY(32px);
+  -webkit-transition: -webkit-transform 300ms ease-in-out;
+  -webkit-transition: transform 300ms ease-in-out;
+  transition: transform 300ms ease-in-out;
+}
+
+.c1 {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0,0,0,0.35);
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  z-index: 99999;
+}
+
+.c1[data-state="opening"] {
+  -webkit-animation: eMLfYp 300ms linear 0ms;
+  animation: eMLfYp 300ms linear 0ms;
+}
+
+.c1[data-state="closing"] {
+  -webkit-animation: eMLfYp 300ms linear 0ms reverse;
+  animation: eMLfYp 300ms linear 0ms reverse;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.c1[data-state="closed"] {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.c1[data-state="closing"] .c2,
+.c1[data-state="closed"] .c2 {
+  -webkit-transform: translateY(0px);
+  -ms-transform: translateY(0px);
+  transform: translateY(0px);
+}
+
+.c7 {
+  line-height: 1.5;
+}
+
+<div
+  style={
+    Object {
+      "alignItems": "center",
+      "bottom": 0,
+      "display": "flex",
+      "left": 0,
+      "overflow": "auto",
+      "position": "fixed",
+      "right": 0,
+      "top": 0,
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "margin": "auto",
+        "maxHeight": "100%",
+      }
+    }
+  >
+    <button
+      className="c0"
+      onClick={[Function]}
+    >
+      open
+    </button>
+    <div
+      className="c1"
+      data-state="closed"
+    >
+      <div>
+        <div
+          className="c2 c3 c4"
+        >
+          <div
+            className="c5"
+          >
+            <h3
+              className="c6"
+              color="#061a3c"
+            >
+              Lorem Ipsum
+            </h3>
+          </div>
+          <div
+            className="c7"
+          >
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          </div>
         </div>
       </div>
     </div>
