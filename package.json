@@ -27,6 +27,7 @@
   },
   "homepage": "https://github.com/habx/lib-client-backoffx#readme",
   "dependencies": {
+    "@types/node": "^10.12.18",
     "clean-tag": "^2.0.2",
     "color": "^3.1.0",
     "rc-slider": "^8.6.3"
@@ -39,7 +40,7 @@
     "@storybook/react": "^4.0.7",
     "@types/jest": "^23.3.10",
     "@types/lodash": "^4.14.118",
-    "@types/react": "16.7.0",
+    "@types/react": "^16.7.0",
     "@types/react-dom": "^16.0.11",
     "@types/storybook__react": "^4.0.0",
     "@types/webpack-env": "^1.13.6",
