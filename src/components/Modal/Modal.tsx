@@ -99,7 +99,11 @@ class Modal extends PureComponent<ModalProps> {
         <Overlay data-state={currentState}>
           <div ref={this.ref}>
             <ModalCard title={title} headerPosition='inside'>
-              { children }
+              {
+                isFunction(children)
+                 ? children({ state: currentState })
+                 : children
+              }
             </ModalCard>
           </div>
         </Overlay>
