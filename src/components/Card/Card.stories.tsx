@@ -7,7 +7,6 @@ import Card from './index'
 
 const ContentContainer = styled.div`
   max-width: 500px;
-  padding: 12px 24px 24px 24px;
   line-height: 1.5;
 `
 

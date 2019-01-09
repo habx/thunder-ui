@@ -35,6 +35,7 @@ export { default as Notification } from './components/Notification'
 export { default as FontIcon } from './components/FontIcon'
 export { default as Menu, MenuItem } from './components/Menu'
 export { default as Card } from './components/Card'
+export { default as Modal } from './components/Modal'
 
 /*
   Helpers
