@@ -16,8 +16,3 @@ const containerDecorator = storyFn => (
 
 storiesOf('Inputs/CloudinaryInput', module)
   .addDecorator(containerDecorator)
-  .add('with string URL', () => (
-    <CloudinaryInput
-      value='https://res.cloudinary.com/habx/image/upload/v1537883351/V1_8.jpg'
-    />
-  ))
