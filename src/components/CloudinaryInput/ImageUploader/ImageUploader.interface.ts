@@ -7,13 +7,15 @@ export interface RenderParams {
 
 export interface CloudinaryImage {
   secure_url: string
+  public_id: string
+  version: number
+}
+
+export interface ImageUploaderState {
+  selectedImage?: CloudinaryImage
 }
 
 export default interface ImageUploaderProps extends ModalProps {
   directory: string
   renderImages: (RenderParams) => JSX.Element
-}
-
-export default interface ImageUploaderState {
-  selectedImage?: CloudinaryImage
 }

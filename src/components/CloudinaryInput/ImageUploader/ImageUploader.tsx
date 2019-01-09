@@ -18,11 +18,13 @@ class ImageUploader extends React.PureComponent<ImageUploaderProps, ImageUploade
   renderImage = (image: CloudinaryImage): JSX.Element => {
     const { selectedImage } = this.state
 
+    console.log(image)
+
     return (
-      <ImageContainer>
+      <ImageContainer key={image.public_id}>
         <img
           onClick={this.handleImageSelect(image)}
-          src={image.secure_url}
+          src={`https://res.cloudinary.com/habx/image/upload/c_limit,w_300/v${image.version}/${image.public_id}`}
           data-fade={selectedImage && image !== selectedImage}
         />
       </ImageContainer>
