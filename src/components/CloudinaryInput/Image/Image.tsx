@@ -1,10 +1,12 @@
 import * as React from 'react'
 
 import ImageProps, { CloudinaryImage } from './Image.interface'
+import { createCloudinaryURL } from '../CloudinaryInput.utils'
 
-const buildURL = ({ public_id, version }: CloudinaryImage, { size }) => {
-  const transforms = size === 'thumbnail' ? 'c_limit,w_300' : ''
-  return `//res.cloudinary.com/habx/image/upload/${transforms}/v${version}/${public_id}`
+const buildURL = (image: CloudinaryImage, { size }) => {
+  const transforms = size === 'thumbnail' ? [{ crop: 'limit', width: 300 }] : []
+
+  return createCloudinaryURL(image, transforms)
 }
 
 const Image: React.StatelessComponent<ImageProps> = ({ data, size, ...props }) => (

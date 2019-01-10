@@ -3,6 +3,7 @@ import { isString } from 'lodash'
 
 import CloudinaryInputProps from './CloudinaryInput.interface'
 import { CloudinaryInputContainer, Picture } from './CloudinaryInput.style'
+import { createCloudinaryURL } from './CloudinaryInput.utils'
 
 import Button from '../Button'
 import ImageUploader from './ImageUploader'
@@ -27,8 +28,13 @@ class CloudinaryInput extends React.PureComponent<CloudinaryInputProps> {
 
   handleUploaderClose = () => this.setState(() => ({ isUploaderOpen: false }))
 
+  handleChange = image => {
+    this.props.onChange(createCloudinaryURL(image))
+    this.handleUploaderClose()
+  }
+
   render () {
-    const { disabled, renderImages, defaultDirectory, onChange } = this.props
+    const { disabled, renderImages, defaultDirectory } = this.props
     const { src, isUploaderOpen } = this.state
 
     return (
@@ -46,7 +52,7 @@ class CloudinaryInput extends React.PureComponent<CloudinaryInputProps> {
           onClose={this.handleUploaderClose}
           defaultDirectory={defaultDirectory}
           renderImages={renderImages}
-          onChange={onChange}
+          onChange={this.handleChange}
         />
       </CloudinaryInputContainer>
     )

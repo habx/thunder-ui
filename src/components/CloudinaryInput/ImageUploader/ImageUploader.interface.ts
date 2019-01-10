@@ -15,7 +15,7 @@ export interface ImageUploaderState {
 export default interface ImageUploaderProps extends ModalProps {
   defaultDirectory?: string
   renderImages: (RenderParams) => JSX.Element
-  onChange: (src: string) => void
+  onChange: (image: CloudinaryImage) => void
 }
 
 export interface HeaderProps {

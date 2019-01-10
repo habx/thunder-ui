@@ -23,10 +23,15 @@ class ImageUploader extends React.PureComponent<ImageUploaderProps, ImageUploade
   }))
 
   handleImageValidation = () => {
-    const { selectedImage,  } = this.props
+    const { onChange } = this.props
+    const { selectedImage } = this.state
 
+    this.setState(() => ({ selectedImage: null }))
 
+    onChange(selectedImage)
   }
+
+  handleImageCustomization = () => null
 
   getDirectories = () => uniq([
     this.props.defaultDirectory,
