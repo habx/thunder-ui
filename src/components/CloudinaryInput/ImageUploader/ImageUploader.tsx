@@ -18,8 +18,6 @@ class ImageUploader extends React.PureComponent<ImageUploaderProps, ImageUploade
   renderImage = (image: CloudinaryImage): JSX.Element => {
     const { selectedImage } = this.state
 
-    console.log(image)
-
     return (
       <ImageContainer key={image.public_id}>
         <img
