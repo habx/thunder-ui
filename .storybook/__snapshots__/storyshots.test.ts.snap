@@ -7371,6 +7371,69 @@ exports[`Storyshots Inputs/Slider with tooltip suffix 1`] = `
 </div>
 `;
 
+exports[`Storyshots Inputs/TextArea basic 1`] = `
+.c1 {
+  -webkit-flex: 1 1 100%;
+  -ms-flex: 1 1 100%;
+  flex: 1 1 100%;
+  position: relative;
+}
+
+.c2 {
+  height: 100%;
+  width: 100%;
+  resize: vertical;
+  padding: 8px;
+  border-radius: 3px;
+  min-height: 50px;
+  border: 1px solid #d0e4e6;
+  color: #52627a;
+}
+
+.c0 {
+  width: 250px;
+}
+
+<div
+  style={
+    Object {
+      "alignItems": "center",
+      "bottom": 0,
+      "display": "flex",
+      "left": 0,
+      "overflow": "auto",
+      "position": "fixed",
+      "right": 0,
+      "top": 0,
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "margin": "auto",
+        "maxHeight": "100%",
+      }
+    }
+  >
+    <div
+      className="c0"
+    >
+      <div
+        className="c1"
+      >
+        <textarea
+          className="c2"
+          color="#52627a"
+          onChange={[Function]}
+          value="55 Rue d'Amsterdam, 75008 Paris"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`Storyshots Inputs/TextInput basic 1`] = `
 .c1 {
   position: relative;
