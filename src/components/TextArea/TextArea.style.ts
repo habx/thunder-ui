@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { borderRadius, colors} from '../../theme'
+import { borderRadius, colors } from '../../theme'
 
 const prepareProps = props => {
   const borderColor = props.borderColor || colors.platinium
