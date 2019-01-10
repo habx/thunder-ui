@@ -21,6 +21,7 @@ export { default as TextButton } from './components/TextButton'
   Inputs
  */
 export { default as TextInput } from './components/TextInput'
+export { default as TextArea } from './components/TextArea'
 export { default as Select } from './components/Select'
 export { default as RadioSelect } from './components/RadioSelect'
 export { default as Slider } from './components/Slider'
