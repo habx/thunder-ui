@@ -13,7 +13,7 @@ const ItemHeader: React.StatelessComponent<ItemProps> = ({ context, item, index 
   return (
     <ItemHeaderContainer>
       <ItemHeaderContent>
-        {context.itemTitle && context.itemTitle(item, index)}
+        {context.itemTitle && context.itemTitle(item, index, { editing: isOpen })}
       </ItemHeaderContent>
       <ItemActions>
         {

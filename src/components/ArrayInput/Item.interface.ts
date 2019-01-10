@@ -8,7 +8,7 @@ export default interface ItemProps extends DOMInterface {
     itemDescription: (item, index) => string
     addButtonLabel?: string
     items: any[]
-    itemTitle: (item: any, index: number) => string
+    itemTitle: (item: any, index: number, params: { editing: boolean }) => JSX.Element | string
     canBeReordered?: boolean
     onDelete: (item) => void
     onReorder?: (oldPosition: number, newPosition: number) => void
