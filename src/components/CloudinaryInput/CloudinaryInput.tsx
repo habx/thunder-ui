@@ -9,21 +9,18 @@ import ImageUploader from './ImageUploader'
 
 class CloudinaryInput extends React.PureComponent<CloudinaryInputProps> {
   static getDerivedStateFromProps (nextProps, prevState) {
-    const { value, defaultDirectory } = nextProps
-    return {
-      ...(value !== prevState.value && isString(value) && { src: value }),
-      ...(defaultDirectory !== prevState.defaultDirectory && isString(defaultDirectory) && {
-        defaultDirectory,
-        directory: defaultDirectory
-      })
+    const { value } = nextProps
+
+    if (value !== prevState.value && isString(value)) {
+      return { src: value }
     }
+
+    return null
   }
 
   state = {
     src: null,
-    isUploaderOpen: false,
-    directory: '',
-    defaultDirectory: ''
+    isUploaderOpen: false
   }
 
   handleUploaderOpen = () => this.setState(() => ({ isUploaderOpen: true }))
@@ -31,8 +28,8 @@ class CloudinaryInput extends React.PureComponent<CloudinaryInputProps> {
   handleUploaderClose = () => this.setState(() => ({ isUploaderOpen: false }))
 
   render () {
-    const { disabled, renderImages } = this.props
-    const { src, isUploaderOpen, directory } = this.state
+    const { disabled, renderImages, defaultDirectory } = this.props
+    const { src, isUploaderOpen } = this.state
 
     return (
       <CloudinaryInputContainer>
@@ -41,13 +38,13 @@ class CloudinaryInput extends React.PureComponent<CloudinaryInputProps> {
         }
         {
           !disabled && (
-            <Button onClick={this.handleUploaderOpen}>Edit</Button>
+            <Button onClick={this.handleUploaderOpen}>Editer</Button>
           )
         }
         <ImageUploader
           open={isUploaderOpen}
           onClose={this.handleUploaderClose}
-          directory={directory}
+          defaultDirectory={defaultDirectory}
           renderImages={renderImages}
         />
       </CloudinaryInputContainer>

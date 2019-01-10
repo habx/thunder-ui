@@ -91,14 +91,14 @@ class Modal extends PureComponent<ModalProps> {
   }
 
   render () {
-    const { children, title } = this.props
+    const { children, title, open, onClose, ...props } = this.props
     const currentState = this.getCurrentState()
 
     return (
       <Fragment>
         <Overlay data-state={currentState}>
           <div ref={this.ref}>
-            <ModalCard title={title} headerPosition='inside'>
+            <ModalCard title={title} headerPosition='inside' {...props}>
               {
                 isFunction(children)
                  ? children({ state: currentState })

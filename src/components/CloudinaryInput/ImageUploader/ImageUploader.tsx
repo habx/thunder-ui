@@ -1,28 +1,79 @@
 import * as React from 'react'
+import { map, uniq } from 'lodash'
 
-import ImageUploaderProps, { ImageUploaderState, RenderParams, CloudinaryImage } from './ImageUploader.interface'
+import ImageUploaderProps, { ImageUploaderState, RenderParams } from './ImageUploader.interface'
+import { CloudinaryImage } from '../Image/Image.interface'
 
-import { ImageUploaderContainer, ImageContainer, ImageList } from './ImageUploader.style'
+import { ImageUploaderContainer, Content, ImageContainer, ImageList, Directories, Directory, DirectoryContent } from './ImageUploader.style'
 
 import Header from './Header'
+import ActionBar from './ActionBar'
+import Image from '../Image'
+import FontIcon from '../../FontIcon'
 
 class ImageUploader extends React.PureComponent<ImageUploaderProps, ImageUploaderState> {
   state = {
-    selectedImage: null as CloudinaryImage
+    selectedImage: null as CloudinaryImage,
+    page: 'directory',
+    directory: this.props.defaultDirectory || 'logos'
   }
 
   handleImageSelect = selectedImage => () => this.setState(prevState => ({
     selectedImage: prevState.selectedImage === selectedImage ? null : selectedImage
   }))
 
+  getDirectories = () => uniq([
+    this.props.defaultDirectory,
+    'logos',
+    'cities',
+    'regions'
+  ])
+
+  goTo = (page: string, params = {}) => this.setState(() => ({ page, ...params }))
+
+  renderHome () {
+    return (
+      <Directories>
+        {map(
+          this.getDirectories(),
+          directory => (
+            <Directory key={directory} onClick={() => this.goTo('directory', { directory })}>
+              <FontIcon icon='folder' />
+              <DirectoryContent>
+                { directory }
+              </DirectoryContent>
+            </Directory>
+          )
+        )}
+      </Directories>
+    )
+  }
+
+  renderDirectory () {
+    const { renderImages } = this.props
+    const { directory } = this.state
+
+    const params: RenderParams = {
+      directory,
+      renderImage: this.renderImage
+    }
+
+    return (
+      <ImageList>
+        { renderImages(params) }
+      </ImageList>
+    )
+  }
+
   renderImage = (image: CloudinaryImage): JSX.Element => {
     const { selectedImage } = this.state
 
     return (
       <ImageContainer key={image.public_id}>
-        <img
+        <Image
+          size='thumbnail'
           onClick={this.handleImageSelect(image)}
-          src={`https://res.cloudinary.com/habx/image/upload/c_limit,w_300/v${image.version}/${image.public_id}`}
+          data={image}
           data-fade={selectedImage && image !== selectedImage}
         />
       </ImageContainer>
@@ -30,7 +81,8 @@ class ImageUploader extends React.PureComponent<ImageUploaderProps, ImageUploade
   }
 
   render () {
-    const { open, onClose, renderImages, directory } = this.props
+    const { open, onClose } = this.props
+    const { page, selectedImage } = this.state
 
     return (
       <ImageUploaderContainer open={open} onClose={onClose}>
@@ -39,17 +91,14 @@ class ImageUploader extends React.PureComponent<ImageUploaderProps, ImageUploade
             return null
           }
 
-          const params: RenderParams = {
-            directory,
-            renderImage: this.renderImage
-          }
-
           return (
             <React.Fragment>
-              <Header />
-              <ImageList>
-                { renderImages(params) }
-              </ImageList>
+              <Header goTo={this.goTo} />
+              <Content>
+                { page === 'home' && this.renderHome() }
+                { page === 'directory' && this.renderDirectory() }
+              </Content>
+              { selectedImage && <ActionBar /> }
             </React.Fragment>
           )
         }}

@@ -1,10 +1,13 @@
 import * as React from 'react'
 
 import { HeaderContainer } from './ImageUploader.style'
+import { HeaderProps } from './ImageUploader.interface'
 
-const Header = () => (
+import FontIcon from '../../FontIcon'
+
+const Header: React.StatelessComponent<HeaderProps> = ({ goTo }) => (
   <HeaderContainer>
-    HEADER
+    <FontIcon icon='home' onClick={() => goTo('home')} />
   </HeaderContainer>
 )
 
