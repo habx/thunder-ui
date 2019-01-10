@@ -22,6 +22,12 @@ class ImageUploader extends React.PureComponent<ImageUploaderProps, ImageUploade
     selectedImage: prevState.selectedImage === selectedImage ? null : selectedImage
   }))
 
+  handleImageValidation = () => {
+    const { selectedImage,  } = this.props
+
+
+  }
+
   getDirectories = () => uniq([
     this.props.defaultDirectory,
     'logos',
@@ -98,7 +104,12 @@ class ImageUploader extends React.PureComponent<ImageUploaderProps, ImageUploade
                 { page === 'home' && this.renderHome() }
                 { page === 'directory' && this.renderDirectory() }
               </Content>
-              { selectedImage && <ActionBar /> }
+              { selectedImage && (
+                <ActionBar
+                  onSelect={this.handleImageValidation}
+                  onCustomize={this.handleImageCustomization}
+                />
+              )}
             </React.Fragment>
           )
         }}

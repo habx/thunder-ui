@@ -15,8 +15,14 @@ export interface ImageUploaderState {
 export default interface ImageUploaderProps extends ModalProps {
   defaultDirectory?: string
   renderImages: (RenderParams) => JSX.Element
+  onChange: (src: string) => void
 }
 
 export interface HeaderProps {
   goTo: (page: string) => void
+}
+
+export interface ActionBarProps {
+  onSelect: () => void
+  onCustomize: () => void
 }

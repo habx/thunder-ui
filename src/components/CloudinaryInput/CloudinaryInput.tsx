@@ -28,7 +28,7 @@ class CloudinaryInput extends React.PureComponent<CloudinaryInputProps> {
   handleUploaderClose = () => this.setState(() => ({ isUploaderOpen: false }))
 
   render () {
-    const { disabled, renderImages, defaultDirectory } = this.props
+    const { disabled, renderImages, defaultDirectory, onChange } = this.props
     const { src, isUploaderOpen } = this.state
 
     return (
@@ -46,6 +46,7 @@ class CloudinaryInput extends React.PureComponent<CloudinaryInputProps> {
           onClose={this.handleUploaderClose}
           defaultDirectory={defaultDirectory}
           renderImages={renderImages}
+          onChange={onChange}
         />
       </CloudinaryInputContainer>
     )

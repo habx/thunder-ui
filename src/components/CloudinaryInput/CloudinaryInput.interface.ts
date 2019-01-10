@@ -5,4 +5,5 @@ export default interface CloudinaryInputProps {
   disabled?: boolean
   defaultDirectory?: string
   renderImages: (RenderParams) => JSX.Element
+  onChange: (src: string) => void
 }
