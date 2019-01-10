@@ -4,7 +4,7 @@ import DOMInterface from '../../internal/domInterface'
 export default interface ArrayInputProps extends DOMInterface {
   addButtonLabel?: string,
   items: any[]
-  itemTitle: (item: any, index: number) => string,
+  itemTitle: (item: any, index: number, params: { editing: boolean }) => JSX.Element | string,
   itemDescription?: (item: any, index: number) => string,
   itemComponent: React.ComponentClass<any> | React.StatelessComponent<any>,
   canBeReordered?: boolean,
