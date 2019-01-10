@@ -9462,7 +9462,15 @@ exports[`Storyshots Miscellaneous/Modal large 1`] = `
       className="c0"
       onClick={[Function]}
     >
-      open
+      <span
+        style={
+          Object {
+            "visibility": "visible",
+          }
+        }
+      >
+        open
+      </span>
     </button>
     <div
       className="c1"
@@ -9635,7 +9643,15 @@ exports[`Storyshots Miscellaneous/Modal small 1`] = `
       className="c0"
       onClick={[Function]}
     >
-      open
+      <span
+        style={
+          Object {
+            "visibility": "visible",
+          }
+        }
+      >
+        open
+      </span>
     </button>
     <div
       className="c1"
@@ -9808,7 +9824,15 @@ exports[`Storyshots Miscellaneous/Modal with scroll 1`] = `
       className="c0"
       onClick={[Function]}
     >
-      open
+      <span
+        style={
+          Object {
+            "visibility": "visible",
+          }
+        }
+      >
+        open
+      </span>
     </button>
     <div
       className="c1"
@@ -10014,7 +10038,15 @@ exports[`Storyshots Miscellaneous/Modal with title 1`] = `
       className="c0"
       onClick={[Function]}
     >
-      open
+      <span
+        style={
+          Object {
+            "visibility": "visible",
+          }
+        }
+      >
+        open
+      </span>
     </button>
     <div
       className="c1"
