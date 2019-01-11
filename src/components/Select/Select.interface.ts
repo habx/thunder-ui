@@ -16,3 +16,14 @@ export default interface SelectProps extends DOMInterface {
   annotation?: string
   canReset?: boolean
 }
+
+export interface SelectState {
+  open: boolean,
+  search: string,
+  isInputFocus: boolean,
+  focusedItem: any,
+  rawOptions: [any],
+  rawValue: any,
+  options: formOption[],
+  value: any | any[]
+}

@@ -1,4 +1,4 @@
-export type formOption = { value: number | string, label: string }
+export type formOption = { value: any, label: string }
 
 export type formValue = formOption | string | number
 

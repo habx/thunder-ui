@@ -3416,7 +3416,7 @@ exports[`Storyshots Inputs/Select multi items 1`] = `
     >
       <div
         className="c1"
-        data-empty={false}
+        data-empty={true}
         data-open={false}
         onClick={[Function]}
       >
@@ -3425,7 +3425,7 @@ exports[`Storyshots Inputs/Select multi items 1`] = `
           onBlur={[Function]}
           onChange={[Function]}
           onFocus={[Function]}
-          placeholder="Projets"
+          placeholder="Projet"
           type="text"
           value=""
         />
@@ -3461,7 +3461,7 @@ exports[`Storyshots Inputs/Select multi items 1`] = `
         </div>
         <div
           className="c8"
-          data-selected={true}
+          data-selected={false}
           onClick={[Function]}
           tabIndex="0"
           value="sartrouville"
@@ -3469,7 +3469,7 @@ exports[`Storyshots Inputs/Select multi items 1`] = `
           <i
             className="c4"
           >
-            check_box
+            check_box_outline_blank
           </i>
           Résidence Aurore
         </div>
@@ -4034,7 +4034,7 @@ exports[`Storyshots Inputs/Select multi items with icon 1`] = `
     >
       <div
         className="c1"
-        data-empty={false}
+        data-empty={true}
         data-open={false}
         onClick={[Function]}
       >
@@ -4052,7 +4052,7 @@ exports[`Storyshots Inputs/Select multi items with icon 1`] = `
           onBlur={[Function]}
           onChange={[Function]}
           onFocus={[Function]}
-          placeholder="Projets"
+          placeholder="Projet"
           type="text"
           value=""
         />
@@ -4088,7 +4088,7 @@ exports[`Storyshots Inputs/Select multi items with icon 1`] = `
         </div>
         <div
           className="c9"
-          data-selected={true}
+          data-selected={false}
           onClick={[Function]}
           tabIndex="0"
           value="sartrouville"
@@ -4096,7 +4096,7 @@ exports[`Storyshots Inputs/Select multi items with icon 1`] = `
           <i
             className="c3"
           >
-            check_box
+            check_box_outline_blank
           </i>
           Résidence Aurore
         </div>
@@ -4442,7 +4442,1668 @@ exports[`Storyshots Inputs/Select multi items with icon 1`] = `
 </div>
 `;
 
+exports[`Storyshots Inputs/Select multi items with value (label, value mode) 1`] = `
+.c4 {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  -webkit-letter-spacing: normal;
+  -moz-letter-spacing: normal;
+  -ms-letter-spacing: normal;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -moz-osx-font-smoothing: grayscale;
+  font-feature-settings: 'liga';
+}
+
+.c0 {
+  position: relative;
+  color: #061a3c;
+}
+
+.c1 {
+  position: relative;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: baseline;
+  -webkit-box-align: baseline;
+  -ms-flex-align: baseline;
+  align-items: baseline;
+  box-sizing: border-box;
+  z-index: 0;
+  padding: 8px 20px;
+  height: 40px;
+  line-height: 24px;
+  border-radius: 4px;
+  border-left: 0;
+  font-size: 16px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  background-color: #ffffff;
+  box-shadow: 0 4px 12px 0 rgba(3,54,61,0.16);
+  -webkit-transition: background-color ease-in-out 200ms,z-index ease-in 1s,border-left ease-in 200ms;
+  transition: background-color ease-in-out 200ms,z-index ease-in 1s,border-left ease-in 200ms;
+}
+
+.c1:not([data-empty="true"]) {
+  border-left: 4px solid #ff5100;
+}
+
+.c1[data-open="true"] {
+  -webkit-transition: z-index ease-in 0s;
+  transition: z-index ease-in 0s;
+  z-index: 10;
+}
+
+.c1:hover {
+  background-color: #f8f7f8;
+  cursor: pointer;
+}
+
+.c2 {
+  -webkit-flex: 1 1 100%;
+  -ms-flex: 1 1 100%;
+  flex: 1 1 100%;
+  border: none;
+  padding: 0;
+  background: none;
+  color: #061a3c;
+  font-size: inherit;
+  -webkit-align-self: stretch;
+  -ms-flex-item-align: stretch;
+  align-self: stretch;
+}
+
+.c2:hover {
+  cursor: pointer;
+}
+
+.c2:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.c3 {
+  -webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.c3 i {
+  margin: 0 12px;
+}
+
+.c5 {
+  box-sizing: border-box;
+  box-shadow: 0 4px 12px 0 rgba(3,54,61,0.16);
+  position: absolute;
+  top: 0;
+  padding: 0 24px;
+  overflow-y: scroll;
+  width: calc(100% - 24px);
+  margin-right: 12px;
+  margin-left: 12px;
+  background-color: #ffffff;
+  border-radius: 0 0 4px 4px;
+  height: 0;
+  z-index: 5;
+  -webkit-transition: all ease-in-out 300ms;
+  transition: all ease-in-out 300ms;
+}
+
+.c5[data-open="true"] {
+  top: 100%;
+  height: 300px;
+  padding: 24px;
+}
+
+.c6 {
+  color: #0071ce;
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.c7 {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  font-size: 12px;
+}
+
+.c7:hover {
+  opacity: .8;
+  cursor: pointer;
+}
+
+.c8 {
+  -webkit-transition: color ease-in 150ms;
+  transition: color ease-in 150ms;
+  outline: none;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  margin-bottom: 8px;
+  font-size: 14px;
+}
+
+.c8 i {
+  vertical-align: middle;
+  margin-right: 4px;
+}
+
+.c8:hover,
+.c8:focus,
+.c8[data-selected="true"] {
+  color: #ff5100;
+}
+
+<div
+  style={
+    Object {
+      "alignItems": "center",
+      "bottom": 0,
+      "display": "flex",
+      "left": 0,
+      "overflow": "auto",
+      "position": "fixed",
+      "right": 0,
+      "top": 0,
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "margin": "auto",
+        "maxHeight": "100%",
+      }
+    }
+  >
+    <div
+      className="c0"
+      onClick={[Function]}
+    >
+      <div
+        className="c1"
+        data-empty={true}
+        data-open={false}
+        onClick={[Function]}
+      >
+        <input
+          className="c2"
+          onBlur={[Function]}
+          onChange={[Function]}
+          onFocus={[Function]}
+          placeholder="Projet"
+          type="text"
+          value=""
+        />
+        <div
+          className="c3"
+        >
+          <i
+            className="c4"
+          >
+            arrow_drop_down
+          </i>
+        </div>
+      </div>
+      <div
+        className="c5"
+        data-open={false}
+      >
+        <div
+          className="c6"
+        >
+          <span
+            className="c7"
+            onClick={[Function]}
+          >
+            Tout selectionner
+          </span>
+          <span
+            className="c7"
+            onClick={[Function]}
+          >
+            Tout déselectionner
+          </span>
+        </div>
+        <div
+          className="c8"
+          data-selected={false}
+          onClick={[Function]}
+          tabIndex="0"
+          value="sartrouville"
+        >
+          <i
+            className="c4"
+          >
+            check_box_outline_blank
+          </i>
+          Résidence Aurore
+        </div>
+        <div
+          className="c8"
+          data-selected={false}
+          onClick={[Function]}
+          tabIndex="0"
+          value="saint-maur-raspail"
+        >
+          <i
+            className="c4"
+          >
+            check_box_outline_blank
+          </i>
+          saint-maur-raspail
+        </div>
+        <div
+          className="c8"
+          data-selected={true}
+          onClick={[Function]}
+          tabIndex="0"
+          value="toulouse-croix-de-pierre"
+        >
+          <i
+            className="c4"
+          >
+            check_box
+          </i>
+          Croix de Pierre
+        </div>
+        <div
+          className="c8"
+          data-selected={false}
+          onClick={[Function]}
+          tabIndex="0"
+          value="toulouse-colombes"
+        >
+          <i
+            className="c4"
+          >
+            check_box_outline_blank
+          </i>
+          Les Colombes
+        </div>
+        <div
+          className="c8"
+          data-selected={false}
+          onClick={[Function]}
+          tabIndex="0"
+          value="paris-edison"
+        >
+          <i
+            className="c4"
+          >
+            check_box_outline_blank
+          </i>
+          Edison Lite
+        </div>
+        <div
+          className="c8"
+          data-selected={false}
+          onClick={[Function]}
+          tabIndex="0"
+          value="toulouse-la-ramee"
+        >
+          <i
+            className="c4"
+          >
+            check_box_outline_blank
+          </i>
+          La Ramée
+        </div>
+        <div
+          className="c8"
+          data-selected={false}
+          onClick={[Function]}
+          tabIndex="0"
+          value="sarcelles"
+        >
+          <i
+            className="c4"
+          >
+            check_box_outline_blank
+          </i>
+          Sarcelles Village
+        </div>
+        <div
+          className="c8"
+          data-selected={false}
+          onClick={[Function]}
+          tabIndex="0"
+          value="toulouse-le-galy"
+        >
+          <i
+            className="c4"
+          >
+            check_box_outline_blank
+          </i>
+          Résidence Le Galy
+        </div>
+        <div
+          className="c8"
+          data-selected={false}
+          onClick={[Function]}
+          tabIndex="0"
+          value="noisy-le-grand"
+        >
+          <i
+            className="c4"
+          >
+            check_box_outline_blank
+          </i>
+          Noisy-le-Grand
+        </div>
+        <div
+          className="c8"
+          data-selected={false}
+          onClick={[Function]}
+          tabIndex="0"
+          value="toulouse-madera"
+        >
+          <i
+            className="c4"
+          >
+            check_box_outline_blank
+          </i>
+          Résidence Madera
+        </div>
+        <div
+          className="c8"
+          data-selected={false}
+          onClick={[Function]}
+          tabIndex="0"
+          value="soisy-bailly"
+        >
+          <i
+            className="c4"
+          >
+            check_box_outline_blank
+          </i>
+          Résidence Le Bailly
+        </div>
+        <div
+          className="c8"
+          data-selected={false}
+          onClick={[Function]}
+          tabIndex="0"
+          value="toulouse-roseraie"
+        >
+          <i
+            className="c4"
+          >
+            check_box_outline_blank
+          </i>
+          La Roseraie
+        </div>
+        <div
+          className="c8"
+          data-selected={false}
+          onClick={[Function]}
+          tabIndex="0"
+          value="bussy-saint-georges"
+        >
+          <i
+            className="c4"
+          >
+            check_box_outline_blank
+          </i>
+          Le Hameau du Chêneu
+        </div>
+        <div
+          className="c8"
+          data-selected={false}
+          onClick={[Function]}
+          tabIndex="0"
+          value="toulouse-lodges"
+        >
+          <i
+            className="c4"
+          >
+            check_box_outline_blank
+          </i>
+          Résidence Cyrano
+        </div>
+        <div
+          className="c8"
+          data-selected={false}
+          onClick={[Function]}
+          tabIndex="0"
+          value="begles-carrelets"
+        >
+          <i
+            className="c4"
+          >
+            check_box_outline_blank
+          </i>
+          Les Carrelets de l'Estey
+        </div>
+        <div
+          className="c8"
+          data-selected={false}
+          onClick={[Function]}
+          tabIndex="0"
+          value="groslay"
+        >
+          <i
+            className="c4"
+          >
+            check_box_outline_blank
+          </i>
+          NordWood
+        </div>
+        <div
+          className="c8"
+          data-selected={false}
+          onClick={[Function]}
+          tabIndex="0"
+          value="toulouse-malepere"
+        >
+          <i
+            className="c4"
+          >
+            check_box_outline_blank
+          </i>
+          Malepère
+        </div>
+        <div
+          className="c8"
+          data-selected={false}
+          onClick={[Function]}
+          tabIndex="0"
+          value="bagneux-petit"
+        >
+          <i
+            className="c4"
+          >
+            check_box_outline_blank
+          </i>
+          Résidence Onyx
+        </div>
+        <div
+          className="c8"
+          data-selected={false}
+          onClick={[Function]}
+          tabIndex="0"
+          value="antony-marche"
+        >
+          <i
+            className="c4"
+          >
+            check_box_outline_blank
+          </i>
+          Antony-Marché
+        </div>
+        <div
+          className="c8"
+          data-selected={false}
+          onClick={[Function]}
+          tabIndex="0"
+          value="vernouillet"
+        >
+          <i
+            className="c4"
+          >
+            check_box_outline_blank
+          </i>
+          Résidence Eugénie
+        </div>
+        <div
+          className="c8"
+          data-selected={false}
+          onClick={[Function]}
+          tabIndex="0"
+          value="grenoble-cambridge"
+        >
+          <i
+            className="c4"
+          >
+            check_box_outline_blank
+          </i>
+          Résidence Ginkgo
+        </div>
+        <div
+          className="c8"
+          data-selected={false}
+          onClick={[Function]}
+          tabIndex="0"
+          value="paris-18"
+        >
+          <i
+            className="c4"
+          >
+            check_box_outline_blank
+          </i>
+          La Parenthèse
+        </div>
+        <div
+          className="c8"
+          data-selected={false}
+          onClick={[Function]}
+          tabIndex="0"
+          value="levallois-zelmis"
+        >
+          <i
+            className="c4"
+          >
+            check_box_outline_blank
+          </i>
+          Zelmis
+        </div>
+        <div
+          className="c8"
+          data-selected={false}
+          onClick={[Function]}
+          tabIndex="0"
+          value="torcy-le-perchoir"
+        >
+          <i
+            className="c4"
+          >
+            check_box_outline_blank
+          </i>
+          Le Perchoir
+        </div>
+        <div
+          className="c8"
+          data-selected={false}
+          onClick={[Function]}
+          tabIndex="0"
+          value="massy-vilgenis"
+        >
+          <i
+            className="c4"
+          >
+            check_box_outline_blank
+          </i>
+          Massy-Vilgénis
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Inputs/Select multi items with value (simple value mode) 1`] = `
+.c4 {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  -webkit-letter-spacing: normal;
+  -moz-letter-spacing: normal;
+  -ms-letter-spacing: normal;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -moz-osx-font-smoothing: grayscale;
+  font-feature-settings: 'liga';
+}
+
+.c0 {
+  position: relative;
+  color: #061a3c;
+}
+
+.c1 {
+  position: relative;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: baseline;
+  -webkit-box-align: baseline;
+  -ms-flex-align: baseline;
+  align-items: baseline;
+  box-sizing: border-box;
+  z-index: 0;
+  padding: 8px 20px;
+  height: 40px;
+  line-height: 24px;
+  border-radius: 4px;
+  border-left: 0;
+  font-size: 16px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  background-color: #ffffff;
+  box-shadow: 0 4px 12px 0 rgba(3,54,61,0.16);
+  -webkit-transition: background-color ease-in-out 200ms,z-index ease-in 1s,border-left ease-in 200ms;
+  transition: background-color ease-in-out 200ms,z-index ease-in 1s,border-left ease-in 200ms;
+}
+
+.c1:not([data-empty="true"]) {
+  border-left: 4px solid #ff5100;
+}
+
+.c1[data-open="true"] {
+  -webkit-transition: z-index ease-in 0s;
+  transition: z-index ease-in 0s;
+  z-index: 10;
+}
+
+.c1:hover {
+  background-color: #f8f7f8;
+  cursor: pointer;
+}
+
+.c2 {
+  -webkit-flex: 1 1 100%;
+  -ms-flex: 1 1 100%;
+  flex: 1 1 100%;
+  border: none;
+  padding: 0;
+  background: none;
+  color: #061a3c;
+  font-size: inherit;
+  -webkit-align-self: stretch;
+  -ms-flex-item-align: stretch;
+  align-self: stretch;
+}
+
+.c2:hover {
+  cursor: pointer;
+}
+
+.c2:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.c3 {
+  -webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.c3 i {
+  margin: 0 12px;
+}
+
+.c5 {
+  box-sizing: border-box;
+  box-shadow: 0 4px 12px 0 rgba(3,54,61,0.16);
+  position: absolute;
+  top: 0;
+  padding: 0 24px;
+  overflow-y: scroll;
+  width: calc(100% - 24px);
+  margin-right: 12px;
+  margin-left: 12px;
+  background-color: #ffffff;
+  border-radius: 0 0 4px 4px;
+  height: 0;
+  z-index: 5;
+  -webkit-transition: all ease-in-out 300ms;
+  transition: all ease-in-out 300ms;
+}
+
+.c5[data-open="true"] {
+  top: 100%;
+  height: 300px;
+  padding: 24px;
+}
+
+.c6 {
+  color: #0071ce;
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.c7 {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  font-size: 12px;
+}
+
+.c7:hover {
+  opacity: .8;
+  cursor: pointer;
+}
+
+.c8 {
+  -webkit-transition: color ease-in 150ms;
+  transition: color ease-in 150ms;
+  outline: none;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  margin-bottom: 8px;
+  font-size: 14px;
+}
+
+.c8 i {
+  vertical-align: middle;
+  margin-right: 4px;
+}
+
+.c8:hover,
+.c8:focus,
+.c8[data-selected="true"] {
+  color: #ff5100;
+}
+
+<div
+  style={
+    Object {
+      "alignItems": "center",
+      "bottom": 0,
+      "display": "flex",
+      "left": 0,
+      "overflow": "auto",
+      "position": "fixed",
+      "right": 0,
+      "top": 0,
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "margin": "auto",
+        "maxHeight": "100%",
+      }
+    }
+  >
+    <div
+      className="c0"
+      onClick={[Function]}
+    >
+      <div
+        className="c1"
+        data-empty={true}
+        data-open={false}
+        onClick={[Function]}
+      >
+        <input
+          className="c2"
+          onBlur={[Function]}
+          onChange={[Function]}
+          onFocus={[Function]}
+          placeholder="Projet"
+          type="text"
+          value=""
+        />
+        <div
+          className="c3"
+        >
+          <i
+            className="c4"
+          >
+            arrow_drop_down
+          </i>
+        </div>
+      </div>
+      <div
+        className="c5"
+        data-open={false}
+      >
+        <div
+          className="c6"
+        >
+          <span
+            className="c7"
+            onClick={[Function]}
+          >
+            Tout selectionner
+          </span>
+          <span
+            className="c7"
+            onClick={[Function]}
+          >
+            Tout déselectionner
+          </span>
+        </div>
+        <div
+          className="c8"
+          data-selected={false}
+          onClick={[Function]}
+          tabIndex="0"
+          value="sartrouville"
+        >
+          <i
+            className="c4"
+          >
+            check_box_outline_blank
+          </i>
+          Résidence Aurore
+        </div>
+        <div
+          className="c8"
+          data-selected={false}
+          onClick={[Function]}
+          tabIndex="0"
+          value="saint-maur-raspail"
+        >
+          <i
+            className="c4"
+          >
+            check_box_outline_blank
+          </i>
+          saint-maur-raspail
+        </div>
+        <div
+          className="c8"
+          data-selected={true}
+          onClick={[Function]}
+          tabIndex="0"
+          value="toulouse-croix-de-pierre"
+        >
+          <i
+            className="c4"
+          >
+            check_box
+          </i>
+          Croix de Pierre
+        </div>
+        <div
+          className="c8"
+          data-selected={false}
+          onClick={[Function]}
+          tabIndex="0"
+          value="toulouse-colombes"
+        >
+          <i
+            className="c4"
+          >
+            check_box_outline_blank
+          </i>
+          Les Colombes
+        </div>
+        <div
+          className="c8"
+          data-selected={false}
+          onClick={[Function]}
+          tabIndex="0"
+          value="paris-edison"
+        >
+          <i
+            className="c4"
+          >
+            check_box_outline_blank
+          </i>
+          Edison Lite
+        </div>
+        <div
+          className="c8"
+          data-selected={false}
+          onClick={[Function]}
+          tabIndex="0"
+          value="toulouse-la-ramee"
+        >
+          <i
+            className="c4"
+          >
+            check_box_outline_blank
+          </i>
+          La Ramée
+        </div>
+        <div
+          className="c8"
+          data-selected={false}
+          onClick={[Function]}
+          tabIndex="0"
+          value="sarcelles"
+        >
+          <i
+            className="c4"
+          >
+            check_box_outline_blank
+          </i>
+          Sarcelles Village
+        </div>
+        <div
+          className="c8"
+          data-selected={false}
+          onClick={[Function]}
+          tabIndex="0"
+          value="toulouse-le-galy"
+        >
+          <i
+            className="c4"
+          >
+            check_box_outline_blank
+          </i>
+          Résidence Le Galy
+        </div>
+        <div
+          className="c8"
+          data-selected={false}
+          onClick={[Function]}
+          tabIndex="0"
+          value="noisy-le-grand"
+        >
+          <i
+            className="c4"
+          >
+            check_box_outline_blank
+          </i>
+          Noisy-le-Grand
+        </div>
+        <div
+          className="c8"
+          data-selected={false}
+          onClick={[Function]}
+          tabIndex="0"
+          value="toulouse-madera"
+        >
+          <i
+            className="c4"
+          >
+            check_box_outline_blank
+          </i>
+          Résidence Madera
+        </div>
+        <div
+          className="c8"
+          data-selected={false}
+          onClick={[Function]}
+          tabIndex="0"
+          value="soisy-bailly"
+        >
+          <i
+            className="c4"
+          >
+            check_box_outline_blank
+          </i>
+          Résidence Le Bailly
+        </div>
+        <div
+          className="c8"
+          data-selected={false}
+          onClick={[Function]}
+          tabIndex="0"
+          value="toulouse-roseraie"
+        >
+          <i
+            className="c4"
+          >
+            check_box_outline_blank
+          </i>
+          La Roseraie
+        </div>
+        <div
+          className="c8"
+          data-selected={false}
+          onClick={[Function]}
+          tabIndex="0"
+          value="bussy-saint-georges"
+        >
+          <i
+            className="c4"
+          >
+            check_box_outline_blank
+          </i>
+          Le Hameau du Chêneu
+        </div>
+        <div
+          className="c8"
+          data-selected={false}
+          onClick={[Function]}
+          tabIndex="0"
+          value="toulouse-lodges"
+        >
+          <i
+            className="c4"
+          >
+            check_box_outline_blank
+          </i>
+          Résidence Cyrano
+        </div>
+        <div
+          className="c8"
+          data-selected={false}
+          onClick={[Function]}
+          tabIndex="0"
+          value="begles-carrelets"
+        >
+          <i
+            className="c4"
+          >
+            check_box_outline_blank
+          </i>
+          Les Carrelets de l'Estey
+        </div>
+        <div
+          className="c8"
+          data-selected={false}
+          onClick={[Function]}
+          tabIndex="0"
+          value="groslay"
+        >
+          <i
+            className="c4"
+          >
+            check_box_outline_blank
+          </i>
+          NordWood
+        </div>
+        <div
+          className="c8"
+          data-selected={false}
+          onClick={[Function]}
+          tabIndex="0"
+          value="toulouse-malepere"
+        >
+          <i
+            className="c4"
+          >
+            check_box_outline_blank
+          </i>
+          Malepère
+        </div>
+        <div
+          className="c8"
+          data-selected={false}
+          onClick={[Function]}
+          tabIndex="0"
+          value="bagneux-petit"
+        >
+          <i
+            className="c4"
+          >
+            check_box_outline_blank
+          </i>
+          Résidence Onyx
+        </div>
+        <div
+          className="c8"
+          data-selected={false}
+          onClick={[Function]}
+          tabIndex="0"
+          value="antony-marche"
+        >
+          <i
+            className="c4"
+          >
+            check_box_outline_blank
+          </i>
+          Antony-Marché
+        </div>
+        <div
+          className="c8"
+          data-selected={false}
+          onClick={[Function]}
+          tabIndex="0"
+          value="vernouillet"
+        >
+          <i
+            className="c4"
+          >
+            check_box_outline_blank
+          </i>
+          Résidence Eugénie
+        </div>
+        <div
+          className="c8"
+          data-selected={false}
+          onClick={[Function]}
+          tabIndex="0"
+          value="grenoble-cambridge"
+        >
+          <i
+            className="c4"
+          >
+            check_box_outline_blank
+          </i>
+          Résidence Ginkgo
+        </div>
+        <div
+          className="c8"
+          data-selected={false}
+          onClick={[Function]}
+          tabIndex="0"
+          value="paris-18"
+        >
+          <i
+            className="c4"
+          >
+            check_box_outline_blank
+          </i>
+          La Parenthèse
+        </div>
+        <div
+          className="c8"
+          data-selected={false}
+          onClick={[Function]}
+          tabIndex="0"
+          value="levallois-zelmis"
+        >
+          <i
+            className="c4"
+          >
+            check_box_outline_blank
+          </i>
+          Zelmis
+        </div>
+        <div
+          className="c8"
+          data-selected={false}
+          onClick={[Function]}
+          tabIndex="0"
+          value="torcy-le-perchoir"
+        >
+          <i
+            className="c4"
+          >
+            check_box_outline_blank
+          </i>
+          Le Perchoir
+        </div>
+        <div
+          className="c8"
+          data-selected={false}
+          onClick={[Function]}
+          tabIndex="0"
+          value="massy-vilgenis"
+        >
+          <i
+            className="c4"
+          >
+            check_box_outline_blank
+          </i>
+          Massy-Vilgénis
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`Storyshots Inputs/Select single item 1`] = `
+.c4 {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  -webkit-letter-spacing: normal;
+  -moz-letter-spacing: normal;
+  -ms-letter-spacing: normal;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -moz-osx-font-smoothing: grayscale;
+  font-feature-settings: 'liga';
+}
+
+.c0 {
+  position: relative;
+  color: #061a3c;
+}
+
+.c1 {
+  position: relative;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: baseline;
+  -webkit-box-align: baseline;
+  -ms-flex-align: baseline;
+  align-items: baseline;
+  box-sizing: border-box;
+  z-index: 0;
+  padding: 8px 20px;
+  height: 40px;
+  line-height: 24px;
+  border-radius: 4px;
+  border-left: 0;
+  font-size: 16px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  background-color: #ffffff;
+  box-shadow: 0 4px 12px 0 rgba(3,54,61,0.16);
+  -webkit-transition: background-color ease-in-out 200ms,z-index ease-in 1s,border-left ease-in 200ms;
+  transition: background-color ease-in-out 200ms,z-index ease-in 1s,border-left ease-in 200ms;
+}
+
+.c1:not([data-empty="true"]) {
+  border-left: 4px solid #ff5100;
+}
+
+.c1[data-open="true"] {
+  -webkit-transition: z-index ease-in 0s;
+  transition: z-index ease-in 0s;
+  z-index: 10;
+}
+
+.c1:hover {
+  background-color: #f8f7f8;
+  cursor: pointer;
+}
+
+.c2 {
+  -webkit-flex: 1 1 100%;
+  -ms-flex: 1 1 100%;
+  flex: 1 1 100%;
+  border: none;
+  padding: 0;
+  background: none;
+  color: #061a3c;
+  font-size: inherit;
+  -webkit-align-self: stretch;
+  -ms-flex-item-align: stretch;
+  align-self: stretch;
+}
+
+.c2:hover {
+  cursor: pointer;
+}
+
+.c2:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.c3 {
+  -webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.c3 i {
+  margin: 0 12px;
+}
+
+.c5 {
+  box-sizing: border-box;
+  box-shadow: 0 4px 12px 0 rgba(3,54,61,0.16);
+  position: absolute;
+  top: 0;
+  padding: 0 24px;
+  overflow-y: scroll;
+  width: calc(100% - 24px);
+  margin-right: 12px;
+  margin-left: 12px;
+  background-color: #ffffff;
+  border-radius: 0 0 4px 4px;
+  height: 0;
+  z-index: 5;
+  -webkit-transition: all ease-in-out 300ms;
+  transition: all ease-in-out 300ms;
+}
+
+.c5[data-open="true"] {
+  top: 100%;
+  height: 300px;
+  padding: 24px;
+}
+
+.c6 {
+  -webkit-transition: color ease-in 150ms;
+  transition: color ease-in 150ms;
+  outline: none;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  margin-bottom: 8px;
+  font-size: 14px;
+}
+
+.c6 i {
+  vertical-align: middle;
+  margin-right: 4px;
+}
+
+.c6:hover,
+.c6:focus,
+.c6[data-selected="true"] {
+  color: #ff5100;
+}
+
+<div
+  style={
+    Object {
+      "alignItems": "center",
+      "bottom": 0,
+      "display": "flex",
+      "left": 0,
+      "overflow": "auto",
+      "position": "fixed",
+      "right": 0,
+      "top": 0,
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "margin": "auto",
+        "maxHeight": "100%",
+      }
+    }
+  >
+    <div
+      className="c0"
+      onClick={[Function]}
+    >
+      <div
+        className="c1"
+        data-empty={true}
+        data-open={false}
+        onClick={[Function]}
+      >
+        <input
+          className="c2"
+          onBlur={[Function]}
+          onChange={[Function]}
+          onFocus={[Function]}
+          placeholder="Projet"
+          type="text"
+          value=""
+        />
+        <div
+          className="c3"
+        >
+          <i
+            className="c4"
+          >
+            arrow_drop_down
+          </i>
+        </div>
+      </div>
+      <div
+        className="c5"
+        data-open={false}
+      >
+        <div
+          className="c6"
+          data-selected={false}
+          onClick={[Function]}
+          tabIndex="0"
+          value="sartrouville"
+        >
+          Résidence Aurore
+        </div>
+        <div
+          className="c6"
+          data-selected={false}
+          onClick={[Function]}
+          tabIndex="0"
+          value="saint-maur-raspail"
+        >
+          saint-maur-raspail
+        </div>
+        <div
+          className="c6"
+          data-selected={false}
+          onClick={[Function]}
+          tabIndex="0"
+          value="toulouse-croix-de-pierre"
+        >
+          Croix de Pierre
+        </div>
+        <div
+          className="c6"
+          data-selected={false}
+          onClick={[Function]}
+          tabIndex="0"
+          value="toulouse-colombes"
+        >
+          Les Colombes
+        </div>
+        <div
+          className="c6"
+          data-selected={false}
+          onClick={[Function]}
+          tabIndex="0"
+          value="paris-edison"
+        >
+          Edison Lite
+        </div>
+        <div
+          className="c6"
+          data-selected={false}
+          onClick={[Function]}
+          tabIndex="0"
+          value="toulouse-la-ramee"
+        >
+          La Ramée
+        </div>
+        <div
+          className="c6"
+          data-selected={false}
+          onClick={[Function]}
+          tabIndex="0"
+          value="sarcelles"
+        >
+          Sarcelles Village
+        </div>
+        <div
+          className="c6"
+          data-selected={false}
+          onClick={[Function]}
+          tabIndex="0"
+          value="toulouse-le-galy"
+        >
+          Résidence Le Galy
+        </div>
+        <div
+          className="c6"
+          data-selected={false}
+          onClick={[Function]}
+          tabIndex="0"
+          value="noisy-le-grand"
+        >
+          Noisy-le-Grand
+        </div>
+        <div
+          className="c6"
+          data-selected={false}
+          onClick={[Function]}
+          tabIndex="0"
+          value="toulouse-madera"
+        >
+          Résidence Madera
+        </div>
+        <div
+          className="c6"
+          data-selected={false}
+          onClick={[Function]}
+          tabIndex="0"
+          value="soisy-bailly"
+        >
+          Résidence Le Bailly
+        </div>
+        <div
+          className="c6"
+          data-selected={false}
+          onClick={[Function]}
+          tabIndex="0"
+          value="toulouse-roseraie"
+        >
+          La Roseraie
+        </div>
+        <div
+          className="c6"
+          data-selected={false}
+          onClick={[Function]}
+          tabIndex="0"
+          value="bussy-saint-georges"
+        >
+          Le Hameau du Chêneu
+        </div>
+        <div
+          className="c6"
+          data-selected={false}
+          onClick={[Function]}
+          tabIndex="0"
+          value="toulouse-lodges"
+        >
+          Résidence Cyrano
+        </div>
+        <div
+          className="c6"
+          data-selected={false}
+          onClick={[Function]}
+          tabIndex="0"
+          value="begles-carrelets"
+        >
+          Les Carrelets de l'Estey
+        </div>
+        <div
+          className="c6"
+          data-selected={false}
+          onClick={[Function]}
+          tabIndex="0"
+          value="groslay"
+        >
+          NordWood
+        </div>
+        <div
+          className="c6"
+          data-selected={false}
+          onClick={[Function]}
+          tabIndex="0"
+          value="toulouse-malepere"
+        >
+          Malepère
+        </div>
+        <div
+          className="c6"
+          data-selected={false}
+          onClick={[Function]}
+          tabIndex="0"
+          value="bagneux-petit"
+        >
+          Résidence Onyx
+        </div>
+        <div
+          className="c6"
+          data-selected={false}
+          onClick={[Function]}
+          tabIndex="0"
+          value="antony-marche"
+        >
+          Antony-Marché
+        </div>
+        <div
+          className="c6"
+          data-selected={false}
+          onClick={[Function]}
+          tabIndex="0"
+          value="vernouillet"
+        >
+          Résidence Eugénie
+        </div>
+        <div
+          className="c6"
+          data-selected={false}
+          onClick={[Function]}
+          tabIndex="0"
+          value="grenoble-cambridge"
+        >
+          Résidence Ginkgo
+        </div>
+        <div
+          className="c6"
+          data-selected={false}
+          onClick={[Function]}
+          tabIndex="0"
+          value="paris-18"
+        >
+          La Parenthèse
+        </div>
+        <div
+          className="c6"
+          data-selected={false}
+          onClick={[Function]}
+          tabIndex="0"
+          value="levallois-zelmis"
+        >
+          Zelmis
+        </div>
+        <div
+          className="c6"
+          data-selected={false}
+          onClick={[Function]}
+          tabIndex="0"
+          value="torcy-le-perchoir"
+        >
+          Le Perchoir
+        </div>
+        <div
+          className="c6"
+          data-selected={false}
+          onClick={[Function]}
+          tabIndex="0"
+          value="massy-vilgenis"
+        >
+          Massy-Vilgénis
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Inputs/Select single item with value (label, value mode) 1`] = `
 .c4 {
   font-family: 'Material Icons';
   font-weight: normal;
@@ -4660,7 +6321,7 @@ exports[`Storyshots Inputs/Select single item 1`] = `
           onBlur={[Function]}
           onChange={[Function]}
           onFocus={[Function]}
-          placeholder="Résidence Aurore"
+          placeholder="Croix de Pierre"
           type="text"
           value=""
         />
@@ -4689,6 +6350,15 @@ exports[`Storyshots Inputs/Select single item 1`] = `
           data-selected={false}
           onClick={[Function]}
           tabIndex="0"
+          value="sartrouville"
+        >
+          Résidence Aurore
+        </div>
+        <div
+          className="c7"
+          data-selected={false}
+          onClick={[Function]}
+          tabIndex="0"
           value="saint-maur-raspail"
         >
           saint-maur-raspail
@@ -4698,9 +6368,464 @@ exports[`Storyshots Inputs/Select single item 1`] = `
           data-selected={false}
           onClick={[Function]}
           tabIndex="0"
-          value="toulouse-croix-de-pierre"
+          value="toulouse-colombes"
         >
-          Croix de Pierre
+          Les Colombes
+        </div>
+        <div
+          className="c7"
+          data-selected={false}
+          onClick={[Function]}
+          tabIndex="0"
+          value="paris-edison"
+        >
+          Edison Lite
+        </div>
+        <div
+          className="c7"
+          data-selected={false}
+          onClick={[Function]}
+          tabIndex="0"
+          value="toulouse-la-ramee"
+        >
+          La Ramée
+        </div>
+        <div
+          className="c7"
+          data-selected={false}
+          onClick={[Function]}
+          tabIndex="0"
+          value="sarcelles"
+        >
+          Sarcelles Village
+        </div>
+        <div
+          className="c7"
+          data-selected={false}
+          onClick={[Function]}
+          tabIndex="0"
+          value="toulouse-le-galy"
+        >
+          Résidence Le Galy
+        </div>
+        <div
+          className="c7"
+          data-selected={false}
+          onClick={[Function]}
+          tabIndex="0"
+          value="noisy-le-grand"
+        >
+          Noisy-le-Grand
+        </div>
+        <div
+          className="c7"
+          data-selected={false}
+          onClick={[Function]}
+          tabIndex="0"
+          value="toulouse-madera"
+        >
+          Résidence Madera
+        </div>
+        <div
+          className="c7"
+          data-selected={false}
+          onClick={[Function]}
+          tabIndex="0"
+          value="soisy-bailly"
+        >
+          Résidence Le Bailly
+        </div>
+        <div
+          className="c7"
+          data-selected={false}
+          onClick={[Function]}
+          tabIndex="0"
+          value="toulouse-roseraie"
+        >
+          La Roseraie
+        </div>
+        <div
+          className="c7"
+          data-selected={false}
+          onClick={[Function]}
+          tabIndex="0"
+          value="bussy-saint-georges"
+        >
+          Le Hameau du Chêneu
+        </div>
+        <div
+          className="c7"
+          data-selected={false}
+          onClick={[Function]}
+          tabIndex="0"
+          value="toulouse-lodges"
+        >
+          Résidence Cyrano
+        </div>
+        <div
+          className="c7"
+          data-selected={false}
+          onClick={[Function]}
+          tabIndex="0"
+          value="begles-carrelets"
+        >
+          Les Carrelets de l'Estey
+        </div>
+        <div
+          className="c7"
+          data-selected={false}
+          onClick={[Function]}
+          tabIndex="0"
+          value="groslay"
+        >
+          NordWood
+        </div>
+        <div
+          className="c7"
+          data-selected={false}
+          onClick={[Function]}
+          tabIndex="0"
+          value="toulouse-malepere"
+        >
+          Malepère
+        </div>
+        <div
+          className="c7"
+          data-selected={false}
+          onClick={[Function]}
+          tabIndex="0"
+          value="bagneux-petit"
+        >
+          Résidence Onyx
+        </div>
+        <div
+          className="c7"
+          data-selected={false}
+          onClick={[Function]}
+          tabIndex="0"
+          value="antony-marche"
+        >
+          Antony-Marché
+        </div>
+        <div
+          className="c7"
+          data-selected={false}
+          onClick={[Function]}
+          tabIndex="0"
+          value="vernouillet"
+        >
+          Résidence Eugénie
+        </div>
+        <div
+          className="c7"
+          data-selected={false}
+          onClick={[Function]}
+          tabIndex="0"
+          value="grenoble-cambridge"
+        >
+          Résidence Ginkgo
+        </div>
+        <div
+          className="c7"
+          data-selected={false}
+          onClick={[Function]}
+          tabIndex="0"
+          value="paris-18"
+        >
+          La Parenthèse
+        </div>
+        <div
+          className="c7"
+          data-selected={false}
+          onClick={[Function]}
+          tabIndex="0"
+          value="levallois-zelmis"
+        >
+          Zelmis
+        </div>
+        <div
+          className="c7"
+          data-selected={false}
+          onClick={[Function]}
+          tabIndex="0"
+          value="torcy-le-perchoir"
+        >
+          Le Perchoir
+        </div>
+        <div
+          className="c7"
+          data-selected={false}
+          onClick={[Function]}
+          tabIndex="0"
+          value="massy-vilgenis"
+        >
+          Massy-Vilgénis
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Inputs/Select single item with value (simple value mode) 1`] = `
+.c4 {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  -webkit-letter-spacing: normal;
+  -moz-letter-spacing: normal;
+  -ms-letter-spacing: normal;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -moz-osx-font-smoothing: grayscale;
+  font-feature-settings: 'liga';
+  cursor: pointer;
+}
+
+.c4:hover {
+  opacity: 0.8;
+}
+
+.c5 {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  -webkit-letter-spacing: normal;
+  -moz-letter-spacing: normal;
+  -ms-letter-spacing: normal;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -moz-osx-font-smoothing: grayscale;
+  font-feature-settings: 'liga';
+}
+
+.c0 {
+  position: relative;
+  color: #061a3c;
+}
+
+.c1 {
+  position: relative;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: baseline;
+  -webkit-box-align: baseline;
+  -ms-flex-align: baseline;
+  align-items: baseline;
+  box-sizing: border-box;
+  z-index: 0;
+  padding: 8px 20px;
+  height: 40px;
+  line-height: 24px;
+  border-radius: 4px;
+  border-left: 0;
+  font-size: 16px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  background-color: #ffffff;
+  box-shadow: 0 4px 12px 0 rgba(3,54,61,0.16);
+  -webkit-transition: background-color ease-in-out 200ms,z-index ease-in 1s,border-left ease-in 200ms;
+  transition: background-color ease-in-out 200ms,z-index ease-in 1s,border-left ease-in 200ms;
+}
+
+.c1:not([data-empty="true"]) {
+  border-left: 4px solid #ff5100;
+}
+
+.c1[data-open="true"] {
+  -webkit-transition: z-index ease-in 0s;
+  transition: z-index ease-in 0s;
+  z-index: 10;
+}
+
+.c1:hover {
+  background-color: #f8f7f8;
+  cursor: pointer;
+}
+
+.c2 {
+  -webkit-flex: 1 1 100%;
+  -ms-flex: 1 1 100%;
+  flex: 1 1 100%;
+  border: none;
+  padding: 0;
+  background: none;
+  color: #061a3c;
+  font-size: inherit;
+  -webkit-align-self: stretch;
+  -ms-flex-item-align: stretch;
+  align-self: stretch;
+}
+
+.c2:hover {
+  cursor: pointer;
+}
+
+.c2:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.c3 {
+  -webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.c3 i {
+  margin: 0 12px;
+}
+
+.c6 {
+  box-sizing: border-box;
+  box-shadow: 0 4px 12px 0 rgba(3,54,61,0.16);
+  position: absolute;
+  top: 0;
+  padding: 0 24px;
+  overflow-y: scroll;
+  width: calc(100% - 24px);
+  margin-right: 12px;
+  margin-left: 12px;
+  background-color: #ffffff;
+  border-radius: 0 0 4px 4px;
+  height: 0;
+  z-index: 5;
+  -webkit-transition: all ease-in-out 300ms;
+  transition: all ease-in-out 300ms;
+}
+
+.c6[data-open="true"] {
+  top: 100%;
+  height: 300px;
+  padding: 24px;
+}
+
+.c7 {
+  -webkit-transition: color ease-in 150ms;
+  transition: color ease-in 150ms;
+  outline: none;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  margin-bottom: 8px;
+  font-size: 14px;
+}
+
+.c7 i {
+  vertical-align: middle;
+  margin-right: 4px;
+}
+
+.c7:hover,
+.c7:focus,
+.c7[data-selected="true"] {
+  color: #ff5100;
+}
+
+<div
+  style={
+    Object {
+      "alignItems": "center",
+      "bottom": 0,
+      "display": "flex",
+      "left": 0,
+      "overflow": "auto",
+      "position": "fixed",
+      "right": 0,
+      "top": 0,
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "margin": "auto",
+        "maxHeight": "100%",
+      }
+    }
+  >
+    <div
+      className="c0"
+      onClick={[Function]}
+    >
+      <div
+        className="c1"
+        data-empty={false}
+        data-open={false}
+        onClick={[Function]}
+      >
+        <input
+          className="c2"
+          onBlur={[Function]}
+          onChange={[Function]}
+          onFocus={[Function]}
+          placeholder="Croix de Pierre"
+          type="text"
+          value=""
+        />
+        <div
+          className="c3"
+        >
+          <i
+            className="c4"
+            onClick={[Function]}
+          >
+            close
+          </i>
+          <i
+            className="c5"
+          >
+            arrow_drop_down
+          </i>
+        </div>
+      </div>
+      <div
+        className="c6"
+        data-open={false}
+      >
+        <div
+          className="c7"
+          data-selected={false}
+          onClick={[Function]}
+          tabIndex="0"
+          value="sartrouville"
+        >
+          Résidence Aurore
+        </div>
+        <div
+          className="c7"
+          data-selected={false}
+          onClick={[Function]}
+          tabIndex="0"
+          value="saint-maur-raspail"
+        >
+          saint-maur-raspail
         </div>
         <div
           className="c7"
@@ -5089,7 +7214,7 @@ exports[`Storyshots Inputs/Select single item without reset 1`] = `
     >
       <div
         className="c1"
-        data-empty={false}
+        data-empty={true}
         data-open={false}
         onClick={[Function]}
       >
@@ -5098,7 +7223,7 @@ exports[`Storyshots Inputs/Select single item without reset 1`] = `
           onBlur={[Function]}
           onChange={[Function]}
           onFocus={[Function]}
-          placeholder="Résidence Aurore"
+          placeholder="Projet"
           type="text"
           value=""
         />
@@ -5116,6 +7241,15 @@ exports[`Storyshots Inputs/Select single item without reset 1`] = `
         className="c5"
         data-open={false}
       >
+        <div
+          className="c6"
+          data-selected={false}
+          onClick={[Function]}
+          tabIndex="0"
+          value="sartrouville"
+        >
+          Résidence Aurore
+        </div>
         <div
           className="c6"
           data-selected={false}
