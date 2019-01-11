@@ -1,9 +1,9 @@
 import * as React from 'react'
-import { find, filter, findIndex, isEmpty, get, some } from 'lodash'
+import { find, filter, findIndex, isEmpty, map, get, some, omit, has } from 'lodash'
 
 import Annotation from '../Annotation'
 import FontIcon from '../FontIcon'
-import SelectProps from './Select.interface'
+import SelectProps, { SelectState } from './Select.interface'
 import { searchInString } from '../../internal/strings'
 import { formOption, formValue } from '../../internal/types'
 
@@ -21,7 +21,23 @@ import {
 
 import Option from './Option'
 
-class Select extends React.Component<SelectProps> {
+const INTERNAL_PROPS = [
+  'isMulti',
+  'description',
+  'filledIndicator',
+  'placeholderClassName',
+  'icon',
+  'annotation',
+  'canReset',
+  'value',
+  'onChange',
+  'placeholder'
+]
+
+const FORMAT_VALUE_FULL = 'FORMAT_VALUE_FULL'
+const FORMAT_VALUE_SIMPLE = 'FORMAT_VALUE_SIMPLE'
+
+class Select extends React.Component<SelectProps, SelectState> {
   static defaultProps = {
     isMulti: false,
     value: null,
@@ -31,6 +47,34 @@ class Select extends React.Component<SelectProps> {
     icon: null,
     annotation: null,
     canReset: true
+  }
+
+  static getDerivedStateFromProps (nextProps, prevState) {
+    const { value: rawValue, options: rawOptions, isMulti } = nextProps
+
+    return {
+      ...(rawOptions !== prevState.rawOptions) && {
+        rawOptions,
+        options: Select.getStandardizedOptions(rawOptions)
+      },
+      ...(rawValue !== prevState.rawValue) && {
+        rawValue,
+        value: Select.getStandardizedValue(rawValue, isMulti)
+      }
+    }
+  }
+
+  static getStandardizedValue (value, isMulti) {
+    return isMulti
+     ? map(value, el => get(el, 'value', el))
+     : get(value, 'value', value)
+  }
+
+  static getStandardizedOptions (options) {
+    return map(options, option => ({
+      value: get(option, 'value', option),
+      label: get(option, 'label', option)
+    }))
   }
 
   wrapperRef: React.RefObject<any>
@@ -45,7 +89,11 @@ class Select extends React.Component<SelectProps> {
     open: false,
     search: '',
     isInputFocus: false,
-    focusedItem: null
+    focusedItem: null,
+    rawOptions: null,
+    rawValue: null,
+    options: null,
+    value: null
   }
 
   componentDidMount () {
@@ -58,13 +106,34 @@ class Select extends React.Component<SelectProps> {
     window.removeEventListener('keydown', this.handleKeyDown)
   }
 
-  getOptions = () => {
-    const { options, value, isMulti } = this.props
-    const { search } = this.state
-    return filter(options,
-      option => (searchInString(`${option.value}`, search) || searchInString(option.label, search)) &&
-        !(!isMulti && value && option.value === (value as formOption).value)
-    )
+  getVisibleOptions = (): formOption[] => {
+    const { isMulti } = this.props
+    const { search, options, value } = this.state
+
+    return filter(options, (option: formOption) => {
+      const matchValue = searchInString(`${option.value}`, search)
+      const matchLabel = searchInString(option.label, search)
+      const match = matchValue || matchLabel
+
+      if (isMulti) {
+        return match
+      }
+
+      return value !== option.value
+    })
+  }
+
+  getCurrentValue () {
+    const { isMulti } = this.props
+    const { options, value } = this.state
+
+    if (!value) {
+      return null
+    }
+
+    const filterMethod = isMulti ? filter : find
+
+    return filterMethod(options, el => el.value === value)
   }
 
   getPlaceholder (value) {
@@ -77,6 +146,37 @@ class Select extends React.Component<SelectProps> {
     return value ? (value as formOption).label : placeholder
   }
 
+  getCurrentValueFormat () {
+    const { value, isMulti } = this.props
+
+    if (isMulti) {
+      if (isEmpty(value)) {
+        return FORMAT_VALUE_FULL
+      }
+
+      return has(value[0], 'value') ? FORMAT_VALUE_FULL : FORMAT_VALUE_SIMPLE
+    }
+
+    return has(value, 'value') ? FORMAT_VALUE_FULL : FORMAT_VALUE_SIMPLE
+  }
+
+  getCleanValue (newValue) {
+    const format = this.getCurrentValueFormat()
+
+    return format === FORMAT_VALUE_FULL ? newValue : get(newValue, 'value')
+  }
+
+  isOptionSelected (option) {
+    const { isMulti } = this.props
+    const { value } = this.state
+
+    if (isMulti) {
+      return some(value, el => el === option.value)
+    }
+
+    return option.value === value
+  }
+
   handleClickOutside = () => {
     if (this.wrapperRef && !this.wrapperRef.current.contains(event.target) && this.state.open) {
       this.toggle()
@@ -87,7 +187,7 @@ class Select extends React.Component<SelectProps> {
     const { open, focusedItem } = this.state
     const { key } = event
 
-    const options = this.getOptions()
+    const options = this.getVisibleOptions()
     const focusedIndex = findIndex(options, el => el === focusedItem)
 
     if (open && key === 'ArrowDown' && focusedIndex < options.length) {
@@ -115,22 +215,29 @@ class Select extends React.Component<SelectProps> {
     }
   }
 
-  handleSelectOne = option => this.props.onChange(option)
+  handleSelectOne = option => {
+    const cleanOption = this.getCleanValue(option)
+    this.props.onChange(cleanOption)
+  }
 
   handleSelectMulti = option => {
-    let currentValue = (this.props.value as formValue[]) || []
-    if (typeof get(currentValue, '[0]') === 'string' || typeof get(currentValue, '[0]') === 'number') {
-      // @ts-ignore
-      currentValue = currentValue.map(v => find(this.getOptions(), { value: v }) || { value: v })
-    }
-    const optionIndex = findIndex(currentValue, { value: option.value })
-    const nextValue = currentValue
-    if (optionIndex > -1) {
-      nextValue.splice(optionIndex, 1)
+    const { value, onChange } = this.props
+    const cleanOption = this.getCleanValue(option)
+    const currentValue = (value || []) as any[]
+
+    const isSelected = some(currentValue, el => (
+      has(el, 'value') ? el.value === option.value : el === option.value
+    ))
+
+    if (isSelected) {
+      const newValue = filter(currentValue, el => (
+        has(el, 'value') ? el.value !== option.value : el !== option.value
+      ))
+      onChange(newValue)
     } else {
-      nextValue.push(option)
+      const newValue = [...currentValue, cleanOption]
+      onChange(newValue)
     }
-    this.props.onChange(nextValue)
   }
 
   handleSelectAll = () => this.props.onChange(this.props.options)
@@ -157,31 +264,24 @@ class Select extends React.Component<SelectProps> {
   render () {
     const { open, search, focusedItem } = this.state
     const {
-      placeholder,
       isMulti,
       description,
       filledIndicator,
       placeholderClassName,
       icon,
       annotation,
-      canReset,
-      value: unusedValue,
-      onChange: unusedOnChange,
-      ...rest
+      canReset
     } = this.props
 
-    const options = this.getOptions()
-    let { value } = this.props
+    const safeProps = omit(this.props, INTERNAL_PROPS)
 
-    if (Array.isArray(value) && (typeof get(value, '[0]') === 'string' || typeof get(value, '[0]') === 'number')) {
-      // @ts-ignore
-      value = value.map(v => find(options, { value: v }))
-    }
+    const options = this.getVisibleOptions()
+    const value = this.getCurrentValue()
 
     const showRemoveIcon = !isMulti && canReset && value
 
     return (
-      <SelectContainer ref={this.wrapperRef} onClick={this.stopDefaultAndPropagation} {...rest}>
+      <SelectContainer ref={this.wrapperRef} onClick={this.stopDefaultAndPropagation} {...safeProps}>
         <Label
           className={placeholderClassName}
           data-empty={!filledIndicator || isEmpty(value)}
@@ -227,20 +327,16 @@ class Select extends React.Component<SelectProps> {
                   </OptionAction>
                 </OptionsActions>
                 }
-                {options.map(option => {
-                  // @ts-ignore
-                  const selected = some((value as formOption), { value: option.value })
-                  return (
-                    <Option
-                      key={option.value}
-                      selected={selected}
-                      onClick={() => this.handleSelect(option)}
-                      focused={option === focusedItem}
-                      isMulti={isMulti}
-                      {...option}
-                    />
-                  )
-                })}
+                {options.map(option => (
+                  <Option
+                    key={option.value}
+                    selected={this.isOptionSelected(option)}
+                    onClick={() => this.handleSelect(option)}
+                    focused={option === focusedItem}
+                    isMulti={isMulti}
+                    {...option}
+                  />
+                ))}
               </React.Fragment>
             ) : (
               <div>Aucune option</div>
