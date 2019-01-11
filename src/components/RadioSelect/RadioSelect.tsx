@@ -12,7 +12,8 @@ const RadioSelect: React.StatelessComponent<RadioSelectProps> = ({
   canBeEmpty,
   color,
   isMulti,
-  disabled
+  disabled,
+  ...rest
 }) => {
   const getNewValue = item => {
     if (isMulti && Array.isArray(currentValue)) {
@@ -51,7 +52,7 @@ const RadioSelect: React.StatelessComponent<RadioSelectProps> = ({
   })
 
   return (
-    <RadioSelectContainer color={color} data-disabled={disabled}>
+    <RadioSelectContainer color={color} data-disabled={disabled} {...rest}>
       {map(options, ({ value, label }, index) => (
         <RadioSelectElement
           isNextSelected={index < options.length - 1 && selected[index + 1]}
