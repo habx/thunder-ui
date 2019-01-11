@@ -39,7 +39,15 @@ const DEFAULT_VALUE_SIMPLE = options[2].value
 
 const SelectWithState = ({ value = null, ...props }) => {
   const Component = withState('value', 'onChange', value)(newProps => (
-    <Select options={options} placeholder='Projet' {...newProps} />
+    <Select
+      options={options}
+      placeholder='Projet'
+      {...newProps}
+      onChange={(...args) => {
+        action('onChange')(...args)
+        newProps.onChange(...args)
+      }}
+    />
   ))
 
   return <Component {...props} />
