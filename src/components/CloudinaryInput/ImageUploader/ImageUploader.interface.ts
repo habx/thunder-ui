@@ -18,11 +18,8 @@ export default interface ImageUploaderProps extends ModalProps {
   onChange: (image: CloudinaryImage) => void
 }
 
-export interface HeaderProps {
-  goTo: (page: string) => void
-}
-
 export interface ActionBarProps {
+  page: string
   onSelect: () => void
   onCustomize: () => void
 }

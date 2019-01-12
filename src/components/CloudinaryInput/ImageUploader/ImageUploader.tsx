@@ -4,11 +4,20 @@ import { map, uniq } from 'lodash'
 import ImageUploaderProps, { ImageUploaderState, RenderParams } from './ImageUploader.interface'
 import { CloudinaryImage } from '../Image/Image.interface'
 
-import { ImageUploaderContainer, Content, ImageContainer, ImageList, Directories, Directory, DirectoryContent } from './ImageUploader.style'
+import {
+  ImageUploaderContainer,
+  Content,
+  ImageContainer,
+  ImageList,
+  Directories,
+  Directory,
+  DirectoryContent,
+  CustomizerContainer
+} from './ImageUploader.style'
 
-import Header from './Header'
 import ActionBar from './ActionBar'
 import Image from '../Image'
+import Header from '../Header'
 import FontIcon from '../../FontIcon'
 
 class ImageUploader extends React.PureComponent<ImageUploaderProps, ImageUploaderState> {
@@ -31,7 +40,9 @@ class ImageUploader extends React.PureComponent<ImageUploaderProps, ImageUploade
     onChange(selectedImage)
   }
 
-  handleImageCustomization = () => null
+  handleImageCustomization = () => {
+    this.goTo('customizer')
+  }
 
   getDirectories = () => uniq([
     this.props.defaultDirectory,
@@ -39,6 +50,28 @@ class ImageUploader extends React.PureComponent<ImageUploaderProps, ImageUploade
     'cities',
     'regions'
   ])
+
+  getCurrentTitle () {
+    const { page, directory, selectedImage } = this.state
+
+    if (page === 'home') {
+      return 'Liste des dossiers'
+    }
+
+    if (page === 'directory') {
+      return `Dossier : ${directory}`
+    }
+
+    if (page === 'uploader') {
+      return `Dossier : ${directory} (ajout d'une image)`
+    }
+
+    if (page === 'customizer') {
+      return `Personnalisation de ${selectedImage.public_id}`
+    }
+
+    return ''
+  }
 
   goTo = (page: string, params = {}) => this.setState(() => ({ page, ...params }))
 
@@ -76,6 +109,18 @@ class ImageUploader extends React.PureComponent<ImageUploaderProps, ImageUploade
     )
   }
 
+  renderCustomizer () {
+    const { selectedImage } = this.state
+
+    const sizeRatio = selectedImage.height / selectedImage.width
+
+    return (
+      <CustomizerContainer>
+        <Image data={selectedImage} size='full' />
+      </CustomizerContainer>
+    )
+  }
+
   renderImage = (image: CloudinaryImage): JSX.Element => {
     const { selectedImage } = this.state
 
@@ -104,13 +149,15 @@ class ImageUploader extends React.PureComponent<ImageUploaderProps, ImageUploade
 
           return (
             <React.Fragment>
-              <Header goTo={this.goTo} />
-              <Content>
+              <Header goTo={this.goTo} title={this.getCurrentTitle()} />
+              <Content data-page={page}>
                 { page === 'home' && this.renderHome() }
                 { page === 'directory' && this.renderDirectory() }
+                { page === 'customizer' && this.renderCustomizer() }
               </Content>
               { selectedImage && (
                 <ActionBar
+                  page={page}
                   onSelect={this.handleImageValidation}
                   onCustomize={this.handleImageCustomization}
                 />

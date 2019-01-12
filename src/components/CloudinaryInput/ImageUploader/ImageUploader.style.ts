@@ -14,23 +14,17 @@ export const ImageUploaderContainer = styled(Modal)`
   justify-content: stretch;
 `
 
-export const HeaderContainer = styled.div`
-  display: flex;
-  align-items: center;
-  flex: 0 0 48px;
-
-  height: 48px;
-  padding: 0 16px;
-
-  background-color: ${colors.brightCerualean};
-  color: ${colors.paynesGrey};
-`
-
 export const Content = styled.div`
   flex: 1 1 100%;
+  background-color: ${colors.platinium};
+  position: relative;
+
   overflow-x: hidden;
   overflow-y: auto;
-  background-color: ${colors.platinium};
+
+  &[data-page="customizer"] {
+    overflow: hidden;
+  }
 `
 
 export const ImageList = styled.div`
@@ -91,14 +85,26 @@ export const DirectoryContent = styled.div`
 `
 
 export const ActionBarContainer = styled.div`
-  position: absolute;
-  height: 48px;
-  bottom: 0;
-  left: 0;
-  right: 0;
+  flex: 0 0 48px;
   background-color: ${colors.white};
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
   padding: 0 32px;
+
+  > * {
+    margin-left: 16px;
+  }
+`
+
+export const CustomizerContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 32px;
+
+  & > img {
+    max-height: 60vh;
+    max-width: calc(100% - 64px);
+  }
 `
