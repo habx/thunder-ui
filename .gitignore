@@ -3,7 +3,7 @@
 
 # Build output folders
 lib/
-out/
+typings/
 
 # Logs
 logs
