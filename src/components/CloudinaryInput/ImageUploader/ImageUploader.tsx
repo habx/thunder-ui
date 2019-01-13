@@ -27,6 +27,10 @@ class ImageUploader extends React.PureComponent<ImageUploaderProps, ImageUploade
     directory: this.props.defaultDirectory || 'logos'
   }
 
+  handleImageUpload (event) {
+    console.log(Array.from(event.target.files))
+  }
+
   handleImageSelect = selectedImage => () => this.setState(prevState => ({
     selectedImage: prevState.selectedImage === selectedImage ? null : selectedImage
   }))
@@ -149,7 +153,11 @@ class ImageUploader extends React.PureComponent<ImageUploaderProps, ImageUploade
 
           return (
             <React.Fragment>
-              <Header goTo={this.goTo} title={this.getCurrentTitle()} />
+              <Header
+                goTo={this.goTo}
+                title={this.getCurrentTitle()}
+                onUploadImages={this.handleImageUpload}
+              />
               <Content data-page={page}>
                 { page === 'home' && this.renderHome() }
                 { page === 'directory' && this.renderDirectory() }
