@@ -6358,6 +6358,15 @@ exports[`Storyshots Inputs/Select single item with value (label, value mode) 1`]
         </div>
         <div
           className="c7"
+          data-selected={true}
+          onClick={[Function]}
+          tabIndex="0"
+          value="toulouse-croix-de-pierre"
+        >
+          Croix de Pierre
+        </div>
+        <div
+          className="c7"
           data-selected={false}
           onClick={[Function]}
           tabIndex="0"
@@ -6819,6 +6828,15 @@ exports[`Storyshots Inputs/Select single item with value (simple value mode) 1`]
           value="saint-maur-raspail"
         >
           saint-maur-raspail
+        </div>
+        <div
+          className="c7"
+          data-selected={true}
+          onClick={[Function]}
+          tabIndex="0"
+          value="toulouse-croix-de-pierre"
+        >
+          Croix de Pierre
         </div>
         <div
           className="c7"
