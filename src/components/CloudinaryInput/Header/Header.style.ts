@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+
 import { colors } from '../../../theme'
 
 export const HeaderContainer = styled.div`
@@ -9,8 +10,8 @@ export const HeaderContainer = styled.div`
   height: 48px;
   padding: 0 16px;
 
-  background-color: ${colors.brightCerualean};
-  color: ${colors.paynesGrey};
+  background-color: ${colors.trueBlue};
+  color: ${colors.white};
 `
 
 export const Title = styled.div`

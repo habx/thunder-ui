@@ -20,6 +20,7 @@ import Image from '../Image'
 import ImageEditor from '../ImageEditor'
 import Header from '../Header'
 import FontIcon from '../../FontIcon'
+import Spinner from '../../Spinner'
 
 class ImageUploader extends React.PureComponent<ImageUploaderProps, ImageUploaderState> {
   state = {
@@ -121,16 +122,18 @@ class ImageUploader extends React.PureComponent<ImageUploaderProps, ImageUploade
     const { renderImages } = this.props
     const { directory } = this.state
 
-    const params: RenderParams = {
+    return renderImages({
       directory,
-      renderImage: this.renderImage
-    }
+      render: ({ loading, data }) => {
+        const content = loading
+         ? <Spinner />
+         : map(data, this.renderImage)
 
-    return (
-      <ImageList>
-        { renderImages(params) }
-      </ImageList>
-    )
+        return (
+          <ImageList data-loading={loading}>{ content }</ImageList>
+        )
+      }
+    })
   }
 
   renderCustomizer () {

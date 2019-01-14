@@ -17,8 +17,10 @@ export const ImageUploaderContainer = styled(Modal)`
 
 export const Content = styled.div`
   flex: 1 1 100%;
-  background-color: ${colors.platinium};
+  background-color: ${colors.whiteSmoke};
   position: relative;
+  display: flex;
+  flex-direction: column;
 
   overflow-x: hidden;
   overflow-y: auto;
@@ -31,11 +33,18 @@ export const Content = styled.div`
 export const ImageList = styled.div`
   position: relative;
   margin: 32px 0;
+  flex: 1 1 100%;
+  display: flex;
+  flex-wrap: wrap;
+
+  &[data-loading="true"] {
+    align-items: center;
+    justify-content: center;
+  }
 `
 
 export const ImageContainer = styled.div`
-  width: 33%;
-  display: inline-block;
+  flex: 0 0 33%;
   box-sizing: border-box;
   padding: 16px;
 

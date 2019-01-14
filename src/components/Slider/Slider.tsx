@@ -55,7 +55,8 @@ class CustomSlider extends React.Component<SliderProps> {
       min,
       color,
       step,
-      labelFormatter
+      labelFormatter,
+      className
     } = this.props
     const { value } = this.state
 
@@ -69,7 +70,7 @@ class CustomSlider extends React.Component<SliderProps> {
       : `${(customValues ? customValues[(value as number)] : `${labelFormatter(value) || 0}${toolTipSuffix}`)}`
 
     return (
-      <SliderContainer color={color}>
+      <SliderContainer color={color} className={className}>
         <SliderComponent
           onAfterChange={onChange}
           onChange={this.handleChange}

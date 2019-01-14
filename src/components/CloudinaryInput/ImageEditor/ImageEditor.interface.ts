@@ -16,6 +16,7 @@ export interface ImageEditorState {
   currentAction: 'crop' | null,
   crop?: CropConfiguration,
   transformations: {
-    crop?: object
+    crop: object
+    dimensions: object
   }
 }
