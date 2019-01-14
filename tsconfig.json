@@ -2,7 +2,7 @@
   "compilerOptions": {
     "jsx": "react",
     "rootDirs": ["src", ".storybook"],
-    "outDir": "lib",
+    "outDir": "./lib",
     "lib": ["es2015", "dom"],
     "moduleResolution": "node",
     "removeComments": true,
