@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "jsx": "react",
-    "rootDirs": ["src", ".storybook"],
+    "rootDirs": ["./src", "./.storybook"],
     "outDir": "./lib",
     "lib": ["es2015", "dom"],
     "moduleResolution": "node",
