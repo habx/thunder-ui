@@ -237,7 +237,7 @@ export const RcSliderStyle = styled.div`
     min-width: 24px;
     height: 24px;
     line-height: 1;
-    font-family: EuclidCircularB;
+    font-family: Inter UI;
     font-size: 14px;
     text-align: center;
     text-decoration: none;

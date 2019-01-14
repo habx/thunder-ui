@@ -1864,7 +1864,6 @@ exports[`Storyshots Inputs/ArrayInput with order change allowed 1`] = `
 
 exports[`Storyshots Inputs/RadioSelect basic 1`] = `
 .c0 {
-  font-family: EuclidCircularB;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -2051,7 +2050,6 @@ exports[`Storyshots Inputs/RadioSelect basic 1`] = `
 
 exports[`Storyshots Inputs/RadioSelect can't be empty 1`] = `
 .c0 {
-  font-family: EuclidCircularB;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -2238,7 +2236,6 @@ exports[`Storyshots Inputs/RadioSelect can't be empty 1`] = `
 
 exports[`Storyshots Inputs/RadioSelect with custom color 1`] = `
 .c0 {
-  font-family: EuclidCircularB;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -2425,7 +2422,6 @@ exports[`Storyshots Inputs/RadioSelect with custom color 1`] = `
 
 exports[`Storyshots Inputs/RadioSelect with many option 1`] = `
 .c0 {
-  font-family: EuclidCircularB;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -2636,7 +2632,6 @@ exports[`Storyshots Inputs/RadioSelect with many option 1`] = `
 
 exports[`Storyshots Inputs/RadioSelect with multi selection 1`] = `
 .c0 {
-  font-family: EuclidCircularB;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -2827,7 +2822,6 @@ exports[`Storyshots Inputs/RadioSelect with multi selection 1`] = `
 
 exports[`Storyshots Inputs/RadioSelect with multi selection and can't be empty 1`] = `
 .c0 {
-  font-family: EuclidCircularB;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -3020,7 +3014,6 @@ exports[`Storyshots Inputs/RadioSelect with multi selection and can't be empty 1
 
 exports[`Storyshots Inputs/RadioSelect without selected item 1`] = `
 .c0 {
-  font-family: EuclidCircularB;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -7745,7 +7738,7 @@ exports[`Storyshots Inputs/Slider Basic 1`] = `
   min-width: 24px;
   height: 24px;
   line-height: 1;
-  font-family: EuclidCircularB;
+  font-family: Inter UI;
   font-size: 14px;
   text-align: center;
   -webkit-text-decoration: none;
@@ -8137,7 +8130,7 @@ exports[`Storyshots Inputs/Slider with custom color 1`] = `
   min-width: 24px;
   height: 24px;
   line-height: 1;
-  font-family: EuclidCircularB;
+  font-family: Inter UI;
   font-size: 14px;
   text-align: center;
   -webkit-text-decoration: none;
@@ -8529,7 +8522,7 @@ exports[`Storyshots Inputs/Slider with custom values 1`] = `
   min-width: 24px;
   height: 24px;
   line-height: 1;
-  font-family: EuclidCircularB;
+  font-family: Inter UI;
   font-size: 14px;
   text-align: center;
   -webkit-text-decoration: none;
@@ -8978,7 +8971,7 @@ exports[`Storyshots Inputs/Slider with range 1`] = `
   min-width: 24px;
   height: 24px;
   line-height: 1;
-  font-family: EuclidCircularB;
+  font-family: Inter UI;
   font-size: 14px;
   text-align: center;
   -webkit-text-decoration: none;
@@ -9386,7 +9379,7 @@ exports[`Storyshots Inputs/Slider with tooltip suffix 1`] = `
   min-width: 24px;
   height: 24px;
   line-height: 1;
-  font-family: EuclidCircularB;
+  font-family: Inter UI;
   font-size: 14px;
   text-align: center;
   -webkit-text-decoration: none;

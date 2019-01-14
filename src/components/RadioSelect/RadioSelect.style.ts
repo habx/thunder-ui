@@ -1,7 +1,6 @@
 import styled, { css } from 'styled-components'
 
 export const RadioSelectContainer = styled.div`
-  font-family: EuclidCircularB;
   display: flex;
   border: solid 1px ${({ color }) => color};
   border-radius: 3px;
