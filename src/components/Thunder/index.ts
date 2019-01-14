@@ -10,5 +10,3 @@ export { default as WelcomeMessage } from './WelcomeMessage'
 
 export const cache = cacheItems
 export const filter = filterItems
-
-console.log('I AM IN THE BUNDLE 1995')
