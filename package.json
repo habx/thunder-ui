@@ -81,5 +81,10 @@
       "json"
     ]
   },
-  "files": ["package.json", "package-lock.json", "lib", "typings"]
+  "files": [
+    "package.json",
+    "package-lock.json",
+    "lib",
+    "typings"
+  ]
 }
