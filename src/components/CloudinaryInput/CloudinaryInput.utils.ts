@@ -1,5 +1,7 @@
 import { map, join } from 'lodash'
 
+import { ACECloudinaryImage } from './Image/Image.interface'
+
 const CLOUDINARY_IMAGE_ROOT = `//res.cloudinary.com/habx/image/upload`
 
 const PARAM_TABLE = {
@@ -30,6 +32,12 @@ const PARAM_TABLE = {
   },
   opacity: {
     key: 'o'
+  },
+  x: {
+    key: 'x'
+  },
+  y: {
+    key: 'y'
   }
 }
 
@@ -56,8 +64,8 @@ const transformToString = transforms => {
   return join(parsedTransforms, '/')
 }
 
-export const createCloudinaryURL = (image, transforms = []) => {
-  const transformsString = transformToString(transforms)
+export const createCloudinaryURL = (image: ACECloudinaryImage) => {
+  const transformsString = transformToString(image.transforms)
 
-  return `${CLOUDINARY_IMAGE_ROOT}/${transformsString}/${image.public_id}`
+  return `${CLOUDINARY_IMAGE_ROOT}/${transformsString}/${image.id}`
 }

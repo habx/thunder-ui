@@ -6,7 +6,8 @@ import Modal from '../../Modal'
 
 export const ImageUploaderContainer = styled(Modal)`
   padding: 0;
-  width: 800px;
+  max-width: 1000px;
+  width: 1000px;
   min-height: 400px;
   display: flex;
   flex-direction: column;
@@ -94,17 +95,5 @@ export const ActionBarContainer = styled.div`
 
   > * {
     margin-left: 16px;
-  }
-`
-
-export const CustomizerContainer = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 32px;
-
-  & > img {
-    max-height: 60vh;
-    max-width: calc(100% - 64px);
   }
 `

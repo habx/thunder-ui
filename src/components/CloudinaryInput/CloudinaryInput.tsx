@@ -19,6 +19,10 @@ class CloudinaryInput extends React.PureComponent<CloudinaryInputProps> {
     return null
   }
 
+  static defaultProps = {
+    format: 'ace'
+  }
+
   state = {
     src: null,
     isUploaderOpen: false
@@ -29,12 +33,12 @@ class CloudinaryInput extends React.PureComponent<CloudinaryInputProps> {
   handleUploaderClose = () => this.setState(() => ({ isUploaderOpen: false }))
 
   handleChange = image => {
-    this.props.onChange(createCloudinaryURL(image))
+    this.props.onChange(image)
     this.handleUploaderClose()
   }
 
   render () {
-    const { disabled, renderImages, defaultDirectory } = this.props
+    const { disabled, renderImages, defaultDirectory, format } = this.props
     const { src, isUploaderOpen } = this.state
 
     return (
@@ -53,6 +57,7 @@ class CloudinaryInput extends React.PureComponent<CloudinaryInputProps> {
           defaultDirectory={defaultDirectory}
           renderImages={renderImages}
           onChange={this.handleChange}
+          format={format}
         />
       </CloudinaryInputContainer>
     )

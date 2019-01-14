@@ -2,7 +2,8 @@ import * as React from 'react'
 import { map, uniq } from 'lodash'
 
 import ImageUploaderProps, { ImageUploaderState, RenderParams } from './ImageUploader.interface'
-import { CloudinaryImage } from '../Image/Image.interface'
+import { CloudinaryImage, ACECloudinaryImage } from '../Image/Image.interface'
+import { createCloudinaryURL } from '../CloudinaryInput.utils'
 
 import {
   ImageUploaderContainer,
@@ -11,12 +12,12 @@ import {
   ImageList,
   Directories,
   Directory,
-  DirectoryContent,
-  CustomizerContainer
+  DirectoryContent
 } from './ImageUploader.style'
 
 import ActionBar from './ActionBar'
 import Image from '../Image'
+import ImageEditor from '../ImageEditor'
 import Header from '../Header'
 import FontIcon from '../../FontIcon'
 
@@ -24,7 +25,8 @@ class ImageUploader extends React.PureComponent<ImageUploaderProps, ImageUploade
   state = {
     selectedImage: null as CloudinaryImage,
     page: 'directory',
-    directory: this.props.defaultDirectory || 'logos'
+    directory: this.props.defaultDirectory || 'logos',
+    customizedImage: null as ACECloudinaryImage
   }
 
   handleImageUpload (event) {
@@ -35,18 +37,33 @@ class ImageUploader extends React.PureComponent<ImageUploaderProps, ImageUploade
     selectedImage: prevState.selectedImage === selectedImage ? null : selectedImage
   }))
 
-  handleImageValidation = () => {
-    const { onChange } = this.props
+  handleImageChange = (image: ACECloudinaryImage) => {
+    const { onChange, format } = this.props
+
+    this.setState(() => ({ selectedImage: null, page: 'directory' }))
+
+    const formattedImage = format === 'ace' ? image : createCloudinaryURL(image)
+
+    onChange(formattedImage)
+  }
+
+  handleImageValidationWithoutCustomization = () => {
     const { selectedImage } = this.state
 
-    this.setState(() => ({ selectedImage: null }))
+    this.handleImageChange({ id: selectedImage.public_id, transforms: [] })
+  }
 
-    onChange(selectedImage)
+  handleImageValidationWithCustomization = () => {
+    const { customizedImage } = this.state
+
+    this.handleImageChange(customizedImage)
   }
 
   handleImageCustomization = () => {
     this.goTo('customizer')
   }
+
+  handleImageCustomizationChange = customizedImage => this.setState(() => ({ customizedImage }))
 
   getDirectories = () => uniq([
     this.props.defaultDirectory,
@@ -85,7 +102,10 @@ class ImageUploader extends React.PureComponent<ImageUploaderProps, ImageUploade
         {map(
           this.getDirectories(),
           directory => (
-            <Directory key={directory} onClick={() => this.goTo('directory', { directory })}>
+            <Directory
+              key={directory}
+              onClick={() => this.goTo('directory', { directory })}
+            >
               <FontIcon icon='folder' />
               <DirectoryContent>
                 { directory }
@@ -116,13 +136,7 @@ class ImageUploader extends React.PureComponent<ImageUploaderProps, ImageUploade
   renderCustomizer () {
     const { selectedImage } = this.state
 
-    const sizeRatio = selectedImage.height / selectedImage.width
-
-    return (
-      <CustomizerContainer>
-        <Image data={selectedImage} size='full' />
-      </CustomizerContainer>
-    )
+    return <ImageEditor image={selectedImage} onChange={this.handleImageCustomizationChange} />
   }
 
   renderImage = (image: CloudinaryImage): JSX.Element => {
@@ -166,8 +180,9 @@ class ImageUploader extends React.PureComponent<ImageUploaderProps, ImageUploade
               { selectedImage && (
                 <ActionBar
                   page={page}
-                  onSelect={this.handleImageValidation}
+                  onSelect={this.handleImageValidationWithoutCustomization}
                   onCustomize={this.handleImageCustomization}
+                  onValidateCustomization={this.handleImageValidationWithCustomization}
                 />
               )}
             </React.Fragment>

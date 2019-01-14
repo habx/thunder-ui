@@ -8,6 +8,11 @@ export interface CloudinaryImage {
   width: number
 }
 
+export interface ACECloudinaryImage {
+  id: string
+  transforms?: object[]
+}
+
 export default interface ImageProps extends DomInterface {
   data: CloudinaryImage
   size: 'thumbnail' | 'full'

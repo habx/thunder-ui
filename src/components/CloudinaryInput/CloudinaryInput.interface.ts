@@ -6,4 +6,5 @@ export default interface CloudinaryInputProps {
   defaultDirectory?: string
   renderImages: (RenderParams) => JSX.Element
   onChange: (src: string) => void
+  format: 'ace' | 'src'
 }
