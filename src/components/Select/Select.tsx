@@ -107,19 +107,12 @@ class Select extends React.Component<SelectProps, SelectState> {
   }
 
   getVisibleOptions = (): formOption[] => {
-    const { isMulti } = this.props
-    const { search, options, value } = this.state
+    const { search, options } = this.state
 
     return filter(options, (option: formOption) => {
       const matchValue = searchInString(`${option.value}`, search)
       const matchLabel = searchInString(option.label, search)
-      const match = matchValue || matchLabel
-
-      if (isMulti) {
-        return match
-      }
-
-      return value !== option.value
+      return matchValue || matchLabel
     })
   }
 
