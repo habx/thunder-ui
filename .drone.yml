@@ -20,20 +20,9 @@ pipeline:
     environment:
       - NPM_TOKEN=${NPM_TOKEN}
     commands:
-      - rm -rf build && rm -rf dist &&  echo 104.18.94.96 registry.npmjs.org >> /etc/hosts && npm ci
+      - rm -rf typings && rm -rf lib && echo 104.18.94.96 registry.npmjs.org >> /etc/hosts && npm ci
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
-
-  lint:
-    image: habx/node-base:9-alpine-npm6
-    secrets: [ NPM_TOKEN ]
-    group: tests-and-lint
-    environment:
-    - NPM_TOKEN=${NPM_TOKEN}
-    commands:
-    - npm run lint
-    volumes:
-    - /var/run/docker.sock:/var/run/docker.sock
 
   test:
     image: habx/node-base:9-alpine-npm6
