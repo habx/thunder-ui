@@ -16,8 +16,13 @@ import {
 } from './ImageEditor.style'
 import ImageEditorProps, { ImageEditorState, CropConfiguration } from './ImageEditor.interface'
 
-const getInitialState = transforms => {
-  const cropTransform = find(transforms, el => get(el, 'crop') === 'crop')
+const getImageMaxWidth = (image, transformation) => (
+  floor(image.width * get(transformation, 'width', 1))
+)
+
+const getInitialState = ({ initialTransforms, image }) => {
+  const cropTransform = find(initialTransforms, el => get(el, 'crop') === 'crop')
+  const dimensionTransform = find(initialTransforms, el => get(el, 'crop') === 'scale' && el.width)
 
   const cropConfig = cropTransform && {
     width: get(cropTransform, 'width') * 100,
@@ -31,13 +36,16 @@ const getInitialState = transforms => {
     crop: cropConfig,
     transformations: {
       crop: cropTransform,
-      dimensions: { width: 1000, crop: 'scale' }
+      dimensions: dimensionTransform || {
+        width: Math.min(getImageMaxWidth(image, cropTransform), 1000),
+        crop: 'scale'
+      }
     }
   }
 }
 
 class ImageEditor extends React.PureComponent<ImageEditorProps, ImageEditorState> {
-  state = getInitialState(this.props.initialTransforms)
+  state = getInitialState(this.props)
 
   componentDidMount () {
     this.handleChange()
@@ -120,8 +128,8 @@ class ImageEditor extends React.PureComponent<ImageEditorProps, ImageEditorState
     const { image } = this.props
     const { transformations } = this.state
 
-    const maxWidth = floor(image.width * get(transformations, 'crop.width', 1))
-    const value = get(transformations, 'dimensions.width', 1000)
+    const maxWidth = getImageMaxWidth(image, transformations.crop)
+    const value = get(transformations, 'dimensions.width', Math.min(maxWidth, 1000))
 
     return (
       <Slider
