@@ -6,9 +6,9 @@
   "module": "./lib/index.js",
   "types": "./typings/index.d.ts",
   "scripts": {
-    "build": "npm run clean && tsc",
+    "build": "tsc --listEmittedFiles",
     "build:watch": "tsc --watch",
-    "clean": "rimraf ./lib && rimraf ./typings",
+    "build:local": "rimraf ./lib && rimraf ./typings",
     "storybook": "start-storybook -p 9001 -c .storybook -s ./assets",
     "storybook:build": "build-storybook -c .storybook -s ./assets -o .storybook-static",
     "install:local": "npm ci && npm link styled-components && npm link react && npm link react-dom",
