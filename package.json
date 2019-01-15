@@ -84,7 +84,7 @@
   "files": [
     "package.json",
     "package-lock.json",
-    "./lib",
-    "./typings"
+    "lib",
+    "typings"
   ]
 }
