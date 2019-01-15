@@ -3,10 +3,9 @@
   "version": "2.9.0",
   "description": "UI Library for client-crm-v2 and client-housings",
   "main": "./lib/index.js",
-  "module": "./lib/index.js",
   "types": "./typings/index.d.ts",
   "scripts": {
-    "build": "tsc --listEmittedFiles",
+    "build": "tsc  -p ./tsconfig.json --listEmittedFiles",
     "build:watch": "tsc --watch",
     "build:local": "rimraf ./lib && rimraf ./typings",
     "storybook": "start-storybook -p 9001 -c .storybook -s ./assets",
@@ -81,5 +80,11 @@
       "js",
       "json"
     ]
-  }
+  },
+  "files": [
+    "package.json",
+    "package-lock.json",
+    "./lib",
+    "./typings"
+  ]
 }
