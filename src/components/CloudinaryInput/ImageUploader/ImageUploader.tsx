@@ -1,9 +1,9 @@
 import * as React from 'react'
-import { map, uniq, head, find } from 'lodash'
+import { map, uniq, head, get } from 'lodash'
 
 import ImageUploaderProps, { ImageUploaderState } from './ImageUploader.interface'
 import { CloudinaryImage, ACECloudinaryImage } from '../Image/Image.interface'
-import { createCloudinaryURL, matchACEImage } from '../CloudinaryInput.utils'
+import { createCloudinaryURL } from '../CloudinaryInput.utils'
 
 import {
   ImageUploaderContainer,
@@ -33,7 +33,7 @@ class ImageUploader extends React.PureComponent<ImageUploaderProps, ImageUploade
         fieldImage: image,
         page: 'directory',
         directory,
-        shouldSelectImage: true
+        fetchFieldImagePromise: null
       }
     }
 
@@ -43,11 +43,22 @@ class ImageUploader extends React.PureComponent<ImageUploaderProps, ImageUploade
   state = {
     selectedImage: null as CloudinaryImage,
     fieldImage: null as ACECloudinaryImage,
+    fieldImageConfig: null as CloudinaryImage,
     customizedImage: null as ACECloudinaryImage,
     page: 'directory',
     directory: this.props.defaultDirectory || 'logos',
-    shouldSelectImage: false,
+    fetchFieldImagePromise: null,
     images: []
+  }
+
+  componentDidMount () {
+    this.fetchFieldImageConfig(this.props.image)
+  }
+
+  componentDidUpdate (prevProps) {
+    if (this.props.image !== prevProps.image) {
+      this.fetchFieldImageConfig(this.props.image)
+    }
   }
 
   handleImageUpload (event) {
@@ -117,11 +128,23 @@ class ImageUploader extends React.PureComponent<ImageUploaderProps, ImageUploade
 
   goTo = (page: string, params = {}) => this.setState(() => ({ page, ...params }))
 
-  saveImages = images => setTimeout(() => this.setState(prevState => {
-    if (prevState.shouldSelectImage) {
-      const match = find(images, image => matchACEImage(image, prevState.fieldImage))
+  saveImages = images => setTimeout(() => this.setState(() => ({ images })))
+
+  fetchFieldImageConfig = async (image: ACECloudinaryImage) => {
+    if (image.id && !this.state.fetchFieldImagePromise) {
+      const fetchFieldImagePromise = this.props.fetchImageConfig(image.id)
+      this.setState(() => ({ fetchFieldImagePromise }))
+
+      const config = await fetchFieldImagePromise
+
+      this.setState(() => ({
+        fetchFieldImagePromise: null,
+        selectedImage: config,
+        fieldImageConfig: config,
+        page: 'customizer'
+      }))
     }
-  }))
+  }
 
   renderHome () {
     return (
@@ -167,9 +190,16 @@ class ImageUploader extends React.PureComponent<ImageUploaderProps, ImageUploade
   }
 
   renderCustomizer () {
+    const { image } = this.props
     const { selectedImage } = this.state
 
-    return <ImageEditor image={selectedImage} onChange={this.handleImageCustomizationChange} />
+    return (
+      <ImageEditor
+        image={selectedImage}
+        onChange={this.handleImageCustomizationChange}
+        initialTransforms={get(image, 'transforms')}
+      />
+    )
   }
 
   renderImage = (image: CloudinaryImage): JSX.Element => {
@@ -181,7 +211,7 @@ class ImageUploader extends React.PureComponent<ImageUploaderProps, ImageUploade
           size='thumbnail'
           onClick={this.handleImageSelect(image)}
           id={image.public_id}
-          data-fade={selectedImage && image !== selectedImage}
+          data-fade={selectedImage && image.public_id !== selectedImage.public_id}
         />
       </ImageContainer>
     )

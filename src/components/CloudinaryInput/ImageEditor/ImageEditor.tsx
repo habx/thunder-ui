@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { memoize, filter, floor, get } from 'lodash'
+import { memoize, filter, floor, get, find } from 'lodash'
 
 import FontIcon from '../../FontIcon'
 import Image from '../Image'
@@ -16,17 +16,28 @@ import {
 } from './ImageEditor.style'
 import ImageEditorProps, { ImageEditorState, CropConfiguration } from './ImageEditor.interface'
 
-const getDefaultTransformations = () => ({
-  crop: null,
-  dimensions: { width: 1000, crop: 'scale' }
-})
+const getInitialState = transforms => {
+  const cropTransform = find(transforms, el => get(el, 'crop') === 'crop')
+
+  const cropConfig = cropTransform && {
+    width: get(cropTransform, 'width') * 100,
+    height: get(cropTransform, 'height') * 100,
+    x: get(cropTransform, 'x') * 100,
+    y: get(cropTransform, 'y') * 100
+  }
+
+  return {
+    currentAction: null,
+    crop: cropConfig,
+    transformations: {
+      crop: cropTransform,
+      dimensions: { width: 1000, crop: 'scale' }
+    }
+  }
+}
 
 class ImageEditor extends React.PureComponent<ImageEditorProps, ImageEditorState> {
-  state = {
-    currentAction: null,
-    crop: null,
-    transformations: getDefaultTransformations()
-  }
+  state = getInitialState(this.props.initialTransforms)
 
   componentDidMount () {
     this.handleChange()

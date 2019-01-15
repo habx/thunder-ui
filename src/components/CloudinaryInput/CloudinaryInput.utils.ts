@@ -1,6 +1,6 @@
 import { map, isEmpty, join, isString, filter, reduce, findLastIndex } from 'lodash'
 
-import {ACECloudinaryImage, CloudinaryImage} from './Image/Image.interface'
+import { ACECloudinaryImage } from './Image/Image.interface'
 
 const CLOUDINARY_IMAGE_ROOT = `//res.cloudinary.com/habx/image/upload`
 
@@ -136,8 +136,4 @@ export const parseCloudinaryURL = (src: string = '') => {
     id: getIdFromChunks(chunks),
     transforms: getTransformsFromChunks(chunks)
   }
-}
-
-export const matchACEImage = (cloudinaryImage: CloudinaryImage, aceImage: ACECloudinaryImage) => {
-
 }

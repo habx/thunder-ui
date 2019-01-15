@@ -12,7 +12,8 @@ export interface ImageUploaderState {
   directory: string
   page: string,
   fieldImage: ACECloudinaryImage
-  shouldSelectImage: boolean
+  fieldImageConfig?: CloudinaryImage
+  fetchFieldImagePromise: Promise<CloudinaryImage>
   images: CloudinaryImage[]
 }
 
@@ -22,6 +23,7 @@ export default interface ImageUploaderProps extends ModalProps {
   onChange: (image: ACECloudinaryImage | string) => void
   format: 'ace' | 'src'
   image: ACECloudinaryImage
+  fetchImageConfig: (path: string) => Promise<CloudinaryImage>
 }
 
 export interface ActionBarProps {
