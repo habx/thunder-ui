@@ -1,14 +1,19 @@
 import * as React from 'react'
-import ReactCrop from 'react-image-crop'
 import { memoize, filter, floor, get } from 'lodash'
-
-import 'react-image-crop/dist/ReactCrop.css'
 
 import FontIcon from '../../FontIcon'
 import Image from '../Image'
 import { createCloudinaryURL } from '../CloudinaryInput.utils'
 
-import { ImageEditorContainer, ImageContainer, OptionsContainer, OptionContainer, OptionContent, Slider } from './ImageEditor.style'
+import {
+  ImageEditorContainer,
+  ImageContainer,
+  OptionsContainer,
+  OptionContainer,
+  OptionContent,
+  Slider,
+  ImageCroper
+} from './ImageEditor.style'
 import ImageEditorProps, { ImageEditorState, CropConfiguration } from './ImageEditor.interface'
 
 const getDefaultTransformations = () => ({
@@ -27,9 +32,13 @@ class ImageEditor extends React.PureComponent<ImageEditorProps, ImageEditorState
     this.handleChange()
   }
 
-  setAction = memoize(action => () => this.setState(prevState => ({
-    currentAction: prevState.currentAction === action ? null : action
+  setAction = memoize(action => () => this.setState(() => ({
+    currentAction: action
   })))
+
+  validateAction = () => {
+    this.setState(() => ({ currentAction: null }), this.handleChange)
+  }
 
   updateTransformations (transformationType, value) {
     this.setState(prevState => ({
@@ -37,7 +46,7 @@ class ImageEditor extends React.PureComponent<ImageEditorProps, ImageEditorState
         ...prevState.transformations,
         [transformationType]: value
       }
-    }), this.handleChange)
+    }))
   }
 
   handleCropChange = (crop: CropConfiguration) => {
@@ -45,7 +54,9 @@ class ImageEditor extends React.PureComponent<ImageEditorProps, ImageEditorState
 
     const { width, height, x, y } = crop
 
-    if (width === 100 && height === 100) {
+    const isValidCrop = (width !== 100 || height !== 100) && (width !== 0 || height !== 0)
+
+    if (!isValidCrop) {
       return this.updateTransformations('crop', null)
     }
 
@@ -83,7 +94,7 @@ class ImageEditor extends React.PureComponent<ImageEditorProps, ImageEditorState
 
     if (currentAction === 'crop') {
       return (
-        <ReactCrop
+        <ImageCroper
           src={createCloudinaryURL({ id: image.public_id, transforms: transformationsToApply })}
           onChange={this.handleCropChange}
           crop={crop}
@@ -91,7 +102,7 @@ class ImageEditor extends React.PureComponent<ImageEditorProps, ImageEditorState
       )
     }
 
-    return <Image data={image} size='full' transforms={transformationsToApply} />
+    return <Image id={image.public_id} size='full' transforms={transformationsToApply} />
   }
 
   renderDimensionSlider () {
@@ -137,14 +148,14 @@ class ImageEditor extends React.PureComponent<ImageEditorProps, ImageEditorState
         {
           currentAction && (
             <OptionContainer>
-              <FontIcon
-                icon='arrow_back'
-                onClick={this.setAction(null)}
-              />
               <OptionContent>
                 { currentAction === 'crop' && 'Sélectionnez la zone à garder' }
                 { currentAction === 'dimensions' && this.renderDimensionSlider()}
               </OptionContent>
+              <FontIcon
+                icon='done'
+                onClick={this.validateAction}
+              />
             </OptionContainer>
           )
         }

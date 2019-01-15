@@ -14,7 +14,7 @@ export interface ACECloudinaryImage {
 }
 
 export default interface ImageProps extends DomInterface {
-  data: CloudinaryImage
+  id: string
   size: 'thumbnail' | 'full'
   transforms?: object[]
 }

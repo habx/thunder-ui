@@ -11,6 +11,9 @@ export interface ImageUploaderState {
   customizedImage?: ACECloudinaryImage
   directory: string
   page: string,
+  fieldImage: ACECloudinaryImage
+  shouldSelectImage: boolean
+  images: CloudinaryImage[]
 }
 
 export default interface ImageUploaderProps extends ModalProps {
@@ -18,6 +21,7 @@ export default interface ImageUploaderProps extends ModalProps {
   renderImages: (RenderParams) => JSX.Element
   onChange: (image: ACECloudinaryImage | string) => void
   format: 'ace' | 'src'
+  image: ACECloudinaryImage
 }
 
 export interface ActionBarProps {

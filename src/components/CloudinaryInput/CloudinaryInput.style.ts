@@ -6,7 +6,11 @@ export const CloudinaryInputContainer = styled.div`
   align-items: stretch;
 `
 
-export const Picture = styled.img`
+export const PictureContainer = styled.div`
   width: 100%;
   margin-bottom: 16px;
+
+  & > img {
+    max-width: 100%;
+  }
 `

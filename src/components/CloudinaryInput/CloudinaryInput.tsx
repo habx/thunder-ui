@@ -1,19 +1,25 @@
 import * as React from 'react'
-import { isString } from 'lodash'
+import { get } from 'lodash'
 
 import CloudinaryInputProps from './CloudinaryInput.interface'
-import { CloudinaryInputContainer, Picture } from './CloudinaryInput.style'
-import { createCloudinaryURL } from './CloudinaryInput.utils'
+import { CloudinaryInputContainer, PictureContainer } from './CloudinaryInput.style'
+import { parseCloudinaryURL } from './CloudinaryInput.utils'
 
 import Button from '../Button'
 import ImageUploader from './ImageUploader'
+import Image from './Image'
 
 class CloudinaryInput extends React.PureComponent<CloudinaryInputProps> {
   static getDerivedStateFromProps (nextProps, prevState) {
-    const { value } = nextProps
+    const { value, format } = nextProps
 
-    if (value !== prevState.value && isString(value)) {
-      return { src: value }
+    if (value !== prevState.value) {
+      return {
+        value,
+        image: format === 'ace' || !value
+          ? value
+          : parseCloudinaryURL(value)
+      }
     }
 
     return null
@@ -24,7 +30,8 @@ class CloudinaryInput extends React.PureComponent<CloudinaryInputProps> {
   }
 
   state = {
-    src: null,
+    value: null,
+    image: null,
     isUploaderOpen: false
   }
 
@@ -39,12 +46,20 @@ class CloudinaryInput extends React.PureComponent<CloudinaryInputProps> {
 
   render () {
     const { disabled, renderImages, defaultDirectory, format } = this.props
-    const { src, isUploaderOpen } = this.state
+    const { isUploaderOpen, image } = this.state
 
     return (
       <CloudinaryInputContainer>
         {
-          src && <Picture src={src} />
+          image && (
+            <PictureContainer>
+              <Image
+                size='full'
+                id={get(image, 'id')}
+                transforms={get(image, 'transforms')}
+              />
+            </PictureContainer>
+          )
         }
         {
           !disabled && (
@@ -54,10 +69,11 @@ class CloudinaryInput extends React.PureComponent<CloudinaryInputProps> {
         <ImageUploader
           open={isUploaderOpen}
           onClose={this.handleUploaderClose}
+          onChange={this.handleChange}
           defaultDirectory={defaultDirectory}
           renderImages={renderImages}
-          onChange={this.handleChange}
           format={format}
+          image={image}
         />
       </CloudinaryInputContainer>
     )

@@ -1,9 +1,9 @@
 import * as React from 'react'
-import { map, uniq } from 'lodash'
+import { map, uniq, head, find } from 'lodash'
 
-import ImageUploaderProps, { ImageUploaderState, RenderParams } from './ImageUploader.interface'
+import ImageUploaderProps, { ImageUploaderState } from './ImageUploader.interface'
 import { CloudinaryImage, ACECloudinaryImage } from '../Image/Image.interface'
-import { createCloudinaryURL } from '../CloudinaryInput.utils'
+import { createCloudinaryURL, matchACEImage } from '../CloudinaryInput.utils'
 
 import {
   ImageUploaderContainer,
@@ -23,11 +23,31 @@ import FontIcon from '../../FontIcon'
 import Spinner from '../../Spinner'
 
 class ImageUploader extends React.PureComponent<ImageUploaderProps, ImageUploaderState> {
+  static getDerivedStateFromProps (nextProps, prevState) {
+    const { image } = nextProps
+
+    if (image !== prevState.fieldImage) {
+      const directory = head(image.id.split('/').filter(el => el !== ''))
+
+      return {
+        fieldImage: image,
+        page: 'directory',
+        directory,
+        shouldSelectImage: true
+      }
+    }
+
+    return null
+  }
+
   state = {
     selectedImage: null as CloudinaryImage,
+    fieldImage: null as ACECloudinaryImage,
+    customizedImage: null as ACECloudinaryImage,
     page: 'directory',
     directory: this.props.defaultDirectory || 'logos',
-    customizedImage: null as ACECloudinaryImage
+    shouldSelectImage: false,
+    images: []
   }
 
   handleImageUpload (event) {
@@ -97,6 +117,12 @@ class ImageUploader extends React.PureComponent<ImageUploaderProps, ImageUploade
 
   goTo = (page: string, params = {}) => this.setState(() => ({ page, ...params }))
 
+  saveImages = images => setTimeout(() => this.setState(prevState => {
+    if (prevState.shouldSelectImage) {
+      const match = find(images, image => matchACEImage(image, prevState.fieldImage))
+    }
+  }))
+
   renderHome () {
     return (
       <Directories>
@@ -129,6 +155,10 @@ class ImageUploader extends React.PureComponent<ImageUploaderProps, ImageUploade
          ? <Spinner />
          : map(data, this.renderImage)
 
+        if (!loading) {
+          this.saveImages(data)
+        }
+
         return (
           <ImageList data-loading={loading}>{ content }</ImageList>
         )
@@ -150,7 +180,7 @@ class ImageUploader extends React.PureComponent<ImageUploaderProps, ImageUploade
         <Image
           size='thumbnail'
           onClick={this.handleImageSelect(image)}
-          data={image}
+          id={image.public_id}
           data-fade={selectedImage && image !== selectedImage}
         />
       </ImageContainer>
