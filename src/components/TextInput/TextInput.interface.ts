@@ -11,4 +11,5 @@ export default interface TextInputProps extends DOMInterface {
   borderColor?: string
   error?: boolean
   errorColor?: string
+  inputRef?: () => any
 }
