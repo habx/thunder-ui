@@ -25,3 +25,4 @@ const TextAreaWithState = ({ value = '', ...props }) => {
 
 storiesOf('Inputs/TextArea', module)
   .add('basic', () => <TextAreaWithState value={HABX_ADDRESS} />)
+  .add('placeholder', () => <TextAreaWithState value='' placeholder='placeholder' />)

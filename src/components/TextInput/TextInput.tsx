@@ -68,6 +68,7 @@ const Input = styled.input.attrs(prepareProps)`
   color: ${({ color }) => color};
 
   &::placeholder {
+    opacity: 0.5;
     color: ${({ color }) => color};
   }
 
@@ -97,7 +98,7 @@ TextInput.defaultProps = {
   isLoading: false,
   rightElement: null,
   rightHoverElement: null,
-  inputRef: () => {}
+  inputRef: () => null
 }
 
 export default TextInput
