@@ -9579,6 +9579,70 @@ exports[`Storyshots Inputs/TextArea basic 1`] = `
 </div>
 `;
 
+exports[`Storyshots Inputs/TextArea placeholder 1`] = `
+.c1 {
+  -webkit-flex: 1 1 100%;
+  -ms-flex: 1 1 100%;
+  flex: 1 1 100%;
+  position: relative;
+}
+
+.c2 {
+  height: 100%;
+  width: 100%;
+  resize: vertical;
+  padding: 8px;
+  border-radius: 3px;
+  min-height: 50px;
+  border: 1px solid #d0e4e6;
+  color: #52627a;
+}
+
+.c0 {
+  width: 250px;
+}
+
+<div
+  style={
+    Object {
+      "alignItems": "center",
+      "bottom": 0,
+      "display": "flex",
+      "left": 0,
+      "overflow": "auto",
+      "position": "fixed",
+      "right": 0,
+      "top": 0,
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "margin": "auto",
+        "maxHeight": "100%",
+      }
+    }
+  >
+    <div
+      className="c0"
+    >
+      <div
+        className="c1"
+      >
+        <textarea
+          className="c2"
+          color="#52627a"
+          onChange={[Function]}
+          placeholder="placeholder"
+          value=""
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`Storyshots Inputs/TextInput basic 1`] = `
 .c1 {
   position: relative;
@@ -9619,18 +9683,22 @@ exports[`Storyshots Inputs/TextInput basic 1`] = `
 }
 
 .c2::-webkit-input-placeholder {
+  opacity: 0.5;
   color: #52627a;
 }
 
 .c2::-moz-placeholder {
+  opacity: 0.5;
   color: #52627a;
 }
 
 .c2:-ms-input-placeholder {
+  opacity: 0.5;
   color: #52627a;
 }
 
 .c2::placeholder {
+  opacity: 0.5;
   color: #52627a;
 }
 
@@ -9729,18 +9797,22 @@ exports[`Storyshots Inputs/TextInput disabled 1`] = `
 }
 
 .c2::-webkit-input-placeholder {
+  opacity: 0.5;
   color: #52627a;
 }
 
 .c2::-moz-placeholder {
+  opacity: 0.5;
   color: #52627a;
 }
 
 .c2:-ms-input-placeholder {
+  opacity: 0.5;
   color: #52627a;
 }
 
 .c2::placeholder {
+  opacity: 0.5;
   color: #52627a;
 }
 
@@ -9841,18 +9913,22 @@ exports[`Storyshots Inputs/TextInput with error 1`] = `
 }
 
 .c2::-webkit-input-placeholder {
+  opacity: 0.5;
   color: #52627a;
 }
 
 .c2::-moz-placeholder {
+  opacity: 0.5;
   color: #52627a;
 }
 
 .c2:-ms-input-placeholder {
+  opacity: 0.5;
   color: #52627a;
 }
 
 .c2::placeholder {
+  opacity: 0.5;
   color: #52627a;
 }
 
@@ -9979,18 +10055,22 @@ exports[`Storyshots Inputs/TextInput with hover icon 1`] = `
 }
 
 .c2::-webkit-input-placeholder {
+  opacity: 0.5;
   color: #52627a;
 }
 
 .c2::-moz-placeholder {
+  opacity: 0.5;
   color: #52627a;
 }
 
 .c2:-ms-input-placeholder {
+  opacity: 0.5;
   color: #52627a;
 }
 
 .c2::placeholder {
+  opacity: 0.5;
   color: #52627a;
 }
 
@@ -10132,18 +10212,22 @@ exports[`Storyshots Inputs/TextInput with icon 1`] = `
 }
 
 .c2::-webkit-input-placeholder {
+  opacity: 0.5;
   color: #52627a;
 }
 
 .c2::-moz-placeholder {
+  opacity: 0.5;
   color: #52627a;
 }
 
 .c2:-ms-input-placeholder {
+  opacity: 0.5;
   color: #52627a;
 }
 
 .c2::placeholder {
+  opacity: 0.5;
   color: #52627a;
 }
 
@@ -10274,18 +10358,22 @@ exports[`Storyshots Inputs/TextInput with label 1`] = `
 }
 
 .c4::-webkit-input-placeholder {
+  opacity: 0.5;
   color: #52627a;
 }
 
 .c4::-moz-placeholder {
+  opacity: 0.5;
   color: #52627a;
 }
 
 .c4:-ms-input-placeholder {
+  opacity: 0.5;
   color: #52627a;
 }
 
 .c4::placeholder {
+  opacity: 0.5;
   color: #52627a;
 }
 
@@ -10424,18 +10512,22 @@ exports[`Storyshots Inputs/TextInput with loader 1`] = `
 }
 
 .c2::-webkit-input-placeholder {
+  opacity: 0.5;
   color: #52627a;
 }
 
 .c2::-moz-placeholder {
+  opacity: 0.5;
   color: #52627a;
 }
 
 .c2:-ms-input-placeholder {
+  opacity: 0.5;
   color: #52627a;
 }
 
 .c2::placeholder {
+  opacity: 0.5;
   color: #52627a;
 }
 
@@ -10508,6 +10600,122 @@ exports[`Storyshots Inputs/TextInput with loader 1`] = `
             />
           </svg>
         </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Inputs/TextInput with placeholder 1`] = `
+.c1 {
+  position: relative;
+}
+
+.c1 .hover-element-right {
+  opacity: 0;
+  -webkit-transition: opacity 150ms ease-in-out;
+  transition: opacity 150ms ease-in-out;
+}
+
+.c1 .hover-element-right i {
+  color: #d0e4e6;
+}
+
+.c1:hover .hover-element-right {
+  opacity: 1;
+  -webkit-transition: opacity 150ms ease-in-out;
+  transition: opacity 150ms ease-in-out;
+}
+
+.c2 {
+  border: none;
+  outline: none;
+  padding: 2px 0;
+  width: 100%;
+  font-size: 14px;
+  line-height: 1.5;
+  -webkit-transition: border-bottom-color 150ms ease-in-out;
+  transition: border-bottom-color 150ms ease-in-out;
+  border-bottom: 1px solid transparent;
+  background-color: transparent;
+  color: #52627a;
+}
+
+.c2:hover {
+  border-bottom-color: #d0e4e6;
+}
+
+.c2::-webkit-input-placeholder {
+  opacity: 0.5;
+  color: #52627a;
+}
+
+.c2::-moz-placeholder {
+  opacity: 0.5;
+  color: #52627a;
+}
+
+.c2:-ms-input-placeholder {
+  opacity: 0.5;
+  color: #52627a;
+}
+
+.c2::placeholder {
+  opacity: 0.5;
+  color: #52627a;
+}
+
+.c2:disabled {
+  color: #52627a;
+  border-bottom-color: transparent;
+}
+
+.c2:not(:disabled):focus {
+  border-bottom-color: #0071ce;
+}
+
+.c0 {
+  width: 250px;
+}
+
+<div
+  style={
+    Object {
+      "alignItems": "center",
+      "bottom": 0,
+      "display": "flex",
+      "left": 0,
+      "overflow": "auto",
+      "position": "fixed",
+      "right": 0,
+      "top": 0,
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "margin": "auto",
+        "maxHeight": "100%",
+      }
+    }
+  >
+    <div
+      className="c0"
+    >
+      <div
+        className="c1"
+        color="#52627a"
+        placeholder="placeholder"
+        value=""
+      >
+        <input
+          className="c2"
+          color="#52627a"
+          onChange={[Function]}
+          placeholder="placeholder"
+          value=""
+        />
       </div>
     </div>
   </div>
