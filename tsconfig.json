@@ -9,7 +9,7 @@
     "sourceMap": true,
     "declaration": true,
     "declarationMap": true,
-    "declarationDir": "typings",
+    "declarationDir": "./lib/typings",
     "target": "es5",
     "module": "commonjs",
     "esModuleInterop": true

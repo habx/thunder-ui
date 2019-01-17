@@ -2,12 +2,13 @@
   "name": "@habx/lib-client-backoffx",
   "version": "2.11.0",
   "description": "UI Library for client-crm-v2 and client-housings",
-  "main": "./lib/index.js",
+  "main": "./index.js",
   "types": "./typings/index.d.ts",
   "scripts": {
-    "build": "tsc  -p ./tsconfig.json --listEmittedFiles",
+    "build": "tsc  -p ./tsconfig.json && npm run postbuild",
     "build:watch": "tsc --watch",
-    "build:local": "rimraf ./lib && rimraf ./typings",
+    "postbuild": "node ./scripts/build.js",
+    "build:local": "rimraf ./lib && npm run build",
     "storybook": "start-storybook -p 9001 -c .storybook -s ./assets",
     "storybook:build": "build-storybook -c .storybook -s ./assets -o .storybook-static",
     "install:local": "npm ci && npm link styled-components && npm link react && npm link react-dom",
@@ -16,7 +17,6 @@
     "lint": "tslint -p tsconfig.json",
     "type-check": "tsc --noEmit -p"
   },
-  "sideEffects": false,
   "repository": {
     "type": "git",
     "url": "git+https://github.com/habx/lib-client-backoffx.git"
