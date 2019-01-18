@@ -13,6 +13,11 @@ export interface ACECloudinaryImage {
   transforms?: object[]
 }
 
+export interface ImageFile {
+  type: string
+  size: number
+}
+
 export default interface ImageProps extends DomInterface {
   id: string
   size: 'thumbnail' | 'full'

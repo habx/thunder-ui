@@ -61,8 +61,18 @@ class ImageUploader extends React.PureComponent<ImageUploaderProps, ImageUploade
     }
   }
 
-  handleImageUpload (event) {
-    console.log(Array.from(event.target.files))
+  handleImageUpload = async event => {
+    const { directory } = this.state
+    const { uploadImage } = this.props
+
+    const file = Array.from(event.target.files)[0] as File
+
+    const selectedImage = await uploadImage(file, { directory })
+
+    this.setState({
+      page: 'directory',
+      selectedImage
+    })
   }
 
   handleImageSelect = selectedImage => () => this.setState(prevState => ({
@@ -141,7 +151,7 @@ class ImageUploader extends React.PureComponent<ImageUploaderProps, ImageUploade
         fetchFieldImagePromise: null,
         selectedImage: config,
         fieldImageConfig: config,
-        // page: 'customizer'
+        page: 'customizer'
       }))
     }
   }
@@ -191,13 +201,17 @@ class ImageUploader extends React.PureComponent<ImageUploaderProps, ImageUploade
 
   renderCustomizer () {
     const { image } = this.props
-    const { selectedImage } = this.state
+    const { selectedImage, fieldImageConfig } = this.state
+
+    const initialTransforms = fieldImageConfig === selectedImage
+      ? get(image, 'transforms')
+      : null
 
     return (
       <ImageEditor
         image={selectedImage}
         onChange={this.handleImageCustomizationChange}
-        initialTransforms={get(image, 'transforms')}
+        initialTransforms={initialTransforms}
       />
     )
   }
@@ -234,6 +248,7 @@ class ImageUploader extends React.PureComponent<ImageUploaderProps, ImageUploade
                 goTo={this.goTo}
                 title={this.getCurrentTitle()}
                 onUploadImages={this.handleImageUpload}
+                page={page}
               />
               <Content data-page={page}>
                 { page === 'home' && this.renderHome() }

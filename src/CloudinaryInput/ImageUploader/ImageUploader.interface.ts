@@ -1,5 +1,5 @@
 import ModalProps from '../../Modal/Modal.interface'
-import { CloudinaryImage, ACECloudinaryImage } from '../Image/Image.interface'
+import { CloudinaryImage, ACECloudinaryImage, ImageFile } from '../Image/Image.interface'
 
 export interface RenderParams {
   directory: string
@@ -24,6 +24,7 @@ export default interface ImageUploaderProps extends ModalProps {
   format: 'ace' | 'src'
   image: ACECloudinaryImage
   fetchImageConfig: (path: string) => Promise<CloudinaryImage>
+  uploadImage: (image: ImageFile, params: { directory: string }) => Promise<CloudinaryImage>
 }
 
 export interface ActionBarProps {

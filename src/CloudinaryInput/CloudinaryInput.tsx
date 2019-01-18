@@ -46,7 +46,14 @@ class CloudinaryInput extends React.PureComponent<CloudinaryInputProps> {
   }
 
   render () {
-    const { disabled, renderImages, defaultDirectory, format, fetchImageConfig } = this.props
+    const {
+      disabled,
+      renderImages,
+      defaultDirectory,
+      format,
+      fetchImageConfig,
+      uploadImage
+    } = this.props
     const { isUploaderOpen, image } = this.state
 
     return (
@@ -76,6 +83,7 @@ class CloudinaryInput extends React.PureComponent<CloudinaryInputProps> {
           format={format}
           image={image}
           fetchImageConfig={fetchImageConfig}
+          uploadImage={uploadImage}
         />
       </CloudinaryInputContainer>
     )

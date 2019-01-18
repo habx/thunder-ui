@@ -1,5 +1,5 @@
 import { RenderParams } from './ImageUploader/ImageUploader.interface'
-import {CloudinaryImage} from './Image/Image.interface'
+import { CloudinaryImage, ImageFile } from './Image/Image.interface'
 
 export default interface CloudinaryInputProps {
   value: string
@@ -9,4 +9,5 @@ export default interface CloudinaryInputProps {
   onChange: (src: string) => void
   format: 'ace' | 'src'
   fetchImageConfig: (path: string) => Promise<CloudinaryImage>
+  uploadImage: (image: ImageFile, params: { directory: string }) => Promise<CloudinaryImage>
 }
