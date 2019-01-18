@@ -3,9 +3,12 @@ import { find, filter, findIndex, isEmpty, map, get, some, omit, has } from 'lod
 
 import Annotation from '../Annotation'
 import FontIcon from '../FontIcon'
-import SelectProps, { SelectState } from './Select.interface'
+import withLabel from '../withLabel'
+
 import { searchInString } from '../internal/strings'
-import { formOption, formValue } from '../internal/types'
+import { formOption } from '../internal/types'
+
+import SelectProps, { SelectState } from './Select.interface'
 
 import {
   SelectContainer,
@@ -341,4 +344,4 @@ class Select extends React.Component<SelectProps, SelectState> {
   }
 }
 
-export default Select
+export default withLabel({ padding: 16 })(Select)
