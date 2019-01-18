@@ -2,6 +2,8 @@ import * as React from 'react'
 import { map, includes, filter, isEmpty } from 'lodash'
 
 import colors from '../colors'
+import withLabel from '../withLabel'
+
 import { RadioSelectContainer, RadioSelectElement } from './RadioSelect.style'
 import RadioSelectProps from './RadioSelect.interface'
 
@@ -77,4 +79,4 @@ RadioSelect.defaultProps = {
   color: colors.brightCerualean
 }
 
-export default RadioSelect
+export default withLabel()(RadioSelect)

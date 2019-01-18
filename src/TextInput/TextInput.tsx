@@ -4,6 +4,7 @@ import styled, { css } from 'styled-components'
 import colors from '../colors'
 import fontSizes from '../fontSizes'
 import Spinner from '../Spinner'
+import withLabel from '../withLabel'
 
 import TextInputProps from './TextInput.interface'
 
@@ -103,4 +104,4 @@ TextInput.defaultProps = {
   inputRef: () => null
 }
 
-export default TextInput
+export default withLabel()(TextInput)
