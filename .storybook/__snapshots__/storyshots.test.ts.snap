@@ -682,6 +682,10 @@ exports[`Storyshots Actions/TextButton disabled 1`] = `
   transition: color 150ms ease-in-out;
   color: #0071ce;
   cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 .c0:hover,
@@ -741,6 +745,10 @@ exports[`Storyshots Actions/TextButton warning 1`] = `
   transition: color 150ms ease-in-out;
   color: #be3b5d;
   cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 .c0:hover,
@@ -799,6 +807,10 @@ exports[`Storyshots Actions/TextButton with manual color 1`] = `
   transition: color 150ms ease-in-out;
   color: #0071ce;
   cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 .c0:hover,
@@ -857,6 +869,10 @@ exports[`Storyshots Inputs/ArrayInput basic 1`] = `
   transition: color 150ms ease-in-out;
   color: #0071ce;
   cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 .c7:hover,
@@ -1096,6 +1112,10 @@ exports[`Storyshots Inputs/ArrayInput with add button custom label 1`] = `
   transition: color 150ms ease-in-out;
   color: #0071ce;
   cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 .c7:hover,
@@ -1335,6 +1355,10 @@ exports[`Storyshots Inputs/ArrayInput with description line 1`] = `
   transition: color 150ms ease-in-out;
   color: #0071ce;
   cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 .c8:hover,
@@ -1594,6 +1618,10 @@ exports[`Storyshots Inputs/ArrayInput with order change allowed 1`] = `
   transition: color 150ms ease-in-out;
   color: #0071ce;
   cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 .c7:hover,

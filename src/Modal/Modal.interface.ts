@@ -9,6 +9,7 @@ interface InjectedRenderProps {
 export default interface ModalProps extends CardProps {
   open: boolean
   onClose: (e: React.FormEvent<HTMLInputElement>) => void
+  onOpen?: () => void
   headerPosition?: never
   children?: React.ReactNode | ((props: InjectedRenderProps) => JSX.Element)
 }

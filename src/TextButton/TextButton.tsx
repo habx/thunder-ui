@@ -48,6 +48,7 @@ const TextButton: React.StatelessComponent<TextButtonProps> = styled.button.attr
   color: ${({ color: textColor }) => textColor};
 
   cursor: pointer;
+  user-select: none;
 
   &:hover,
   &:active {

@@ -24,7 +24,7 @@ export const FontIconContainer = styled.i`
   /* Support for IE. */
   font-feature-settings: 'liga';
 
-  ${({ onClick }) => onClick && css`
+  ${({ onClick, interactive }) => (onClick || interactive) && css`
     cursor: pointer;
 
     &:hover {
