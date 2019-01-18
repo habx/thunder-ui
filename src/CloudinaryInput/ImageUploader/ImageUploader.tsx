@@ -51,13 +51,13 @@ class ImageUploader extends React.PureComponent<ImageUploaderProps, ImageUploade
     images: []
   }
 
-  componentDidMount () {
-    this.fetchFieldImageConfig(this.props.image)
+  async componentDidMount () {
+    await this.fetchFieldImageConfig(this.props.image)
   }
 
-  componentDidUpdate (prevProps) {
+  async componentDidUpdate (prevProps) {
     if (this.props.image !== prevProps.image) {
-      this.fetchFieldImageConfig(this.props.image)
+      await this.fetchFieldImageConfig(this.props.image)
     }
   }
 

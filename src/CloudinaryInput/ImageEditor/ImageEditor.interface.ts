@@ -1,4 +1,4 @@
-import { ACECloudinaryImage, CloudinaryImage} from '../Image/Image.interface'
+import { ACECloudinaryImage, CloudinaryImage } from '../Image/Image.interface'
 
 export interface CropConfiguration {
   x: number
