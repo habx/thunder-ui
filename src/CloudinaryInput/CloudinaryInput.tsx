@@ -5,6 +5,7 @@ import CloudinaryInputProps from './CloudinaryInput.interface'
 import { CloudinaryInputContainer, PictureContainer } from './CloudinaryInput.style'
 import { parseCloudinaryURL } from './CloudinaryInput.utils'
 
+import withLabel from '../withLabel'
 import Button from '../Button'
 import ImageUploader from './ImageUploader'
 import Image from './Image'
@@ -81,4 +82,4 @@ class CloudinaryInput extends React.PureComponent<CloudinaryInputProps> {
   }
 }
 
-export default CloudinaryInput
+export default withLabel({ padding: 12 })(CloudinaryInput)

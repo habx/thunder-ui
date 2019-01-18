@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { colors } from '../../../theme'
+import colors from '../../colors'
 
 export const HeaderContainer = styled.div`
   display: flex;

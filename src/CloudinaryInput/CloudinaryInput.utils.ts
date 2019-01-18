@@ -1,4 +1,4 @@
-import { map, isEmpty, join, isString, filter, reduce, findLastIndex } from 'lodash'
+import { map, isEmpty, join, isString, filter, reduce, findLastIndex, entries } from 'lodash'
 
 import { ACECloudinaryImage } from './Image/Image.interface'
 
@@ -89,7 +89,7 @@ const getTransformFromChunk = (chunk: string) => reduce(
 
     const [key, value] = rawTransform.split('_')
 
-    const transform = Object.entries(PARAM_TABLE).find(el => el[1].key === key)
+    const transform = entries(PARAM_TABLE).find(el => el[1].key === key)
 
     if (!transform) {
       return acc
@@ -118,7 +118,7 @@ const getIdFromChunks = (chunks: string[]) => {
     return isVersion || isTransform || isUpload
   })
 
-  return chunks.slice(index + 1).join('/')
+  return chunks.slice(index + 1).join('/').split('.')[0]
 }
 
 export const parseCloudinaryURL = (src: string = '') => {

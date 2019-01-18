@@ -1,4 +1,4 @@
-import DomInterface from '../../../internal/domInterface'
+import DomInterface from '../../internal/domInterface'
 
 export interface CloudinaryImage {
   secure_url: string

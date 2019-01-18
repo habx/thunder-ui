@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
-import { shadows, colors } from '../../../theme'
-
+import shadows from '../../shadows'
+import colors from '../../colors'
 import Modal from '../../Modal'
 
 export const ImageUploaderContainer = styled(Modal)`

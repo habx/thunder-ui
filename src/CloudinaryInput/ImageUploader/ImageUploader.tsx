@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { map, uniq, head, get } from 'lodash'
+import { map, uniq, get, initial } from 'lodash'
 
 import ImageUploaderProps, { ImageUploaderState } from './ImageUploader.interface'
 import { CloudinaryImage, ACECloudinaryImage } from '../Image/Image.interface'
@@ -27,7 +27,7 @@ class ImageUploader extends React.PureComponent<ImageUploaderProps, ImageUploade
     const { image } = nextProps
 
     if (image !== prevState.fieldImage) {
-      const directory = head(image.id.split('/').filter(el => el !== ''))
+      const directory = initial(image.id.split('/').filter(el => el !== '')).join('/')
 
       return {
         fieldImage: image,
@@ -120,7 +120,7 @@ class ImageUploader extends React.PureComponent<ImageUploaderProps, ImageUploade
     }
 
     if (page === 'customizer') {
-      return `Personnalisation de ${selectedImage.public_id}`
+      return `Personnalisation de ${get(selectedImage, 'public_id', 'image inconnue')}`
     }
 
     return ''
@@ -141,7 +141,7 @@ class ImageUploader extends React.PureComponent<ImageUploaderProps, ImageUploade
         fetchFieldImagePromise: null,
         selectedImage: config,
         fieldImageConfig: config,
-        page: 'customizer'
+        // page: 'customizer'
       }))
     }
   }

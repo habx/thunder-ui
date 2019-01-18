@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { memoize, filter, floor, get, find } from 'lodash'
+import { memoize, filter, floor, get, find, values } from 'lodash'
 
 import FontIcon from '../../FontIcon'
 import Image from '../Image'
@@ -20,15 +20,29 @@ const getImageMaxWidth = (image, transformation) => (
   floor(image.width * get(transformation, 'width', 1))
 )
 
+const getCropTransform = transforms => {
+  const matchingTransform = find(transforms, el => get(el, 'crop') === 'crop')
+
+  if (matchingTransform) {
+    return {
+      ...matchingTransform,
+      width: parseInt(get(matchingTransform, 'width', 1), 10),
+      height: parseInt(get(matchingTransform, 'height', 1), 10),
+      x: parseInt(get(matchingTransform, 'x', 0), 10),
+      y: parseInt(get(matchingTransform, 'y', 0), 10)
+    }
+  }
+}
+
 const getInitialState = ({ initialTransforms, image }) => {
-  const cropTransform = find(initialTransforms, el => get(el, 'crop') === 'crop')
+  const cropTransform = getCropTransform(initialTransforms)
   const dimensionTransform = find(initialTransforms, el => get(el, 'crop') === 'scale' && el.width)
 
   const cropConfig = cropTransform && {
-    width: get(cropTransform, 'width') * 100,
-    height: get(cropTransform, 'height') * 100,
-    x: get(cropTransform, 'x') * 100,
-    y: get(cropTransform, 'y') * 100
+    width: cropTransform.width < 1 ? (cropTransform.width * 100) : (cropTransform.width / image.width * 100),
+    height: cropTransform.height < 1 ? (cropTransform.height * 100) : (cropTransform.height / image.height * 100),
+    x: cropTransform.x < 1 ? (cropTransform.x * 100) : (cropTransform.x / image.width * 100),
+    y: cropTransform.y < 1 ? (cropTransform.y * 100) : (cropTransform.y / image.width * 100)
   }
 
   return {
@@ -101,7 +115,7 @@ class ImageEditor extends React.PureComponent<ImageEditorProps, ImageEditorState
 
     onChange({
       id: image.public_id,
-      transforms: Object.values(transformations)
+      transforms: values(transformations)
     })
   }
 

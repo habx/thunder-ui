@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import ReactCrop from 'react-image-crop'
 
-import { colors } from '../../../theme'
+import colors from '../../colors'
 import BaseSlider from '../../Slider'
 
 export const ImageEditorContainer = styled.div`
