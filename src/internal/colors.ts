@@ -1,4 +1,4 @@
-import { colors } from '../theme'
+import colors from '../colors'
 
 export const generateColorFromSeed = seed => {
   if (!seed) {
