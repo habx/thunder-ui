@@ -16,9 +16,10 @@ import {
 } from './ImageEditor.style'
 import ImageEditorProps, { ImageEditorState, CropConfiguration } from './ImageEditor.interface'
 
-const getImageMaxWidth = (image, transformation) => (
-  floor(image.width * get(transformation, 'width', 1))
-)
+const getImageMaxWidth = (image, transformation) => {
+  const factor = get(transformation, 'width', 1)
+  return floor(image.width * (factor > 1 ? (factor / image.width) : factor))
+}
 
 const getCropTransform = transforms => {
   const matchingTransform = find(transforms, el => get(el, 'crop') === 'crop')
