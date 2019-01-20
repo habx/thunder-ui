@@ -26,7 +26,7 @@ export const TitleContainer = styled.div`
 `
 
 export const SubtitleContainer = styled.div`
-  padding: 0 24px 8px 24px;
+  padding: 0 24px 8px 0;
 `
 
 export const TitleCount = styled.span`

@@ -19,7 +19,7 @@ const Card: React.StatelessComponent<CardProps> = ({ headerPosition, action, tit
       {
         title && headerPosition === 'inside' &&
         <TitleContainer>
-          <Title size={3}>{ title }{titleCount ? <TitleCount>({ titleCount })</TitleCount> : null}</Title>
+          <Title size={3}>{ title }{(titleCount || titleCount === 0) ? <TitleCount>({ titleCount })</TitleCount> : null}</Title>
           { action }
         </TitleContainer>
       }
