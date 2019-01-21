@@ -1,6 +1,8 @@
 import * as React from 'react'
 import { storiesOf } from '@storybook/react'
-import Spinner from '.'
+
+import Spinner from './index'
+import colors from '../colors'
 
 storiesOf('Miscellaneous/Spinner', module)
   .add('Basic', () => (
@@ -10,5 +12,5 @@ storiesOf('Miscellaneous/Spinner', module)
     <Spinner size={20} />
   ))
   .add('Custom color', () => (
-    <Spinner color='red' />
+    <Spinner color={colors.brightCerualean} />
   ))
