@@ -20,6 +20,8 @@ export { default as TabsSeparator } from './TabsSeparator'
  */
 export { default as Button } from './Button'
 export { default as TextButton } from './TextButton'
+export { default as Menu } from './Menu'
+export { default as MenuItem } from './MenuItem'
 
 /*
   Inputs
@@ -39,8 +41,6 @@ export { default as Progress } from './Progress'
 export { default as Tag } from './Tag/index'
 export { default as Notification } from './Notification'
 export { default as FontIcon } from './FontIcon'
-export { default as Menu } from './Menu'
-export { default as MenuItem } from './MenuItem'
 export { default as Card } from './Card'
 export { default as Modal } from './Modal'
 

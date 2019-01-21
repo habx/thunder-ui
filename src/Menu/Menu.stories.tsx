@@ -17,7 +17,7 @@ const props = () => ({
   position: select('Position', { Left: 'left', Right: 'right' }, 'left')
 })
 
-storiesOf('Miscellaneous/Menu', module)
+storiesOf('Actions/Menu', module)
   .addDecorator(withKnobs)
   .add('basic', () => (
     <Menu {...props()}>
