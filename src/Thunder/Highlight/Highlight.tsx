@@ -108,10 +108,10 @@ const removalMap = prepareMap()
 
 export const cleanString = (str: string) => str.replace(/[^\u0000-\u007E]/g, a => removalMap[a] || a)
 
-const findQueryInText = (rawTest, rawQuery) => {
+const findQueryInText = (rawText, rawQuery) => {
   const query = cleanString(rawQuery).toLowerCase().split('')
 
-  return rawTest.split('').reduce((accumulator, letter) => {
+  return (rawText || '').split('').reduce((accumulator, letter) => {
     const { text, match } = accumulator
     const cleanLetter = removalMap[letter] || letter
 
