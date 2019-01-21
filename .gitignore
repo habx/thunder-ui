@@ -44,3 +44,4 @@ flow-coverage/
 # OSX Files
 .DS_Store
 
+.storybook-static/
