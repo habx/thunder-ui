@@ -2,38 +2,42 @@ import * as React from 'react'
 import styled from 'styled-components'
 import { storiesOf } from '@storybook/react'
 import { action } from '@storybook/addon-actions'
+import { withKnobs, select, boolean, text } from '@storybook/addon-knobs'
 
-import Card from '.'
+import Card from './index'
+import { regularText } from './Card.data'
 
-const ContentContainer = styled.div`
+const Container = styled.div`
   max-width: 500px;
   line-height: 1.5;
 `
 
-const Content = () => (
-  <ContentContainer>
-    {'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'}
-  </ContentContainer>
-)
+const HEADER_POSITIONS = {
+  Inside: 'inside',
+  Outside: 'outside'
+}
+
+const ACTIONS = {
+  With: 'Here comes the action',
+  Without: null
+}
+
+const props = () => ({
+  title: text('Title', 'Concerning Hobbits'),
+  subtitle: text('Subtitle', 'Chapter 1'),
+  titleCount: text('Title count', ''),
+  headerPosition: select('Position of the header', HEADER_POSITIONS, 'inside'),
+  action: select('Action', ACTIONS, ACTIONS.Without),
+  interactive: boolean('Interactive', false),
+  onClick: action('onClick'),
+})
 
 storiesOf('Miscellaneous/Card', module)
-  .add('basic', () => (
-    <Card>
-      <Content />
-    </Card>
-  ))
-  .add('with onClick', () => (
-    <Card interactive onClick={action('Card click')}>
-      <Content />
-    </Card>
-  ))
-  .add('with title', () => (
-    <Card title='Tâches'>
-      <Content />
-    </Card>
-  ))
-  .add('with subtitle', () => (
-    <Card title='Le Zelmis' subtitle='Levallois Peret'>
-      <Content />
+  .addDecorator(withKnobs)
+  .add('full example', () => (
+    <Card {...props()}>
+      <Container>
+        {regularText}
+      </Container>
     </Card>
   ))

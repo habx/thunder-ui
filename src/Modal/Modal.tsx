@@ -42,10 +42,6 @@ class Modal extends PureComponent<ModalProps> {
         ANIMATION_DURATION
       )
     }
-
-    if (!prevProps.open && this.props.open && isFunction(this.props.onOpen)) {
-      this.props.onOpen()
-    }
   }
 
   componentWillUnmount () {
