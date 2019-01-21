@@ -74,8 +74,8 @@ pipeline:
       - NPM_TOKEN=${NPM_TOKEN}
     commands:
       - npm run deploy-storybook
-    # when:
-      # event: tag
+    when:
+      event: tag
 
   rebuild-cache:
     image: drillster/drone-volume-cache
