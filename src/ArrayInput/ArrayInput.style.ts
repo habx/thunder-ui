@@ -3,16 +3,6 @@ import styled, { keyframes } from 'styled-components'
 import colors from '../colors'
 import fontSizes from '../fontSizes'
 
-const SCROLL = keyframes`
-  from {
-    max-height: 0;
-  }
-
-  to {
-    max-height: 500px;
-  }
-`
-
 export const ArrayInputContainer = styled.div``
 
 export const ItemContainer = styled.div`
@@ -41,9 +31,6 @@ export const ItemHeaderContainer = styled.div`
 export const ItemContent = styled.div`
   padding-top: 16px;
   padding-left: 8px;
-  overflow: hidden;
-
-  animation: ${SCROLL} 350ms ease-in-out;
 `
 
 export const ItemHeaderContent = styled.div`

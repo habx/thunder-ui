@@ -1,6 +1,7 @@
 import * as React from 'react'
 import { map, pick } from 'lodash'
 
+import withLabel from '../withLabel'
 import TextButton from '../TextButton'
 
 import { ArrayContext } from './context'
@@ -81,4 +82,4 @@ class ArrayInput extends React.Component<ArrayInputProps, ArrayInputState> {
   }
 }
 
-export default ArrayInput
+export default withLabel({ padding: 16 })(ArrayInput)
