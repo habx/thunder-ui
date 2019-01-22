@@ -43,6 +43,7 @@ export { default as Notification } from './Notification'
 export { default as FontIcon } from './FontIcon'
 export { default as Card } from './Card'
 export { default as Modal } from './Modal'
+export { default as Spinner } from './Spinner'
 
 /*
   Helpers
