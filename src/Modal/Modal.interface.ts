@@ -11,4 +11,5 @@ export default interface ModalProps extends CardProps {
   onClose: (e: React.FormEvent<HTMLInputElement>) => void
   headerPosition?: never
   children?: React.ReactNode | ((props: InjectedRenderProps) => JSX.Element)
+  persistent?: boolean
 }

@@ -46,6 +46,13 @@ export { default as Modal } from './Modal'
 export { default as Spinner } from './Spinner'
 
 /*
+  Events
+ */
+export { default as HabxProvider } from './HabxProvider'
+export { default as confirm } from './confirm'
+export { default as notify } from './notify'
+
+/*
   Helpers
  */
 export { default as withLabel } from './withLabel'
