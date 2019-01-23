@@ -50,6 +50,7 @@ export { default as Spinner } from './Spinner'
  */
 export { default as HabxProvider } from './HabxProvider'
 export { default as confirm } from './confirm'
+export { default as notify } from './notify'
 
 /*
   Helpers

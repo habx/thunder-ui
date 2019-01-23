@@ -1,6 +1,7 @@
 import * as React from 'react'
 
 import ConfirmModals from '../confirm/ConfirmModals'
+import NotificationList from '../notify/NotificationList'
 
 class HabxProvider extends React.PureComponent<any> {
   render () {
@@ -8,6 +9,7 @@ class HabxProvider extends React.PureComponent<any> {
       <React.Fragment>
         { this.props.children }
         <ConfirmModals />
+        <NotificationList />
       </React.Fragment>
     )
   }

@@ -6,14 +6,17 @@ export const subscribe = (messageType, callback) => {
   subscriptions[messageType] = callback
 }
 
-export const dispatch = (messageType, message, options = {}) => {
+export const dispatch = (messageType: string, returnPromise: boolean, message: string, options = {}) => {
   if (isFunction(subscriptions[messageType])) {
     return subscriptions[messageType](message, options)
   }
 
-  return Promise.reject('unknown event')
+  if (returnPromise) {
+    return Promise.reject('unknown event')
+  }
 }
 
 export const types = {
-  CONFIRM_MODAL: 'CONFIRM_MODAL'
+  CONFIRM_MODAL: 'CONFIRM_MODAL',
+  NOTIFY: 'NOTIFY'
 }
