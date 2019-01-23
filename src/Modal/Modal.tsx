@@ -17,7 +17,8 @@ class Modal extends PureComponent<ModalProps> {
   private timeout: any
 
   static defaultProps = {
-    open: false
+    open: false,
+    persistent: false
   }
 
   constructor (props) {
@@ -27,20 +28,21 @@ class Modal extends PureComponent<ModalProps> {
   }
 
   state = {
-    open: this.props.open
+    open: false
   }
 
   componentDidMount () {
     window.addEventListener('keydown', this.handleKeyDown)
     window.addEventListener('click', this.handleClick, true)
+
+    if (this.props.open) {
+      this.animateOpening()
+    }
   }
 
   componentDidUpdate (prevProps: Readonly<ModalProps>): void {
     if (prevProps.open !== this.props.open) {
-      this.timeout = setTimeout(
-        () => this.setState(() => ({ open: this.props.open })),
-        ANIMATION_DURATION
-      )
+      this.animateOpening()
     }
   }
 
@@ -48,6 +50,13 @@ class Modal extends PureComponent<ModalProps> {
     window.removeEventListener('keydown', this.handleKeyDown)
     window.removeEventListener('click', this.handleClick, true)
     clearTimeout(this.timeout)
+  }
+
+  animateOpening () {
+    this.timeout = setTimeout(
+      () => this.setState(() => ({ open: this.props.open })),
+      ANIMATION_DURATION
+    )
   }
 
   getCurrentState () {
@@ -70,15 +79,15 @@ class Modal extends PureComponent<ModalProps> {
   }
 
   handleKeyDown = (e) => {
-    const { open } = this.props
-    if (open && e.keyCode === ESCAPE_KEY) {
+    const { open, persistent } = this.props
+    if (!persistent && open && e.keyCode === ESCAPE_KEY) {
       this.handleClose(e)
     }
   }
 
   handleClick = (e) => {
-    const { open } = this.props
-    if (open && !this.ref.current.contains(e.target)) {
+    const { open, persistent } = this.props
+    if (!persistent && open && !this.ref.current.contains(e.target)) {
       this.handleClose(e)
     }
   }
