@@ -5436,6 +5436,3366 @@ exports[`Storyshots Actions/TextButton with manual color 1`] = `
 </div>
 `;
 
+exports[`Storyshots Events/confirm basic 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  border-radius: 3px;
+  border: none;
+  box-shadow: 0 2px 6px 0 rgba(6,26,60,0.16);
+  box-sizing: border-box;
+  cursor: pointer;
+  outline: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  vertical-align: middle;
+  text-align: left;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  line-height: 22px;
+  color: #fff;
+  background-color: #0071ce;
+  -webkit-transition: background-color 150ms ease-in-out;
+  transition: background-color 150ms ease-in-out;
+  margin: 0 4px;
+  padding: 16px 24px;
+  font-size: 18px;
+  line-height: 1.11;
+}
+
+.c0:hover,
+.c0:active {
+  background-color: rgb(51,141,216);
+}
+
+.c0:focus {
+  outline: none;
+}
+
+.c0:disabled {
+  pointer-events: none;
+  -webkit-filter: grayscale();
+  filter: grayscale();
+}
+
+.c1 {
+  position: fixed;
+  right: 20px;
+  top: 20px;
+  z-index: 50;
+  max-width: 500px;
+}
+
+<div
+  style={
+    Object {
+      "alignItems": "center",
+      "bottom": 0,
+      "display": "flex",
+      "left": 0,
+      "overflow": "auto",
+      "position": "fixed",
+      "right": 0,
+      "top": 0,
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "margin": "auto",
+        "maxHeight": "100%",
+      }
+    }
+  >
+    <div>
+      <div
+        style={
+          Object {
+            "position": "relative",
+            "zIndex": 0,
+          }
+        }
+      >
+        <button
+          className="c0"
+          onClick={[Function]}
+        >
+          <span
+            style={
+              Object {
+                "visibility": "visible",
+              }
+            }
+          >
+            Trigger event
+          </span>
+        </button>
+        <div
+          className="c1"
+        />
+      </div>
+      <button
+        onClick={[Function]}
+        style={
+          Object {
+            "background": "#28c",
+            "border": "none",
+            "borderRadius": "0 0 0 5px",
+            "color": "#fff",
+            "cursor": "pointer",
+            "display": "block",
+            "fontFamily": "sans-serif",
+            "fontSize": "12px",
+            "padding": "5px 15px",
+            "position": "fixed",
+            "right": 0,
+            "top": 0,
+          }
+        }
+        type="button"
+      >
+        Show Info
+      </button>
+      <div
+        style={
+          Object {
+            "background": "white",
+            "bottom": 0,
+            "display": "none",
+            "left": 0,
+            "overflow": "auto",
+            "padding": "0 40px",
+            "position": "fixed",
+            "right": 0,
+            "top": 0,
+            "zIndex": 99999,
+          }
+        }
+      >
+        <button
+          onClick={[Function]}
+          style={
+            Object {
+              "background": "#28c",
+              "border": "none",
+              "borderRadius": "0 0 0 5px",
+              "color": "#fff",
+              "cursor": "pointer",
+              "display": "block",
+              "fontFamily": "sans-serif",
+              "fontSize": "12px",
+              "padding": "5px 15px",
+              "position": "fixed",
+              "right": 0,
+              "top": 0,
+            }
+          }
+          type="button"
+        >
+          ×
+        </button>
+        <div>
+          <div
+            style={
+              Object {
+                "WebkitFontSmoothing": "antialiased",
+                "backgroundColor": "#fff",
+                "border": "1px solid #eee",
+                "borderRadius": "2px",
+                "color": "#444",
+                "fontFamily": "-apple-system, \\".SFNSText-Regular\\", \\"San Francisco\\", BlinkMacSystemFont, \\"Segoe UI\\", \\"Roboto\\", \\"Oxygen\\", \\"Ubuntu\\", \\"Cantarell\\", \\"Fira Sans\\", \\"Droid Sans\\", \\"Helvetica Neue\\", \\"Lucida Grande\\", \\"Arial\\", sans-serif",
+                "fontSize": "15px",
+                "fontWeight": 300,
+                "lineHeight": 1.45,
+                "marginBottom": "20px",
+                "marginTop": "20px",
+                "padding": "20px 40px 40px",
+              }
+            }
+          >
+            <div
+              style={
+                Object {
+                  "borderBottom": "1px solid #eee",
+                  "marginBottom": 10,
+                  "paddingTop": 10,
+                }
+              }
+            >
+              <h1
+                style={
+                  Object {
+                    "fontSize": "35px",
+                    "margin": 0,
+                    "padding": 0,
+                  }
+                }
+              >
+                Events/confirm
+              </h1>
+              <h2
+                style={
+                  Object {
+                    "fontSize": "22px",
+                    "fontWeight": 400,
+                    "margin": "0 0 10px 0",
+                    "padding": 0,
+                  }
+                }
+              >
+                basic
+              </h2>
+            </div>
+            
+            <div>
+              <h1
+                style={
+                  Object {
+                    "borderBottom": "1px solid #EEE",
+                    "fontSize": "25px",
+                    "margin": "20px 0 0 0",
+                    "padding": "0 0 5px 0",
+                  }
+                }
+              >
+                Story Source
+              </h1>
+              <pre
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "backgroundColor": "#fafafa",
+                    "display": "flex",
+                    "fontFamily": "Menlo, Monaco, \\"Courier New\\", monospace",
+                    "fontSize": ".88em",
+                    "justifyContent": "space-between",
+                    "lineHeight": 1.5,
+                    "overflowX": "scroll",
+                    "padding": ".5rem",
+                  }
+                }
+              >
+                <div>
+                  <div>
+                    <div
+                      style={
+                        Object {
+                          "paddingLeft": 18,
+                          "paddingRight": 3,
+                        }
+                      }
+                    >
+                      <span
+                        style={
+                          Object {
+                            "color": "#444",
+                          }
+                        }
+                      >
+                        &lt;
+                        HabxProvider
+                      </span>
+                      <span />
+                      <span
+                        style={
+                          Object {
+                            "color": "#444",
+                          }
+                        }
+                      >
+                        &gt;
+                      </span>
+                    </div>
+                    <div>
+                      <div
+                        style={
+                          Object {
+                            "paddingLeft": 33,
+                            "paddingRight": 3,
+                          }
+                        }
+                      >
+                        <span
+                          style={
+                            Object {
+                              "color": "#444",
+                            }
+                          }
+                        >
+                          &lt;
+                          Button
+                        </span>
+                        <span>
+                          <span>
+                             
+                            <span
+                              style={Object {}}
+                            >
+                              onClick
+                            </span>
+                            <span>
+                              =
+                              <span
+                                style={Object {}}
+                              >
+                                {
+                                <span
+                                  style={
+                                    Object {
+                                      "color": "#170",
+                                    }
+                                  }
+                                >
+                                  onClick
+                                </span>
+                                }
+                              </span>
+                            </span>
+                            
+                          </span>
+                        </span>
+                        <span
+                          style={
+                            Object {
+                              "color": "#444",
+                            }
+                          }
+                        >
+                          &gt;
+                        </span>
+                      </div>
+                      <div
+                        style={
+                          Object {
+                            "paddingLeft": 48,
+                            "paddingRight": 3,
+                          }
+                        }
+                      >
+                        <span
+                          style={
+                            Object {
+                              "color": "#444",
+                            }
+                          }
+                        >
+                          Trigger event
+                        </span>
+                      </div>
+                      <div
+                        style={
+                          Object {
+                            "paddingLeft": 33,
+                            "paddingRight": 3,
+                          }
+                        }
+                      >
+                        <span
+                          style={
+                            Object {
+                              "color": "#444",
+                            }
+                          }
+                        >
+                          &lt;/
+                          Button
+                          &gt;
+                        </span>
+                      </div>
+                    </div>
+                    <div
+                      style={
+                        Object {
+                          "paddingLeft": 18,
+                          "paddingRight": 3,
+                        }
+                      }
+                    >
+                      <span
+                        style={
+                          Object {
+                            "color": "#444",
+                          }
+                        }
+                      >
+                        &lt;/
+                        HabxProvider
+                        &gt;
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <button
+                  onClick={[Function]}
+                  style={
+                    Object {
+                      "alignSelf": "flex-start",
+                      "backgroundColor": "rgb(255, 255, 255)",
+                      "borderColor": "rgb(238, 238, 238)",
+                      "borderImage": "initial",
+                      "borderRadius": "3px",
+                      "borderStyle": "solid",
+                      "borderWidth": "1px",
+                      "cursor": "pointer",
+                      "flexShrink": "0",
+                      "fontSize": "13px",
+                      "overflow": "hidden",
+                      "padding": "3px 10px",
+                    }
+                  }
+                  type="button"
+                >
+                  Copy
+                </button>
+              </pre>
+            </div>
+            <div>
+              <h1
+                style={
+                  Object {
+                    "borderBottom": "1px solid #EEE",
+                    "fontSize": "25px",
+                    "margin": "20px 0 0 0",
+                    "padding": "0 0 5px 0",
+                  }
+                }
+              >
+                Prop Types
+              </h1>
+              <div>
+                <h2
+                  style={
+                    Object {
+                      "margin": "20px 0 0 0",
+                    }
+                  }
+                >
+                  "
+                  Button
+                  " Component
+                </h2>
+                <small>
+                  No propTypes defined!
+                </small>
+              </div>
+              <div>
+                <h2
+                  style={
+                    Object {
+                      "margin": "20px 0 0 0",
+                    }
+                  }
+                >
+                  "
+                  HabxProvider
+                  " Component
+                </h2>
+                <small>
+                  No propTypes defined!
+                </small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Events/confirm with custom button texts 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  border-radius: 3px;
+  border: none;
+  box-shadow: 0 2px 6px 0 rgba(6,26,60,0.16);
+  box-sizing: border-box;
+  cursor: pointer;
+  outline: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  vertical-align: middle;
+  text-align: left;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  line-height: 22px;
+  color: #fff;
+  background-color: #0071ce;
+  -webkit-transition: background-color 150ms ease-in-out;
+  transition: background-color 150ms ease-in-out;
+  margin: 0 4px;
+  padding: 16px 24px;
+  font-size: 18px;
+  line-height: 1.11;
+}
+
+.c0:hover,
+.c0:active {
+  background-color: rgb(51,141,216);
+}
+
+.c0:focus {
+  outline: none;
+}
+
+.c0:disabled {
+  pointer-events: none;
+  -webkit-filter: grayscale();
+  filter: grayscale();
+}
+
+.c1 {
+  position: fixed;
+  right: 20px;
+  top: 20px;
+  z-index: 50;
+  max-width: 500px;
+}
+
+<div
+  style={
+    Object {
+      "alignItems": "center",
+      "bottom": 0,
+      "display": "flex",
+      "left": 0,
+      "overflow": "auto",
+      "position": "fixed",
+      "right": 0,
+      "top": 0,
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "margin": "auto",
+        "maxHeight": "100%",
+      }
+    }
+  >
+    <div>
+      <div
+        style={
+          Object {
+            "position": "relative",
+            "zIndex": 0,
+          }
+        }
+      >
+        <button
+          className="c0"
+          onClick={[Function]}
+        >
+          <span
+            style={
+              Object {
+                "visibility": "visible",
+              }
+            }
+          >
+            Trigger event
+          </span>
+        </button>
+        <div
+          className="c1"
+        />
+      </div>
+      <button
+        onClick={[Function]}
+        style={
+          Object {
+            "background": "#28c",
+            "border": "none",
+            "borderRadius": "0 0 0 5px",
+            "color": "#fff",
+            "cursor": "pointer",
+            "display": "block",
+            "fontFamily": "sans-serif",
+            "fontSize": "12px",
+            "padding": "5px 15px",
+            "position": "fixed",
+            "right": 0,
+            "top": 0,
+          }
+        }
+        type="button"
+      >
+        Show Info
+      </button>
+      <div
+        style={
+          Object {
+            "background": "white",
+            "bottom": 0,
+            "display": "none",
+            "left": 0,
+            "overflow": "auto",
+            "padding": "0 40px",
+            "position": "fixed",
+            "right": 0,
+            "top": 0,
+            "zIndex": 99999,
+          }
+        }
+      >
+        <button
+          onClick={[Function]}
+          style={
+            Object {
+              "background": "#28c",
+              "border": "none",
+              "borderRadius": "0 0 0 5px",
+              "color": "#fff",
+              "cursor": "pointer",
+              "display": "block",
+              "fontFamily": "sans-serif",
+              "fontSize": "12px",
+              "padding": "5px 15px",
+              "position": "fixed",
+              "right": 0,
+              "top": 0,
+            }
+          }
+          type="button"
+        >
+          ×
+        </button>
+        <div>
+          <div
+            style={
+              Object {
+                "WebkitFontSmoothing": "antialiased",
+                "backgroundColor": "#fff",
+                "border": "1px solid #eee",
+                "borderRadius": "2px",
+                "color": "#444",
+                "fontFamily": "-apple-system, \\".SFNSText-Regular\\", \\"San Francisco\\", BlinkMacSystemFont, \\"Segoe UI\\", \\"Roboto\\", \\"Oxygen\\", \\"Ubuntu\\", \\"Cantarell\\", \\"Fira Sans\\", \\"Droid Sans\\", \\"Helvetica Neue\\", \\"Lucida Grande\\", \\"Arial\\", sans-serif",
+                "fontSize": "15px",
+                "fontWeight": 300,
+                "lineHeight": 1.45,
+                "marginBottom": "20px",
+                "marginTop": "20px",
+                "padding": "20px 40px 40px",
+              }
+            }
+          >
+            <div
+              style={
+                Object {
+                  "borderBottom": "1px solid #eee",
+                  "marginBottom": 10,
+                  "paddingTop": 10,
+                }
+              }
+            >
+              <h1
+                style={
+                  Object {
+                    "fontSize": "35px",
+                    "margin": 0,
+                    "padding": 0,
+                  }
+                }
+              >
+                Events/confirm
+              </h1>
+              <h2
+                style={
+                  Object {
+                    "fontSize": "22px",
+                    "fontWeight": 400,
+                    "margin": "0 0 10px 0",
+                    "padding": 0,
+                  }
+                }
+              >
+                with custom button texts
+              </h2>
+            </div>
+            
+            <div>
+              <h1
+                style={
+                  Object {
+                    "borderBottom": "1px solid #EEE",
+                    "fontSize": "25px",
+                    "margin": "20px 0 0 0",
+                    "padding": "0 0 5px 0",
+                  }
+                }
+              >
+                Story Source
+              </h1>
+              <pre
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "backgroundColor": "#fafafa",
+                    "display": "flex",
+                    "fontFamily": "Menlo, Monaco, \\"Courier New\\", monospace",
+                    "fontSize": ".88em",
+                    "justifyContent": "space-between",
+                    "lineHeight": 1.5,
+                    "overflowX": "scroll",
+                    "padding": ".5rem",
+                  }
+                }
+              >
+                <div>
+                  <div>
+                    <div
+                      style={
+                        Object {
+                          "paddingLeft": 18,
+                          "paddingRight": 3,
+                        }
+                      }
+                    >
+                      <span
+                        style={
+                          Object {
+                            "color": "#444",
+                          }
+                        }
+                      >
+                        &lt;
+                        HabxProvider
+                      </span>
+                      <span />
+                      <span
+                        style={
+                          Object {
+                            "color": "#444",
+                          }
+                        }
+                      >
+                        &gt;
+                      </span>
+                    </div>
+                    <div>
+                      <div
+                        style={
+                          Object {
+                            "paddingLeft": 33,
+                            "paddingRight": 3,
+                          }
+                        }
+                      >
+                        <span
+                          style={
+                            Object {
+                              "color": "#444",
+                            }
+                          }
+                        >
+                          &lt;
+                          Button
+                        </span>
+                        <span>
+                          <span>
+                             
+                            <span
+                              style={Object {}}
+                            >
+                              onClick
+                            </span>
+                            <span>
+                              =
+                              <span
+                                style={Object {}}
+                              >
+                                {
+                                <span
+                                  style={
+                                    Object {
+                                      "color": "#170",
+                                    }
+                                  }
+                                >
+                                  onClick
+                                </span>
+                                }
+                              </span>
+                            </span>
+                            
+                          </span>
+                        </span>
+                        <span
+                          style={
+                            Object {
+                              "color": "#444",
+                            }
+                          }
+                        >
+                          &gt;
+                        </span>
+                      </div>
+                      <div
+                        style={
+                          Object {
+                            "paddingLeft": 48,
+                            "paddingRight": 3,
+                          }
+                        }
+                      >
+                        <span
+                          style={
+                            Object {
+                              "color": "#444",
+                            }
+                          }
+                        >
+                          Trigger event
+                        </span>
+                      </div>
+                      <div
+                        style={
+                          Object {
+                            "paddingLeft": 33,
+                            "paddingRight": 3,
+                          }
+                        }
+                      >
+                        <span
+                          style={
+                            Object {
+                              "color": "#444",
+                            }
+                          }
+                        >
+                          &lt;/
+                          Button
+                          &gt;
+                        </span>
+                      </div>
+                    </div>
+                    <div
+                      style={
+                        Object {
+                          "paddingLeft": 18,
+                          "paddingRight": 3,
+                        }
+                      }
+                    >
+                      <span
+                        style={
+                          Object {
+                            "color": "#444",
+                          }
+                        }
+                      >
+                        &lt;/
+                        HabxProvider
+                        &gt;
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <button
+                  onClick={[Function]}
+                  style={
+                    Object {
+                      "alignSelf": "flex-start",
+                      "backgroundColor": "rgb(255, 255, 255)",
+                      "borderColor": "rgb(238, 238, 238)",
+                      "borderImage": "initial",
+                      "borderRadius": "3px",
+                      "borderStyle": "solid",
+                      "borderWidth": "1px",
+                      "cursor": "pointer",
+                      "flexShrink": "0",
+                      "fontSize": "13px",
+                      "overflow": "hidden",
+                      "padding": "3px 10px",
+                    }
+                  }
+                  type="button"
+                >
+                  Copy
+                </button>
+              </pre>
+            </div>
+            <div>
+              <h1
+                style={
+                  Object {
+                    "borderBottom": "1px solid #EEE",
+                    "fontSize": "25px",
+                    "margin": "20px 0 0 0",
+                    "padding": "0 0 5px 0",
+                  }
+                }
+              >
+                Prop Types
+              </h1>
+              <div>
+                <h2
+                  style={
+                    Object {
+                      "margin": "20px 0 0 0",
+                    }
+                  }
+                >
+                  "
+                  Button
+                  " Component
+                </h2>
+                <small>
+                  No propTypes defined!
+                </small>
+              </div>
+              <div>
+                <h2
+                  style={
+                    Object {
+                      "margin": "20px 0 0 0",
+                    }
+                  }
+                >
+                  "
+                  HabxProvider
+                  " Component
+                </h2>
+                <small>
+                  No propTypes defined!
+                </small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Events/notify basic 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  border-radius: 3px;
+  border: none;
+  box-shadow: 0 2px 6px 0 rgba(6,26,60,0.16);
+  box-sizing: border-box;
+  cursor: pointer;
+  outline: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  vertical-align: middle;
+  text-align: left;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  line-height: 22px;
+  color: #fff;
+  background-color: #0071ce;
+  -webkit-transition: background-color 150ms ease-in-out;
+  transition: background-color 150ms ease-in-out;
+  margin: 0 4px;
+  padding: 16px 24px;
+  font-size: 18px;
+  line-height: 1.11;
+}
+
+.c0:hover,
+.c0:active {
+  background-color: rgb(51,141,216);
+}
+
+.c0:focus {
+  outline: none;
+}
+
+.c0:disabled {
+  pointer-events: none;
+  -webkit-filter: grayscale();
+  filter: grayscale();
+}
+
+.c1 {
+  position: fixed;
+  right: 20px;
+  top: 20px;
+  z-index: 50;
+  max-width: 500px;
+}
+
+<div
+  style={
+    Object {
+      "alignItems": "center",
+      "bottom": 0,
+      "display": "flex",
+      "left": 0,
+      "overflow": "auto",
+      "position": "fixed",
+      "right": 0,
+      "top": 0,
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "margin": "auto",
+        "maxHeight": "100%",
+      }
+    }
+  >
+    <div>
+      <div
+        style={
+          Object {
+            "position": "relative",
+            "zIndex": 0,
+          }
+        }
+      >
+        <button
+          className="c0"
+          onClick={[Function]}
+        >
+          <span
+            style={
+              Object {
+                "visibility": "visible",
+              }
+            }
+          >
+            Trigger event
+          </span>
+        </button>
+        <div
+          className="c1"
+        />
+      </div>
+      <button
+        onClick={[Function]}
+        style={
+          Object {
+            "background": "#28c",
+            "border": "none",
+            "borderRadius": "0 0 0 5px",
+            "color": "#fff",
+            "cursor": "pointer",
+            "display": "block",
+            "fontFamily": "sans-serif",
+            "fontSize": "12px",
+            "padding": "5px 15px",
+            "position": "fixed",
+            "right": 0,
+            "top": 0,
+          }
+        }
+        type="button"
+      >
+        Show Info
+      </button>
+      <div
+        style={
+          Object {
+            "background": "white",
+            "bottom": 0,
+            "display": "none",
+            "left": 0,
+            "overflow": "auto",
+            "padding": "0 40px",
+            "position": "fixed",
+            "right": 0,
+            "top": 0,
+            "zIndex": 99999,
+          }
+        }
+      >
+        <button
+          onClick={[Function]}
+          style={
+            Object {
+              "background": "#28c",
+              "border": "none",
+              "borderRadius": "0 0 0 5px",
+              "color": "#fff",
+              "cursor": "pointer",
+              "display": "block",
+              "fontFamily": "sans-serif",
+              "fontSize": "12px",
+              "padding": "5px 15px",
+              "position": "fixed",
+              "right": 0,
+              "top": 0,
+            }
+          }
+          type="button"
+        >
+          ×
+        </button>
+        <div>
+          <div
+            style={
+              Object {
+                "WebkitFontSmoothing": "antialiased",
+                "backgroundColor": "#fff",
+                "border": "1px solid #eee",
+                "borderRadius": "2px",
+                "color": "#444",
+                "fontFamily": "-apple-system, \\".SFNSText-Regular\\", \\"San Francisco\\", BlinkMacSystemFont, \\"Segoe UI\\", \\"Roboto\\", \\"Oxygen\\", \\"Ubuntu\\", \\"Cantarell\\", \\"Fira Sans\\", \\"Droid Sans\\", \\"Helvetica Neue\\", \\"Lucida Grande\\", \\"Arial\\", sans-serif",
+                "fontSize": "15px",
+                "fontWeight": 300,
+                "lineHeight": 1.45,
+                "marginBottom": "20px",
+                "marginTop": "20px",
+                "padding": "20px 40px 40px",
+              }
+            }
+          >
+            <div
+              style={
+                Object {
+                  "borderBottom": "1px solid #eee",
+                  "marginBottom": 10,
+                  "paddingTop": 10,
+                }
+              }
+            >
+              <h1
+                style={
+                  Object {
+                    "fontSize": "35px",
+                    "margin": 0,
+                    "padding": 0,
+                  }
+                }
+              >
+                Events/notify
+              </h1>
+              <h2
+                style={
+                  Object {
+                    "fontSize": "22px",
+                    "fontWeight": 400,
+                    "margin": "0 0 10px 0",
+                    "padding": 0,
+                  }
+                }
+              >
+                basic
+              </h2>
+            </div>
+            
+            <div>
+              <h1
+                style={
+                  Object {
+                    "borderBottom": "1px solid #EEE",
+                    "fontSize": "25px",
+                    "margin": "20px 0 0 0",
+                    "padding": "0 0 5px 0",
+                  }
+                }
+              >
+                Story Source
+              </h1>
+              <pre
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "backgroundColor": "#fafafa",
+                    "display": "flex",
+                    "fontFamily": "Menlo, Monaco, \\"Courier New\\", monospace",
+                    "fontSize": ".88em",
+                    "justifyContent": "space-between",
+                    "lineHeight": 1.5,
+                    "overflowX": "scroll",
+                    "padding": ".5rem",
+                  }
+                }
+              >
+                <div>
+                  <div>
+                    <div
+                      style={
+                        Object {
+                          "paddingLeft": 18,
+                          "paddingRight": 3,
+                        }
+                      }
+                    >
+                      <span
+                        style={
+                          Object {
+                            "color": "#444",
+                          }
+                        }
+                      >
+                        &lt;
+                        HabxProvider
+                      </span>
+                      <span />
+                      <span
+                        style={
+                          Object {
+                            "color": "#444",
+                          }
+                        }
+                      >
+                        &gt;
+                      </span>
+                    </div>
+                    <div>
+                      <div
+                        style={
+                          Object {
+                            "paddingLeft": 33,
+                            "paddingRight": 3,
+                          }
+                        }
+                      >
+                        <span
+                          style={
+                            Object {
+                              "color": "#444",
+                            }
+                          }
+                        >
+                          &lt;
+                          Button
+                        </span>
+                        <span>
+                          <span>
+                             
+                            <span
+                              style={Object {}}
+                            >
+                              onClick
+                            </span>
+                            <span>
+                              =
+                              <span
+                                style={Object {}}
+                              >
+                                {
+                                <span
+                                  style={
+                                    Object {
+                                      "color": "#170",
+                                    }
+                                  }
+                                >
+                                  onClick
+                                </span>
+                                }
+                              </span>
+                            </span>
+                            
+                          </span>
+                        </span>
+                        <span
+                          style={
+                            Object {
+                              "color": "#444",
+                            }
+                          }
+                        >
+                          &gt;
+                        </span>
+                      </div>
+                      <div
+                        style={
+                          Object {
+                            "paddingLeft": 48,
+                            "paddingRight": 3,
+                          }
+                        }
+                      >
+                        <span
+                          style={
+                            Object {
+                              "color": "#444",
+                            }
+                          }
+                        >
+                          Trigger event
+                        </span>
+                      </div>
+                      <div
+                        style={
+                          Object {
+                            "paddingLeft": 33,
+                            "paddingRight": 3,
+                          }
+                        }
+                      >
+                        <span
+                          style={
+                            Object {
+                              "color": "#444",
+                            }
+                          }
+                        >
+                          &lt;/
+                          Button
+                          &gt;
+                        </span>
+                      </div>
+                    </div>
+                    <div
+                      style={
+                        Object {
+                          "paddingLeft": 18,
+                          "paddingRight": 3,
+                        }
+                      }
+                    >
+                      <span
+                        style={
+                          Object {
+                            "color": "#444",
+                          }
+                        }
+                      >
+                        &lt;/
+                        HabxProvider
+                        &gt;
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <button
+                  onClick={[Function]}
+                  style={
+                    Object {
+                      "alignSelf": "flex-start",
+                      "backgroundColor": "rgb(255, 255, 255)",
+                      "borderColor": "rgb(238, 238, 238)",
+                      "borderImage": "initial",
+                      "borderRadius": "3px",
+                      "borderStyle": "solid",
+                      "borderWidth": "1px",
+                      "cursor": "pointer",
+                      "flexShrink": "0",
+                      "fontSize": "13px",
+                      "overflow": "hidden",
+                      "padding": "3px 10px",
+                    }
+                  }
+                  type="button"
+                >
+                  Copy
+                </button>
+              </pre>
+            </div>
+            <div>
+              <h1
+                style={
+                  Object {
+                    "borderBottom": "1px solid #EEE",
+                    "fontSize": "25px",
+                    "margin": "20px 0 0 0",
+                    "padding": "0 0 5px 0",
+                  }
+                }
+              >
+                Prop Types
+              </h1>
+              <div>
+                <h2
+                  style={
+                    Object {
+                      "margin": "20px 0 0 0",
+                    }
+                  }
+                >
+                  "
+                  Button
+                  " Component
+                </h2>
+                <small>
+                  No propTypes defined!
+                </small>
+              </div>
+              <div>
+                <h2
+                  style={
+                    Object {
+                      "margin": "20px 0 0 0",
+                    }
+                  }
+                >
+                  "
+                  HabxProvider
+                  " Component
+                </h2>
+                <small>
+                  No propTypes defined!
+                </small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Events/notify error 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  border-radius: 3px;
+  border: none;
+  box-shadow: 0 2px 6px 0 rgba(6,26,60,0.16);
+  box-sizing: border-box;
+  cursor: pointer;
+  outline: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  vertical-align: middle;
+  text-align: left;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  line-height: 22px;
+  color: #fff;
+  background-color: #0071ce;
+  -webkit-transition: background-color 150ms ease-in-out;
+  transition: background-color 150ms ease-in-out;
+  margin: 0 4px;
+  padding: 16px 24px;
+  font-size: 18px;
+  line-height: 1.11;
+}
+
+.c0:hover,
+.c0:active {
+  background-color: rgb(51,141,216);
+}
+
+.c0:focus {
+  outline: none;
+}
+
+.c0:disabled {
+  pointer-events: none;
+  -webkit-filter: grayscale();
+  filter: grayscale();
+}
+
+.c1 {
+  position: fixed;
+  right: 20px;
+  top: 20px;
+  z-index: 50;
+  max-width: 500px;
+}
+
+<div
+  style={
+    Object {
+      "alignItems": "center",
+      "bottom": 0,
+      "display": "flex",
+      "left": 0,
+      "overflow": "auto",
+      "position": "fixed",
+      "right": 0,
+      "top": 0,
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "margin": "auto",
+        "maxHeight": "100%",
+      }
+    }
+  >
+    <div>
+      <div
+        style={
+          Object {
+            "position": "relative",
+            "zIndex": 0,
+          }
+        }
+      >
+        <button
+          className="c0"
+          onClick={[Function]}
+        >
+          <span
+            style={
+              Object {
+                "visibility": "visible",
+              }
+            }
+          >
+            Trigger event
+          </span>
+        </button>
+        <div
+          className="c1"
+        />
+      </div>
+      <button
+        onClick={[Function]}
+        style={
+          Object {
+            "background": "#28c",
+            "border": "none",
+            "borderRadius": "0 0 0 5px",
+            "color": "#fff",
+            "cursor": "pointer",
+            "display": "block",
+            "fontFamily": "sans-serif",
+            "fontSize": "12px",
+            "padding": "5px 15px",
+            "position": "fixed",
+            "right": 0,
+            "top": 0,
+          }
+        }
+        type="button"
+      >
+        Show Info
+      </button>
+      <div
+        style={
+          Object {
+            "background": "white",
+            "bottom": 0,
+            "display": "none",
+            "left": 0,
+            "overflow": "auto",
+            "padding": "0 40px",
+            "position": "fixed",
+            "right": 0,
+            "top": 0,
+            "zIndex": 99999,
+          }
+        }
+      >
+        <button
+          onClick={[Function]}
+          style={
+            Object {
+              "background": "#28c",
+              "border": "none",
+              "borderRadius": "0 0 0 5px",
+              "color": "#fff",
+              "cursor": "pointer",
+              "display": "block",
+              "fontFamily": "sans-serif",
+              "fontSize": "12px",
+              "padding": "5px 15px",
+              "position": "fixed",
+              "right": 0,
+              "top": 0,
+            }
+          }
+          type="button"
+        >
+          ×
+        </button>
+        <div>
+          <div
+            style={
+              Object {
+                "WebkitFontSmoothing": "antialiased",
+                "backgroundColor": "#fff",
+                "border": "1px solid #eee",
+                "borderRadius": "2px",
+                "color": "#444",
+                "fontFamily": "-apple-system, \\".SFNSText-Regular\\", \\"San Francisco\\", BlinkMacSystemFont, \\"Segoe UI\\", \\"Roboto\\", \\"Oxygen\\", \\"Ubuntu\\", \\"Cantarell\\", \\"Fira Sans\\", \\"Droid Sans\\", \\"Helvetica Neue\\", \\"Lucida Grande\\", \\"Arial\\", sans-serif",
+                "fontSize": "15px",
+                "fontWeight": 300,
+                "lineHeight": 1.45,
+                "marginBottom": "20px",
+                "marginTop": "20px",
+                "padding": "20px 40px 40px",
+              }
+            }
+          >
+            <div
+              style={
+                Object {
+                  "borderBottom": "1px solid #eee",
+                  "marginBottom": 10,
+                  "paddingTop": 10,
+                }
+              }
+            >
+              <h1
+                style={
+                  Object {
+                    "fontSize": "35px",
+                    "margin": 0,
+                    "padding": 0,
+                  }
+                }
+              >
+                Events/notify
+              </h1>
+              <h2
+                style={
+                  Object {
+                    "fontSize": "22px",
+                    "fontWeight": 400,
+                    "margin": "0 0 10px 0",
+                    "padding": 0,
+                  }
+                }
+              >
+                error
+              </h2>
+            </div>
+            
+            <div>
+              <h1
+                style={
+                  Object {
+                    "borderBottom": "1px solid #EEE",
+                    "fontSize": "25px",
+                    "margin": "20px 0 0 0",
+                    "padding": "0 0 5px 0",
+                  }
+                }
+              >
+                Story Source
+              </h1>
+              <pre
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "backgroundColor": "#fafafa",
+                    "display": "flex",
+                    "fontFamily": "Menlo, Monaco, \\"Courier New\\", monospace",
+                    "fontSize": ".88em",
+                    "justifyContent": "space-between",
+                    "lineHeight": 1.5,
+                    "overflowX": "scroll",
+                    "padding": ".5rem",
+                  }
+                }
+              >
+                <div>
+                  <div>
+                    <div
+                      style={
+                        Object {
+                          "paddingLeft": 18,
+                          "paddingRight": 3,
+                        }
+                      }
+                    >
+                      <span
+                        style={
+                          Object {
+                            "color": "#444",
+                          }
+                        }
+                      >
+                        &lt;
+                        HabxProvider
+                      </span>
+                      <span />
+                      <span
+                        style={
+                          Object {
+                            "color": "#444",
+                          }
+                        }
+                      >
+                        &gt;
+                      </span>
+                    </div>
+                    <div>
+                      <div
+                        style={
+                          Object {
+                            "paddingLeft": 33,
+                            "paddingRight": 3,
+                          }
+                        }
+                      >
+                        <span
+                          style={
+                            Object {
+                              "color": "#444",
+                            }
+                          }
+                        >
+                          &lt;
+                          Button
+                        </span>
+                        <span>
+                          <span>
+                             
+                            <span
+                              style={Object {}}
+                            >
+                              onClick
+                            </span>
+                            <span>
+                              =
+                              <span
+                                style={Object {}}
+                              >
+                                {
+                                <span
+                                  style={
+                                    Object {
+                                      "color": "#170",
+                                    }
+                                  }
+                                >
+                                  onClick
+                                </span>
+                                }
+                              </span>
+                            </span>
+                            
+                          </span>
+                        </span>
+                        <span
+                          style={
+                            Object {
+                              "color": "#444",
+                            }
+                          }
+                        >
+                          &gt;
+                        </span>
+                      </div>
+                      <div
+                        style={
+                          Object {
+                            "paddingLeft": 48,
+                            "paddingRight": 3,
+                          }
+                        }
+                      >
+                        <span
+                          style={
+                            Object {
+                              "color": "#444",
+                            }
+                          }
+                        >
+                          Trigger event
+                        </span>
+                      </div>
+                      <div
+                        style={
+                          Object {
+                            "paddingLeft": 33,
+                            "paddingRight": 3,
+                          }
+                        }
+                      >
+                        <span
+                          style={
+                            Object {
+                              "color": "#444",
+                            }
+                          }
+                        >
+                          &lt;/
+                          Button
+                          &gt;
+                        </span>
+                      </div>
+                    </div>
+                    <div
+                      style={
+                        Object {
+                          "paddingLeft": 18,
+                          "paddingRight": 3,
+                        }
+                      }
+                    >
+                      <span
+                        style={
+                          Object {
+                            "color": "#444",
+                          }
+                        }
+                      >
+                        &lt;/
+                        HabxProvider
+                        &gt;
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <button
+                  onClick={[Function]}
+                  style={
+                    Object {
+                      "alignSelf": "flex-start",
+                      "backgroundColor": "rgb(255, 255, 255)",
+                      "borderColor": "rgb(238, 238, 238)",
+                      "borderImage": "initial",
+                      "borderRadius": "3px",
+                      "borderStyle": "solid",
+                      "borderWidth": "1px",
+                      "cursor": "pointer",
+                      "flexShrink": "0",
+                      "fontSize": "13px",
+                      "overflow": "hidden",
+                      "padding": "3px 10px",
+                    }
+                  }
+                  type="button"
+                >
+                  Copy
+                </button>
+              </pre>
+            </div>
+            <div>
+              <h1
+                style={
+                  Object {
+                    "borderBottom": "1px solid #EEE",
+                    "fontSize": "25px",
+                    "margin": "20px 0 0 0",
+                    "padding": "0 0 5px 0",
+                  }
+                }
+              >
+                Prop Types
+              </h1>
+              <div>
+                <h2
+                  style={
+                    Object {
+                      "margin": "20px 0 0 0",
+                    }
+                  }
+                >
+                  "
+                  Button
+                  " Component
+                </h2>
+                <small>
+                  No propTypes defined!
+                </small>
+              </div>
+              <div>
+                <h2
+                  style={
+                    Object {
+                      "margin": "20px 0 0 0",
+                    }
+                  }
+                >
+                  "
+                  HabxProvider
+                  " Component
+                </h2>
+                <small>
+                  No propTypes defined!
+                </small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Events/notify warning 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  border-radius: 3px;
+  border: none;
+  box-shadow: 0 2px 6px 0 rgba(6,26,60,0.16);
+  box-sizing: border-box;
+  cursor: pointer;
+  outline: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  vertical-align: middle;
+  text-align: left;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  line-height: 22px;
+  color: #fff;
+  background-color: #0071ce;
+  -webkit-transition: background-color 150ms ease-in-out;
+  transition: background-color 150ms ease-in-out;
+  margin: 0 4px;
+  padding: 16px 24px;
+  font-size: 18px;
+  line-height: 1.11;
+}
+
+.c0:hover,
+.c0:active {
+  background-color: rgb(51,141,216);
+}
+
+.c0:focus {
+  outline: none;
+}
+
+.c0:disabled {
+  pointer-events: none;
+  -webkit-filter: grayscale();
+  filter: grayscale();
+}
+
+.c1 {
+  position: fixed;
+  right: 20px;
+  top: 20px;
+  z-index: 50;
+  max-width: 500px;
+}
+
+<div
+  style={
+    Object {
+      "alignItems": "center",
+      "bottom": 0,
+      "display": "flex",
+      "left": 0,
+      "overflow": "auto",
+      "position": "fixed",
+      "right": 0,
+      "top": 0,
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "margin": "auto",
+        "maxHeight": "100%",
+      }
+    }
+  >
+    <div>
+      <div
+        style={
+          Object {
+            "position": "relative",
+            "zIndex": 0,
+          }
+        }
+      >
+        <button
+          className="c0"
+          onClick={[Function]}
+        >
+          <span
+            style={
+              Object {
+                "visibility": "visible",
+              }
+            }
+          >
+            Trigger event
+          </span>
+        </button>
+        <div
+          className="c1"
+        />
+      </div>
+      <button
+        onClick={[Function]}
+        style={
+          Object {
+            "background": "#28c",
+            "border": "none",
+            "borderRadius": "0 0 0 5px",
+            "color": "#fff",
+            "cursor": "pointer",
+            "display": "block",
+            "fontFamily": "sans-serif",
+            "fontSize": "12px",
+            "padding": "5px 15px",
+            "position": "fixed",
+            "right": 0,
+            "top": 0,
+          }
+        }
+        type="button"
+      >
+        Show Info
+      </button>
+      <div
+        style={
+          Object {
+            "background": "white",
+            "bottom": 0,
+            "display": "none",
+            "left": 0,
+            "overflow": "auto",
+            "padding": "0 40px",
+            "position": "fixed",
+            "right": 0,
+            "top": 0,
+            "zIndex": 99999,
+          }
+        }
+      >
+        <button
+          onClick={[Function]}
+          style={
+            Object {
+              "background": "#28c",
+              "border": "none",
+              "borderRadius": "0 0 0 5px",
+              "color": "#fff",
+              "cursor": "pointer",
+              "display": "block",
+              "fontFamily": "sans-serif",
+              "fontSize": "12px",
+              "padding": "5px 15px",
+              "position": "fixed",
+              "right": 0,
+              "top": 0,
+            }
+          }
+          type="button"
+        >
+          ×
+        </button>
+        <div>
+          <div
+            style={
+              Object {
+                "WebkitFontSmoothing": "antialiased",
+                "backgroundColor": "#fff",
+                "border": "1px solid #eee",
+                "borderRadius": "2px",
+                "color": "#444",
+                "fontFamily": "-apple-system, \\".SFNSText-Regular\\", \\"San Francisco\\", BlinkMacSystemFont, \\"Segoe UI\\", \\"Roboto\\", \\"Oxygen\\", \\"Ubuntu\\", \\"Cantarell\\", \\"Fira Sans\\", \\"Droid Sans\\", \\"Helvetica Neue\\", \\"Lucida Grande\\", \\"Arial\\", sans-serif",
+                "fontSize": "15px",
+                "fontWeight": 300,
+                "lineHeight": 1.45,
+                "marginBottom": "20px",
+                "marginTop": "20px",
+                "padding": "20px 40px 40px",
+              }
+            }
+          >
+            <div
+              style={
+                Object {
+                  "borderBottom": "1px solid #eee",
+                  "marginBottom": 10,
+                  "paddingTop": 10,
+                }
+              }
+            >
+              <h1
+                style={
+                  Object {
+                    "fontSize": "35px",
+                    "margin": 0,
+                    "padding": 0,
+                  }
+                }
+              >
+                Events/notify
+              </h1>
+              <h2
+                style={
+                  Object {
+                    "fontSize": "22px",
+                    "fontWeight": 400,
+                    "margin": "0 0 10px 0",
+                    "padding": 0,
+                  }
+                }
+              >
+                warning
+              </h2>
+            </div>
+            
+            <div>
+              <h1
+                style={
+                  Object {
+                    "borderBottom": "1px solid #EEE",
+                    "fontSize": "25px",
+                    "margin": "20px 0 0 0",
+                    "padding": "0 0 5px 0",
+                  }
+                }
+              >
+                Story Source
+              </h1>
+              <pre
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "backgroundColor": "#fafafa",
+                    "display": "flex",
+                    "fontFamily": "Menlo, Monaco, \\"Courier New\\", monospace",
+                    "fontSize": ".88em",
+                    "justifyContent": "space-between",
+                    "lineHeight": 1.5,
+                    "overflowX": "scroll",
+                    "padding": ".5rem",
+                  }
+                }
+              >
+                <div>
+                  <div>
+                    <div
+                      style={
+                        Object {
+                          "paddingLeft": 18,
+                          "paddingRight": 3,
+                        }
+                      }
+                    >
+                      <span
+                        style={
+                          Object {
+                            "color": "#444",
+                          }
+                        }
+                      >
+                        &lt;
+                        HabxProvider
+                      </span>
+                      <span />
+                      <span
+                        style={
+                          Object {
+                            "color": "#444",
+                          }
+                        }
+                      >
+                        &gt;
+                      </span>
+                    </div>
+                    <div>
+                      <div
+                        style={
+                          Object {
+                            "paddingLeft": 33,
+                            "paddingRight": 3,
+                          }
+                        }
+                      >
+                        <span
+                          style={
+                            Object {
+                              "color": "#444",
+                            }
+                          }
+                        >
+                          &lt;
+                          Button
+                        </span>
+                        <span>
+                          <span>
+                             
+                            <span
+                              style={Object {}}
+                            >
+                              onClick
+                            </span>
+                            <span>
+                              =
+                              <span
+                                style={Object {}}
+                              >
+                                {
+                                <span
+                                  style={
+                                    Object {
+                                      "color": "#170",
+                                    }
+                                  }
+                                >
+                                  onClick
+                                </span>
+                                }
+                              </span>
+                            </span>
+                            
+                          </span>
+                        </span>
+                        <span
+                          style={
+                            Object {
+                              "color": "#444",
+                            }
+                          }
+                        >
+                          &gt;
+                        </span>
+                      </div>
+                      <div
+                        style={
+                          Object {
+                            "paddingLeft": 48,
+                            "paddingRight": 3,
+                          }
+                        }
+                      >
+                        <span
+                          style={
+                            Object {
+                              "color": "#444",
+                            }
+                          }
+                        >
+                          Trigger event
+                        </span>
+                      </div>
+                      <div
+                        style={
+                          Object {
+                            "paddingLeft": 33,
+                            "paddingRight": 3,
+                          }
+                        }
+                      >
+                        <span
+                          style={
+                            Object {
+                              "color": "#444",
+                            }
+                          }
+                        >
+                          &lt;/
+                          Button
+                          &gt;
+                        </span>
+                      </div>
+                    </div>
+                    <div
+                      style={
+                        Object {
+                          "paddingLeft": 18,
+                          "paddingRight": 3,
+                        }
+                      }
+                    >
+                      <span
+                        style={
+                          Object {
+                            "color": "#444",
+                          }
+                        }
+                      >
+                        &lt;/
+                        HabxProvider
+                        &gt;
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <button
+                  onClick={[Function]}
+                  style={
+                    Object {
+                      "alignSelf": "flex-start",
+                      "backgroundColor": "rgb(255, 255, 255)",
+                      "borderColor": "rgb(238, 238, 238)",
+                      "borderImage": "initial",
+                      "borderRadius": "3px",
+                      "borderStyle": "solid",
+                      "borderWidth": "1px",
+                      "cursor": "pointer",
+                      "flexShrink": "0",
+                      "fontSize": "13px",
+                      "overflow": "hidden",
+                      "padding": "3px 10px",
+                    }
+                  }
+                  type="button"
+                >
+                  Copy
+                </button>
+              </pre>
+            </div>
+            <div>
+              <h1
+                style={
+                  Object {
+                    "borderBottom": "1px solid #EEE",
+                    "fontSize": "25px",
+                    "margin": "20px 0 0 0",
+                    "padding": "0 0 5px 0",
+                  }
+                }
+              >
+                Prop Types
+              </h1>
+              <div>
+                <h2
+                  style={
+                    Object {
+                      "margin": "20px 0 0 0",
+                    }
+                  }
+                >
+                  "
+                  Button
+                  " Component
+                </h2>
+                <small>
+                  No propTypes defined!
+                </small>
+              </div>
+              <div>
+                <h2
+                  style={
+                    Object {
+                      "margin": "20px 0 0 0",
+                    }
+                  }
+                >
+                  "
+                  HabxProvider
+                  " Component
+                </h2>
+                <small>
+                  No propTypes defined!
+                </small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Events/notify with custom duration 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  border-radius: 3px;
+  border: none;
+  box-shadow: 0 2px 6px 0 rgba(6,26,60,0.16);
+  box-sizing: border-box;
+  cursor: pointer;
+  outline: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  vertical-align: middle;
+  text-align: left;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  line-height: 22px;
+  color: #fff;
+  background-color: #0071ce;
+  -webkit-transition: background-color 150ms ease-in-out;
+  transition: background-color 150ms ease-in-out;
+  margin: 0 4px;
+  padding: 16px 24px;
+  font-size: 18px;
+  line-height: 1.11;
+}
+
+.c0:hover,
+.c0:active {
+  background-color: rgb(51,141,216);
+}
+
+.c0:focus {
+  outline: none;
+}
+
+.c0:disabled {
+  pointer-events: none;
+  -webkit-filter: grayscale();
+  filter: grayscale();
+}
+
+.c1 {
+  position: fixed;
+  right: 20px;
+  top: 20px;
+  z-index: 50;
+  max-width: 500px;
+}
+
+<div
+  style={
+    Object {
+      "alignItems": "center",
+      "bottom": 0,
+      "display": "flex",
+      "left": 0,
+      "overflow": "auto",
+      "position": "fixed",
+      "right": 0,
+      "top": 0,
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "margin": "auto",
+        "maxHeight": "100%",
+      }
+    }
+  >
+    <div>
+      <div
+        style={
+          Object {
+            "position": "relative",
+            "zIndex": 0,
+          }
+        }
+      >
+        <button
+          className="c0"
+          onClick={[Function]}
+        >
+          <span
+            style={
+              Object {
+                "visibility": "visible",
+              }
+            }
+          >
+            Trigger event
+          </span>
+        </button>
+        <div
+          className="c1"
+        />
+      </div>
+      <button
+        onClick={[Function]}
+        style={
+          Object {
+            "background": "#28c",
+            "border": "none",
+            "borderRadius": "0 0 0 5px",
+            "color": "#fff",
+            "cursor": "pointer",
+            "display": "block",
+            "fontFamily": "sans-serif",
+            "fontSize": "12px",
+            "padding": "5px 15px",
+            "position": "fixed",
+            "right": 0,
+            "top": 0,
+          }
+        }
+        type="button"
+      >
+        Show Info
+      </button>
+      <div
+        style={
+          Object {
+            "background": "white",
+            "bottom": 0,
+            "display": "none",
+            "left": 0,
+            "overflow": "auto",
+            "padding": "0 40px",
+            "position": "fixed",
+            "right": 0,
+            "top": 0,
+            "zIndex": 99999,
+          }
+        }
+      >
+        <button
+          onClick={[Function]}
+          style={
+            Object {
+              "background": "#28c",
+              "border": "none",
+              "borderRadius": "0 0 0 5px",
+              "color": "#fff",
+              "cursor": "pointer",
+              "display": "block",
+              "fontFamily": "sans-serif",
+              "fontSize": "12px",
+              "padding": "5px 15px",
+              "position": "fixed",
+              "right": 0,
+              "top": 0,
+            }
+          }
+          type="button"
+        >
+          ×
+        </button>
+        <div>
+          <div
+            style={
+              Object {
+                "WebkitFontSmoothing": "antialiased",
+                "backgroundColor": "#fff",
+                "border": "1px solid #eee",
+                "borderRadius": "2px",
+                "color": "#444",
+                "fontFamily": "-apple-system, \\".SFNSText-Regular\\", \\"San Francisco\\", BlinkMacSystemFont, \\"Segoe UI\\", \\"Roboto\\", \\"Oxygen\\", \\"Ubuntu\\", \\"Cantarell\\", \\"Fira Sans\\", \\"Droid Sans\\", \\"Helvetica Neue\\", \\"Lucida Grande\\", \\"Arial\\", sans-serif",
+                "fontSize": "15px",
+                "fontWeight": 300,
+                "lineHeight": 1.45,
+                "marginBottom": "20px",
+                "marginTop": "20px",
+                "padding": "20px 40px 40px",
+              }
+            }
+          >
+            <div
+              style={
+                Object {
+                  "borderBottom": "1px solid #eee",
+                  "marginBottom": 10,
+                  "paddingTop": 10,
+                }
+              }
+            >
+              <h1
+                style={
+                  Object {
+                    "fontSize": "35px",
+                    "margin": 0,
+                    "padding": 0,
+                  }
+                }
+              >
+                Events/notify
+              </h1>
+              <h2
+                style={
+                  Object {
+                    "fontSize": "22px",
+                    "fontWeight": 400,
+                    "margin": "0 0 10px 0",
+                    "padding": 0,
+                  }
+                }
+              >
+                with custom duration
+              </h2>
+            </div>
+            
+            <div>
+              <h1
+                style={
+                  Object {
+                    "borderBottom": "1px solid #EEE",
+                    "fontSize": "25px",
+                    "margin": "20px 0 0 0",
+                    "padding": "0 0 5px 0",
+                  }
+                }
+              >
+                Story Source
+              </h1>
+              <pre
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "backgroundColor": "#fafafa",
+                    "display": "flex",
+                    "fontFamily": "Menlo, Monaco, \\"Courier New\\", monospace",
+                    "fontSize": ".88em",
+                    "justifyContent": "space-between",
+                    "lineHeight": 1.5,
+                    "overflowX": "scroll",
+                    "padding": ".5rem",
+                  }
+                }
+              >
+                <div>
+                  <div>
+                    <div
+                      style={
+                        Object {
+                          "paddingLeft": 18,
+                          "paddingRight": 3,
+                        }
+                      }
+                    >
+                      <span
+                        style={
+                          Object {
+                            "color": "#444",
+                          }
+                        }
+                      >
+                        &lt;
+                        HabxProvider
+                      </span>
+                      <span />
+                      <span
+                        style={
+                          Object {
+                            "color": "#444",
+                          }
+                        }
+                      >
+                        &gt;
+                      </span>
+                    </div>
+                    <div>
+                      <div
+                        style={
+                          Object {
+                            "paddingLeft": 33,
+                            "paddingRight": 3,
+                          }
+                        }
+                      >
+                        <span
+                          style={
+                            Object {
+                              "color": "#444",
+                            }
+                          }
+                        >
+                          &lt;
+                          Button
+                        </span>
+                        <span>
+                          <span>
+                             
+                            <span
+                              style={Object {}}
+                            >
+                              onClick
+                            </span>
+                            <span>
+                              =
+                              <span
+                                style={Object {}}
+                              >
+                                {
+                                <span
+                                  style={
+                                    Object {
+                                      "color": "#170",
+                                    }
+                                  }
+                                >
+                                  onClick
+                                </span>
+                                }
+                              </span>
+                            </span>
+                            
+                          </span>
+                        </span>
+                        <span
+                          style={
+                            Object {
+                              "color": "#444",
+                            }
+                          }
+                        >
+                          &gt;
+                        </span>
+                      </div>
+                      <div
+                        style={
+                          Object {
+                            "paddingLeft": 48,
+                            "paddingRight": 3,
+                          }
+                        }
+                      >
+                        <span
+                          style={
+                            Object {
+                              "color": "#444",
+                            }
+                          }
+                        >
+                          Trigger event
+                        </span>
+                      </div>
+                      <div
+                        style={
+                          Object {
+                            "paddingLeft": 33,
+                            "paddingRight": 3,
+                          }
+                        }
+                      >
+                        <span
+                          style={
+                            Object {
+                              "color": "#444",
+                            }
+                          }
+                        >
+                          &lt;/
+                          Button
+                          &gt;
+                        </span>
+                      </div>
+                    </div>
+                    <div
+                      style={
+                        Object {
+                          "paddingLeft": 18,
+                          "paddingRight": 3,
+                        }
+                      }
+                    >
+                      <span
+                        style={
+                          Object {
+                            "color": "#444",
+                          }
+                        }
+                      >
+                        &lt;/
+                        HabxProvider
+                        &gt;
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <button
+                  onClick={[Function]}
+                  style={
+                    Object {
+                      "alignSelf": "flex-start",
+                      "backgroundColor": "rgb(255, 255, 255)",
+                      "borderColor": "rgb(238, 238, 238)",
+                      "borderImage": "initial",
+                      "borderRadius": "3px",
+                      "borderStyle": "solid",
+                      "borderWidth": "1px",
+                      "cursor": "pointer",
+                      "flexShrink": "0",
+                      "fontSize": "13px",
+                      "overflow": "hidden",
+                      "padding": "3px 10px",
+                    }
+                  }
+                  type="button"
+                >
+                  Copy
+                </button>
+              </pre>
+            </div>
+            <div>
+              <h1
+                style={
+                  Object {
+                    "borderBottom": "1px solid #EEE",
+                    "fontSize": "25px",
+                    "margin": "20px 0 0 0",
+                    "padding": "0 0 5px 0",
+                  }
+                }
+              >
+                Prop Types
+              </h1>
+              <div>
+                <h2
+                  style={
+                    Object {
+                      "margin": "20px 0 0 0",
+                    }
+                  }
+                >
+                  "
+                  Button
+                  " Component
+                </h2>
+                <small>
+                  No propTypes defined!
+                </small>
+              </div>
+              <div>
+                <h2
+                  style={
+                    Object {
+                      "margin": "20px 0 0 0",
+                    }
+                  }
+                >
+                  "
+                  HabxProvider
+                  " Component
+                </h2>
+                <small>
+                  No propTypes defined!
+                </small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Events/notify without auto close 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  border-radius: 3px;
+  border: none;
+  box-shadow: 0 2px 6px 0 rgba(6,26,60,0.16);
+  box-sizing: border-box;
+  cursor: pointer;
+  outline: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  vertical-align: middle;
+  text-align: left;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  line-height: 22px;
+  color: #fff;
+  background-color: #0071ce;
+  -webkit-transition: background-color 150ms ease-in-out;
+  transition: background-color 150ms ease-in-out;
+  margin: 0 4px;
+  padding: 16px 24px;
+  font-size: 18px;
+  line-height: 1.11;
+}
+
+.c0:hover,
+.c0:active {
+  background-color: rgb(51,141,216);
+}
+
+.c0:focus {
+  outline: none;
+}
+
+.c0:disabled {
+  pointer-events: none;
+  -webkit-filter: grayscale();
+  filter: grayscale();
+}
+
+.c1 {
+  position: fixed;
+  right: 20px;
+  top: 20px;
+  z-index: 50;
+  max-width: 500px;
+}
+
+<div
+  style={
+    Object {
+      "alignItems": "center",
+      "bottom": 0,
+      "display": "flex",
+      "left": 0,
+      "overflow": "auto",
+      "position": "fixed",
+      "right": 0,
+      "top": 0,
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "margin": "auto",
+        "maxHeight": "100%",
+      }
+    }
+  >
+    <div>
+      <div
+        style={
+          Object {
+            "position": "relative",
+            "zIndex": 0,
+          }
+        }
+      >
+        <button
+          className="c0"
+          onClick={[Function]}
+        >
+          <span
+            style={
+              Object {
+                "visibility": "visible",
+              }
+            }
+          >
+            Trigger event
+          </span>
+        </button>
+        <div
+          className="c1"
+        />
+      </div>
+      <button
+        onClick={[Function]}
+        style={
+          Object {
+            "background": "#28c",
+            "border": "none",
+            "borderRadius": "0 0 0 5px",
+            "color": "#fff",
+            "cursor": "pointer",
+            "display": "block",
+            "fontFamily": "sans-serif",
+            "fontSize": "12px",
+            "padding": "5px 15px",
+            "position": "fixed",
+            "right": 0,
+            "top": 0,
+          }
+        }
+        type="button"
+      >
+        Show Info
+      </button>
+      <div
+        style={
+          Object {
+            "background": "white",
+            "bottom": 0,
+            "display": "none",
+            "left": 0,
+            "overflow": "auto",
+            "padding": "0 40px",
+            "position": "fixed",
+            "right": 0,
+            "top": 0,
+            "zIndex": 99999,
+          }
+        }
+      >
+        <button
+          onClick={[Function]}
+          style={
+            Object {
+              "background": "#28c",
+              "border": "none",
+              "borderRadius": "0 0 0 5px",
+              "color": "#fff",
+              "cursor": "pointer",
+              "display": "block",
+              "fontFamily": "sans-serif",
+              "fontSize": "12px",
+              "padding": "5px 15px",
+              "position": "fixed",
+              "right": 0,
+              "top": 0,
+            }
+          }
+          type="button"
+        >
+          ×
+        </button>
+        <div>
+          <div
+            style={
+              Object {
+                "WebkitFontSmoothing": "antialiased",
+                "backgroundColor": "#fff",
+                "border": "1px solid #eee",
+                "borderRadius": "2px",
+                "color": "#444",
+                "fontFamily": "-apple-system, \\".SFNSText-Regular\\", \\"San Francisco\\", BlinkMacSystemFont, \\"Segoe UI\\", \\"Roboto\\", \\"Oxygen\\", \\"Ubuntu\\", \\"Cantarell\\", \\"Fira Sans\\", \\"Droid Sans\\", \\"Helvetica Neue\\", \\"Lucida Grande\\", \\"Arial\\", sans-serif",
+                "fontSize": "15px",
+                "fontWeight": 300,
+                "lineHeight": 1.45,
+                "marginBottom": "20px",
+                "marginTop": "20px",
+                "padding": "20px 40px 40px",
+              }
+            }
+          >
+            <div
+              style={
+                Object {
+                  "borderBottom": "1px solid #eee",
+                  "marginBottom": 10,
+                  "paddingTop": 10,
+                }
+              }
+            >
+              <h1
+                style={
+                  Object {
+                    "fontSize": "35px",
+                    "margin": 0,
+                    "padding": 0,
+                  }
+                }
+              >
+                Events/notify
+              </h1>
+              <h2
+                style={
+                  Object {
+                    "fontSize": "22px",
+                    "fontWeight": 400,
+                    "margin": "0 0 10px 0",
+                    "padding": 0,
+                  }
+                }
+              >
+                without auto close
+              </h2>
+            </div>
+            
+            <div>
+              <h1
+                style={
+                  Object {
+                    "borderBottom": "1px solid #EEE",
+                    "fontSize": "25px",
+                    "margin": "20px 0 0 0",
+                    "padding": "0 0 5px 0",
+                  }
+                }
+              >
+                Story Source
+              </h1>
+              <pre
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "backgroundColor": "#fafafa",
+                    "display": "flex",
+                    "fontFamily": "Menlo, Monaco, \\"Courier New\\", monospace",
+                    "fontSize": ".88em",
+                    "justifyContent": "space-between",
+                    "lineHeight": 1.5,
+                    "overflowX": "scroll",
+                    "padding": ".5rem",
+                  }
+                }
+              >
+                <div>
+                  <div>
+                    <div
+                      style={
+                        Object {
+                          "paddingLeft": 18,
+                          "paddingRight": 3,
+                        }
+                      }
+                    >
+                      <span
+                        style={
+                          Object {
+                            "color": "#444",
+                          }
+                        }
+                      >
+                        &lt;
+                        HabxProvider
+                      </span>
+                      <span />
+                      <span
+                        style={
+                          Object {
+                            "color": "#444",
+                          }
+                        }
+                      >
+                        &gt;
+                      </span>
+                    </div>
+                    <div>
+                      <div
+                        style={
+                          Object {
+                            "paddingLeft": 33,
+                            "paddingRight": 3,
+                          }
+                        }
+                      >
+                        <span
+                          style={
+                            Object {
+                              "color": "#444",
+                            }
+                          }
+                        >
+                          &lt;
+                          Button
+                        </span>
+                        <span>
+                          <span>
+                             
+                            <span
+                              style={Object {}}
+                            >
+                              onClick
+                            </span>
+                            <span>
+                              =
+                              <span
+                                style={Object {}}
+                              >
+                                {
+                                <span
+                                  style={
+                                    Object {
+                                      "color": "#170",
+                                    }
+                                  }
+                                >
+                                  onClick
+                                </span>
+                                }
+                              </span>
+                            </span>
+                            
+                          </span>
+                        </span>
+                        <span
+                          style={
+                            Object {
+                              "color": "#444",
+                            }
+                          }
+                        >
+                          &gt;
+                        </span>
+                      </div>
+                      <div
+                        style={
+                          Object {
+                            "paddingLeft": 48,
+                            "paddingRight": 3,
+                          }
+                        }
+                      >
+                        <span
+                          style={
+                            Object {
+                              "color": "#444",
+                            }
+                          }
+                        >
+                          Trigger event
+                        </span>
+                      </div>
+                      <div
+                        style={
+                          Object {
+                            "paddingLeft": 33,
+                            "paddingRight": 3,
+                          }
+                        }
+                      >
+                        <span
+                          style={
+                            Object {
+                              "color": "#444",
+                            }
+                          }
+                        >
+                          &lt;/
+                          Button
+                          &gt;
+                        </span>
+                      </div>
+                    </div>
+                    <div
+                      style={
+                        Object {
+                          "paddingLeft": 18,
+                          "paddingRight": 3,
+                        }
+                      }
+                    >
+                      <span
+                        style={
+                          Object {
+                            "color": "#444",
+                          }
+                        }
+                      >
+                        &lt;/
+                        HabxProvider
+                        &gt;
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <button
+                  onClick={[Function]}
+                  style={
+                    Object {
+                      "alignSelf": "flex-start",
+                      "backgroundColor": "rgb(255, 255, 255)",
+                      "borderColor": "rgb(238, 238, 238)",
+                      "borderImage": "initial",
+                      "borderRadius": "3px",
+                      "borderStyle": "solid",
+                      "borderWidth": "1px",
+                      "cursor": "pointer",
+                      "flexShrink": "0",
+                      "fontSize": "13px",
+                      "overflow": "hidden",
+                      "padding": "3px 10px",
+                    }
+                  }
+                  type="button"
+                >
+                  Copy
+                </button>
+              </pre>
+            </div>
+            <div>
+              <h1
+                style={
+                  Object {
+                    "borderBottom": "1px solid #EEE",
+                    "fontSize": "25px",
+                    "margin": "20px 0 0 0",
+                    "padding": "0 0 5px 0",
+                  }
+                }
+              >
+                Prop Types
+              </h1>
+              <div>
+                <h2
+                  style={
+                    Object {
+                      "margin": "20px 0 0 0",
+                    }
+                  }
+                >
+                  "
+                  Button
+                  " Component
+                </h2>
+                <small>
+                  No propTypes defined!
+                </small>
+              </div>
+              <div>
+                <h2
+                  style={
+                    Object {
+                      "margin": "20px 0 0 0",
+                    }
+                  }
+                >
+                  "
+                  HabxProvider
+                  " Component
+                </h2>
+                <small>
+                  No propTypes defined!
+                </small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`Storyshots Inputs/ArrayInput basic 1`] = `
 .c7 {
   border: none;
