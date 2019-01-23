@@ -30827,7 +30827,7 @@ exports[`Storyshots Miscellaneous/Modal full example 1`] = `
       >
         <div
           className="c0"
-          data-state="opened"
+          data-state="opening"
         >
           <div>
             <div
@@ -31803,6 +31803,66 @@ exports[`Storyshots Miscellaneous/Modal full example 1`] = `
                         }
                       />
                     </tr>
+                    <tr>
+                      <td
+                        style={
+                          Object {
+                            "paddingRight": 10,
+                            "verticalAlign": "top",
+                          }
+                        }
+                      >
+                        persistent
+                      </td>
+                      <td
+                        style={
+                          Object {
+                            "paddingRight": 10,
+                            "verticalAlign": "top",
+                          }
+                        }
+                      >
+                        <span>
+                          unknown
+                        </span>
+                      </td>
+                      <td
+                        style={
+                          Object {
+                            "paddingRight": 10,
+                            "verticalAlign": "top",
+                          }
+                        }
+                      >
+                        -
+                      </td>
+                      <td
+                        style={
+                          Object {
+                            "paddingRight": 10,
+                            "verticalAlign": "top",
+                          }
+                        }
+                      >
+                        <span
+                          style={
+                            Object {
+                              "color": "#a11",
+                            }
+                          }
+                        >
+                          false
+                        </span>
+                      </td>
+                      <td
+                        style={
+                          Object {
+                            "paddingRight": 10,
+                            "verticalAlign": "top",
+                          }
+                        }
+                      />
+                    </tr>
                   </tbody>
                 </table>
               </div>
@@ -31920,7 +31980,7 @@ exports[`Storyshots Miscellaneous/Modal large 1`] = `
       >
         <div
           className="c0"
-          data-state="opened"
+          data-state="opening"
         >
           <div>
             <div
@@ -32577,6 +32637,66 @@ exports[`Storyshots Miscellaneous/Modal large 1`] = `
                         }
                       />
                     </tr>
+                    <tr>
+                      <td
+                        style={
+                          Object {
+                            "paddingRight": 10,
+                            "verticalAlign": "top",
+                          }
+                        }
+                      >
+                        persistent
+                      </td>
+                      <td
+                        style={
+                          Object {
+                            "paddingRight": 10,
+                            "verticalAlign": "top",
+                          }
+                        }
+                      >
+                        <span>
+                          unknown
+                        </span>
+                      </td>
+                      <td
+                        style={
+                          Object {
+                            "paddingRight": 10,
+                            "verticalAlign": "top",
+                          }
+                        }
+                      >
+                        -
+                      </td>
+                      <td
+                        style={
+                          Object {
+                            "paddingRight": 10,
+                            "verticalAlign": "top",
+                          }
+                        }
+                      >
+                        <span
+                          style={
+                            Object {
+                              "color": "#a11",
+                            }
+                          }
+                        >
+                          false
+                        </span>
+                      </td>
+                      <td
+                        style={
+                          Object {
+                            "paddingRight": 10,
+                            "verticalAlign": "top",
+                          }
+                        }
+                      />
+                    </tr>
                   </tbody>
                 </table>
               </div>
@@ -32710,7 +32830,7 @@ exports[`Storyshots Miscellaneous/Modal small 1`] = `
       >
         <div
           className="c0"
-          data-state="opened"
+          data-state="opening"
         >
           <div>
             <div
@@ -33189,6 +33309,66 @@ exports[`Storyshots Miscellaneous/Modal small 1`] = `
                         }
                       />
                     </tr>
+                    <tr>
+                      <td
+                        style={
+                          Object {
+                            "paddingRight": 10,
+                            "verticalAlign": "top",
+                          }
+                        }
+                      >
+                        persistent
+                      </td>
+                      <td
+                        style={
+                          Object {
+                            "paddingRight": 10,
+                            "verticalAlign": "top",
+                          }
+                        }
+                      >
+                        <span>
+                          unknown
+                        </span>
+                      </td>
+                      <td
+                        style={
+                          Object {
+                            "paddingRight": 10,
+                            "verticalAlign": "top",
+                          }
+                        }
+                      >
+                        -
+                      </td>
+                      <td
+                        style={
+                          Object {
+                            "paddingRight": 10,
+                            "verticalAlign": "top",
+                          }
+                        }
+                      >
+                        <span
+                          style={
+                            Object {
+                              "color": "#a11",
+                            }
+                          }
+                        >
+                          false
+                        </span>
+                      </td>
+                      <td
+                        style={
+                          Object {
+                            "paddingRight": 10,
+                            "verticalAlign": "top",
+                          }
+                        }
+                      />
+                    </tr>
                   </tbody>
                 </table>
               </div>
@@ -33322,7 +33502,7 @@ exports[`Storyshots Miscellaneous/Modal with render props 1`] = `
       >
         <div
           className="c0"
-          data-state="opened"
+          data-state="opening"
         >
           <div>
             <div
@@ -33331,7 +33511,7 @@ exports[`Storyshots Miscellaneous/Modal with render props 1`] = `
               <div
                 className="c4"
               >
-                Current state : opened
+                Current state : opening
               </div>
             </div>
           </div>
@@ -33732,6 +33912,66 @@ exports[`Storyshots Miscellaneous/Modal with render props 1`] = `
                         }
                       />
                     </tr>
+                    <tr>
+                      <td
+                        style={
+                          Object {
+                            "paddingRight": 10,
+                            "verticalAlign": "top",
+                          }
+                        }
+                      >
+                        persistent
+                      </td>
+                      <td
+                        style={
+                          Object {
+                            "paddingRight": 10,
+                            "verticalAlign": "top",
+                          }
+                        }
+                      >
+                        <span>
+                          unknown
+                        </span>
+                      </td>
+                      <td
+                        style={
+                          Object {
+                            "paddingRight": 10,
+                            "verticalAlign": "top",
+                          }
+                        }
+                      >
+                        -
+                      </td>
+                      <td
+                        style={
+                          Object {
+                            "paddingRight": 10,
+                            "verticalAlign": "top",
+                          }
+                        }
+                      >
+                        <span
+                          style={
+                            Object {
+                              "color": "#a11",
+                            }
+                          }
+                        >
+                          false
+                        </span>
+                      </td>
+                      <td
+                        style={
+                          Object {
+                            "paddingRight": 10,
+                            "verticalAlign": "top",
+                          }
+                        }
+                      />
+                    </tr>
                   </tbody>
                 </table>
               </div>
@@ -33849,7 +34089,7 @@ exports[`Storyshots Miscellaneous/Modal with scroll 1`] = `
       >
         <div
           className="c0"
-          data-state="opened"
+          data-state="opening"
         >
           <div>
             <div
@@ -34794,6 +35034,66 @@ exports[`Storyshots Miscellaneous/Modal with scroll 1`] = `
                         }
                       />
                     </tr>
+                    <tr>
+                      <td
+                        style={
+                          Object {
+                            "paddingRight": 10,
+                            "verticalAlign": "top",
+                          }
+                        }
+                      >
+                        persistent
+                      </td>
+                      <td
+                        style={
+                          Object {
+                            "paddingRight": 10,
+                            "verticalAlign": "top",
+                          }
+                        }
+                      >
+                        <span>
+                          unknown
+                        </span>
+                      </td>
+                      <td
+                        style={
+                          Object {
+                            "paddingRight": 10,
+                            "verticalAlign": "top",
+                          }
+                        }
+                      >
+                        -
+                      </td>
+                      <td
+                        style={
+                          Object {
+                            "paddingRight": 10,
+                            "verticalAlign": "top",
+                          }
+                        }
+                      >
+                        <span
+                          style={
+                            Object {
+                              "color": "#a11",
+                            }
+                          }
+                        >
+                          false
+                        </span>
+                      </td>
+                      <td
+                        style={
+                          Object {
+                            "paddingRight": 10,
+                            "verticalAlign": "top",
+                          }
+                        }
+                      />
+                    </tr>
                   </tbody>
                 </table>
               </div>
@@ -34947,7 +35247,7 @@ exports[`Storyshots Miscellaneous/Modal with title 1`] = `
       >
         <div
           className="c0"
-          data-state="opened"
+          data-state="opening"
         >
           <div>
             <div
@@ -35591,6 +35891,66 @@ exports[`Storyshots Miscellaneous/Modal with title 1`] = `
                         }
                       >
                         open
+                      </td>
+                      <td
+                        style={
+                          Object {
+                            "paddingRight": 10,
+                            "verticalAlign": "top",
+                          }
+                        }
+                      >
+                        <span>
+                          unknown
+                        </span>
+                      </td>
+                      <td
+                        style={
+                          Object {
+                            "paddingRight": 10,
+                            "verticalAlign": "top",
+                          }
+                        }
+                      >
+                        -
+                      </td>
+                      <td
+                        style={
+                          Object {
+                            "paddingRight": 10,
+                            "verticalAlign": "top",
+                          }
+                        }
+                      >
+                        <span
+                          style={
+                            Object {
+                              "color": "#a11",
+                            }
+                          }
+                        >
+                          false
+                        </span>
+                      </td>
+                      <td
+                        style={
+                          Object {
+                            "paddingRight": 10,
+                            "verticalAlign": "top",
+                          }
+                        }
+                      />
+                    </tr>
+                    <tr>
+                      <td
+                        style={
+                          Object {
+                            "paddingRight": 10,
+                            "verticalAlign": "top",
+                          }
+                        }
+                      >
+                        persistent
                       </td>
                       <td
                         style={
