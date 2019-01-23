@@ -3,7 +3,7 @@ import * as React from 'react'
 import ConfirmModals from '../confirm/ConfirmModals'
 import NotificationList from '../notify/NotificationList'
 
-class HabxProvider extends React.PureComponent<any> {
+class HabxProvider extends React.Component<any> {
   render () {
     return (
       <React.Fragment>
