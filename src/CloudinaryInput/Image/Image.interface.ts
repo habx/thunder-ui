@@ -1,6 +1,6 @@
-import DomInterface from '../../internal/domInterface'
+import DomInterface from '../../_internal/domInterface'
 
-export interface CloudinaryImage {
+export type CloudinaryImage = {
   secure_url: string
   public_id: string
   version: number,
@@ -8,12 +8,12 @@ export interface CloudinaryImage {
   width: number
 }
 
-export interface ACECloudinaryImage {
+export type ACECloudinaryImage = {
   id: string
   transforms?: object[]
 }
 
-export interface ImageFile {
+export type ImageFile = {
   type: string
   size: number
 }

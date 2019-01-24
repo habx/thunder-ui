@@ -2,8 +2,7 @@
   Typography
  */
 export { default as Title } from './Title'
-export { default as SectionTitle } from './SectionTitle'
-export { default as Annotation } from './Annotation'
+export { default as FontIcon } from './FontIcon'
 
 /*
   Navigation
@@ -40,7 +39,6 @@ export { default as CloudinaryInput } from './CloudinaryInput'
 export { default as Progress } from './Progress'
 export { default as Tag } from './Tag/index'
 export { default as Notification } from './Notification'
-export { default as FontIcon } from './FontIcon'
 export { default as Card } from './Card'
 export { default as Modal } from './Modal'
 export { default as Spinner } from './Spinner'

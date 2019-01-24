@@ -87,10 +87,10 @@ const Input = styled.input.attrs(prepareProps)`
   `};
 `
 
-const TextInput: React.StatelessComponent<TextInputProps> = ({ onChange, isLoading, rightHoverElement, rightElement, inputRef, ...props }) => (
+const TextInput: React.StatelessComponent<TextInputProps> = ({ onChange, loading, rightHoverElement, rightElement, inputRef, ...props }) => (
   <InputContainer {...props}>
-    <Input {...props} onChange={e => onChange(e.target.value)} isLoading={isLoading} ref={inputRef} />
-    {isLoading && <InputSpinner size={15} />}
+    <Input {...props} onChange={e => onChange(e.target.value)} loading={loading} ref={inputRef} />
+    {loading && <InputSpinner size={15} />}
     {rightHoverElement && <RightElementContainer {...props} className='hover-element-right'>{rightHoverElement}</RightElementContainer>}
     {rightElement && <RightElementContainer {...props}>{rightElement}</RightElementContainer>}
   </InputContainer>
@@ -98,7 +98,7 @@ const TextInput: React.StatelessComponent<TextInputProps> = ({ onChange, isLoadi
 
 TextInput.defaultProps = {
   onChange: () => null,
-  isLoading: false,
+  loading: false,
   rightElement: null,
   rightHoverElement: null,
   inputRef: () => null

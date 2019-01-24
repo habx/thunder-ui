@@ -1,9 +1,9 @@
 import * as React from 'react'
-import DOMInterface from '../internal/domInterface'
+import DOMInterface from '../_internal/domInterface'
 
 export default interface TextInputProps extends DOMInterface {
   onChange?: (value) => void
-  isLoading?: boolean
+  loading?: boolean
   rightElement?: React.ReactNode
   rightHoverElement?: React.ReactNode
   activeBorderColor?: string

@@ -1,5 +1,5 @@
-import DOMInterface from '../internal/domInterface'
-import { formValue, formOption } from '../internal/types'
+import DOMInterface from '../_internal/domInterface'
+import { formValue, formOption } from '../_internal/types'
 
 export default interface RadioSelectProps extends DOMInterface {
   options: formOption[]

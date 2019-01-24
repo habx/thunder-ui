@@ -8,7 +8,7 @@ import FontIcon from '../FontIcon'
 import { Thunder, Section, Item, WelcomeMessage } from './index'
 import { data, darkTheme } from './Thunder.data'
 
-import { searchInString } from '../internal/strings'
+import { searchInString } from '../_internal/strings'
 
 const withQueryControl = withState('query', 'onQueryChange', 'france')
 
@@ -16,7 +16,7 @@ const BasicSection: React.StatelessComponent<any> = ({ query }) => (
   <React.Fragment>
     {map(
       filter(data.countries, country => searchInString(country, query)),
-      (country, index) => <Item key={country} title={country} index={index} />
+      (country: string, index) => <Item key={country} title={country} index={index} />
     )}
   </React.Fragment>
 )

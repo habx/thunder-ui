@@ -1,19 +1,20 @@
 import * as React from 'react'
 
-import DOMInterface from '../../internal/domInterface'
+import DOMInterface from '../../_internal/domInterface'
 
 export default interface ItemProps extends DOMInterface {
   index: number
   title: string
   subtitle?: string
+  href?: string
+  target?: string
   icon?: React.ReactNode
   iconStyle?: React.CSSProperties
   as?: React.ComponentClass<any> | React.StatelessComponent<any> | string
   refPropName?: string
-  onDelete: () => void
-  onEdit: (value: any) => void
+  onDelete?: () => void
+  onEdit?: (value: any) => void
   focusOnRender?: boolean
-  href?: string
 }
 
 export interface ItemInnerProps extends ItemProps {

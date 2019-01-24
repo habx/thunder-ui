@@ -4,7 +4,7 @@ import { omit } from 'lodash'
 import FontIcon from '../../FontIcon'
 import Highlight from '../Highlight'
 
-import { ItemContainer, ItemContent, ItemTitle, ItemActions, ItemIcon, ItemTitleInput, Title, Subtitle } from './Item.style'
+import { ItemContainer, ItemContent, ItemTitle, ItemActions, ItemIconContainer, ItemTitleInput, Title, Subtitle } from './Item.style'
 import { ItemInnerProps } from './Item.interface'
 
 const INTERNAL_PROPS = [
@@ -28,15 +28,8 @@ class Item extends React.PureComponent<ItemInnerProps> {
   private readonly itemContainerRef: React.RefObject<any>
 
   static defaultProps = {
-    onClick: () => null,
-    subtitle: '',
-    onDelete: null,
-    onEdit: null,
     focusOnRender: false,
     refPropName: 'ref',
-    iconStyle: null,
-    icon: null,
-    href: null,
     as: 'div'
   }
 
@@ -154,7 +147,6 @@ class Item extends React.PureComponent<ItemInnerProps> {
       icon,
       onDelete,
       onEdit,
-      iconStyle,
       query
     } = this.props
 
@@ -172,9 +164,9 @@ class Item extends React.PureComponent<ItemInnerProps> {
         >
           {
             icon && (
-              <ItemIcon style={iconStyle}>
+              <ItemIconContainer>
                 {icon}
-              </ItemIcon>
+              </ItemIconContainer>
             )
           }
           <ItemContent>

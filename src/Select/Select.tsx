@@ -5,8 +5,8 @@ import Annotation from '../Annotation'
 import FontIcon from '../FontIcon'
 import withLabel from '../withLabel'
 
-import { searchInString } from '../internal/strings'
-import { formOption } from '../internal/types'
+import { searchInString } from '../_internal/strings'
+import { formOption } from '../_internal/types'
 
 import SelectProps, { SelectState } from './Select.interface'
 

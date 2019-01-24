@@ -2,29 +2,13 @@ import styled, { css } from 'styled-components'
 import color from 'color'
 import Spinner from '../Spinner'
 
-import colors from '../colors'
 import fontSizes from '../fontSizes'
 import borderRadius from '../borderRadius'
 import shadows from '../shadows'
+import { getMainColor } from '../_internal/colors'
 
 const WHITE = color('#fff')
 const BLACK = color('#000')
-
-const findMainColor = props => {
-  if (props.backgroundColor) {
-    return props.backgroundColor
-  }
-
-  if (props.info) {
-    return colors.trueBlue
-  }
-
-  if (props.warning) {
-    return colors.popstar
-  }
-
-  return colors.trueBlue
-}
 
 const findSecondaryColor = props => {
   if (props.textColor) {
@@ -34,9 +18,16 @@ const findSecondaryColor = props => {
 }
 
 const prepareProps = props => {
-  const backgroundColor = props.reverse ? findSecondaryColor(props) : findMainColor(props)
-  const textColor = props.reverse ? findMainColor(props) : findSecondaryColor(props)
+  const backgroundColor = props.reverse ?
+    findSecondaryColor(props) :
+    getMainColor(props, 'backgroundColor')
+
+  const textColor = props.reverse ?
+    getMainColor(props, 'backgroundColor') :
+    findSecondaryColor(props)
+
   const hoverMixColor = props.reverse ? BLACK : WHITE
+
   return {
     backgroundColor,
     textColor,
@@ -45,11 +36,12 @@ const prepareProps = props => {
 }
 
 export const IconContainer = styled.span`
-  i {
-    vertical-align: top;
-    margin-right: ${({ left }) => (left ? '4px' : 0)};
-    margin-left: ${({ right }) => (right ? '4px' : 0)};
-  }
+  display: flex;
+  flex-direction: column;
+  align-self: stretch;
+  justify-content: center;
+  margin-right: ${({ position }) => (position === 'left' ? '8px' : 0)};
+  margin-left: ${({ position }) => (position === 'right' ? '8px' : 0)};
 `
 
 export const ButtonContainer = styled.button.attrs(prepareProps)`
@@ -87,7 +79,7 @@ export const ButtonContainer = styled.button.attrs(prepareProps)`
 
   &:disabled {
     pointer-events: none;
-    ${({ isLoading }) => !isLoading && css`
+    ${({ loading }) => !loading && css`
       filter:  grayscale();
     `}}
   }

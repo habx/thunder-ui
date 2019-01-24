@@ -1,35 +1,16 @@
 import styled from 'styled-components'
-import color from 'color'
 
-import colors from '../colors'
 import fontSizes from '../fontSizes'
+import { getMainColor, getHoverColor } from '../_internal/colors'
 
 import TextButtonProps from './TextButton.interface'
 
-const WHITE = color('#fff')
-
-const findBaseColor = props => {
-  if (props.color) {
-    return props.color
-  }
-
-  if (props.info) {
-    return colors.trueBlue
-  }
-
-  if (props.warning) {
-    return colors.popstar
-  }
-
-  return colors.trueBlue
-}
-
 const prepareProps = props => {
-  const baseColor = findBaseColor(props)
+  const color = getMainColor(props)
 
   return {
-    color: baseColor,
-    hoverColor: props.hoverColor || color(baseColor).mix(WHITE, 0.2).string()
+    color,
+    hoverColor: getHoverColor(color, props)
   }
 }
 
@@ -45,7 +26,7 @@ const TextButton: React.StatelessComponent<TextButtonProps> = styled.button.attr
 
   transition: color 150ms ease-in-out;
 
-  color: ${({ color: textColor }) => textColor};
+  color: ${({ color }) => color};
 
   cursor: pointer;
   user-select: none;

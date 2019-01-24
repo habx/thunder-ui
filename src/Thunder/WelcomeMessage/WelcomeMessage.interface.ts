@@ -1,3 +1,3 @@
-import DOMInterface from '../../internal/domInterface'
+import DOMInterface from '../../_internal/domInterface'
 
 export default DOMInterface

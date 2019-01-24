@@ -1,5 +1,5 @@
 import * as React from 'react'
-import DOMInterface from '../internal/domInterface'
+import DOMInterface from '../_internal/domInterface'
 
 export default interface ArrayInputProps extends DOMInterface {
   addButtonLabel?: string,
