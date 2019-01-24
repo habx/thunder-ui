@@ -28,7 +28,7 @@ const ItemHeader: React.StatelessComponent<ItemProps> = ({
       <ItemHeaderContent>
         {
           ItemTitleComponent &&
-          <ItemTitleComponent item={item} index={index} editing={isOpen} />
+          <ItemTitleComponent value={item} index={index} editing={isOpen} />
         }
       </ItemHeaderContent>
         <ItemActions>
