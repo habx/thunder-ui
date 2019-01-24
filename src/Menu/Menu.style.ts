@@ -19,7 +19,6 @@ export const MenuContainer = styled.div.attrs(prepareProps)`
   opacity: 0;
   z-index: 100;
   pointer-events: none;
-  background-color: white;
 
   transition: opacity ease-in-out 150ms;
 
@@ -33,6 +32,7 @@ export const MenuContent = styled.ul`
   box-shadow: ${shadows.light};
   border-radius: ${borderRadius.narrow};
   padding: 8px 0;
+  background-color: white;
 
   list-style-type: none;
 `
