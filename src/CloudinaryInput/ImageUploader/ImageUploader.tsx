@@ -26,7 +26,7 @@ class ImageUploader extends React.PureComponent<ImageUploaderProps, ImageUploade
   static getDerivedStateFromProps (nextProps, prevState) {
     const { image } = nextProps
 
-    if (image !== prevState.fieldImage) {
+    if (image && image !== prevState.fieldImage) {
       const directory = initial(image.id.split('/').filter(el => el !== '')).join('/')
 
       return {
@@ -46,7 +46,7 @@ class ImageUploader extends React.PureComponent<ImageUploaderProps, ImageUploade
     fieldImageConfig: null as CloudinaryImage,
     customizedImage: null as ACECloudinaryImage,
     page: 'directory',
-    directory: this.props.defaultDirectory || 'logos',
+    directory: this.props.defaultDirectory || 'cities',
     fetchFieldImagePromise: null,
     images: []
   }
@@ -141,7 +141,7 @@ class ImageUploader extends React.PureComponent<ImageUploaderProps, ImageUploade
   saveImages = images => setTimeout(() => this.setState(() => ({ images })))
 
   fetchFieldImageConfig = async (image: ACECloudinaryImage) => {
-    if (image.id && !this.state.fetchFieldImagePromise) {
+    if (image && image.id && !this.state.fetchFieldImagePromise) {
       const fetchFieldImagePromise = this.props.fetchImageConfig(image.id)
       this.setState(() => ({ fetchFieldImagePromise }))
 
