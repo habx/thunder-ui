@@ -82,7 +82,6 @@ class CountryArrayInput extends React.Component<any, any> {
             onDelete={this.handleDelete}
             onReorder={this.handleReorder}
             itemComponent={CountryArrayInputElement}
-            itemTitle={() => 'Title here'}
             {...this.props}
           />
         </Context.Provider>
