@@ -4,13 +4,16 @@ import shadows from '../shadows'
 import borderRadius from '../borderRadius'
 
 const prepareProps = ({ position }) => ({
-  left: position === 'left' ? '4px' : 'unset',
-  right: position === 'right' ? '4px' : 'unset'
+  left: ['left', 'top-left'].includes(position) ? '4px' : 'unset',
+  right: ['right', 'top-right'].includes(position) ? '4px' : 'unset',
+  bottom: ['top-left', 'top-right'].includes(position) ? 'calc(100% + 4px)' : 'unset',
+  top: ['top-left', 'top-right'].includes(position) ? 'unset' : 'calc(100% + 4px)'
 })
 
 export const MenuContainer = styled.div.attrs(prepareProps)`
   position: absolute;
-  top: calc(100% + 4px);
+  top: ${({ top }) => top};
+  bottom: ${({ bottom }) => bottom};
   left: ${({ left }) => left};
   right: ${({ right }) => right};
   opacity: 0;

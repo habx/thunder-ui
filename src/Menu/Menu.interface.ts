@@ -4,5 +4,5 @@ import DOMInterface from '../internal/domInterface'
 
 export default interface MenuProps extends DOMInterface {
   triggerElement: React.ReactElement<any>
-  position?: 'left' | 'right'
+  position?: 'left' | 'right' | 'top-left' | 'top-right'
 }
