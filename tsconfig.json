@@ -3,7 +3,7 @@
     "jsx": "react",
     "rootDirs": ["./src", "./.storybook"],
     "outDir": "./lib",
-    "lib": ["es2015", "dom"],
+    "lib": ["es7", "dom"],
     "moduleResolution": "node",
     "removeComments": true,
     "sourceMap": true,

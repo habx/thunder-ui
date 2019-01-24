@@ -14,7 +14,7 @@ const Container = styled.div`
 
 const props = () => ({
   triggerElement: <Button>Menu</Button>,
-  position: select('Position', { Left: 'left', Right: 'right' }, 'left')
+  position: select('Position', { Left: 'left', Right: 'right', TopRight: 'top-right', TopLeft: 'top-left' }, 'left')
 })
 
 storiesOf('Actions/Menu', module)
@@ -30,6 +30,15 @@ storiesOf('Actions/Menu', module)
   ))
   .add('with icons', () => (
     <Menu {...props()}>
+      <Container>
+        <MenuItem icon={<FontIcon icon='people' />}>Gestion des contacts</MenuItem>
+        <MenuItem icon={<FontIcon icon='location_city' />}>Gestion des projets</MenuItem>
+        <MenuItem icon={<FontIcon icon='create' />}>Gestion des pages</MenuItem>
+      </Container>
+    </Menu>
+  ))
+  .add('in top position', () => (
+    <Menu {...props()} position='top-left'>
       <Container>
         <MenuItem icon={<FontIcon icon='people' />}>Gestion des contacts</MenuItem>
         <MenuItem icon={<FontIcon icon='location_city' />}>Gestion des projets</MenuItem>
