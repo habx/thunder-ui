@@ -1,5 +1,11 @@
+import * as React from 'react'
+
 import withItemBehavior from './withItemBehavior'
 
-import Item from './Item'
+import BaseItem from './Item'
 
-export default withItemBehavior(Item)
+import ItemProps from './Item.interface'
+
+const Item: React.StatelessComponent<ItemProps> = withItemBehavior(BaseItem)
+
+export default Item

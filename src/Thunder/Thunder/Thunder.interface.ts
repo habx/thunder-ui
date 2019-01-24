@@ -1,4 +1,6 @@
-import DOMInterface from '../../internal/domInterface'
+import * as React from 'react'
+
+import DOMInterface from '../../_internal/domInterface'
 
 type themeType = {
   background?: string
@@ -18,7 +20,7 @@ type themeType = {
     subtitle?: string
     focus?: string
     actionIcon?: string
-    icon?: string
+    icon?: React.ReactNode
     iconBackground?: string
     highlight?: string
     subtitleFont?: string

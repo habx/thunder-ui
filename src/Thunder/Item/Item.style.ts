@@ -77,7 +77,7 @@ export const ItemActions = styled.div`
   }
 `
 
-export const ItemIcon = styled.div`
+export const ItemIconContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;

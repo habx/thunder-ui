@@ -1,7 +1,7 @@
 import ModalProps from '../../Modal/Modal.interface'
 import { CloudinaryImage, ACECloudinaryImage, ImageFile } from '../Image/Image.interface'
 
-export interface RenderParams {
+export type RenderParams = {
   directory: string
   renderImage: (image: CloudinaryImage) => JSX.Element
 }

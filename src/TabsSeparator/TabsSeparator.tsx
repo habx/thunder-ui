@@ -1,6 +1,6 @@
 import * as React from 'react'
 import styled from 'styled-components'
-import DOMInterface from '../internal/domInterface'
+import DOMInterface from '../_internal/domInterface'
 
 const TabsSeparator: React.StatelessComponent<DOMInterface> = styled.div`
   background-color: #e0e0e0;

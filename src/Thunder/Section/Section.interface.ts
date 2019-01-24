@@ -1,7 +1,7 @@
 import * as React from 'react'
 
-import DOMInterface from '../../internal/domInterface'
-import { thunderContext } from '../../internal/types'
+import DOMInterface from '../../_internal/domInterface'
+import { thunderContext } from '../../_internal/types'
 
 export default interface SectionProps extends DOMInterface {
   name: string,

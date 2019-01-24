@@ -7,7 +7,11 @@ import { ItemContainer, ItemContent, ItemDescription } from './ArrayInput.style'
 import ItemProps from './Item.interface'
 
 const Item: React.StatelessComponent<ItemProps> = ({
-  context: { editing, itemComponent: ItemComponent, itemDescription },
+  context: {
+    editing,
+    itemComponent: ItemComponent,
+    itemDescriptionComponent: ItemDescriptionComponent
+  },
   index,
   item
 }) => {
@@ -24,9 +28,9 @@ const Item: React.StatelessComponent<ItemProps> = ({
         )
       }
       {
-        !isEditing && itemDescription && (
+        !isEditing && ItemDescriptionComponent && (
           <ItemDescription>
-            {itemDescription(item, index)}
+            {<ItemDescriptionComponent item={item} index={index} />}
           </ItemDescription>
         )
       }

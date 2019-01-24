@@ -2,7 +2,7 @@ import * as React from 'react'
 import styled from 'styled-components'
 import colorUtil from 'color'
 
-import { generateColorFromSeed } from '../internal/colors'
+import { generateColorFromSeed } from '../_internal/colors'
 import colors from '../colors'
 
 import TagProps from './Tag.interface'

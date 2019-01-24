@@ -1,12 +1,11 @@
 import * as React from 'react'
 import { find, filter, findIndex, isEmpty, map, get, some, omit, has } from 'lodash'
 
-import Annotation from '../Annotation'
 import FontIcon from '../FontIcon'
 import withLabel from '../withLabel'
 
-import { searchInString } from '../internal/strings'
-import { formOption } from '../internal/types'
+import { searchInString } from '../_internal/strings'
+import { formOption } from '../_internal/types'
 
 import SelectProps, { SelectState } from './Select.interface'
 
@@ -17,6 +16,7 @@ import {
   LabelIcons,
   Options,
   Description,
+  DescriptionAnnotation,
   OptionsActions,
   OptionAction,
   CustomIconContainer
@@ -307,7 +307,7 @@ class Select extends React.Component<SelectProps, SelectState> {
           {description && (
             <Description>
               <div>{description}</div>
-              <Annotation>{annotation}</Annotation>
+              <DescriptionAnnotation>{annotation}</DescriptionAnnotation>
             </Description>
           )}
           {options.length > 0

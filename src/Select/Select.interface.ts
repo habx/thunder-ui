@@ -1,7 +1,7 @@
 import * as React from 'react'
 
-import DOMInterface from '../internal/domInterface'
-import { formOption, formValue } from '../internal/types'
+import DOMInterface from '../_internal/domInterface'
+import { formOption, formValue } from '../_internal/types'
 
 export default interface SelectProps extends DOMInterface {
   placeholder?: string
