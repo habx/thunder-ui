@@ -91,27 +91,33 @@ class CountryArrayInput extends React.Component<any, any> {
   }
 }
 
+const ItemTitle = ({ item }) => (item.name ? `${item.name} (${item.country})` : 'Empty element')
+
+const ItemTitleSimple = ({ item }) => item.name
+
+const ItemDescription = ({ item }) => `Country: ${item.country}`
+
 storiesOf('Inputs/ArrayInput', module)
   .add('basic', () => (
     <CountryArrayInput
-      itemTitle={item => (item.name ? `${item.name} (${item.country})` : 'Empty element')}
+      itemTitleComponent={ItemTitle}
     />
   ))
   .add('with description line', () => (
     <CountryArrayInput
-      itemTitle={item => item.name}
-      itemDescription={item => `Country: ${item.country}`}
+      itemTitleComponent={ItemTitleSimple}
+      itemDescriptionComponent={ItemDescription}
     />
   ))
   .add('with order change allowed', () => (
     <CountryArrayInput
-      itemTitle={item => (item.name ? `${item.name} (${item.country})` : 'Empty element')}
+      itemTitleComponent={ItemTitle}
       canBeReordered
     />
   ))
   .add('with add button custom label', () => (
     <CountryArrayInput
-      itemTitle={item => (item.name ? `${item.name} (${item.country})` : 'Empty element')}
+      itemTitleComponent={ItemTitle}
       addButtonLabel='Add a city'
     />
   ))

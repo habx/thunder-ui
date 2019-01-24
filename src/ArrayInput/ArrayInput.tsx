@@ -13,9 +13,7 @@ import { ArrayInputContainer, ArrayInputAction } from './ArrayInput.style'
 class ArrayInput extends React.Component<ArrayInputProps, ArrayInputState> {
   static defaultProps = {
     addButtonLabel: 'Ajouter un élément',
-    itemDescription: null,
-    canBeReordered: false,
-    onReorder: null
+    canBeReordered: false
   }
 
   static getDerivedStateFromProps (nextProps, prevState) {
@@ -52,7 +50,7 @@ class ArrayInput extends React.Component<ArrayInputProps, ArrayInputState> {
 
   buildContext () {
     return {
-      ...pick(this.props, ['itemTitle', 'itemDescription', 'itemComponent', 'canBeReordered']),
+      ...pick(this.props, ['itemTitleComponent', 'itemDescriptionComponent', 'itemComponent', 'canBeReordered']),
       ...pick(this.state, ['editing']),
       amount: this.props.items.length,
       onOpen: this.handleEditStart,

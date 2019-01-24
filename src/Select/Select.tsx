@@ -1,7 +1,6 @@
 import * as React from 'react'
 import { find, filter, findIndex, isEmpty, map, get, some, omit, has } from 'lodash'
 
-import Annotation from '../Annotation'
 import FontIcon from '../FontIcon'
 import withLabel from '../withLabel'
 
@@ -17,6 +16,7 @@ import {
   LabelIcons,
   Options,
   Description,
+  DescriptionAnnotation,
   OptionsActions,
   OptionAction,
   CustomIconContainer
@@ -307,7 +307,7 @@ class Select extends React.Component<SelectProps, SelectState> {
           {description && (
             <Description>
               <div>{description}</div>
-              <Annotation>{annotation}</Annotation>
+              <DescriptionAnnotation>{annotation}</DescriptionAnnotation>
             </Description>
           )}
           {options.length > 0

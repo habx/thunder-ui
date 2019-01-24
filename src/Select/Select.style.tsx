@@ -125,6 +125,11 @@ export const Description = styled.div`
   border-bottom: solid 1px #5a6e85; // TODO : Add to colors
 `
 
+export const DescriptionAnnotation = styled.div`
+  font-size: ${fontSizes.tiny};
+  color: ${colors.paynesGrey};
+`
+
 export const CustomIconContainer = styled.div`
   margin-right: 8px;
   align-self: stretch;
