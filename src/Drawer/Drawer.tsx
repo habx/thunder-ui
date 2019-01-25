@@ -13,6 +13,7 @@ import {
 
 const ESCAPE_KEY = 27
 
+// Should be named Slidal
 class Drawer extends PureComponent<DrawerProps> {
   private readonly ref: React.RefObject<any>
 
