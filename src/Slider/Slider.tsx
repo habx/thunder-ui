@@ -1,11 +1,13 @@
 import * as React from 'react'
-import Slider, { Range } from 'rc-slider'
+import BaseSlider, { Range } from 'rc-slider'
 
 import colors from '../colors'
+import withLabel from '../withLabel'
+
 import { SliderContainer, Label } from './Slider.style'
 import SliderProps from './Slider.interface'
 
-class CustomSlider extends React.Component<SliderProps> {
+class Slider extends React.Component<SliderProps> {
   static defaultProps = {
     labelFormatter: label => label,
     range: false,
@@ -60,7 +62,7 @@ class CustomSlider extends React.Component<SliderProps> {
     } = this.props
     const { value } = this.state
 
-    const SliderComponent = range ? Range : Slider
+    const SliderComponent = range ? Range : BaseSlider
     const realMax = customValues ? customValues.length - 1 : (max || 100) - ((max || 100) % step)
     const realMin = customValues ? min : min - (min % step)
 
@@ -88,4 +90,4 @@ class CustomSlider extends React.Component<SliderProps> {
   }
 }
 
-export default CustomSlider
+export default withLabel({ padding: 12 })(Slider)
