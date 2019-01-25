@@ -30,7 +30,7 @@ const Item: React.StatelessComponent<ItemProps> = ({
       {
         !isEditing && ItemDescriptionComponent && (
           <ItemDescription>
-            {<ItemDescriptionComponent item={item} index={index} />}
+            {<ItemDescriptionComponent value={item} index={index} />}
           </ItemDescription>
         )
       }

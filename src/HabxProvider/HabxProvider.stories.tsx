@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { storiesOf } from '@storybook/react'
 import { map } from 'lodash'
 
-import colors from './index'
+import colors from '../colors'
 
 const Container = styled.div`
   display: flex;
@@ -32,7 +32,7 @@ const Label = styled.div`
 `
 
 storiesOf('Theme', module)
-  .add('colors', () => (
+  .add('default colors', () => (
     <Container>
       {map(colors, (color, name) => (
         <Color>

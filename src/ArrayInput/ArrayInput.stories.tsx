@@ -90,11 +90,11 @@ class CountryArrayInput extends React.Component<any, any> {
   }
 }
 
-const ItemTitle = ({ item }) => (item.name ? `${item.name} (${item.country})` : 'Empty element')
+const ItemTitle = ({ value }) => (value.name ? `${value.name} (${value.country})` : 'Empty element')
 
-const ItemTitleSimple = ({ item }) => item.name
+const ItemTitleSimple = ({ value }) => value.name
 
-const ItemDescription = ({ item }) => `Country: ${item.country}`
+const ItemDescription = ({ value }) => `Country: ${value.country}`
 
 storiesOf('Inputs/ArrayInput', module)
   .add('basic', () => (
