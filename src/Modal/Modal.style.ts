@@ -41,8 +41,8 @@ export const Overlay = styled.div`
   }
 
   &[data-state="closed"] {
-    opacity: 0;
-    pointer-events: none;
+    pacity: 0;
+    pointer-events: none;o
   }
 
   &[data-state="closing"],

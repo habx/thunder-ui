@@ -1,24 +1,24 @@
-import React, { Fragment, PureComponent } from 'react'
+import React, { PureComponent } from 'react'
 import { isFunction } from 'lodash'
 
-import ModalProps from './Modal.interface'
+import DrawerProps from './Drawer.interface'
 
 import {
   Overlay,
-  ModalCard,
-  RemoveBodyScroll,
-  ANIMATION_DURATION
-} from './Modal.style'
+  DrawerContainer,
+  DrawerClose,
+  DrawerTitle,
+  DrawerContent
+} from './Drawer.style'
 
 const ESCAPE_KEY = 27
 
-class Modal extends PureComponent<ModalProps> {
+class Drawer extends PureComponent<DrawerProps> {
   private readonly ref: React.RefObject<any>
-  private timeout: any
 
   static defaultProps = {
     open: false,
-    persistent: false
+    position: 'right'
   }
 
   constructor (props) {
@@ -28,35 +28,23 @@ class Modal extends PureComponent<ModalProps> {
   }
 
   state = {
-    open: false
+    open: this.props.open
   }
 
   componentDidMount () {
     window.addEventListener('keydown', this.handleKeyDown)
     window.addEventListener('click', this.handleClick, true)
-
-    if (this.props.open) {
-      this.animateOpening()
-    }
   }
 
-  componentDidUpdate (prevProps: Readonly<ModalProps>): void {
+  componentDidUpdate (prevProps: Readonly<DrawerProps>): void {
     if (prevProps.open !== this.props.open) {
-      this.animateOpening()
+      this.setState({ open: this.props.open })
     }
   }
 
   componentWillUnmount () {
     window.removeEventListener('keydown', this.handleKeyDown)
     window.removeEventListener('click', this.handleClick, true)
-    clearTimeout(this.timeout)
-  }
-
-  animateOpening () {
-    this.timeout = setTimeout(
-      () => this.setState(() => ({ open: this.props.open })),
-      ANIMATION_DURATION
-    )
   }
 
   getCurrentState () {
@@ -79,15 +67,15 @@ class Modal extends PureComponent<ModalProps> {
   }
 
   handleKeyDown = (e) => {
-    const { open, persistent } = this.props
-    if (!persistent && open && e.keyCode === ESCAPE_KEY) {
+    const { open } = this.props
+    if (open && e.keyCode === ESCAPE_KEY) {
       this.handleClose(e)
     }
   }
 
   handleClick = (e) => {
-    const { open, persistent } = this.props
-    if (!persistent && open && !this.ref.current.contains(e.target)) {
+    const { open } = this.props
+    if (open && !this.ref.current.contains(e.target)) {
       this.handleClose(e)
     }
   }
@@ -97,29 +85,31 @@ class Modal extends PureComponent<ModalProps> {
     if (isFunction(onClose)) {
       onClose(e)
     }
+    this.setState({ open: false })
   }
 
   render () {
-    const { children, title, open, ...props } = this.props
+    const { children, title, closeButton, ...props } = this.props
     const currentState = this.getCurrentState()
 
     return (
-      <Fragment>
-        <Overlay data-state={currentState}>
-          <div ref={this.ref}>
-            <ModalCard title={title} headerPosition='inside' {...props}>
+      <Overlay data-state={currentState}>
+        <div ref={this.ref}>
+          <DrawerContainer data-state={currentState} {...props}>
+            {title && <DrawerTitle size={3}>{title}</DrawerTitle>}
+            {closeButton && <DrawerClose onClick={this.handleClose}>{closeButton}</DrawerClose>}
+            <DrawerContent>
               {
                 isFunction(children)
-                 ? children({ state: currentState })
-                 : children
+                  ? children({ state: currentState })
+                  : children
               }
-            </ModalCard>
-          </div>
-        </Overlay>
-        {open && <RemoveBodyScroll />}
-      </Fragment>
+            </DrawerContent>
+          </DrawerContainer>
+        </div>
+      </Overlay>
     )
   }
 }
 
-export default Modal
+export default Drawer
