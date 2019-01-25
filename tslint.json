@@ -4,8 +4,5 @@
   },
   "extends": [
     "tslint-config-standard"
-  ],
-  "globals": {
-
-  }
+  ]
 }
