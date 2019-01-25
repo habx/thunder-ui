@@ -6,3 +6,7 @@ export default interface MenuProps extends DOMInterface {
   triggerElement: React.ReactElement<any>
   position?: 'left' | 'right' | 'top-left' | 'top-right'
 }
+
+export interface MenuState {
+  open: boolean
+}
