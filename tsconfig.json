@@ -11,8 +11,7 @@
     "declarationMap": true,
     "target": "es5",
     "module": "commonjs",
-    "esModuleInterop": true,
-    "types": ["jest"]
+    "esModuleInterop": true
   },
   "files": ["./src/index.ts", "./src/_thunder.ts"]
 }
