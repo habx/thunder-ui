@@ -37318,7 +37318,7 @@ exports[`Storyshots Miscellaneous/Drawer full example 1`] = `
 .c3 {
   font-family: Inter UI;
   font-weight: bold;
-  color: #0071ce;
+  color: #061a3c;
   margin: 0;
   font-size: 18px;
 }
@@ -37483,7 +37483,7 @@ exports[`Storyshots Miscellaneous/Drawer full example 1`] = `
             >
               <h3
                 className="c2 c3"
-                color="#0071ce"
+                color="#061a3c"
               >
                 Concerning Hobbits
               </h3>
@@ -39548,7 +39548,7 @@ exports[`Storyshots Miscellaneous/Drawer with title 1`] = `
 .c3 {
   font-family: Inter UI;
   font-weight: bold;
-  color: #0071ce;
+  color: #061a3c;
   margin: 0;
   font-size: 18px;
 }
@@ -39694,7 +39694,7 @@ exports[`Storyshots Miscellaneous/Drawer with title 1`] = `
             >
               <h3
                 className="c2 c3"
-                color="#0071ce"
+                color="#061a3c"
               >
                 Concerning Hobbits
               </h3>
