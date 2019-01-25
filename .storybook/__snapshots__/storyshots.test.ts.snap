@@ -35506,7 +35506,7 @@ exports[`Storyshots Miscellaneous/Card full example 1`] = `
 .c2 {
   font-family: Inter UI;
   font-weight: bold;
-  color: #0071ce;
+  color: #061a3c;
   margin: 0;
   font-size: 18px;
 }
@@ -35588,7 +35588,7 @@ exports[`Storyshots Miscellaneous/Card full example 1`] = `
           >
             <h3
               className="c2"
-              color="#0071ce"
+              color="#061a3c"
             >
               Concerning Hobbits
             </h3>
@@ -37023,7 +37023,7 @@ exports[`Storyshots Miscellaneous/Modal full example 1`] = `
 .c5 {
   font-family: Inter UI;
   font-weight: bold;
-  color: #0071ce;
+  color: #061a3c;
   margin: 0;
   font-size: 18px;
 }
@@ -37164,7 +37164,7 @@ exports[`Storyshots Miscellaneous/Modal full example 1`] = `
               >
                 <h3
                   className="c5"
-                  color="#0071ce"
+                  color="#061a3c"
                 >
                   Concerning Hobbits
                 </h3>
@@ -41452,7 +41452,7 @@ exports[`Storyshots Miscellaneous/Modal with title 1`] = `
 .c5 {
   font-family: Inter UI;
   font-weight: bold;
-  color: #0071ce;
+  color: #061a3c;
   margin: 0;
   font-size: 18px;
 }
@@ -41584,7 +41584,7 @@ exports[`Storyshots Miscellaneous/Modal with title 1`] = `
               >
                 <h3
                   className="c5"
-                  color="#0071ce"
+                  color="#061a3c"
                 >
                   Concerning Hobbits
                 </h3>
@@ -59059,7 +59059,7 @@ exports[`Storyshots Navigation/Tabs with separators 1`] = `
 </div>
 `;
 
-exports[`Storyshots Theme colors 1`] = `
+exports[`Storyshots Theme default colors 1`] = `
 .c0 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -59488,7 +59488,7 @@ exports[`Storyshots Theme colors 1`] = `
                   }
                 }
               >
-                colors
+                default colors
               </h2>
             </div>
             
@@ -114050,7 +114050,7 @@ exports[`Storyshots Typography/Title full example 1`] = `
 .c0 {
   font-family: Inter UI;
   font-weight: bold;
-  color: #0071ce;
+  color: #061a3c;
   margin: 0;
   font-size: 54px;
 }
