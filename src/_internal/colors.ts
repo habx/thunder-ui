@@ -17,7 +17,7 @@ export const generateColorFromSeed = seed => {
   return `#${rgbCode}`
 }
 
-export const getMainColor = (props, propName = 'color') => {
+export const getMainColor = (props, propName = 'color', defaultColor = colors.trueBlue) => {
   if (props[propName]) {
     return props[propName]
   }
@@ -30,7 +30,7 @@ export const getMainColor = (props, propName = 'color') => {
     return colors.popstar
   }
 
-  return colors.trueBlue
+  return defaultColor
 }
 
 export const getHoverColor = (baseColor, props, propName = 'hoverColor') => {

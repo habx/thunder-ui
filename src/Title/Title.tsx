@@ -2,11 +2,12 @@ import * as React from 'react'
 import styled, { css } from 'styled-components'
 
 import { getMainColor } from '../_internal/colors'
+import colors from '../colors'
 
 import TitleProps from './Title.interface'
 
 const prepareProps = props => ({
-  color: getMainColor(props)
+  color: getMainColor(props, 'color', colors.maastrichtBlue)
 })
 
 const BaseTitle = styled.h1.attrs(prepareProps)`
