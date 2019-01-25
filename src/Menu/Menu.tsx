@@ -1,9 +1,9 @@
 import * as React from 'react'
 
-import MenuProps from './Menu.interface'
+import MenuProps, { MenuState } from './Menu.interface'
 import { MenuWrapper, MenuContainer, MenuContent } from './Menu.style'
 
-class Menu extends React.Component<MenuProps> {
+class Menu extends React.Component<MenuProps, MenuState> {
   static defaultProps = {
     position: 'left'
   }
@@ -38,18 +38,23 @@ class Menu extends React.Component<MenuProps> {
     }
   }
 
-  handleClick = () => this.setState({ open: !this.state.open })
+  handleToggle = () => this.setState(prevState => ({ open: !prevState.open }))
+
+  handleClose = () => this.setState(() => ({ open: false }))
 
   render () {
     const { triggerElement, children, position, ...props } = this.props
-    const triggerElementWithAction =
-      React.cloneElement(triggerElement, { onClick: this.handleClick })
     const { open } = this.state
+
+    const triggerElementWithAction = React.cloneElement(triggerElement, {
+      onClick: this.handleToggle
+    })
+
     return (
       <MenuWrapper ref={this.wrapperRef} >
         {triggerElementWithAction}
         <MenuContainer data-open={open} position={position}>
-          <MenuContent {...props} onClick={() => this.setState({ open: false })}>
+          <MenuContent {...props} onClick={this.handleClose}>
             {children}
           </MenuContent>
         </MenuContainer>

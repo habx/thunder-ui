@@ -5,4 +5,5 @@ export default interface DomInterface {
   onClick?: (e: React.MouseEvent<HTMLElement>) => void
   style?: React.CSSProperties
   className?: string
+  id?: string
 }
