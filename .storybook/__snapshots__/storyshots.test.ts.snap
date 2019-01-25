@@ -41304,7 +41304,7 @@ exports[`Storyshots Miscellaneous/Modal full example 1`] = `
 }
 
 .c0[data-state="closed"] {
-  pacity: 0;
+  opacity: 0;
   pointer-events: none;
 }
 
@@ -42454,7 +42454,7 @@ exports[`Storyshots Miscellaneous/Modal large 1`] = `
 }
 
 .c0[data-state="closed"] {
-  pacity: 0;
+  opacity: 0;
   pointer-events: none;
 }
 
@@ -43305,7 +43305,7 @@ exports[`Storyshots Miscellaneous/Modal small 1`] = `
 }
 
 .c0[data-state="closed"] {
-  pacity: 0;
+  opacity: 0;
   pointer-events: none;
 }
 
@@ -43978,7 +43978,7 @@ exports[`Storyshots Miscellaneous/Modal with render props 1`] = `
 }
 
 .c0[data-state="closed"] {
-  pacity: 0;
+  opacity: 0;
   pointer-events: none;
 }
 
@@ -44566,7 +44566,7 @@ exports[`Storyshots Miscellaneous/Modal with scroll 1`] = `
 }
 
 .c0[data-state="closed"] {
-  pacity: 0;
+  opacity: 0;
   pointer-events: none;
 }
 
@@ -45725,7 +45725,7 @@ exports[`Storyshots Miscellaneous/Modal with title 1`] = `
 }
 
 .c0[data-state="closed"] {
-  pacity: 0;
+  opacity: 0;
   pointer-events: none;
 }
 
