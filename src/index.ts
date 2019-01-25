@@ -42,6 +42,7 @@ export { default as Notification } from './Notification'
 export { default as Card } from './Card'
 export { default as Modal } from './Modal'
 export { default as Spinner } from './Spinner'
+export { default as Drawer } from './Drawer'
 
 /*
   Events
