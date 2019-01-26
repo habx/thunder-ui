@@ -1,7 +1,8 @@
 import * as React from 'react'
 
-import { OptionContainer } from './Select.style'
-import FontIcon from '../FontIcon/FontIcon'
+import FontIcon from '../../FontIcon/FontIcon'
+
+import { OptionContainer } from './Option.style'
 import OptionProps from './Option.interface'
 
 class Option extends React.Component<OptionProps> {

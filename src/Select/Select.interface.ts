@@ -1,12 +1,12 @@
 import * as React from 'react'
 
 import DOMInterface from '../_internal/domInterface'
-import { formOption, formValue } from '../_internal/types'
+import { formOption } from '../_internal/types'
 
 export default interface SelectProps extends DOMInterface {
   placeholder?: string
-  options: formOption[]
-  value: formValue | formValue[]
+  options: any[]
+  value: any
   onChange: (value) => void
   isMulti?: boolean
   description?: string

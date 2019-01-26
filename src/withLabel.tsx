@@ -18,26 +18,33 @@ const LabelContainer = styled.div`
   padding-bottom: ${({ padding }) => padding}px;
 `
 
-const withLabel = (config: { padding?: number } = {}) => WrappedComponent => {
-  const Field: React.StatelessComponent<any> = ({ label, ...props }) => {
+type LabelProps = {
+  label?: string
+}
+
+type Options = {
+  padding?: number
+}
+
+const withLabel = ({ padding = 4 }: Options = {}) => <Props extends object> (WrappedComponent: React.ComponentType<Props>) => {
+  const Field = (props: Props & LabelProps) => {
+    const { label, ...rest } = props as LabelProps
+
     if (label) {
-      const { padding = 4 } = config
       return (
         <FieldWithLabelContainer>
           <LabelContainer padding={padding}>
             {label}
           </LabelContainer>
-          <WrappedComponent {...props} />
+          <WrappedComponent {...rest as Props} />
         </FieldWithLabelContainer>
       )
     }
 
-    return <WrappedComponent {...props} />
+    return <WrappedComponent {...rest as Props} />
   }
 
-  Field.defaultProps = {
-    label: ''
-  }
+  Field.displayName = WrappedComponent.displayName || WrappedComponent.name
 
   return Field
 }

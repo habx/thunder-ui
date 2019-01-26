@@ -21,7 +21,7 @@ export default interface ImageUploaderProps extends ModalProps {
   defaultDirectory?: string
   renderImages: (RenderParams) => JSX.Element
   onChange: (image: ACECloudinaryImage | string) => void
-  format: 'ace' | 'src'
+  format: string
   image: ACECloudinaryImage
   fetchImageConfig: (path: string) => Promise<CloudinaryImage>
   uploadImage: (image: ImageFile, params: { directory: string }) => Promise<CloudinaryImage>
