@@ -10,7 +10,7 @@ export default interface ItemProps extends DOMInterface {
   target?: string
   icon?: React.ReactNode
   iconStyle?: React.CSSProperties
-  as?: React.ComponentClass<any> | React.StatelessComponent<any> | string
+  as?: React.ComponentType<any> | string
   refPropName?: string
   onDelete?: () => void
   onEdit?: (value: any) => void

@@ -12,7 +12,7 @@ const FieldWithLabelContainer = styled.div`
 const LabelContainer = styled.div`
   font-size: ${fontSizes.tiny};
   font-weight: 500;
-  color: ${colors.paynesGrey};
+  color: ${({ color }) => color || colors.paynesGrey};
   user-select: none;
 
   padding-bottom: ${({ padding }) => padding}px;
@@ -20,6 +20,7 @@ const LabelContainer = styled.div`
 
 type LabelProps = {
   label?: string
+  labelColor?: string
 }
 
 type Options = {
@@ -28,12 +29,12 @@ type Options = {
 
 const withLabel = ({ padding = 4 }: Options = {}) => <Props extends object> (WrappedComponent: React.ComponentType<Props>) => {
   const Field = (props: Props & LabelProps) => {
-    const { label, ...rest } = props as LabelProps
+    const { label, labelColor, ...rest } = props as LabelProps
 
     if (label) {
       return (
         <FieldWithLabelContainer>
-          <LabelContainer padding={padding}>
+          <LabelContainer padding={padding} color={labelColor}>
             {label}
           </LabelContainer>
           <WrappedComponent {...rest as Props} />
@@ -45,6 +46,10 @@ const withLabel = ({ padding = 4 }: Options = {}) => <Props extends object> (Wra
   }
 
   Field.displayName = WrappedComponent.displayName || WrappedComponent.name
+
+  Field.defaultProps = WrappedComponent.defaultProps
+
+  Field.propTypes = WrappedComponent.propTypes
 
   return Field
 }

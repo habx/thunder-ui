@@ -2,9 +2,12 @@ import styled, { css } from 'styled-components'
 
 export const RadioSelectContainer = styled.div`
   display: flex;
-  border: solid 1px ${({ color }) => color};
+  height: 36px;
   border-radius: 3px;
   margin: 2px 0;
+  align-self: flex-start;
+
+  border: solid 1px ${({ color }) => color};
 
   &[data-disabled="true"] {
     pointer-events: none;
@@ -20,11 +23,9 @@ export const RadioSelectElement = styled.div`
   cursor: pointer;
   box-sizing: border-box;
 
-  width: 100%;
+  line-height: 36px;
   padding-left: 20px;
   padding-right: 20px;
-  padding-top: 4px;
-  min-height: 32px;
   font-size: 14px;
 
   color: ${({ color }) => color};
@@ -39,9 +40,6 @@ export const RadioSelectElement = styled.div`
   &[data-checked="true"] {
     color: #ffffff;
     background-color: ${({ color }) => color};
-    margin: -2px 0;
-    padding-top: 6px;
-    min-height: 36px;
     box-shadow: 6px 4px 12px 0 rgba(3, 54, 61, 0.16);
 
     ${({ isNextSelected }) => !isNextSelected && css`

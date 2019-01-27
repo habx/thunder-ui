@@ -32,7 +32,8 @@ class Slider extends React.Component<SliderProps> {
   }
 
   state = {
-    value: this.getInitialValue()
+    value: this.getInitialValue(),
+    rawValue: null
   }
 
   getInitialValue () {
@@ -45,11 +46,19 @@ class Slider extends React.Component<SliderProps> {
     return value
   }
 
-  handleChange = value => this.setState({ value })
+  handleLocalChange = value => this.setState({ value })
+
+  handleChange = () => {
+    const { value, onChange } = this.props
+    const { value: localValue } = this.state
+
+    if (value !== localValue) {
+      onChange(localValue)
+    }
+  }
 
   render () {
     const {
-      onChange,
       range,
       max,
       customValues,
@@ -74,8 +83,8 @@ class Slider extends React.Component<SliderProps> {
     return (
       <SliderContainer color={color} className={className}>
         <SliderComponent
-          onAfterChange={onChange}
-          onChange={this.handleChange}
+          onAfterChange={this.handleChange}
+          onChange={this.handleLocalChange}
           value={value}
           dots={!!customValues}
           max={realMax}
