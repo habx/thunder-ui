@@ -21,6 +21,7 @@ const prepareProps = props => {
 
 const InputContainer = styled.div.attrs(prepareProps)`
   position: relative;
+
   .hover-element-right {
     opacity: 0;
     transition: opacity 150ms ease-in-out;
@@ -28,6 +29,7 @@ const InputContainer = styled.div.attrs(prepareProps)`
       color: ${({ borderColor }) => borderColor};
     }
   }
+
   &:hover {
    .hover-element-right {
       opacity: 1;
@@ -64,9 +66,11 @@ const Input = styled.input.attrs(prepareProps)`
   line-height: 1.5;
   transition: border-bottom-color 150ms ease-in-out;
   border-bottom: 1px solid ${({ error, borderColor }) => (error ? borderColor : 'transparent')};
+
   &:hover {
     border-bottom-color: ${({ borderColor }) => borderColor};
   }
+
   background-color: transparent;
   color: ${({ color }) => color};
 
@@ -87,21 +91,50 @@ const Input = styled.input.attrs(prepareProps)`
   `};
 `
 
-const TextInput: React.StatelessComponent<TextInputProps> = ({ onChange, loading, rightHoverElement, rightElement, inputRef, ...props }) => (
-  <InputContainer {...props}>
-    <Input {...props} onChange={e => onChange(e.target.value)} loading={loading} ref={inputRef} />
+const TextInput: React.StatelessComponent<TextInputProps> = ({
+  onChange,
+  loading,
+  rightHoverElement,
+  rightElement,
+  inputRef,
+  disabled,
+  error,
+  color,
+  borderColor,
+  activeBorderColor,
+  ...props
+}) => (
+  <InputContainer {...props} borderColor={borderColor}>
+    <Input
+      onChange={e => onChange(e.target.value)}
+      loading={loading}
+      disabled={disabled}
+      color={color}
+      borderColor={borderColor}
+      activeBorderColor={activeBorderColor}
+      ref={inputRef}
+    />
     {loading && <InputSpinner size={15} />}
-    {rightHoverElement && <RightElementContainer {...props} className='hover-element-right'>{rightHoverElement}</RightElementContainer>}
-    {rightElement && <RightElementContainer {...props}>{rightElement}</RightElementContainer>}
+    {
+      rightHoverElement && (
+        <RightElementContainer{...props} color={color} className='hover-element-right'>
+          {rightHoverElement}
+        </RightElementContainer>
+      )
+    }
+    {
+      rightElement && (
+        <RightElementContainer{...props} color={color}>
+          {rightElement}
+        </RightElementContainer>
+      )
+    }
   </InputContainer>
 )
 
 TextInput.defaultProps = {
   onChange: () => null,
-  loading: false,
-  rightElement: null,
-  rightHoverElement: null,
-  inputRef: () => null
+  loading: false
 }
 
 export default withLabel()(TextInput)
