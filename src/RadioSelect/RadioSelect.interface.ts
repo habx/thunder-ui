@@ -7,6 +7,8 @@ export default interface RadioSelectProps extends DOMInterface {
   canBeEmpty?: boolean
   isMulti?: boolean
   disabled?: boolean
+  error?: boolean
   value: formValue | formValue[]
   color?: string
+  errorColor?: string
 }
