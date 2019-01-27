@@ -50,7 +50,7 @@ class ArrayInput extends React.Component<ArrayInputProps, ArrayInputState> {
 
   buildContext () {
     return {
-      ...pick(this.props, ['itemTitleComponent', 'itemDescriptionComponent', 'itemComponent', 'canBeReordered']),
+      ...pick(this.props, ['itemTitleComponent', 'itemDescriptionComponent', 'itemComponent', 'canBeReordered', 'disabled']),
       ...pick(this.state, ['editing']),
       amount: this.props.items.length,
       onOpen: this.handleEditStart,
@@ -61,11 +61,11 @@ class ArrayInput extends React.Component<ArrayInputProps, ArrayInputState> {
   }
 
   render () {
-    const { items, onAppend, addButtonLabel } = this.props
+    const { items, onAppend, addButtonLabel, disabled } = this.props
 
     return (
       <ArrayContext.Provider value={this.buildContext()}>
-        <ArrayInputContainer>
+        <ArrayInputContainer disabled={disabled}>
           {map(items, (item, index) => (
             <Item item={item} index={index} key={index} />
           ))}

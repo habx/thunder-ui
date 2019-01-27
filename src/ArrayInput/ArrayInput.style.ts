@@ -1,9 +1,15 @@
-import styled, { keyframes } from 'styled-components'
+import styled, { keyframes, css } from 'styled-components'
 
 import colors from '../colors'
 import fontSizes from '../fontSizes'
 
-export const ArrayInputContainer = styled.div``
+export const ArrayInputContainer = styled.div`
+  ${({ disabled }) => disabled && css`
+    pointer-events: none;
+    opacity: 0.8;
+    filter: grayscale();
+  `};
+`
 
 export const ItemContainer = styled.div`
   &:not(:first-child) {

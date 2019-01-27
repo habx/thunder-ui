@@ -10,6 +10,7 @@ export default interface ItemProps extends DOMInterface {
     addButtonLabel?: string
     items: any[]
     canBeReordered?: boolean
+    disabled?: boolean
     amount?: number
     onClose: (index) => void
     onOpen: (index) => void

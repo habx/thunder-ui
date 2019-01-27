@@ -16,6 +16,7 @@ const ItemHeader: React.StatelessComponent<ItemProps> = ({
     onReorder,
     onOpen,
     amount,
+    disabled,
     itemTitleComponent: ItemTitleComponent
   },
   item,
@@ -31,31 +32,37 @@ const ItemHeader: React.StatelessComponent<ItemProps> = ({
           <ItemTitleComponent value={item} index={index} editing={isOpen} />
         }
       </ItemHeaderContent>
-        <ItemActions>
-        {
-          canBeReordered && (
-            <Fragment>
-              <FontIcon
-                icon='arrow_upward'
-                onClick={() => onReorder(index, index - 1)}
-                data-disabled={index === 0}
-              />
-              <FontIcon
-                icon='arrow_downward'
-                onClick={() => onReorder(index, index + 1)}
-                data-disabled={index === amount - 1}
-              />
-            </Fragment>
-          )
-        }
-        { isOpen && (
-          <Fragment>
-            <FontIcon icon='delete' onClick={() => onDelete(index)} />
-            <FontIcon icon='close' onClick={() => onClose(index)} />
-          </Fragment>
-        ) }
-        { !isOpen && <FontIcon icon='edit' onClick={() => onOpen(index)} /> }
-      </ItemActions>
+      {
+        !disabled && (
+          <React.Fragment>
+            <ItemActions>
+              {
+                canBeReordered && (
+                  <Fragment>
+                    <FontIcon
+                      icon='arrow_upward'
+                      onClick={() => onReorder(index, index - 1)}
+                      data-disabled={index === 0}
+                    />
+                    <FontIcon
+                      icon='arrow_downward'
+                      onClick={() => onReorder(index, index + 1)}
+                      data-disabled={index === amount - 1}
+                    />
+                  </Fragment>
+                )
+              }
+              { isOpen && (
+                <Fragment>
+                  <FontIcon icon='delete' onClick={() => onDelete(index)} />
+                  <FontIcon icon='close' onClick={() => onClose(index)} />
+                </Fragment>
+              ) }
+              { !isOpen && <FontIcon icon='edit' onClick={() => onOpen(index)} /> }
+            </ItemActions>
+          </React.Fragment>
+        )
+      }
     </ItemHeaderContainer>
   )
 }
