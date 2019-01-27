@@ -115,6 +115,12 @@ storiesOf('Inputs/ArrayInput', module)
       itemTitleComponent={ItemTitle}
     />
   ))
+  .add('disabled', () => (
+    <CountryArrayInput
+      itemTitleComponent={ItemTitle}
+      disabled
+    />
+  ))
   .add('with description line', () => (
     <CountryArrayInput
       itemTitleComponent={ItemTitleSimple}

@@ -21,7 +21,10 @@ const sliderDecorator = storyFn => (
 
 storiesOf('Inputs/Slider', module)
   .addDecorator(sliderDecorator)
-  .add('Basic', () => (
+  .add('basic', () => (
+    <Slider onChange={action('Slider change')} value={40} />
+  ))
+  .add('disabled', () => (
     <Slider onChange={action('Slider change')} value={40} />
   ))
   .add('with range', () => (

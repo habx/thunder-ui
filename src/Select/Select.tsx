@@ -266,7 +266,8 @@ class Select extends React.Component<SelectProps, SelectState> {
       placeholderClassName,
       icon,
       annotation,
-      canReset
+      canReset,
+      disabled
     } = this.props
 
     const safeProps = omit(this.props, INTERNAL_PROPS)
@@ -274,7 +275,7 @@ class Select extends React.Component<SelectProps, SelectState> {
     const options = this.getVisibleOptions()
     const value = this.getCurrentValue()
 
-    const showRemoveIcon = !isMulti && canReset && value
+    const showRemoveIcon = !disabled && !isMulti && canReset && value
 
     return (
       <SelectContainer ref={this.wrapperRef} onClick={this.stopDefaultAndPropagation} {...safeProps}>
