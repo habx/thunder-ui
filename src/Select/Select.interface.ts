@@ -15,6 +15,7 @@ export default interface SelectProps extends DOMInterface {
   icon?: React.ReactNode
   annotation?: string
   canReset?: boolean
+  disabled?: boolean
 }
 
 export interface SelectState {

@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
 import colors from '../colors'
 import fontSizes from '../fontSizes'
@@ -6,6 +6,12 @@ import fontSizes from '../fontSizes'
 export const SelectContainer = styled.div`
   position: relative;
   color: ${colors.maastrichtBlue};
+
+  ${({ disabled }) => disabled && css`
+    pointer-events: none;
+    opacity: 0.8;
+    filter: grayscale();
+  `};
 `
 
 export const Label = styled.div`
