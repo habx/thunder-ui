@@ -19,6 +19,7 @@ export { default as TabsSeparator } from './TabsSeparator'
  */
 export { default as Button } from './Button'
 export { default as TextButton } from './TextButton'
+export { default as IconButton } from './IconButton'
 export { default as Menu } from './Menu'
 export { default as MenuItem } from './MenuItem'
 
