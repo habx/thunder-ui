@@ -4,10 +4,11 @@ import DOMInterface from '../_internal/domInterface'
 export default interface ArrayInputProps extends DOMInterface {
   addButtonLabel?: string
   items: any[]
-  itemComponent: React.ComponentClass<any> | React.StatelessComponent<any>,
-  itemTitleComponent: React.ComponentClass<any> | React.StatelessComponent<any>
-  itemDescriptionComponent?: React.ComponentClass<any> | React.StatelessComponent<any>
+  itemComponent: React.ComponentType<any>
+  itemTitleComponent: React.ComponentType<any>
+  itemDescriptionComponent?: React.ComponentType<any>
   canBeReordered?: boolean
+  disabled?: boolean
   onDelete: (item) => void
   onReorder?: (oldPosition: number, newPosition: number) => void
   onAppend?: () => void

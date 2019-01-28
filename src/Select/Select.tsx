@@ -7,6 +7,8 @@ import withLabel from '../withLabel'
 import { searchInString } from '../_internal/strings'
 import { formOption } from '../_internal/types'
 
+import Option from './Option'
+
 import SelectProps, { SelectState } from './Select.interface'
 
 import {
@@ -21,8 +23,6 @@ import {
   OptionAction,
   CustomIconContainer
 } from './Select.style'
-
-import Option from './Option'
 
 const INTERNAL_PROPS = [
   'isMulti',
@@ -69,8 +69,8 @@ class Select extends React.Component<SelectProps, SelectState> {
 
   static getStandardizedValue (value, isMulti) {
     return isMulti
-     ? map(value, el => get(el, 'value', el))
-     : get(value, 'value', value)
+      ? map(value, el => get(el, 'value', el))
+      : get(value, 'value', value)
   }
 
   static getStandardizedOptions (options) {
@@ -266,7 +266,8 @@ class Select extends React.Component<SelectProps, SelectState> {
       placeholderClassName,
       icon,
       annotation,
-      canReset
+      canReset,
+      disabled
     } = this.props
 
     const safeProps = omit(this.props, INTERNAL_PROPS)
@@ -274,7 +275,7 @@ class Select extends React.Component<SelectProps, SelectState> {
     const options = this.getVisibleOptions()
     const value = this.getCurrentValue()
 
-    const showRemoveIcon = !isMulti && canReset && value
+    const showRemoveIcon = !disabled && !isMulti && canReset && value
 
     return (
       <SelectContainer ref={this.wrapperRef} onClick={this.stopDefaultAndPropagation} {...safeProps}>

@@ -12,32 +12,44 @@ const FieldWithLabelContainer = styled.div`
 const LabelContainer = styled.div`
   font-size: ${fontSizes.tiny};
   font-weight: 500;
-  color: ${colors.paynesGrey};
+  color: ${({ color }) => color || colors.paynesGrey};
   user-select: none;
 
   padding-bottom: ${({ padding }) => padding}px;
 `
 
-const withLabel = (config: { padding?: number } = {}) => WrappedComponent => {
-  const Field: React.StatelessComponent<any> = ({ label, ...props }) => {
+type LabelProps = {
+  label?: string
+  labelColor?: string
+}
+
+type Options = {
+  padding?: number
+}
+
+const withLabel = ({ padding = 4 }: Options = {}) => <Props extends object> (WrappedComponent: React.ComponentType<Props>) => {
+  const Field = (props: Props & LabelProps) => {
+    const { label, labelColor, ...rest } = props as LabelProps
+
     if (label) {
-      const { padding = 4 } = config
       return (
         <FieldWithLabelContainer>
-          <LabelContainer padding={padding}>
+          <LabelContainer padding={padding} color={labelColor}>
             {label}
           </LabelContainer>
-          <WrappedComponent {...props} />
+          <WrappedComponent {...rest as Props} />
         </FieldWithLabelContainer>
       )
     }
 
-    return <WrappedComponent {...props} />
+    return <WrappedComponent {...rest as Props} />
   }
 
-  Field.defaultProps = {
-    label: ''
-  }
+  Field.displayName = WrappedComponent.displayName || WrappedComponent.name
+
+  Field.defaultProps = WrappedComponent.defaultProps
+
+  Field.propTypes = WrappedComponent.propTypes
 
   return Field
 }

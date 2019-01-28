@@ -7,7 +7,7 @@ export default interface CloudinaryInputProps {
   defaultDirectory?: string
   renderImages: (params: RenderParams) => JSX.Element
   onChange: (src: string) => void
-  format: 'ace' | 'src'
+  format: string
   fetchImageConfig: (path: string) => Promise<CloudinaryImage>
   uploadImage: (image: ImageFile, params: { directory: string }) => Promise<CloudinaryImage>
 }

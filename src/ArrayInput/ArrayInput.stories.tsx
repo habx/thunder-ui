@@ -82,6 +82,7 @@ class CountryArrayInput extends React.Component<any, any> {
             onDelete={this.handleDelete}
             onReorder={this.handleReorder}
             itemComponent={CountryArrayInputElement}
+            itemTitleComponent={ItemTitle}
             {...this.props}
           />
         </Context.Provider>
@@ -90,16 +91,34 @@ class CountryArrayInput extends React.Component<any, any> {
   }
 }
 
-const ItemTitle = ({ value }) => (value.name ? `${value.name} (${value.country})` : 'Empty element')
+const ItemTitle: React.StatelessComponent<any> = ({ value }) => (
+  <React.Fragment>
+    {(value.name ? `${value.name} (${value.country})` : 'Empty element')}
+  </React.Fragment>
+)
 
-const ItemTitleSimple = ({ value }) => value.name
+const ItemTitleSimple: React.StatelessComponent<any> = ({ value }) => (
+  <React.Fragment>
+    {value.name}
+  </React.Fragment>
+)
 
-const ItemDescription = ({ value }) => `Country: ${value.country}`
+const ItemDescription: React.StatelessComponent<any> = ({ value }) => (
+  <React.Fragment>
+    {`Country: ${value.country}`}
+  </React.Fragment>
+)
 
 storiesOf('Inputs/ArrayInput', module)
   .add('basic', () => (
     <CountryArrayInput
       itemTitleComponent={ItemTitle}
+    />
+  ))
+  .add('disabled', () => (
+    <CountryArrayInput
+      itemTitleComponent={ItemTitle}
+      disabled
     />
   ))
   .add('with description line', () => (

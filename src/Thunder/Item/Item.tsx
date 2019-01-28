@@ -77,7 +77,7 @@ class Item extends React.PureComponent<ItemInnerProps> {
     return { [refPropName]: ref }
   }
 
-  getContainerComponent (): React.ComponentClass<any> | React.StatelessComponent<any> | string {
+  getContainerComponent (): React.ComponentType<any> | string {
     const { href, as } = this.props
 
     if (as) {

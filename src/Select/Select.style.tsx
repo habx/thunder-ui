@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
 import colors from '../colors'
 import fontSizes from '../fontSizes'
@@ -6,6 +6,12 @@ import fontSizes from '../fontSizes'
 export const SelectContainer = styled.div`
   position: relative;
   color: ${colors.maastrichtBlue};
+
+  ${({ disabled }) => disabled && css`
+    pointer-events: none;
+    opacity: 0.8;
+    filter: grayscale();
+  `};
 `
 
 export const Label = styled.div`
@@ -134,23 +140,4 @@ export const CustomIconContainer = styled.div`
   margin-right: 8px;
   align-self: stretch;
   color: ${colors.paynesGrey};
-`
-
-export const OptionContainer = styled.div`
-  transition: color ease-in 150ms;
-  outline: none;
-  cursor: pointer;
-  user-select: none;
-  margin-bottom: 8px;
-  font-size: ${fontSizes.small};
-  i {
-    vertical-align: middle;
-    margin-right: 4px;
-  }
-
-  &:hover,
-  &:focus,
-  &[data-selected="true"] {
-    color: ${colors.internationalOrange};
-  }
 `

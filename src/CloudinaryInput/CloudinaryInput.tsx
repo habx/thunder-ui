@@ -69,11 +69,9 @@ class CloudinaryInput extends React.PureComponent<CloudinaryInputProps> {
             </PictureContainer>
           )
         }
-        {
-          !disabled && (
-            <Button onClick={this.handleUploaderOpen}>Editer</Button>
-          )
-        }
+        <Button onClick={this.handleUploaderOpen} disabled={disabled}>
+          Editer
+        </Button>
         <ImageUploader
           open={isUploaderOpen}
           onClose={this.handleUploaderClose}

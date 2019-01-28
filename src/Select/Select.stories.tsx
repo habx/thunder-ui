@@ -30,6 +30,9 @@ storiesOf('Inputs/Select', module)
   .add('single item', () => (
     <SelectWithState />
   ))
+  .add('disabled', () => (
+    <SelectWithState disabled />
+  ))
   .add('single item with value (label, value mode)', () => (
     <SelectWithState value={DEFAULT_VALUE_FULL} />
   ))

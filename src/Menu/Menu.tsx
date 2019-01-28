@@ -43,7 +43,7 @@ class Menu extends React.Component<MenuProps, MenuState> {
   handleClose = () => this.setState(() => ({ open: false }))
 
   render () {
-    const { triggerElement, children, position, ...props } = this.props
+    const { triggerElement, children, position, persistent, ...props } = this.props
     const { open } = this.state
 
     const triggerElementWithAction = React.cloneElement(triggerElement, {
@@ -54,7 +54,7 @@ class Menu extends React.Component<MenuProps, MenuState> {
       <MenuWrapper ref={this.wrapperRef} >
         {triggerElementWithAction}
         <MenuContainer data-open={open} position={position}>
-          <MenuContent {...props} onClick={this.handleClose}>
+          <MenuContent {...props} onClick={persistent ? null : this.handleClose}>
             {children}
           </MenuContent>
         </MenuContainer>

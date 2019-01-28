@@ -12,9 +12,11 @@ const RadioSelect: React.StatelessComponent<RadioSelectProps> = ({
   onChange,
   value: currentValue,
   canBeEmpty,
-  color,
+  color: baseColor,
   isMulti,
   disabled,
+  error,
+  errorColor,
   ...rest
 }) => {
   const getNewValue = item => {
@@ -53,6 +55,8 @@ const RadioSelect: React.StatelessComponent<RadioSelectProps> = ({
     return value === currentValue
   })
 
+  const color = error ? errorColor : baseColor
+
   return (
     <RadioSelectContainer color={color} data-disabled={disabled} {...rest}>
       {map(options, ({ value, label }, index) => (
@@ -76,7 +80,8 @@ RadioSelect.defaultProps = {
   isMulti: false,
   disabled: false,
   value: null,
-  color: colors.brightCerualean
+  color: colors.brightCerualean,
+  errorColor: colors.internationalOrange
 }
 
-export default withLabel()(RadioSelect)
+export default withLabel({ padding: 12 })(RadioSelect)

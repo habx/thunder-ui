@@ -2,6 +2,7 @@ import * as React from 'react'
 import { map, get, memoize, filter } from 'lodash'
 
 import { subscribe, types } from '../HabxProvider/HabxProvider.events'
+
 import Button from '../Button'
 import Modal from '../Modal'
 import { ANIMATION_DURATION } from '../Modal/Modal.style'
@@ -54,7 +55,7 @@ class ConfirmModal extends React.PureComponent<ConfirmModalProps, ConfirmModalsS
             {modal.message}
           </ConfirmModalContent>
           <ConfirmModalActions>
-            <Button warning onClick={this.handleCancel(modal)}>
+            <Button error onClick={this.handleCancel(modal)}>
               { get(modal, 'options.cancelText', 'Annuler')}
             </Button>
             <Button onClick={this.handleConfirm(modal)}>
