@@ -266,11 +266,6 @@ class Select extends React.Component<SelectProps, SelectState> {
     }
   }
 
-  stopDefaultAndPropagation = e => {
-    e.stopPropagation()
-    e.preventDefault()
-  }
-
   render () {
     const { open, search, focusedItem } = this.state
     const {
@@ -294,7 +289,7 @@ class Select extends React.Component<SelectProps, SelectState> {
     const color = getMainColor(this.props, 'color', colors.paynesGrey)
 
     return (
-      <SelectContainer ref={this.wrapperRef} onClick={this.stopDefaultAndPropagation} {...safeProps}>
+      <SelectContainer ref={this.wrapperRef} {...safeProps}>
         <SelectContent
           className={placeholderClassName}
           data-open={open}
