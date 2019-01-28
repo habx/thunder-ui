@@ -40,6 +40,13 @@ storiesOf('Inputs/RadioSelect', module)
       disabled
     />
   ))
+  .add('error', () => (
+    <RadioSelectWithState
+      value={1}
+      options={SIMPLE_OPTIONS}
+      error
+    />
+  ))
   .add('with custom color', () => (
     <RadioSelectWithState
       value={1}
