@@ -4,12 +4,15 @@ import fontSizes from '../../fontSizes'
 import colors from '../../colors'
 
 export const OptionContainer = styled.div`
-  transition: color ease-in 150ms;
+  transition: background-color ease-in 150ms;
   outline: none;
   cursor: pointer;
   user-select: none;
-  margin-bottom: 8px;
-  font-size: ${fontSizes.small};
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  font-size: ${fontSizes.regular};
+  padding: 12px 18px;
 
   i {
     vertical-align: middle;
@@ -19,6 +22,6 @@ export const OptionContainer = styled.div`
   &:hover,
   &:focus,
   &[data-selected="true"] {
-    color: ${colors.internationalOrange};
+    background-color: ${colors.snow};
   }
 `

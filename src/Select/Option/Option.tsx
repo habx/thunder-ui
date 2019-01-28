@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-import FontIcon from '../../FontIcon/FontIcon'
+import Toggle from '../Toggle'
 
 import { OptionContainer } from './Option.style'
 import OptionProps from './Option.interface'
@@ -37,8 +37,7 @@ class Option extends React.Component<OptionProps> {
         ref={this.ref}
         tabIndex='0'
       >
-        {isMulti && <FontIcon icon={selected ? 'check_box' : 'check_box_outline_blank'} />}
-
+        {isMulti && <Toggle state={selected ? 'full' : 'empty'} />}
         { label }
       </OptionContainer>
     )

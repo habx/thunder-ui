@@ -1,4 +1,4 @@
-export default [
+export const longData = [
   { value: 'sartrouville', label: 'Résidence Aurore' },
   { value: 'saint-maur-raspail', label: 'saint-maur-raspail' },
   { value: 'toulouse-croix-de-pierre', label: 'Croix de Pierre' },
@@ -24,4 +24,10 @@ export default [
   { value: 'levallois-zelmis', label: 'Zelmis' },
   { value: 'torcy-le-perchoir', label: 'Le Perchoir' },
   { value: 'massy-vilgenis', label: 'Massy-Vilgénis' }
+]
+
+export const shortData = [
+  { value: 1, label: 'Option 1' },
+  { value: 2, label: 'Option 2' },
+  { value: 3, label: 'Option 3' }
 ]

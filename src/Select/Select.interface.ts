@@ -10,12 +10,13 @@ export default interface SelectProps extends DOMInterface {
   onChange: (value) => void
   isMulti?: boolean
   description?: string
-  filledIndicator?: boolean
   placeholderClassName?: string
   icon?: React.ReactNode
   annotation?: string
   canReset?: boolean
   disabled?: boolean
+  filterable?: boolean
+  error?: boolean
 }
 
 export interface SelectState {

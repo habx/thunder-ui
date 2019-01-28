@@ -6,35 +6,33 @@ import withLabel from '../withLabel'
 
 import { searchInString } from '../_internal/strings'
 import { formOption } from '../_internal/types'
+import { getMainColor } from '../_internal/colors'
+import colors from '../colors'
 
-import Option from './Option'
+import Options from './Options'
 
 import SelectProps, { SelectState } from './Select.interface'
 
 import {
   SelectContainer,
-  Label,
+  SelectContent,
   SearchInput,
   LabelIcons,
-  Options,
-  Description,
-  DescriptionAnnotation,
-  OptionsActions,
-  OptionAction,
-  CustomIconContainer
+  CustomIconContainer,
+  Placeholder,
 } from './Select.style'
 
 const INTERNAL_PROPS = [
   'isMulti',
   'description',
-  'filledIndicator',
   'placeholderClassName',
   'icon',
   'annotation',
   'canReset',
   'value',
   'onChange',
-  'placeholder'
+  'placeholder',
+  'filterable'
 ]
 
 const FORMAT_VALUE_FULL = 'FORMAT_VALUE_FULL'
@@ -45,11 +43,10 @@ class Select extends React.Component<SelectProps, SelectState> {
     isMulti: false,
     value: null,
     description: null,
-    filledIndicator: true,
-    placeholderClassName: '',
     icon: null,
     annotation: null,
-    canReset: true
+    canReset: true,
+    filterable: false
   }
 
   static getDerivedStateFromProps (nextProps, prevState) {
@@ -81,11 +78,13 @@ class Select extends React.Component<SelectProps, SelectState> {
   }
 
   wrapperRef: React.RefObject<any>
+  inputRef: React.RefObject<any>
 
   constructor (props) {
     super(props)
 
     this.wrapperRef = React.createRef()
+    this.inputRef = React.createRef()
   }
 
   state = {
@@ -132,16 +131,6 @@ class Select extends React.Component<SelectProps, SelectState> {
     return filterMethod(options, el => el.value === value)
   }
 
-  getPlaceholder (value) {
-    const { isMulti, placeholder } = this.props
-
-    if (isMulti) {
-      return placeholder
-    }
-
-    return value ? (value as formOption).label : placeholder
-  }
-
   getCurrentValueFormat () {
     const { value, isMulti } = this.props
 
@@ -162,7 +151,19 @@ class Select extends React.Component<SelectProps, SelectState> {
     return format === FORMAT_VALUE_FULL ? newValue : get(newValue, 'value')
   }
 
-  isOptionSelected (option) {
+  getPlaceholder () {
+    const { isMulti, placeholder } = this.props
+
+    if (isMulti) {
+      return placeholder
+    }
+
+    const value = this.getCurrentValue()
+
+    return value ? (value as formOption).label : placeholder
+  }
+
+  isOptionSelected = option => {
     const { isMulti } = this.props
     const { value } = this.state
 
@@ -175,7 +176,7 @@ class Select extends React.Component<SelectProps, SelectState> {
 
   handleClickOutside = () => {
     if (this.wrapperRef && !this.wrapperRef.current.contains(event.target) && this.state.open) {
-      this.toggle()
+      this.handleToggle()
     }
   }
 
@@ -183,31 +184,35 @@ class Select extends React.Component<SelectProps, SelectState> {
     const { open, focusedItem } = this.state
     const { key } = event
 
-    const options = this.getVisibleOptions()
-    const focusedIndex = findIndex(options, el => el === focusedItem)
+    if (open) {
+      const options = this.getVisibleOptions()
+      const focusedIndex = findIndex(options, el => el === focusedItem)
 
-    if (open && key === 'ArrowDown' && focusedIndex < options.length) {
-      event.preventDefault()
-      this.setState({ focusedItem: options[focusedIndex + 1] })
-    }
+      if (key === 'ArrowDown' && focusedIndex < options.length) {
+        event.preventDefault()
+        this.setState({ focusedItem: options[focusedIndex + 1] })
+      }
 
-    if (open && key === 'ArrowUp' && focusedIndex > 0) {
-      event.preventDefault()
+      if (key === 'ArrowUp' && focusedIndex > 0) {
+        event.preventDefault()
 
-      this.setState({ focusedItem: options[focusedIndex - 1] })
-    }
+        this.setState({ focusedItem: options[focusedIndex - 1] })
+      }
 
-    if (key === 'Enter' && focusedIndex >= 0) {
-      this.handleSelect(focusedItem)
+      if (key === 'Enter' && focusedIndex >= 0) {
+        this.handleSelect(focusedItem)
+      }
     }
   }
 
   handleSelect = option => {
+    this.setState(() => ({ focusedItem: null }))
+
     if (this.props.isMulti) {
       this.handleSelectMulti(option)
     } else {
       this.handleSelectOne(option)
-      this.toggle()
+      this.handleToggle()
     }
   }
 
@@ -236,9 +241,6 @@ class Select extends React.Component<SelectProps, SelectState> {
     }
   }
 
-  handleSelectAll = () => this.props.onChange(this.props.options)
-  handleUnselectAll = () => this.props.onChange([])
-
   handleRemove = e => {
     e.stopPropagation()
     this.props.onChange(null)
@@ -248,9 +250,21 @@ class Select extends React.Component<SelectProps, SelectState> {
 
   handleBlur = () => this.setState({ isInputFocus: false })
 
-  handleSearch = e => this.setState({ search: e.target.value })
+  handleSearch = e => this.setState({
+    search: e.target.value,
+    open: true
+  })
 
-  toggle = () => this.setState({ open: this.state.isInputFocus ? true : !this.state.open, search: '' })
+  handleToggle = () => {
+    this.setState(prevState => ({
+      open: !prevState.open,
+      search: ''
+    }))
+
+    if (this.inputRef.current) {
+      this.inputRef.current.focus()
+    }
+  }
 
   stopDefaultAndPropagation = e => {
     e.stopPropagation()
@@ -262,12 +276,12 @@ class Select extends React.Component<SelectProps, SelectState> {
     const {
       isMulti,
       description,
-      filledIndicator,
       placeholderClassName,
       icon,
       annotation,
       canReset,
-      disabled
+      disabled,
+      filterable
     } = this.props
 
     const safeProps = omit(this.props, INTERNAL_PROPS)
@@ -277,69 +291,54 @@ class Select extends React.Component<SelectProps, SelectState> {
 
     const showRemoveIcon = !disabled && !isMulti && canReset && value
 
+    const color = getMainColor(this.props, 'color', colors.paynesGrey)
+
     return (
       <SelectContainer ref={this.wrapperRef} onClick={this.stopDefaultAndPropagation} {...safeProps}>
-        <Label
+        <SelectContent
           className={placeholderClassName}
-          data-empty={!filledIndicator || isEmpty(value)}
           data-open={open}
-          onClick={this.toggle}
+          onClick={this.handleToggle}
+          color={color}
         >
           {
             icon &&
             <CustomIconContainer>{ icon }</CustomIconContainer>
           }
-          <SearchInput
-            value={search}
-            placeholder={this.getPlaceholder(value)}
-            onChange={this.handleSearch}
-            onFocus={this.handleFocus}
-            onBlur={this.handleBlur}
-          />
+          {
+            filterable
+              ? (
+                <SearchInput
+                  value={search}
+                  placeholder={this.getPlaceholder()}
+                  onChange={this.handleSearch}
+                  onFocus={this.handleFocus}
+                  onBlur={this.handleBlur}
+                  color={color}
+                  ref={this.inputRef}
+                />
+              ) : (
+                <Placeholder color={color}>{ this.getPlaceholder() }</Placeholder>
+              )
+          }
           <LabelIcons>
             {
               showRemoveIcon &&
-              <FontIcon onClick={this.handleRemove} icon='close' />
+              <FontIcon onClick={this.handleRemove} icon='close' size={20} />
             }
             <FontIcon icon={open ? 'arrow_drop_up' : 'arrow_drop_down'} />
           </LabelIcons>
-        </Label>
-        <Options data-open={open}>
-          {description && (
-            <Description>
-              <div>{description}</div>
-              <DescriptionAnnotation>{annotation}</DescriptionAnnotation>
-            </Description>
-          )}
-          {options.length > 0
-            ? (
-              <React.Fragment>
-                {isMulti &&
-                <OptionsActions>
-                  <OptionAction small onClick={this.handleSelectAll}>
-                    Tout selectionner
-                  </OptionAction>
-                  <OptionAction small onClick={this.handleUnselectAll}>
-                    Tout déselectionner
-                  </OptionAction>
-                </OptionsActions>
-                }
-                {options.map(option => (
-                  <Option
-                    key={option.value}
-                    selected={this.isOptionSelected(option)}
-                    onClick={() => this.handleSelect(option)}
-                    focused={option === focusedItem}
-                    isMulti={isMulti}
-                    {...option}
-                  />
-                ))}
-              </React.Fragment>
-            ) : (
-              <div>Aucune option</div>
-            )
-          }
-        </Options>
+        </SelectContent>
+        <Options
+          options={options}
+          open={open}
+          isMulti={isMulti}
+          onSelect={this.handleSelect}
+          isOptionSelected={this.isOptionSelected}
+          focusedItem={focusedItem}
+          annotation={annotation}
+          description={description}
+        />
       </SelectContainer>
     )
   }
