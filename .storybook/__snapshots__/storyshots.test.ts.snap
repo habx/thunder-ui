@@ -2433,6 +2433,7 @@ exports[`Storyshots Actions/Button with icon on the left 1`] = `
   word-wrap: normal;
   white-space: nowrap;
   direction: ltr;
+  color: #061a3c;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   -moz-osx-font-smoothing: grayscale;
@@ -2550,6 +2551,7 @@ exports[`Storyshots Actions/Button with icon on the left 1`] = `
           >
             <i
               className="c2"
+              color="#061a3c"
               size={16}
             >
               delete
@@ -2884,6 +2886,7 @@ exports[`Storyshots Actions/Button with icon on the right 1`] = `
   word-wrap: normal;
   white-space: nowrap;
   direction: ltr;
+  color: #061a3c;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   -moz-osx-font-smoothing: grayscale;
@@ -3010,6 +3013,7 @@ exports[`Storyshots Actions/Button with icon on the right 1`] = `
           >
             <i
               className="c2"
+              color="#061a3c"
               size={16}
             >
               delete
@@ -3706,6 +3710,4613 @@ exports[`Storyshots Actions/Button with manual background color 1`] = `
                 >
                   "
                   Button
+                  " Component
+                </h2>
+                <small>
+                  No propTypes defined!
+                </small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Actions/IconButton basic 1`] = `
+.c1 {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  -webkit-letter-spacing: normal;
+  -moz-letter-spacing: normal;
+  -ms-letter-spacing: normal;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+  color: white;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -moz-osx-font-smoothing: grayscale;
+  font-feature-settings: 'liga';
+}
+
+.c0 {
+  border: none;
+  outline: none;
+  -webkit-transition: all 150ms ease-in-out;
+  transition: all 150ms ease-in-out;
+  height: 48px;
+  width: 48px;
+  border-radius: 50%;
+  background-color: #0071ce;
+  box-shadow: 0 4px 12px 0 rgba(3,54,61,0.32);
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.c0:hover {
+  box-shadow: 0 4px 18px 0 rgba(80,79,79,0.5);
+}
+
+.c0:active {
+  box-shadow: 0 4px 12px 0 rgba(80,79,79,0.5);
+}
+
+.c0:hover,
+.c0:active {
+  color: model:rgb;
+  color: 0,90.4,164.8;
+  valpha: 1px;
+}
+
+.c0:disabled {
+  pointer-events: none;
+  -webkit-filter: grayscale();
+  filter: grayscale();
+}
+
+<div
+  style={
+    Object {
+      "alignItems": "center",
+      "bottom": 0,
+      "display": "flex",
+      "left": 0,
+      "overflow": "auto",
+      "position": "fixed",
+      "right": 0,
+      "top": 0,
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "margin": "auto",
+        "maxHeight": "100%",
+      }
+    }
+  >
+    <div>
+      <div
+        style={
+          Object {
+            "position": "relative",
+            "zIndex": 0,
+          }
+        }
+      >
+        <button
+          className="c0"
+          color="#0071ce"
+        >
+          <i
+            className="c1"
+            color="white"
+            size={24}
+          >
+            delete
+          </i>
+        </button>
+      </div>
+      <button
+        onClick={[Function]}
+        style={
+          Object {
+            "background": "#28c",
+            "border": "none",
+            "borderRadius": "0 0 0 5px",
+            "color": "#fff",
+            "cursor": "pointer",
+            "display": "block",
+            "fontFamily": "sans-serif",
+            "fontSize": "12px",
+            "padding": "5px 15px",
+            "position": "fixed",
+            "right": 0,
+            "top": 0,
+          }
+        }
+        type="button"
+      >
+        Show Info
+      </button>
+      <div
+        style={
+          Object {
+            "background": "white",
+            "bottom": 0,
+            "display": "none",
+            "left": 0,
+            "overflow": "auto",
+            "padding": "0 40px",
+            "position": "fixed",
+            "right": 0,
+            "top": 0,
+            "zIndex": 99999,
+          }
+        }
+      >
+        <button
+          onClick={[Function]}
+          style={
+            Object {
+              "background": "#28c",
+              "border": "none",
+              "borderRadius": "0 0 0 5px",
+              "color": "#fff",
+              "cursor": "pointer",
+              "display": "block",
+              "fontFamily": "sans-serif",
+              "fontSize": "12px",
+              "padding": "5px 15px",
+              "position": "fixed",
+              "right": 0,
+              "top": 0,
+            }
+          }
+          type="button"
+        >
+          ×
+        </button>
+        <div>
+          <div
+            style={
+              Object {
+                "WebkitFontSmoothing": "antialiased",
+                "backgroundColor": "#fff",
+                "border": "1px solid #eee",
+                "borderRadius": "2px",
+                "color": "#444",
+                "fontFamily": "-apple-system, \\".SFNSText-Regular\\", \\"San Francisco\\", BlinkMacSystemFont, \\"Segoe UI\\", \\"Roboto\\", \\"Oxygen\\", \\"Ubuntu\\", \\"Cantarell\\", \\"Fira Sans\\", \\"Droid Sans\\", \\"Helvetica Neue\\", \\"Lucida Grande\\", \\"Arial\\", sans-serif",
+                "fontSize": "15px",
+                "fontWeight": 300,
+                "lineHeight": 1.45,
+                "marginBottom": "20px",
+                "marginTop": "20px",
+                "padding": "20px 40px 40px",
+              }
+            }
+          >
+            <div
+              style={
+                Object {
+                  "borderBottom": "1px solid #eee",
+                  "marginBottom": 10,
+                  "paddingTop": 10,
+                }
+              }
+            >
+              <h1
+                style={
+                  Object {
+                    "fontSize": "35px",
+                    "margin": 0,
+                    "padding": 0,
+                  }
+                }
+              >
+                Actions/IconButton
+              </h1>
+              <h2
+                style={
+                  Object {
+                    "fontSize": "22px",
+                    "fontWeight": 400,
+                    "margin": "0 0 10px 0",
+                    "padding": 0,
+                  }
+                }
+              >
+                basic
+              </h2>
+            </div>
+            
+            <div>
+              <h1
+                style={
+                  Object {
+                    "borderBottom": "1px solid #EEE",
+                    "fontSize": "25px",
+                    "margin": "20px 0 0 0",
+                    "padding": "0 0 5px 0",
+                  }
+                }
+              >
+                Story Source
+              </h1>
+              <pre
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "backgroundColor": "#fafafa",
+                    "display": "flex",
+                    "fontFamily": "Menlo, Monaco, \\"Courier New\\", monospace",
+                    "fontSize": ".88em",
+                    "justifyContent": "space-between",
+                    "lineHeight": 1.5,
+                    "overflowX": "scroll",
+                    "padding": ".5rem",
+                  }
+                }
+              >
+                <div>
+                  <div>
+                    <div
+                      style={
+                        Object {
+                          "paddingLeft": 18,
+                          "paddingRight": 3,
+                        }
+                      }
+                    >
+                      <span
+                        style={
+                          Object {
+                            "color": "#444",
+                          }
+                        }
+                      >
+                        &lt;
+                        styled.button
+                      </span>
+                      <span />
+                      <span
+                        style={
+                          Object {
+                            "color": "#444",
+                          }
+                        }
+                      >
+                        &gt;
+                      </span>
+                    </div>
+                    <div
+                      style={
+                        Object {
+                          "paddingLeft": 33,
+                          "paddingRight": 3,
+                        }
+                      }
+                    >
+                      <span
+                        style={
+                          Object {
+                            "color": "#444",
+                          }
+                        }
+                      >
+                        &lt;
+                        FontIcon
+                      </span>
+                      <span>
+                        <span>
+                           
+                          <span
+                            style={Object {}}
+                          >
+                            icon
+                          </span>
+                          <span>
+                            =
+                            <span
+                              style={Object {}}
+                            >
+                              "
+                              <span
+                                style={
+                                  Object {
+                                    "color": "#22a",
+                                    "wordBreak": "break-word",
+                                  }
+                                }
+                              >
+                                delete
+                              </span>
+                              "
+                            </span>
+                          </span>
+                        </span>
+                        <span>
+                           
+                          <span
+                            style={Object {}}
+                          >
+                            color
+                          </span>
+                          <span>
+                            =
+                            <span
+                              style={Object {}}
+                            >
+                              "
+                              <span
+                                style={
+                                  Object {
+                                    "color": "#22a",
+                                    "wordBreak": "break-word",
+                                  }
+                                }
+                              >
+                                white
+                              </span>
+                              "
+                            </span>
+                          </span>
+                           
+                        </span>
+                      </span>
+                      <span
+                        style={
+                          Object {
+                            "color": "#444",
+                          }
+                        }
+                      >
+                        /&gt;
+                      </span>
+                    </div>
+                    <div
+                      style={
+                        Object {
+                          "paddingLeft": 18,
+                          "paddingRight": 3,
+                        }
+                      }
+                    >
+                      <span
+                        style={
+                          Object {
+                            "color": "#444",
+                          }
+                        }
+                      >
+                        &lt;/
+                        styled.button
+                        &gt;
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <button
+                  onClick={[Function]}
+                  style={
+                    Object {
+                      "alignSelf": "flex-start",
+                      "backgroundColor": "rgb(255, 255, 255)",
+                      "borderColor": "rgb(238, 238, 238)",
+                      "borderImage": "initial",
+                      "borderRadius": "3px",
+                      "borderStyle": "solid",
+                      "borderWidth": "1px",
+                      "cursor": "pointer",
+                      "flexShrink": "0",
+                      "fontSize": "13px",
+                      "overflow": "hidden",
+                      "padding": "3px 10px",
+                    }
+                  }
+                  type="button"
+                >
+                  Copy
+                </button>
+              </pre>
+            </div>
+            <div>
+              <h1
+                style={
+                  Object {
+                    "borderBottom": "1px solid #EEE",
+                    "fontSize": "25px",
+                    "margin": "20px 0 0 0",
+                    "padding": "0 0 5px 0",
+                  }
+                }
+              >
+                Prop Types
+              </h1>
+              <div>
+                <h2
+                  style={
+                    Object {
+                      "margin": "20px 0 0 0",
+                    }
+                  }
+                >
+                  "
+                  FontIcon
+                  " Component
+                </h2>
+                <table>
+                  <thead>
+                    <tr>
+                      <th
+                        style={
+                          Object {
+                            "textAlign": "left",
+                            "verticalAlign": "top",
+                          }
+                        }
+                      >
+                        property
+                      </th>
+                      <th
+                        style={
+                          Object {
+                            "textAlign": "left",
+                            "verticalAlign": "top",
+                          }
+                        }
+                      >
+                        propType
+                      </th>
+                      <th
+                        style={
+                          Object {
+                            "textAlign": "left",
+                            "verticalAlign": "top",
+                          }
+                        }
+                      >
+                        required
+                      </th>
+                      <th
+                        style={
+                          Object {
+                            "textAlign": "left",
+                            "verticalAlign": "top",
+                          }
+                        }
+                      >
+                        default
+                      </th>
+                      <th
+                        style={
+                          Object {
+                            "textAlign": "left",
+                            "verticalAlign": "top",
+                          }
+                        }
+                      >
+                        description
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td
+                        style={
+                          Object {
+                            "paddingRight": 10,
+                            "verticalAlign": "top",
+                          }
+                        }
+                      >
+                        size
+                      </td>
+                      <td
+                        style={
+                          Object {
+                            "paddingRight": 10,
+                            "verticalAlign": "top",
+                          }
+                        }
+                      >
+                        <span>
+                          unknown
+                        </span>
+                      </td>
+                      <td
+                        style={
+                          Object {
+                            "paddingRight": 10,
+                            "verticalAlign": "top",
+                          }
+                        }
+                      >
+                        -
+                      </td>
+                      <td
+                        style={
+                          Object {
+                            "paddingRight": 10,
+                            "verticalAlign": "top",
+                          }
+                        }
+                      >
+                        <span
+                          style={
+                            Object {
+                              "color": "#a11",
+                            }
+                          }
+                        >
+                          24
+                        </span>
+                      </td>
+                      <td
+                        style={
+                          Object {
+                            "paddingRight": 10,
+                            "verticalAlign": "top",
+                          }
+                        }
+                      />
+                    </tr>
+                    <tr>
+                      <td
+                        style={
+                          Object {
+                            "paddingRight": 10,
+                            "verticalAlign": "top",
+                          }
+                        }
+                      >
+                        color
+                      </td>
+                      <td
+                        style={
+                          Object {
+                            "paddingRight": 10,
+                            "verticalAlign": "top",
+                          }
+                        }
+                      >
+                        <span>
+                          unknown
+                        </span>
+                      </td>
+                      <td
+                        style={
+                          Object {
+                            "paddingRight": 10,
+                            "verticalAlign": "top",
+                          }
+                        }
+                      >
+                        -
+                      </td>
+                      <td
+                        style={
+                          Object {
+                            "paddingRight": 10,
+                            "verticalAlign": "top",
+                          }
+                        }
+                      >
+                        <span
+                          style={
+                            Object {
+                              "color": "#22a",
+                              "wordBreak": "break-word",
+                            }
+                          }
+                        >
+                          #061a3c
+                        </span>
+                      </td>
+                      <td
+                        style={
+                          Object {
+                            "paddingRight": 10,
+                            "verticalAlign": "top",
+                          }
+                        }
+                      />
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div>
+                <h2
+                  style={
+                    Object {
+                      "margin": "20px 0 0 0",
+                    }
+                  }
+                >
+                  "
+                  styled.button
+                  " Component
+                </h2>
+                <small>
+                  No propTypes defined!
+                </small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Actions/IconButton disabled 1`] = `
+.c1 {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  -webkit-letter-spacing: normal;
+  -moz-letter-spacing: normal;
+  -ms-letter-spacing: normal;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+  color: white;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -moz-osx-font-smoothing: grayscale;
+  font-feature-settings: 'liga';
+}
+
+.c0 {
+  border: none;
+  outline: none;
+  -webkit-transition: all 150ms ease-in-out;
+  transition: all 150ms ease-in-out;
+  height: 48px;
+  width: 48px;
+  border-radius: 50%;
+  background-color: #0071ce;
+  box-shadow: 0 4px 12px 0 rgba(3,54,61,0.32);
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.c0:hover {
+  box-shadow: 0 4px 18px 0 rgba(80,79,79,0.5);
+}
+
+.c0:active {
+  box-shadow: 0 4px 12px 0 rgba(80,79,79,0.5);
+}
+
+.c0:hover,
+.c0:active {
+  color: model:rgb;
+  color: 0,90.4,164.8;
+  valpha: 1px;
+}
+
+.c0:disabled {
+  pointer-events: none;
+  -webkit-filter: grayscale();
+  filter: grayscale();
+}
+
+<div
+  style={
+    Object {
+      "alignItems": "center",
+      "bottom": 0,
+      "display": "flex",
+      "left": 0,
+      "overflow": "auto",
+      "position": "fixed",
+      "right": 0,
+      "top": 0,
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "margin": "auto",
+        "maxHeight": "100%",
+      }
+    }
+  >
+    <div>
+      <div
+        style={
+          Object {
+            "position": "relative",
+            "zIndex": 0,
+          }
+        }
+      >
+        <button
+          className="c0"
+          color="#0071ce"
+          disabled={true}
+        >
+          <i
+            className="c1"
+            color="white"
+            size={24}
+          >
+            delete
+          </i>
+        </button>
+      </div>
+      <button
+        onClick={[Function]}
+        style={
+          Object {
+            "background": "#28c",
+            "border": "none",
+            "borderRadius": "0 0 0 5px",
+            "color": "#fff",
+            "cursor": "pointer",
+            "display": "block",
+            "fontFamily": "sans-serif",
+            "fontSize": "12px",
+            "padding": "5px 15px",
+            "position": "fixed",
+            "right": 0,
+            "top": 0,
+          }
+        }
+        type="button"
+      >
+        Show Info
+      </button>
+      <div
+        style={
+          Object {
+            "background": "white",
+            "bottom": 0,
+            "display": "none",
+            "left": 0,
+            "overflow": "auto",
+            "padding": "0 40px",
+            "position": "fixed",
+            "right": 0,
+            "top": 0,
+            "zIndex": 99999,
+          }
+        }
+      >
+        <button
+          onClick={[Function]}
+          style={
+            Object {
+              "background": "#28c",
+              "border": "none",
+              "borderRadius": "0 0 0 5px",
+              "color": "#fff",
+              "cursor": "pointer",
+              "display": "block",
+              "fontFamily": "sans-serif",
+              "fontSize": "12px",
+              "padding": "5px 15px",
+              "position": "fixed",
+              "right": 0,
+              "top": 0,
+            }
+          }
+          type="button"
+        >
+          ×
+        </button>
+        <div>
+          <div
+            style={
+              Object {
+                "WebkitFontSmoothing": "antialiased",
+                "backgroundColor": "#fff",
+                "border": "1px solid #eee",
+                "borderRadius": "2px",
+                "color": "#444",
+                "fontFamily": "-apple-system, \\".SFNSText-Regular\\", \\"San Francisco\\", BlinkMacSystemFont, \\"Segoe UI\\", \\"Roboto\\", \\"Oxygen\\", \\"Ubuntu\\", \\"Cantarell\\", \\"Fira Sans\\", \\"Droid Sans\\", \\"Helvetica Neue\\", \\"Lucida Grande\\", \\"Arial\\", sans-serif",
+                "fontSize": "15px",
+                "fontWeight": 300,
+                "lineHeight": 1.45,
+                "marginBottom": "20px",
+                "marginTop": "20px",
+                "padding": "20px 40px 40px",
+              }
+            }
+          >
+            <div
+              style={
+                Object {
+                  "borderBottom": "1px solid #eee",
+                  "marginBottom": 10,
+                  "paddingTop": 10,
+                }
+              }
+            >
+              <h1
+                style={
+                  Object {
+                    "fontSize": "35px",
+                    "margin": 0,
+                    "padding": 0,
+                  }
+                }
+              >
+                Actions/IconButton
+              </h1>
+              <h2
+                style={
+                  Object {
+                    "fontSize": "22px",
+                    "fontWeight": 400,
+                    "margin": "0 0 10px 0",
+                    "padding": 0,
+                  }
+                }
+              >
+                disabled
+              </h2>
+            </div>
+            
+            <div>
+              <h1
+                style={
+                  Object {
+                    "borderBottom": "1px solid #EEE",
+                    "fontSize": "25px",
+                    "margin": "20px 0 0 0",
+                    "padding": "0 0 5px 0",
+                  }
+                }
+              >
+                Story Source
+              </h1>
+              <pre
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "backgroundColor": "#fafafa",
+                    "display": "flex",
+                    "fontFamily": "Menlo, Monaco, \\"Courier New\\", monospace",
+                    "fontSize": ".88em",
+                    "justifyContent": "space-between",
+                    "lineHeight": 1.5,
+                    "overflowX": "scroll",
+                    "padding": ".5rem",
+                  }
+                }
+              >
+                <div>
+                  <div>
+                    <div
+                      style={
+                        Object {
+                          "paddingLeft": 18,
+                          "paddingRight": 3,
+                        }
+                      }
+                    >
+                      <span
+                        style={
+                          Object {
+                            "color": "#444",
+                          }
+                        }
+                      >
+                        &lt;
+                        styled.button
+                      </span>
+                      <span>
+                        <span>
+                           
+                          <span
+                            style={Object {}}
+                          >
+                            disabled
+                          </span>
+                          
+                        </span>
+                      </span>
+                      <span
+                        style={
+                          Object {
+                            "color": "#444",
+                          }
+                        }
+                      >
+                        &gt;
+                      </span>
+                    </div>
+                    <div
+                      style={
+                        Object {
+                          "paddingLeft": 33,
+                          "paddingRight": 3,
+                        }
+                      }
+                    >
+                      <span
+                        style={
+                          Object {
+                            "color": "#444",
+                          }
+                        }
+                      >
+                        &lt;
+                        FontIcon
+                      </span>
+                      <span>
+                        <span>
+                           
+                          <span
+                            style={Object {}}
+                          >
+                            icon
+                          </span>
+                          <span>
+                            =
+                            <span
+                              style={Object {}}
+                            >
+                              "
+                              <span
+                                style={
+                                  Object {
+                                    "color": "#22a",
+                                    "wordBreak": "break-word",
+                                  }
+                                }
+                              >
+                                delete
+                              </span>
+                              "
+                            </span>
+                          </span>
+                        </span>
+                        <span>
+                           
+                          <span
+                            style={Object {}}
+                          >
+                            color
+                          </span>
+                          <span>
+                            =
+                            <span
+                              style={Object {}}
+                            >
+                              "
+                              <span
+                                style={
+                                  Object {
+                                    "color": "#22a",
+                                    "wordBreak": "break-word",
+                                  }
+                                }
+                              >
+                                white
+                              </span>
+                              "
+                            </span>
+                          </span>
+                           
+                        </span>
+                      </span>
+                      <span
+                        style={
+                          Object {
+                            "color": "#444",
+                          }
+                        }
+                      >
+                        /&gt;
+                      </span>
+                    </div>
+                    <div
+                      style={
+                        Object {
+                          "paddingLeft": 18,
+                          "paddingRight": 3,
+                        }
+                      }
+                    >
+                      <span
+                        style={
+                          Object {
+                            "color": "#444",
+                          }
+                        }
+                      >
+                        &lt;/
+                        styled.button
+                        &gt;
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <button
+                  onClick={[Function]}
+                  style={
+                    Object {
+                      "alignSelf": "flex-start",
+                      "backgroundColor": "rgb(255, 255, 255)",
+                      "borderColor": "rgb(238, 238, 238)",
+                      "borderImage": "initial",
+                      "borderRadius": "3px",
+                      "borderStyle": "solid",
+                      "borderWidth": "1px",
+                      "cursor": "pointer",
+                      "flexShrink": "0",
+                      "fontSize": "13px",
+                      "overflow": "hidden",
+                      "padding": "3px 10px",
+                    }
+                  }
+                  type="button"
+                >
+                  Copy
+                </button>
+              </pre>
+            </div>
+            <div>
+              <h1
+                style={
+                  Object {
+                    "borderBottom": "1px solid #EEE",
+                    "fontSize": "25px",
+                    "margin": "20px 0 0 0",
+                    "padding": "0 0 5px 0",
+                  }
+                }
+              >
+                Prop Types
+              </h1>
+              <div>
+                <h2
+                  style={
+                    Object {
+                      "margin": "20px 0 0 0",
+                    }
+                  }
+                >
+                  "
+                  FontIcon
+                  " Component
+                </h2>
+                <table>
+                  <thead>
+                    <tr>
+                      <th
+                        style={
+                          Object {
+                            "textAlign": "left",
+                            "verticalAlign": "top",
+                          }
+                        }
+                      >
+                        property
+                      </th>
+                      <th
+                        style={
+                          Object {
+                            "textAlign": "left",
+                            "verticalAlign": "top",
+                          }
+                        }
+                      >
+                        propType
+                      </th>
+                      <th
+                        style={
+                          Object {
+                            "textAlign": "left",
+                            "verticalAlign": "top",
+                          }
+                        }
+                      >
+                        required
+                      </th>
+                      <th
+                        style={
+                          Object {
+                            "textAlign": "left",
+                            "verticalAlign": "top",
+                          }
+                        }
+                      >
+                        default
+                      </th>
+                      <th
+                        style={
+                          Object {
+                            "textAlign": "left",
+                            "verticalAlign": "top",
+                          }
+                        }
+                      >
+                        description
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td
+                        style={
+                          Object {
+                            "paddingRight": 10,
+                            "verticalAlign": "top",
+                          }
+                        }
+                      >
+                        size
+                      </td>
+                      <td
+                        style={
+                          Object {
+                            "paddingRight": 10,
+                            "verticalAlign": "top",
+                          }
+                        }
+                      >
+                        <span>
+                          unknown
+                        </span>
+                      </td>
+                      <td
+                        style={
+                          Object {
+                            "paddingRight": 10,
+                            "verticalAlign": "top",
+                          }
+                        }
+                      >
+                        -
+                      </td>
+                      <td
+                        style={
+                          Object {
+                            "paddingRight": 10,
+                            "verticalAlign": "top",
+                          }
+                        }
+                      >
+                        <span
+                          style={
+                            Object {
+                              "color": "#a11",
+                            }
+                          }
+                        >
+                          24
+                        </span>
+                      </td>
+                      <td
+                        style={
+                          Object {
+                            "paddingRight": 10,
+                            "verticalAlign": "top",
+                          }
+                        }
+                      />
+                    </tr>
+                    <tr>
+                      <td
+                        style={
+                          Object {
+                            "paddingRight": 10,
+                            "verticalAlign": "top",
+                          }
+                        }
+                      >
+                        color
+                      </td>
+                      <td
+                        style={
+                          Object {
+                            "paddingRight": 10,
+                            "verticalAlign": "top",
+                          }
+                        }
+                      >
+                        <span>
+                          unknown
+                        </span>
+                      </td>
+                      <td
+                        style={
+                          Object {
+                            "paddingRight": 10,
+                            "verticalAlign": "top",
+                          }
+                        }
+                      >
+                        -
+                      </td>
+                      <td
+                        style={
+                          Object {
+                            "paddingRight": 10,
+                            "verticalAlign": "top",
+                          }
+                        }
+                      >
+                        <span
+                          style={
+                            Object {
+                              "color": "#22a",
+                              "wordBreak": "break-word",
+                            }
+                          }
+                        >
+                          #061a3c
+                        </span>
+                      </td>
+                      <td
+                        style={
+                          Object {
+                            "paddingRight": 10,
+                            "verticalAlign": "top",
+                          }
+                        }
+                      />
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div>
+                <h2
+                  style={
+                    Object {
+                      "margin": "20px 0 0 0",
+                    }
+                  }
+                >
+                  "
+                  styled.button
+                  " Component
+                </h2>
+                <small>
+                  No propTypes defined!
+                </small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Actions/IconButton error 1`] = `
+.c1 {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  -webkit-letter-spacing: normal;
+  -moz-letter-spacing: normal;
+  -ms-letter-spacing: normal;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+  color: white;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -moz-osx-font-smoothing: grayscale;
+  font-feature-settings: 'liga';
+}
+
+.c0 {
+  border: none;
+  outline: none;
+  -webkit-transition: all 150ms ease-in-out;
+  transition: all 150ms ease-in-out;
+  height: 48px;
+  width: 48px;
+  border-radius: 50%;
+  background-color: #be3b5d;
+  box-shadow: 0 4px 12px 0 rgba(3,54,61,0.32);
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.c0:hover {
+  box-shadow: 0 4px 18px 0 rgba(80,79,79,0.5);
+}
+
+.c0:active {
+  box-shadow: 0 4px 12px 0 rgba(80,79,79,0.5);
+}
+
+.c0:hover,
+.c0:active {
+  color: model:rgb;
+  color: 152,47.2,74.4;
+  valpha: 1px;
+}
+
+.c0:disabled {
+  pointer-events: none;
+  -webkit-filter: grayscale();
+  filter: grayscale();
+}
+
+<div
+  style={
+    Object {
+      "alignItems": "center",
+      "bottom": 0,
+      "display": "flex",
+      "left": 0,
+      "overflow": "auto",
+      "position": "fixed",
+      "right": 0,
+      "top": 0,
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "margin": "auto",
+        "maxHeight": "100%",
+      }
+    }
+  >
+    <div>
+      <div
+        style={
+          Object {
+            "position": "relative",
+            "zIndex": 0,
+          }
+        }
+      >
+        <button
+          className="c0"
+          color="#be3b5d"
+        >
+          <i
+            className="c1"
+            color="white"
+            size={24}
+          >
+            delete
+          </i>
+        </button>
+      </div>
+      <button
+        onClick={[Function]}
+        style={
+          Object {
+            "background": "#28c",
+            "border": "none",
+            "borderRadius": "0 0 0 5px",
+            "color": "#fff",
+            "cursor": "pointer",
+            "display": "block",
+            "fontFamily": "sans-serif",
+            "fontSize": "12px",
+            "padding": "5px 15px",
+            "position": "fixed",
+            "right": 0,
+            "top": 0,
+          }
+        }
+        type="button"
+      >
+        Show Info
+      </button>
+      <div
+        style={
+          Object {
+            "background": "white",
+            "bottom": 0,
+            "display": "none",
+            "left": 0,
+            "overflow": "auto",
+            "padding": "0 40px",
+            "position": "fixed",
+            "right": 0,
+            "top": 0,
+            "zIndex": 99999,
+          }
+        }
+      >
+        <button
+          onClick={[Function]}
+          style={
+            Object {
+              "background": "#28c",
+              "border": "none",
+              "borderRadius": "0 0 0 5px",
+              "color": "#fff",
+              "cursor": "pointer",
+              "display": "block",
+              "fontFamily": "sans-serif",
+              "fontSize": "12px",
+              "padding": "5px 15px",
+              "position": "fixed",
+              "right": 0,
+              "top": 0,
+            }
+          }
+          type="button"
+        >
+          ×
+        </button>
+        <div>
+          <div
+            style={
+              Object {
+                "WebkitFontSmoothing": "antialiased",
+                "backgroundColor": "#fff",
+                "border": "1px solid #eee",
+                "borderRadius": "2px",
+                "color": "#444",
+                "fontFamily": "-apple-system, \\".SFNSText-Regular\\", \\"San Francisco\\", BlinkMacSystemFont, \\"Segoe UI\\", \\"Roboto\\", \\"Oxygen\\", \\"Ubuntu\\", \\"Cantarell\\", \\"Fira Sans\\", \\"Droid Sans\\", \\"Helvetica Neue\\", \\"Lucida Grande\\", \\"Arial\\", sans-serif",
+                "fontSize": "15px",
+                "fontWeight": 300,
+                "lineHeight": 1.45,
+                "marginBottom": "20px",
+                "marginTop": "20px",
+                "padding": "20px 40px 40px",
+              }
+            }
+          >
+            <div
+              style={
+                Object {
+                  "borderBottom": "1px solid #eee",
+                  "marginBottom": 10,
+                  "paddingTop": 10,
+                }
+              }
+            >
+              <h1
+                style={
+                  Object {
+                    "fontSize": "35px",
+                    "margin": 0,
+                    "padding": 0,
+                  }
+                }
+              >
+                Actions/IconButton
+              </h1>
+              <h2
+                style={
+                  Object {
+                    "fontSize": "22px",
+                    "fontWeight": 400,
+                    "margin": "0 0 10px 0",
+                    "padding": 0,
+                  }
+                }
+              >
+                error
+              </h2>
+            </div>
+            
+            <div>
+              <h1
+                style={
+                  Object {
+                    "borderBottom": "1px solid #EEE",
+                    "fontSize": "25px",
+                    "margin": "20px 0 0 0",
+                    "padding": "0 0 5px 0",
+                  }
+                }
+              >
+                Story Source
+              </h1>
+              <pre
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "backgroundColor": "#fafafa",
+                    "display": "flex",
+                    "fontFamily": "Menlo, Monaco, \\"Courier New\\", monospace",
+                    "fontSize": ".88em",
+                    "justifyContent": "space-between",
+                    "lineHeight": 1.5,
+                    "overflowX": "scroll",
+                    "padding": ".5rem",
+                  }
+                }
+              >
+                <div>
+                  <div>
+                    <div
+                      style={
+                        Object {
+                          "paddingLeft": 18,
+                          "paddingRight": 3,
+                        }
+                      }
+                    >
+                      <span
+                        style={
+                          Object {
+                            "color": "#444",
+                          }
+                        }
+                      >
+                        &lt;
+                        styled.button
+                      </span>
+                      <span>
+                        <span>
+                           
+                          <span
+                            style={Object {}}
+                          >
+                            error
+                          </span>
+                          
+                        </span>
+                      </span>
+                      <span
+                        style={
+                          Object {
+                            "color": "#444",
+                          }
+                        }
+                      >
+                        &gt;
+                      </span>
+                    </div>
+                    <div
+                      style={
+                        Object {
+                          "paddingLeft": 33,
+                          "paddingRight": 3,
+                        }
+                      }
+                    >
+                      <span
+                        style={
+                          Object {
+                            "color": "#444",
+                          }
+                        }
+                      >
+                        &lt;
+                        FontIcon
+                      </span>
+                      <span>
+                        <span>
+                           
+                          <span
+                            style={Object {}}
+                          >
+                            icon
+                          </span>
+                          <span>
+                            =
+                            <span
+                              style={Object {}}
+                            >
+                              "
+                              <span
+                                style={
+                                  Object {
+                                    "color": "#22a",
+                                    "wordBreak": "break-word",
+                                  }
+                                }
+                              >
+                                delete
+                              </span>
+                              "
+                            </span>
+                          </span>
+                        </span>
+                        <span>
+                           
+                          <span
+                            style={Object {}}
+                          >
+                            color
+                          </span>
+                          <span>
+                            =
+                            <span
+                              style={Object {}}
+                            >
+                              "
+                              <span
+                                style={
+                                  Object {
+                                    "color": "#22a",
+                                    "wordBreak": "break-word",
+                                  }
+                                }
+                              >
+                                white
+                              </span>
+                              "
+                            </span>
+                          </span>
+                           
+                        </span>
+                      </span>
+                      <span
+                        style={
+                          Object {
+                            "color": "#444",
+                          }
+                        }
+                      >
+                        /&gt;
+                      </span>
+                    </div>
+                    <div
+                      style={
+                        Object {
+                          "paddingLeft": 18,
+                          "paddingRight": 3,
+                        }
+                      }
+                    >
+                      <span
+                        style={
+                          Object {
+                            "color": "#444",
+                          }
+                        }
+                      >
+                        &lt;/
+                        styled.button
+                        &gt;
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <button
+                  onClick={[Function]}
+                  style={
+                    Object {
+                      "alignSelf": "flex-start",
+                      "backgroundColor": "rgb(255, 255, 255)",
+                      "borderColor": "rgb(238, 238, 238)",
+                      "borderImage": "initial",
+                      "borderRadius": "3px",
+                      "borderStyle": "solid",
+                      "borderWidth": "1px",
+                      "cursor": "pointer",
+                      "flexShrink": "0",
+                      "fontSize": "13px",
+                      "overflow": "hidden",
+                      "padding": "3px 10px",
+                    }
+                  }
+                  type="button"
+                >
+                  Copy
+                </button>
+              </pre>
+            </div>
+            <div>
+              <h1
+                style={
+                  Object {
+                    "borderBottom": "1px solid #EEE",
+                    "fontSize": "25px",
+                    "margin": "20px 0 0 0",
+                    "padding": "0 0 5px 0",
+                  }
+                }
+              >
+                Prop Types
+              </h1>
+              <div>
+                <h2
+                  style={
+                    Object {
+                      "margin": "20px 0 0 0",
+                    }
+                  }
+                >
+                  "
+                  FontIcon
+                  " Component
+                </h2>
+                <table>
+                  <thead>
+                    <tr>
+                      <th
+                        style={
+                          Object {
+                            "textAlign": "left",
+                            "verticalAlign": "top",
+                          }
+                        }
+                      >
+                        property
+                      </th>
+                      <th
+                        style={
+                          Object {
+                            "textAlign": "left",
+                            "verticalAlign": "top",
+                          }
+                        }
+                      >
+                        propType
+                      </th>
+                      <th
+                        style={
+                          Object {
+                            "textAlign": "left",
+                            "verticalAlign": "top",
+                          }
+                        }
+                      >
+                        required
+                      </th>
+                      <th
+                        style={
+                          Object {
+                            "textAlign": "left",
+                            "verticalAlign": "top",
+                          }
+                        }
+                      >
+                        default
+                      </th>
+                      <th
+                        style={
+                          Object {
+                            "textAlign": "left",
+                            "verticalAlign": "top",
+                          }
+                        }
+                      >
+                        description
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td
+                        style={
+                          Object {
+                            "paddingRight": 10,
+                            "verticalAlign": "top",
+                          }
+                        }
+                      >
+                        size
+                      </td>
+                      <td
+                        style={
+                          Object {
+                            "paddingRight": 10,
+                            "verticalAlign": "top",
+                          }
+                        }
+                      >
+                        <span>
+                          unknown
+                        </span>
+                      </td>
+                      <td
+                        style={
+                          Object {
+                            "paddingRight": 10,
+                            "verticalAlign": "top",
+                          }
+                        }
+                      >
+                        -
+                      </td>
+                      <td
+                        style={
+                          Object {
+                            "paddingRight": 10,
+                            "verticalAlign": "top",
+                          }
+                        }
+                      >
+                        <span
+                          style={
+                            Object {
+                              "color": "#a11",
+                            }
+                          }
+                        >
+                          24
+                        </span>
+                      </td>
+                      <td
+                        style={
+                          Object {
+                            "paddingRight": 10,
+                            "verticalAlign": "top",
+                          }
+                        }
+                      />
+                    </tr>
+                    <tr>
+                      <td
+                        style={
+                          Object {
+                            "paddingRight": 10,
+                            "verticalAlign": "top",
+                          }
+                        }
+                      >
+                        color
+                      </td>
+                      <td
+                        style={
+                          Object {
+                            "paddingRight": 10,
+                            "verticalAlign": "top",
+                          }
+                        }
+                      >
+                        <span>
+                          unknown
+                        </span>
+                      </td>
+                      <td
+                        style={
+                          Object {
+                            "paddingRight": 10,
+                            "verticalAlign": "top",
+                          }
+                        }
+                      >
+                        -
+                      </td>
+                      <td
+                        style={
+                          Object {
+                            "paddingRight": 10,
+                            "verticalAlign": "top",
+                          }
+                        }
+                      >
+                        <span
+                          style={
+                            Object {
+                              "color": "#22a",
+                              "wordBreak": "break-word",
+                            }
+                          }
+                        >
+                          #061a3c
+                        </span>
+                      </td>
+                      <td
+                        style={
+                          Object {
+                            "paddingRight": 10,
+                            "verticalAlign": "top",
+                          }
+                        }
+                      />
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div>
+                <h2
+                  style={
+                    Object {
+                      "margin": "20px 0 0 0",
+                    }
+                  }
+                >
+                  "
+                  styled.button
+                  " Component
+                </h2>
+                <small>
+                  No propTypes defined!
+                </small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Actions/IconButton large 1`] = `
+.c1 {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 32px;
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  -webkit-letter-spacing: normal;
+  -moz-letter-spacing: normal;
+  -ms-letter-spacing: normal;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+  color: white;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -moz-osx-font-smoothing: grayscale;
+  font-feature-settings: 'liga';
+}
+
+.c0 {
+  border: none;
+  outline: none;
+  -webkit-transition: all 150ms ease-in-out;
+  transition: all 150ms ease-in-out;
+  height: 64px;
+  width: 64px;
+  border-radius: 50%;
+  background-color: #0071ce;
+  box-shadow: 0 4px 12px 0 rgba(3,54,61,0.32);
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.c0:hover {
+  box-shadow: 0 4px 18px 0 rgba(80,79,79,0.5);
+}
+
+.c0:active {
+  box-shadow: 0 4px 12px 0 rgba(80,79,79,0.5);
+}
+
+.c0:hover,
+.c0:active {
+  color: model:rgb;
+  color: 0,90.4,164.8;
+  valpha: 1px;
+}
+
+.c0:disabled {
+  pointer-events: none;
+  -webkit-filter: grayscale();
+  filter: grayscale();
+}
+
+<div
+  style={
+    Object {
+      "alignItems": "center",
+      "bottom": 0,
+      "display": "flex",
+      "left": 0,
+      "overflow": "auto",
+      "position": "fixed",
+      "right": 0,
+      "top": 0,
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "margin": "auto",
+        "maxHeight": "100%",
+      }
+    }
+  >
+    <div>
+      <div
+        style={
+          Object {
+            "position": "relative",
+            "zIndex": 0,
+          }
+        }
+      >
+        <button
+          className="c0"
+          color="#0071ce"
+        >
+          <i
+            className="c1"
+            color="white"
+            size={32}
+          >
+            delete
+          </i>
+        </button>
+      </div>
+      <button
+        onClick={[Function]}
+        style={
+          Object {
+            "background": "#28c",
+            "border": "none",
+            "borderRadius": "0 0 0 5px",
+            "color": "#fff",
+            "cursor": "pointer",
+            "display": "block",
+            "fontFamily": "sans-serif",
+            "fontSize": "12px",
+            "padding": "5px 15px",
+            "position": "fixed",
+            "right": 0,
+            "top": 0,
+          }
+        }
+        type="button"
+      >
+        Show Info
+      </button>
+      <div
+        style={
+          Object {
+            "background": "white",
+            "bottom": 0,
+            "display": "none",
+            "left": 0,
+            "overflow": "auto",
+            "padding": "0 40px",
+            "position": "fixed",
+            "right": 0,
+            "top": 0,
+            "zIndex": 99999,
+          }
+        }
+      >
+        <button
+          onClick={[Function]}
+          style={
+            Object {
+              "background": "#28c",
+              "border": "none",
+              "borderRadius": "0 0 0 5px",
+              "color": "#fff",
+              "cursor": "pointer",
+              "display": "block",
+              "fontFamily": "sans-serif",
+              "fontSize": "12px",
+              "padding": "5px 15px",
+              "position": "fixed",
+              "right": 0,
+              "top": 0,
+            }
+          }
+          type="button"
+        >
+          ×
+        </button>
+        <div>
+          <div
+            style={
+              Object {
+                "WebkitFontSmoothing": "antialiased",
+                "backgroundColor": "#fff",
+                "border": "1px solid #eee",
+                "borderRadius": "2px",
+                "color": "#444",
+                "fontFamily": "-apple-system, \\".SFNSText-Regular\\", \\"San Francisco\\", BlinkMacSystemFont, \\"Segoe UI\\", \\"Roboto\\", \\"Oxygen\\", \\"Ubuntu\\", \\"Cantarell\\", \\"Fira Sans\\", \\"Droid Sans\\", \\"Helvetica Neue\\", \\"Lucida Grande\\", \\"Arial\\", sans-serif",
+                "fontSize": "15px",
+                "fontWeight": 300,
+                "lineHeight": 1.45,
+                "marginBottom": "20px",
+                "marginTop": "20px",
+                "padding": "20px 40px 40px",
+              }
+            }
+          >
+            <div
+              style={
+                Object {
+                  "borderBottom": "1px solid #eee",
+                  "marginBottom": 10,
+                  "paddingTop": 10,
+                }
+              }
+            >
+              <h1
+                style={
+                  Object {
+                    "fontSize": "35px",
+                    "margin": 0,
+                    "padding": 0,
+                  }
+                }
+              >
+                Actions/IconButton
+              </h1>
+              <h2
+                style={
+                  Object {
+                    "fontSize": "22px",
+                    "fontWeight": 400,
+                    "margin": "0 0 10px 0",
+                    "padding": 0,
+                  }
+                }
+              >
+                large
+              </h2>
+            </div>
+            
+            <div>
+              <h1
+                style={
+                  Object {
+                    "borderBottom": "1px solid #EEE",
+                    "fontSize": "25px",
+                    "margin": "20px 0 0 0",
+                    "padding": "0 0 5px 0",
+                  }
+                }
+              >
+                Story Source
+              </h1>
+              <pre
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "backgroundColor": "#fafafa",
+                    "display": "flex",
+                    "fontFamily": "Menlo, Monaco, \\"Courier New\\", monospace",
+                    "fontSize": ".88em",
+                    "justifyContent": "space-between",
+                    "lineHeight": 1.5,
+                    "overflowX": "scroll",
+                    "padding": ".5rem",
+                  }
+                }
+              >
+                <div>
+                  <div>
+                    <div
+                      style={
+                        Object {
+                          "paddingLeft": 18,
+                          "paddingRight": 3,
+                        }
+                      }
+                    >
+                      <span
+                        style={
+                          Object {
+                            "color": "#444",
+                          }
+                        }
+                      >
+                        &lt;
+                        styled.button
+                      </span>
+                      <span>
+                        <span>
+                           
+                          <span
+                            style={Object {}}
+                          >
+                            large
+                          </span>
+                          
+                        </span>
+                      </span>
+                      <span
+                        style={
+                          Object {
+                            "color": "#444",
+                          }
+                        }
+                      >
+                        &gt;
+                      </span>
+                    </div>
+                    <div
+                      style={
+                        Object {
+                          "paddingLeft": 33,
+                          "paddingRight": 3,
+                        }
+                      }
+                    >
+                      <span
+                        style={
+                          Object {
+                            "color": "#444",
+                          }
+                        }
+                      >
+                        &lt;
+                        FontIcon
+                      </span>
+                      <span>
+                        <span>
+                           
+                          <span
+                            style={Object {}}
+                          >
+                            icon
+                          </span>
+                          <span>
+                            =
+                            <span
+                              style={Object {}}
+                            >
+                              "
+                              <span
+                                style={
+                                  Object {
+                                    "color": "#22a",
+                                    "wordBreak": "break-word",
+                                  }
+                                }
+                              >
+                                delete
+                              </span>
+                              "
+                            </span>
+                          </span>
+                        </span>
+                        <span>
+                           
+                          <span
+                            style={Object {}}
+                          >
+                            color
+                          </span>
+                          <span>
+                            =
+                            <span
+                              style={Object {}}
+                            >
+                              "
+                              <span
+                                style={
+                                  Object {
+                                    "color": "#22a",
+                                    "wordBreak": "break-word",
+                                  }
+                                }
+                              >
+                                white
+                              </span>
+                              "
+                            </span>
+                          </span>
+                        </span>
+                        <span>
+                           
+                          <span
+                            style={Object {}}
+                          >
+                            size
+                          </span>
+                          <span>
+                            =
+                            <span
+                              style={Object {}}
+                            >
+                              {
+                              <span
+                                style={
+                                  Object {
+                                    "color": "#a11",
+                                  }
+                                }
+                              >
+                                32
+                              </span>
+                              }
+                            </span>
+                          </span>
+                           
+                        </span>
+                      </span>
+                      <span
+                        style={
+                          Object {
+                            "color": "#444",
+                          }
+                        }
+                      >
+                        /&gt;
+                      </span>
+                    </div>
+                    <div
+                      style={
+                        Object {
+                          "paddingLeft": 18,
+                          "paddingRight": 3,
+                        }
+                      }
+                    >
+                      <span
+                        style={
+                          Object {
+                            "color": "#444",
+                          }
+                        }
+                      >
+                        &lt;/
+                        styled.button
+                        &gt;
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <button
+                  onClick={[Function]}
+                  style={
+                    Object {
+                      "alignSelf": "flex-start",
+                      "backgroundColor": "rgb(255, 255, 255)",
+                      "borderColor": "rgb(238, 238, 238)",
+                      "borderImage": "initial",
+                      "borderRadius": "3px",
+                      "borderStyle": "solid",
+                      "borderWidth": "1px",
+                      "cursor": "pointer",
+                      "flexShrink": "0",
+                      "fontSize": "13px",
+                      "overflow": "hidden",
+                      "padding": "3px 10px",
+                    }
+                  }
+                  type="button"
+                >
+                  Copy
+                </button>
+              </pre>
+            </div>
+            <div>
+              <h1
+                style={
+                  Object {
+                    "borderBottom": "1px solid #EEE",
+                    "fontSize": "25px",
+                    "margin": "20px 0 0 0",
+                    "padding": "0 0 5px 0",
+                  }
+                }
+              >
+                Prop Types
+              </h1>
+              <div>
+                <h2
+                  style={
+                    Object {
+                      "margin": "20px 0 0 0",
+                    }
+                  }
+                >
+                  "
+                  FontIcon
+                  " Component
+                </h2>
+                <table>
+                  <thead>
+                    <tr>
+                      <th
+                        style={
+                          Object {
+                            "textAlign": "left",
+                            "verticalAlign": "top",
+                          }
+                        }
+                      >
+                        property
+                      </th>
+                      <th
+                        style={
+                          Object {
+                            "textAlign": "left",
+                            "verticalAlign": "top",
+                          }
+                        }
+                      >
+                        propType
+                      </th>
+                      <th
+                        style={
+                          Object {
+                            "textAlign": "left",
+                            "verticalAlign": "top",
+                          }
+                        }
+                      >
+                        required
+                      </th>
+                      <th
+                        style={
+                          Object {
+                            "textAlign": "left",
+                            "verticalAlign": "top",
+                          }
+                        }
+                      >
+                        default
+                      </th>
+                      <th
+                        style={
+                          Object {
+                            "textAlign": "left",
+                            "verticalAlign": "top",
+                          }
+                        }
+                      >
+                        description
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td
+                        style={
+                          Object {
+                            "paddingRight": 10,
+                            "verticalAlign": "top",
+                          }
+                        }
+                      >
+                        size
+                      </td>
+                      <td
+                        style={
+                          Object {
+                            "paddingRight": 10,
+                            "verticalAlign": "top",
+                          }
+                        }
+                      >
+                        <span>
+                          unknown
+                        </span>
+                      </td>
+                      <td
+                        style={
+                          Object {
+                            "paddingRight": 10,
+                            "verticalAlign": "top",
+                          }
+                        }
+                      >
+                        -
+                      </td>
+                      <td
+                        style={
+                          Object {
+                            "paddingRight": 10,
+                            "verticalAlign": "top",
+                          }
+                        }
+                      >
+                        <span
+                          style={
+                            Object {
+                              "color": "#a11",
+                            }
+                          }
+                        >
+                          24
+                        </span>
+                      </td>
+                      <td
+                        style={
+                          Object {
+                            "paddingRight": 10,
+                            "verticalAlign": "top",
+                          }
+                        }
+                      />
+                    </tr>
+                    <tr>
+                      <td
+                        style={
+                          Object {
+                            "paddingRight": 10,
+                            "verticalAlign": "top",
+                          }
+                        }
+                      >
+                        color
+                      </td>
+                      <td
+                        style={
+                          Object {
+                            "paddingRight": 10,
+                            "verticalAlign": "top",
+                          }
+                        }
+                      >
+                        <span>
+                          unknown
+                        </span>
+                      </td>
+                      <td
+                        style={
+                          Object {
+                            "paddingRight": 10,
+                            "verticalAlign": "top",
+                          }
+                        }
+                      >
+                        -
+                      </td>
+                      <td
+                        style={
+                          Object {
+                            "paddingRight": 10,
+                            "verticalAlign": "top",
+                          }
+                        }
+                      >
+                        <span
+                          style={
+                            Object {
+                              "color": "#22a",
+                              "wordBreak": "break-word",
+                            }
+                          }
+                        >
+                          #061a3c
+                        </span>
+                      </td>
+                      <td
+                        style={
+                          Object {
+                            "paddingRight": 10,
+                            "verticalAlign": "top",
+                          }
+                        }
+                      />
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div>
+                <h2
+                  style={
+                    Object {
+                      "margin": "20px 0 0 0",
+                    }
+                  }
+                >
+                  "
+                  styled.button
+                  " Component
+                </h2>
+                <small>
+                  No propTypes defined!
+                </small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Actions/IconButton small 1`] = `
+.c1 {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 16px;
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  -webkit-letter-spacing: normal;
+  -moz-letter-spacing: normal;
+  -ms-letter-spacing: normal;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+  color: white;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -moz-osx-font-smoothing: grayscale;
+  font-feature-settings: 'liga';
+}
+
+.c0 {
+  border: none;
+  outline: none;
+  -webkit-transition: all 150ms ease-in-out;
+  transition: all 150ms ease-in-out;
+  height: 32px;
+  width: 32px;
+  border-radius: 50%;
+  background-color: #0071ce;
+  box-shadow: 0 4px 12px 0 rgba(3,54,61,0.32);
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.c0:hover {
+  box-shadow: 0 4px 18px 0 rgba(80,79,79,0.5);
+}
+
+.c0:active {
+  box-shadow: 0 4px 12px 0 rgba(80,79,79,0.5);
+}
+
+.c0:hover,
+.c0:active {
+  color: model:rgb;
+  color: 0,90.4,164.8;
+  valpha: 1px;
+}
+
+.c0:disabled {
+  pointer-events: none;
+  -webkit-filter: grayscale();
+  filter: grayscale();
+}
+
+<div
+  style={
+    Object {
+      "alignItems": "center",
+      "bottom": 0,
+      "display": "flex",
+      "left": 0,
+      "overflow": "auto",
+      "position": "fixed",
+      "right": 0,
+      "top": 0,
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "margin": "auto",
+        "maxHeight": "100%",
+      }
+    }
+  >
+    <div>
+      <div
+        style={
+          Object {
+            "position": "relative",
+            "zIndex": 0,
+          }
+        }
+      >
+        <button
+          className="c0"
+          color="#0071ce"
+        >
+          <i
+            className="c1"
+            color="white"
+            size={16}
+          >
+            delete
+          </i>
+        </button>
+      </div>
+      <button
+        onClick={[Function]}
+        style={
+          Object {
+            "background": "#28c",
+            "border": "none",
+            "borderRadius": "0 0 0 5px",
+            "color": "#fff",
+            "cursor": "pointer",
+            "display": "block",
+            "fontFamily": "sans-serif",
+            "fontSize": "12px",
+            "padding": "5px 15px",
+            "position": "fixed",
+            "right": 0,
+            "top": 0,
+          }
+        }
+        type="button"
+      >
+        Show Info
+      </button>
+      <div
+        style={
+          Object {
+            "background": "white",
+            "bottom": 0,
+            "display": "none",
+            "left": 0,
+            "overflow": "auto",
+            "padding": "0 40px",
+            "position": "fixed",
+            "right": 0,
+            "top": 0,
+            "zIndex": 99999,
+          }
+        }
+      >
+        <button
+          onClick={[Function]}
+          style={
+            Object {
+              "background": "#28c",
+              "border": "none",
+              "borderRadius": "0 0 0 5px",
+              "color": "#fff",
+              "cursor": "pointer",
+              "display": "block",
+              "fontFamily": "sans-serif",
+              "fontSize": "12px",
+              "padding": "5px 15px",
+              "position": "fixed",
+              "right": 0,
+              "top": 0,
+            }
+          }
+          type="button"
+        >
+          ×
+        </button>
+        <div>
+          <div
+            style={
+              Object {
+                "WebkitFontSmoothing": "antialiased",
+                "backgroundColor": "#fff",
+                "border": "1px solid #eee",
+                "borderRadius": "2px",
+                "color": "#444",
+                "fontFamily": "-apple-system, \\".SFNSText-Regular\\", \\"San Francisco\\", BlinkMacSystemFont, \\"Segoe UI\\", \\"Roboto\\", \\"Oxygen\\", \\"Ubuntu\\", \\"Cantarell\\", \\"Fira Sans\\", \\"Droid Sans\\", \\"Helvetica Neue\\", \\"Lucida Grande\\", \\"Arial\\", sans-serif",
+                "fontSize": "15px",
+                "fontWeight": 300,
+                "lineHeight": 1.45,
+                "marginBottom": "20px",
+                "marginTop": "20px",
+                "padding": "20px 40px 40px",
+              }
+            }
+          >
+            <div
+              style={
+                Object {
+                  "borderBottom": "1px solid #eee",
+                  "marginBottom": 10,
+                  "paddingTop": 10,
+                }
+              }
+            >
+              <h1
+                style={
+                  Object {
+                    "fontSize": "35px",
+                    "margin": 0,
+                    "padding": 0,
+                  }
+                }
+              >
+                Actions/IconButton
+              </h1>
+              <h2
+                style={
+                  Object {
+                    "fontSize": "22px",
+                    "fontWeight": 400,
+                    "margin": "0 0 10px 0",
+                    "padding": 0,
+                  }
+                }
+              >
+                small
+              </h2>
+            </div>
+            
+            <div>
+              <h1
+                style={
+                  Object {
+                    "borderBottom": "1px solid #EEE",
+                    "fontSize": "25px",
+                    "margin": "20px 0 0 0",
+                    "padding": "0 0 5px 0",
+                  }
+                }
+              >
+                Story Source
+              </h1>
+              <pre
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "backgroundColor": "#fafafa",
+                    "display": "flex",
+                    "fontFamily": "Menlo, Monaco, \\"Courier New\\", monospace",
+                    "fontSize": ".88em",
+                    "justifyContent": "space-between",
+                    "lineHeight": 1.5,
+                    "overflowX": "scroll",
+                    "padding": ".5rem",
+                  }
+                }
+              >
+                <div>
+                  <div>
+                    <div
+                      style={
+                        Object {
+                          "paddingLeft": 18,
+                          "paddingRight": 3,
+                        }
+                      }
+                    >
+                      <span
+                        style={
+                          Object {
+                            "color": "#444",
+                          }
+                        }
+                      >
+                        &lt;
+                        styled.button
+                      </span>
+                      <span>
+                        <span>
+                           
+                          <span
+                            style={Object {}}
+                          >
+                            small
+                          </span>
+                          
+                        </span>
+                      </span>
+                      <span
+                        style={
+                          Object {
+                            "color": "#444",
+                          }
+                        }
+                      >
+                        &gt;
+                      </span>
+                    </div>
+                    <div
+                      style={
+                        Object {
+                          "paddingLeft": 33,
+                          "paddingRight": 3,
+                        }
+                      }
+                    >
+                      <span
+                        style={
+                          Object {
+                            "color": "#444",
+                          }
+                        }
+                      >
+                        &lt;
+                        FontIcon
+                      </span>
+                      <span>
+                        <span>
+                           
+                          <span
+                            style={Object {}}
+                          >
+                            icon
+                          </span>
+                          <span>
+                            =
+                            <span
+                              style={Object {}}
+                            >
+                              "
+                              <span
+                                style={
+                                  Object {
+                                    "color": "#22a",
+                                    "wordBreak": "break-word",
+                                  }
+                                }
+                              >
+                                delete
+                              </span>
+                              "
+                            </span>
+                          </span>
+                        </span>
+                        <span>
+                           
+                          <span
+                            style={Object {}}
+                          >
+                            color
+                          </span>
+                          <span>
+                            =
+                            <span
+                              style={Object {}}
+                            >
+                              "
+                              <span
+                                style={
+                                  Object {
+                                    "color": "#22a",
+                                    "wordBreak": "break-word",
+                                  }
+                                }
+                              >
+                                white
+                              </span>
+                              "
+                            </span>
+                          </span>
+                        </span>
+                        <span>
+                           
+                          <span
+                            style={Object {}}
+                          >
+                            size
+                          </span>
+                          <span>
+                            =
+                            <span
+                              style={Object {}}
+                            >
+                              {
+                              <span
+                                style={
+                                  Object {
+                                    "color": "#a11",
+                                  }
+                                }
+                              >
+                                16
+                              </span>
+                              }
+                            </span>
+                          </span>
+                           
+                        </span>
+                      </span>
+                      <span
+                        style={
+                          Object {
+                            "color": "#444",
+                          }
+                        }
+                      >
+                        /&gt;
+                      </span>
+                    </div>
+                    <div
+                      style={
+                        Object {
+                          "paddingLeft": 18,
+                          "paddingRight": 3,
+                        }
+                      }
+                    >
+                      <span
+                        style={
+                          Object {
+                            "color": "#444",
+                          }
+                        }
+                      >
+                        &lt;/
+                        styled.button
+                        &gt;
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <button
+                  onClick={[Function]}
+                  style={
+                    Object {
+                      "alignSelf": "flex-start",
+                      "backgroundColor": "rgb(255, 255, 255)",
+                      "borderColor": "rgb(238, 238, 238)",
+                      "borderImage": "initial",
+                      "borderRadius": "3px",
+                      "borderStyle": "solid",
+                      "borderWidth": "1px",
+                      "cursor": "pointer",
+                      "flexShrink": "0",
+                      "fontSize": "13px",
+                      "overflow": "hidden",
+                      "padding": "3px 10px",
+                    }
+                  }
+                  type="button"
+                >
+                  Copy
+                </button>
+              </pre>
+            </div>
+            <div>
+              <h1
+                style={
+                  Object {
+                    "borderBottom": "1px solid #EEE",
+                    "fontSize": "25px",
+                    "margin": "20px 0 0 0",
+                    "padding": "0 0 5px 0",
+                  }
+                }
+              >
+                Prop Types
+              </h1>
+              <div>
+                <h2
+                  style={
+                    Object {
+                      "margin": "20px 0 0 0",
+                    }
+                  }
+                >
+                  "
+                  FontIcon
+                  " Component
+                </h2>
+                <table>
+                  <thead>
+                    <tr>
+                      <th
+                        style={
+                          Object {
+                            "textAlign": "left",
+                            "verticalAlign": "top",
+                          }
+                        }
+                      >
+                        property
+                      </th>
+                      <th
+                        style={
+                          Object {
+                            "textAlign": "left",
+                            "verticalAlign": "top",
+                          }
+                        }
+                      >
+                        propType
+                      </th>
+                      <th
+                        style={
+                          Object {
+                            "textAlign": "left",
+                            "verticalAlign": "top",
+                          }
+                        }
+                      >
+                        required
+                      </th>
+                      <th
+                        style={
+                          Object {
+                            "textAlign": "left",
+                            "verticalAlign": "top",
+                          }
+                        }
+                      >
+                        default
+                      </th>
+                      <th
+                        style={
+                          Object {
+                            "textAlign": "left",
+                            "verticalAlign": "top",
+                          }
+                        }
+                      >
+                        description
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td
+                        style={
+                          Object {
+                            "paddingRight": 10,
+                            "verticalAlign": "top",
+                          }
+                        }
+                      >
+                        size
+                      </td>
+                      <td
+                        style={
+                          Object {
+                            "paddingRight": 10,
+                            "verticalAlign": "top",
+                          }
+                        }
+                      >
+                        <span>
+                          unknown
+                        </span>
+                      </td>
+                      <td
+                        style={
+                          Object {
+                            "paddingRight": 10,
+                            "verticalAlign": "top",
+                          }
+                        }
+                      >
+                        -
+                      </td>
+                      <td
+                        style={
+                          Object {
+                            "paddingRight": 10,
+                            "verticalAlign": "top",
+                          }
+                        }
+                      >
+                        <span
+                          style={
+                            Object {
+                              "color": "#a11",
+                            }
+                          }
+                        >
+                          24
+                        </span>
+                      </td>
+                      <td
+                        style={
+                          Object {
+                            "paddingRight": 10,
+                            "verticalAlign": "top",
+                          }
+                        }
+                      />
+                    </tr>
+                    <tr>
+                      <td
+                        style={
+                          Object {
+                            "paddingRight": 10,
+                            "verticalAlign": "top",
+                          }
+                        }
+                      >
+                        color
+                      </td>
+                      <td
+                        style={
+                          Object {
+                            "paddingRight": 10,
+                            "verticalAlign": "top",
+                          }
+                        }
+                      >
+                        <span>
+                          unknown
+                        </span>
+                      </td>
+                      <td
+                        style={
+                          Object {
+                            "paddingRight": 10,
+                            "verticalAlign": "top",
+                          }
+                        }
+                      >
+                        -
+                      </td>
+                      <td
+                        style={
+                          Object {
+                            "paddingRight": 10,
+                            "verticalAlign": "top",
+                          }
+                        }
+                      >
+                        <span
+                          style={
+                            Object {
+                              "color": "#22a",
+                              "wordBreak": "break-word",
+                            }
+                          }
+                        >
+                          #061a3c
+                        </span>
+                      </td>
+                      <td
+                        style={
+                          Object {
+                            "paddingRight": 10,
+                            "verticalAlign": "top",
+                          }
+                        }
+                      />
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div>
+                <h2
+                  style={
+                    Object {
+                      "margin": "20px 0 0 0",
+                    }
+                  }
+                >
+                  "
+                  styled.button
+                  " Component
+                </h2>
+                <small>
+                  No propTypes defined!
+                </small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Actions/IconButton warning 1`] = `
+.c1 {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  -webkit-letter-spacing: normal;
+  -moz-letter-spacing: normal;
+  -ms-letter-spacing: normal;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+  color: white;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -moz-osx-font-smoothing: grayscale;
+  font-feature-settings: 'liga';
+}
+
+.c0 {
+  border: none;
+  outline: none;
+  -webkit-transition: all 150ms ease-in-out;
+  transition: all 150ms ease-in-out;
+  height: 48px;
+  width: 48px;
+  border-radius: 50%;
+  background-color: #ff5100;
+  box-shadow: 0 4px 12px 0 rgba(3,54,61,0.32);
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.c0:hover {
+  box-shadow: 0 4px 18px 0 rgba(80,79,79,0.5);
+}
+
+.c0:active {
+  box-shadow: 0 4px 12px 0 rgba(80,79,79,0.5);
+}
+
+.c0:hover,
+.c0:active {
+  color: model:rgb;
+  color: 204,64.8,0;
+  valpha: 1px;
+}
+
+.c0:disabled {
+  pointer-events: none;
+  -webkit-filter: grayscale();
+  filter: grayscale();
+}
+
+<div
+  style={
+    Object {
+      "alignItems": "center",
+      "bottom": 0,
+      "display": "flex",
+      "left": 0,
+      "overflow": "auto",
+      "position": "fixed",
+      "right": 0,
+      "top": 0,
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "margin": "auto",
+        "maxHeight": "100%",
+      }
+    }
+  >
+    <div>
+      <div
+        style={
+          Object {
+            "position": "relative",
+            "zIndex": 0,
+          }
+        }
+      >
+        <button
+          className="c0"
+          color="#ff5100"
+        >
+          <i
+            className="c1"
+            color="white"
+            size={24}
+          >
+            delete
+          </i>
+        </button>
+      </div>
+      <button
+        onClick={[Function]}
+        style={
+          Object {
+            "background": "#28c",
+            "border": "none",
+            "borderRadius": "0 0 0 5px",
+            "color": "#fff",
+            "cursor": "pointer",
+            "display": "block",
+            "fontFamily": "sans-serif",
+            "fontSize": "12px",
+            "padding": "5px 15px",
+            "position": "fixed",
+            "right": 0,
+            "top": 0,
+          }
+        }
+        type="button"
+      >
+        Show Info
+      </button>
+      <div
+        style={
+          Object {
+            "background": "white",
+            "bottom": 0,
+            "display": "none",
+            "left": 0,
+            "overflow": "auto",
+            "padding": "0 40px",
+            "position": "fixed",
+            "right": 0,
+            "top": 0,
+            "zIndex": 99999,
+          }
+        }
+      >
+        <button
+          onClick={[Function]}
+          style={
+            Object {
+              "background": "#28c",
+              "border": "none",
+              "borderRadius": "0 0 0 5px",
+              "color": "#fff",
+              "cursor": "pointer",
+              "display": "block",
+              "fontFamily": "sans-serif",
+              "fontSize": "12px",
+              "padding": "5px 15px",
+              "position": "fixed",
+              "right": 0,
+              "top": 0,
+            }
+          }
+          type="button"
+        >
+          ×
+        </button>
+        <div>
+          <div
+            style={
+              Object {
+                "WebkitFontSmoothing": "antialiased",
+                "backgroundColor": "#fff",
+                "border": "1px solid #eee",
+                "borderRadius": "2px",
+                "color": "#444",
+                "fontFamily": "-apple-system, \\".SFNSText-Regular\\", \\"San Francisco\\", BlinkMacSystemFont, \\"Segoe UI\\", \\"Roboto\\", \\"Oxygen\\", \\"Ubuntu\\", \\"Cantarell\\", \\"Fira Sans\\", \\"Droid Sans\\", \\"Helvetica Neue\\", \\"Lucida Grande\\", \\"Arial\\", sans-serif",
+                "fontSize": "15px",
+                "fontWeight": 300,
+                "lineHeight": 1.45,
+                "marginBottom": "20px",
+                "marginTop": "20px",
+                "padding": "20px 40px 40px",
+              }
+            }
+          >
+            <div
+              style={
+                Object {
+                  "borderBottom": "1px solid #eee",
+                  "marginBottom": 10,
+                  "paddingTop": 10,
+                }
+              }
+            >
+              <h1
+                style={
+                  Object {
+                    "fontSize": "35px",
+                    "margin": 0,
+                    "padding": 0,
+                  }
+                }
+              >
+                Actions/IconButton
+              </h1>
+              <h2
+                style={
+                  Object {
+                    "fontSize": "22px",
+                    "fontWeight": 400,
+                    "margin": "0 0 10px 0",
+                    "padding": 0,
+                  }
+                }
+              >
+                warning
+              </h2>
+            </div>
+            
+            <div>
+              <h1
+                style={
+                  Object {
+                    "borderBottom": "1px solid #EEE",
+                    "fontSize": "25px",
+                    "margin": "20px 0 0 0",
+                    "padding": "0 0 5px 0",
+                  }
+                }
+              >
+                Story Source
+              </h1>
+              <pre
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "backgroundColor": "#fafafa",
+                    "display": "flex",
+                    "fontFamily": "Menlo, Monaco, \\"Courier New\\", monospace",
+                    "fontSize": ".88em",
+                    "justifyContent": "space-between",
+                    "lineHeight": 1.5,
+                    "overflowX": "scroll",
+                    "padding": ".5rem",
+                  }
+                }
+              >
+                <div>
+                  <div>
+                    <div
+                      style={
+                        Object {
+                          "paddingLeft": 18,
+                          "paddingRight": 3,
+                        }
+                      }
+                    >
+                      <span
+                        style={
+                          Object {
+                            "color": "#444",
+                          }
+                        }
+                      >
+                        &lt;
+                        styled.button
+                      </span>
+                      <span>
+                        <span>
+                           
+                          <span
+                            style={Object {}}
+                          >
+                            warning
+                          </span>
+                          
+                        </span>
+                      </span>
+                      <span
+                        style={
+                          Object {
+                            "color": "#444",
+                          }
+                        }
+                      >
+                        &gt;
+                      </span>
+                    </div>
+                    <div
+                      style={
+                        Object {
+                          "paddingLeft": 33,
+                          "paddingRight": 3,
+                        }
+                      }
+                    >
+                      <span
+                        style={
+                          Object {
+                            "color": "#444",
+                          }
+                        }
+                      >
+                        &lt;
+                        FontIcon
+                      </span>
+                      <span>
+                        <span>
+                           
+                          <span
+                            style={Object {}}
+                          >
+                            icon
+                          </span>
+                          <span>
+                            =
+                            <span
+                              style={Object {}}
+                            >
+                              "
+                              <span
+                                style={
+                                  Object {
+                                    "color": "#22a",
+                                    "wordBreak": "break-word",
+                                  }
+                                }
+                              >
+                                delete
+                              </span>
+                              "
+                            </span>
+                          </span>
+                        </span>
+                        <span>
+                           
+                          <span
+                            style={Object {}}
+                          >
+                            color
+                          </span>
+                          <span>
+                            =
+                            <span
+                              style={Object {}}
+                            >
+                              "
+                              <span
+                                style={
+                                  Object {
+                                    "color": "#22a",
+                                    "wordBreak": "break-word",
+                                  }
+                                }
+                              >
+                                white
+                              </span>
+                              "
+                            </span>
+                          </span>
+                           
+                        </span>
+                      </span>
+                      <span
+                        style={
+                          Object {
+                            "color": "#444",
+                          }
+                        }
+                      >
+                        /&gt;
+                      </span>
+                    </div>
+                    <div
+                      style={
+                        Object {
+                          "paddingLeft": 18,
+                          "paddingRight": 3,
+                        }
+                      }
+                    >
+                      <span
+                        style={
+                          Object {
+                            "color": "#444",
+                          }
+                        }
+                      >
+                        &lt;/
+                        styled.button
+                        &gt;
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <button
+                  onClick={[Function]}
+                  style={
+                    Object {
+                      "alignSelf": "flex-start",
+                      "backgroundColor": "rgb(255, 255, 255)",
+                      "borderColor": "rgb(238, 238, 238)",
+                      "borderImage": "initial",
+                      "borderRadius": "3px",
+                      "borderStyle": "solid",
+                      "borderWidth": "1px",
+                      "cursor": "pointer",
+                      "flexShrink": "0",
+                      "fontSize": "13px",
+                      "overflow": "hidden",
+                      "padding": "3px 10px",
+                    }
+                  }
+                  type="button"
+                >
+                  Copy
+                </button>
+              </pre>
+            </div>
+            <div>
+              <h1
+                style={
+                  Object {
+                    "borderBottom": "1px solid #EEE",
+                    "fontSize": "25px",
+                    "margin": "20px 0 0 0",
+                    "padding": "0 0 5px 0",
+                  }
+                }
+              >
+                Prop Types
+              </h1>
+              <div>
+                <h2
+                  style={
+                    Object {
+                      "margin": "20px 0 0 0",
+                    }
+                  }
+                >
+                  "
+                  FontIcon
+                  " Component
+                </h2>
+                <table>
+                  <thead>
+                    <tr>
+                      <th
+                        style={
+                          Object {
+                            "textAlign": "left",
+                            "verticalAlign": "top",
+                          }
+                        }
+                      >
+                        property
+                      </th>
+                      <th
+                        style={
+                          Object {
+                            "textAlign": "left",
+                            "verticalAlign": "top",
+                          }
+                        }
+                      >
+                        propType
+                      </th>
+                      <th
+                        style={
+                          Object {
+                            "textAlign": "left",
+                            "verticalAlign": "top",
+                          }
+                        }
+                      >
+                        required
+                      </th>
+                      <th
+                        style={
+                          Object {
+                            "textAlign": "left",
+                            "verticalAlign": "top",
+                          }
+                        }
+                      >
+                        default
+                      </th>
+                      <th
+                        style={
+                          Object {
+                            "textAlign": "left",
+                            "verticalAlign": "top",
+                          }
+                        }
+                      >
+                        description
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td
+                        style={
+                          Object {
+                            "paddingRight": 10,
+                            "verticalAlign": "top",
+                          }
+                        }
+                      >
+                        size
+                      </td>
+                      <td
+                        style={
+                          Object {
+                            "paddingRight": 10,
+                            "verticalAlign": "top",
+                          }
+                        }
+                      >
+                        <span>
+                          unknown
+                        </span>
+                      </td>
+                      <td
+                        style={
+                          Object {
+                            "paddingRight": 10,
+                            "verticalAlign": "top",
+                          }
+                        }
+                      >
+                        -
+                      </td>
+                      <td
+                        style={
+                          Object {
+                            "paddingRight": 10,
+                            "verticalAlign": "top",
+                          }
+                        }
+                      >
+                        <span
+                          style={
+                            Object {
+                              "color": "#a11",
+                            }
+                          }
+                        >
+                          24
+                        </span>
+                      </td>
+                      <td
+                        style={
+                          Object {
+                            "paddingRight": 10,
+                            "verticalAlign": "top",
+                          }
+                        }
+                      />
+                    </tr>
+                    <tr>
+                      <td
+                        style={
+                          Object {
+                            "paddingRight": 10,
+                            "verticalAlign": "top",
+                          }
+                        }
+                      >
+                        color
+                      </td>
+                      <td
+                        style={
+                          Object {
+                            "paddingRight": 10,
+                            "verticalAlign": "top",
+                          }
+                        }
+                      >
+                        <span>
+                          unknown
+                        </span>
+                      </td>
+                      <td
+                        style={
+                          Object {
+                            "paddingRight": 10,
+                            "verticalAlign": "top",
+                          }
+                        }
+                      >
+                        -
+                      </td>
+                      <td
+                        style={
+                          Object {
+                            "paddingRight": 10,
+                            "verticalAlign": "top",
+                          }
+                        }
+                      >
+                        <span
+                          style={
+                            Object {
+                              "color": "#22a",
+                              "wordBreak": "break-word",
+                            }
+                          }
+                        >
+                          #061a3c
+                        </span>
+                      </td>
+                      <td
+                        style={
+                          Object {
+                            "paddingRight": 10,
+                            "verticalAlign": "top",
+                          }
+                        }
+                      />
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div>
+                <h2
+                  style={
+                    Object {
+                      "margin": "20px 0 0 0",
+                    }
+                  }
+                >
+                  "
+                  styled.button
+                  " Component
+                </h2>
+                <small>
+                  No propTypes defined!
+                </small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Actions/IconButton with manual color 1`] = `
+.c1 {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  -webkit-letter-spacing: normal;
+  -moz-letter-spacing: normal;
+  -ms-letter-spacing: normal;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+  color: white;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -moz-osx-font-smoothing: grayscale;
+  font-feature-settings: 'liga';
+}
+
+.c0 {
+  border: none;
+  outline: none;
+  -webkit-transition: all 150ms ease-in-out;
+  transition: all 150ms ease-in-out;
+  height: 48px;
+  width: 48px;
+  border-radius: 50%;
+  background-color: #061a3c;
+  box-shadow: 0 4px 12px 0 rgba(3,54,61,0.32);
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.c0:hover {
+  box-shadow: 0 4px 18px 0 rgba(80,79,79,0.5);
+}
+
+.c0:active {
+  box-shadow: 0 4px 12px 0 rgba(80,79,79,0.5);
+}
+
+.c0:hover,
+.c0:active {
+  color: model:rgb;
+  color: 4.800000000000001,20.8,48;
+  valpha: 1px;
+}
+
+.c0:disabled {
+  pointer-events: none;
+  -webkit-filter: grayscale();
+  filter: grayscale();
+}
+
+<div
+  style={
+    Object {
+      "alignItems": "center",
+      "bottom": 0,
+      "display": "flex",
+      "left": 0,
+      "overflow": "auto",
+      "position": "fixed",
+      "right": 0,
+      "top": 0,
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "margin": "auto",
+        "maxHeight": "100%",
+      }
+    }
+  >
+    <div>
+      <div
+        style={
+          Object {
+            "position": "relative",
+            "zIndex": 0,
+          }
+        }
+      >
+        <button
+          className="c0"
+          color="#061a3c"
+          disabled={true}
+        >
+          <i
+            className="c1"
+            color="white"
+            size={24}
+          >
+            delete
+          </i>
+        </button>
+      </div>
+      <button
+        onClick={[Function]}
+        style={
+          Object {
+            "background": "#28c",
+            "border": "none",
+            "borderRadius": "0 0 0 5px",
+            "color": "#fff",
+            "cursor": "pointer",
+            "display": "block",
+            "fontFamily": "sans-serif",
+            "fontSize": "12px",
+            "padding": "5px 15px",
+            "position": "fixed",
+            "right": 0,
+            "top": 0,
+          }
+        }
+        type="button"
+      >
+        Show Info
+      </button>
+      <div
+        style={
+          Object {
+            "background": "white",
+            "bottom": 0,
+            "display": "none",
+            "left": 0,
+            "overflow": "auto",
+            "padding": "0 40px",
+            "position": "fixed",
+            "right": 0,
+            "top": 0,
+            "zIndex": 99999,
+          }
+        }
+      >
+        <button
+          onClick={[Function]}
+          style={
+            Object {
+              "background": "#28c",
+              "border": "none",
+              "borderRadius": "0 0 0 5px",
+              "color": "#fff",
+              "cursor": "pointer",
+              "display": "block",
+              "fontFamily": "sans-serif",
+              "fontSize": "12px",
+              "padding": "5px 15px",
+              "position": "fixed",
+              "right": 0,
+              "top": 0,
+            }
+          }
+          type="button"
+        >
+          ×
+        </button>
+        <div>
+          <div
+            style={
+              Object {
+                "WebkitFontSmoothing": "antialiased",
+                "backgroundColor": "#fff",
+                "border": "1px solid #eee",
+                "borderRadius": "2px",
+                "color": "#444",
+                "fontFamily": "-apple-system, \\".SFNSText-Regular\\", \\"San Francisco\\", BlinkMacSystemFont, \\"Segoe UI\\", \\"Roboto\\", \\"Oxygen\\", \\"Ubuntu\\", \\"Cantarell\\", \\"Fira Sans\\", \\"Droid Sans\\", \\"Helvetica Neue\\", \\"Lucida Grande\\", \\"Arial\\", sans-serif",
+                "fontSize": "15px",
+                "fontWeight": 300,
+                "lineHeight": 1.45,
+                "marginBottom": "20px",
+                "marginTop": "20px",
+                "padding": "20px 40px 40px",
+              }
+            }
+          >
+            <div
+              style={
+                Object {
+                  "borderBottom": "1px solid #eee",
+                  "marginBottom": 10,
+                  "paddingTop": 10,
+                }
+              }
+            >
+              <h1
+                style={
+                  Object {
+                    "fontSize": "35px",
+                    "margin": 0,
+                    "padding": 0,
+                  }
+                }
+              >
+                Actions/IconButton
+              </h1>
+              <h2
+                style={
+                  Object {
+                    "fontSize": "22px",
+                    "fontWeight": 400,
+                    "margin": "0 0 10px 0",
+                    "padding": 0,
+                  }
+                }
+              >
+                with manual color
+              </h2>
+            </div>
+            
+            <div>
+              <h1
+                style={
+                  Object {
+                    "borderBottom": "1px solid #EEE",
+                    "fontSize": "25px",
+                    "margin": "20px 0 0 0",
+                    "padding": "0 0 5px 0",
+                  }
+                }
+              >
+                Story Source
+              </h1>
+              <pre
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "backgroundColor": "#fafafa",
+                    "display": "flex",
+                    "fontFamily": "Menlo, Monaco, \\"Courier New\\", monospace",
+                    "fontSize": ".88em",
+                    "justifyContent": "space-between",
+                    "lineHeight": 1.5,
+                    "overflowX": "scroll",
+                    "padding": ".5rem",
+                  }
+                }
+              >
+                <div>
+                  <div>
+                    <div
+                      style={
+                        Object {
+                          "paddingLeft": 18,
+                          "paddingRight": 3,
+                        }
+                      }
+                    >
+                      <span
+                        style={
+                          Object {
+                            "color": "#444",
+                          }
+                        }
+                      >
+                        &lt;
+                        styled.button
+                      </span>
+                      <span>
+                        <span>
+                           
+                          <span
+                            style={Object {}}
+                          >
+                            disabled
+                          </span>
+                        </span>
+                        <span>
+                           
+                          <span
+                            style={Object {}}
+                          >
+                            color
+                          </span>
+                          <span>
+                            =
+                            <span
+                              style={Object {}}
+                            >
+                              "
+                              <span
+                                style={
+                                  Object {
+                                    "color": "#22a",
+                                    "wordBreak": "break-word",
+                                  }
+                                }
+                              >
+                                #061a3c
+                              </span>
+                              "
+                            </span>
+                          </span>
+                          
+                        </span>
+                      </span>
+                      <span
+                        style={
+                          Object {
+                            "color": "#444",
+                          }
+                        }
+                      >
+                        &gt;
+                      </span>
+                    </div>
+                    <div
+                      style={
+                        Object {
+                          "paddingLeft": 33,
+                          "paddingRight": 3,
+                        }
+                      }
+                    >
+                      <span
+                        style={
+                          Object {
+                            "color": "#444",
+                          }
+                        }
+                      >
+                        &lt;
+                        FontIcon
+                      </span>
+                      <span>
+                        <span>
+                           
+                          <span
+                            style={Object {}}
+                          >
+                            icon
+                          </span>
+                          <span>
+                            =
+                            <span
+                              style={Object {}}
+                            >
+                              "
+                              <span
+                                style={
+                                  Object {
+                                    "color": "#22a",
+                                    "wordBreak": "break-word",
+                                  }
+                                }
+                              >
+                                delete
+                              </span>
+                              "
+                            </span>
+                          </span>
+                        </span>
+                        <span>
+                           
+                          <span
+                            style={Object {}}
+                          >
+                            color
+                          </span>
+                          <span>
+                            =
+                            <span
+                              style={Object {}}
+                            >
+                              "
+                              <span
+                                style={
+                                  Object {
+                                    "color": "#22a",
+                                    "wordBreak": "break-word",
+                                  }
+                                }
+                              >
+                                white
+                              </span>
+                              "
+                            </span>
+                          </span>
+                           
+                        </span>
+                      </span>
+                      <span
+                        style={
+                          Object {
+                            "color": "#444",
+                          }
+                        }
+                      >
+                        /&gt;
+                      </span>
+                    </div>
+                    <div
+                      style={
+                        Object {
+                          "paddingLeft": 18,
+                          "paddingRight": 3,
+                        }
+                      }
+                    >
+                      <span
+                        style={
+                          Object {
+                            "color": "#444",
+                          }
+                        }
+                      >
+                        &lt;/
+                        styled.button
+                        &gt;
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <button
+                  onClick={[Function]}
+                  style={
+                    Object {
+                      "alignSelf": "flex-start",
+                      "backgroundColor": "rgb(255, 255, 255)",
+                      "borderColor": "rgb(238, 238, 238)",
+                      "borderImage": "initial",
+                      "borderRadius": "3px",
+                      "borderStyle": "solid",
+                      "borderWidth": "1px",
+                      "cursor": "pointer",
+                      "flexShrink": "0",
+                      "fontSize": "13px",
+                      "overflow": "hidden",
+                      "padding": "3px 10px",
+                    }
+                  }
+                  type="button"
+                >
+                  Copy
+                </button>
+              </pre>
+            </div>
+            <div>
+              <h1
+                style={
+                  Object {
+                    "borderBottom": "1px solid #EEE",
+                    "fontSize": "25px",
+                    "margin": "20px 0 0 0",
+                    "padding": "0 0 5px 0",
+                  }
+                }
+              >
+                Prop Types
+              </h1>
+              <div>
+                <h2
+                  style={
+                    Object {
+                      "margin": "20px 0 0 0",
+                    }
+                  }
+                >
+                  "
+                  FontIcon
+                  " Component
+                </h2>
+                <table>
+                  <thead>
+                    <tr>
+                      <th
+                        style={
+                          Object {
+                            "textAlign": "left",
+                            "verticalAlign": "top",
+                          }
+                        }
+                      >
+                        property
+                      </th>
+                      <th
+                        style={
+                          Object {
+                            "textAlign": "left",
+                            "verticalAlign": "top",
+                          }
+                        }
+                      >
+                        propType
+                      </th>
+                      <th
+                        style={
+                          Object {
+                            "textAlign": "left",
+                            "verticalAlign": "top",
+                          }
+                        }
+                      >
+                        required
+                      </th>
+                      <th
+                        style={
+                          Object {
+                            "textAlign": "left",
+                            "verticalAlign": "top",
+                          }
+                        }
+                      >
+                        default
+                      </th>
+                      <th
+                        style={
+                          Object {
+                            "textAlign": "left",
+                            "verticalAlign": "top",
+                          }
+                        }
+                      >
+                        description
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td
+                        style={
+                          Object {
+                            "paddingRight": 10,
+                            "verticalAlign": "top",
+                          }
+                        }
+                      >
+                        size
+                      </td>
+                      <td
+                        style={
+                          Object {
+                            "paddingRight": 10,
+                            "verticalAlign": "top",
+                          }
+                        }
+                      >
+                        <span>
+                          unknown
+                        </span>
+                      </td>
+                      <td
+                        style={
+                          Object {
+                            "paddingRight": 10,
+                            "verticalAlign": "top",
+                          }
+                        }
+                      >
+                        -
+                      </td>
+                      <td
+                        style={
+                          Object {
+                            "paddingRight": 10,
+                            "verticalAlign": "top",
+                          }
+                        }
+                      >
+                        <span
+                          style={
+                            Object {
+                              "color": "#a11",
+                            }
+                          }
+                        >
+                          24
+                        </span>
+                      </td>
+                      <td
+                        style={
+                          Object {
+                            "paddingRight": 10,
+                            "verticalAlign": "top",
+                          }
+                        }
+                      />
+                    </tr>
+                    <tr>
+                      <td
+                        style={
+                          Object {
+                            "paddingRight": 10,
+                            "verticalAlign": "top",
+                          }
+                        }
+                      >
+                        color
+                      </td>
+                      <td
+                        style={
+                          Object {
+                            "paddingRight": 10,
+                            "verticalAlign": "top",
+                          }
+                        }
+                      >
+                        <span>
+                          unknown
+                        </span>
+                      </td>
+                      <td
+                        style={
+                          Object {
+                            "paddingRight": 10,
+                            "verticalAlign": "top",
+                          }
+                        }
+                      >
+                        -
+                      </td>
+                      <td
+                        style={
+                          Object {
+                            "paddingRight": 10,
+                            "verticalAlign": "top",
+                          }
+                        }
+                      >
+                        <span
+                          style={
+                            Object {
+                              "color": "#22a",
+                              "wordBreak": "break-word",
+                            }
+                          }
+                        >
+                          #061a3c
+                        </span>
+                      </td>
+                      <td
+                        style={
+                          Object {
+                            "paddingRight": 10,
+                            "verticalAlign": "top",
+                          }
+                        }
+                      />
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div>
+                <h2
+                  style={
+                    Object {
+                      "margin": "20px 0 0 0",
+                    }
+                  }
+                >
+                  "
+                  styled.button
                   " Component
                 </h2>
                 <small>
@@ -4632,6 +9243,7 @@ exports[`Storyshots Actions/Menu in top position 1`] = `
   word-wrap: normal;
   white-space: nowrap;
   direction: ltr;
+  color: #061a3c;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   -moz-osx-font-smoothing: grayscale;
@@ -4822,6 +9434,7 @@ exports[`Storyshots Actions/Menu in top position 1`] = `
                   >
                     <i
                       className="c7"
+                      color="#061a3c"
                       size={24}
                     >
                       people
@@ -4841,6 +9454,7 @@ exports[`Storyshots Actions/Menu in top position 1`] = `
                   >
                     <i
                       className="c7"
+                      color="#061a3c"
                       size={24}
                     >
                       location_city
@@ -4860,6 +9474,7 @@ exports[`Storyshots Actions/Menu in top position 1`] = `
                   >
                     <i
                       className="c7"
+                      color="#061a3c"
                       size={24}
                     >
                       create
@@ -5693,6 +10308,7 @@ exports[`Storyshots Actions/Menu with icons 1`] = `
   word-wrap: normal;
   white-space: nowrap;
   direction: ltr;
+  color: #061a3c;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   -moz-osx-font-smoothing: grayscale;
@@ -5883,6 +10499,7 @@ exports[`Storyshots Actions/Menu with icons 1`] = `
                   >
                     <i
                       className="c7"
+                      color="#061a3c"
                       size={24}
                     >
                       people
@@ -5902,6 +10519,7 @@ exports[`Storyshots Actions/Menu with icons 1`] = `
                   >
                     <i
                       className="c7"
+                      color="#061a3c"
                       size={24}
                     >
                       location_city
@@ -5921,6 +10539,7 @@ exports[`Storyshots Actions/Menu with icons 1`] = `
                   >
                     <i
                       className="c7"
+                      color="#061a3c"
                       size={24}
                     >
                       create
@@ -11554,6 +16173,7 @@ exports[`Storyshots Inputs/ArrayInput basic 1`] = `
   word-wrap: normal;
   white-space: nowrap;
   direction: ltr;
+  color: #061a3c;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   -moz-osx-font-smoothing: grayscale;
@@ -11691,6 +16311,7 @@ exports[`Storyshots Inputs/ArrayInput basic 1`] = `
                 >
                   <i
                     className="c5"
+                    color="#061a3c"
                     onClick={[Function]}
                     size={24}
                   >
@@ -11715,6 +16336,7 @@ exports[`Storyshots Inputs/ArrayInput basic 1`] = `
                 >
                   <i
                     className="c5"
+                    color="#061a3c"
                     onClick={[Function]}
                     size={24}
                   >
@@ -11739,6 +16361,7 @@ exports[`Storyshots Inputs/ArrayInput basic 1`] = `
                 >
                   <i
                     className="c5"
+                    color="#061a3c"
                     onClick={[Function]}
                     size={24}
                   >
@@ -12517,6 +17140,7 @@ exports[`Storyshots Inputs/ArrayInput with add button custom label 1`] = `
   word-wrap: normal;
   white-space: nowrap;
   direction: ltr;
+  color: #061a3c;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   -moz-osx-font-smoothing: grayscale;
@@ -12654,6 +17278,7 @@ exports[`Storyshots Inputs/ArrayInput with add button custom label 1`] = `
                 >
                   <i
                     className="c5"
+                    color="#061a3c"
                     onClick={[Function]}
                     size={24}
                   >
@@ -12678,6 +17303,7 @@ exports[`Storyshots Inputs/ArrayInput with add button custom label 1`] = `
                 >
                   <i
                     className="c5"
+                    color="#061a3c"
                     onClick={[Function]}
                     size={24}
                   >
@@ -12702,6 +17328,7 @@ exports[`Storyshots Inputs/ArrayInput with add button custom label 1`] = `
                 >
                   <i
                     className="c5"
+                    color="#061a3c"
                     onClick={[Function]}
                     size={24}
                   >
@@ -13060,6 +17687,7 @@ exports[`Storyshots Inputs/ArrayInput with description line 1`] = `
   word-wrap: normal;
   white-space: nowrap;
   direction: ltr;
+  color: #061a3c;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   -moz-osx-font-smoothing: grayscale;
@@ -13202,6 +17830,7 @@ exports[`Storyshots Inputs/ArrayInput with description line 1`] = `
                 >
                   <i
                     className="c5"
+                    color="#061a3c"
                     onClick={[Function]}
                     size={24}
                   >
@@ -13231,6 +17860,7 @@ exports[`Storyshots Inputs/ArrayInput with description line 1`] = `
                 >
                   <i
                     className="c5"
+                    color="#061a3c"
                     onClick={[Function]}
                     size={24}
                   >
@@ -13260,6 +17890,7 @@ exports[`Storyshots Inputs/ArrayInput with description line 1`] = `
                 >
                   <i
                     className="c5"
+                    color="#061a3c"
                     onClick={[Function]}
                     size={24}
                   >
@@ -13622,6 +18253,7 @@ exports[`Storyshots Inputs/ArrayInput with order change allowed 1`] = `
   word-wrap: normal;
   white-space: nowrap;
   direction: ltr;
+  color: #061a3c;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   -moz-osx-font-smoothing: grayscale;
@@ -13759,6 +18391,7 @@ exports[`Storyshots Inputs/ArrayInput with order change allowed 1`] = `
                 >
                   <i
                     className="c5"
+                    color="#061a3c"
                     data-disabled={true}
                     onClick={[Function]}
                     size={24}
@@ -13767,6 +18400,7 @@ exports[`Storyshots Inputs/ArrayInput with order change allowed 1`] = `
                   </i>
                   <i
                     className="c5"
+                    color="#061a3c"
                     data-disabled={false}
                     onClick={[Function]}
                     size={24}
@@ -13775,6 +18409,7 @@ exports[`Storyshots Inputs/ArrayInput with order change allowed 1`] = `
                   </i>
                   <i
                     className="c5"
+                    color="#061a3c"
                     onClick={[Function]}
                     size={24}
                   >
@@ -13799,6 +18434,7 @@ exports[`Storyshots Inputs/ArrayInput with order change allowed 1`] = `
                 >
                   <i
                     className="c5"
+                    color="#061a3c"
                     data-disabled={false}
                     onClick={[Function]}
                     size={24}
@@ -13807,6 +18443,7 @@ exports[`Storyshots Inputs/ArrayInput with order change allowed 1`] = `
                   </i>
                   <i
                     className="c5"
+                    color="#061a3c"
                     data-disabled={false}
                     onClick={[Function]}
                     size={24}
@@ -13815,6 +18452,7 @@ exports[`Storyshots Inputs/ArrayInput with order change allowed 1`] = `
                   </i>
                   <i
                     className="c5"
+                    color="#061a3c"
                     onClick={[Function]}
                     size={24}
                   >
@@ -13839,6 +18477,7 @@ exports[`Storyshots Inputs/ArrayInput with order change allowed 1`] = `
                 >
                   <i
                     className="c5"
+                    color="#061a3c"
                     data-disabled={false}
                     onClick={[Function]}
                     size={24}
@@ -13847,6 +18486,7 @@ exports[`Storyshots Inputs/ArrayInput with order change allowed 1`] = `
                   </i>
                   <i
                     className="c5"
+                    color="#061a3c"
                     data-disabled={true}
                     onClick={[Function]}
                     size={24}
@@ -13855,6 +18495,7 @@ exports[`Storyshots Inputs/ArrayInput with order change allowed 1`] = `
                   </i>
                   <i
                     className="c5"
+                    color="#061a3c"
                     onClick={[Function]}
                     size={24}
                   >
@@ -20235,6 +24876,7 @@ exports[`Storyshots Inputs/Select disabled 1`] = `
   word-wrap: normal;
   white-space: nowrap;
   direction: ltr;
+  color: #061a3c;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   -moz-osx-font-smoothing: grayscale;
@@ -20434,6 +25076,7 @@ exports[`Storyshots Inputs/Select disabled 1`] = `
             >
               <i
                 className="c4"
+                color="#061a3c"
                 size={24}
               >
                 arrow_drop_down
@@ -20932,6 +25575,7 @@ exports[`Storyshots Inputs/Select multi items 1`] = `
   word-wrap: normal;
   white-space: nowrap;
   direction: ltr;
+  color: #061a3c;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   -moz-osx-font-smoothing: grayscale;
@@ -21154,6 +25798,7 @@ exports[`Storyshots Inputs/Select multi items 1`] = `
             >
               <i
                 className="c4"
+                color="#061a3c"
                 size={24}
               >
                 arrow_drop_down
@@ -21189,6 +25834,7 @@ exports[`Storyshots Inputs/Select multi items 1`] = `
             >
               <i
                 className="c4"
+                color="#061a3c"
                 size={24}
               >
                 check_box_outline_blank
@@ -21204,6 +25850,7 @@ exports[`Storyshots Inputs/Select multi items 1`] = `
             >
               <i
                 className="c4"
+                color="#061a3c"
                 size={24}
               >
                 check_box_outline_blank
@@ -21219,6 +25866,7 @@ exports[`Storyshots Inputs/Select multi items 1`] = `
             >
               <i
                 className="c4"
+                color="#061a3c"
                 size={24}
               >
                 check_box_outline_blank
@@ -21234,6 +25882,7 @@ exports[`Storyshots Inputs/Select multi items 1`] = `
             >
               <i
                 className="c4"
+                color="#061a3c"
                 size={24}
               >
                 check_box_outline_blank
@@ -21249,6 +25898,7 @@ exports[`Storyshots Inputs/Select multi items 1`] = `
             >
               <i
                 className="c4"
+                color="#061a3c"
                 size={24}
               >
                 check_box_outline_blank
@@ -21264,6 +25914,7 @@ exports[`Storyshots Inputs/Select multi items 1`] = `
             >
               <i
                 className="c4"
+                color="#061a3c"
                 size={24}
               >
                 check_box_outline_blank
@@ -21279,6 +25930,7 @@ exports[`Storyshots Inputs/Select multi items 1`] = `
             >
               <i
                 className="c4"
+                color="#061a3c"
                 size={24}
               >
                 check_box_outline_blank
@@ -21294,6 +25946,7 @@ exports[`Storyshots Inputs/Select multi items 1`] = `
             >
               <i
                 className="c4"
+                color="#061a3c"
                 size={24}
               >
                 check_box_outline_blank
@@ -21309,6 +25962,7 @@ exports[`Storyshots Inputs/Select multi items 1`] = `
             >
               <i
                 className="c4"
+                color="#061a3c"
                 size={24}
               >
                 check_box_outline_blank
@@ -21324,6 +25978,7 @@ exports[`Storyshots Inputs/Select multi items 1`] = `
             >
               <i
                 className="c4"
+                color="#061a3c"
                 size={24}
               >
                 check_box_outline_blank
@@ -21339,6 +25994,7 @@ exports[`Storyshots Inputs/Select multi items 1`] = `
             >
               <i
                 className="c4"
+                color="#061a3c"
                 size={24}
               >
                 check_box_outline_blank
@@ -21354,6 +26010,7 @@ exports[`Storyshots Inputs/Select multi items 1`] = `
             >
               <i
                 className="c4"
+                color="#061a3c"
                 size={24}
               >
                 check_box_outline_blank
@@ -21369,6 +26026,7 @@ exports[`Storyshots Inputs/Select multi items 1`] = `
             >
               <i
                 className="c4"
+                color="#061a3c"
                 size={24}
               >
                 check_box_outline_blank
@@ -21384,6 +26042,7 @@ exports[`Storyshots Inputs/Select multi items 1`] = `
             >
               <i
                 className="c4"
+                color="#061a3c"
                 size={24}
               >
                 check_box_outline_blank
@@ -21399,6 +26058,7 @@ exports[`Storyshots Inputs/Select multi items 1`] = `
             >
               <i
                 className="c4"
+                color="#061a3c"
                 size={24}
               >
                 check_box_outline_blank
@@ -21414,6 +26074,7 @@ exports[`Storyshots Inputs/Select multi items 1`] = `
             >
               <i
                 className="c4"
+                color="#061a3c"
                 size={24}
               >
                 check_box_outline_blank
@@ -21429,6 +26090,7 @@ exports[`Storyshots Inputs/Select multi items 1`] = `
             >
               <i
                 className="c4"
+                color="#061a3c"
                 size={24}
               >
                 check_box_outline_blank
@@ -21444,6 +26106,7 @@ exports[`Storyshots Inputs/Select multi items 1`] = `
             >
               <i
                 className="c4"
+                color="#061a3c"
                 size={24}
               >
                 check_box_outline_blank
@@ -21459,6 +26122,7 @@ exports[`Storyshots Inputs/Select multi items 1`] = `
             >
               <i
                 className="c4"
+                color="#061a3c"
                 size={24}
               >
                 check_box_outline_blank
@@ -21474,6 +26138,7 @@ exports[`Storyshots Inputs/Select multi items 1`] = `
             >
               <i
                 className="c4"
+                color="#061a3c"
                 size={24}
               >
                 check_box_outline_blank
@@ -21489,6 +26154,7 @@ exports[`Storyshots Inputs/Select multi items 1`] = `
             >
               <i
                 className="c4"
+                color="#061a3c"
                 size={24}
               >
                 check_box_outline_blank
@@ -21504,6 +26170,7 @@ exports[`Storyshots Inputs/Select multi items 1`] = `
             >
               <i
                 className="c4"
+                color="#061a3c"
                 size={24}
               >
                 check_box_outline_blank
@@ -21519,6 +26186,7 @@ exports[`Storyshots Inputs/Select multi items 1`] = `
             >
               <i
                 className="c4"
+                color="#061a3c"
                 size={24}
               >
                 check_box_outline_blank
@@ -21534,6 +26202,7 @@ exports[`Storyshots Inputs/Select multi items 1`] = `
             >
               <i
                 className="c4"
+                color="#061a3c"
                 size={24}
               >
                 check_box_outline_blank
@@ -21549,6 +26218,7 @@ exports[`Storyshots Inputs/Select multi items 1`] = `
             >
               <i
                 className="c4"
+                color="#061a3c"
                 size={24}
               >
                 check_box_outline_blank
@@ -21818,6 +26488,7 @@ exports[`Storyshots Inputs/Select multi items with icon 1`] = `
   word-wrap: normal;
   white-space: nowrap;
   direction: ltr;
+  color: #061a3c;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   -moz-osx-font-smoothing: grayscale;
@@ -22039,6 +26710,7 @@ exports[`Storyshots Inputs/Select multi items with icon 1`] = `
             >
               <i
                 className="c3"
+                color="#061a3c"
                 size={24}
               >
                 camera_enhance
@@ -22058,6 +26730,7 @@ exports[`Storyshots Inputs/Select multi items with icon 1`] = `
             >
               <i
                 className="c3"
+                color="#061a3c"
                 size={24}
               >
                 arrow_drop_down
@@ -22093,6 +26766,7 @@ exports[`Storyshots Inputs/Select multi items with icon 1`] = `
             >
               <i
                 className="c3"
+                color="#061a3c"
                 size={24}
               >
                 check_box_outline_blank
@@ -22108,6 +26782,7 @@ exports[`Storyshots Inputs/Select multi items with icon 1`] = `
             >
               <i
                 className="c3"
+                color="#061a3c"
                 size={24}
               >
                 check_box_outline_blank
@@ -22123,6 +26798,7 @@ exports[`Storyshots Inputs/Select multi items with icon 1`] = `
             >
               <i
                 className="c3"
+                color="#061a3c"
                 size={24}
               >
                 check_box_outline_blank
@@ -22138,6 +26814,7 @@ exports[`Storyshots Inputs/Select multi items with icon 1`] = `
             >
               <i
                 className="c3"
+                color="#061a3c"
                 size={24}
               >
                 check_box_outline_blank
@@ -22153,6 +26830,7 @@ exports[`Storyshots Inputs/Select multi items with icon 1`] = `
             >
               <i
                 className="c3"
+                color="#061a3c"
                 size={24}
               >
                 check_box_outline_blank
@@ -22168,6 +26846,7 @@ exports[`Storyshots Inputs/Select multi items with icon 1`] = `
             >
               <i
                 className="c3"
+                color="#061a3c"
                 size={24}
               >
                 check_box_outline_blank
@@ -22183,6 +26862,7 @@ exports[`Storyshots Inputs/Select multi items with icon 1`] = `
             >
               <i
                 className="c3"
+                color="#061a3c"
                 size={24}
               >
                 check_box_outline_blank
@@ -22198,6 +26878,7 @@ exports[`Storyshots Inputs/Select multi items with icon 1`] = `
             >
               <i
                 className="c3"
+                color="#061a3c"
                 size={24}
               >
                 check_box_outline_blank
@@ -22213,6 +26894,7 @@ exports[`Storyshots Inputs/Select multi items with icon 1`] = `
             >
               <i
                 className="c3"
+                color="#061a3c"
                 size={24}
               >
                 check_box_outline_blank
@@ -22228,6 +26910,7 @@ exports[`Storyshots Inputs/Select multi items with icon 1`] = `
             >
               <i
                 className="c3"
+                color="#061a3c"
                 size={24}
               >
                 check_box_outline_blank
@@ -22243,6 +26926,7 @@ exports[`Storyshots Inputs/Select multi items with icon 1`] = `
             >
               <i
                 className="c3"
+                color="#061a3c"
                 size={24}
               >
                 check_box_outline_blank
@@ -22258,6 +26942,7 @@ exports[`Storyshots Inputs/Select multi items with icon 1`] = `
             >
               <i
                 className="c3"
+                color="#061a3c"
                 size={24}
               >
                 check_box_outline_blank
@@ -22273,6 +26958,7 @@ exports[`Storyshots Inputs/Select multi items with icon 1`] = `
             >
               <i
                 className="c3"
+                color="#061a3c"
                 size={24}
               >
                 check_box_outline_blank
@@ -22288,6 +26974,7 @@ exports[`Storyshots Inputs/Select multi items with icon 1`] = `
             >
               <i
                 className="c3"
+                color="#061a3c"
                 size={24}
               >
                 check_box_outline_blank
@@ -22303,6 +26990,7 @@ exports[`Storyshots Inputs/Select multi items with icon 1`] = `
             >
               <i
                 className="c3"
+                color="#061a3c"
                 size={24}
               >
                 check_box_outline_blank
@@ -22318,6 +27006,7 @@ exports[`Storyshots Inputs/Select multi items with icon 1`] = `
             >
               <i
                 className="c3"
+                color="#061a3c"
                 size={24}
               >
                 check_box_outline_blank
@@ -22333,6 +27022,7 @@ exports[`Storyshots Inputs/Select multi items with icon 1`] = `
             >
               <i
                 className="c3"
+                color="#061a3c"
                 size={24}
               >
                 check_box_outline_blank
@@ -22348,6 +27038,7 @@ exports[`Storyshots Inputs/Select multi items with icon 1`] = `
             >
               <i
                 className="c3"
+                color="#061a3c"
                 size={24}
               >
                 check_box_outline_blank
@@ -22363,6 +27054,7 @@ exports[`Storyshots Inputs/Select multi items with icon 1`] = `
             >
               <i
                 className="c3"
+                color="#061a3c"
                 size={24}
               >
                 check_box_outline_blank
@@ -22378,6 +27070,7 @@ exports[`Storyshots Inputs/Select multi items with icon 1`] = `
             >
               <i
                 className="c3"
+                color="#061a3c"
                 size={24}
               >
                 check_box_outline_blank
@@ -22393,6 +27086,7 @@ exports[`Storyshots Inputs/Select multi items with icon 1`] = `
             >
               <i
                 className="c3"
+                color="#061a3c"
                 size={24}
               >
                 check_box_outline_blank
@@ -22408,6 +27102,7 @@ exports[`Storyshots Inputs/Select multi items with icon 1`] = `
             >
               <i
                 className="c3"
+                color="#061a3c"
                 size={24}
               >
                 check_box_outline_blank
@@ -22423,6 +27118,7 @@ exports[`Storyshots Inputs/Select multi items with icon 1`] = `
             >
               <i
                 className="c3"
+                color="#061a3c"
                 size={24}
               >
                 check_box_outline_blank
@@ -22438,6 +27134,7 @@ exports[`Storyshots Inputs/Select multi items with icon 1`] = `
             >
               <i
                 className="c3"
+                color="#061a3c"
                 size={24}
               >
                 check_box_outline_blank
@@ -22453,6 +27150,7 @@ exports[`Storyshots Inputs/Select multi items with icon 1`] = `
             >
               <i
                 className="c3"
+                color="#061a3c"
                 size={24}
               >
                 check_box_outline_blank
@@ -22748,6 +27446,7 @@ exports[`Storyshots Inputs/Select multi items with value (label, value mode) 1`]
   word-wrap: normal;
   white-space: nowrap;
   direction: ltr;
+  color: #061a3c;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   -moz-osx-font-smoothing: grayscale;
@@ -22970,6 +27669,7 @@ exports[`Storyshots Inputs/Select multi items with value (label, value mode) 1`]
             >
               <i
                 className="c4"
+                color="#061a3c"
                 size={24}
               >
                 arrow_drop_down
@@ -23005,6 +27705,7 @@ exports[`Storyshots Inputs/Select multi items with value (label, value mode) 1`]
             >
               <i
                 className="c4"
+                color="#061a3c"
                 size={24}
               >
                 check_box_outline_blank
@@ -23020,6 +27721,7 @@ exports[`Storyshots Inputs/Select multi items with value (label, value mode) 1`]
             >
               <i
                 className="c4"
+                color="#061a3c"
                 size={24}
               >
                 check_box_outline_blank
@@ -23035,6 +27737,7 @@ exports[`Storyshots Inputs/Select multi items with value (label, value mode) 1`]
             >
               <i
                 className="c4"
+                color="#061a3c"
                 size={24}
               >
                 check_box
@@ -23050,6 +27753,7 @@ exports[`Storyshots Inputs/Select multi items with value (label, value mode) 1`]
             >
               <i
                 className="c4"
+                color="#061a3c"
                 size={24}
               >
                 check_box_outline_blank
@@ -23065,6 +27769,7 @@ exports[`Storyshots Inputs/Select multi items with value (label, value mode) 1`]
             >
               <i
                 className="c4"
+                color="#061a3c"
                 size={24}
               >
                 check_box_outline_blank
@@ -23080,6 +27785,7 @@ exports[`Storyshots Inputs/Select multi items with value (label, value mode) 1`]
             >
               <i
                 className="c4"
+                color="#061a3c"
                 size={24}
               >
                 check_box_outline_blank
@@ -23095,6 +27801,7 @@ exports[`Storyshots Inputs/Select multi items with value (label, value mode) 1`]
             >
               <i
                 className="c4"
+                color="#061a3c"
                 size={24}
               >
                 check_box_outline_blank
@@ -23110,6 +27817,7 @@ exports[`Storyshots Inputs/Select multi items with value (label, value mode) 1`]
             >
               <i
                 className="c4"
+                color="#061a3c"
                 size={24}
               >
                 check_box_outline_blank
@@ -23125,6 +27833,7 @@ exports[`Storyshots Inputs/Select multi items with value (label, value mode) 1`]
             >
               <i
                 className="c4"
+                color="#061a3c"
                 size={24}
               >
                 check_box_outline_blank
@@ -23140,6 +27849,7 @@ exports[`Storyshots Inputs/Select multi items with value (label, value mode) 1`]
             >
               <i
                 className="c4"
+                color="#061a3c"
                 size={24}
               >
                 check_box_outline_blank
@@ -23155,6 +27865,7 @@ exports[`Storyshots Inputs/Select multi items with value (label, value mode) 1`]
             >
               <i
                 className="c4"
+                color="#061a3c"
                 size={24}
               >
                 check_box_outline_blank
@@ -23170,6 +27881,7 @@ exports[`Storyshots Inputs/Select multi items with value (label, value mode) 1`]
             >
               <i
                 className="c4"
+                color="#061a3c"
                 size={24}
               >
                 check_box_outline_blank
@@ -23185,6 +27897,7 @@ exports[`Storyshots Inputs/Select multi items with value (label, value mode) 1`]
             >
               <i
                 className="c4"
+                color="#061a3c"
                 size={24}
               >
                 check_box_outline_blank
@@ -23200,6 +27913,7 @@ exports[`Storyshots Inputs/Select multi items with value (label, value mode) 1`]
             >
               <i
                 className="c4"
+                color="#061a3c"
                 size={24}
               >
                 check_box_outline_blank
@@ -23215,6 +27929,7 @@ exports[`Storyshots Inputs/Select multi items with value (label, value mode) 1`]
             >
               <i
                 className="c4"
+                color="#061a3c"
                 size={24}
               >
                 check_box_outline_blank
@@ -23230,6 +27945,7 @@ exports[`Storyshots Inputs/Select multi items with value (label, value mode) 1`]
             >
               <i
                 className="c4"
+                color="#061a3c"
                 size={24}
               >
                 check_box_outline_blank
@@ -23245,6 +27961,7 @@ exports[`Storyshots Inputs/Select multi items with value (label, value mode) 1`]
             >
               <i
                 className="c4"
+                color="#061a3c"
                 size={24}
               >
                 check_box_outline_blank
@@ -23260,6 +27977,7 @@ exports[`Storyshots Inputs/Select multi items with value (label, value mode) 1`]
             >
               <i
                 className="c4"
+                color="#061a3c"
                 size={24}
               >
                 check_box_outline_blank
@@ -23275,6 +27993,7 @@ exports[`Storyshots Inputs/Select multi items with value (label, value mode) 1`]
             >
               <i
                 className="c4"
+                color="#061a3c"
                 size={24}
               >
                 check_box_outline_blank
@@ -23290,6 +28009,7 @@ exports[`Storyshots Inputs/Select multi items with value (label, value mode) 1`]
             >
               <i
                 className="c4"
+                color="#061a3c"
                 size={24}
               >
                 check_box_outline_blank
@@ -23305,6 +28025,7 @@ exports[`Storyshots Inputs/Select multi items with value (label, value mode) 1`]
             >
               <i
                 className="c4"
+                color="#061a3c"
                 size={24}
               >
                 check_box_outline_blank
@@ -23320,6 +28041,7 @@ exports[`Storyshots Inputs/Select multi items with value (label, value mode) 1`]
             >
               <i
                 className="c4"
+                color="#061a3c"
                 size={24}
               >
                 check_box_outline_blank
@@ -23335,6 +28057,7 @@ exports[`Storyshots Inputs/Select multi items with value (label, value mode) 1`]
             >
               <i
                 className="c4"
+                color="#061a3c"
                 size={24}
               >
                 check_box_outline_blank
@@ -23350,6 +28073,7 @@ exports[`Storyshots Inputs/Select multi items with value (label, value mode) 1`]
             >
               <i
                 className="c4"
+                color="#061a3c"
                 size={24}
               >
                 check_box_outline_blank
@@ -23365,6 +28089,7 @@ exports[`Storyshots Inputs/Select multi items with value (label, value mode) 1`]
             >
               <i
                 className="c4"
+                color="#061a3c"
                 size={24}
               >
                 check_box_outline_blank
@@ -23718,6 +28443,7 @@ exports[`Storyshots Inputs/Select multi items with value (simple value mode) 1`]
   word-wrap: normal;
   white-space: nowrap;
   direction: ltr;
+  color: #061a3c;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   -moz-osx-font-smoothing: grayscale;
@@ -23940,6 +28666,7 @@ exports[`Storyshots Inputs/Select multi items with value (simple value mode) 1`]
             >
               <i
                 className="c4"
+                color="#061a3c"
                 size={24}
               >
                 arrow_drop_down
@@ -23975,6 +28702,7 @@ exports[`Storyshots Inputs/Select multi items with value (simple value mode) 1`]
             >
               <i
                 className="c4"
+                color="#061a3c"
                 size={24}
               >
                 check_box_outline_blank
@@ -23990,6 +28718,7 @@ exports[`Storyshots Inputs/Select multi items with value (simple value mode) 1`]
             >
               <i
                 className="c4"
+                color="#061a3c"
                 size={24}
               >
                 check_box_outline_blank
@@ -24005,6 +28734,7 @@ exports[`Storyshots Inputs/Select multi items with value (simple value mode) 1`]
             >
               <i
                 className="c4"
+                color="#061a3c"
                 size={24}
               >
                 check_box
@@ -24020,6 +28750,7 @@ exports[`Storyshots Inputs/Select multi items with value (simple value mode) 1`]
             >
               <i
                 className="c4"
+                color="#061a3c"
                 size={24}
               >
                 check_box_outline_blank
@@ -24035,6 +28766,7 @@ exports[`Storyshots Inputs/Select multi items with value (simple value mode) 1`]
             >
               <i
                 className="c4"
+                color="#061a3c"
                 size={24}
               >
                 check_box_outline_blank
@@ -24050,6 +28782,7 @@ exports[`Storyshots Inputs/Select multi items with value (simple value mode) 1`]
             >
               <i
                 className="c4"
+                color="#061a3c"
                 size={24}
               >
                 check_box_outline_blank
@@ -24065,6 +28798,7 @@ exports[`Storyshots Inputs/Select multi items with value (simple value mode) 1`]
             >
               <i
                 className="c4"
+                color="#061a3c"
                 size={24}
               >
                 check_box_outline_blank
@@ -24080,6 +28814,7 @@ exports[`Storyshots Inputs/Select multi items with value (simple value mode) 1`]
             >
               <i
                 className="c4"
+                color="#061a3c"
                 size={24}
               >
                 check_box_outline_blank
@@ -24095,6 +28830,7 @@ exports[`Storyshots Inputs/Select multi items with value (simple value mode) 1`]
             >
               <i
                 className="c4"
+                color="#061a3c"
                 size={24}
               >
                 check_box_outline_blank
@@ -24110,6 +28846,7 @@ exports[`Storyshots Inputs/Select multi items with value (simple value mode) 1`]
             >
               <i
                 className="c4"
+                color="#061a3c"
                 size={24}
               >
                 check_box_outline_blank
@@ -24125,6 +28862,7 @@ exports[`Storyshots Inputs/Select multi items with value (simple value mode) 1`]
             >
               <i
                 className="c4"
+                color="#061a3c"
                 size={24}
               >
                 check_box_outline_blank
@@ -24140,6 +28878,7 @@ exports[`Storyshots Inputs/Select multi items with value (simple value mode) 1`]
             >
               <i
                 className="c4"
+                color="#061a3c"
                 size={24}
               >
                 check_box_outline_blank
@@ -24155,6 +28894,7 @@ exports[`Storyshots Inputs/Select multi items with value (simple value mode) 1`]
             >
               <i
                 className="c4"
+                color="#061a3c"
                 size={24}
               >
                 check_box_outline_blank
@@ -24170,6 +28910,7 @@ exports[`Storyshots Inputs/Select multi items with value (simple value mode) 1`]
             >
               <i
                 className="c4"
+                color="#061a3c"
                 size={24}
               >
                 check_box_outline_blank
@@ -24185,6 +28926,7 @@ exports[`Storyshots Inputs/Select multi items with value (simple value mode) 1`]
             >
               <i
                 className="c4"
+                color="#061a3c"
                 size={24}
               >
                 check_box_outline_blank
@@ -24200,6 +28942,7 @@ exports[`Storyshots Inputs/Select multi items with value (simple value mode) 1`]
             >
               <i
                 className="c4"
+                color="#061a3c"
                 size={24}
               >
                 check_box_outline_blank
@@ -24215,6 +28958,7 @@ exports[`Storyshots Inputs/Select multi items with value (simple value mode) 1`]
             >
               <i
                 className="c4"
+                color="#061a3c"
                 size={24}
               >
                 check_box_outline_blank
@@ -24230,6 +28974,7 @@ exports[`Storyshots Inputs/Select multi items with value (simple value mode) 1`]
             >
               <i
                 className="c4"
+                color="#061a3c"
                 size={24}
               >
                 check_box_outline_blank
@@ -24245,6 +28990,7 @@ exports[`Storyshots Inputs/Select multi items with value (simple value mode) 1`]
             >
               <i
                 className="c4"
+                color="#061a3c"
                 size={24}
               >
                 check_box_outline_blank
@@ -24260,6 +29006,7 @@ exports[`Storyshots Inputs/Select multi items with value (simple value mode) 1`]
             >
               <i
                 className="c4"
+                color="#061a3c"
                 size={24}
               >
                 check_box_outline_blank
@@ -24275,6 +29022,7 @@ exports[`Storyshots Inputs/Select multi items with value (simple value mode) 1`]
             >
               <i
                 className="c4"
+                color="#061a3c"
                 size={24}
               >
                 check_box_outline_blank
@@ -24290,6 +29038,7 @@ exports[`Storyshots Inputs/Select multi items with value (simple value mode) 1`]
             >
               <i
                 className="c4"
+                color="#061a3c"
                 size={24}
               >
                 check_box_outline_blank
@@ -24305,6 +29054,7 @@ exports[`Storyshots Inputs/Select multi items with value (simple value mode) 1`]
             >
               <i
                 className="c4"
+                color="#061a3c"
                 size={24}
               >
                 check_box_outline_blank
@@ -24320,6 +29070,7 @@ exports[`Storyshots Inputs/Select multi items with value (simple value mode) 1`]
             >
               <i
                 className="c4"
+                color="#061a3c"
                 size={24}
               >
                 check_box_outline_blank
@@ -24335,6 +29086,7 @@ exports[`Storyshots Inputs/Select multi items with value (simple value mode) 1`]
             >
               <i
                 className="c4"
+                color="#061a3c"
                 size={24}
               >
                 check_box_outline_blank
@@ -24643,6 +29395,7 @@ exports[`Storyshots Inputs/Select single item 1`] = `
   word-wrap: normal;
   white-space: nowrap;
   direction: ltr;
+  color: #061a3c;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   -moz-osx-font-smoothing: grayscale;
@@ -24837,6 +29590,7 @@ exports[`Storyshots Inputs/Select single item 1`] = `
             >
               <i
                 className="c4"
+                color="#061a3c"
                 size={24}
               >
                 arrow_drop_down
@@ -25325,6 +30079,7 @@ exports[`Storyshots Inputs/Select single item with value (label, value mode) 1`]
   word-wrap: normal;
   white-space: nowrap;
   direction: ltr;
+  color: #061a3c;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   -moz-osx-font-smoothing: grayscale;
@@ -25351,6 +30106,7 @@ exports[`Storyshots Inputs/Select single item with value (label, value mode) 1`]
   word-wrap: normal;
   white-space: nowrap;
   direction: ltr;
+  color: #061a3c;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   -moz-osx-font-smoothing: grayscale;
@@ -25545,6 +30301,7 @@ exports[`Storyshots Inputs/Select single item with value (label, value mode) 1`]
             >
               <i
                 className="c4"
+                color="#061a3c"
                 onClick={[Function]}
                 size={24}
               >
@@ -25552,6 +30309,7 @@ exports[`Storyshots Inputs/Select single item with value (label, value mode) 1`]
               </i>
               <i
                 className="c5"
+                color="#061a3c"
                 size={24}
               >
                 arrow_drop_down
@@ -26114,6 +30872,7 @@ exports[`Storyshots Inputs/Select single item with value (simple value mode) 1`]
   word-wrap: normal;
   white-space: nowrap;
   direction: ltr;
+  color: #061a3c;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   -moz-osx-font-smoothing: grayscale;
@@ -26140,6 +30899,7 @@ exports[`Storyshots Inputs/Select single item with value (simple value mode) 1`]
   word-wrap: normal;
   white-space: nowrap;
   direction: ltr;
+  color: #061a3c;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   -moz-osx-font-smoothing: grayscale;
@@ -26334,6 +31094,7 @@ exports[`Storyshots Inputs/Select single item with value (simple value mode) 1`]
             >
               <i
                 className="c4"
+                color="#061a3c"
                 onClick={[Function]}
                 size={24}
               >
@@ -26341,6 +31102,7 @@ exports[`Storyshots Inputs/Select single item with value (simple value mode) 1`]
               </i>
               <i
                 className="c5"
+                color="#061a3c"
                 size={24}
               >
                 arrow_drop_down
@@ -26858,6 +31620,7 @@ exports[`Storyshots Inputs/Select single item without reset 1`] = `
   word-wrap: normal;
   white-space: nowrap;
   direction: ltr;
+  color: #061a3c;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   -moz-osx-font-smoothing: grayscale;
@@ -27052,6 +31815,7 @@ exports[`Storyshots Inputs/Select single item without reset 1`] = `
             >
               <i
                 className="c4"
+                color="#061a3c"
                 size={24}
               >
                 arrow_drop_down
@@ -37028,6 +41792,7 @@ exports[`Storyshots Inputs/TextInput with hover icon 1`] = `
   word-wrap: normal;
   white-space: nowrap;
   direction: ltr;
+  color: #061a3c;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   -moz-osx-font-smoothing: grayscale;
@@ -37164,6 +41929,7 @@ exports[`Storyshots Inputs/TextInput with hover icon 1`] = `
             >
               <i
                 className="c4"
+                color="#061a3c"
                 size={24}
               >
                 edit
@@ -37477,6 +42243,7 @@ exports[`Storyshots Inputs/TextInput with icon 1`] = `
   word-wrap: normal;
   white-space: nowrap;
   direction: ltr;
+  color: #061a3c;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   -moz-osx-font-smoothing: grayscale;
@@ -37613,6 +42380,7 @@ exports[`Storyshots Inputs/TextInput with icon 1`] = `
             >
               <i
                 className="c4"
+                color="#061a3c"
                 size={24}
               >
                 edit
@@ -38897,11 +43665,11 @@ exports[`Storyshots Inputs/TextInput with placeholder 1`] = `
           <div
             className="c1"
             color="#52627a"
-            placeholder="placeholder"
           >
             <input
               className="c2"
               onChange={[Function]}
+              placeholder="placeholder"
               value=""
             />
           </div>
@@ -41004,6 +45772,7 @@ exports[`Storyshots Miscellaneous/Drawer full example 1`] = `
   word-wrap: normal;
   white-space: nowrap;
   direction: ltr;
+  color: #061a3c;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   -moz-osx-font-smoothing: grayscale;
@@ -41188,6 +45957,7 @@ exports[`Storyshots Miscellaneous/Drawer full example 1`] = `
               >
                 <i
                   className="c5"
+                  color="#061a3c"
                   size={24}
                 >
                   arrow_back
@@ -42159,6 +46929,7 @@ exports[`Storyshots Miscellaneous/Drawer with close button 1`] = `
   word-wrap: normal;
   white-space: nowrap;
   direction: ltr;
+  color: #061a3c;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   -moz-osx-font-smoothing: grayscale;
@@ -42314,6 +47085,7 @@ exports[`Storyshots Miscellaneous/Drawer with close button 1`] = `
               >
                 <i
                   className="c3"
+                  color="#061a3c"
                   size={24}
                 >
                   arrow_back
@@ -44330,6 +49102,7 @@ exports[`Storyshots Miscellaneous/FontIcon simple icons 1`] = `
   word-wrap: normal;
   white-space: nowrap;
   direction: ltr;
+  color: #061a3c;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   -moz-osx-font-smoothing: grayscale;
@@ -44390,6 +49163,7 @@ exports[`Storyshots Miscellaneous/FontIcon simple icons 1`] = `
           >
             <i
               className="c2"
+              color="#061a3c"
               size={24}
             >
               person
@@ -44854,6 +49628,67 @@ exports[`Storyshots Miscellaneous/FontIcon simple icons 1`] = `
                           }
                         >
                           24
+                        </span>
+                      </td>
+                      <td
+                        style={
+                          Object {
+                            "paddingRight": 10,
+                            "verticalAlign": "top",
+                          }
+                        }
+                      />
+                    </tr>
+                    <tr>
+                      <td
+                        style={
+                          Object {
+                            "paddingRight": 10,
+                            "verticalAlign": "top",
+                          }
+                        }
+                      >
+                        color
+                      </td>
+                      <td
+                        style={
+                          Object {
+                            "paddingRight": 10,
+                            "verticalAlign": "top",
+                          }
+                        }
+                      >
+                        <span>
+                          unknown
+                        </span>
+                      </td>
+                      <td
+                        style={
+                          Object {
+                            "paddingRight": 10,
+                            "verticalAlign": "top",
+                          }
+                        }
+                      >
+                        -
+                      </td>
+                      <td
+                        style={
+                          Object {
+                            "paddingRight": 10,
+                            "verticalAlign": "top",
+                          }
+                        }
+                      >
+                        <span
+                          style={
+                            Object {
+                              "color": "#22a",
+                              "wordBreak": "break-word",
+                            }
+                          }
+                        >
+                          #061a3c
                         </span>
                       </td>
                       <td
@@ -50267,6 +55102,7 @@ exports[`Storyshots Miscellaneous/Notification basic 1`] = `
   word-wrap: normal;
   white-space: nowrap;
   direction: ltr;
+  color: #061a3c;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   -moz-osx-font-smoothing: grayscale;
@@ -50350,6 +55186,7 @@ exports[`Storyshots Miscellaneous/Notification basic 1`] = `
           >
             <i
               className="c3"
+              color="#061a3c"
               size={24}
             >
               close
@@ -51062,6 +55899,7 @@ exports[`Storyshots Miscellaneous/Notification error 1`] = `
   word-wrap: normal;
   white-space: nowrap;
   direction: ltr;
+  color: #061a3c;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   -moz-osx-font-smoothing: grayscale;
@@ -51145,6 +55983,7 @@ exports[`Storyshots Miscellaneous/Notification error 1`] = `
           >
             <i
               className="c3"
+              color="#061a3c"
               size={24}
             >
               close
@@ -51867,6 +56706,7 @@ exports[`Storyshots Miscellaneous/Notification warning 1`] = `
   word-wrap: normal;
   white-space: nowrap;
   direction: ltr;
+  color: #061a3c;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   -moz-osx-font-smoothing: grayscale;
@@ -51950,6 +56790,7 @@ exports[`Storyshots Miscellaneous/Notification warning 1`] = `
           >
             <i
               className="c3"
+              color="#061a3c"
               size={24}
             >
               close
@@ -52672,6 +57513,7 @@ exports[`Storyshots Miscellaneous/Notification with illustration 1`] = `
   word-wrap: normal;
   white-space: nowrap;
   direction: ltr;
+  color: #061a3c;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   -moz-osx-font-smoothing: grayscale;
@@ -52776,6 +57618,7 @@ exports[`Storyshots Miscellaneous/Notification with illustration 1`] = `
           >
             <i
               className="c4"
+              color="#061a3c"
               size={24}
             >
               close
@@ -71915,6 +76758,7 @@ exports[`Storyshots Thunder/item options with icons 1`] = `
   word-wrap: normal;
   white-space: nowrap;
   direction: ltr;
+  color: #061a3c;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   -moz-osx-font-smoothing: grayscale;
@@ -72259,6 +77103,7 @@ exports[`Storyshots Thunder/item options with icons 1`] = `
                     >
                       <i
                         className="c8"
+                        color="#061a3c"
                         size={24}
                       >
                         favorite
@@ -72317,6 +77162,7 @@ exports[`Storyshots Thunder/item options with icons 1`] = `
                     >
                       <i
                         className="c8"
+                        color="#061a3c"
                         size={24}
                       >
                         favorite
@@ -72375,6 +77221,7 @@ exports[`Storyshots Thunder/item options with icons 1`] = `
                     >
                       <i
                         className="c8"
+                        color="#061a3c"
                         size={24}
                       >
                         favorite
@@ -72433,6 +77280,7 @@ exports[`Storyshots Thunder/item options with icons 1`] = `
                     >
                       <i
                         className="c8"
+                        color="#061a3c"
                         size={24}
                       >
                         favorite
@@ -72491,6 +77339,7 @@ exports[`Storyshots Thunder/item options with icons 1`] = `
                     >
                       <i
                         className="c8"
+                        color="#061a3c"
                         size={24}
                       >
                         favorite
@@ -73100,6 +77949,7 @@ exports[`Storyshots Thunder/item options with onEdit and onDelete 1`] = `
   word-wrap: normal;
   white-space: nowrap;
   direction: ltr;
+  color: #061a3c;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   -moz-osx-font-smoothing: grayscale;
@@ -73453,6 +78303,7 @@ exports[`Storyshots Thunder/item options with onEdit and onDelete 1`] = `
                         >
                           <i
                             className="c13"
+                            color="#061a3c"
                             onClick={[Function]}
                             size={24}
                           >
@@ -73460,6 +78311,7 @@ exports[`Storyshots Thunder/item options with onEdit and onDelete 1`] = `
                           </i>
                           <i
                             className="c13"
+                            color="#061a3c"
                             onClick={[Function]}
                             size={24}
                           >
@@ -73516,6 +78368,7 @@ exports[`Storyshots Thunder/item options with onEdit and onDelete 1`] = `
                         >
                           <i
                             className="c13"
+                            color="#061a3c"
                             onClick={[Function]}
                             size={24}
                           >
@@ -73523,6 +78376,7 @@ exports[`Storyshots Thunder/item options with onEdit and onDelete 1`] = `
                           </i>
                           <i
                             className="c13"
+                            color="#061a3c"
                             onClick={[Function]}
                             size={24}
                           >
@@ -73579,6 +78433,7 @@ exports[`Storyshots Thunder/item options with onEdit and onDelete 1`] = `
                         >
                           <i
                             className="c13"
+                            color="#061a3c"
                             onClick={[Function]}
                             size={24}
                           >
@@ -73586,6 +78441,7 @@ exports[`Storyshots Thunder/item options with onEdit and onDelete 1`] = `
                           </i>
                           <i
                             className="c13"
+                            color="#061a3c"
                             onClick={[Function]}
                             size={24}
                           >
@@ -73642,6 +78498,7 @@ exports[`Storyshots Thunder/item options with onEdit and onDelete 1`] = `
                         >
                           <i
                             className="c13"
+                            color="#061a3c"
                             onClick={[Function]}
                             size={24}
                           >
@@ -73649,6 +78506,7 @@ exports[`Storyshots Thunder/item options with onEdit and onDelete 1`] = `
                           </i>
                           <i
                             className="c13"
+                            color="#061a3c"
                             onClick={[Function]}
                             size={24}
                           >
@@ -73705,6 +78563,7 @@ exports[`Storyshots Thunder/item options with onEdit and onDelete 1`] = `
                         >
                           <i
                             className="c13"
+                            color="#061a3c"
                             onClick={[Function]}
                             size={24}
                           >
@@ -73712,6 +78571,7 @@ exports[`Storyshots Thunder/item options with onEdit and onDelete 1`] = `
                           </i>
                           <i
                             className="c13"
+                            color="#061a3c"
                             onClick={[Function]}
                             size={24}
                           >
@@ -74288,6 +79148,7 @@ exports[`Storyshots Thunder/item options with subtitle 1`] = `
   word-wrap: normal;
   white-space: nowrap;
   direction: ltr;
+  color: #061a3c;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   -moz-osx-font-smoothing: grayscale;
@@ -74641,6 +79502,7 @@ exports[`Storyshots Thunder/item options with subtitle 1`] = `
                     >
                       <i
                         className="c8"
+                        color="#061a3c"
                         size={24}
                       >
                         favorite
@@ -74711,6 +79573,7 @@ exports[`Storyshots Thunder/item options with subtitle 1`] = `
                     >
                       <i
                         className="c8"
+                        color="#061a3c"
                         size={24}
                       >
                         favorite
@@ -74781,6 +79644,7 @@ exports[`Storyshots Thunder/item options with subtitle 1`] = `
                     >
                       <i
                         className="c8"
+                        color="#061a3c"
                         size={24}
                       >
                         favorite
@@ -74851,6 +79715,7 @@ exports[`Storyshots Thunder/item options with subtitle 1`] = `
                     >
                       <i
                         className="c8"
+                        color="#061a3c"
                         size={24}
                       >
                         favorite
@@ -74921,6 +79786,7 @@ exports[`Storyshots Thunder/item options with subtitle 1`] = `
                     >
                       <i
                         className="c8"
+                        color="#061a3c"
                         size={24}
                       >
                         favorite

@@ -13,5 +13,6 @@ export default interface TextInputProps extends DOMInterface {
   loading?: boolean
   disabled?: boolean
   errorColor?: string
+  placeholder?: string
   inputRef?: () => any
 }
