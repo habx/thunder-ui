@@ -2,12 +2,23 @@ import * as React from 'react'
 import { storiesOf } from '@storybook/react'
 
 import FontIcon from '../FontIcon'
+import colors from '../colors'
 
 import IconButton from './index'
 
 storiesOf('Actions/IconButton', module)
   .add('basic', () => (
     <IconButton>
+      <FontIcon icon='delete' color='white' />
+    </IconButton>
+  ))
+  .add('with manual color', () => (
+    <IconButton disabled color={colors.maastrichtBlue}>
+      <FontIcon icon='delete' color='white' />
+    </IconButton>
+  ))
+  .add('disabled', () => (
+    <IconButton disabled>
       <FontIcon icon='delete' color='white' />
     </IconButton>
   ))
