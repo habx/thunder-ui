@@ -38,5 +38,5 @@ export const getHoverColor = (baseColor, props, propName = 'hoverColor') => {
     return props[propName]
   }
 
-  return color(baseColor).mix(color('#000'), 0.2)
+  return color(baseColor).mix(color('#000'), 0.2).toString()
 }

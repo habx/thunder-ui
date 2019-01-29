@@ -26,3 +26,15 @@ export interface Input<valueType> extends DOMNode {
 
   color?: string
 }
+
+export interface Button extends DOMNode {
+  error?: boolean
+  warning?: boolean
+  info?: boolean
+  disabled?: boolean
+  small?: boolean
+  large?: boolean
+
+  color?: string
+  hoverColor?: string
+}

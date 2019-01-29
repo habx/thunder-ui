@@ -52,7 +52,7 @@ const IconButton: React.StatelessComponent<IconButtonProps> = styled.button.attr
 
   &:hover,
   &:active {
-    color: ${({ hoverColor }) => hoverColor};
+    background-color: ${({ hoverColor }) => hoverColor};
   }
 
   &:disabled {

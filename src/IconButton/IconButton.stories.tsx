@@ -1,22 +1,30 @@
 import * as React from 'react'
 import { storiesOf } from '@storybook/react'
+import { withKnobs, boolean } from '@storybook/addon-knobs'
 
 import FontIcon from '../FontIcon'
 import colors from '../colors'
 
 import IconButton from './index'
 
+const props = () => ({
+  disabled: boolean('Disabled', false),
+  small: boolean('Small', false),
+  large: boolean('Large', false),
+  error: boolean('Error', false),
+  warning: boolean('Warning', false)
+})
+
 storiesOf('Actions/IconButton', module)
-  .add('basic', () => (
-    <IconButton>
-      <FontIcon icon='delete' color='white' />
-    </IconButton>
-  ))
-  .add('with manual color', () => (
-    <IconButton disabled color={colors.maastrichtBlue}>
-      <FontIcon icon='delete' color='white' />
-    </IconButton>
-  ))
+  .addDecorator(withKnobs)
+  .add('full example', () => {
+    const storyProps = props()
+    return (
+      <IconButton {...storyProps}>
+        <FontIcon icon='delete' color='white' size={storyProps.small ? 16 : (storyProps.large ? 32 : 24)} />
+      </IconButton>
+    )
+  })
   .add('disabled', () => (
     <IconButton disabled>
       <FontIcon icon='delete' color='white' />
@@ -39,6 +47,11 @@ storiesOf('Actions/IconButton', module)
   ))
   .add('warning', () => (
     <IconButton warning>
+      <FontIcon icon='delete' color='white' />
+    </IconButton>
+  ))
+  .add('with manual color', () => (
+    <IconButton color={colors.maastrichtBlue}>
       <FontIcon icon='delete' color='white' />
     </IconButton>
   ))
