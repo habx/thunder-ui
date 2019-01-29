@@ -5,16 +5,13 @@ import { withState } from 'recompose'
 
 import FontIcon from '../FontIcon'
 import Select from './index'
-import options from './Select.data'
-
-const DEFAULT_VALUE_FULL = options[2]
-const DEFAULT_VALUE_SIMPLE = options[2].value
+import { longData, shortData } from './Select.data'
 
 const SelectWithState = ({ value = null, ...props }) => {
   const Component = withState('value', 'onChange', value)(newProps => (
     <Select
-      options={options}
-      placeholder='Projet'
+      options={shortData}
+      placeholder='Options'
       {...newProps}
       onChange={(...args) => {
         action('onChange')(...args)
@@ -27,30 +24,30 @@ const SelectWithState = ({ value = null, ...props }) => {
 }
 
 storiesOf('Inputs/Select', module)
-  .add('single item', () => (
+  .add('simple', () => (
     <SelectWithState />
+  ))
+  .add('filterable', () => (
+    <SelectWithState filterable options={longData} />
+  ))
+  .add('compact', () => (
+    <SelectWithState compact options={longData} />
   ))
   .add('disabled', () => (
     <SelectWithState disabled />
   ))
-  .add('single item with value (label, value mode)', () => (
-    <SelectWithState value={DEFAULT_VALUE_FULL} />
+  .add('error', () => (
+    <SelectWithState error />
   ))
-  .add('single item with value (simple value mode)', () => (
-    <SelectWithState value={DEFAULT_VALUE_SIMPLE} />
+  .add('with description', () => (
+    <SelectWithState description='Please pick an option' annotation='The one you prefer' />
   ))
-  .add('single item without reset', () => (
+  .add('with icon', () => (
+    <SelectWithState icon={<FontIcon icon='camera_enhance' />} />
+  ))
+  .add('without reset', () => (
     <SelectWithState canReset={false} />
   ))
   .add('multi items', () => (
     <SelectWithState isMulti />
-  ))
-  .add('multi items with value (label, value mode)', () => (
-    <SelectWithState isMulti value={[DEFAULT_VALUE_FULL]} />
-  ))
-  .add('multi items with value (simple value mode)', () => (
-    <SelectWithState isMulti value={[DEFAULT_VALUE_SIMPLE]} />
-  ))
-  .add('multi items with icon', () => (
-    <SelectWithState isMulti icon={<FontIcon icon='camera_enhance' />} />
   ))

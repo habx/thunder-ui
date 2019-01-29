@@ -3,51 +3,43 @@ import styled, { css } from 'styled-components'
 import colors from '../colors'
 import fontSizes from '../fontSizes'
 
+import FontIcon from '../FontIcon'
+
 export const SelectContainer = styled.div`
   position: relative;
-  color: ${colors.maastrichtBlue};
+  width: 250px;
+  flex: 0 0 auto;
+
+  color: ${colors.maastrichtBlue}
 
   ${({ disabled }) => disabled && css`
     pointer-events: none;
-    opacity: 0.8;
+    opacity: 0.6;
     filter: grayscale();
   `};
 `
 
-export const Label = styled.div`
-
+export const SelectContent = styled.div`
   position: relative;
   display: flex;
   align-items: baseline;
   box-sizing: border-box;
+  cursor: pointer;
 
   z-index: 0;
-  padding: 8px 20px;
+  padding: 8px 4px;
   height: 40px;
   line-height: 24px;
-  border-radius: 4px;
-  border-left: 0;
+  border-bottom: 1px solid ${({ color }) => color};
 
   font-size: ${fontSizes.regular};
   user-select: none;
 
   background-color: #ffffff;
-  box-shadow: 0 4px 12px 0 rgba(3, 54, 61, 0.16);
-
-  transition: background-color ease-in-out 200ms, z-index ease-in 1s, border-left ease-in 200ms;
-
-  &:not([data-empty="true"]) {
-    border-left: 4px solid ${colors.internationalOrange};
-  }
 
   &[data-open="true"] {
     transition: z-index ease-in 0s;
     z-index: 10;
-  }
-
-  &:hover {
-    background-color: #f8f7f8; // TODO : Add to colors
-    cursor: pointer;
   }
 `
 
@@ -62,6 +54,8 @@ export const SearchInput = styled.input.attrs(() => ({
   color: ${colors.maastrichtBlue};
   font-size: inherit;
   align-self: stretch;
+  min-width: 0;
+  transition: color 150ms ease-in-out;
 
   &:hover {
     cursor: pointer;
@@ -70,74 +64,48 @@ export const SearchInput = styled.input.attrs(() => ({
   &:focus {
     outline: none;
     box-shadow: none;
+
+    &::placeholder {
+      opacity: 0;
+    }
   }
+
+  &::placeholder {
+    color: ${({ color }) => color};
+    transition: opacity 150ms ease-in-out;
+  }
+`
+
+export const Placeholder = styled.div`
+  flex: 1 1 100%;
+  align-self: stretch;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: color 150ms ease-in-out;
+  color: ${({ color }) => color};
 `
 
 export const LabelIcons = styled.div`
   flex: 0 0 auto;
   display: flex;
+  align-items: center;
 
   i {
-    margin: 0 12px;
+    margin-left: 6px;
   }
-`
-
-export const Options = styled.div`
-  box-sizing: border-box;
-  box-shadow: 0 4px 12px 0 rgba(3, 54, 61, 0.16);
-  position: absolute;
-  top: 0;
-  padding: 0 24px;
-  overflow-y: scroll;
-
-  width: calc(100% - 24px);
-  margin-right: 12px;
-  margin-left: 12px;
-  background-color: #ffffff;
-  border-radius: 0 0 4px 4px;
-  height: 0;
-  z-index: 5;
-
-  transition: all ease-in-out 300ms;
-
-  &[data-open="true"] {
-    top: 100%;
-    height: 300px;
-    padding: 24px;
-  }
-`
-
-export const OptionsActions = styled.div`
-  color: ${colors.trueBlue};
-  text-decoration: underline;
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 12px;
-`
-
-export const OptionAction = styled.span`
-  user-select: none;
-  font-size: ${fontSizes.tiny};
-
-  &:hover {
-    opacity: .8;
-    cursor: pointer;
-  }
-`
-
-export const Description = styled.div`
-  margin: 4px 0 8px;
-  padding: 4px 4px 16px;
-  border-bottom: solid 1px #5a6e85; // TODO : Add to colors
-`
-
-export const DescriptionAnnotation = styled.div`
-  font-size: ${fontSizes.tiny};
-  color: ${colors.paynesGrey};
 `
 
 export const CustomIconContainer = styled.div`
   margin-right: 8px;
   align-self: stretch;
   color: ${colors.paynesGrey};
+`
+
+export const ResetIcon = styled(FontIcon)`
+  transition: opacity 150ms ease-in-out;
+
+  &:not([data-visible="true"]) {
+    opacity: 0;
+  }
 `
