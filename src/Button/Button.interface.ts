@@ -1,8 +1,8 @@
 import * as React from 'react'
 
-import DOMInterface from '../_internal/domInterface'
+import { DOMNode } from '../_internal/types'
 
-export default interface ButtonProps extends DOMInterface {
+export default interface ButtonProps extends DOMNode {
   warning?: boolean
   error?: boolean
   disabled?: boolean

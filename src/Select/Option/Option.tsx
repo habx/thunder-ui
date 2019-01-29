@@ -29,7 +29,7 @@ class Option extends React.Component<OptionProps> {
   }
 
   render () {
-    const { isMulti, label, selected, ...props } = this.props
+    const { multi, label, selected, ...props } = this.props
     return (
       <OptionContainer
         {...props}
@@ -37,7 +37,7 @@ class Option extends React.Component<OptionProps> {
         ref={this.ref}
         tabIndex='0'
       >
-        {isMulti && <Toggle state={selected ? 'full' : 'empty'} />}
+        {multi && <Toggle state={selected ? 'full' : 'empty'} />}
         { label }
       </OptionContainer>
     )

@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-import DOMInterface from '../../_internal/domInterface'
+import { DOMNode } from '../../_internal/types'
 
 type themeType = {
   background?: string
@@ -32,7 +32,7 @@ type themeType = {
   }
 }
 
-export default interface ThunderProps extends DOMInterface {
+export default interface ThunderProps extends DOMNode {
   query?: string
   data?: Array<any> | object
   open?: boolean

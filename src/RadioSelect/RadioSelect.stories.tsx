@@ -51,13 +51,7 @@ storiesOf('Inputs/RadioSelect', module)
     <RadioSelectWithState
       value={1}
       options={SIMPLE_OPTIONS}
-      color={colors.trueBlue}
-    />
-  ))
-  .add('without selected item', () => (
-    <RadioSelectWithState
-      value={1}
-      options={SIMPLE_OPTIONS}
+      color={colors.maastrichtBlue}
     />
   ))
   .add('can\'t be empty', () => (
@@ -84,14 +78,6 @@ storiesOf('Inputs/RadioSelect', module)
     <RadioSelectWithState
       value={['E', 'W', 'S']}
       options={CARDINAL_POINTS}
-      isMulti
-    />
-  ))
-  .add('with multi selection and can\'t be empty', () => (
-    <RadioSelectWithState
-      value={['E', 'W']}
-      options={CARDINAL_POINTS}
-      isMulti
-      canBeEmpty={false}
+      multi
     />
   ))

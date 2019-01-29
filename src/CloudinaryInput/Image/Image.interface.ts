@@ -1,4 +1,4 @@
-import DomInterface from '../../_internal/domInterface'
+import { DOMNode } from '../../_internal/types'
 
 export type CloudinaryImage = {
   secure_url: string
@@ -18,7 +18,7 @@ export type ImageFile = {
   size: number
 }
 
-export default interface ImageProps extends DomInterface {
+export default interface ImageProps extends DOMNode {
   id: string
   size: 'thumbnail' | 'full'
   transforms?: object[]

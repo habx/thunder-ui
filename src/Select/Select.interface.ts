@@ -1,23 +1,19 @@
 import * as React from 'react'
 
-import DOMInterface from '../_internal/domInterface'
-import { formOption } from '../_internal/types'
+import { Input, formOption } from '../_internal/types'
 
-export default interface SelectProps extends DOMInterface {
+export default interface SelectProps extends Input<any> {
   placeholder?: string
   options: any[]
-  value: any
-  onChange: (value) => void
-  isMulti?: boolean
   description?: string
   placeholderClassName?: string
   icon?: React.ReactNode
+
   annotation?: string
   canReset?: boolean
-  disabled?: boolean
   filterable?: boolean
-  error?: boolean
   compact ?: boolean
+  multi?: boolean
 }
 
 export interface SelectState {

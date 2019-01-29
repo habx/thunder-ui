@@ -1,8 +1,8 @@
 import * as React from 'react'
 
-import DOMInterface from '../_internal/domInterface'
+import { DOMNode } from '../_internal/types'
 
-export default interface NotificationProps extends DOMInterface {
+export default interface NotificationProps extends DOMNode {
   onClose?: () => void
   illustration?: React.ReactNode
   backgroundColor?: string

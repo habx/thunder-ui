@@ -1,14 +1,13 @@
-import DOMInterface from '../_internal/domInterface'
+import { Input } from '../_internal/types'
 
-export default interface SliderProps extends DOMInterface {
-  onChange?: (value) => void,
-  value: number[] | number,
-  range?: boolean,
-  customValues?: string[],
-  toolTipSuffix?: string,
-  min?: number,
-  max?: number,
-  color?: string,
-  step?: number,
-  labelFormatter?: (label) => string,
+export type value = number | number[]
+
+export default interface SliderProps extends Input<value> {
+  customValues?: string[]
+  toolTipSuffix?: string
+  min?: number
+  max?: number
+  step?: number
+  labelFormatter?: (label) => string
+  range?: boolean
 }

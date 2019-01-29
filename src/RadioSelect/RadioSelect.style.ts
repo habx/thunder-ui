@@ -11,6 +11,7 @@ export const RadioSelectContainer = styled.div`
 
   &[data-disabled="true"] {
     pointer-events: none;
+    opacity: 0.7;
     filter: grayscale();
   }
 `
@@ -24,14 +25,13 @@ export const RadioSelectElement = styled.div`
   box-sizing: border-box;
 
   line-height: 36px;
-  padding-left: 20px;
-  padding-right: 20px;
+  padding: 0 20px;
   font-size: 14px;
 
   color: ${({ color }) => color};
   border-right: solid 1px ${({ color }) => color};
 
-  transition: all ease-in-out 200ms;
+  transition: all 150ms ease-in-out;
 
   &:last-child {
     border: none;
@@ -41,6 +41,8 @@ export const RadioSelectElement = styled.div`
     color: #ffffff;
     background-color: ${({ color }) => color};
     box-shadow: 6px 4px 12px 0 rgba(3, 54, 61, 0.16);
+    margin: -4px;
+    padding: 4px 24px;
 
     ${({ isNextSelected }) => !isNextSelected && css`
       border-top-right-radius: 3px;

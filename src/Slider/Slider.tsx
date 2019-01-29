@@ -1,11 +1,24 @@
 import * as React from 'react'
 import BaseSlider, { Range } from 'rc-slider'
+import { omit } from 'lodash'
 
-import colors from '../colors'
 import withLabel from '../withLabel'
+import { getMainColor } from '../_internal/colors'
 
 import { SliderContainer, Label } from './Slider.style'
 import SliderProps from './Slider.interface'
+
+const INTERNAL_PROPS = [
+  'range',
+  'max',
+  'customValues',
+  'toolTipSuffix',
+  'min',
+  'step',
+  'labelFormatter',
+  'value',
+  'error'
+]
 
 class Slider extends React.Component<SliderProps> {
   static defaultProps = {
@@ -16,7 +29,6 @@ class Slider extends React.Component<SliderProps> {
     toolTipSuffix: '',
     min: 0,
     max: 100,
-    color: colors.brightCerualean,
     step: 5
   }
 
@@ -64,12 +76,13 @@ class Slider extends React.Component<SliderProps> {
       customValues,
       toolTipSuffix,
       min,
-      color,
       step,
       labelFormatter,
-      className
+      error
     } = this.props
     const { value } = this.state
+
+    const innerProps = omit(this.props, INTERNAL_PROPS)
 
     const SliderComponent = range ? Range : BaseSlider
     const realMax = customValues ? customValues.length - 1 : (max || 100) - ((max || 100) % step)
@@ -80,8 +93,10 @@ class Slider extends React.Component<SliderProps> {
       ? `${labelFormatter(value[0])} à ${labelFormatter(value[1])}${toolTipSuffix}`
       : `${(customValues ? customValues[(value as number)] : `${labelFormatter(value) || 0}${toolTipSuffix}`)}`
 
+    const mainColor = getMainColor(this.props)
+
     return (
-      <SliderContainer color={color} className={className}>
+      <SliderContainer color={mainColor} {...innerProps}>
         <SliderComponent
           onAfterChange={this.handleChange}
           onChange={this.handleLocalChange}
@@ -91,7 +106,10 @@ class Slider extends React.Component<SliderProps> {
           min={realMin}
           step={customValues ? 1 : step}
         />
-        <Label key={value} value={isValueArray ? value[0] : value} max={realMax}>
+        <Label
+          value={isValueArray ? value[0] : value} max={realMax}
+          color={getMainColor(this.props, 'tooltipColor')}
+        >
           {label ? label : ''}
         </Label>
       </SliderContainer>

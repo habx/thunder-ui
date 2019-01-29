@@ -1,6 +1,6 @@
-import DOMInterface from '../_internal/domInterface'
+import { DOMNode } from '../_internal/types'
 
-export default interface IconButtonProps extends DOMInterface {
+export default interface IconButtonProps extends DOMNode {
   color?: string
   disabled?: boolean
   small?: boolean

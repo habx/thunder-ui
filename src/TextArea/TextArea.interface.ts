@@ -1,8 +1,5 @@
-import DOMInterface from '../_internal/domInterface'
+import { Input } from '../_internal/types'
 
-export default interface TextAreaProps extends DOMInterface {
-  color?: string
+export default interface TextAreaProps extends Input<string | number> {
   borderColor?: string
-  errorColor?: string
-  value?: string | number
 }

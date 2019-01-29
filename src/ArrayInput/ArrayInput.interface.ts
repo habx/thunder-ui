@@ -1,7 +1,7 @@
 import * as React from 'react'
-import DOMInterface from '../_internal/domInterface'
+import { DOMNode } from '../_internal/types'
 
-export default interface ArrayInputProps extends DOMInterface {
+export default interface ArrayInputProps extends DOMNode {
   addButtonLabel?: string
   items: any[]
   itemComponent: React.ComponentType<any>

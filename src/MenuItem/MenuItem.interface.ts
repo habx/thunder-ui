@@ -1,7 +1,7 @@
 import * as React from 'react'
 
-import DOMInterface from '../_internal/domInterface'
+import { DOMNode } from '../_internal/types'
 
-export default interface MenuItemProps extends DOMInterface {
+export default interface MenuItemProps extends DOMNode {
   icon?: React.ReactNode
 }

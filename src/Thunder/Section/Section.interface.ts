@@ -1,9 +1,8 @@
 import * as React from 'react'
 
-import DOMInterface from '../../_internal/domInterface'
-import { thunderContext } from '../../_internal/types'
+import { DOMNode, thunderContext } from '../../_internal/types'
 
-export default interface SectionProps extends DOMInterface {
+export default interface SectionProps extends DOMNode {
   name: string,
   title?: React.ReactNode
   maxItems?: number

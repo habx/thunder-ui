@@ -1,6 +1,6 @@
-import DOMInterface from '../_internal/domInterface'
+import { DOMNode } from '../_internal/types'
 
-export default interface TabsProps extends DOMInterface {
+export default interface TabsProps extends DOMNode {
   hoverColor?: string
   activeColor?: string
   color?: string
