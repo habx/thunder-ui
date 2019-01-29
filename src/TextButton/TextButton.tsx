@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
 import fontSizes from '../fontSizes'
 import { getMainColor, getHoverColor } from '../_internal/colors'
@@ -19,9 +19,7 @@ const TextButton: React.StatelessComponent<TextButtonProps> = styled.button.attr
   outline: none;
   background-color: unset;
 
-  font-size: ${fontSizes.small};
   font-weight: 600;
-  line-height: 1.43;
   text-transform: uppercase;
 
   transition: color 150ms ease-in-out;
@@ -40,6 +38,21 @@ const TextButton: React.StatelessComponent<TextButtonProps> = styled.button.attr
     pointer-events: none;
     filter: grayscale();
   }
+
+  ${({ small }) => small && css`
+    padding: 6px 16px;
+    font-size: ${fontSizes.tiny};
+  `};
+
+  ${({ large }) => large && css`
+    padding: 16px 24px;
+    font-size: ${fontSizes.regular};
+  `};
+
+  ${({ small, large }) => !small && !large && css`
+    padding: 12px 20px;
+    font-size: ${fontSizes.small};
+  `};
 `
 
 export default TextButton

@@ -14,16 +14,17 @@ const findSecondaryColor = props => {
   if (props.textColor) {
     return props.textColor
   }
+
   return '#fff'
 }
 
 const prepareProps = props => {
   const backgroundColor = props.reverse ?
     findSecondaryColor(props) :
-    getMainColor(props, 'backgroundColor')
+    getMainColor(props)
 
   const textColor = props.reverse ?
-    getMainColor(props, 'backgroundColor') :
+    getMainColor(props) :
     findSecondaryColor(props)
 
   const hoverMixColor = props.reverse ? BLACK : WHITE
@@ -89,15 +90,18 @@ export const ButtonContainer = styled.button.attrs(prepareProps)`
     font-size: ${fontSizes.small};
     line-height: 1.25;
     border-radius: ${borderRadius.round};
-    i {
-      font-size: 18px;
-    }
   `};
 
-  ${({ small }) => !small && css`
+  ${({ large }) => large && css`
     padding: 16px 24px;
     font-size: ${fontSizes.large};
     line-height: 1.11;
+  `};
+
+  ${({ small, large }) => !small && !large && css`
+    padding: 12px 20px;
+    font-size: ${fontSizes.regular};
+    line-height: 1.17;
   `};
 
 `
