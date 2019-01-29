@@ -1,8 +1,8 @@
 import * as React from 'react'
 
-import DOMInterface from '../../_internal/domInterface'
+import { DOMNode } from '../../_internal/types'
 
-export default interface ItemProps extends DOMInterface {
+export default interface ItemProps extends DOMNode {
   index: number
   title: string
   subtitle?: string

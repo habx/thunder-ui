@@ -1,3 +1,3 @@
-import DOMInterface from '../../_internal/domInterface'
+import { DOMNode } from '../../_internal/types'
 
-export default DOMInterface
+export default DOMNode

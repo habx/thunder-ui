@@ -1,6 +1,6 @@
-import DOMInterface from '../_internal/domInterface'
+import { DOMNode } from '../_internal/types'
 
-export default interface TextButtonProps extends DOMInterface {
+export default interface TextButtonProps extends DOMNode {
   color?: string
   hoverColor?: string
   warning?: boolean

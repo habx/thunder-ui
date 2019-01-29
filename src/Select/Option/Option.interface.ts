@@ -1,8 +1,8 @@
-import DOMInterface from '../../_internal/domInterface'
+import { DOMNode } from '../../_internal/types'
 
-export default interface OptionProps extends DOMInterface {
+export default interface OptionProps extends DOMNode {
   focused: boolean
-  isMulti: boolean
+  multi: boolean
   compact: boolean
   label: string
   selected: boolean

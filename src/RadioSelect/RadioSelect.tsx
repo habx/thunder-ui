@@ -1,26 +1,25 @@
 import * as React from 'react'
 import { map, includes, filter, isEmpty } from 'lodash'
 
-import colors from '../colors'
 import withLabel from '../withLabel'
 
 import { RadioSelectContainer, RadioSelectElement } from './RadioSelect.style'
 import RadioSelectProps from './RadioSelect.interface'
+import {getMainColor} from '../_internal/colors'
 
-const RadioSelect: React.StatelessComponent<RadioSelectProps> = ({
-  options,
-  onChange,
-  value: currentValue,
-  canBeEmpty,
-  color: baseColor,
-  isMulti,
-  disabled,
-  error,
-  errorColor,
-  ...rest
-}) => {
+const RadioSelect: React.StatelessComponent<RadioSelectProps> = props => {
+  const {
+    options,
+    onChange,
+    value: currentValue,
+    canBeEmpty,
+    multi,
+    disabled,
+    ...rest
+  } = props
+
   const getNewValue = item => {
-    if (isMulti && Array.isArray(currentValue)) {
+    if (multi && Array.isArray(currentValue)) {
       if (includes(currentValue, item)) {
         const newValue = filter(currentValue, value => value !== item)
 
@@ -48,14 +47,14 @@ const RadioSelect: React.StatelessComponent<RadioSelectProps> = ({
   }
 
   const selected = map(options, ({ value }) => {
-    if (isMulti && Array.isArray(currentValue)) {
+    if (multi && Array.isArray(currentValue)) {
       return includes(currentValue, value)
     }
 
     return value === currentValue
   })
 
-  const color = error ? errorColor : baseColor
+  const color = getMainColor(props)
 
   return (
     <RadioSelectContainer color={color} data-disabled={disabled} {...rest}>
@@ -77,11 +76,9 @@ const RadioSelect: React.StatelessComponent<RadioSelectProps> = ({
 
 RadioSelect.defaultProps = {
   canBeEmpty: true,
-  isMulti: false,
+  multi: false,
   disabled: false,
-  value: null,
-  color: colors.brightCerualean,
-  errorColor: colors.internationalOrange
+  value: null
 }
 
 export default withLabel({ padding: 12 })(RadioSelect)

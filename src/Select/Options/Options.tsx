@@ -11,7 +11,7 @@ const Options: React.StatelessComponent<OptionsProps> = ({
   compact,
   description,
   annotation,
-  isMulti,
+  multi,
   focusedItem,
   isOptionSelected,
   onSelect
@@ -32,7 +32,7 @@ const Options: React.StatelessComponent<OptionsProps> = ({
               selected={isOptionSelected(option)}
               onClick={() => onSelect(option)}
               focused={option === focusedItem}
-              isMulti={isMulti}
+              multi={multi}
               compact={compact}
               {...option}
             />

@@ -1,6 +1,6 @@
-import DOMInterface from '../_internal/domInterface'
+import { DOMNode } from '../_internal/types'
 
-export default interface FontIconProps extends DOMInterface {
+export default interface FontIconProps extends DOMNode {
   icon: string,
   interactive?: boolean
   title?: string

@@ -49,5 +49,5 @@ storiesOf('Inputs/Select', module)
     <SelectWithState canReset={false} />
   ))
   .add('multi items', () => (
-    <SelectWithState isMulti />
+    <SelectWithState multi />
   ))

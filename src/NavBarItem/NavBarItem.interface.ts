@@ -1,8 +1,8 @@
 import * as React from 'react'
 
-import DOMInterface from '../_internal/domInterface'
+import { DOMNode } from '../_internal/types'
 
-export default interface NavBarItemProps extends DOMInterface {
+export default interface NavBarItemProps extends DOMNode {
   backgroundColor?: string
   activeBackgroundColor?: string
   icon?: React.ReactNode

@@ -1,18 +1,13 @@
 import * as React from 'react'
-import DOMInterface from '../_internal/domInterface'
+import { Input} from '../_internal/types'
 
-export default interface TextInputProps extends DOMInterface {
-  value: string | number
-  onChange?: (value) => void
+export default interface TextInputProps extends Input<string | number> {
   rightElement?: React.ReactNode
   rightHoverElement?: React.ReactNode
   activeBorderColor?: string
-  color?: string
   borderColor?: string
-  error?: boolean
-  loading?: boolean
-  disabled?: boolean
-  errorColor?: string
   placeholder?: string
   inputRef?: () => any
+  loading?: boolean
+  small?: boolean
 }

@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
 export const Label = styled.span.attrs(({ value, max }) => ({
   style: {
@@ -8,6 +8,7 @@ export const Label = styled.span.attrs(({ value, max }) => ({
   position: absolute;
   margin-top: 10px;
   margin-left: -20px;
+  color: ${({ color }) => color};
 `
 
 export const RcSliderStyle = styled.div`
@@ -261,4 +262,10 @@ export const RcSliderStyle = styled.div`
 export const SliderContainer = styled(RcSliderStyle)`
   position: relative;
   margin-bottom: 30px;
+
+  ${({ disabled }) => disabled && css`
+    pointer-events: none;
+    opacity: 0.6;
+    filter: grayscale();
+  `};
 `

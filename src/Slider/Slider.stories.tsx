@@ -25,7 +25,10 @@ storiesOf('Inputs/Slider', module)
     <Slider onChange={action('Slider change')} value={40} />
   ))
   .add('disabled', () => (
-    <Slider onChange={action('Slider change')} value={40} />
+    <Slider disabled onChange={action('Slider change')} value={40} />
+  ))
+  .add('error', () => (
+    <Slider error onChange={action('Slider change')} value={40} />
   ))
   .add('with range', () => (
     <Slider range onChange={action('Slider change')} value={[20, 60]} />

@@ -1,6 +1,6 @@
-import DOMInterface from '../_internal/domInterface'
+import { DOMNode } from '../_internal/types'
 
-export default interface SpinnerProps extends DOMInterface {
+export default interface SpinnerProps extends DOMNode {
   size?: number
   color?: string
 }

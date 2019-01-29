@@ -10,7 +10,7 @@ export default interface Options {
   description?: string
   annotation?: string
   focusedItem?: any
-  isMulti: boolean
+  multi: boolean
   isOptionSelected: (option: Option) => boolean
   onSelect: (option: Option) => void
 }

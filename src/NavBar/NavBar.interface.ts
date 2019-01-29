@@ -1,6 +1,6 @@
-import DOMInterface from '../_internal/domInterface'
+import { DOMNode } from '../_internal/types'
 
-export default interface NavBarProps extends DOMInterface {
+export default interface NavBarProps extends DOMNode {
   backgroundColor?: string
   activeBackgroundColor?: string
   title?: string

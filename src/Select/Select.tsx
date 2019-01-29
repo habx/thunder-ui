@@ -24,7 +24,7 @@ import {
 } from './Select.style'
 
 const INTERNAL_PROPS = [
-  'isMulti',
+  'multi',
   'description',
   'placeholderClassName',
   'icon',
@@ -41,18 +41,14 @@ const FORMAT_VALUE_SIMPLE = 'FORMAT_VALUE_SIMPLE'
 
 class Select extends React.Component<SelectProps, SelectState> {
   static defaultProps = {
-    isMulti: false,
-    value: null,
-    description: null,
-    icon: null,
-    annotation: null,
+    multi: false,
     canReset: true,
     filterable: false,
     compact: false
   }
 
   static getDerivedStateFromProps (nextProps, prevState) {
-    const { value: rawValue, options: rawOptions, isMulti } = nextProps
+    const { value: rawValue, options: rawOptions, multi } = nextProps
 
     return {
       ...(rawOptions !== prevState.rawOptions) && {
@@ -61,13 +57,13 @@ class Select extends React.Component<SelectProps, SelectState> {
       },
       ...(rawValue !== prevState.rawValue) && {
         rawValue,
-        value: Select.getStandardizedValue(rawValue, isMulti)
+        value: Select.getStandardizedValue(rawValue, multi)
       }
     }
   }
 
-  static getStandardizedValue (value, isMulti) {
-    return isMulti
+  static getStandardizedValue (value, multi) {
+    return multi
       ? map(value, el => get(el, 'value', el))
       : get(value, 'value', value)
   }
@@ -121,14 +117,14 @@ class Select extends React.Component<SelectProps, SelectState> {
   }
 
   getCurrentValue () {
-    const { isMulti } = this.props
+    const { multi } = this.props
     const { options, value } = this.state
 
     if (!value) {
       return null
     }
 
-    if (isMulti) {
+    if (multi) {
       return filter(options, el => value.includes(el.value))
     }
 
@@ -136,9 +132,9 @@ class Select extends React.Component<SelectProps, SelectState> {
   }
 
   getCurrentValueFormat () {
-    const { value, isMulti } = this.props
+    const { value, multi } = this.props
 
-    if (isMulti) {
+    if (multi) {
       if (isEmpty(value)) {
         return FORMAT_VALUE_FULL
       }
@@ -156,9 +152,9 @@ class Select extends React.Component<SelectProps, SelectState> {
   }
 
   getPlaceholder () {
-    const { isMulti, placeholder } = this.props
+    const { multi, placeholder } = this.props
 
-    if (isMulti) {
+    if (multi) {
       return placeholder
     }
 
@@ -168,10 +164,10 @@ class Select extends React.Component<SelectProps, SelectState> {
   }
 
   isOptionSelected = option => {
-    const { isMulti } = this.props
+    const { multi } = this.props
     const { value } = this.state
 
-    if (isMulti) {
+    if (multi) {
       return some(value, el => el === option.value)
     }
 
@@ -212,7 +208,7 @@ class Select extends React.Component<SelectProps, SelectState> {
   handleSelect = option => {
     this.setState(() => ({ focusedItem: null }))
 
-    if (this.props.isMulti) {
+    if (this.props.multi) {
       this.handleSelectMulti(option)
     } else {
       this.handleSelectOne(option)
@@ -246,11 +242,11 @@ class Select extends React.Component<SelectProps, SelectState> {
   }
 
   handleReset = e => {
-    const { isMulti, onChange } = this.props
+    const { multi, onChange } = this.props
 
     e.stopPropagation()
 
-    onChange(isMulti ? [] : null)
+    onChange(multi ? [] : null)
   }
 
   handleFocus = () => this.setState({ isInputFocus: true })
@@ -276,7 +272,7 @@ class Select extends React.Component<SelectProps, SelectState> {
   render () {
     const { open, search, focusedItem } = this.state
     const {
-      isMulti,
+      multi,
       description,
       placeholderClassName,
       icon,
@@ -286,6 +282,8 @@ class Select extends React.Component<SelectProps, SelectState> {
       filterable,
       compact
     } = this.props
+
+    console.log(this.props.value, this.state.value)
 
     const safeProps = omit(this.props, INTERNAL_PROPS)
 
@@ -340,7 +338,7 @@ class Select extends React.Component<SelectProps, SelectState> {
         <Options
           options={options}
           open={open}
-          isMulti={isMulti}
+          multi={multi}
           onSelect={this.handleSelect}
           isOptionSelected={this.isOptionSelected}
           focusedItem={focusedItem}
@@ -353,4 +351,4 @@ class Select extends React.Component<SelectProps, SelectState> {
   }
 }
 
-export default withLabel({ padding: 16 })(Select)
+export default withLabel({ padding: 12 })(Select)
