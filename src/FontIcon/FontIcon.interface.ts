@@ -5,4 +5,5 @@ export default interface FontIconProps extends DOMInterface {
   interactive?: boolean
   title?: string
   size?: number
+  color?: string
 }

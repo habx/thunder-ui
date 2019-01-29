@@ -103,6 +103,7 @@ const TextInput: React.StatelessComponent<TextInputProps> = ({
   color,
   borderColor,
   activeBorderColor,
+  placeholder,
   ...props
 }) => (
   <InputContainer {...props} borderColor={borderColor}>
@@ -115,6 +116,7 @@ const TextInput: React.StatelessComponent<TextInputProps> = ({
       borderColor={borderColor}
       activeBorderColor={activeBorderColor}
       ref={inputRef}
+      placeholder={placeholder}
     />
     {loading && <InputSpinner size={15} />}
     {

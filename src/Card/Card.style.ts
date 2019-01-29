@@ -16,6 +16,10 @@ export const CardContainer = styled.div`
     &:hover {
       box-shadow: ${shadows.strong};
     }
+
+    &:active {
+      box-shadow: ${shadows.light};
+    }
   `};
 `
 

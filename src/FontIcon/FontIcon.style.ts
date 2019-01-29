@@ -12,6 +12,7 @@ export const FontIconContainer = styled.i`
   word-wrap: normal;
   white-space: nowrap;
   direction: ltr;
+  color: ${({ color }) => color};
 
   /* Support for all WebKit browsers. */
   -webkit-font-smoothing: antialiased;
