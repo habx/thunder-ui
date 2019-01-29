@@ -5,7 +5,6 @@ import colors from '../../colors'
 import fontSizes from '../../fontSizes'
 
 export const OptionsContainer = styled.div`
-  box-sizing: border-box;
   box-shadow: ${shadows.light};
   position: absolute;
   top: calc(100% - 1px);
@@ -23,7 +22,6 @@ export const OptionsContainer = styled.div`
 
   &[data-open="true"] {
     max-height: 300px;
-    padding: 12px 0;
     opacity: 1;
   }
 
@@ -35,6 +33,8 @@ export const OptionsContainer = styled.div`
 export const OptionsContent = styled.div`
   overflow-y: auto;
   overflow-x: hidden;
+  padding: 12px 0;
+  max-height: 300px;
 `
 
 export const EmptyOptions = styled.div`

@@ -263,14 +263,14 @@ class Select extends React.Component<SelectProps, SelectState> {
   })
 
   handleToggle = () => {
+    if (!this.state.open && this.inputRef.current) {
+      this.inputRef.current.focus()
+    }
+
     this.setState(prevState => ({
       open: !prevState.open,
       search: ''
     }))
-
-    if (this.inputRef.current) {
-      this.inputRef.current.focus()
-    }
   }
 
   render () {

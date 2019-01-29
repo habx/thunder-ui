@@ -14,7 +14,7 @@ export const SelectContainer = styled.div`
 
   ${({ disabled }) => disabled && css`
     pointer-events: none;
-    opacity: 0.8;
+    opacity: 0.6;
     filter: grayscale();
   `};
 `
@@ -64,10 +64,15 @@ export const SearchInput = styled.input.attrs(() => ({
   &:focus {
     outline: none;
     box-shadow: none;
+
+    &::placeholder {
+      opacity: 0;
+    }
   }
 
   &::placeholder {
     color: ${({ color }) => color};
+    transition: opacity 150ms ease-in-out;
   }
 `
 
