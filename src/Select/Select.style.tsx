@@ -2,7 +2,8 @@ import styled, { css } from 'styled-components'
 
 import colors from '../colors'
 import fontSizes from '../fontSizes'
-import shadows from '../shadows'
+
+import FontIcon from '../FontIcon'
 
 export const SelectContainer = styled.div`
   position: relative;
@@ -54,6 +55,7 @@ export const SearchInput = styled.input.attrs(() => ({
   font-size: inherit;
   align-self: stretch;
   min-width: 0;
+  transition: color 150ms ease-in-out;
 
   &:hover {
     cursor: pointer;
@@ -75,6 +77,7 @@ export const Placeholder = styled.div`
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  transition: color 150ms ease-in-out;
   color: ${({ color }) => color};
 `
 
@@ -92,4 +95,12 @@ export const CustomIconContainer = styled.div`
   margin-right: 8px;
   align-self: stretch;
   color: ${colors.paynesGrey};
+`
+
+export const ResetIcon = styled(FontIcon)`
+  transition: opacity 150ms ease-in-out;
+
+  &:not([data-visible="true"]) {
+    opacity: 0;
+  }
 `

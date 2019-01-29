@@ -5,7 +5,7 @@ import { withState } from 'recompose'
 
 import FontIcon from '../FontIcon'
 import Select from './index'
-import {longData, shortData} from './Select.data'
+import { longData, shortData } from './Select.data'
 
 const SelectWithState = ({ value = null, ...props }) => {
   const Component = withState('value', 'onChange', value)(newProps => (
@@ -29,6 +29,9 @@ storiesOf('Inputs/Select', module)
   ))
   .add('filterable', () => (
     <SelectWithState filterable options={longData} />
+  ))
+  .add('compact', () => (
+    <SelectWithState compact options={longData} />
   ))
   .add('disabled', () => (
     <SelectWithState disabled />

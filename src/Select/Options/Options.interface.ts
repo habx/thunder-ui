@@ -6,6 +6,7 @@ export type Option = {
 export default interface Options {
   options: Option[]
   open: boolean
+  compact: boolean
   description?: string
   annotation?: string
   focusedItem?: any

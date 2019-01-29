@@ -17,6 +17,7 @@ export default interface SelectProps extends DOMInterface {
   disabled?: boolean
   filterable?: boolean
   error?: boolean
+  compact ?: boolean
 }
 
 export interface SelectState {

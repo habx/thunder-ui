@@ -12,7 +12,7 @@ export const OptionContainer = styled.div`
   display: flex;
   align-items: center;
   font-size: ${fontSizes.regular};
-  padding: 12px 18px;
+  padding: ${({ compact }) => compact ? 6 : 12 }px 18px;
 
   i {
     vertical-align: middle;

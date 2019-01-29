@@ -20,6 +20,7 @@ import {
   LabelIcons,
   CustomIconContainer,
   Placeholder,
+  ResetIcon
 } from './Select.style'
 
 const INTERNAL_PROPS = [
@@ -46,7 +47,8 @@ class Select extends React.Component<SelectProps, SelectState> {
     icon: null,
     annotation: null,
     canReset: true,
-    filterable: false
+    filterable: false,
+    compact: false
   }
 
   static getDerivedStateFromProps (nextProps, prevState) {
@@ -126,9 +128,11 @@ class Select extends React.Component<SelectProps, SelectState> {
       return null
     }
 
-    const filterMethod = isMulti ? filter : find
+    if (isMulti) {
+      return filter(options, el => value.includes(el.value))
+    }
 
-    return filterMethod(options, el => el.value === value)
+    return find(options, el => el.value === value)
   }
 
   getCurrentValueFormat () {
@@ -241,9 +245,12 @@ class Select extends React.Component<SelectProps, SelectState> {
     }
   }
 
-  handleRemove = e => {
+  handleReset = e => {
+    const { isMulti, onChange } = this.props
+
     e.stopPropagation()
-    this.props.onChange(null)
+
+    onChange(isMulti ? [] : null)
   }
 
   handleFocus = () => this.setState({ isInputFocus: true })
@@ -276,15 +283,14 @@ class Select extends React.Component<SelectProps, SelectState> {
       annotation,
       canReset,
       disabled,
-      filterable
+      filterable,
+      compact
     } = this.props
 
     const safeProps = omit(this.props, INTERNAL_PROPS)
 
     const options = this.getVisibleOptions()
     const value = this.getCurrentValue()
-
-    const showRemoveIcon = !disabled && !isMulti && canReset && value
 
     const color = getMainColor(this.props, 'color', colors.paynesGrey)
 
@@ -309,17 +315,24 @@ class Select extends React.Component<SelectProps, SelectState> {
                   onChange={this.handleSearch}
                   onFocus={this.handleFocus}
                   onBlur={this.handleBlur}
-                  color={color}
+                  color={isEmpty(value) ? color : colors.maastrichtBlue}
                   ref={this.inputRef}
                 />
               ) : (
-                <Placeholder color={color}>{ this.getPlaceholder() }</Placeholder>
+                <Placeholder color={isEmpty(value) ? color : colors.maastrichtBlue}>
+                  { this.getPlaceholder() }
+                </Placeholder>
               )
           }
           <LabelIcons>
             {
-              showRemoveIcon &&
-              <FontIcon onClick={this.handleRemove} icon='close' size={20} />
+              canReset &&
+              <ResetIcon
+                data-visible={!disabled && !isEmpty(value)}
+                onClick={this.handleReset}
+                icon='close'
+                size={20}
+              />
             }
             <FontIcon icon={open ? 'arrow_drop_up' : 'arrow_drop_down'} />
           </LabelIcons>
@@ -333,6 +346,7 @@ class Select extends React.Component<SelectProps, SelectState> {
           focusedItem={focusedItem}
           annotation={annotation}
           description={description}
+          compact={compact}
         />
       </SelectContainer>
     )

@@ -25,13 +25,16 @@ export const OptionsContainer = styled.div`
     max-height: 300px;
     padding: 12px 0;
     opacity: 1;
-    overflow-y: auto;
-    overflow-x: hidden;
   }
 
   & * {
     user-select: none;
   }
+`
+
+export const OptionsContent = styled.div`
+  overflow-y: auto;
+  overflow-x: hidden;
 `
 
 export const EmptyOptions = styled.div`
