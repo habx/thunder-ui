@@ -283,8 +283,6 @@ class Select extends React.Component<SelectProps, SelectState> {
       compact
     } = this.props
 
-    console.log(this.props.value, this.state.value)
-
     const safeProps = omit(this.props, INTERNAL_PROPS)
 
     const options = this.getVisibleOptions()
