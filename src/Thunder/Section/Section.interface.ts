@@ -1,7 +1,6 @@
 import * as React from 'react'
 
-import { DOMNode } from '../../_internal/types'
-import { thunderContext } from '../../_internal/types'
+import { DOMNode, thunderContext } from '../../_internal/types'
 
 export default interface SectionProps extends DOMNode {
   name: string,

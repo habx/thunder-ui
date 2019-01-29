@@ -59,7 +59,7 @@ const TextInput: React.StatelessComponent<TextInputProps> = props => {
 }
 
 TextInput.defaultProps = {
-  onChange: () => null,
+  onChange: () => null
 }
 
 export default withLabel()(TextInput)
