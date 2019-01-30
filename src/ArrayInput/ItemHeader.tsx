@@ -17,6 +17,7 @@ const ItemHeader: React.StatelessComponent<ItemProps> = ({
     onOpen,
     amount,
     disabled,
+    iconColor,
     itemTitleComponent: ItemTitleComponent
   },
   item,
@@ -40,11 +41,13 @@ const ItemHeader: React.StatelessComponent<ItemProps> = ({
                 canBeReordered && (
                   <Fragment>
                     <FontIcon
+                      color={iconColor}
                       icon='arrow_upward'
                       onClick={() => onReorder(index, index - 1)}
                       data-disabled={index === 0}
                     />
                     <FontIcon
+                      color={iconColor}
                       icon='arrow_downward'
                       onClick={() => onReorder(index, index + 1)}
                       data-disabled={index === amount - 1}
@@ -54,11 +57,11 @@ const ItemHeader: React.StatelessComponent<ItemProps> = ({
               }
               { isOpen && (
                 <Fragment>
-                  <FontIcon icon='delete' onClick={() => onDelete(index)} />
-                  <FontIcon icon='close' onClick={() => onClose(index)} />
+                  <FontIcon color={iconColor} icon='delete' onClick={() => onDelete(index)} />
+                  <FontIcon color={iconColor} icon='close' onClick={() => onClose(index)} />
                 </Fragment>
               ) }
-              { !isOpen && <FontIcon icon='edit' onClick={() => onOpen(index)} /> }
+              { !isOpen && <FontIcon color={iconColor} icon='edit' onClick={() => onOpen(index)} /> }
             </ItemActions>
           </React.Fragment>
         )

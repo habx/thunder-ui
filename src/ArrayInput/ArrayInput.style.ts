@@ -51,7 +51,6 @@ export const ItemActions = styled.div`
   user-select: none;
 
   i {
-    color: ${colors.maastrichtBlue};
     font-size: ${fontSizes.large};
     cursor: pointer;
 
