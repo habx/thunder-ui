@@ -58,7 +58,7 @@ class ArrayInput extends React.Component<ArrayInputProps, ArrayInputState> {
       onOpen: this.handleEditStart,
       onClose: this.handleEditStop,
       onDelete: this.handleDelete,
-      onReorder: this.handleReorder,
+      onReorder: this.handleReorder
     }
   }
 
