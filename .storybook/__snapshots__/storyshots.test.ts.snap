@@ -27315,7 +27315,6 @@ exports[`Storyshots Inputs/Select compact 1`] = `
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  background-color: #ffffff;
 }
 
 .c1[data-open="true"] {
@@ -28339,7 +28338,6 @@ exports[`Storyshots Inputs/Select disabled 1`] = `
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  background-color: #ffffff;
 }
 
 .c1[data-open="true"] {
@@ -28889,7 +28887,6 @@ exports[`Storyshots Inputs/Select error 1`] = `
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  background-color: #ffffff;
 }
 
 .c1[data-open="true"] {
@@ -29438,7 +29435,6 @@ exports[`Storyshots Inputs/Select filterable 1`] = `
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  background-color: #ffffff;
 }
 
 .c1[data-open="true"] {
@@ -30543,7 +30539,6 @@ exports[`Storyshots Inputs/Select multi items 1`] = `
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  background-color: #ffffff;
 }
 
 .c1[data-open="true"] {
@@ -31116,7 +31111,6 @@ exports[`Storyshots Inputs/Select simple 1`] = `
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  background-color: #ffffff;
 }
 
 .c1[data-open="true"] {
@@ -31665,7 +31659,6 @@ exports[`Storyshots Inputs/Select with description 1`] = `
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  background-color: #ffffff;
 }
 
 .c1[data-open="true"] {
@@ -32272,7 +32265,6 @@ exports[`Storyshots Inputs/Select with icon 1`] = `
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  background-color: #ffffff;
 }
 
 .c1[data-open="true"] {
@@ -32831,7 +32823,6 @@ exports[`Storyshots Inputs/Select without reset 1`] = `
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  background-color: #ffffff;
 }
 
 .c1[data-open="true"] {
