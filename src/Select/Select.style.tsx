@@ -35,8 +35,6 @@ export const SelectContent = styled.div`
   font-size: ${fontSizes.regular};
   user-select: none;
 
-  background-color: #ffffff;
-
   &[data-open="true"] {
     transition: z-index ease-in 0s;
     z-index: 10;
