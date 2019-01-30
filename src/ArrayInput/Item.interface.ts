@@ -12,6 +12,7 @@ export default interface ItemProps extends DOMNode {
     canBeReordered?: boolean
     disabled?: boolean
     amount?: number
+    iconColor?: string
     onClose: (index) => void
     onOpen: (index) => void
     onDelete: (item) => void
