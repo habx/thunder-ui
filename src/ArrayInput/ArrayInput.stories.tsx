@@ -3,8 +3,9 @@ import styled from 'styled-components'
 import { storiesOf } from '@storybook/react'
 import { take, takeRight, clone } from 'lodash'
 
-import ArrayInput from '.'
+import ArrayInput from './index'
 import TextInput from '../TextInput'
+import colors from '../colors'
 
 const FIELDS = [
   { name: 'Paris', country: 'France' },
@@ -137,5 +138,12 @@ storiesOf('Inputs/ArrayInput', module)
     <CountryArrayInput
       itemTitleComponent={ItemTitle}
       addButtonLabel='Add a city'
+    />
+  ))
+  .add('with custom color icon', () => (
+    <CountryArrayInput
+      itemTitleComponent={ItemTitle}
+      addButtonLabel='Add a city'
+      iconColor={colors.brightCerualean}
     />
   ))
