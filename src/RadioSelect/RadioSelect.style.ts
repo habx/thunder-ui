@@ -27,6 +27,7 @@ export const RadioSelectElement = styled.div`
   line-height: 36px;
   padding: 0 20px;
   font-size: 14px;
+  flex-grow: 1;
 
   color: ${({ color }) => color};
   border-right: solid 1px ${({ color }) => color};

@@ -6,6 +6,7 @@ import fontSizes from '../fontSizes'
 import borderRadius from '../borderRadius'
 import shadows from '../shadows'
 import { getMainColor } from '../_internal/colors'
+import { FontIconContainer } from '../FontIcon/FontIcon.style'
 
 const WHITE = color('#fff')
 const BLACK = color('#000')
@@ -103,6 +104,10 @@ export const ButtonContainer = styled.button.attrs(prepareProps)`
     font-size: ${fontSizes.regular};
     line-height: 1.17;
   `};
+
+  ${FontIconContainer} {
+    font-size: 18px;
+  }
 
 `
 
