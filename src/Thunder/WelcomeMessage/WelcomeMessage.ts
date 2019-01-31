@@ -9,7 +9,7 @@ const WelcomeMessage: React.StatelessComponent<WelcomeMessageProps> = styled.div
   color: ${get('welcome.color')};
   padding: 16px;
   margin: 16px;
-  border-radius: 8px;
+  border-radius: 3px;
   position: relative;
   box-shadow: 0 3px 6px 0 rgba(80, 79, 79, 0.5);
 
