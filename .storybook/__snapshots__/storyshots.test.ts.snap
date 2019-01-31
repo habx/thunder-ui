@@ -54,6 +54,10 @@ exports[`Storyshots Actions/Button disabled 1`] = `
   filter: grayscale();
 }
 
+.c0 .c1 {
+  font-size: 18px;
+}
+
 <div
   style={
     Object {
@@ -438,6 +442,10 @@ exports[`Storyshots Actions/Button error 1`] = `
   filter: grayscale();
 }
 
+.c0 .c1 {
+  font-size: 18px;
+}
+
 <div
   style={
     Object {
@@ -819,6 +827,10 @@ exports[`Storyshots Actions/Button full example 1`] = `
   pointer-events: none;
   -webkit-filter: grayscale();
   filter: grayscale();
+}
+
+.c0 .c1 {
+  font-size: 18px;
 }
 
 <div
@@ -1400,6 +1412,10 @@ exports[`Storyshots Actions/Button large 1`] = `
   filter: grayscale();
 }
 
+.c0 .c1 {
+  font-size: 18px;
+}
+
 <div
   style={
     Object {
@@ -1804,6 +1820,10 @@ exports[`Storyshots Actions/Button loading 1`] = `
 
 .c0:disabled {
   pointer-events: none;
+}
+
+.c0 .c4 {
+  font-size: 18px;
 }
 
 .c1 {
@@ -2216,6 +2236,10 @@ exports[`Storyshots Actions/Button reverse 1`] = `
   filter: grayscale();
 }
 
+.c0 .c1 {
+  font-size: 18px;
+}
+
 <div
   style={
     Object {
@@ -2598,6 +2622,10 @@ exports[`Storyshots Actions/Button small 1`] = `
   pointer-events: none;
   -webkit-filter: grayscale();
   filter: grayscale();
+}
+
+.c0 .c1 {
+  font-size: 18px;
 }
 
 <div
@@ -2983,6 +3011,10 @@ exports[`Storyshots Actions/Button warning 1`] = `
   filter: grayscale();
 }
 
+.c0 .c1 {
+  font-size: 18px;
+}
+
 <div
   style={
     Object {
@@ -3313,7 +3345,7 @@ exports[`Storyshots Actions/Button warning 1`] = `
 `;
 
 exports[`Storyshots Actions/Button with icon on the left 1`] = `
-.c2 {
+.c3 {
   font-family: 'Material Icons';
   font-weight: normal;
   font-style: normal;
@@ -3407,6 +3439,38 @@ exports[`Storyshots Actions/Button with icon on the left 1`] = `
   filter: grayscale();
 }
 
+.c0 .c2 {
+  font-size: 18px;
+}
+
+.c4 .c2 {
+  font-size: 18px;
+}
+
+.c5 .c2 {
+  font-size: 18px;
+}
+
+.c6 .c2 {
+  font-size: 18px;
+}
+
+.c7 .c2 {
+  font-size: 18px;
+}
+
+.c8 .c2 {
+  font-size: 18px;
+}
+
+.c9 .c2 {
+  font-size: 18px;
+}
+
+.c10 .c2 {
+  font-size: 18px;
+}
+
 <div
   style={
     Object {
@@ -3445,7 +3509,7 @@ exports[`Storyshots Actions/Button with icon on the left 1`] = `
             className="c1"
           >
             <i
-              className="c2"
+              className="c2 c3"
               color="inherit"
               size={16}
             >
@@ -3766,7 +3830,7 @@ exports[`Storyshots Actions/Button with icon on the left 1`] = `
 `;
 
 exports[`Storyshots Actions/Button with icon on the right 1`] = `
-.c2 {
+.c3 {
   font-family: 'Material Icons';
   font-weight: normal;
   font-style: normal;
@@ -3860,6 +3924,38 @@ exports[`Storyshots Actions/Button with icon on the right 1`] = `
   filter: grayscale();
 }
 
+.c0 .c2 {
+  font-size: 18px;
+}
+
+.c4 .c2 {
+  font-size: 18px;
+}
+
+.c5 .c2 {
+  font-size: 18px;
+}
+
+.c6 .c2 {
+  font-size: 18px;
+}
+
+.c7 .c2 {
+  font-size: 18px;
+}
+
+.c8 .c2 {
+  font-size: 18px;
+}
+
+.c9 .c2 {
+  font-size: 18px;
+}
+
+.c10 .c2 {
+  font-size: 18px;
+}
+
 <div
   style={
     Object {
@@ -3907,7 +4003,7 @@ exports[`Storyshots Actions/Button with icon on the right 1`] = `
             className="c1"
           >
             <i
-              className="c2"
+              className="c2 c3"
               color="inherit"
               size={16}
             >
@@ -4272,6 +4368,10 @@ exports[`Storyshots Actions/Button with manual background color 1`] = `
   filter: grayscale();
 }
 
+.c0 .c1 {
+  font-size: 18px;
+}
+
 <div
   style={
     Object {
@@ -4622,7 +4722,7 @@ exports[`Storyshots Actions/Button with manual background color 1`] = `
 `;
 
 exports[`Storyshots Actions/IconButton disabled 1`] = `
-.c1 {
+.c2 {
   font-family: 'Material Icons';
   font-weight: normal;
   font-style: normal;
@@ -4642,6 +4742,38 @@ exports[`Storyshots Actions/IconButton disabled 1`] = `
   text-rendering: optimizeLegibility;
   -moz-osx-font-smoothing: grayscale;
   font-feature-settings: 'liga';
+}
+
+.c3 .c1 {
+  font-size: 18px;
+}
+
+.c4 .c1 {
+  font-size: 18px;
+}
+
+.c5 .c1 {
+  font-size: 18px;
+}
+
+.c6 .c1 {
+  font-size: 18px;
+}
+
+.c7 .c1 {
+  font-size: 18px;
+}
+
+.c8 .c1 {
+  font-size: 18px;
+}
+
+.c9 .c1 {
+  font-size: 18px;
+}
+
+.c10 .c1 {
+  font-size: 18px;
 }
 
 .c0 {
@@ -4717,7 +4849,7 @@ exports[`Storyshots Actions/IconButton disabled 1`] = `
           disabled={true}
         >
           <i
-            className="c1"
+            className="c1 c2"
             color="white"
             size={24}
           >
@@ -5269,7 +5401,7 @@ exports[`Storyshots Actions/IconButton disabled 1`] = `
 `;
 
 exports[`Storyshots Actions/IconButton error 1`] = `
-.c1 {
+.c2 {
   font-family: 'Material Icons';
   font-weight: normal;
   font-style: normal;
@@ -5289,6 +5421,38 @@ exports[`Storyshots Actions/IconButton error 1`] = `
   text-rendering: optimizeLegibility;
   -moz-osx-font-smoothing: grayscale;
   font-feature-settings: 'liga';
+}
+
+.c3 .c1 {
+  font-size: 18px;
+}
+
+.c4 .c1 {
+  font-size: 18px;
+}
+
+.c5 .c1 {
+  font-size: 18px;
+}
+
+.c6 .c1 {
+  font-size: 18px;
+}
+
+.c7 .c1 {
+  font-size: 18px;
+}
+
+.c8 .c1 {
+  font-size: 18px;
+}
+
+.c9 .c1 {
+  font-size: 18px;
+}
+
+.c10 .c1 {
+  font-size: 18px;
 }
 
 .c0 {
@@ -5363,7 +5527,7 @@ exports[`Storyshots Actions/IconButton error 1`] = `
           color="#be3b5d"
         >
           <i
-            className="c1"
+            className="c1 c2"
             color="white"
             size={24}
           >
@@ -5915,7 +6079,7 @@ exports[`Storyshots Actions/IconButton error 1`] = `
 `;
 
 exports[`Storyshots Actions/IconButton full example 1`] = `
-.c1 {
+.c2 {
   font-family: 'Material Icons';
   font-weight: normal;
   font-style: normal;
@@ -5935,6 +6099,38 @@ exports[`Storyshots Actions/IconButton full example 1`] = `
   text-rendering: optimizeLegibility;
   -moz-osx-font-smoothing: grayscale;
   font-feature-settings: 'liga';
+}
+
+.c3 .c1 {
+  font-size: 18px;
+}
+
+.c4 .c1 {
+  font-size: 18px;
+}
+
+.c5 .c1 {
+  font-size: 18px;
+}
+
+.c6 .c1 {
+  font-size: 18px;
+}
+
+.c7 .c1 {
+  font-size: 18px;
+}
+
+.c8 .c1 {
+  font-size: 18px;
+}
+
+.c9 .c1 {
+  font-size: 18px;
+}
+
+.c10 .c1 {
+  font-size: 18px;
 }
 
 .c0 {
@@ -6010,7 +6206,7 @@ exports[`Storyshots Actions/IconButton full example 1`] = `
           disabled={false}
         >
           <i
-            className="c1"
+            className="c1 c2"
             color="white"
             size={24}
           >
@@ -6699,7 +6895,7 @@ exports[`Storyshots Actions/IconButton full example 1`] = `
 `;
 
 exports[`Storyshots Actions/IconButton large 1`] = `
-.c1 {
+.c2 {
   font-family: 'Material Icons';
   font-weight: normal;
   font-style: normal;
@@ -6719,6 +6915,38 @@ exports[`Storyshots Actions/IconButton large 1`] = `
   text-rendering: optimizeLegibility;
   -moz-osx-font-smoothing: grayscale;
   font-feature-settings: 'liga';
+}
+
+.c3 .c1 {
+  font-size: 18px;
+}
+
+.c4 .c1 {
+  font-size: 18px;
+}
+
+.c5 .c1 {
+  font-size: 18px;
+}
+
+.c6 .c1 {
+  font-size: 18px;
+}
+
+.c7 .c1 {
+  font-size: 18px;
+}
+
+.c8 .c1 {
+  font-size: 18px;
+}
+
+.c9 .c1 {
+  font-size: 18px;
+}
+
+.c10 .c1 {
+  font-size: 18px;
 }
 
 .c0 {
@@ -6793,7 +7021,7 @@ exports[`Storyshots Actions/IconButton large 1`] = `
           color="#0071ce"
         >
           <i
-            className="c1"
+            className="c1 c2"
             color="white"
             size={32}
           >
@@ -7371,7 +7599,7 @@ exports[`Storyshots Actions/IconButton large 1`] = `
 `;
 
 exports[`Storyshots Actions/IconButton small 1`] = `
-.c1 {
+.c2 {
   font-family: 'Material Icons';
   font-weight: normal;
   font-style: normal;
@@ -7391,6 +7619,38 @@ exports[`Storyshots Actions/IconButton small 1`] = `
   text-rendering: optimizeLegibility;
   -moz-osx-font-smoothing: grayscale;
   font-feature-settings: 'liga';
+}
+
+.c3 .c1 {
+  font-size: 18px;
+}
+
+.c4 .c1 {
+  font-size: 18px;
+}
+
+.c5 .c1 {
+  font-size: 18px;
+}
+
+.c6 .c1 {
+  font-size: 18px;
+}
+
+.c7 .c1 {
+  font-size: 18px;
+}
+
+.c8 .c1 {
+  font-size: 18px;
+}
+
+.c9 .c1 {
+  font-size: 18px;
+}
+
+.c10 .c1 {
+  font-size: 18px;
 }
 
 .c0 {
@@ -7465,7 +7725,7 @@ exports[`Storyshots Actions/IconButton small 1`] = `
           color="#0071ce"
         >
           <i
-            className="c1"
+            className="c1 c2"
             color="white"
             size={16}
           >
@@ -8043,7 +8303,7 @@ exports[`Storyshots Actions/IconButton small 1`] = `
 `;
 
 exports[`Storyshots Actions/IconButton warning 1`] = `
-.c1 {
+.c2 {
   font-family: 'Material Icons';
   font-weight: normal;
   font-style: normal;
@@ -8063,6 +8323,38 @@ exports[`Storyshots Actions/IconButton warning 1`] = `
   text-rendering: optimizeLegibility;
   -moz-osx-font-smoothing: grayscale;
   font-feature-settings: 'liga';
+}
+
+.c3 .c1 {
+  font-size: 18px;
+}
+
+.c4 .c1 {
+  font-size: 18px;
+}
+
+.c5 .c1 {
+  font-size: 18px;
+}
+
+.c6 .c1 {
+  font-size: 18px;
+}
+
+.c7 .c1 {
+  font-size: 18px;
+}
+
+.c8 .c1 {
+  font-size: 18px;
+}
+
+.c9 .c1 {
+  font-size: 18px;
+}
+
+.c10 .c1 {
+  font-size: 18px;
 }
 
 .c0 {
@@ -8137,7 +8429,7 @@ exports[`Storyshots Actions/IconButton warning 1`] = `
           color="#ff5100"
         >
           <i
-            className="c1"
+            className="c1 c2"
             color="white"
             size={24}
           >
@@ -8689,7 +8981,7 @@ exports[`Storyshots Actions/IconButton warning 1`] = `
 `;
 
 exports[`Storyshots Actions/IconButton with manual color 1`] = `
-.c1 {
+.c2 {
   font-family: 'Material Icons';
   font-weight: normal;
   font-style: normal;
@@ -8709,6 +9001,38 @@ exports[`Storyshots Actions/IconButton with manual color 1`] = `
   text-rendering: optimizeLegibility;
   -moz-osx-font-smoothing: grayscale;
   font-feature-settings: 'liga';
+}
+
+.c3 .c1 {
+  font-size: 18px;
+}
+
+.c4 .c1 {
+  font-size: 18px;
+}
+
+.c5 .c1 {
+  font-size: 18px;
+}
+
+.c6 .c1 {
+  font-size: 18px;
+}
+
+.c7 .c1 {
+  font-size: 18px;
+}
+
+.c8 .c1 {
+  font-size: 18px;
+}
+
+.c9 .c1 {
+  font-size: 18px;
+}
+
+.c10 .c1 {
+  font-size: 18px;
 }
 
 .c0 {
@@ -8783,7 +9107,7 @@ exports[`Storyshots Actions/IconButton with manual color 1`] = `
           color="#061a3c"
         >
           <i
-            className="c1"
+            className="c1 c2"
             color="white"
             size={24}
           >
@@ -9405,6 +9729,10 @@ exports[`Storyshots Actions/Menu don't close after inside click 1`] = `
   pointer-events: none;
   -webkit-filter: grayscale();
   filter: grayscale();
+}
+
+.c1 .c7 {
+  font-size: 18px;
 }
 
 .c2 {
@@ -10310,6 +10638,10 @@ exports[`Storyshots Actions/Menu full example 1`] = `
   filter: grayscale();
 }
 
+.c1 .c7 {
+  font-size: 18px;
+}
+
 .c2 {
   position: absolute;
   top: calc(100% + 4px);
@@ -11152,7 +11484,7 @@ exports[`Storyshots Actions/Menu full example 1`] = `
 `;
 
 exports[`Storyshots Actions/Menu in top position 1`] = `
-.c7 {
+.c8 {
   font-family: 'Material Icons';
   font-weight: normal;
   font-style: normal;
@@ -11227,6 +11559,38 @@ exports[`Storyshots Actions/Menu in top position 1`] = `
   filter: grayscale();
 }
 
+.c1 .c7 {
+  font-size: 18px;
+}
+
+.c10 .c7 {
+  font-size: 18px;
+}
+
+.c11 .c7 {
+  font-size: 18px;
+}
+
+.c12 .c7 {
+  font-size: 18px;
+}
+
+.c13 .c7 {
+  font-size: 18px;
+}
+
+.c14 .c7 {
+  font-size: 18px;
+}
+
+.c15 .c7 {
+  font-size: 18px;
+}
+
+.c16 .c7 {
+  font-size: 18px;
+}
+
 .c2 {
   position: absolute;
   top: unset;
@@ -11279,7 +11643,7 @@ exports[`Storyshots Actions/Menu in top position 1`] = `
   background-color: #fbf8f7;
 }
 
-.c8 {
+.c9 {
   line-height: 3;
 }
 
@@ -11357,7 +11721,7 @@ exports[`Storyshots Actions/Menu in top position 1`] = `
                     className="c6"
                   >
                     <i
-                      className="c7"
+                      className="c7 c8"
                       color="inherit"
                       size={24}
                     >
@@ -11365,7 +11729,7 @@ exports[`Storyshots Actions/Menu in top position 1`] = `
                     </i>
                   </div>
                   <div
-                    className="c8"
+                    className="c9"
                   >
                     Gestion des contacts
                   </div>
@@ -11377,7 +11741,7 @@ exports[`Storyshots Actions/Menu in top position 1`] = `
                     className="c6"
                   >
                     <i
-                      className="c7"
+                      className="c7 c8"
                       color="inherit"
                       size={24}
                     >
@@ -11385,7 +11749,7 @@ exports[`Storyshots Actions/Menu in top position 1`] = `
                     </i>
                   </div>
                   <div
-                    className="c8"
+                    className="c9"
                   >
                     Gestion des projets
                   </div>
@@ -11397,7 +11761,7 @@ exports[`Storyshots Actions/Menu in top position 1`] = `
                     className="c6"
                   >
                     <i
-                      className="c7"
+                      className="c7 c8"
                       color="inherit"
                       size={24}
                     >
@@ -11405,7 +11769,7 @@ exports[`Storyshots Actions/Menu in top position 1`] = `
                     </i>
                   </div>
                   <div
-                    className="c8"
+                    className="c9"
                   >
                     Gestion des pages
                   </div>
@@ -12217,7 +12581,7 @@ exports[`Storyshots Actions/Menu in top position 1`] = `
 `;
 
 exports[`Storyshots Actions/Menu with icons 1`] = `
-.c7 {
+.c8 {
   font-family: 'Material Icons';
   font-weight: normal;
   font-style: normal;
@@ -12292,6 +12656,38 @@ exports[`Storyshots Actions/Menu with icons 1`] = `
   filter: grayscale();
 }
 
+.c1 .c7 {
+  font-size: 18px;
+}
+
+.c10 .c7 {
+  font-size: 18px;
+}
+
+.c11 .c7 {
+  font-size: 18px;
+}
+
+.c12 .c7 {
+  font-size: 18px;
+}
+
+.c13 .c7 {
+  font-size: 18px;
+}
+
+.c14 .c7 {
+  font-size: 18px;
+}
+
+.c15 .c7 {
+  font-size: 18px;
+}
+
+.c16 .c7 {
+  font-size: 18px;
+}
+
 .c2 {
   position: absolute;
   top: calc(100% + 4px);
@@ -12344,7 +12740,7 @@ exports[`Storyshots Actions/Menu with icons 1`] = `
   background-color: #fbf8f7;
 }
 
-.c8 {
+.c9 {
   line-height: 3;
 }
 
@@ -12422,7 +12818,7 @@ exports[`Storyshots Actions/Menu with icons 1`] = `
                     className="c6"
                   >
                     <i
-                      className="c7"
+                      className="c7 c8"
                       color="inherit"
                       size={24}
                     >
@@ -12430,7 +12826,7 @@ exports[`Storyshots Actions/Menu with icons 1`] = `
                     </i>
                   </div>
                   <div
-                    className="c8"
+                    className="c9"
                   >
                     Gestion des contacts
                   </div>
@@ -12442,7 +12838,7 @@ exports[`Storyshots Actions/Menu with icons 1`] = `
                     className="c6"
                   >
                     <i
-                      className="c7"
+                      className="c7 c8"
                       color="inherit"
                       size={24}
                     >
@@ -12450,7 +12846,7 @@ exports[`Storyshots Actions/Menu with icons 1`] = `
                     </i>
                   </div>
                   <div
-                    className="c8"
+                    className="c9"
                   >
                     Gestion des projets
                   </div>
@@ -12462,7 +12858,7 @@ exports[`Storyshots Actions/Menu with icons 1`] = `
                     className="c6"
                   >
                     <i
-                      className="c7"
+                      className="c7 c8"
                       color="inherit"
                       size={24}
                     >
@@ -12470,7 +12866,7 @@ exports[`Storyshots Actions/Menu with icons 1`] = `
                     </i>
                   </div>
                   <div
-                    className="c8"
+                    className="c9"
                   >
                     Gestion des pages
                   </div>
@@ -15930,6 +16326,10 @@ exports[`Storyshots Events/confirm basic 1`] = `
   filter: grayscale();
 }
 
+.c0 .c2 {
+  font-size: 18px;
+}
+
 .c1 {
   position: fixed;
   right: 20px;
@@ -16408,6 +16808,10 @@ exports[`Storyshots Events/confirm with custom button texts 1`] = `
   pointer-events: none;
   -webkit-filter: grayscale();
   filter: grayscale();
+}
+
+.c0 .c2 {
+  font-size: 18px;
 }
 
 .c1 {
@@ -16890,6 +17294,10 @@ exports[`Storyshots Events/notify basic 1`] = `
   filter: grayscale();
 }
 
+.c0 .c2 {
+  font-size: 18px;
+}
+
 .c1 {
   position: fixed;
   right: 20px;
@@ -17368,6 +17776,10 @@ exports[`Storyshots Events/notify error 1`] = `
   pointer-events: none;
   -webkit-filter: grayscale();
   filter: grayscale();
+}
+
+.c0 .c2 {
+  font-size: 18px;
 }
 
 .c1 {
@@ -17850,6 +18262,10 @@ exports[`Storyshots Events/notify warning 1`] = `
   filter: grayscale();
 }
 
+.c0 .c2 {
+  font-size: 18px;
+}
+
 .c1 {
   position: fixed;
   right: 20px;
@@ -18330,6 +18746,10 @@ exports[`Storyshots Events/notify with custom duration 1`] = `
   filter: grayscale();
 }
 
+.c0 .c2 {
+  font-size: 18px;
+}
+
 .c1 {
   position: fixed;
   right: 20px;
@@ -18808,6 +19228,10 @@ exports[`Storyshots Events/notify without auto close 1`] = `
   pointer-events: none;
   -webkit-filter: grayscale();
   filter: grayscale();
+}
+
+.c0 .c2 {
+  font-size: 18px;
 }
 
 .c1 {
@@ -22490,6 +22914,10 @@ exports[`Storyshots Inputs/RadioSelect basic 1`] = `
   line-height: 36px;
   padding: 0 20px;
   font-size: 14px;
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
   color: #0071ce;
   border-right: solid 1px #0071ce;
   -webkit-transition: all 150ms ease-in-out;
@@ -22523,6 +22951,10 @@ exports[`Storyshots Inputs/RadioSelect basic 1`] = `
   line-height: 36px;
   padding: 0 20px;
   font-size: 14px;
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
   color: #0071ce;
   border-right: solid 1px #0071ce;
   -webkit-transition: all 150ms ease-in-out;
@@ -22558,6 +22990,10 @@ exports[`Storyshots Inputs/RadioSelect basic 1`] = `
   line-height: 36px;
   padding: 0 20px;
   font-size: 14px;
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
   color: #0071ce;
   border-right: solid 1px #0071ce;
   -webkit-transition: all 150ms ease-in-out;
@@ -23134,6 +23570,10 @@ exports[`Storyshots Inputs/RadioSelect can't be empty 1`] = `
   line-height: 36px;
   padding: 0 20px;
   font-size: 14px;
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
   color: #0071ce;
   border-right: solid 1px #0071ce;
   -webkit-transition: all 150ms ease-in-out;
@@ -23167,6 +23607,10 @@ exports[`Storyshots Inputs/RadioSelect can't be empty 1`] = `
   line-height: 36px;
   padding: 0 20px;
   font-size: 14px;
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
   color: #0071ce;
   border-right: solid 1px #0071ce;
   -webkit-transition: all 150ms ease-in-out;
@@ -23202,6 +23646,10 @@ exports[`Storyshots Inputs/RadioSelect can't be empty 1`] = `
   line-height: 36px;
   padding: 0 20px;
   font-size: 14px;
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
   color: #0071ce;
   border-right: solid 1px #0071ce;
   -webkit-transition: all 150ms ease-in-out;
@@ -23804,6 +24252,10 @@ exports[`Storyshots Inputs/RadioSelect disabled 1`] = `
   line-height: 36px;
   padding: 0 20px;
   font-size: 14px;
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
   color: #0071ce;
   border-right: solid 1px #0071ce;
   -webkit-transition: all 150ms ease-in-out;
@@ -23837,6 +24289,10 @@ exports[`Storyshots Inputs/RadioSelect disabled 1`] = `
   line-height: 36px;
   padding: 0 20px;
   font-size: 14px;
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
   color: #0071ce;
   border-right: solid 1px #0071ce;
   -webkit-transition: all 150ms ease-in-out;
@@ -23872,6 +24328,10 @@ exports[`Storyshots Inputs/RadioSelect disabled 1`] = `
   line-height: 36px;
   padding: 0 20px;
   font-size: 14px;
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
   color: #0071ce;
   border-right: solid 1px #0071ce;
   -webkit-transition: all 150ms ease-in-out;
@@ -24456,6 +24916,10 @@ exports[`Storyshots Inputs/RadioSelect error 1`] = `
   line-height: 36px;
   padding: 0 20px;
   font-size: 14px;
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
   color: #be3b5d;
   border-right: solid 1px #be3b5d;
   -webkit-transition: all 150ms ease-in-out;
@@ -24489,6 +24953,10 @@ exports[`Storyshots Inputs/RadioSelect error 1`] = `
   line-height: 36px;
   padding: 0 20px;
   font-size: 14px;
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
   color: #be3b5d;
   border-right: solid 1px #be3b5d;
   -webkit-transition: all 150ms ease-in-out;
@@ -24524,6 +24992,10 @@ exports[`Storyshots Inputs/RadioSelect error 1`] = `
   line-height: 36px;
   padding: 0 20px;
   font-size: 14px;
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
   color: #be3b5d;
   border-right: solid 1px #be3b5d;
   -webkit-transition: all 150ms ease-in-out;
@@ -25108,6 +25580,10 @@ exports[`Storyshots Inputs/RadioSelect with custom color 1`] = `
   line-height: 36px;
   padding: 0 20px;
   font-size: 14px;
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
   color: #061a3c;
   border-right: solid 1px #061a3c;
   -webkit-transition: all 150ms ease-in-out;
@@ -25141,6 +25617,10 @@ exports[`Storyshots Inputs/RadioSelect with custom color 1`] = `
   line-height: 36px;
   padding: 0 20px;
   font-size: 14px;
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
   color: #061a3c;
   border-right: solid 1px #061a3c;
   -webkit-transition: all 150ms ease-in-out;
@@ -25176,6 +25656,10 @@ exports[`Storyshots Inputs/RadioSelect with custom color 1`] = `
   line-height: 36px;
   padding: 0 20px;
   font-size: 14px;
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
   color: #061a3c;
   border-right: solid 1px #061a3c;
   -webkit-transition: all 150ms ease-in-out;
@@ -25779,6 +26263,10 @@ exports[`Storyshots Inputs/RadioSelect with many option 1`] = `
   line-height: 36px;
   padding: 0 20px;
   font-size: 14px;
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
   color: #0071ce;
   border-right: solid 1px #0071ce;
   -webkit-transition: all 150ms ease-in-out;
@@ -25812,6 +26300,10 @@ exports[`Storyshots Inputs/RadioSelect with many option 1`] = `
   line-height: 36px;
   padding: 0 20px;
   font-size: 14px;
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
   color: #0071ce;
   border-right: solid 1px #0071ce;
   -webkit-transition: all 150ms ease-in-out;
@@ -25847,6 +26339,10 @@ exports[`Storyshots Inputs/RadioSelect with many option 1`] = `
   line-height: 36px;
   padding: 0 20px;
   font-size: 14px;
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
   color: #0071ce;
   border-right: solid 1px #0071ce;
   -webkit-transition: all 150ms ease-in-out;
@@ -26475,6 +26971,10 @@ exports[`Storyshots Inputs/RadioSelect with multi selection 1`] = `
   line-height: 36px;
   padding: 0 20px;
   font-size: 14px;
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
   color: #0071ce;
   border-right: solid 1px #0071ce;
   -webkit-transition: all 150ms ease-in-out;
@@ -26508,6 +27008,10 @@ exports[`Storyshots Inputs/RadioSelect with multi selection 1`] = `
   line-height: 36px;
   padding: 0 20px;
   font-size: 14px;
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
   color: #0071ce;
   border-right: solid 1px #0071ce;
   -webkit-transition: all 150ms ease-in-out;
@@ -26541,6 +27045,10 @@ exports[`Storyshots Inputs/RadioSelect with multi selection 1`] = `
   line-height: 36px;
   padding: 0 20px;
   font-size: 14px;
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
   color: #0071ce;
   border-right: solid 1px #0071ce;
   -webkit-transition: all 150ms ease-in-out;
@@ -27167,7 +27675,7 @@ exports[`Storyshots Inputs/RadioSelect with multi selection 1`] = `
 `;
 
 exports[`Storyshots Inputs/Select compact 1`] = `
-.c6 {
+.c7 {
   font-family: 'Material Icons';
   font-weight: normal;
   font-style: normal;
@@ -27189,7 +27697,7 @@ exports[`Storyshots Inputs/Select compact 1`] = `
   font-feature-settings: 'liga';
 }
 
-.c5 {
+.c6 {
   font-family: 'Material Icons';
   font-weight: normal;
   font-style: normal;
@@ -27212,11 +27720,43 @@ exports[`Storyshots Inputs/Select compact 1`] = `
   cursor: pointer;
 }
 
-.c5:hover {
+.c6:hover {
   opacity: 0.8;
 }
 
-.c9 {
+.c11 .c5 {
+  font-size: 18px;
+}
+
+.c12 .c5 {
+  font-size: 18px;
+}
+
+.c13 .c5 {
+  font-size: 18px;
+}
+
+.c14 .c5 {
+  font-size: 18px;
+}
+
+.c15 .c5 {
+  font-size: 18px;
+}
+
+.c16 .c5 {
+  font-size: 18px;
+}
+
+.c17 .c5 {
+  font-size: 18px;
+}
+
+.c18 .c5 {
+  font-size: 18px;
+}
+
+.c10 {
   -webkit-transition: background-color ease-in 150ms;
   transition: background-color ease-in 150ms;
   outline: none;
@@ -27238,18 +27778,18 @@ exports[`Storyshots Inputs/Select compact 1`] = `
   padding: 6px 18px;
 }
 
-.c9 i {
+.c10 i {
   vertical-align: middle;
   margin-right: 4px;
 }
 
-.c9:hover,
-.c9:focus,
-.c9[data-selected="true"] {
+.c10:hover,
+.c10:focus,
+.c10[data-selected="true"] {
   background-color: #fbf8f7;
 }
 
-.c7 {
+.c8 {
   box-shadow: 0 2px 6px 0 rgba(6,26,60,0.16);
   position: absolute;
   top: calc(100% - 1px);
@@ -27265,19 +27805,19 @@ exports[`Storyshots Inputs/Select compact 1`] = `
   transition: all ease-in-out 300ms;
 }
 
-.c7[data-open="true"] {
+.c8[data-open="true"] {
   max-height: 300px;
   opacity: 1;
 }
 
-.c7 * {
+.c8 * {
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
 }
 
-.c8 {
+.c9 {
   overflow-y: auto;
   overflow-x: hidden;
   padding: 12px 0;
@@ -27415,7 +27955,7 @@ exports[`Storyshots Inputs/Select compact 1`] = `
               className="c3"
             >
               <i
-                className="c4 c5"
+                className="c4 c5 c6"
                 color="inherit"
                 data-visible={false}
                 onClick={[Function]}
@@ -27424,7 +27964,7 @@ exports[`Storyshots Inputs/Select compact 1`] = `
                 close
               </i>
               <i
-                className="c6"
+                className="c5 c7"
                 color="inherit"
                 size={24}
               >
@@ -27433,14 +27973,14 @@ exports[`Storyshots Inputs/Select compact 1`] = `
             </div>
           </div>
           <div
-            className="c7"
+            className="c8"
             data-open={false}
           >
             <div
-              className="c8"
+              className="c9"
             >
               <div
-                className="c9"
+                className="c10"
                 data-selected={false}
                 onClick={[Function]}
                 tabIndex="0"
@@ -27449,7 +27989,7 @@ exports[`Storyshots Inputs/Select compact 1`] = `
                 Aix-en-Provence
               </div>
               <div
-                className="c9"
+                className="c10"
                 data-selected={false}
                 onClick={[Function]}
                 tabIndex="0"
@@ -27458,7 +27998,7 @@ exports[`Storyshots Inputs/Select compact 1`] = `
                 Amiens
               </div>
               <div
-                className="c9"
+                className="c10"
                 data-selected={false}
                 onClick={[Function]}
                 tabIndex="0"
@@ -27467,7 +28007,7 @@ exports[`Storyshots Inputs/Select compact 1`] = `
                 Angers
               </div>
               <div
-                className="c9"
+                className="c10"
                 data-selected={false}
                 onClick={[Function]}
                 tabIndex="0"
@@ -27476,7 +28016,7 @@ exports[`Storyshots Inputs/Select compact 1`] = `
                 Annecy
               </div>
               <div
-                className="c9"
+                className="c10"
                 data-selected={false}
                 onClick={[Function]}
                 tabIndex="0"
@@ -27485,7 +28025,7 @@ exports[`Storyshots Inputs/Select compact 1`] = `
                 Bordeaux
               </div>
               <div
-                className="c9"
+                className="c10"
                 data-selected={false}
                 onClick={[Function]}
                 tabIndex="0"
@@ -27494,7 +28034,7 @@ exports[`Storyshots Inputs/Select compact 1`] = `
                 Brest
               </div>
               <div
-                className="c9"
+                className="c10"
                 data-selected={false}
                 onClick={[Function]}
                 tabIndex="0"
@@ -27503,7 +28043,7 @@ exports[`Storyshots Inputs/Select compact 1`] = `
                 Clermond-Ferrand
               </div>
               <div
-                className="c9"
+                className="c10"
                 data-selected={false}
                 onClick={[Function]}
                 tabIndex="0"
@@ -27512,7 +28052,7 @@ exports[`Storyshots Inputs/Select compact 1`] = `
                 Dijon
               </div>
               <div
-                className="c9"
+                className="c10"
                 data-selected={false}
                 onClick={[Function]}
                 tabIndex="0"
@@ -27521,7 +28061,7 @@ exports[`Storyshots Inputs/Select compact 1`] = `
                 Grenoble
               </div>
               <div
-                className="c9"
+                className="c10"
                 data-selected={false}
                 onClick={[Function]}
                 tabIndex="0"
@@ -27530,7 +28070,7 @@ exports[`Storyshots Inputs/Select compact 1`] = `
                 Le Havre
               </div>
               <div
-                className="c9"
+                className="c10"
                 data-selected={false}
                 onClick={[Function]}
                 tabIndex="0"
@@ -27539,7 +28079,7 @@ exports[`Storyshots Inputs/Select compact 1`] = `
                 Le Mans
               </div>
               <div
-                className="c9"
+                className="c10"
                 data-selected={false}
                 onClick={[Function]}
                 tabIndex="0"
@@ -27548,7 +28088,7 @@ exports[`Storyshots Inputs/Select compact 1`] = `
                 Lille
               </div>
               <div
-                className="c9"
+                className="c10"
                 data-selected={false}
                 onClick={[Function]}
                 tabIndex="0"
@@ -27557,7 +28097,7 @@ exports[`Storyshots Inputs/Select compact 1`] = `
                 Limoges
               </div>
               <div
-                className="c9"
+                className="c10"
                 data-selected={false}
                 onClick={[Function]}
                 tabIndex="0"
@@ -27566,7 +28106,7 @@ exports[`Storyshots Inputs/Select compact 1`] = `
                 Lyon
               </div>
               <div
-                className="c9"
+                className="c10"
                 data-selected={false}
                 onClick={[Function]}
                 tabIndex="0"
@@ -27575,7 +28115,7 @@ exports[`Storyshots Inputs/Select compact 1`] = `
                 Marseille
               </div>
               <div
-                className="c9"
+                className="c10"
                 data-selected={false}
                 onClick={[Function]}
                 tabIndex="0"
@@ -27584,7 +28124,7 @@ exports[`Storyshots Inputs/Select compact 1`] = `
                 Montpelier
               </div>
               <div
-                className="c9"
+                className="c10"
                 data-selected={false}
                 onClick={[Function]}
                 tabIndex="0"
@@ -27593,7 +28133,7 @@ exports[`Storyshots Inputs/Select compact 1`] = `
                 Nantes
               </div>
               <div
-                className="c9"
+                className="c10"
                 data-selected={false}
                 onClick={[Function]}
                 tabIndex="0"
@@ -27602,7 +28142,7 @@ exports[`Storyshots Inputs/Select compact 1`] = `
                 Nice
               </div>
               <div
-                className="c9"
+                className="c10"
                 data-selected={false}
                 onClick={[Function]}
                 tabIndex="0"
@@ -27611,7 +28151,7 @@ exports[`Storyshots Inputs/Select compact 1`] = `
                 Nïmes
               </div>
               <div
-                className="c9"
+                className="c10"
                 data-selected={false}
                 onClick={[Function]}
                 tabIndex="0"
@@ -27620,7 +28160,7 @@ exports[`Storyshots Inputs/Select compact 1`] = `
                 Paris
               </div>
               <div
-                className="c9"
+                className="c10"
                 data-selected={false}
                 onClick={[Function]}
                 tabIndex="0"
@@ -27629,7 +28169,7 @@ exports[`Storyshots Inputs/Select compact 1`] = `
                 Perpignan
               </div>
               <div
-                className="c9"
+                className="c10"
                 data-selected={false}
                 onClick={[Function]}
                 tabIndex="0"
@@ -27638,7 +28178,7 @@ exports[`Storyshots Inputs/Select compact 1`] = `
                 Reims
               </div>
               <div
-                className="c9"
+                className="c10"
                 data-selected={false}
                 onClick={[Function]}
                 tabIndex="0"
@@ -27647,7 +28187,7 @@ exports[`Storyshots Inputs/Select compact 1`] = `
                 Rennes
               </div>
               <div
-                className="c9"
+                className="c10"
                 data-selected={false}
                 onClick={[Function]}
                 tabIndex="0"
@@ -27656,7 +28196,7 @@ exports[`Storyshots Inputs/Select compact 1`] = `
                 Saint-Denis
               </div>
               <div
-                className="c9"
+                className="c10"
                 data-selected={false}
                 onClick={[Function]}
                 tabIndex="0"
@@ -27665,7 +28205,7 @@ exports[`Storyshots Inputs/Select compact 1`] = `
                 Saint-Etienne
               </div>
               <div
-                className="c9"
+                className="c10"
                 data-selected={false}
                 onClick={[Function]}
                 tabIndex="0"
@@ -27674,7 +28214,7 @@ exports[`Storyshots Inputs/Select compact 1`] = `
                 Strasbourg
               </div>
               <div
-                className="c9"
+                className="c10"
                 data-selected={false}
                 onClick={[Function]}
                 tabIndex="0"
@@ -27683,7 +28223,7 @@ exports[`Storyshots Inputs/Select compact 1`] = `
                 Toulon
               </div>
               <div
-                className="c9"
+                className="c10"
                 data-selected={false}
                 onClick={[Function]}
                 tabIndex="0"
@@ -27692,7 +28232,7 @@ exports[`Storyshots Inputs/Select compact 1`] = `
                 Toulouse
               </div>
               <div
-                className="c9"
+                className="c10"
                 data-selected={false}
                 onClick={[Function]}
                 tabIndex="0"
@@ -27701,7 +28241,7 @@ exports[`Storyshots Inputs/Select compact 1`] = `
                 Tours
               </div>
               <div
-                className="c9"
+                className="c10"
                 data-selected={false}
                 onClick={[Function]}
                 tabIndex="0"
@@ -28186,7 +28726,7 @@ exports[`Storyshots Inputs/Select compact 1`] = `
 `;
 
 exports[`Storyshots Inputs/Select disabled 1`] = `
-.c6 {
+.c7 {
   font-family: 'Material Icons';
   font-weight: normal;
   font-style: normal;
@@ -28208,7 +28748,7 @@ exports[`Storyshots Inputs/Select disabled 1`] = `
   font-feature-settings: 'liga';
 }
 
-.c5 {
+.c6 {
   font-family: 'Material Icons';
   font-weight: normal;
   font-style: normal;
@@ -28231,11 +28771,43 @@ exports[`Storyshots Inputs/Select disabled 1`] = `
   cursor: pointer;
 }
 
-.c5:hover {
+.c6:hover {
   opacity: 0.8;
 }
 
-.c9 {
+.c11 .c5 {
+  font-size: 18px;
+}
+
+.c12 .c5 {
+  font-size: 18px;
+}
+
+.c13 .c5 {
+  font-size: 18px;
+}
+
+.c14 .c5 {
+  font-size: 18px;
+}
+
+.c15 .c5 {
+  font-size: 18px;
+}
+
+.c16 .c5 {
+  font-size: 18px;
+}
+
+.c17 .c5 {
+  font-size: 18px;
+}
+
+.c18 .c5 {
+  font-size: 18px;
+}
+
+.c10 {
   -webkit-transition: background-color ease-in 150ms;
   transition: background-color ease-in 150ms;
   outline: none;
@@ -28257,18 +28829,18 @@ exports[`Storyshots Inputs/Select disabled 1`] = `
   padding: 12px 18px;
 }
 
-.c9 i {
+.c10 i {
   vertical-align: middle;
   margin-right: 4px;
 }
 
-.c9:hover,
-.c9:focus,
-.c9[data-selected="true"] {
+.c10:hover,
+.c10:focus,
+.c10[data-selected="true"] {
   background-color: #fbf8f7;
 }
 
-.c7 {
+.c8 {
   box-shadow: 0 2px 6px 0 rgba(6,26,60,0.16);
   position: absolute;
   top: calc(100% - 1px);
@@ -28284,19 +28856,19 @@ exports[`Storyshots Inputs/Select disabled 1`] = `
   transition: all ease-in-out 300ms;
 }
 
-.c7[data-open="true"] {
+.c8[data-open="true"] {
   max-height: 300px;
   opacity: 1;
 }
 
-.c7 * {
+.c8 * {
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
 }
 
-.c8 {
+.c9 {
   overflow-y: auto;
   overflow-x: hidden;
   padding: 12px 0;
@@ -28439,7 +29011,7 @@ exports[`Storyshots Inputs/Select disabled 1`] = `
               className="c3"
             >
               <i
-                className="c4 c5"
+                className="c4 c5 c6"
                 color="inherit"
                 data-visible={false}
                 onClick={[Function]}
@@ -28448,7 +29020,7 @@ exports[`Storyshots Inputs/Select disabled 1`] = `
                 close
               </i>
               <i
-                className="c6"
+                className="c5 c7"
                 color="inherit"
                 size={24}
               >
@@ -28457,14 +29029,14 @@ exports[`Storyshots Inputs/Select disabled 1`] = `
             </div>
           </div>
           <div
-            className="c7"
+            className="c8"
             data-open={false}
           >
             <div
-              className="c8"
+              className="c9"
             >
               <div
-                className="c9"
+                className="c10"
                 data-selected={false}
                 onClick={[Function]}
                 tabIndex="0"
@@ -28473,7 +29045,7 @@ exports[`Storyshots Inputs/Select disabled 1`] = `
                 Option 1
               </div>
               <div
-                className="c9"
+                className="c10"
                 data-selected={false}
                 onClick={[Function]}
                 tabIndex="0"
@@ -28482,7 +29054,7 @@ exports[`Storyshots Inputs/Select disabled 1`] = `
                 Option 2
               </div>
               <div
-                className="c9"
+                className="c10"
                 data-selected={false}
                 onClick={[Function]}
                 tabIndex="0"
@@ -28739,7 +29311,7 @@ exports[`Storyshots Inputs/Select disabled 1`] = `
 `;
 
 exports[`Storyshots Inputs/Select error 1`] = `
-.c6 {
+.c7 {
   font-family: 'Material Icons';
   font-weight: normal;
   font-style: normal;
@@ -28761,7 +29333,7 @@ exports[`Storyshots Inputs/Select error 1`] = `
   font-feature-settings: 'liga';
 }
 
-.c5 {
+.c6 {
   font-family: 'Material Icons';
   font-weight: normal;
   font-style: normal;
@@ -28784,11 +29356,43 @@ exports[`Storyshots Inputs/Select error 1`] = `
   cursor: pointer;
 }
 
-.c5:hover {
+.c6:hover {
   opacity: 0.8;
 }
 
-.c9 {
+.c11 .c5 {
+  font-size: 18px;
+}
+
+.c12 .c5 {
+  font-size: 18px;
+}
+
+.c13 .c5 {
+  font-size: 18px;
+}
+
+.c14 .c5 {
+  font-size: 18px;
+}
+
+.c15 .c5 {
+  font-size: 18px;
+}
+
+.c16 .c5 {
+  font-size: 18px;
+}
+
+.c17 .c5 {
+  font-size: 18px;
+}
+
+.c18 .c5 {
+  font-size: 18px;
+}
+
+.c10 {
   -webkit-transition: background-color ease-in 150ms;
   transition: background-color ease-in 150ms;
   outline: none;
@@ -28810,18 +29414,18 @@ exports[`Storyshots Inputs/Select error 1`] = `
   padding: 12px 18px;
 }
 
-.c9 i {
+.c10 i {
   vertical-align: middle;
   margin-right: 4px;
 }
 
-.c9:hover,
-.c9:focus,
-.c9[data-selected="true"] {
+.c10:hover,
+.c10:focus,
+.c10[data-selected="true"] {
   background-color: #fbf8f7;
 }
 
-.c7 {
+.c8 {
   box-shadow: 0 2px 6px 0 rgba(6,26,60,0.16);
   position: absolute;
   top: calc(100% - 1px);
@@ -28837,19 +29441,19 @@ exports[`Storyshots Inputs/Select error 1`] = `
   transition: all ease-in-out 300ms;
 }
 
-.c7[data-open="true"] {
+.c8[data-open="true"] {
   max-height: 300px;
   opacity: 1;
 }
 
-.c7 * {
+.c8 * {
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
 }
 
-.c8 {
+.c9 {
   overflow-y: auto;
   overflow-x: hidden;
   padding: 12px 0;
@@ -28987,7 +29591,7 @@ exports[`Storyshots Inputs/Select error 1`] = `
               className="c3"
             >
               <i
-                className="c4 c5"
+                className="c4 c5 c6"
                 color="inherit"
                 data-visible={false}
                 onClick={[Function]}
@@ -28996,7 +29600,7 @@ exports[`Storyshots Inputs/Select error 1`] = `
                 close
               </i>
               <i
-                className="c6"
+                className="c5 c7"
                 color="inherit"
                 size={24}
               >
@@ -29005,14 +29609,14 @@ exports[`Storyshots Inputs/Select error 1`] = `
             </div>
           </div>
           <div
-            className="c7"
+            className="c8"
             data-open={false}
           >
             <div
-              className="c8"
+              className="c9"
             >
               <div
-                className="c9"
+                className="c10"
                 data-selected={false}
                 onClick={[Function]}
                 tabIndex="0"
@@ -29021,7 +29625,7 @@ exports[`Storyshots Inputs/Select error 1`] = `
                 Option 1
               </div>
               <div
-                className="c9"
+                className="c10"
                 data-selected={false}
                 onClick={[Function]}
                 tabIndex="0"
@@ -29030,7 +29634,7 @@ exports[`Storyshots Inputs/Select error 1`] = `
                 Option 2
               </div>
               <div
-                className="c9"
+                className="c10"
                 data-selected={false}
                 onClick={[Function]}
                 tabIndex="0"
@@ -29287,7 +29891,7 @@ exports[`Storyshots Inputs/Select error 1`] = `
 `;
 
 exports[`Storyshots Inputs/Select filterable 1`] = `
-.c6 {
+.c7 {
   font-family: 'Material Icons';
   font-weight: normal;
   font-style: normal;
@@ -29309,7 +29913,7 @@ exports[`Storyshots Inputs/Select filterable 1`] = `
   font-feature-settings: 'liga';
 }
 
-.c5 {
+.c6 {
   font-family: 'Material Icons';
   font-weight: normal;
   font-style: normal;
@@ -29332,11 +29936,43 @@ exports[`Storyshots Inputs/Select filterable 1`] = `
   cursor: pointer;
 }
 
-.c5:hover {
+.c6:hover {
   opacity: 0.8;
 }
 
-.c9 {
+.c11 .c5 {
+  font-size: 18px;
+}
+
+.c12 .c5 {
+  font-size: 18px;
+}
+
+.c13 .c5 {
+  font-size: 18px;
+}
+
+.c14 .c5 {
+  font-size: 18px;
+}
+
+.c15 .c5 {
+  font-size: 18px;
+}
+
+.c16 .c5 {
+  font-size: 18px;
+}
+
+.c17 .c5 {
+  font-size: 18px;
+}
+
+.c18 .c5 {
+  font-size: 18px;
+}
+
+.c10 {
   -webkit-transition: background-color ease-in 150ms;
   transition: background-color ease-in 150ms;
   outline: none;
@@ -29358,18 +29994,18 @@ exports[`Storyshots Inputs/Select filterable 1`] = `
   padding: 12px 18px;
 }
 
-.c9 i {
+.c10 i {
   vertical-align: middle;
   margin-right: 4px;
 }
 
-.c9:hover,
-.c9:focus,
-.c9[data-selected="true"] {
+.c10:hover,
+.c10:focus,
+.c10[data-selected="true"] {
   background-color: #fbf8f7;
 }
 
-.c7 {
+.c8 {
   box-shadow: 0 2px 6px 0 rgba(6,26,60,0.16);
   position: absolute;
   top: calc(100% - 1px);
@@ -29385,19 +30021,19 @@ exports[`Storyshots Inputs/Select filterable 1`] = `
   transition: all ease-in-out 300ms;
 }
 
-.c7[data-open="true"] {
+.c8[data-open="true"] {
   max-height: 300px;
   opacity: 1;
 }
 
-.c7 * {
+.c8 * {
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
 }
 
-.c8 {
+.c9 {
   overflow-y: auto;
   overflow-x: hidden;
   padding: 12px 0;
@@ -29590,7 +30226,7 @@ exports[`Storyshots Inputs/Select filterable 1`] = `
               className="c3"
             >
               <i
-                className="c4 c5"
+                className="c4 c5 c6"
                 color="inherit"
                 data-visible={false}
                 onClick={[Function]}
@@ -29599,7 +30235,7 @@ exports[`Storyshots Inputs/Select filterable 1`] = `
                 close
               </i>
               <i
-                className="c6"
+                className="c5 c7"
                 color="inherit"
                 size={24}
               >
@@ -29608,14 +30244,14 @@ exports[`Storyshots Inputs/Select filterable 1`] = `
             </div>
           </div>
           <div
-            className="c7"
+            className="c8"
             data-open={false}
           >
             <div
-              className="c8"
+              className="c9"
             >
               <div
-                className="c9"
+                className="c10"
                 data-selected={false}
                 onClick={[Function]}
                 tabIndex="0"
@@ -29624,7 +30260,7 @@ exports[`Storyshots Inputs/Select filterable 1`] = `
                 Aix-en-Provence
               </div>
               <div
-                className="c9"
+                className="c10"
                 data-selected={false}
                 onClick={[Function]}
                 tabIndex="0"
@@ -29633,7 +30269,7 @@ exports[`Storyshots Inputs/Select filterable 1`] = `
                 Amiens
               </div>
               <div
-                className="c9"
+                className="c10"
                 data-selected={false}
                 onClick={[Function]}
                 tabIndex="0"
@@ -29642,7 +30278,7 @@ exports[`Storyshots Inputs/Select filterable 1`] = `
                 Angers
               </div>
               <div
-                className="c9"
+                className="c10"
                 data-selected={false}
                 onClick={[Function]}
                 tabIndex="0"
@@ -29651,7 +30287,7 @@ exports[`Storyshots Inputs/Select filterable 1`] = `
                 Annecy
               </div>
               <div
-                className="c9"
+                className="c10"
                 data-selected={false}
                 onClick={[Function]}
                 tabIndex="0"
@@ -29660,7 +30296,7 @@ exports[`Storyshots Inputs/Select filterable 1`] = `
                 Bordeaux
               </div>
               <div
-                className="c9"
+                className="c10"
                 data-selected={false}
                 onClick={[Function]}
                 tabIndex="0"
@@ -29669,7 +30305,7 @@ exports[`Storyshots Inputs/Select filterable 1`] = `
                 Brest
               </div>
               <div
-                className="c9"
+                className="c10"
                 data-selected={false}
                 onClick={[Function]}
                 tabIndex="0"
@@ -29678,7 +30314,7 @@ exports[`Storyshots Inputs/Select filterable 1`] = `
                 Clermond-Ferrand
               </div>
               <div
-                className="c9"
+                className="c10"
                 data-selected={false}
                 onClick={[Function]}
                 tabIndex="0"
@@ -29687,7 +30323,7 @@ exports[`Storyshots Inputs/Select filterable 1`] = `
                 Dijon
               </div>
               <div
-                className="c9"
+                className="c10"
                 data-selected={false}
                 onClick={[Function]}
                 tabIndex="0"
@@ -29696,7 +30332,7 @@ exports[`Storyshots Inputs/Select filterable 1`] = `
                 Grenoble
               </div>
               <div
-                className="c9"
+                className="c10"
                 data-selected={false}
                 onClick={[Function]}
                 tabIndex="0"
@@ -29705,7 +30341,7 @@ exports[`Storyshots Inputs/Select filterable 1`] = `
                 Le Havre
               </div>
               <div
-                className="c9"
+                className="c10"
                 data-selected={false}
                 onClick={[Function]}
                 tabIndex="0"
@@ -29714,7 +30350,7 @@ exports[`Storyshots Inputs/Select filterable 1`] = `
                 Le Mans
               </div>
               <div
-                className="c9"
+                className="c10"
                 data-selected={false}
                 onClick={[Function]}
                 tabIndex="0"
@@ -29723,7 +30359,7 @@ exports[`Storyshots Inputs/Select filterable 1`] = `
                 Lille
               </div>
               <div
-                className="c9"
+                className="c10"
                 data-selected={false}
                 onClick={[Function]}
                 tabIndex="0"
@@ -29732,7 +30368,7 @@ exports[`Storyshots Inputs/Select filterable 1`] = `
                 Limoges
               </div>
               <div
-                className="c9"
+                className="c10"
                 data-selected={false}
                 onClick={[Function]}
                 tabIndex="0"
@@ -29741,7 +30377,7 @@ exports[`Storyshots Inputs/Select filterable 1`] = `
                 Lyon
               </div>
               <div
-                className="c9"
+                className="c10"
                 data-selected={false}
                 onClick={[Function]}
                 tabIndex="0"
@@ -29750,7 +30386,7 @@ exports[`Storyshots Inputs/Select filterable 1`] = `
                 Marseille
               </div>
               <div
-                className="c9"
+                className="c10"
                 data-selected={false}
                 onClick={[Function]}
                 tabIndex="0"
@@ -29759,7 +30395,7 @@ exports[`Storyshots Inputs/Select filterable 1`] = `
                 Montpelier
               </div>
               <div
-                className="c9"
+                className="c10"
                 data-selected={false}
                 onClick={[Function]}
                 tabIndex="0"
@@ -29768,7 +30404,7 @@ exports[`Storyshots Inputs/Select filterable 1`] = `
                 Nantes
               </div>
               <div
-                className="c9"
+                className="c10"
                 data-selected={false}
                 onClick={[Function]}
                 tabIndex="0"
@@ -29777,7 +30413,7 @@ exports[`Storyshots Inputs/Select filterable 1`] = `
                 Nice
               </div>
               <div
-                className="c9"
+                className="c10"
                 data-selected={false}
                 onClick={[Function]}
                 tabIndex="0"
@@ -29786,7 +30422,7 @@ exports[`Storyshots Inputs/Select filterable 1`] = `
                 Nïmes
               </div>
               <div
-                className="c9"
+                className="c10"
                 data-selected={false}
                 onClick={[Function]}
                 tabIndex="0"
@@ -29795,7 +30431,7 @@ exports[`Storyshots Inputs/Select filterable 1`] = `
                 Paris
               </div>
               <div
-                className="c9"
+                className="c10"
                 data-selected={false}
                 onClick={[Function]}
                 tabIndex="0"
@@ -29804,7 +30440,7 @@ exports[`Storyshots Inputs/Select filterable 1`] = `
                 Perpignan
               </div>
               <div
-                className="c9"
+                className="c10"
                 data-selected={false}
                 onClick={[Function]}
                 tabIndex="0"
@@ -29813,7 +30449,7 @@ exports[`Storyshots Inputs/Select filterable 1`] = `
                 Reims
               </div>
               <div
-                className="c9"
+                className="c10"
                 data-selected={false}
                 onClick={[Function]}
                 tabIndex="0"
@@ -29822,7 +30458,7 @@ exports[`Storyshots Inputs/Select filterable 1`] = `
                 Rennes
               </div>
               <div
-                className="c9"
+                className="c10"
                 data-selected={false}
                 onClick={[Function]}
                 tabIndex="0"
@@ -29831,7 +30467,7 @@ exports[`Storyshots Inputs/Select filterable 1`] = `
                 Saint-Denis
               </div>
               <div
-                className="c9"
+                className="c10"
                 data-selected={false}
                 onClick={[Function]}
                 tabIndex="0"
@@ -29840,7 +30476,7 @@ exports[`Storyshots Inputs/Select filterable 1`] = `
                 Saint-Etienne
               </div>
               <div
-                className="c9"
+                className="c10"
                 data-selected={false}
                 onClick={[Function]}
                 tabIndex="0"
@@ -29849,7 +30485,7 @@ exports[`Storyshots Inputs/Select filterable 1`] = `
                 Strasbourg
               </div>
               <div
-                className="c9"
+                className="c10"
                 data-selected={false}
                 onClick={[Function]}
                 tabIndex="0"
@@ -29858,7 +30494,7 @@ exports[`Storyshots Inputs/Select filterable 1`] = `
                 Toulon
               </div>
               <div
-                className="c9"
+                className="c10"
                 data-selected={false}
                 onClick={[Function]}
                 tabIndex="0"
@@ -29867,7 +30503,7 @@ exports[`Storyshots Inputs/Select filterable 1`] = `
                 Toulouse
               </div>
               <div
-                className="c9"
+                className="c10"
                 data-selected={false}
                 onClick={[Function]}
                 tabIndex="0"
@@ -29876,7 +30512,7 @@ exports[`Storyshots Inputs/Select filterable 1`] = `
                 Tours
               </div>
               <div
-                className="c9"
+                className="c10"
                 data-selected={false}
                 onClick={[Function]}
                 tabIndex="0"
@@ -30361,7 +30997,7 @@ exports[`Storyshots Inputs/Select filterable 1`] = `
 `;
 
 exports[`Storyshots Inputs/Select multi items 1`] = `
-.c6 {
+.c7 {
   font-family: 'Material Icons';
   font-weight: normal;
   font-style: normal;
@@ -30383,7 +31019,7 @@ exports[`Storyshots Inputs/Select multi items 1`] = `
   font-feature-settings: 'liga';
 }
 
-.c5 {
+.c6 {
   font-family: 'Material Icons';
   font-weight: normal;
   font-style: normal;
@@ -30406,11 +31042,43 @@ exports[`Storyshots Inputs/Select multi items 1`] = `
   cursor: pointer;
 }
 
-.c5:hover {
+.c6:hover {
   opacity: 0.8;
 }
 
-.c10 {
+.c13 .c5 {
+  font-size: 18px;
+}
+
+.c14 .c5 {
+  font-size: 18px;
+}
+
+.c15 .c5 {
+  font-size: 18px;
+}
+
+.c16 .c5 {
+  font-size: 18px;
+}
+
+.c17 .c5 {
+  font-size: 18px;
+}
+
+.c18 .c5 {
+  font-size: 18px;
+}
+
+.c19 .c5 {
+  font-size: 18px;
+}
+
+.c20 .c5 {
+  font-size: 18px;
+}
+
+.c11 {
   position: relative;
   height: 16px;
   width: 16px;
@@ -30420,11 +31088,11 @@ exports[`Storyshots Inputs/Select multi items 1`] = `
   box-sizing: border-box;
 }
 
-.c10:not([data-disabled='true']) {
+.c11:not([data-disabled='true']) {
   cursor: pointer;
 }
 
-.c11 {
+.c12 {
   border-radius: 50%;
   background-color: #003a6c;
   width: 0;
@@ -30434,13 +31102,13 @@ exports[`Storyshots Inputs/Select multi items 1`] = `
   transition: all 150ms ease-in-out;
 }
 
-.c11:not([data-state='empty']) {
+.c12:not([data-state='empty']) {
   width: calc(100% - 4px);
   height: calc(100% - 4px);
   margin: 2px;
 }
 
-.c9 {
+.c10 {
   -webkit-transition: background-color ease-in 150ms;
   transition: background-color ease-in 150ms;
   outline: none;
@@ -30462,18 +31130,18 @@ exports[`Storyshots Inputs/Select multi items 1`] = `
   padding: 12px 18px;
 }
 
-.c9 i {
+.c10 i {
   vertical-align: middle;
   margin-right: 4px;
 }
 
-.c9:hover,
-.c9:focus,
-.c9[data-selected="true"] {
+.c10:hover,
+.c10:focus,
+.c10[data-selected="true"] {
   background-color: #fbf8f7;
 }
 
-.c7 {
+.c8 {
   box-shadow: 0 2px 6px 0 rgba(6,26,60,0.16);
   position: absolute;
   top: calc(100% - 1px);
@@ -30489,19 +31157,19 @@ exports[`Storyshots Inputs/Select multi items 1`] = `
   transition: all ease-in-out 300ms;
 }
 
-.c7[data-open="true"] {
+.c8[data-open="true"] {
   max-height: 300px;
   opacity: 1;
 }
 
-.c7 * {
+.c8 * {
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
 }
 
-.c8 {
+.c9 {
   overflow-y: auto;
   overflow-x: hidden;
   padding: 12px 0;
@@ -30639,7 +31307,7 @@ exports[`Storyshots Inputs/Select multi items 1`] = `
               className="c3"
             >
               <i
-                className="c4 c5"
+                className="c4 c5 c6"
                 color="inherit"
                 data-visible={false}
                 onClick={[Function]}
@@ -30648,7 +31316,7 @@ exports[`Storyshots Inputs/Select multi items 1`] = `
                 close
               </i>
               <i
-                className="c6"
+                className="c5 c7"
                 color="inherit"
                 size={24}
               >
@@ -30657,58 +31325,58 @@ exports[`Storyshots Inputs/Select multi items 1`] = `
             </div>
           </div>
           <div
-            className="c7"
+            className="c8"
             data-open={false}
           >
             <div
-              className="c8"
+              className="c9"
             >
               <div
-                className="c9"
+                className="c10"
                 data-selected={false}
                 onClick={[Function]}
                 tabIndex="0"
                 value={1}
               >
                 <div
-                  className="c10"
+                  className="c11"
                 >
                   <div
-                    className="c11"
+                    className="c12"
                     data-state="empty"
                   />
                 </div>
                 Option 1
               </div>
               <div
-                className="c9"
+                className="c10"
                 data-selected={false}
                 onClick={[Function]}
                 tabIndex="0"
                 value={2}
               >
                 <div
-                  className="c10"
+                  className="c11"
                 >
                   <div
-                    className="c11"
+                    className="c12"
                     data-state="empty"
                   />
                 </div>
                 Option 2
               </div>
               <div
-                className="c9"
+                className="c10"
                 data-selected={false}
                 onClick={[Function]}
                 tabIndex="0"
                 value={3}
               >
                 <div
-                  className="c10"
+                  className="c11"
                 >
                   <div
-                    className="c11"
+                    className="c12"
                     data-state="empty"
                   />
                 </div>
@@ -30963,7 +31631,7 @@ exports[`Storyshots Inputs/Select multi items 1`] = `
 `;
 
 exports[`Storyshots Inputs/Select simple 1`] = `
-.c6 {
+.c7 {
   font-family: 'Material Icons';
   font-weight: normal;
   font-style: normal;
@@ -30985,7 +31653,7 @@ exports[`Storyshots Inputs/Select simple 1`] = `
   font-feature-settings: 'liga';
 }
 
-.c5 {
+.c6 {
   font-family: 'Material Icons';
   font-weight: normal;
   font-style: normal;
@@ -31008,11 +31676,43 @@ exports[`Storyshots Inputs/Select simple 1`] = `
   cursor: pointer;
 }
 
-.c5:hover {
+.c6:hover {
   opacity: 0.8;
 }
 
-.c9 {
+.c11 .c5 {
+  font-size: 18px;
+}
+
+.c12 .c5 {
+  font-size: 18px;
+}
+
+.c13 .c5 {
+  font-size: 18px;
+}
+
+.c14 .c5 {
+  font-size: 18px;
+}
+
+.c15 .c5 {
+  font-size: 18px;
+}
+
+.c16 .c5 {
+  font-size: 18px;
+}
+
+.c17 .c5 {
+  font-size: 18px;
+}
+
+.c18 .c5 {
+  font-size: 18px;
+}
+
+.c10 {
   -webkit-transition: background-color ease-in 150ms;
   transition: background-color ease-in 150ms;
   outline: none;
@@ -31034,18 +31734,18 @@ exports[`Storyshots Inputs/Select simple 1`] = `
   padding: 12px 18px;
 }
 
-.c9 i {
+.c10 i {
   vertical-align: middle;
   margin-right: 4px;
 }
 
-.c9:hover,
-.c9:focus,
-.c9[data-selected="true"] {
+.c10:hover,
+.c10:focus,
+.c10[data-selected="true"] {
   background-color: #fbf8f7;
 }
 
-.c7 {
+.c8 {
   box-shadow: 0 2px 6px 0 rgba(6,26,60,0.16);
   position: absolute;
   top: calc(100% - 1px);
@@ -31061,19 +31761,19 @@ exports[`Storyshots Inputs/Select simple 1`] = `
   transition: all ease-in-out 300ms;
 }
 
-.c7[data-open="true"] {
+.c8[data-open="true"] {
   max-height: 300px;
   opacity: 1;
 }
 
-.c7 * {
+.c8 * {
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
 }
 
-.c8 {
+.c9 {
   overflow-y: auto;
   overflow-x: hidden;
   padding: 12px 0;
@@ -31211,7 +31911,7 @@ exports[`Storyshots Inputs/Select simple 1`] = `
               className="c3"
             >
               <i
-                className="c4 c5"
+                className="c4 c5 c6"
                 color="inherit"
                 data-visible={false}
                 onClick={[Function]}
@@ -31220,7 +31920,7 @@ exports[`Storyshots Inputs/Select simple 1`] = `
                 close
               </i>
               <i
-                className="c6"
+                className="c5 c7"
                 color="inherit"
                 size={24}
               >
@@ -31229,14 +31929,14 @@ exports[`Storyshots Inputs/Select simple 1`] = `
             </div>
           </div>
           <div
-            className="c7"
+            className="c8"
             data-open={false}
           >
             <div
-              className="c8"
+              className="c9"
             >
               <div
-                className="c9"
+                className="c10"
                 data-selected={false}
                 onClick={[Function]}
                 tabIndex="0"
@@ -31245,7 +31945,7 @@ exports[`Storyshots Inputs/Select simple 1`] = `
                 Option 1
               </div>
               <div
-                className="c9"
+                className="c10"
                 data-selected={false}
                 onClick={[Function]}
                 tabIndex="0"
@@ -31254,7 +31954,7 @@ exports[`Storyshots Inputs/Select simple 1`] = `
                 Option 2
               </div>
               <div
-                className="c9"
+                className="c10"
                 data-selected={false}
                 onClick={[Function]}
                 tabIndex="0"
@@ -31501,7 +32201,7 @@ exports[`Storyshots Inputs/Select simple 1`] = `
 `;
 
 exports[`Storyshots Inputs/Select with description 1`] = `
-.c6 {
+.c7 {
   font-family: 'Material Icons';
   font-weight: normal;
   font-style: normal;
@@ -31523,7 +32223,7 @@ exports[`Storyshots Inputs/Select with description 1`] = `
   font-feature-settings: 'liga';
 }
 
-.c5 {
+.c6 {
   font-family: 'Material Icons';
   font-weight: normal;
   font-style: normal;
@@ -31546,11 +32246,43 @@ exports[`Storyshots Inputs/Select with description 1`] = `
   cursor: pointer;
 }
 
-.c5:hover {
+.c6:hover {
   opacity: 0.8;
 }
 
-.c11 {
+.c13 .c5 {
+  font-size: 18px;
+}
+
+.c14 .c5 {
+  font-size: 18px;
+}
+
+.c15 .c5 {
+  font-size: 18px;
+}
+
+.c16 .c5 {
+  font-size: 18px;
+}
+
+.c17 .c5 {
+  font-size: 18px;
+}
+
+.c18 .c5 {
+  font-size: 18px;
+}
+
+.c19 .c5 {
+  font-size: 18px;
+}
+
+.c20 .c5 {
+  font-size: 18px;
+}
+
+.c12 {
   -webkit-transition: background-color ease-in 150ms;
   transition: background-color ease-in 150ms;
   outline: none;
@@ -31572,18 +32304,18 @@ exports[`Storyshots Inputs/Select with description 1`] = `
   padding: 12px 18px;
 }
 
-.c11 i {
+.c12 i {
   vertical-align: middle;
   margin-right: 4px;
 }
 
-.c11:hover,
-.c11:focus,
-.c11[data-selected="true"] {
+.c12:hover,
+.c12:focus,
+.c12[data-selected="true"] {
   background-color: #fbf8f7;
 }
 
-.c7 {
+.c8 {
   box-shadow: 0 2px 6px 0 rgba(6,26,60,0.16);
   position: absolute;
   top: calc(100% - 1px);
@@ -31599,31 +32331,31 @@ exports[`Storyshots Inputs/Select with description 1`] = `
   transition: all ease-in-out 300ms;
 }
 
-.c7[data-open="true"] {
+.c8[data-open="true"] {
   max-height: 300px;
   opacity: 1;
 }
 
-.c7 * {
+.c8 * {
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
 }
 
-.c8 {
+.c9 {
   overflow-y: auto;
   overflow-x: hidden;
   padding: 12px 0;
   max-height: 300px;
 }
 
-.c9 {
+.c10 {
   padding: 0 18px 8px 18px;
   border-bottom: solid 1px #52627a;
 }
 
-.c10 {
+.c11 {
   font-size: 12px;
   color: #52627a;
 }
@@ -31759,7 +32491,7 @@ exports[`Storyshots Inputs/Select with description 1`] = `
               className="c3"
             >
               <i
-                className="c4 c5"
+                className="c4 c5 c6"
                 color="inherit"
                 data-visible={false}
                 onClick={[Function]}
@@ -31768,7 +32500,7 @@ exports[`Storyshots Inputs/Select with description 1`] = `
                 close
               </i>
               <i
-                className="c6"
+                className="c5 c7"
                 color="inherit"
                 size={24}
               >
@@ -31777,26 +32509,26 @@ exports[`Storyshots Inputs/Select with description 1`] = `
             </div>
           </div>
           <div
-            className="c7"
+            className="c8"
             data-open={false}
           >
             <div
-              className="c8"
+              className="c9"
             >
               <div
-                className="c9"
+                className="c10"
               >
                 <div>
                   Please pick an option
                 </div>
                 <div
-                  className="c10"
+                  className="c11"
                 >
                   The one you prefer
                 </div>
               </div>
               <div
-                className="c11"
+                className="c12"
                 data-selected={false}
                 onClick={[Function]}
                 tabIndex="0"
@@ -31805,7 +32537,7 @@ exports[`Storyshots Inputs/Select with description 1`] = `
                 Option 1
               </div>
               <div
-                className="c11"
+                className="c12"
                 data-selected={false}
                 onClick={[Function]}
                 tabIndex="0"
@@ -31814,7 +32546,7 @@ exports[`Storyshots Inputs/Select with description 1`] = `
                 Option 2
               </div>
               <div
-                className="c11"
+                className="c12"
                 data-selected={false}
                 onClick={[Function]}
                 tabIndex="0"
@@ -32117,7 +32849,7 @@ exports[`Storyshots Inputs/Select with description 1`] = `
 `;
 
 exports[`Storyshots Inputs/Select with icon 1`] = `
-.c3 {
+.c4 {
   font-family: 'Material Icons';
   font-weight: normal;
   font-style: normal;
@@ -32139,7 +32871,7 @@ exports[`Storyshots Inputs/Select with icon 1`] = `
   font-feature-settings: 'liga';
 }
 
-.c7 {
+.c8 {
   font-family: 'Material Icons';
   font-weight: normal;
   font-style: normal;
@@ -32162,11 +32894,43 @@ exports[`Storyshots Inputs/Select with icon 1`] = `
   cursor: pointer;
 }
 
-.c7:hover {
+.c8:hover {
   opacity: 0.8;
 }
 
-.c10 {
+.c12 .c3 {
+  font-size: 18px;
+}
+
+.c13 .c3 {
+  font-size: 18px;
+}
+
+.c14 .c3 {
+  font-size: 18px;
+}
+
+.c15 .c3 {
+  font-size: 18px;
+}
+
+.c16 .c3 {
+  font-size: 18px;
+}
+
+.c17 .c3 {
+  font-size: 18px;
+}
+
+.c18 .c3 {
+  font-size: 18px;
+}
+
+.c19 .c3 {
+  font-size: 18px;
+}
+
+.c11 {
   -webkit-transition: background-color ease-in 150ms;
   transition: background-color ease-in 150ms;
   outline: none;
@@ -32188,18 +32952,18 @@ exports[`Storyshots Inputs/Select with icon 1`] = `
   padding: 12px 18px;
 }
 
-.c10 i {
+.c11 i {
   vertical-align: middle;
   margin-right: 4px;
 }
 
-.c10:hover,
-.c10:focus,
-.c10[data-selected="true"] {
+.c11:hover,
+.c11:focus,
+.c11[data-selected="true"] {
   background-color: #fbf8f7;
 }
 
-.c8 {
+.c9 {
   box-shadow: 0 2px 6px 0 rgba(6,26,60,0.16);
   position: absolute;
   top: calc(100% - 1px);
@@ -32215,19 +32979,19 @@ exports[`Storyshots Inputs/Select with icon 1`] = `
   transition: all ease-in-out 300ms;
 }
 
-.c8[data-open="true"] {
+.c9[data-open="true"] {
   max-height: 300px;
   opacity: 1;
 }
 
-.c8 * {
+.c9 * {
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
 }
 
-.c9 {
+.c10 {
   overflow-y: auto;
   overflow-x: hidden;
   padding: 12px 0;
@@ -32273,7 +33037,7 @@ exports[`Storyshots Inputs/Select with icon 1`] = `
   z-index: 10;
 }
 
-.c4 {
+.c5 {
   -webkit-flex: 1 1 100%;
   -ms-flex: 1 1 100%;
   flex: 1 1 100%;
@@ -32288,7 +33052,7 @@ exports[`Storyshots Inputs/Select with icon 1`] = `
   color: #52627a;
 }
 
-.c5 {
+.c6 {
   -webkit-flex: 0 0 auto;
   -ms-flex: 0 0 auto;
   flex: 0 0 auto;
@@ -32302,7 +33066,7 @@ exports[`Storyshots Inputs/Select with icon 1`] = `
   align-items: center;
 }
 
-.c5 i {
+.c6 i {
   margin-left: 6px;
 }
 
@@ -32314,12 +33078,12 @@ exports[`Storyshots Inputs/Select with icon 1`] = `
   color: #52627a;
 }
 
-.c6 {
+.c7 {
   -webkit-transition: opacity 150ms ease-in-out;
   transition: opacity 150ms ease-in-out;
 }
 
-.c6:not([data-visible="true"]) {
+.c7:not([data-visible="true"]) {
   opacity: 0;
 }
 
@@ -32367,7 +33131,7 @@ exports[`Storyshots Inputs/Select with icon 1`] = `
               className="c2"
             >
               <i
-                className="c3"
+                className="c3 c4"
                 color="inherit"
                 size={24}
               >
@@ -32375,16 +33139,16 @@ exports[`Storyshots Inputs/Select with icon 1`] = `
               </i>
             </div>
             <div
-              className="c4"
+              className="c5"
               color="#52627a"
             >
               Options
             </div>
             <div
-              className="c5"
+              className="c6"
             >
               <i
-                className="c6 c7"
+                className="c7 c3 c8"
                 color="inherit"
                 data-visible={false}
                 onClick={[Function]}
@@ -32393,7 +33157,7 @@ exports[`Storyshots Inputs/Select with icon 1`] = `
                 close
               </i>
               <i
-                className="c3"
+                className="c3 c4"
                 color="inherit"
                 size={24}
               >
@@ -32402,14 +33166,14 @@ exports[`Storyshots Inputs/Select with icon 1`] = `
             </div>
           </div>
           <div
-            className="c8"
+            className="c9"
             data-open={false}
           >
             <div
-              className="c9"
+              className="c10"
             >
               <div
-                className="c10"
+                className="c11"
                 data-selected={false}
                 onClick={[Function]}
                 tabIndex="0"
@@ -32418,7 +33182,7 @@ exports[`Storyshots Inputs/Select with icon 1`] = `
                 Option 1
               </div>
               <div
-                className="c10"
+                className="c11"
                 data-selected={false}
                 onClick={[Function]}
                 tabIndex="0"
@@ -32427,7 +33191,7 @@ exports[`Storyshots Inputs/Select with icon 1`] = `
                 Option 2
               </div>
               <div
-                className="c10"
+                className="c11"
                 data-selected={false}
                 onClick={[Function]}
                 tabIndex="0"
@@ -32702,7 +33466,7 @@ exports[`Storyshots Inputs/Select with icon 1`] = `
 `;
 
 exports[`Storyshots Inputs/Select without reset 1`] = `
-.c4 {
+.c5 {
   font-family: 'Material Icons';
   font-weight: normal;
   font-style: normal;
@@ -32724,7 +33488,39 @@ exports[`Storyshots Inputs/Select without reset 1`] = `
   font-feature-settings: 'liga';
 }
 
-.c7 {
+.c9 .c4 {
+  font-size: 18px;
+}
+
+.c10 .c4 {
+  font-size: 18px;
+}
+
+.c11 .c4 {
+  font-size: 18px;
+}
+
+.c12 .c4 {
+  font-size: 18px;
+}
+
+.c13 .c4 {
+  font-size: 18px;
+}
+
+.c14 .c4 {
+  font-size: 18px;
+}
+
+.c15 .c4 {
+  font-size: 18px;
+}
+
+.c16 .c4 {
+  font-size: 18px;
+}
+
+.c8 {
   -webkit-transition: background-color ease-in 150ms;
   transition: background-color ease-in 150ms;
   outline: none;
@@ -32746,18 +33542,18 @@ exports[`Storyshots Inputs/Select without reset 1`] = `
   padding: 12px 18px;
 }
 
-.c7 i {
+.c8 i {
   vertical-align: middle;
   margin-right: 4px;
 }
 
-.c7:hover,
-.c7:focus,
-.c7[data-selected="true"] {
+.c8:hover,
+.c8:focus,
+.c8[data-selected="true"] {
   background-color: #fbf8f7;
 }
 
-.c5 {
+.c6 {
   box-shadow: 0 2px 6px 0 rgba(6,26,60,0.16);
   position: absolute;
   top: calc(100% - 1px);
@@ -32773,19 +33569,19 @@ exports[`Storyshots Inputs/Select without reset 1`] = `
   transition: all ease-in-out 300ms;
 }
 
-.c5[data-open="true"] {
+.c6[data-open="true"] {
   max-height: 300px;
   opacity: 1;
 }
 
-.c5 * {
+.c6 * {
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
 }
 
-.c6 {
+.c7 {
   overflow-y: auto;
   overflow-x: hidden;
   padding: 12px 0;
@@ -32914,7 +33710,7 @@ exports[`Storyshots Inputs/Select without reset 1`] = `
               className="c3"
             >
               <i
-                className="c4"
+                className="c4 c5"
                 color="inherit"
                 size={24}
               >
@@ -32923,14 +33719,14 @@ exports[`Storyshots Inputs/Select without reset 1`] = `
             </div>
           </div>
           <div
-            className="c5"
+            className="c6"
             data-open={false}
           >
             <div
-              className="c6"
+              className="c7"
             >
               <div
-                className="c7"
+                className="c8"
                 data-selected={false}
                 onClick={[Function]}
                 tabIndex="0"
@@ -32939,7 +33735,7 @@ exports[`Storyshots Inputs/Select without reset 1`] = `
                 Option 1
               </div>
               <div
-                className="c7"
+                className="c8"
                 data-selected={false}
                 onClick={[Function]}
                 tabIndex="0"
@@ -32948,7 +33744,7 @@ exports[`Storyshots Inputs/Select without reset 1`] = `
                 Option 2
               </div>
               <div
-                className="c7"
+                className="c8"
                 data-selected={false}
                 onClick={[Function]}
                 tabIndex="0"
@@ -43262,6 +44058,10 @@ exports[`Storyshots Inputs/TextInput basic 1`] = `
   position: relative;
 }
 
+.c1 .c3 {
+  font-size: 18px;
+}
+
 .c1 .hover-element-right {
   opacity: 0;
   -webkit-transition: opacity 150ms ease-in-out;
@@ -43637,6 +44437,10 @@ exports[`Storyshots Inputs/TextInput basic 1`] = `
 exports[`Storyshots Inputs/TextInput disabled 1`] = `
 .c1 {
   position: relative;
+}
+
+.c1 .c3 {
+  font-size: 18px;
 }
 
 .c1 .hover-element-right {
@@ -44025,6 +44829,10 @@ exports[`Storyshots Inputs/TextInput error 1`] = `
   position: relative;
 }
 
+.c1 .c3 {
+  font-size: 18px;
+}
+
 .c1 .hover-element-right {
   opacity: 0;
   -webkit-transition: opacity 150ms ease-in-out;
@@ -44408,6 +45216,10 @@ exports[`Storyshots Inputs/TextInput error 1`] = `
 exports[`Storyshots Inputs/TextInput placeholder 1`] = `
 .c1 {
   position: relative;
+}
+
+.c1 .c3 {
+  font-size: 18px;
 }
 
 .c1 .hover-element-right {
@@ -44815,6 +45627,10 @@ exports[`Storyshots Inputs/TextInput small 1`] = `
   position: relative;
 }
 
+.c1 .c3 {
+  font-size: 18px;
+}
+
 .c1 .hover-element-right {
   opacity: 0;
   -webkit-transition: opacity 150ms ease-in-out;
@@ -45196,7 +46012,7 @@ exports[`Storyshots Inputs/TextInput small 1`] = `
 `;
 
 exports[`Storyshots Inputs/TextInput with hover icon 1`] = `
-.c4 {
+.c5 {
   font-family: 'Material Icons';
   font-weight: normal;
   font-style: normal;
@@ -45220,6 +46036,10 @@ exports[`Storyshots Inputs/TextInput with hover icon 1`] = `
 
 .c1 {
   position: relative;
+}
+
+.c1 .c4 {
+  font-size: 18px;
 }
 
 .c1 .hover-element-right {
@@ -45286,6 +46106,38 @@ exports[`Storyshots Inputs/TextInput with hover icon 1`] = `
   border-bottom-color: #52627a;
 }
 
+.c6 .c4 {
+  font-size: 18px;
+}
+
+.c7 .c4 {
+  font-size: 18px;
+}
+
+.c8 .c4 {
+  font-size: 18px;
+}
+
+.c9 .c4 {
+  font-size: 18px;
+}
+
+.c10 .c4 {
+  font-size: 18px;
+}
+
+.c11 .c4 {
+  font-size: 18px;
+}
+
+.c12 .c4 {
+  font-size: 18px;
+}
+
+.c13 .c4 {
+  font-size: 18px;
+}
+
 .c0 {
   width: 300px;
 }
@@ -45339,7 +46191,7 @@ exports[`Storyshots Inputs/TextInput with hover icon 1`] = `
               color="#52627a"
             >
               <i
-                className="c4"
+                className="c4 c5"
                 color="inherit"
                 size={18}
               >
@@ -45639,7 +46491,7 @@ exports[`Storyshots Inputs/TextInput with hover icon 1`] = `
 `;
 
 exports[`Storyshots Inputs/TextInput with icon 1`] = `
-.c4 {
+.c5 {
   font-family: 'Material Icons';
   font-weight: normal;
   font-style: normal;
@@ -45663,6 +46515,10 @@ exports[`Storyshots Inputs/TextInput with icon 1`] = `
 
 .c1 {
   position: relative;
+}
+
+.c1 .c4 {
+  font-size: 18px;
 }
 
 .c1 .hover-element-right {
@@ -45729,6 +46585,38 @@ exports[`Storyshots Inputs/TextInput with icon 1`] = `
   border-bottom-color: #52627a;
 }
 
+.c6 .c4 {
+  font-size: 18px;
+}
+
+.c7 .c4 {
+  font-size: 18px;
+}
+
+.c8 .c4 {
+  font-size: 18px;
+}
+
+.c9 .c4 {
+  font-size: 18px;
+}
+
+.c10 .c4 {
+  font-size: 18px;
+}
+
+.c11 .c4 {
+  font-size: 18px;
+}
+
+.c12 .c4 {
+  font-size: 18px;
+}
+
+.c13 .c4 {
+  font-size: 18px;
+}
+
 .c0 {
   width: 300px;
 }
@@ -45782,7 +46670,7 @@ exports[`Storyshots Inputs/TextInput with icon 1`] = `
               color="#52627a"
             >
               <i
-                className="c4"
+                className="c4 c5"
                 color="inherit"
                 size={18}
               >
@@ -46109,6 +46997,10 @@ exports[`Storyshots Inputs/TextInput with loader 1`] = `
 
 .c1 {
   position: relative;
+}
+
+.c1 .c6 {
+  font-size: 18px;
 }
 
 .c1 .hover-element-right {
@@ -48309,7 +49201,7 @@ exports[`Storyshots Miscellaneous/Drawer basic example 1`] = `
 `;
 
 exports[`Storyshots Miscellaneous/Drawer full example 1`] = `
-.c5 {
+.c6 {
   font-family: 'Material Icons';
   font-weight: normal;
   font-style: normal;
@@ -48329,6 +49221,38 @@ exports[`Storyshots Miscellaneous/Drawer full example 1`] = `
   text-rendering: optimizeLegibility;
   -moz-osx-font-smoothing: grayscale;
   font-feature-settings: 'liga';
+}
+
+.c9 .c5 {
+  font-size: 18px;
+}
+
+.c10 .c5 {
+  font-size: 18px;
+}
+
+.c11 .c5 {
+  font-size: 18px;
+}
+
+.c12 .c5 {
+  font-size: 18px;
+}
+
+.c13 .c5 {
+  font-size: 18px;
+}
+
+.c14 .c5 {
+  font-size: 18px;
+}
+
+.c15 .c5 {
+  font-size: 18px;
+}
+
+.c16 .c5 {
+  font-size: 18px;
 }
 
 .c3 {
@@ -48395,7 +49319,7 @@ exports[`Storyshots Miscellaneous/Drawer full example 1`] = `
   opacity: 0.7;
 }
 
-.c6 {
+.c7 {
   height: 100%;
   overflow-y: auto;
   padding: 16px 64px;
@@ -48431,7 +49355,7 @@ exports[`Storyshots Miscellaneous/Drawer full example 1`] = `
   pointer-events: auto;
 }
 
-.c7 {
+.c8 {
   width: 80vw;
 }
 
@@ -48448,7 +49372,7 @@ exports[`Storyshots Miscellaneous/Drawer full example 1`] = `
 }
 
 @media screen and (max-width:992px) {
-  .c6 {
+  .c7 {
     padding: 32px;
   }
 }
@@ -48508,7 +49432,7 @@ exports[`Storyshots Miscellaneous/Drawer full example 1`] = `
                 onClick={[Function]}
               >
                 <i
-                  className="c5"
+                  className="c5 c6"
                   color="inherit"
                   size={24}
                 >
@@ -48516,10 +49440,10 @@ exports[`Storyshots Miscellaneous/Drawer full example 1`] = `
                 </i>
               </div>
               <div
-                className="c6"
+                className="c7"
               >
                 <div
-                  className="c7"
+                  className="c8"
                 >
                   <div>
                     <p>
@@ -49466,7 +50390,7 @@ exports[`Storyshots Miscellaneous/Drawer full example 1`] = `
 `;
 
 exports[`Storyshots Miscellaneous/Drawer with close button 1`] = `
-.c3 {
+.c4 {
   font-family: 'Material Icons';
   font-weight: normal;
   font-style: normal;
@@ -49486,6 +50410,38 @@ exports[`Storyshots Miscellaneous/Drawer with close button 1`] = `
   text-rendering: optimizeLegibility;
   -moz-osx-font-smoothing: grayscale;
   font-feature-settings: 'liga';
+}
+
+.c7 .c3 {
+  font-size: 18px;
+}
+
+.c8 .c3 {
+  font-size: 18px;
+}
+
+.c9 .c3 {
+  font-size: 18px;
+}
+
+.c10 .c3 {
+  font-size: 18px;
+}
+
+.c11 .c3 {
+  font-size: 18px;
+}
+
+.c12 .c3 {
+  font-size: 18px;
+}
+
+.c13 .c3 {
+  font-size: 18px;
+}
+
+.c14 .c3 {
+  font-size: 18px;
 }
 
 .c1 {
@@ -49535,7 +50491,7 @@ exports[`Storyshots Miscellaneous/Drawer with close button 1`] = `
   opacity: 0.7;
 }
 
-.c4 {
+.c5 {
   height: 100%;
   overflow-y: auto;
   padding: 16px 64px;
@@ -49571,7 +50527,7 @@ exports[`Storyshots Miscellaneous/Drawer with close button 1`] = `
   pointer-events: auto;
 }
 
-.c5 {
+.c6 {
   width: 80vw;
 }
 
@@ -49582,7 +50538,7 @@ exports[`Storyshots Miscellaneous/Drawer with close button 1`] = `
 }
 
 @media screen and (max-width:992px) {
-  .c4 {
+  .c5 {
     padding: 32px;
   }
 }
@@ -49636,7 +50592,7 @@ exports[`Storyshots Miscellaneous/Drawer with close button 1`] = `
                 onClick={[Function]}
               >
                 <i
-                  className="c3"
+                  className="c3 c4"
                   color="inherit"
                   size={24}
                 >
@@ -49644,10 +50600,10 @@ exports[`Storyshots Miscellaneous/Drawer with close button 1`] = `
                 </i>
               </div>
               <div
-                className="c4"
+                className="c5"
               >
                 <div
-                  className="c5"
+                  className="c6"
                 >
                   <div>
                     <p>
@@ -51639,7 +52595,7 @@ exports[`Storyshots Miscellaneous/Drawer with title 1`] = `
 `;
 
 exports[`Storyshots Miscellaneous/FontIcon simple icons 1`] = `
-.c2 {
+.c3 {
   font-family: 'Material Icons';
   font-weight: normal;
   font-style: normal;
@@ -51659,6 +52615,38 @@ exports[`Storyshots Miscellaneous/FontIcon simple icons 1`] = `
   text-rendering: optimizeLegibility;
   -moz-osx-font-smoothing: grayscale;
   font-feature-settings: 'liga';
+}
+
+.c4 .c2 {
+  font-size: 18px;
+}
+
+.c5 .c2 {
+  font-size: 18px;
+}
+
+.c6 .c2 {
+  font-size: 18px;
+}
+
+.c7 .c2 {
+  font-size: 18px;
+}
+
+.c8 .c2 {
+  font-size: 18px;
+}
+
+.c9 .c2 {
+  font-size: 18px;
+}
+
+.c10 .c2 {
+  font-size: 18px;
+}
+
+.c11 .c2 {
+  font-size: 18px;
 }
 
 .c0 {
@@ -51714,7 +52702,7 @@ exports[`Storyshots Miscellaneous/FontIcon simple icons 1`] = `
             className="c1"
           >
             <i
-              className="c2"
+              className="c2 c3"
               color="inherit"
               size={24}
             >
@@ -57639,7 +58627,7 @@ exports[`Storyshots Miscellaneous/Modal with title 1`] = `
 `;
 
 exports[`Storyshots Miscellaneous/Notification basic 1`] = `
-.c3 {
+.c4 {
   font-family: 'Material Icons';
   font-weight: normal;
   font-style: normal;
@@ -57659,6 +58647,38 @@ exports[`Storyshots Miscellaneous/Notification basic 1`] = `
   text-rendering: optimizeLegibility;
   -moz-osx-font-smoothing: grayscale;
   font-feature-settings: 'liga';
+}
+
+.c5 .c3 {
+  font-size: 18px;
+}
+
+.c6 .c3 {
+  font-size: 18px;
+}
+
+.c7 .c3 {
+  font-size: 18px;
+}
+
+.c8 .c3 {
+  font-size: 18px;
+}
+
+.c9 .c3 {
+  font-size: 18px;
+}
+
+.c10 .c3 {
+  font-size: 18px;
+}
+
+.c11 .c3 {
+  font-size: 18px;
+}
+
+.c12 .c3 {
+  font-size: 18px;
 }
 
 .c0 {
@@ -57737,7 +58757,7 @@ exports[`Storyshots Miscellaneous/Notification basic 1`] = `
             onClick={[Function]}
           >
             <i
-              className="c3"
+              className="c3 c4"
               color="inherit"
               size={24}
             >
@@ -58436,7 +59456,7 @@ exports[`Storyshots Miscellaneous/Notification basic 1`] = `
 `;
 
 exports[`Storyshots Miscellaneous/Notification error 1`] = `
-.c3 {
+.c4 {
   font-family: 'Material Icons';
   font-weight: normal;
   font-style: normal;
@@ -58456,6 +59476,38 @@ exports[`Storyshots Miscellaneous/Notification error 1`] = `
   text-rendering: optimizeLegibility;
   -moz-osx-font-smoothing: grayscale;
   font-feature-settings: 'liga';
+}
+
+.c5 .c3 {
+  font-size: 18px;
+}
+
+.c6 .c3 {
+  font-size: 18px;
+}
+
+.c7 .c3 {
+  font-size: 18px;
+}
+
+.c8 .c3 {
+  font-size: 18px;
+}
+
+.c9 .c3 {
+  font-size: 18px;
+}
+
+.c10 .c3 {
+  font-size: 18px;
+}
+
+.c11 .c3 {
+  font-size: 18px;
+}
+
+.c12 .c3 {
+  font-size: 18px;
 }
 
 .c0 {
@@ -58534,7 +59586,7 @@ exports[`Storyshots Miscellaneous/Notification error 1`] = `
             onClick={[Function]}
           >
             <i
-              className="c3"
+              className="c3 c4"
               color="inherit"
               size={24}
             >
@@ -59243,7 +60295,7 @@ exports[`Storyshots Miscellaneous/Notification error 1`] = `
 `;
 
 exports[`Storyshots Miscellaneous/Notification warning 1`] = `
-.c3 {
+.c4 {
   font-family: 'Material Icons';
   font-weight: normal;
   font-style: normal;
@@ -59263,6 +60315,38 @@ exports[`Storyshots Miscellaneous/Notification warning 1`] = `
   text-rendering: optimizeLegibility;
   -moz-osx-font-smoothing: grayscale;
   font-feature-settings: 'liga';
+}
+
+.c5 .c3 {
+  font-size: 18px;
+}
+
+.c6 .c3 {
+  font-size: 18px;
+}
+
+.c7 .c3 {
+  font-size: 18px;
+}
+
+.c8 .c3 {
+  font-size: 18px;
+}
+
+.c9 .c3 {
+  font-size: 18px;
+}
+
+.c10 .c3 {
+  font-size: 18px;
+}
+
+.c11 .c3 {
+  font-size: 18px;
+}
+
+.c12 .c3 {
+  font-size: 18px;
 }
 
 .c0 {
@@ -59341,7 +60425,7 @@ exports[`Storyshots Miscellaneous/Notification warning 1`] = `
             onClick={[Function]}
           >
             <i
-              className="c3"
+              className="c3 c4"
               color="inherit"
               size={24}
             >
@@ -60050,7 +61134,7 @@ exports[`Storyshots Miscellaneous/Notification warning 1`] = `
 `;
 
 exports[`Storyshots Miscellaneous/Notification with illustration 1`] = `
-.c4 {
+.c5 {
   font-family: 'Material Icons';
   font-weight: normal;
   font-style: normal;
@@ -60070,6 +61154,38 @@ exports[`Storyshots Miscellaneous/Notification with illustration 1`] = `
   text-rendering: optimizeLegibility;
   -moz-osx-font-smoothing: grayscale;
   font-feature-settings: 'liga';
+}
+
+.c6 .c4 {
+  font-size: 18px;
+}
+
+.c7 .c4 {
+  font-size: 18px;
+}
+
+.c8 .c4 {
+  font-size: 18px;
+}
+
+.c9 .c4 {
+  font-size: 18px;
+}
+
+.c10 .c4 {
+  font-size: 18px;
+}
+
+.c11 .c4 {
+  font-size: 18px;
+}
+
+.c12 .c4 {
+  font-size: 18px;
+}
+
+.c13 .c4 {
+  font-size: 18px;
 }
 
 .c0 {
@@ -60169,7 +61285,7 @@ exports[`Storyshots Miscellaneous/Notification with illustration 1`] = `
             onClick={[Function]}
           >
             <i
-              className="c4"
+              className="c4 c5"
               color="inherit"
               size={24}
             >
@@ -79295,7 +80411,7 @@ exports[`Storyshots Thunder/item options with href 1`] = `
 `;
 
 exports[`Storyshots Thunder/item options with icons 1`] = `
-.c8 {
+.c9 {
   font-family: 'Material Icons';
   font-weight: normal;
   font-style: normal;
@@ -79315,6 +80431,42 @@ exports[`Storyshots Thunder/item options with icons 1`] = `
   text-rendering: optimizeLegibility;
   -moz-osx-font-smoothing: grayscale;
   font-feature-settings: 'liga';
+}
+
+.c16 .c8 {
+  font-size: 18px;
+}
+
+.c17 .c8 {
+  font-size: 18px;
+}
+
+.c18 .c8 {
+  font-size: 18px;
+}
+
+.c19 .c8 {
+  font-size: 18px;
+}
+
+.c20 .c8 {
+  font-size: 18px;
+}
+
+.c21 .c8 {
+  font-size: 18px;
+}
+
+.c22 .c8 {
+  font-size: 18px;
+}
+
+.c23 .c8 {
+  font-size: 18px;
+}
+
+.c24 .c8 {
+  font-size: 18px;
 }
 
 .c3 {
@@ -79406,12 +80558,12 @@ exports[`Storyshots Thunder/item options with icons 1`] = `
   color: #52627a;
 }
 
-.c13 {
+.c14 {
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
-.c13 mark {
+.c14 mark {
   padding: 0;
   background-color: #fcf8e3;
   color: inherit;
@@ -79441,7 +80593,7 @@ exports[`Storyshots Thunder/item options with icons 1`] = `
   outline: none;
 }
 
-.c9 {
+.c10 {
   -webkit-flex: 1 1 100%;
   -ms-flex: 1 1 100%;
   flex: 1 1 100%;
@@ -79449,7 +80601,7 @@ exports[`Storyshots Thunder/item options with icons 1`] = `
   min-width: 0;
 }
 
-.c10 {
+.c11 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -79460,17 +80612,17 @@ exports[`Storyshots Thunder/item options with icons 1`] = `
   align-items: baseline;
 }
 
-.c10:hover i {
+.c11:hover i {
   -webkit-transition: all ease-in-out 200ms;
   transition: all ease-in-out 200ms;
   opacity: 1;
 }
 
-.c10:hover i:hover {
+.c11:hover i:hover {
   opacity: 0.7;
 }
 
-.c11 {
+.c12 {
   font-size: 23px;
   border: none;
   background: none;
@@ -79480,20 +80632,20 @@ exports[`Storyshots Thunder/item options with icons 1`] = `
   display: none;
 }
 
-.c11:focus {
+.c12:focus {
   outline: none;
 }
 
-.c11[data-editing="true"] {
+.c12[data-editing="true"] {
   display: initial;
   margin-top: -2px;
 }
 
-.c14 {
+.c15 {
   margin-left: 8px;
 }
 
-.c14 > i {
+.c15 > i {
   margin: 0 8px;
   vertical-align: baseline;
   -webkit-transition: all ease-in-out 200ms;
@@ -79503,7 +80655,7 @@ exports[`Storyshots Thunder/item options with icons 1`] = `
   color: #52627a;
 }
 
-.c14[data-editing="true"] {
+.c15[data-editing="true"] {
   display: none;
 }
 
@@ -79534,14 +80686,14 @@ exports[`Storyshots Thunder/item options with icons 1`] = `
   color: #f8f7f8;
 }
 
-.c12 {
+.c13 {
   color: #061a3c;
   font-size: 23px;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
-.c12[data-editing="true"] {
+.c13[data-editing="true"] {
   display: none;
 }
 
@@ -79654,7 +80806,7 @@ exports[`Storyshots Thunder/item options with icons 1`] = `
                       className="c7"
                     >
                       <i
-                        className="c8"
+                        className="c8 c9"
                         color="inherit"
                         size={24}
                       >
@@ -79662,13 +80814,13 @@ exports[`Storyshots Thunder/item options with icons 1`] = `
                       </i>
                     </div>
                     <div
-                      className="c9"
+                      className="c10"
                     >
                       <div
-                        className="c10"
+                        className="c11"
                       >
                         <input
-                          className="c11"
+                          className="c12"
                           data-editing={false}
                           onBlur={[Function]}
                           onChange={[Function]}
@@ -79678,11 +80830,11 @@ exports[`Storyshots Thunder/item options with icons 1`] = `
                           value="Afghanistan"
                         />
                         <div
-                          className="c12"
+                          className="c13"
                           data-editing={false}
                         >
                           <div
-                            className="c13"
+                            className="c14"
                             dangerouslySetInnerHTML={
                               Object {
                                 "__html": "Afghanistan",
@@ -79691,7 +80843,7 @@ exports[`Storyshots Thunder/item options with icons 1`] = `
                           />
                         </div>
                         <div
-                          className="c14"
+                          className="c15"
                           data-editing={false}
                           onClick={[Function]}
                         />
@@ -79713,7 +80865,7 @@ exports[`Storyshots Thunder/item options with icons 1`] = `
                       className="c7"
                     >
                       <i
-                        className="c8"
+                        className="c8 c9"
                         color="inherit"
                         size={24}
                       >
@@ -79721,13 +80873,13 @@ exports[`Storyshots Thunder/item options with icons 1`] = `
                       </i>
                     </div>
                     <div
-                      className="c9"
+                      className="c10"
                     >
                       <div
-                        className="c10"
+                        className="c11"
                       >
                         <input
-                          className="c11"
+                          className="c12"
                           data-editing={false}
                           onBlur={[Function]}
                           onChange={[Function]}
@@ -79737,11 +80889,11 @@ exports[`Storyshots Thunder/item options with icons 1`] = `
                           value="Albania"
                         />
                         <div
-                          className="c12"
+                          className="c13"
                           data-editing={false}
                         >
                           <div
-                            className="c13"
+                            className="c14"
                             dangerouslySetInnerHTML={
                               Object {
                                 "__html": "Albania",
@@ -79750,7 +80902,7 @@ exports[`Storyshots Thunder/item options with icons 1`] = `
                           />
                         </div>
                         <div
-                          className="c14"
+                          className="c15"
                           data-editing={false}
                           onClick={[Function]}
                         />
@@ -79772,7 +80924,7 @@ exports[`Storyshots Thunder/item options with icons 1`] = `
                       className="c7"
                     >
                       <i
-                        className="c8"
+                        className="c8 c9"
                         color="inherit"
                         size={24}
                       >
@@ -79780,13 +80932,13 @@ exports[`Storyshots Thunder/item options with icons 1`] = `
                       </i>
                     </div>
                     <div
-                      className="c9"
+                      className="c10"
                     >
                       <div
-                        className="c10"
+                        className="c11"
                       >
                         <input
-                          className="c11"
+                          className="c12"
                           data-editing={false}
                           onBlur={[Function]}
                           onChange={[Function]}
@@ -79796,11 +80948,11 @@ exports[`Storyshots Thunder/item options with icons 1`] = `
                           value="Algeria"
                         />
                         <div
-                          className="c12"
+                          className="c13"
                           data-editing={false}
                         >
                           <div
-                            className="c13"
+                            className="c14"
                             dangerouslySetInnerHTML={
                               Object {
                                 "__html": "Algeria",
@@ -79809,7 +80961,7 @@ exports[`Storyshots Thunder/item options with icons 1`] = `
                           />
                         </div>
                         <div
-                          className="c14"
+                          className="c15"
                           data-editing={false}
                           onClick={[Function]}
                         />
@@ -79831,7 +80983,7 @@ exports[`Storyshots Thunder/item options with icons 1`] = `
                       className="c7"
                     >
                       <i
-                        className="c8"
+                        className="c8 c9"
                         color="inherit"
                         size={24}
                       >
@@ -79839,13 +80991,13 @@ exports[`Storyshots Thunder/item options with icons 1`] = `
                       </i>
                     </div>
                     <div
-                      className="c9"
+                      className="c10"
                     >
                       <div
-                        className="c10"
+                        className="c11"
                       >
                         <input
-                          className="c11"
+                          className="c12"
                           data-editing={false}
                           onBlur={[Function]}
                           onChange={[Function]}
@@ -79855,11 +81007,11 @@ exports[`Storyshots Thunder/item options with icons 1`] = `
                           value="Andorra"
                         />
                         <div
-                          className="c12"
+                          className="c13"
                           data-editing={false}
                         >
                           <div
-                            className="c13"
+                            className="c14"
                             dangerouslySetInnerHTML={
                               Object {
                                 "__html": "Andorra",
@@ -79868,7 +81020,7 @@ exports[`Storyshots Thunder/item options with icons 1`] = `
                           />
                         </div>
                         <div
-                          className="c14"
+                          className="c15"
                           data-editing={false}
                           onClick={[Function]}
                         />
@@ -79890,7 +81042,7 @@ exports[`Storyshots Thunder/item options with icons 1`] = `
                       className="c7"
                     >
                       <i
-                        className="c8"
+                        className="c8 c9"
                         color="inherit"
                         size={24}
                       >
@@ -79898,13 +81050,13 @@ exports[`Storyshots Thunder/item options with icons 1`] = `
                       </i>
                     </div>
                     <div
-                      className="c9"
+                      className="c10"
                     >
                       <div
-                        className="c10"
+                        className="c11"
                       >
                         <input
-                          className="c11"
+                          className="c12"
                           data-editing={false}
                           onBlur={[Function]}
                           onChange={[Function]}
@@ -79914,11 +81066,11 @@ exports[`Storyshots Thunder/item options with icons 1`] = `
                           value="Angola"
                         />
                         <div
-                          className="c12"
+                          className="c13"
                           data-editing={false}
                         >
                           <div
-                            className="c13"
+                            className="c14"
                             dangerouslySetInnerHTML={
                               Object {
                                 "__html": "Angola",
@@ -79927,7 +81079,7 @@ exports[`Storyshots Thunder/item options with icons 1`] = `
                           />
                         </div>
                         <div
-                          className="c14"
+                          className="c15"
                           data-editing={false}
                           onClick={[Function]}
                         />
@@ -80486,7 +81638,7 @@ exports[`Storyshots Thunder/item options with icons 1`] = `
 `;
 
 exports[`Storyshots Thunder/item options with onEdit and onDelete 1`] = `
-.c13 {
+.c14 {
   font-family: 'Material Icons';
   font-weight: normal;
   font-style: normal;
@@ -80509,8 +81661,44 @@ exports[`Storyshots Thunder/item options with onEdit and onDelete 1`] = `
   cursor: pointer;
 }
 
-.c13:hover {
+.c14:hover {
   opacity: 0.8;
+}
+
+.c15 .c13 {
+  font-size: 18px;
+}
+
+.c16 .c13 {
+  font-size: 18px;
+}
+
+.c17 .c13 {
+  font-size: 18px;
+}
+
+.c18 .c13 {
+  font-size: 18px;
+}
+
+.c19 .c13 {
+  font-size: 18px;
+}
+
+.c20 .c13 {
+  font-size: 18px;
+}
+
+.c21 .c13 {
+  font-size: 18px;
+}
+
+.c22 .c13 {
+  font-size: 18px;
+}
+
+.c23 .c13 {
+  font-size: 18px;
 }
 
 .c3 {
@@ -80854,7 +82042,7 @@ exports[`Storyshots Thunder/item options with onEdit and onDelete 1`] = `
                           onClick={[Function]}
                         >
                           <i
-                            className="c13"
+                            className="c13 c14"
                             color="inherit"
                             onClick={[Function]}
                             size={24}
@@ -80862,7 +82050,7 @@ exports[`Storyshots Thunder/item options with onEdit and onDelete 1`] = `
                             edit
                           </i>
                           <i
-                            className="c13"
+                            className="c13 c14"
                             color="inherit"
                             onClick={[Function]}
                             size={24}
@@ -80919,7 +82107,7 @@ exports[`Storyshots Thunder/item options with onEdit and onDelete 1`] = `
                           onClick={[Function]}
                         >
                           <i
-                            className="c13"
+                            className="c13 c14"
                             color="inherit"
                             onClick={[Function]}
                             size={24}
@@ -80927,7 +82115,7 @@ exports[`Storyshots Thunder/item options with onEdit and onDelete 1`] = `
                             edit
                           </i>
                           <i
-                            className="c13"
+                            className="c13 c14"
                             color="inherit"
                             onClick={[Function]}
                             size={24}
@@ -80984,7 +82172,7 @@ exports[`Storyshots Thunder/item options with onEdit and onDelete 1`] = `
                           onClick={[Function]}
                         >
                           <i
-                            className="c13"
+                            className="c13 c14"
                             color="inherit"
                             onClick={[Function]}
                             size={24}
@@ -80992,7 +82180,7 @@ exports[`Storyshots Thunder/item options with onEdit and onDelete 1`] = `
                             edit
                           </i>
                           <i
-                            className="c13"
+                            className="c13 c14"
                             color="inherit"
                             onClick={[Function]}
                             size={24}
@@ -81049,7 +82237,7 @@ exports[`Storyshots Thunder/item options with onEdit and onDelete 1`] = `
                           onClick={[Function]}
                         >
                           <i
-                            className="c13"
+                            className="c13 c14"
                             color="inherit"
                             onClick={[Function]}
                             size={24}
@@ -81057,7 +82245,7 @@ exports[`Storyshots Thunder/item options with onEdit and onDelete 1`] = `
                             edit
                           </i>
                           <i
-                            className="c13"
+                            className="c13 c14"
                             color="inherit"
                             onClick={[Function]}
                             size={24}
@@ -81114,7 +82302,7 @@ exports[`Storyshots Thunder/item options with onEdit and onDelete 1`] = `
                           onClick={[Function]}
                         >
                           <i
-                            className="c13"
+                            className="c13 c14"
                             color="inherit"
                             onClick={[Function]}
                             size={24}
@@ -81122,7 +82310,7 @@ exports[`Storyshots Thunder/item options with onEdit and onDelete 1`] = `
                             edit
                           </i>
                           <i
-                            className="c13"
+                            className="c13 c14"
                             color="inherit"
                             onClick={[Function]}
                             size={24}
@@ -81685,7 +82873,7 @@ exports[`Storyshots Thunder/item options with onEdit and onDelete 1`] = `
 `;
 
 exports[`Storyshots Thunder/item options with subtitle 1`] = `
-.c8 {
+.c9 {
   font-family: 'Material Icons';
   font-weight: normal;
   font-style: normal;
@@ -81705,6 +82893,42 @@ exports[`Storyshots Thunder/item options with subtitle 1`] = `
   text-rendering: optimizeLegibility;
   -moz-osx-font-smoothing: grayscale;
   font-feature-settings: 'liga';
+}
+
+.c17 .c8 {
+  font-size: 18px;
+}
+
+.c18 .c8 {
+  font-size: 18px;
+}
+
+.c19 .c8 {
+  font-size: 18px;
+}
+
+.c20 .c8 {
+  font-size: 18px;
+}
+
+.c21 .c8 {
+  font-size: 18px;
+}
+
+.c22 .c8 {
+  font-size: 18px;
+}
+
+.c23 .c8 {
+  font-size: 18px;
+}
+
+.c24 .c8 {
+  font-size: 18px;
+}
+
+.c25 .c8 {
+  font-size: 18px;
 }
 
 .c3 {
@@ -81796,12 +83020,12 @@ exports[`Storyshots Thunder/item options with subtitle 1`] = `
   color: #52627a;
 }
 
-.c13 {
+.c14 {
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
-.c13 mark {
+.c14 mark {
   padding: 0;
   background-color: #fcf8e3;
   color: inherit;
@@ -81831,7 +83055,7 @@ exports[`Storyshots Thunder/item options with subtitle 1`] = `
   outline: none;
 }
 
-.c9 {
+.c10 {
   -webkit-flex: 1 1 100%;
   -ms-flex: 1 1 100%;
   flex: 1 1 100%;
@@ -81839,7 +83063,7 @@ exports[`Storyshots Thunder/item options with subtitle 1`] = `
   min-width: 0;
 }
 
-.c10 {
+.c11 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -81850,17 +83074,17 @@ exports[`Storyshots Thunder/item options with subtitle 1`] = `
   align-items: baseline;
 }
 
-.c10:hover i {
+.c11:hover i {
   -webkit-transition: all ease-in-out 200ms;
   transition: all ease-in-out 200ms;
   opacity: 1;
 }
 
-.c10:hover i:hover {
+.c11:hover i:hover {
   opacity: 0.7;
 }
 
-.c11 {
+.c12 {
   font-size: 23px;
   border: none;
   background: none;
@@ -81870,20 +83094,20 @@ exports[`Storyshots Thunder/item options with subtitle 1`] = `
   display: none;
 }
 
-.c11:focus {
+.c12:focus {
   outline: none;
 }
 
-.c11[data-editing="true"] {
+.c12[data-editing="true"] {
   display: initial;
   margin-top: -2px;
 }
 
-.c14 {
+.c15 {
   margin-left: 8px;
 }
 
-.c14 > i {
+.c15 > i {
   margin: 0 8px;
   vertical-align: baseline;
   -webkit-transition: all ease-in-out 200ms;
@@ -81893,7 +83117,7 @@ exports[`Storyshots Thunder/item options with subtitle 1`] = `
   color: #52627a;
 }
 
-.c14[data-editing="true"] {
+.c15[data-editing="true"] {
   display: none;
 }
 
@@ -81924,18 +83148,18 @@ exports[`Storyshots Thunder/item options with subtitle 1`] = `
   color: #f8f7f8;
 }
 
-.c12 {
+.c13 {
   color: #061a3c;
   font-size: 23px;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
-.c12[data-editing="true"] {
+.c13[data-editing="true"] {
   display: none;
 }
 
-.c15 {
+.c16 {
   color: #061a3c;
   font-family: Inter UI;
   height: 15px;
@@ -82053,7 +83277,7 @@ exports[`Storyshots Thunder/item options with subtitle 1`] = `
                       className="c7"
                     >
                       <i
-                        className="c8"
+                        className="c8 c9"
                         color="inherit"
                         size={24}
                       >
@@ -82061,13 +83285,13 @@ exports[`Storyshots Thunder/item options with subtitle 1`] = `
                       </i>
                     </div>
                     <div
-                      className="c9"
+                      className="c10"
                     >
                       <div
-                        className="c10"
+                        className="c11"
                       >
                         <input
-                          className="c11"
+                          className="c12"
                           data-editing={false}
                           onBlur={[Function]}
                           onChange={[Function]}
@@ -82077,11 +83301,11 @@ exports[`Storyshots Thunder/item options with subtitle 1`] = `
                           value="Afghanistan"
                         />
                         <div
-                          className="c12"
+                          className="c13"
                           data-editing={false}
                         >
                           <div
-                            className="c13"
+                            className="c14"
                             dangerouslySetInnerHTML={
                               Object {
                                 "__html": "Afghanistan",
@@ -82090,16 +83314,16 @@ exports[`Storyshots Thunder/item options with subtitle 1`] = `
                           />
                         </div>
                         <div
-                          className="c14"
+                          className="c15"
                           data-editing={false}
                           onClick={[Function]}
                         />
                       </div>
                       <div
-                        className="c15"
+                        className="c16"
                       >
                         <div
-                          className="c13"
+                          className="c14"
                           dangerouslySetInnerHTML={
                             Object {
                               "__html": "Subtitle for Afghanistan",
@@ -82124,7 +83348,7 @@ exports[`Storyshots Thunder/item options with subtitle 1`] = `
                       className="c7"
                     >
                       <i
-                        className="c8"
+                        className="c8 c9"
                         color="inherit"
                         size={24}
                       >
@@ -82132,13 +83356,13 @@ exports[`Storyshots Thunder/item options with subtitle 1`] = `
                       </i>
                     </div>
                     <div
-                      className="c9"
+                      className="c10"
                     >
                       <div
-                        className="c10"
+                        className="c11"
                       >
                         <input
-                          className="c11"
+                          className="c12"
                           data-editing={false}
                           onBlur={[Function]}
                           onChange={[Function]}
@@ -82148,11 +83372,11 @@ exports[`Storyshots Thunder/item options with subtitle 1`] = `
                           value="Albania"
                         />
                         <div
-                          className="c12"
+                          className="c13"
                           data-editing={false}
                         >
                           <div
-                            className="c13"
+                            className="c14"
                             dangerouslySetInnerHTML={
                               Object {
                                 "__html": "Albania",
@@ -82161,16 +83385,16 @@ exports[`Storyshots Thunder/item options with subtitle 1`] = `
                           />
                         </div>
                         <div
-                          className="c14"
+                          className="c15"
                           data-editing={false}
                           onClick={[Function]}
                         />
                       </div>
                       <div
-                        className="c15"
+                        className="c16"
                       >
                         <div
-                          className="c13"
+                          className="c14"
                           dangerouslySetInnerHTML={
                             Object {
                               "__html": "Subtitle for Albania",
@@ -82195,7 +83419,7 @@ exports[`Storyshots Thunder/item options with subtitle 1`] = `
                       className="c7"
                     >
                       <i
-                        className="c8"
+                        className="c8 c9"
                         color="inherit"
                         size={24}
                       >
@@ -82203,13 +83427,13 @@ exports[`Storyshots Thunder/item options with subtitle 1`] = `
                       </i>
                     </div>
                     <div
-                      className="c9"
+                      className="c10"
                     >
                       <div
-                        className="c10"
+                        className="c11"
                       >
                         <input
-                          className="c11"
+                          className="c12"
                           data-editing={false}
                           onBlur={[Function]}
                           onChange={[Function]}
@@ -82219,11 +83443,11 @@ exports[`Storyshots Thunder/item options with subtitle 1`] = `
                           value="Algeria"
                         />
                         <div
-                          className="c12"
+                          className="c13"
                           data-editing={false}
                         >
                           <div
-                            className="c13"
+                            className="c14"
                             dangerouslySetInnerHTML={
                               Object {
                                 "__html": "Algeria",
@@ -82232,16 +83456,16 @@ exports[`Storyshots Thunder/item options with subtitle 1`] = `
                           />
                         </div>
                         <div
-                          className="c14"
+                          className="c15"
                           data-editing={false}
                           onClick={[Function]}
                         />
                       </div>
                       <div
-                        className="c15"
+                        className="c16"
                       >
                         <div
-                          className="c13"
+                          className="c14"
                           dangerouslySetInnerHTML={
                             Object {
                               "__html": "Subtitle for Algeria",
@@ -82266,7 +83490,7 @@ exports[`Storyshots Thunder/item options with subtitle 1`] = `
                       className="c7"
                     >
                       <i
-                        className="c8"
+                        className="c8 c9"
                         color="inherit"
                         size={24}
                       >
@@ -82274,13 +83498,13 @@ exports[`Storyshots Thunder/item options with subtitle 1`] = `
                       </i>
                     </div>
                     <div
-                      className="c9"
+                      className="c10"
                     >
                       <div
-                        className="c10"
+                        className="c11"
                       >
                         <input
-                          className="c11"
+                          className="c12"
                           data-editing={false}
                           onBlur={[Function]}
                           onChange={[Function]}
@@ -82290,11 +83514,11 @@ exports[`Storyshots Thunder/item options with subtitle 1`] = `
                           value="Andorra"
                         />
                         <div
-                          className="c12"
+                          className="c13"
                           data-editing={false}
                         >
                           <div
-                            className="c13"
+                            className="c14"
                             dangerouslySetInnerHTML={
                               Object {
                                 "__html": "Andorra",
@@ -82303,16 +83527,16 @@ exports[`Storyshots Thunder/item options with subtitle 1`] = `
                           />
                         </div>
                         <div
-                          className="c14"
+                          className="c15"
                           data-editing={false}
                           onClick={[Function]}
                         />
                       </div>
                       <div
-                        className="c15"
+                        className="c16"
                       >
                         <div
-                          className="c13"
+                          className="c14"
                           dangerouslySetInnerHTML={
                             Object {
                               "__html": "Subtitle for Andorra",
@@ -82337,7 +83561,7 @@ exports[`Storyshots Thunder/item options with subtitle 1`] = `
                       className="c7"
                     >
                       <i
-                        className="c8"
+                        className="c8 c9"
                         color="inherit"
                         size={24}
                       >
@@ -82345,13 +83569,13 @@ exports[`Storyshots Thunder/item options with subtitle 1`] = `
                       </i>
                     </div>
                     <div
-                      className="c9"
+                      className="c10"
                     >
                       <div
-                        className="c10"
+                        className="c11"
                       >
                         <input
-                          className="c11"
+                          className="c12"
                           data-editing={false}
                           onBlur={[Function]}
                           onChange={[Function]}
@@ -82361,11 +83585,11 @@ exports[`Storyshots Thunder/item options with subtitle 1`] = `
                           value="Angola"
                         />
                         <div
-                          className="c12"
+                          className="c13"
                           data-editing={false}
                         >
                           <div
-                            className="c13"
+                            className="c14"
                             dangerouslySetInnerHTML={
                               Object {
                                 "__html": "Angola",
@@ -82374,16 +83598,16 @@ exports[`Storyshots Thunder/item options with subtitle 1`] = `
                           />
                         </div>
                         <div
-                          className="c14"
+                          className="c15"
                           data-editing={false}
                           onClick={[Function]}
                         />
                       </div>
                       <div
-                        className="c15"
+                        className="c16"
                       >
                         <div
-                          className="c13"
+                          className="c14"
                           dangerouslySetInnerHTML={
                             Object {
                               "__html": "Subtitle for Angola",
@@ -128885,7 +130109,7 @@ exports[`Storyshots Thunder/welcome message basic 1`] = `
   color: #f8f7f8;
   padding: 16px;
   margin: 16px;
-  border-radius: 8px;
+  border-radius: 3px;
   position: relative;
   box-shadow: 0 3px 6px 0 rgba(80,79,79,0.5);
 }
