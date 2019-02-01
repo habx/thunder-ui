@@ -26,13 +26,13 @@ class ImageUploader extends React.PureComponent<ImageUploaderProps, ImageUploade
   static getDerivedStateFromProps (nextProps, prevState) {
     const { image } = nextProps
 
-    if (image && image !== prevState.fieldImage) {
+    if (image && image.id && image !== prevState.fieldImage) {
       const directory = initial(image.id.split('/').filter(el => el !== '')).join('/')
 
       return {
         fieldImage: image,
         page: 'directory',
-        directory,
+        directory: directory || prevState.directory,
         fetchFieldImagePromise: null
       }
     }

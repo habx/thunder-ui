@@ -33,6 +33,9 @@ const PARAM_TABLE = {
   opacity: {
     key: 'o'
   },
+  aspect_ratio: {
+    key: 'ar'
+  },
   x: {
     key: 'x'
   },
@@ -122,7 +125,7 @@ const getIdFromChunks = (chunks: string[]) => {
 }
 
 export const parseCloudinaryURL = (src: string = '') => {
-  if (!isString(src)) {
+  if (!isString(src) || src.includes('via.placeholder.com')) {
     return DEFAULT_IMAGE
   }
 
