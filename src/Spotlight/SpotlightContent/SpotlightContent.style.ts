@@ -2,12 +2,12 @@ import styled from 'styled-components'
 
 import { get } from '../theme'
 
-export const ThunderSections = styled.div`
+export const SpotlightSections = styled.div`
   overflow-y: auto;
   overflow-x: hidden;
 `
 
-export const ThunderSearch = styled.div`
+export const SpotlightSearch = styled.div`
   display: flex;
   align-items: center;
   flex: 0 0 auto;

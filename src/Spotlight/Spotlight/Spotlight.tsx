@@ -2,17 +2,17 @@ import * as React from 'react'
 import { isBoolean, isString, isFunction, merge } from 'lodash'
 import { ThemeProvider } from 'styled-components'
 
-import ThunderContent from '../ThunderContent'
+import SpotlightContent from '../SpotlightContent'
 import { DEFAULT_THEME } from '../theme'
 
-import { ThunderModalContainer, ThunderModal } from './Thunder.style'
-import { ThunderInnerProps } from './Thunder.interface'
+import { SpotlightModalContainer, SpotlightModal } from './Spotlight.style'
+import { SpotlightInnerProps } from './Spotlight.interface'
 
 const DOUBLE_KEY_PRESS_DURATION = 200
 
 const stopEvent = e => e.stopPropagation()
 
-export default class Thunder extends React.Component<ThunderInnerProps> {
+export default class Spotlight extends React.Component<SpotlightInnerProps> {
   private readonly modalRef: React.RefObject<any>
   private readonly inputRef: React.RefObject<any>
   private lastOpenKeyPress: number = 0
@@ -83,7 +83,7 @@ export default class Thunder extends React.Component<ThunderInnerProps> {
     if (key === 'Shift') {
       const currentTime = Date.now()
       if (currentTime - this.lastOpenKeyPress < DOUBLE_KEY_PRESS_DURATION) {
-        this.handleThunderOpen()
+        this.handleSpotlightOpen()
       }
       this.lastOpenKeyPress = currentTime
     }
@@ -104,7 +104,7 @@ export default class Thunder extends React.Component<ThunderInnerProps> {
     query: ''
   }))
 
-  handleThunderOpen () {
+  handleSpotlightOpen () {
     this.setState({ open: true })
     this.inputRef.current.focus()
     this.props.onOpen()
@@ -123,7 +123,7 @@ export default class Thunder extends React.Component<ThunderInnerProps> {
   generateTheme () {
     const { theme, customTheme } = this.props
 
-    return merge({}, theme, { _thunder: DEFAULT_THEME }, { _thunder: customTheme })
+    return merge({}, theme, { _spotlight: DEFAULT_THEME }, { _spotlight: customTheme })
   }
 
   render () {
@@ -135,17 +135,17 @@ export default class Thunder extends React.Component<ThunderInnerProps> {
 
     return (
       <ThemeProvider theme={this.generateTheme()}>
-        <ThunderModalContainer onClick={this.handleClick}>
-          <ThunderModal ref={this.modalRef} onClick={stopEvent} className={className} style={style}>
-            <ThunderContent
+        <SpotlightModalContainer onClick={this.handleClick}>
+          <SpotlightModal ref={this.modalRef} onClick={stopEvent} className={className} style={style}>
+            <SpotlightContent
               {...rest}
               onClose={this.handleClose}
               query={this.getQuery()}
               onQueryChange={this.handleQueryChange}
               inputRef={this.inputRef}
             />
-          </ThunderModal>
-        </ThunderModalContainer>
+          </SpotlightModal>
+        </SpotlightModalContainer>
       </ThemeProvider>
     )
   }

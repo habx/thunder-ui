@@ -5,8 +5,8 @@ import { filter, map } from 'lodash'
 import { withState } from 'recompose'
 
 import FontIcon from '../FontIcon'
-import { Thunder, Section, Item, WelcomeMessage } from './index'
-import { data, darkTheme } from './Thunder.data'
+import { Spotlight, Section, Item, WelcomeMessage } from './index'
+import { data, darkTheme } from './Spotlight.data'
 
 import { searchInString } from '../_internal/strings'
 
@@ -21,62 +21,62 @@ const BasicSection: React.StatelessComponent<any> = ({ query }) => (
   </React.Fragment>
 )
 
-storiesOf('Thunder/thunder options', module)
+storiesOf('Spotlight/spotlight options', module)
   .add('basic uncontrolled', () => (
-    <Thunder open data={data}>
+    <Spotlight open data={data}>
       <Section
         name='countries'
         filter={(query, country) => searchInString(country, query)}
         renderItem={(country, index) => <Item key={country} title={country} index={index} />}
       />
-    </Thunder>
+    </Spotlight>
   ))
   .add('basic controlled', () => {
-    const ControlledThunder = withQueryControl(Thunder)
+    const ControlledSpotlight = withQueryControl(Spotlight)
 
     return (
-      <ControlledThunder open data={data}>
+      <ControlledSpotlight open data={data}>
         <Section
           name='countries'
           filter={(query, country) => searchInString(country, query)}
           renderItem={(country, index) => <Item key={country} title={country} index={index} />}
           maxItems={5}
         />
-      </ControlledThunder>
+      </ControlledSpotlight>
     )
   })
   .add('with custom theme', () => (
-    <Thunder open data={data} theme={darkTheme}>
+    <Spotlight open data={data} theme={darkTheme}>
       <Section
         name='countries'
         filter={(query, country) => searchInString(country, query)}
         renderItem={(country, index) => <Item key={country} title={country} index={index} />}
       />
-    </Thunder>
+    </Spotlight>
   ))
   .add('with custom placeholder', () => (
-    <Thunder open data={data} placeholder='Where do you want to go on holiday ?'>
+    <Spotlight open data={data} placeholder='Where do you want to go on holiday ?'>
       <Section
         name='countries'
         filter={(query, country) => searchInString(country, query)}
         renderItem={(country, index) => <Item key={country} title={country} index={index} />}
       />
-    </Thunder>
+    </Spotlight>
   ))
 
-storiesOf('Thunder/section options', module)
+storiesOf('Spotlight/section options', module)
   .add('with 5 items max', () => (
-    <Thunder open data={data}>
+    <Spotlight open data={data}>
       <Section
         name='countries'
         filter={(query, country) => searchInString(country, query)}
         renderItem={(country, index) => <Item key={country} title={country} index={index} />}
         maxItems={5}
       />
-    </Thunder>
+    </Spotlight>
   ))
   .add('with title', () => (
-    <Thunder open data={data}>
+    <Spotlight open data={data}>
       <Section
         name='countries'
         title='Countries'
@@ -90,17 +90,17 @@ storiesOf('Thunder/section options', module)
         )}
         maxItems={5}
       />
-    </Thunder>
+    </Spotlight>
   ))
   .add('with custom section', () => (
-    <Thunder open data={data}>
+    <Spotlight open data={data}>
       <Section name='countries' render={props => <BasicSection {...props} />} />
-    </Thunder>
+    </Spotlight>
   ))
 
-storiesOf('Thunder/item options', module)
+storiesOf('Spotlight/item options', module)
   .add('with icons', () => (
-    <Thunder open data={data}>
+    <Spotlight open data={data}>
       <Section
         name='countries'
         filter={(query, country) => searchInString(country, query)}
@@ -114,10 +114,10 @@ storiesOf('Thunder/item options', module)
         )}
         maxItems={5}
       />
-    </Thunder>
+    </Spotlight>
   ))
   .add('with subtitle', () => (
-    <Thunder open data={data}>
+    <Spotlight open data={data}>
       <Section
         name='countries'
         filter={(query, country) => searchInString(country, query)}
@@ -132,10 +132,10 @@ storiesOf('Thunder/item options', module)
         )}
         maxItems={5}
       />
-    </Thunder>
+    </Spotlight>
   ))
   .add('with custom onClick', () => (
-    <Thunder open data={data}>
+    <Spotlight open data={data}>
       <Section
         name='countries'
         filter={(query, country) => searchInString(country, query)}
@@ -149,10 +149,10 @@ storiesOf('Thunder/item options', module)
         )}
         maxItems={5}
       />
-    </Thunder>
+    </Spotlight>
   ))
   .add('with href', () => (
-    <Thunder open data={data}>
+    <Spotlight open data={data}>
       <Section
         name='countries'
         filter={(query, country) => searchInString(country, query)}
@@ -167,10 +167,10 @@ storiesOf('Thunder/item options', module)
         )}
         maxItems={5}
       />
-    </Thunder>
+    </Spotlight>
   ))
   .add('with onEdit and onDelete', () => (
-    <Thunder open data={data}>
+    <Spotlight open data={data}>
       <Section
         name='countries'
         filter={(query, country) => searchInString(country, query)}
@@ -185,14 +185,14 @@ storiesOf('Thunder/item options', module)
         )}
         maxItems={5}
       />
-    </Thunder>
+    </Spotlight>
   ))
 
-storiesOf('Thunder/welcome message', module)
+storiesOf('Spotlight/welcome message', module)
   .add('basic', () => (
-    <Thunder open>
+    <Spotlight open>
       <WelcomeMessage>
-        This is a welcome message on the Thunder
+        This is a welcome message on the Spotlight
       </WelcomeMessage>
-    </Thunder>
+    </Spotlight>
   ))

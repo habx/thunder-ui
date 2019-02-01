@@ -1,11 +1,11 @@
 import * as React from 'react'
 import { get, orderBy, omit, head, reduce } from 'lodash'
 
-import { ThunderContext } from '../context'
-import ThunderIcon from './icon'
-import { ThunderSearch, ThunderSections } from './ThunderContent.style'
+import { SpotlightContext } from '../context'
+import SpotlightIcon from './icon'
+import { SpotlightSearch, SpotlightSections } from './SpotlightContent.style'
 
-export default class ThunderContent extends React.Component<any> {
+export default class SpotlightContent extends React.Component<any> {
   static defaultProps = {
     data: {},
     placeholder: 'Aller à...'
@@ -96,7 +96,7 @@ export default class ThunderContent extends React.Component<any> {
     const selectedItemKey = get(this.getAllItemKeys(), [selectedItem, 'key'])
 
     return (
-      <ThunderContext.Provider
+      <SpotlightContext.Provider
         value={{
           query,
           selectedItemKey,
@@ -106,8 +106,8 @@ export default class ThunderContent extends React.Component<any> {
           close: this.handleClose
         }}
       >
-        <ThunderSearch>
-          <ThunderIcon />
+        <SpotlightSearch>
+          <SpotlightIcon />
           <input
             onKeyPress={this.handleSearchKeyPress}
             ref={inputRef}
@@ -117,11 +117,11 @@ export default class ThunderContent extends React.Component<any> {
             placeholder={placeholder}
             type='text'
           />
-        </ThunderSearch>
-        <ThunderSections>
+        </SpotlightSearch>
+        <SpotlightSections>
           {children}
-        </ThunderSections>
-      </ThunderContext.Provider>
+        </SpotlightSections>
+      </SpotlightContext.Provider>
     )
   }
 }

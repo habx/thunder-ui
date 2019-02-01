@@ -32,4 +32,4 @@ export const DEFAULT_THEME = {
   }
 }
 
-export const get = path => ({ theme }) => lodashGet(theme, `_thunder.${path}`)
+export const get = path => ({ theme }) => lodashGet(theme, `_spotlight.${path}`)

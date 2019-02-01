@@ -32,7 +32,7 @@ type themeType = {
   }
 }
 
-export default interface ThunderProps extends DOMNode {
+export default interface SpotlightProps extends DOMNode {
   query?: string
   data?: Array<any> | object
   open?: boolean
@@ -42,7 +42,7 @@ export default interface ThunderProps extends DOMNode {
   theme?: themeType
 }
 
-export interface ThunderInnerProps extends ThunderProps {
+export interface SpotlightInnerProps extends SpotlightProps {
   customTheme?: themeType
   theme: themeType
 }

@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { omit, pick, mapValues, memoize } from 'lodash'
 
-import { withThunderContext, withSectionContext } from '../context'
+import { withSpotlightContext, withSectionContext } from '../context'
 
 const ACTIONS = ['onClick', 'onFocus', 'onBlur']
 
@@ -28,7 +28,7 @@ const withItemBehavior = WrappedComponent => class Wrapper extends React.Compone
 
   componentWillUnmount () {
     const {
-      thunder: {
+      spotlight: {
         unRegisterItem
       },
       section: {
@@ -40,8 +40,8 @@ const withItemBehavior = WrappedComponent => class Wrapper extends React.Compone
   }
 
   handleEvent = memoize(actionName => e => {
-    const { thunder, section } = this.props
-    return this.props[actionName](e, { thunder, section })
+    const { spotlight, section } = this.props
+    return this.props[actionName](e, { spotlight, section })
   })
 
   wrapActions = () => mapValues(
@@ -52,7 +52,7 @@ const withItemBehavior = WrappedComponent => class Wrapper extends React.Compone
   register () {
     const {
       index,
-      thunder: {
+      spotlight: {
         registerItem
       },
       section: {
@@ -76,12 +76,12 @@ const withItemBehavior = WrappedComponent => class Wrapper extends React.Compone
   }
 
   render () {
-    const { thunder: { selectedItemKey, query } } = this.props
+    const { spotlight: { selectedItemKey, query } } = this.props
     const selected = this.id === selectedItemKey
 
     return (
       <WrappedComponent
-        {...omit(this.props, ['thunder', 'section', 'index'])}
+        {...omit(this.props, ['spotlight', 'section', 'index'])}
         query={query}
         selected={selected}
         registerActions={this.registerActions}
@@ -91,4 +91,4 @@ const withItemBehavior = WrappedComponent => class Wrapper extends React.Compone
   }
 }
 
-export default Wrapped => withSectionContext(withThunderContext(withItemBehavior(Wrapped)))
+export default Wrapped => withSectionContext(withSpotlightContext(withItemBehavior(Wrapped)))

@@ -18,7 +18,7 @@ const INTERNAL_PROPS = [
   'focusOnRender',
   'refPropName',
   'registerActions',
-  'thunder',
+  'spotlight',
   'as'
 ]
 

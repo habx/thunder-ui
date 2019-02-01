@@ -1,7 +1,7 @@
 import * as cacheItems from './cache'
 import * as filterItems from './filter'
 
-export { default as Thunder } from './Thunder'
+export { default as Spotlight } from './Spotlight'
 export { default as Section } from './Section'
 export { default as SectionTitle } from './SectionTitle'
 export { default as SectionPlaceholder } from './SectionPlaceholder'

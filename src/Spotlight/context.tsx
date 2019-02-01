@@ -1,13 +1,13 @@
 import * as React from 'react'
 
-export const ThunderContext = React.createContext({})
+export const SpotlightContext = React.createContext({})
 
 export const SectionContext = React.createContext({})
 
-export const withThunderContext = Component => props => (
-  <ThunderContext.Consumer>
-    {context => <Component {...props} thunder={context} />}
-  </ThunderContext.Consumer>
+export const withSpotlightContext = Component => props => (
+  <SpotlightContext.Consumer>
+    {context => <Component {...props} spotlight={context} />}
+  </SpotlightContext.Consumer>
 )
 
 export const withSectionContext = Component => props => (

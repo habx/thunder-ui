@@ -9,13 +9,13 @@ import { SectionContainer } from './Section.style'
 
 class Section extends React.Component<SectionInnerProps> {
   getMatchingItems = () => {
-    const { thunder, filter, name } = this.props
-    const sectionData = get(thunder.data, name)
+    const { spotlight, filter, name } = this.props
+    const sectionData = get(spotlight.data, name)
 
     if (filter) {
       return lodashFilter(
         sectionData,
-        (...args) => filter(thunder.query, ...args)
+        (...args) => filter(spotlight.query, ...args)
       )
     }
 
@@ -25,13 +25,13 @@ class Section extends React.Component<SectionInnerProps> {
   buildContext = memoize(name => ({ name }))
 
   renderContent () {
-    const { render, thunder, renderItem, name, maxItems } = this.props
+    const { render, spotlight, renderItem, name, maxItems } = this.props
 
     if (render) {
-      return render(thunder)
+      return render(spotlight)
     }
 
-    if (renderItem && thunder.data && name) {
+    if (renderItem && spotlight.data && name) {
       const items = this.getMatchingItems()
 
       const limitItems = maxItems > -1 ? take(items, maxItems) : items
