@@ -36,10 +36,10 @@ const INTERNAL_PROPS = [
   'filterable'
 ]
 
-const FORMAT_VALUE_FULL = 'FORMAT_VALUE_FULL'
-const FORMAT_VALUE_SIMPLE = 'FORMAT_VALUE_SIMPLE'
+const FORMAT_VALUE_FULL = 'full'
+const FORMAT_VALUE_SIMPLE = 'simple'
 
-class Select extends React.Component<SelectProps, SelectState> {
+export class BaseSelect extends React.Component<SelectProps, SelectState> {
   static defaultProps = {
     multi: false,
     canReset: true,
@@ -53,11 +53,11 @@ class Select extends React.Component<SelectProps, SelectState> {
     return {
       ...(rawOptions !== prevState.rawOptions) && {
         rawOptions,
-        options: Select.getStandardizedOptions(rawOptions)
+        options: BaseSelect.getStandardizedOptions(rawOptions)
       },
       ...(rawValue !== prevState.rawValue) && {
         rawValue,
-        value: Select.getStandardizedValue(rawValue, multi)
+        value: BaseSelect.getStandardizedValue(rawValue, multi)
       }
     }
   }
@@ -132,11 +132,15 @@ class Select extends React.Component<SelectProps, SelectState> {
   }
 
   getCurrentValueFormat () {
-    const { value, multi } = this.props
+    const { value, valueFormat, multi } = this.props
+
+    if ([FORMAT_VALUE_FULL, FORMAT_VALUE_SIMPLE].includes(valueFormat)) {
+      return valueFormat
+    }
 
     if (multi) {
       if (isEmpty(value)) {
-        return FORMAT_VALUE_FULL
+        return FORMAT_VALUE_SIMPLE
       }
 
       return has(value[0], 'value') ? FORMAT_VALUE_FULL : FORMAT_VALUE_SIMPLE
@@ -349,4 +353,6 @@ class Select extends React.Component<SelectProps, SelectState> {
   }
 }
 
-export default withLabel({ padding: 12 })(Select)
+const Select = withLabel({ padding: 12 })(BaseSelect)
+
+export default Select

@@ -8,6 +8,7 @@ export default interface SelectProps extends Input<any> {
   description?: string
   placeholderClassName?: string
   icon?: React.ReactNode
+  valueFormat?: 'full' | 'simple'
 
   annotation?: string
   canReset?: boolean
