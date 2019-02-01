@@ -8,7 +8,7 @@ const COLOR_POPSTAR = '#be3b5d'
 const COLOR_PLATINIUM = '#d0e4e6'
 const COLOR_WHITE = '#fff'
 
-// Thunder colors
+// Spotlight colors
 const COLOR_WHITE_SMOKE = '#f8f7f8'
 const COLOR_SNOW = '#fbf8f7'
 const COLOR_OLD_LACE = '#fcf8e3'

@@ -13,5 +13,9 @@
     "module": "commonjs",
     "esModuleInterop": true
   },
-  "files": ["./src/index.ts", "./src/_thunder.ts"]
+  "files": [
+    "./src/index.ts",
+    "./src/Spotlight/cache",
+    "./src/Spotlight/filter.ts"
+  ]
 }

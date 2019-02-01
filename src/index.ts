@@ -53,6 +53,16 @@ export { default as confirm } from './confirm'
 export { default as notify } from './notify'
 
 /*
+  Spotlight
+ */
+export { default as Spotlight } from './Spotlight'
+export { default as SpotlightSection } from './SpotlightSection'
+export { default as SpotlightItem } from './SpotlightItem'
+export { default as SpotlightSectionTitle } from './SpotlightSectionTitle'
+export { default as SpotlightWelcomeMessage } from './SpotlightWelcomeMessage'
+export { default as SpotlightSectionPlaceholder } from './SpotlightSectionPlaceholder'
+
+/*
   Helpers
  */
 export { default as withLabel } from './withLabel'

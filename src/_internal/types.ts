@@ -4,7 +4,7 @@ export type formOption = { value: any, label: string }
 
 export type formValue = formOption | string | number
 
-export type thunderContext = {
+export type spotlightContext = {
   query: string,
   data: any
 }
