@@ -5,7 +5,7 @@ import { withState } from 'recompose'
 import { withKnobs, boolean } from '@storybook/addon-knobs'
 import { action } from '@storybook/addon-actions'
 
-import Modal from './index'
+import Modal from '.'
 import { longText, regularText } from './Modal.data'
 
 const Container = styled.div`

@@ -5,7 +5,7 @@ import { action } from '@storybook/addon-actions'
 import { withState } from 'recompose'
 
 import Slider from './Slider'
-import colors from '../colors'
+import colors from '../../colors'
 
 const Container = styled.div`
   min-width: 300px;

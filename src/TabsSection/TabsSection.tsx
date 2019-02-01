@@ -2,8 +2,8 @@ import * as React from 'react'
 import styled from 'styled-components'
 import color from 'color'
 
-import colors from '../colors'
-import fontSizes from '../fontSizes'
+import colors from '../../colors'
+import fontSizes from '../../fontSizes'
 
 import TabsSectionProps from './TabsSection.interface'
 

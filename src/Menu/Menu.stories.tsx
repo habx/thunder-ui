@@ -3,9 +3,9 @@ import styled from 'styled-components'
 import { storiesOf } from '@storybook/react'
 import { withKnobs, select, boolean } from '@storybook/addon-knobs'
 
-import Menu from './index'
+import Menu from '.'
 import MenuItem from '../MenuItem'
-import Button from '../Button'
+import Button from '../../Button'
 import FontIcon from '../FontIcon'
 
 const Container = styled.div`

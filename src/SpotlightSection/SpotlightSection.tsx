@@ -2,12 +2,12 @@ import * as React from 'react'
 import { get, map, take, memoize, filter as lodashFilter } from 'lodash'
 
 import { SectionContext } from '../context'
-import SectionTitle from '../SectionTitle'
+import SpotlightSectionTitle from '../SpotlightSectionTitle'
 
-import { SectionInnerProps } from './Section.interface'
-import { SectionContainer } from './Section.style'
+import { SpotlightSectionInnerProps } from './SpotlightSection.interface'
+import { SectionContainer } from './SpotlightSection.style'
 
-class Section extends React.Component<SectionInnerProps> {
+class SpotlightSection extends React.Component<SpotlightSectionInnerProps> {
   getMatchingItems = () => {
     const { spotlight, filter, name } = this.props
     const sectionData = get(spotlight.data, name)
@@ -48,7 +48,7 @@ class Section extends React.Component<SectionInnerProps> {
     return (
       <SectionContext.Provider value={this.buildContext(name)}>
         <SectionContainer>
-          { title && <SectionTitle>{ title }</SectionTitle>}
+          { title && <SpotlightSectionTitle>{ title }</SpotlightSectionTitle>}
           { this.renderContent() }
         </SectionContainer>
       </SectionContext.Provider>
@@ -56,4 +56,4 @@ class Section extends React.Component<SectionInnerProps> {
   }
 }
 
-export default Section
+export default SpotlightSection

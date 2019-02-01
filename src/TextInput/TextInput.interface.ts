@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Input } from '../_internal/types'
+import { Input } from '../../_internal/types'
 
 export default interface TextInputProps extends Input<string | number> {
   rightElement?: React.ReactNode

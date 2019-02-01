@@ -2,9 +2,9 @@ import * as React from 'react'
 import styled from 'styled-components'
 import { storiesOf } from '@storybook/react'
 
-import colors from '../colors'
+import colors from '../../colors'
 
-import NavBar from './index'
+import NavBar from '.'
 import NavBarItem from '../NavBarItem'
 
 const Container = styled.div`

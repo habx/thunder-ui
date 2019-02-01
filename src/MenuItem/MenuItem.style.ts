@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
-import colors from '../colors'
-import fontSizes from '../fontSizes'
+import colors from '../../colors'
+import fontSizes from '../../fontSizes'
 
 export const MenuItemContainer = styled.li`
   display: flex;

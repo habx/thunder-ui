@@ -1,10 +1,10 @@
 import styled from 'styled-components'
 import color from 'color'
 
-import borderRadius from '../borderRadius'
-import fontSizes from '../fontSizes'
+import borderRadius from '../../borderRadius'
+import fontSizes from '../../fontSizes'
 
-import { getMainColor } from '../_internal/colors'
+import { getMainColor } from '../../_internal/colors'
 
 const prepareProps = props => {
   const backgroundColor = getMainColor(props)

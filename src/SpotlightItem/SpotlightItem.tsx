@@ -2,10 +2,10 @@ import * as React from 'react'
 import { omit } from 'lodash'
 
 import FontIcon from '../../FontIcon'
-import Highlight from '../Highlight'
+import Highlight from './Highlight'
 
-import { ItemContainer, ItemContent, ItemTitle, ItemActions, ItemIconContainer, ItemTitleInput, Title, Subtitle } from './Item.style'
-import { ItemInnerProps } from './Item.interface'
+import { ItemContainer, ItemContent, ItemTitle, ItemActions, ItemIconContainer, ItemTitleInput, Title, Subtitle } from './SpotlightItem.style'
+import { ItemInnerProps } from './SpotlightItem.interface'
 
 const INTERNAL_PROPS = [
   'title',
@@ -22,7 +22,7 @@ const INTERNAL_PROPS = [
   'as'
 ]
 
-class Item extends React.PureComponent<ItemInnerProps> {
+class SpotlightItem extends React.PureComponent<ItemInnerProps> {
   private readonly containerRef: { current: HTMLDivElement}
   private readonly inputRef: React.RefObject<any>
   private readonly itemContainerRef: React.RefObject<any>
@@ -201,4 +201,4 @@ class Item extends React.PureComponent<ItemInnerProps> {
   }
 }
 
-export default Item
+export default SpotlightItem

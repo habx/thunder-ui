@@ -2,9 +2,9 @@ import * as React from 'react'
 
 import withItemBehavior from './withItemBehavior'
 
-import BaseItem from './Item'
+import BaseItem from './SpotlightItem'
 
-import ItemProps from './Item.interface'
+import ItemProps from './SpotlightItem.interface'
 
 const Item: React.StatelessComponent<ItemProps> = withItemBehavior(BaseItem)
 

@@ -1,7 +1,7 @@
 import styled, { createGlobalStyle, css } from 'styled-components'
 
-import { FADE_IN } from '../_internal/animations'
-import Card from '../Card'
+import { FADE_IN } from '../../_internal/animations'
+import Card from '../../Card'
 
 export const ANIMATION_DURATION = 300
 

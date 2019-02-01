@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { storiesOf } from '@storybook/react'
 
-import Tabs from './index'
+import Tabs from '.'
 import TabsSection from '../TabsSection'
 import TabsItem from '../TabsItem'
 import TabsSeparator from '../TabsSeparator'

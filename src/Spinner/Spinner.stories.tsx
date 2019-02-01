@@ -1,8 +1,8 @@
 import * as React from 'react'
 import { storiesOf } from '@storybook/react'
 
-import Spinner from './index'
-import colors from '../colors'
+import Spinner from '.'
+import colors from '../../colors'
 
 storiesOf('Miscellaneous/Spinner', module)
   .add('Basic', () => (

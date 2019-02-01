@@ -2,7 +2,7 @@ import * as React from 'react'
 
 import { DOMNode, spotlightContext } from '../../_internal/types'
 
-export default interface SectionProps extends DOMNode {
+export default interface SpotlightSectionProps extends DOMNode {
   name: string,
   title?: React.ReactNode
   maxItems?: number
@@ -11,6 +11,6 @@ export default interface SectionProps extends DOMNode {
   filter?: (query: string, element: any, index: string, elements: Array<any>) => boolean
 }
 
-export interface SectionInnerProps extends SectionProps {
+export interface SpotlightSectionInnerProps extends SpotlightSectionProps {
   spotlight: spotlightContext
 }

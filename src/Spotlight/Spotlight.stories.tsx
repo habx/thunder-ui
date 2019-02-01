@@ -5,10 +5,10 @@ import { filter, map } from 'lodash'
 import { withState } from 'recompose'
 
 import FontIcon from '../FontIcon'
-import { Spotlight, Section, Item, WelcomeMessage } from './index'
+import { Spotlight, Section, Item, WelcomeMessage } from '.'
 import { data, darkTheme } from './Spotlight.data'
 
-import { searchInString } from '../_internal/strings'
+import { searchInString } from '../../_internal/strings'
 
 const withQueryControl = withState('query', 'onQueryChange', 'france')
 

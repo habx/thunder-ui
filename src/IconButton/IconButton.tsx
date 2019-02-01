@@ -1,8 +1,8 @@
 import * as React from 'react'
 import styled from 'styled-components'
 
-import { getHoverColor, getMainColor } from '../_internal/colors'
-import colors from '../colors'
+import { getHoverColor, getMainColor } from '../../_internal/colors'
+import colors from '../../colors'
 
 import IconButtonProps from './IconButton.interface'
 

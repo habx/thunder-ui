@@ -1,7 +1,7 @@
 import * as React from 'react'
 import color from 'color'
 
-import colors from '../colors'
+import colors from '../../colors'
 
 import { Context } from './context'
 

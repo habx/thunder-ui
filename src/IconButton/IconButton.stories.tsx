@@ -3,9 +3,9 @@ import { storiesOf } from '@storybook/react'
 import { withKnobs, boolean } from '@storybook/addon-knobs'
 
 import FontIcon from '../FontIcon'
-import colors from '../colors'
+import colors from '../../colors'
 
-import IconButton from './index'
+import IconButton from '.'
 
 const props = () => ({
   disabled: boolean('Disabled', false),

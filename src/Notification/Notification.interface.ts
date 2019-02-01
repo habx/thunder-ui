@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-import { DOMNode } from '../_internal/types'
+import { DOMNode } from '../../_internal/types'
 
 export default interface NotificationProps extends DOMNode {
   onClose?: () => void

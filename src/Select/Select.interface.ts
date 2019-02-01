@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-import { Input, formOption } from '../_internal/types'
+import { Input, formOption } from '../../_internal/types'
 
 export default interface SelectProps extends Input<any> {
   placeholder?: string

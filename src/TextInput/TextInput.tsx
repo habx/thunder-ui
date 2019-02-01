@@ -1,8 +1,8 @@
 import * as React from 'react'
 
-import colors from '../colors'
-import withLabel from '../withLabel'
-import { getMainColor } from '../_internal/colors'
+import colors from '../../colors'
+import withLabel from '../../withLabel'
+import { getMainColor } from '../../_internal/colors'
 
 import TextInputProps from './TextInput.interface'
 import { InputContainer, Input, InputSpinner, RightElementContainer } from './TextInput.style'

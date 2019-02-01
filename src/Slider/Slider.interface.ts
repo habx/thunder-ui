@@ -1,4 +1,4 @@
-import { Input } from '../_internal/types'
+import { Input } from '../../_internal/types'
 
 export type value = number | number[]
 

@@ -2,9 +2,9 @@ import * as React from 'react'
 import { configure, mount } from 'enzyme'
 import Adapter from 'enzyme-adapter-react-16'
 
-import Menu from './index'
+import Menu from '.'
 import MenuItem from '../MenuItem'
-import Button from '../Button'
+import Button from '../../Button'
 
 configure({ adapter: new Adapter() })
 

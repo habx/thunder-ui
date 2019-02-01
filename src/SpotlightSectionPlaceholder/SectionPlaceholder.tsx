@@ -1,9 +1,9 @@
 import * as React from 'react'
 import styled from 'styled-components'
 
-import SectionPlaceholderProps from './SectionPlaceholder.interface'
+import { DOMNode } from '../../_internal/types'
 
-const SectionPlaceholder: React.StatelessComponent<SectionPlaceholderProps> = styled.div`
+const SectionPlaceholder: React.StatelessComponent<DOMNode> = styled.div`
   display: flex;
   justify-content: center;
   margin-bottom: 16px;

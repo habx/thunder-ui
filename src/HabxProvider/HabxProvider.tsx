@@ -1,7 +1,7 @@
 import * as React from 'react'
 
-import ConfirmModals from '../confirm/ConfirmModals'
-import NotificationList from '../notify/NotificationList'
+import ConfirmModals from '../../events/confirm/ConfirmModals'
+import NotificationList from '../../events/notify/NotificationList'
 
 class HabxProvider extends React.Component<any> {
   render () {

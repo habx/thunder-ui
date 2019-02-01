@@ -1,4 +1,4 @@
-import { DOMNode } from '../_internal/types'
+import { DOMNode } from '../../_internal/types'
 
 export default interface SpinnerProps extends DOMNode {
   size?: number

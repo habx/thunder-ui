@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react'
 import { withState } from 'recompose'
 
 import RadioSelect from './RadioSelect'
-import colors from '../colors'
+import colors from '../../colors'
 
 const SIMPLE_OPTIONS = [
   { value: 0, label: 'Aucune' },

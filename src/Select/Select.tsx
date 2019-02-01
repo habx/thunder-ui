@@ -2,12 +2,12 @@ import * as React from 'react'
 import { find, filter, findIndex, isEmpty, map, get, some, omit, has } from 'lodash'
 
 import FontIcon from '../FontIcon'
-import withLabel from '../withLabel'
+import withLabel from '../../withLabel'
 
-import { searchInString } from '../_internal/strings'
-import { formOption } from '../_internal/types'
-import { getMainColor } from '../_internal/colors'
-import colors from '../colors'
+import { searchInString } from '../../_internal/strings'
+import { formOption } from '../../_internal/types'
+import { getMainColor } from '../../_internal/colors'
+import colors from '../../colors'
 
 import Options from './Options'
 

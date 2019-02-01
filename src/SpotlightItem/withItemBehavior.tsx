@@ -1,7 +1,8 @@
 import * as React from 'react'
 import { omit, pick, mapValues, memoize } from 'lodash'
 
-import { withSpotlightContext, withSectionContext } from '../context'
+import { withSpotlightContext } from '../Spotlight.context'
+import { withSpotlightSectionContext } from '../../SpotlightSection/SpotlightSection.context'
 
 const ACTIONS = ['onClick', 'onFocus', 'onBlur']
 
@@ -91,4 +92,4 @@ const withItemBehavior = WrappedComponent => class Wrapper extends React.Compone
   }
 }
 
-export default Wrapped => withSectionContext(withSpotlightContext(withItemBehavior(Wrapped)))
+export default Wrapped => withSpotlightSectionContext(withSpotlightContext(withItemBehavior(Wrapped)))

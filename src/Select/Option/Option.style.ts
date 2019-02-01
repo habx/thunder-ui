@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
-import fontSizes from '../../fontSizes'
-import colors from '../../colors'
+import fontSizes from '../../../fontSizes'
+import colors from '../../../colors'
 
 export const OptionContainer = styled.div`
   transition: background-color ease-in 150ms;

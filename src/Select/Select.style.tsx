@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components'
 
-import colors from '../colors'
-import fontSizes from '../fontSizes'
+import colors from '../../colors'
+import fontSizes from '../../fontSizes'
 
 import FontIcon from '../FontIcon'
 

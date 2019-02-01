@@ -2,8 +2,8 @@ import * as React from 'react'
 import BaseSlider, { Range } from 'rc-slider'
 import { omit } from 'lodash'
 
-import withLabel from '../withLabel'
-import { getMainColor } from '../_internal/colors'
+import withLabel from '../../withLabel'
+import { getMainColor } from '../../_internal/colors'
 
 import { SliderContainer, Label } from './Slider.style'
 import SliderProps from './Slider.interface'

@@ -1,8 +1,8 @@
 import styled from 'styled-components'
 
-import shadows from '../../shadows'
-import colors from '../../colors'
-import fontSizes from '../../fontSizes'
+import shadows from '../../../shadows'
+import colors from '../../../colors'
+import fontSizes from '../../../fontSizes'
 
 export const OptionsContainer = styled.div`
   box-shadow: ${shadows.light};
