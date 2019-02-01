@@ -1,14 +1,11 @@
 import * as React from 'react'
-import { configure, mount } from 'enzyme'
-import Adapter from 'enzyme-adapter-react-16'
+import { mount } from 'enzyme'
 import sinon from 'sinon'
 
 import { BaseSelect as Select } from './Select'
 import Option from './Option'
 import { Placeholder, SelectContent, ResetIcon } from './Select.style'
 import { longData } from './Select.data'
-
-configure({ adapter: new Adapter() })
 
 describe('Select component', () => {
   let wrapper = null

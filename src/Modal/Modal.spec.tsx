@@ -1,11 +1,9 @@
 import * as React from 'react'
-import { configure, mount } from 'enzyme'
-import Adapter from 'enzyme-adapter-react-16'
+import { mount } from 'enzyme'
 import sinon from 'sinon'
 
 import Modal from './index'
 
-configure({ adapter: new Adapter() })
 jest.useFakeTimers()
 
 describe('Modal component', () => {
