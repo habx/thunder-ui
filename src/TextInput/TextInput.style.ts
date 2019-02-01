@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components'
 
 import { FontIconContainer } from '../FontIcon/FontIcon.style'
 import Spinner from '../Spinner'
-import fontSizes from '../../fontSizes'
+import fontSizes from '../fontSizes'
 
 export const InputContainer = styled.div`
   position: relative;

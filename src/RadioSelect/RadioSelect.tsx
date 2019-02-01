@@ -1,8 +1,8 @@
 import * as React from 'react'
 import { map, includes, filter, isEmpty } from 'lodash'
 
-import withLabel from '../../withLabel'
-import { getMainColor } from '../../_internal/colors'
+import withLabel from '../withLabel'
+import { getMainColor } from '../_internal/colors'
 
 import { RadioSelectContainer, RadioSelectElement } from './RadioSelect.style'
 import RadioSelectProps from './RadioSelect.interface'

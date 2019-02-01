@@ -1,6 +1,6 @@
 import { get as lodashGet } from 'lodash'
 
-import colors from '../../colors'
+import colors from '../colors'
 
 export const DEFAULT_THEME = {
   background: colors.white,

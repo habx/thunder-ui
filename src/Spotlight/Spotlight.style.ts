@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { get } from '../theme'
+import { get } from './theme'
 
 export const SpotlightModalContainer = styled.div`
   background-color: rgba(0,0,0, ${get('modal.overlayOpacity')});

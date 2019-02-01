@@ -1,8 +1,8 @@
 import * as React from 'react'
 import { omit, pick, mapValues, memoize } from 'lodash'
 
-import { withSpotlightContext } from '../Spotlight.context'
-import { withSpotlightSectionContext } from '../../SpotlightSection/SpotlightSection.context'
+import { withSpotlightContext } from '../Spotlight/Spotlight.context'
+import { withSpotlightSectionContext } from '../SpotlightSection/SpotlightSection.context'
 
 const ACTIONS = ['onClick', 'onFocus', 'onBlur']
 

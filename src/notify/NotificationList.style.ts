@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import BaseNotification from '../../Notification'
+import BaseNotification from '../Notification'
 
 export const ANIMATION_DURATION = 500
 

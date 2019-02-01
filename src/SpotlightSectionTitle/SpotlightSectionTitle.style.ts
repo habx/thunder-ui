@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { get } from '../theme'
+import { get } from '../Spotlight/theme'
 
 export const SectionTitleContainer = styled.div`
   padding: 16px 32px;

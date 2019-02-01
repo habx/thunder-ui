@@ -3,7 +3,7 @@ import { configure, mount } from 'enzyme'
 import Adapter from 'enzyme-adapter-react-16'
 import sinon from 'sinon'
 
-import Modal from '.'
+import Modal from './index'
 
 configure({ adapter: new Adapter() })
 jest.useFakeTimers()

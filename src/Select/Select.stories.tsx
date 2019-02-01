@@ -4,7 +4,7 @@ import { action } from '@storybook/addon-actions'
 import { withState } from 'recompose'
 
 import FontIcon from '../FontIcon'
-import Select from '.'
+import Select from './index'
 import { longData, shortData } from './Select.data'
 
 const SelectWithState = ({ value = null, ...props }) => {

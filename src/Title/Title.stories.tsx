@@ -2,9 +2,9 @@ import * as React from 'react'
 import { storiesOf } from '@storybook/react'
 import { withKnobs, text, boolean, select } from '@storybook/addon-knobs'
 
-import Title from '.'
+import Title from './index'
 
-import colors from '../../colors'
+import colors from '../colors'
 
 const sizes = { 'Title 1': 1, 'Title 2': 2, 'Title 3': 3, 'Title 4': 4 }
 

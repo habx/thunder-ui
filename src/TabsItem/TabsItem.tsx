@@ -3,8 +3,8 @@ import styled, { css } from 'styled-components'
 import colorUtil from 'color'
 import tag from 'clean-tag'
 
-import colors from '../../colors'
-import fontSizes from '../../fontSizes'
+import colors from '../colors'
+import fontSizes from '../fontSizes'
 
 import { withContext } from '../Tabs/context'
 

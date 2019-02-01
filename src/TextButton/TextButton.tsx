@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components'
 
-import fontSizes from '../../fontSizes'
-import { getMainColor, getHoverColor } from '../../_internal/colors'
+import fontSizes from '../fontSizes'
+import { getMainColor, getHoverColor } from '../_internal/colors'
 
 import TextButtonProps from './TextButton.interface'
 

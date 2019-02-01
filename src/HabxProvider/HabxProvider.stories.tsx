@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { storiesOf } from '@storybook/react'
 import { map } from 'lodash'
 
-import colors from '../../colors'
+import colors from '../colors'
 
 const Container = styled.div`
   display: flex;

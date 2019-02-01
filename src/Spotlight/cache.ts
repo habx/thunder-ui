@@ -1,4 +1,4 @@
-const KEY_PREFIX = 'spotlight.'
+const KEY_PREFIX = 'thunder.'
 
 export const getItems = key => JSON.parse(window.localStorage.getItem(`${KEY_PREFIX}${key}`))
 

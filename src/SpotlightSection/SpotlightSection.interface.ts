@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-import { DOMNode, spotlightContext } from '../../_internal/types'
+import { DOMNode, spotlightContext } from '../_internal/types'
 
 export default interface SpotlightSectionProps extends DOMNode {
   name: string,

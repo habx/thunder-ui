@@ -1,11 +1,11 @@
 import * as React from 'react'
 import { map, get, memoize, filter } from 'lodash'
 
-import { subscribe, types } from '../../HabxProvider/HabxProvider.events'
+import { subscribe, types } from '../HabxProvider/HabxProvider.events'
 
-import Button from '../../Button'
-import Modal from '../../Modal'
-import { ANIMATION_DURATION } from '../../Modal/Modal.style'
+import Button from '../Button'
+import Modal from '../Modal'
+import { ANIMATION_DURATION } from '../Modal/Modal.style'
 
 import ConfirmModalProps, { ConfirmModalsState } from './ConfirmModals.interface'
 import { ConfirmModalContainer, ConfirmModalContent, ConfirmModalActions } from './ConfirmModals.style'

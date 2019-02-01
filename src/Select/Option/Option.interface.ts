@@ -1,4 +1,4 @@
-import { DOMNode } from '../../../_internal/types'
+import { DOMNode } from '../../_internal/types'
 
 export default interface OptionProps extends DOMNode {
   focused: boolean

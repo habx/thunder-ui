@@ -2,8 +2,8 @@ import * as React from 'react'
 import { isBoolean, isString, isFunction, merge } from 'lodash'
 import { withTheme, ThemeProvider } from 'styled-components'
 
-import SpotlightContent from '../../SpotlightContent'
-import { DEFAULT_THEME } from '../theme'
+import SpotlightContent from '../SpotlightContent'
+import { DEFAULT_THEME } from './theme'
 
 import { SpotlightModalContainer, SpotlightModal } from './Spotlight.style'
 import SpotlightProps, { SpotlightInnerProps } from './Spotlight.interface'
@@ -12,7 +12,7 @@ const DOUBLE_KEY_PRESS_DURATION = 200
 
 const stopEvent = e => e.stopPropagation()
 
-export default class BaseSpotlight extends React.Component<SpotlightInnerProps> {
+class BaseSpotlight extends React.Component<SpotlightInnerProps> {
   private readonly modalRef: React.RefObject<any>
   private readonly inputRef: React.RefObject<any>
   private lastOpenKeyPress: number = 0

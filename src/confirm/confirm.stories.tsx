@@ -2,10 +2,10 @@ import * as React from 'react'
 import { storiesOf } from '@storybook/react'
 import { action } from '@storybook/addon-actions'
 
-import confirm from '.'
+import confirm from './index'
 
-import HabxProvider from '../../HabxProvider'
-import Button from '../../Button'
+import HabxProvider from '../HabxProvider'
+import Button from '../Button'
 
 const habxProvider = storyFn => (
   <HabxProvider>

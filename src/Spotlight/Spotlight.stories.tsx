@@ -5,10 +5,14 @@ import { filter, map } from 'lodash'
 import { withState } from 'recompose'
 
 import FontIcon from '../FontIcon'
-import { Spotlight, Section, Item, WelcomeMessage } from '.'
+import SpotlightItem from '../SpotlightItem'
+import SpotlightWelcomeMessage from '../SpotlightWelcomeMessage'
+import SpotlightSection from '../SpotlightSection'
+
+import Spotlight from './index'
 import { data, darkTheme } from './Spotlight.data'
 
-import { searchInString } from '../../_internal/strings'
+import { searchInString } from '../_internal/strings'
 
 const withQueryControl = withState('query', 'onQueryChange', 'france')
 
@@ -16,7 +20,7 @@ const BasicSection: React.StatelessComponent<any> = ({ query }) => (
   <React.Fragment>
     {map(
       filter(data.countries, country => searchInString(country, query)),
-      (country: string, index) => <Item key={country} title={country} index={index} />
+      (country: string, index) => <SpotlightItem key={country} title={country} index={index} />
     )}
   </React.Fragment>
 )
@@ -24,10 +28,10 @@ const BasicSection: React.StatelessComponent<any> = ({ query }) => (
 storiesOf('Spotlight/spotlight options', module)
   .add('basic uncontrolled', () => (
     <Spotlight open data={data}>
-      <Section
+      <SpotlightSection
         name='countries'
         filter={(query, country) => searchInString(country, query)}
-        renderItem={(country, index) => <Item key={country} title={country} index={index} />}
+        renderItem={(country, index) => <SpotlightItem key={country} title={country} index={index} />}
       />
     </Spotlight>
   ))
@@ -36,10 +40,10 @@ storiesOf('Spotlight/spotlight options', module)
 
     return (
       <ControlledSpotlight open data={data}>
-        <Section
+        <SpotlightSection
           name='countries'
           filter={(query, country) => searchInString(country, query)}
-          renderItem={(country, index) => <Item key={country} title={country} index={index} />}
+          renderItem={(country, index) => <SpotlightItem key={country} title={country} index={index} />}
           maxItems={5}
         />
       </ControlledSpotlight>
@@ -47,19 +51,19 @@ storiesOf('Spotlight/spotlight options', module)
   })
   .add('with custom theme', () => (
     <Spotlight open data={data} theme={darkTheme}>
-      <Section
+      <SpotlightSection
         name='countries'
         filter={(query, country) => searchInString(country, query)}
-        renderItem={(country, index) => <Item key={country} title={country} index={index} />}
+        renderItem={(country, index) => <SpotlightItem key={country} title={country} index={index} />}
       />
     </Spotlight>
   ))
   .add('with custom placeholder', () => (
     <Spotlight open data={data} placeholder='Where do you want to go on holiday ?'>
-      <Section
+      <SpotlightSection
         name='countries'
         filter={(query, country) => searchInString(country, query)}
-        renderItem={(country, index) => <Item key={country} title={country} index={index} />}
+        renderItem={(country, index) => <SpotlightItem key={country} title={country} index={index} />}
       />
     </Spotlight>
   ))
@@ -67,22 +71,22 @@ storiesOf('Spotlight/spotlight options', module)
 storiesOf('Spotlight/section options', module)
   .add('with 5 items max', () => (
     <Spotlight open data={data}>
-      <Section
+      <SpotlightSection
         name='countries'
         filter={(query, country) => searchInString(country, query)}
-        renderItem={(country, index) => <Item key={country} title={country} index={index} />}
+        renderItem={(country, index) => <SpotlightItem key={country} title={country} index={index} />}
         maxItems={5}
       />
     </Spotlight>
   ))
   .add('with title', () => (
     <Spotlight open data={data}>
-      <Section
+      <SpotlightSection
         name='countries'
         title='Countries'
         filter={(query, country) => searchInString(country, query)}
         renderItem={(country, index) => (
-          <Item
+          <SpotlightItem
             key={country}
             title={country}
             index={index}
@@ -94,18 +98,18 @@ storiesOf('Spotlight/section options', module)
   ))
   .add('with custom section', () => (
     <Spotlight open data={data}>
-      <Section name='countries' render={props => <BasicSection {...props} />} />
+      <SpotlightSection name='countries' render={props => <BasicSection {...props} />} />
     </Spotlight>
   ))
 
 storiesOf('Spotlight/item options', module)
   .add('with icons', () => (
     <Spotlight open data={data}>
-      <Section
+      <SpotlightSection
         name='countries'
         filter={(query, country) => searchInString(country, query)}
         renderItem={(country, index) => (
-          <Item
+          <SpotlightItem
             key={country}
             title={country}
             index={index}
@@ -118,11 +122,11 @@ storiesOf('Spotlight/item options', module)
   ))
   .add('with subtitle', () => (
     <Spotlight open data={data}>
-      <Section
+      <SpotlightSection
         name='countries'
         filter={(query, country) => searchInString(country, query)}
         renderItem={(country, index) => (
-          <Item
+          <SpotlightItem
             key={country}
             title={country}
             index={index}
@@ -136,11 +140,11 @@ storiesOf('Spotlight/item options', module)
   ))
   .add('with custom onClick', () => (
     <Spotlight open data={data}>
-      <Section
+      <SpotlightSection
         name='countries'
         filter={(query, country) => searchInString(country, query)}
         renderItem={(country, index) => (
-          <Item
+          <SpotlightItem
             key={country}
             title={country}
             index={index}
@@ -153,11 +157,11 @@ storiesOf('Spotlight/item options', module)
   ))
   .add('with href', () => (
     <Spotlight open data={data}>
-      <Section
+      <SpotlightSection
         name='countries'
         filter={(query, country) => searchInString(country, query)}
         renderItem={(country, index) => (
-          <Item
+          <SpotlightItem
             key={country}
             title={country}
             index={index}
@@ -171,11 +175,11 @@ storiesOf('Spotlight/item options', module)
   ))
   .add('with onEdit and onDelete', () => (
     <Spotlight open data={data}>
-      <Section
+      <SpotlightSection
         name='countries'
         filter={(query, country) => searchInString(country, query)}
         renderItem={(country, index) => (
-          <Item
+          <SpotlightItem
             key={country}
             title={country}
             index={index}
@@ -191,8 +195,8 @@ storiesOf('Spotlight/item options', module)
 storiesOf('Spotlight/welcome message', module)
   .add('basic', () => (
     <Spotlight open>
-      <WelcomeMessage>
+      <SpotlightWelcomeMessage>
         This is a welcome message on the Spotlight
-      </WelcomeMessage>
+      </SpotlightWelcomeMessage>
     </Spotlight>
   ))

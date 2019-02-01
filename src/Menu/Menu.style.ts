@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
-import shadows from '../../shadows'
-import borderRadius from '../../borderRadius'
+import shadows from '../shadows'
+import borderRadius from '../borderRadius'
 
 const prepareProps = ({ position }) => ({
   left: ['left', 'top-left'].includes(position) ? '4px' : 'unset',

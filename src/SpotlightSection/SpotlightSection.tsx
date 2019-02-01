@@ -1,13 +1,14 @@
 import * as React from 'react'
 import { get, map, take, memoize, filter as lodashFilter } from 'lodash'
 
-import { SectionContext } from '../context'
 import SpotlightSectionTitle from '../SpotlightSectionTitle'
+import { withSpotlightContext } from '../Spotlight/Spotlight.context'
 
-import { SpotlightSectionInnerProps } from './SpotlightSection.interface'
+import SpotlightSectionProps, { SpotlightSectionInnerProps } from './SpotlightSection.interface'
 import { SectionContainer } from './SpotlightSection.style'
+import { SpotlightSectionContext } from './SpotlightSection.context'
 
-class SpotlightSection extends React.Component<SpotlightSectionInnerProps> {
+class BaseSpotlightSection extends React.Component<SpotlightSectionInnerProps> {
   getMatchingItems = () => {
     const { spotlight, filter, name } = this.props
     const sectionData = get(spotlight.data, name)
@@ -46,14 +47,16 @@ class SpotlightSection extends React.Component<SpotlightSectionInnerProps> {
     const { title, name } = this.props
 
     return (
-      <SectionContext.Provider value={this.buildContext(name)}>
+      <SpotlightSectionContext.Provider value={this.buildContext(name)}>
         <SectionContainer>
           { title && <SpotlightSectionTitle>{ title }</SpotlightSectionTitle>}
           { this.renderContent() }
         </SectionContainer>
-      </SectionContext.Provider>
+      </SpotlightSectionContext.Provider>
     )
   }
 }
+
+const SpotlightSection: React.StatelessComponent<SpotlightSectionProps> = withSpotlightContext(BaseSpotlightSection)
 
 export default SpotlightSection

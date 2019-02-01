@@ -1,8 +1,8 @@
 import * as React from 'react'
 import styled, { css } from 'styled-components'
 
-import { getMainColor } from '../../_internal/colors'
-import colors from '../../colors'
+import { getMainColor } from '../_internal/colors'
+import colors from '../colors'
 
 import TitleProps from './Title.interface'
 

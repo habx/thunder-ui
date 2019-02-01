@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-import CardProps from '../../Card/Card.interface'
+import CardProps from '../Card/Card.interface'
 
 interface InjectedRenderProps {
   state: 'opened' | 'closed' | 'opening' | 'closing'

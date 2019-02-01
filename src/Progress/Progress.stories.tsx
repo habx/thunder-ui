@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { storiesOf } from '@storybook/react'
 
-import colors from '../../colors'
+import colors from '../colors'
 
 import Progress from '.'
 

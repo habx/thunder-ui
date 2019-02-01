@@ -2,9 +2,9 @@ import * as React from 'react'
 import { storiesOf } from '@storybook/react'
 import { withKnobs, boolean } from '@storybook/addon-knobs'
 
-import colors from '../../colors'
+import colors from '../colors'
 
-import TextButton from '.'
+import TextButton from './index'
 
 const props = () => ({
   disabled: boolean('Disabled', false),

@@ -1,7 +1,7 @@
 import * as React from 'react'
 import styled from 'styled-components'
 
-import { DOMNode } from '../../_internal/types'
+import { DOMNode } from '../_internal/types'
 
 const SectionPlaceholder: React.StatelessComponent<DOMNode> = styled.div`
   display: flex;

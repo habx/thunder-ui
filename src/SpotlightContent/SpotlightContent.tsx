@@ -1,11 +1,11 @@
 import * as React from 'react'
 import { get, orderBy, omit, head, reduce } from 'lodash'
 
-import { SpotlightContext } from '../context'
+import { SpotlightContext } from '../Spotlight/Spotlight.context'
 import SpotlightIcon from './icon'
 import { SpotlightSearch, SpotlightSections } from './SpotlightContent.style'
 
-export default class SpotlightContent extends React.Component<any> {
+class SpotlightContent extends React.Component<any> {
   static defaultProps = {
     data: {},
     placeholder: 'Aller à...'
@@ -125,3 +125,5 @@ export default class SpotlightContent extends React.Component<any> {
     )
   }
 }
+
+export default SpotlightContent

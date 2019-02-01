@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-import { DOMNode } from '../../_internal/types'
+import { DOMNode } from '../_internal/types'
 
 type themeType = {
   background?: string

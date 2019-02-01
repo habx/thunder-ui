@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { omit } from 'lodash'
 
-import FontIcon from '../../FontIcon'
+import FontIcon from '../FontIcon'
 import Highlight from './Highlight'
 
 import { ItemContainer, ItemContent, ItemTitle, ItemActions, ItemIconContainer, ItemTitleInput, Title, Subtitle } from './SpotlightItem.style'
