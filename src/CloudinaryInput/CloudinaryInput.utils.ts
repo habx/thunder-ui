@@ -4,8 +4,6 @@ import { ACECloudinaryImage } from './Image/Image.interface'
 
 const CLOUDINARY_IMAGE_ROOT = `//res.cloudinary.com/habx/image/upload`
 
-
-
 const PARAM_TABLE = {
   crop: {
     key: 'c'
