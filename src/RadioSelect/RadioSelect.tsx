@@ -1,5 +1,6 @@
 import * as React from 'react'
 import { map, includes, filter, isEmpty } from 'lodash'
+import { withTheme } from 'styled-components'
 
 import withLabel from '../withLabel'
 import { getMainColor } from '../_internal/colors'
@@ -81,4 +82,4 @@ RadioSelect.defaultProps = {
   value: null
 }
 
-export default withLabel({ padding: 12 })(RadioSelect)
+export default withLabel({ padding: 12 })(withTheme(RadioSelect))

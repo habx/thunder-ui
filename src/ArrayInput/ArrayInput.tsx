@@ -10,12 +10,12 @@ import Item from './Item'
 
 import ArrayInputProps, { ArrayInputState } from './ArrayInput.interface'
 import { ArrayInputContainer, ArrayInputAction } from './ArrayInput.style'
+import {getMainColor} from '../_internal/colors'
 
 class ArrayInput extends React.Component<ArrayInputProps, ArrayInputState> {
   static defaultProps = {
     addButtonLabel: 'Ajouter un élément',
-    canBeReordered: false,
-    iconColor: colors.maastrichtBlue
+    canBeReordered: false
   }
 
   static getDerivedStateFromProps (nextProps, prevState) {
@@ -52,13 +52,14 @@ class ArrayInput extends React.Component<ArrayInputProps, ArrayInputState> {
 
   buildContext () {
     return {
-      ...pick(this.props, ['itemTitleComponent', 'itemDescriptionComponent', 'itemComponent', 'canBeReordered', 'disabled', 'iconColor']),
+      ...pick(this.props, ['itemTitleComponent', 'itemDescriptionComponent', 'itemComponent', 'canBeReordered', 'disabled']),
       ...pick(this.state, ['editing']),
       amount: this.props.items.length,
       onOpen: this.handleEditStart,
       onClose: this.handleEditStop,
       onDelete: this.handleDelete,
-      onReorder: this.handleReorder
+      onReorder: this.handleReorder,
+      iconColor: getMainColor(this.props, { themeKey: 'neutralDark', propName: 'iconColor' })
     }
   }
 

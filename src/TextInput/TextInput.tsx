@@ -1,13 +1,13 @@
 import * as React from 'react'
+import { withTheme } from 'styled-components'
 
-import colors from '../colors'
 import withLabel from '../withLabel'
 import { getMainColor } from '../_internal/colors'
 
 import TextInputProps from './TextInput.interface'
 import { InputContainer, Input, InputSpinner, RightElementContainer } from './TextInput.style'
 
-const TextInput: React.StatelessComponent<TextInputProps> = props => {
+const BaseTextInput: React.StatelessComponent<TextInputProps> = props => {
   const {
     onChange,
     value,
@@ -22,9 +22,8 @@ const TextInput: React.StatelessComponent<TextInputProps> = props => {
   } = props
 
   const colorProps = {
-    color: getMainColor(props, 'color', colors.paynesGrey),
-    borderColor: getMainColor(props, 'borderColor', 'transparent'),
-    activeBorderColor: getMainColor(props, 'activeBorderColor', colors.paynesGrey)
+    color: getMainColor(props, { themeKey: 'neutralDark' }),
+    placeholderColor: getMainColor(props, { themeKey: 'neutral', customizable: false })
   }
 
   return (
@@ -58,8 +57,10 @@ const TextInput: React.StatelessComponent<TextInputProps> = props => {
   )
 }
 
-TextInput.defaultProps = {
+BaseTextInput.defaultProps = {
   onChange: () => null
 }
+
+const TextInput: React.StatelessComponent<TextInputProps> = withTheme(BaseTextInput)
 
 export default withLabel()(TextInput)

@@ -1,4 +1,4 @@
-import { dispatch, types } from '../HabxProvider/HabxProvider.events'
+import { dispatch, types } from '../ThunderProvider/ThunderProvider.events'
 
 import { NotificationOptions } from './NotificationList.interface'
 

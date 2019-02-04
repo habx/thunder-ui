@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
-import colors from '../colors'
 import fontSizes from '../fontSizes'
+import { getMainColor } from '../_internal/colors'
 
 export const MenuItemContainer = styled.li`
   display: flex;
@@ -13,12 +13,12 @@ export const MenuItemContainer = styled.li`
 
   font-size: ${fontSizes.small};
   white-space: nowrap;
-  color: ${colors.paynesGrey};
+  color: ${props => getMainColor(props, { themeKey: 'neutral' })};
 
   transition: background-color ease-in-out 150ms;
 
   &:hover {
-    background-color: ${colors.snow};
+    background-color: ${props => getMainColor(props, { themeKey: 'neutralLight' })};
   }
 `
 

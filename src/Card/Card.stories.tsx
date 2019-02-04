@@ -32,7 +32,7 @@ const props = () => ({
   onClick: action('onClick'),
 })
 
-storiesOf('Miscellaneous/Card', module)
+storiesOf('Layouts/Card', module)
   .addDecorator(withKnobs)
   .add('full example', () => (
     <Card {...props()}>

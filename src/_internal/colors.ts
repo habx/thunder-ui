@@ -17,20 +17,28 @@ export const generateColorFromSeed = seed => {
   return `#${rgbCode}`
 }
 
-export const getMainColor = (props, propName = 'color', defaultColor = colors.trueBlue) => {
-  if (props[propName]) {
+export const getMainColor = (props, config: { propName?: string, themeKey?: string, customizable?: boolean } = {}) => {
+  const { propName = 'color', themeKey = 'primary', customizable = true } = config
+
+  if (customizable && props[propName]) {
     return props[propName]
   }
 
-  if (props.warning) {
-    return colors.internationalOrange
+  const { warning, error, theme: { thunderUI = {} } = {} } = props
+
+  if (warning) {
+    return thunderUI.warning
   }
 
-  if (props.error) {
-    return colors.popstar
+  if (error) {
+    return thunderUI.error
   }
 
-  return defaultColor
+  if (themeKey === 'transparent') {
+    return 'transparent'
+  }
+
+  return thunderUI[themeKey]
 }
 
 export const getHoverColor = (baseColor, props, propName = 'hoverColor') => {

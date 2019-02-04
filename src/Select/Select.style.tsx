@@ -49,7 +49,7 @@ export const SearchInput = styled.input.attrs(() => ({
   border: none;
   padding: 0;
   background: none;
-  color: ${colors.maastrichtBlue};
+  color: ${({ color }) => color};
   font-size: inherit;
   align-self: stretch;
   min-width: 0;

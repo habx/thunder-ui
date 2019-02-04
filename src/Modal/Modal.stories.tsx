@@ -17,7 +17,7 @@ const props = () => ({
   onClose: action('onClose')
 })
 
-storiesOf('Miscellaneous/Modal', module)
+storiesOf('Layouts/Modal', module)
   .addDecorator(withKnobs)
   .add('full example', () => (
     <Modal {...props()} title='Concerning Hobbits' subtitle='Chapter 1'>

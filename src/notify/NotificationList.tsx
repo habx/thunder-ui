@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { map, memoize, filter, get } from 'lodash'
 
-import { subscribe, types } from '../HabxProvider/HabxProvider.events'
+import { subscribe, types } from '../ThunderProvider/ThunderProvider.events'
 
 import NotificationListProps, { NotificationListState } from './NotificationList.interface'
 import { NotificationListContainer, Notification, ANIMATION_DURATION } from './NotificationList.style'

@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { map, get, memoize, filter } from 'lodash'
 
-import { subscribe, types } from '../HabxProvider/HabxProvider.events'
+import { subscribe, types } from '../ThunderProvider/ThunderProvider.events'
 
 import Button from '../Button'
 import Modal from '../Modal'
