@@ -1,18 +1,22 @@
 import * as React from 'react'
 import styled from 'styled-components'
 
-import colors from './colors'
 import fontSizes from './fontSizes'
+import { getMainColor } from './_internal/colors'
 
 const FieldWithLabelContainer = styled.div`
   display: flex;
   flex-direction: column;
 `
 
-const LabelContainer = styled.div`
+const prepareProps = props => ({
+  color: getMainColor(props, { themeKey: 'neutral' })
+})
+
+const LabelContainer = styled.div.attrs(prepareProps)`
   font-size: ${fontSizes.tiny};
   font-weight: 500;
-  color: ${({ color }) => color || colors.paynesGrey};
+  color: ${({ color }) => color };
   user-select: none;
 
   padding-bottom: ${({ padding }) => padding}px;

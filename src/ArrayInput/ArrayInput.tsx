@@ -3,7 +3,7 @@ import { map, pick } from 'lodash'
 
 import withLabel from '../withLabel'
 import TextButton from '../TextButton'
-import colors from '../colors'
+import { getMainColor } from '../_internal/colors'
 
 import { ArrayContext } from './context'
 import Item from './Item'
@@ -14,8 +14,7 @@ import { ArrayInputContainer, ArrayInputAction } from './ArrayInput.style'
 class ArrayInput extends React.Component<ArrayInputProps, ArrayInputState> {
   static defaultProps = {
     addButtonLabel: 'Ajouter un élément',
-    canBeReordered: false,
-    iconColor: colors.maastrichtBlue
+    canBeReordered: false
   }
 
   static getDerivedStateFromProps (nextProps, prevState) {
@@ -52,13 +51,14 @@ class ArrayInput extends React.Component<ArrayInputProps, ArrayInputState> {
 
   buildContext () {
     return {
-      ...pick(this.props, ['itemTitleComponent', 'itemDescriptionComponent', 'itemComponent', 'canBeReordered', 'disabled', 'iconColor']),
+      ...pick(this.props, ['itemTitleComponent', 'itemDescriptionComponent', 'itemComponent', 'canBeReordered', 'disabled']),
       ...pick(this.state, ['editing']),
       amount: this.props.items.length,
       onOpen: this.handleEditStart,
       onClose: this.handleEditStop,
       onDelete: this.handleDelete,
-      onReorder: this.handleReorder
+      onReorder: this.handleReorder,
+      iconColor: getMainColor(this.props, { themeKey: 'neutralDark', propName: 'iconColor' })
     }
   }
 

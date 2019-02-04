@@ -43,27 +43,24 @@ export const Input = styled.input`
   padding: 2px 0;
   width: 100%;
   font-size: ${({ small }) => small ? fontSizes.small : fontSizes.regular};
+  color: ${({ color }) => color};
   line-height: 1.5;
   transition: border-bottom-color 150ms ease-in-out;
 
   background-color: transparent;
-  border-bottom: 1px solid ${({ borderColor }) => borderColor};
-
-  &:hover {
-    border-bottom-color: ${({ borderColor }) => borderColor};
-  }
+  border-bottom: 1px solid transparent;
 
   &::placeholder {
     opacity: 0.5;
-    color: ${({ color }) => color};
+    color: ${({ placeholderColor }) => placeholderColor};
   }
 
   &:disabled {
-    color: ${({ color }) => color};
+    color: ${({ placeholderColor }) => placeholderColor};
     border-bottom-color: transparent;
   }
 
   &:not(:disabled):focus {
-    border-bottom-color: ${({ activeBorderColor }) => activeBorderColor};
+    border-bottom-color: ${({ color }) => color};
   }
 `

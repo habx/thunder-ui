@@ -2,7 +2,6 @@ import * as React from 'react'
 import styled from 'styled-components'
 
 import { getHoverColor, getMainColor } from '../_internal/colors'
-import colors from '../colors'
 
 import IconButtonProps from './IconButton.interface'
 
@@ -19,7 +18,7 @@ const getDiameter = props => {
 }
 
 const prepareProps = props => {
-  const color = getMainColor(props, 'color', colors.trueBlue)
+  const color = getMainColor(props)
 
   return {
     color,

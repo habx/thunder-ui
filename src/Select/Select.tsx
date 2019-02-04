@@ -1,4 +1,5 @@
 import * as React from 'react'
+import { withTheme } from 'styled-components'
 import { find, filter, findIndex, isEmpty, map, get, some, omit, has } from 'lodash'
 
 import FontIcon from '../FontIcon'
@@ -7,7 +8,6 @@ import withLabel from '../withLabel'
 import { searchInString } from '../_internal/strings'
 import { formOption } from '../_internal/types'
 import { getMainColor } from '../_internal/colors'
-import colors from '../colors'
 
 import Options from './Options'
 
@@ -292,7 +292,8 @@ export class BaseSelect extends React.Component<SelectProps, SelectState> {
     const options = this.getVisibleOptions()
     const value = this.getCurrentValue()
 
-    const color = getMainColor(this.props, 'color', colors.paynesGrey)
+    const color = getMainColor(this.props, { themeKey: 'neutral' })
+    const darkColor = getMainColor(this.props, { themeKey: 'neutralDark', customizable: false })
 
     return (
       <SelectContainer ref={this.wrapperRef} {...safeProps}>
@@ -315,11 +316,11 @@ export class BaseSelect extends React.Component<SelectProps, SelectState> {
                   onChange={this.handleSearch}
                   onFocus={this.handleFocus}
                   onBlur={this.handleBlur}
-                  color={isEmpty(value) ? color : colors.maastrichtBlue}
+                  color={isEmpty(value) ? color : darkColor}
                   ref={this.inputRef}
                 />
               ) : (
-                <Placeholder color={isEmpty(value) ? color : colors.maastrichtBlue}>
+                <Placeholder color={isEmpty(value) ? color : darkColor}>
                   { this.getPlaceholder() }
                 </Placeholder>
               )
@@ -334,7 +335,7 @@ export class BaseSelect extends React.Component<SelectProps, SelectState> {
                 size={20}
               />
             }
-            <FontIcon icon={open ? 'arrow_drop_up' : 'arrow_drop_down'} />
+            <FontIcon icon={open ? 'arrow_drop_up' : 'arrow_drop_down'} color={darkColor} />
           </LabelIcons>
         </SelectContent>
         <Options
@@ -353,6 +354,6 @@ export class BaseSelect extends React.Component<SelectProps, SelectState> {
   }
 }
 
-const Select = withLabel({ padding: 12 })(BaseSelect)
+const Select = withLabel({ padding: 12 })(withTheme(BaseSelect))
 
 export default Select

@@ -1,18 +1,19 @@
 import * as React from 'react'
 import styled, { css } from 'styled-components'
-import colorUtil from 'color'
 import tag from 'clean-tag'
 
 import colors from '../colors'
 import fontSizes from '../fontSizes'
+import { getMainColor } from '../_internal/colors'
 
 import { withContext } from '../Tabs/context'
 
 import TabsItemProps from './TabsItem.interface'
 
 const prepareProps = props => {
-  const activeColor = props.activeColor || colors.trueBlue
-  const color = props.color || colorUtil(colors.maastrichtBlue).fade(0.28).toString()
+  const activeColor = getMainColor(props, { propName: 'activeColor', themeKey: 'primary' })
+  const color = getMainColor(props, { themeKey: 'neutral' })
+
   return ({
     color,
     activeColor,

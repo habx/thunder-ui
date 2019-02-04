@@ -4,7 +4,7 @@ import { action } from '@storybook/addon-actions'
 
 import confirm from './index'
 
-import HabxProvider from '../HabxProvider'
+import HabxProvider from '../ThunderProvider'
 import Button from '../Button'
 
 const habxProvider = storyFn => (

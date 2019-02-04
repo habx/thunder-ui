@@ -1,12 +1,13 @@
 import * as React from 'react'
+import { withTheme } from 'styled-components'
 
+import { getMainColor } from '../_internal/colors'
 import Title from '../Title'
-import colors from '../colors'
 
-import CardProps from './Card.interface'
+import CardProps, { CardInnerProps } from './Card.interface'
 import { CardContainer, TitleContainer, SubtitleContainer, TitleCount } from './Card.style'
 
-const Card: React.StatelessComponent<CardProps> = ({ headerPosition, action, title, titleCount, subtitle, children, ...props }) => (
+const BaseCard: React.StatelessComponent<CardInnerProps> = ({ headerPosition, action, title, titleCount, subtitle, children, ...props }) => (
   <React.Fragment>
     {
       title && headerPosition === 'outside' &&
@@ -26,7 +27,7 @@ const Card: React.StatelessComponent<CardProps> = ({ headerPosition, action, tit
       {
         subtitle &&
         <SubtitleContainer>
-          <Title size={4} color={colors.paynesGrey}>{ subtitle }</Title>
+          <Title size={4} color={getMainColor(props, { themeKey: 'neutral' })}>{ subtitle }</Title>
         </SubtitleContainer>
       }
       { children }
@@ -34,8 +35,11 @@ const Card: React.StatelessComponent<CardProps> = ({ headerPosition, action, tit
   </React.Fragment>
 )
 
-Card.defaultProps = {
-  headerPosition: 'inside'
+BaseCard.defaultProps = {
+  headerPosition: 'inside',
+  theme: {}
 }
+
+const Card: React.StatelessComponent<CardProps> = withTheme(BaseCard)
 
 export default Card

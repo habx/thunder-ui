@@ -1,4 +1,9 @@
 /*
+  Provider
+ */
+export { default as ThunderProvider } from './ThunderProvider'
+
+/*
   Typography
  */
 export { default as Title } from './Title'
@@ -40,15 +45,18 @@ export { default as CloudinaryInput } from './CloudinaryInput'
 export { default as Progress } from './Progress'
 export { default as Tag } from './Tag/index'
 export { default as Notification } from './Notification'
+export { default as Spinner } from './Spinner'
+
+/*
+  Layouts
+ */
 export { default as Card } from './Card'
 export { default as Modal } from './Modal'
-export { default as Spinner } from './Spinner'
 export { default as Drawer } from './Drawer'
 
 /*
   Events
  */
-export { default as HabxProvider } from './HabxProvider'
 export { default as confirm } from './confirm'
 export { default as notify } from './notify'
 

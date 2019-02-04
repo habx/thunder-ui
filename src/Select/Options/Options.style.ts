@@ -1,8 +1,8 @@
 import styled from 'styled-components'
 
 import shadows from '../../shadows'
-import colors from '../../colors'
 import fontSizes from '../../fontSizes'
+import { getMainColor } from '../../_internal/colors'
 
 export const OptionsContainer = styled.div`
   box-shadow: ${shadows.light};
@@ -13,7 +13,7 @@ export const OptionsContainer = styled.div`
 
   background-color: #ffffff;
   border-radius: 0 0 4px 4px;
-  border-top: 1px solid ${colors.paynesGrey};
+  border-top: 1px solid ${props => getMainColor(props, { themeKey: 'neutral' })};
   max-height: 0;
   min-width: 100%;
   z-index: 5;
@@ -43,10 +43,10 @@ export const EmptyOptions = styled.div`
 
 export const Description = styled.div`
   padding: 0 18px 8px 18px;
-  border-bottom: solid 1px ${colors.paynesGrey};
+  border-bottom: solid 1px ${props => getMainColor(props, { themeKey: 'neutral' })};
 `
 
 export const DescriptionAnnotation = styled.div`
   font-size: ${fontSizes.tiny};
-  color: ${colors.paynesGrey};
+  color: ${props => getMainColor(props, { themeKey: 'neutral' })};
 `

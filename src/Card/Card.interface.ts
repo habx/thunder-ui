@@ -9,3 +9,7 @@ export default interface CardProps extends DOMNode {
   action?: React.ReactNode
   titleCount?: number
 }
+
+export interface CardInnerProps extends CardProps {
+  theme?: object
+}

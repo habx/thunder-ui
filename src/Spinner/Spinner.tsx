@@ -1,6 +1,8 @@
 import * as React from 'react'
-import styled from 'styled-components'
-import colors from '../colors'
+import styled, { withTheme } from 'styled-components'
+
+import { getMainColor } from '../_internal/colors'
+
 import SpinnerProps from './Spinner.interface'
 
 const SpinnerContainer = styled.div`
@@ -47,12 +49,16 @@ const SpinnerElement = styled.svg`
   }
 `
 
-const Spinner: React.StatelessComponent<SpinnerProps> = ({ color, size = 50, ...props }) => (
-  <SpinnerContainer {...props} size={size}>
-    <SpinnerElement viewBox={`0 0 ${size} ${size}`} size={size}>
-      <circle className='path' cx={size / 2} cy={size / 2} r={(size / 2) - (size / 10)} fill='none' strokeWidth='3' stroke={color || colors.trueBlue} />
-    </SpinnerElement>
-  </SpinnerContainer>
-)
+const Spinner: React.StatelessComponent<SpinnerProps> = ({ size = 50, ...props }) => {
+  const color = getMainColor(props, { themeKey: 'primary' })
 
-export default Spinner
+  return (
+    <SpinnerContainer {...props} size={size}>
+      <SpinnerElement viewBox={`0 0 ${size} ${size}`} size={size}>
+        <circle className='path' cx={size / 2} cy={size / 2} r={(size / 2) - (size / 10)} fill='none' strokeWidth='3' stroke={color} />
+      </SpinnerElement>
+    </SpinnerContainer>
+  )
+}
+
+export default withTheme(Spinner)

@@ -3,10 +3,12 @@ import { withInfo } from '@storybook/addon-info'
 import centered from '@storybook/addon-centered'
 
 import fontDecorator from './fontDecorator'
+import providerDecorator from './providerDecorator'
 
 addDecorator(withInfo)
 addDecorator(centered)
 addDecorator(fontDecorator)
+addDecorator(providerDecorator)
 
 const req = process.env.NODE_ENV === 'test' ?
   require('./requireContext')('../src', true, /\.stories\.(tsx)$/) :

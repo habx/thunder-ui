@@ -2,12 +2,11 @@ import styled from 'styled-components'
 
 import borderRadius from '../borderRadius'
 import fontSizes from '../fontSizes'
-import colors from '../colors'
 import { getMainColor } from '../_internal/colors'
 
 const prepareProps = props => ({
-  color: getMainColor(props, 'color', colors.paynesGrey),
-  borderColor: getMainColor(props, 'borderColor', colors.platinium)
+  color: getMainColor(props, { themeKey: 'neutral' }),
+  borderColor: getMainColor(props, { themeKey: 'primaryLighter' })
 })
 
 export const TextAreaContainer = styled.div`
