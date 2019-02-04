@@ -1,11 +1,13 @@
 import * as React from 'react'
 import { get, orderBy, omit, head, reduce } from 'lodash'
 
-import { SpotlightContext } from '../Spotlight/Spotlight.context'
+import { SpotlightContext } from '../Spotlight.context'
 import SpotlightIcon from './icon'
+
+import SpotlightContentProps, { SpotlightContentState } from './SpotlightContent.interface'
 import { SpotlightSearch, SpotlightSections } from './SpotlightContent.style'
 
-class SpotlightContent extends React.Component<any> {
+class SpotlightContent extends React.Component<SpotlightContentProps, SpotlightContentState> {
   static defaultProps = {
     data: {},
     placeholder: 'Aller à...'
@@ -19,6 +21,15 @@ class SpotlightContent extends React.Component<any> {
     window.addEventListener('keydown', this.handleKeyDown)
   }
 
+  componentDidUpdate (prevProps, prevState) {
+    const { inputRef } = this.props
+    const { selectedItem } = this.state
+
+    if (selectedItem === -1 && prevState.selectedItem !== -1) {
+      inputRef.current.select()
+    }
+  }
+
   componentWillUnmount () {
     window.removeEventListener('keydown', this.handleKeyDown)
   }
@@ -30,21 +41,31 @@ class SpotlightContent extends React.Component<any> {
 
   handleKeyDown = event => {
     const { key } = event
-    const { selectedItem } = this.state
-    const { inputRef } = this.props
 
-    if (key === 'ArrowUp' && selectedItem >= 0) {
-      this.setState({ selectedItem: selectedItem - 1 })
+    if (['ArrowUp', 'ArrowDown'].includes(key)) {
       event.preventDefault()
 
-      if (selectedItem === 0) {
-        setTimeout(() => inputRef.current.select(), 0)
-      }
-    }
+      this.setState(prevState => {
+        const { selectedItem } = prevState
 
-    if (key === 'ArrowDown' && selectedItem < this.getAllItemKeys().length) {
-      this.setState({ selectedItem: selectedItem + 1 })
-      event.preventDefault()
+        if (key === 'ArrowUp') {
+          return {
+            selectedItem: selectedItem >= 0
+              ? selectedItem - 1
+              : this.getAllItemKeys().length - 1
+          }
+        }
+
+        if (key === 'ArrowDown') {
+          return {
+            selectedItem: selectedItem < this.getAllItemKeys().length - 1
+              ? selectedItem + 1
+              : -1
+          }
+        }
+
+        return null
+      })
     }
   }
 
@@ -115,7 +136,6 @@ class SpotlightContent extends React.Component<any> {
             value={query}
             onChange={this.handleSearch}
             placeholder={placeholder}
-            type='text'
           />
         </SpotlightSearch>
         <SpotlightSections>

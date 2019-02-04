@@ -1,6 +1,7 @@
 import * as React from 'react'
 import { storiesOf } from '@storybook/react'
 import { action } from '@storybook/addon-actions'
+import { withKnobs, boolean, text, number } from '@storybook/addon-knobs'
 import { filter, map } from 'lodash'
 import { withState } from 'recompose'
 
@@ -26,6 +27,22 @@ const BasicSection: React.StatelessComponent<any> = ({ query }) => (
 )
 
 storiesOf('Spotlight/spotlight options', module)
+  .addDecorator(withKnobs)
+  .add('full example', () => {
+    const open = boolean('Open', true)
+    const placeholder = text('Placeholder', 'Where do you want to go on holiday ?')
+
+    return (
+      <Spotlight open={open} placeholder={placeholder} data={data}>
+        <SpotlightSection
+          name='countries'
+          filter={(query, country) => searchInString(country, query)}
+          renderItem={(country, index) => <SpotlightItem key={country} title={country} index={index} />}
+          maxItems={10}
+        />
+      </Spotlight>
+    )
+  })
   .add('basic uncontrolled', () => (
     <Spotlight open data={data}>
       <SpotlightSection
@@ -69,6 +86,23 @@ storiesOf('Spotlight/spotlight options', module)
   ))
 
 storiesOf('Spotlight/section options', module)
+  .addDecorator(withKnobs)
+  .add('full example', () => {
+    const maxItems = number('Max items', 5, { range: true, min: 0, max: 50, step: 1 })
+    const title = text('Title', 'Countries')
+
+    return (
+      <Spotlight open data={data}>
+        <SpotlightSection
+          name='countries'
+          filter={(query, country) => searchInString(country, query)}
+          renderItem={(country, index) => <SpotlightItem key={country} title={country} index={index} />}
+          maxItems={maxItems === 0 ? undefined : maxItems}
+          title={title}
+        />
+      </Spotlight>
+    )
+  })
   .add('with 5 items max', () => (
     <Spotlight open data={data}>
       <SpotlightSection
@@ -103,6 +137,30 @@ storiesOf('Spotlight/section options', module)
   ))
 
 storiesOf('Spotlight/item options', module)
+  .addDecorator(withKnobs)
+  .add('full example', () => {
+    const showIcons = boolean('Show icons', true)
+    const showSubtitle = boolean('Show subtitles', true)
+
+    return (
+      <Spotlight open data={data}>
+        <SpotlightSection
+          name='countries'
+          filter={(query, country) => searchInString(country, query)}
+          renderItem={(country, index) => (
+            <SpotlightItem
+              key={country}
+              title={country}
+              index={index}
+              icon={showIcons && <FontIcon icon='favorite' />}
+              subtitle={showSubtitle && `Subtitle for ${country}`}
+            />
+          )}
+          maxItems={5}
+        />
+      </Spotlight>
+    )
+  })
   .add('with icons', () => (
     <Spotlight open data={data}>
       <SpotlightSection

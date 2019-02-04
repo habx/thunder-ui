@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { get } from '../Spotlight/theme'
+import { get } from '../theme'
 
 export const SpotlightSections = styled.div`
   overflow-y: auto;
@@ -20,7 +20,7 @@ export const SpotlightSearch = styled.div`
   input {
     box-shadow: none;
     border: none;
-    font-size: 24px;
+    font-size: 22px;
     flex: 1 1 100%;
     background-color: transparent;
     color: ${get('text')};

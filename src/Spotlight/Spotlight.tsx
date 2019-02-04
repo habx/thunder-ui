@@ -2,7 +2,7 @@ import * as React from 'react'
 import { isBoolean, isString, isFunction, merge } from 'lodash'
 import { withTheme, ThemeProvider } from 'styled-components'
 
-import SpotlightContent from '../SpotlightContent'
+import SpotlightContent from './SpotlightContent'
 import { DEFAULT_THEME } from './theme'
 
 import { SpotlightModalContainer, SpotlightModal } from './Spotlight.style'
@@ -58,6 +58,7 @@ class BaseSpotlight extends React.Component<SpotlightInnerProps> {
 
   getQuery () {
     const { query } = this.props
+
     if (isString(query)) {
       return query
     }
@@ -65,7 +66,7 @@ class BaseSpotlight extends React.Component<SpotlightInnerProps> {
     return this.state.query
   }
 
-  handleQueryChange = newQuery => {
+  handleQueryChange = (newQuery: string) => {
     const { query, onQueryChange } = this.props
 
     if (isString(query)) {
