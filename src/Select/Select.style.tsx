@@ -1,6 +1,5 @@
 import styled, { css } from 'styled-components'
 
-import colors from '../colors'
 import fontSizes from '../fontSizes'
 
 import FontIcon from '../FontIcon'
@@ -9,8 +8,6 @@ export const SelectContainer = styled.div`
   position: relative;
   width: 250px;
   flex: 0 0 auto;
-
-  color: ${colors.maastrichtBlue}
 
   ${({ disabled }) => disabled && css`
     pointer-events: none;
@@ -97,7 +94,6 @@ export const LabelIcons = styled.div`
 export const CustomIconContainer = styled.div`
   margin-right: 8px;
   align-self: stretch;
-  color: ${colors.paynesGrey};
 `
 
 export const ResetIcon = styled(FontIcon)`

@@ -1,8 +1,8 @@
 import * as React from 'react'
+import { withTheme } from 'styled-components'
 import color from 'color'
 
-import colors from '../colors'
-
+import { getMainColor } from '../_internal/colors'
 import { Context } from './context'
 
 import { NavBarContainer, NavBarItemsContainer, NavBarTitle } from './NavBar.style'
@@ -11,7 +11,7 @@ import NavBarProps from './NavBar.interface'
 const WHITE = color('#fff')
 
 const prepareProps = props => {
-  const baseColor = props.backgroundColor || colors.trueBlue
+  const baseColor = getMainColor(props, { propName: 'backgroundColor' })
 
   return {
     backgroundColor: baseColor,
@@ -38,4 +38,4 @@ const NavBar: React.StatelessComponent<NavBarProps> = props => {
   )
 }
 
-export default NavBar
+export default withTheme(NavBar)
