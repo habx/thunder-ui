@@ -38623,7 +38623,7 @@ Array [
                           }
                         >
                           &lt;
-                          WithTheme(Card)
+                          WithTheme(BaseCard)
                         </span>
                         <span>
                           <span>
@@ -39101,7 +39101,7 @@ Array [
                           }
                         >
                           &lt;/
-                          WithTheme(Card)
+                          WithTheme(BaseCard)
                           &gt;
                         </span>
                       </div>
@@ -39153,7 +39153,7 @@ Array [
                     }
                   >
                     "
-                    WithTheme(Card)
+                    WithTheme(BaseCard)
                     " Component
                   </h2>
                   <small>

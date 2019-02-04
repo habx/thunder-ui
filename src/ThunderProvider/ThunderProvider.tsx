@@ -24,6 +24,10 @@ class BaseProvider extends React.Component<ThunderProviderInnerProps, ThunderPro
     return null
   }
 
+  static defaultProps = {
+    theme: {}
+  }
+
   state = {
     rawTheme: null,
     rawCustomTheme: null,

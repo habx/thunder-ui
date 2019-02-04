@@ -4,10 +4,10 @@ import { withTheme } from 'styled-components'
 import { getMainColor } from '../_internal/colors'
 import Title from '../Title'
 
-import CardProps from './Card.interface'
+import CardProps, { CardInnerProps } from './Card.interface'
 import { CardContainer, TitleContainer, SubtitleContainer, TitleCount } from './Card.style'
 
-const Card: React.StatelessComponent<CardProps> = ({ headerPosition, action, title, titleCount, subtitle, children, ...props }) => (
+const BaseCard: React.StatelessComponent<CardInnerProps> = ({ headerPosition, action, title, titleCount, subtitle, children, ...props }) => (
   <React.Fragment>
     {
       title && headerPosition === 'outside' &&
@@ -35,8 +35,11 @@ const Card: React.StatelessComponent<CardProps> = ({ headerPosition, action, tit
   </React.Fragment>
 )
 
-Card.defaultProps = {
-  headerPosition: 'inside'
+BaseCard.defaultProps = {
+  headerPosition: 'inside',
+  theme: {}
 }
 
-export default withTheme(Card)
+const Card: React.StatelessComponent<CardProps> = withTheme(BaseCard)
+
+export default Card
