@@ -108,7 +108,7 @@ class Slider extends React.Component<SliderProps> {
         />
         <Label
           value={isValueArray ? value[0] : value} max={realMax}
-          color={getMainColor(this.props, { propName: 'tooltipColor'})}
+          color={getMainColor(this.props, { propName: 'tooltipColor' })}
         >
           {label ? label : ''}
         </Label>

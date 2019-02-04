@@ -3,14 +3,13 @@ import { map, pick } from 'lodash'
 
 import withLabel from '../withLabel'
 import TextButton from '../TextButton'
-import colors from '../colors'
+import { getMainColor } from '../_internal/colors'
 
 import { ArrayContext } from './context'
 import Item from './Item'
 
 import ArrayInputProps, { ArrayInputState } from './ArrayInput.interface'
 import { ArrayInputContainer, ArrayInputAction } from './ArrayInput.style'
-import {getMainColor} from '../_internal/colors'
 
 class ArrayInput extends React.Component<ArrayInputProps, ArrayInputState> {
   static defaultProps = {

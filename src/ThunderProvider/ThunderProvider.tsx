@@ -15,7 +15,7 @@ class BaseProvider extends React.Component<ThunderProviderInnerProps, ThunderPro
         theme: merge(
           {},
           nextProps.theme,
-          { thunderUI: BASE_THEME},
+          { thunderUI: BASE_THEME },
           { thunderUI: nextProps.customTheme }
           )
       }
