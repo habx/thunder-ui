@@ -23,6 +23,6 @@ export const OptionContainer = styled.div`
   &:hover,
   &:focus,
   &[data-selected="true"] {
-    background-color: ${props => getMainColor(props, { themeKey: 'neutralLighter' })};
+    background-color: ${props => getMainColor(props, { themeKey: 'primaryLighter' })};
   }
 `

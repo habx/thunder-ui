@@ -4,23 +4,9 @@ import { merge } from 'lodash'
 
 import ConfirmModals from '../confirm/ConfirmModals'
 import NotificationList from '../notify/NotificationList'
-import colors from '../colors'
 
 import ThunderProviderProps, { ThunderProviderInnerProps, ThunderProviderState } from './ThunderProvider.interface'
-
-const BASE_THEME = {
-  error: colors.popstar,
-  warning: colors.internationalOrange,
-
-  primaryLight: colors.brightCerualean,
-  primary: colors.trueBlue,
-  primaryDark: colors.maastrichtBlue,
-
-  neutralLighter: colors.snow,
-  neutralLight: colors.platinium,
-  neutral: colors.paynesGrey,
-  neutralDark: colors.maastrichtBlue
-}
+import BASE_THEME from './ThunderProvider.theme'
 
 class BaseProvider extends React.Component<ThunderProviderInnerProps, ThunderProviderState> {
   static getDerivedStateFromProps (nextProps: ThunderProviderInnerProps, prevState: ThunderProviderState) {

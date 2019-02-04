@@ -6,7 +6,7 @@ import { getMainColor } from '../_internal/colors'
 
 const prepareProps = props => ({
   color: getMainColor(props, { themeKey: 'neutral' }),
-  borderColor: getMainColor(props, { themeKey: 'neutralLight'})
+  borderColor: getMainColor(props, { themeKey: 'primaryLighter' })
 })
 
 export const TextAreaContainer = styled.div`

@@ -2,12 +2,11 @@ type ThunderUITheme = {
   error?: string
   warning?: string
 
+  primaryLighter?: string
   primaryLight?: string
   primary?: string
-  primaryDark?: string
 
   neutralLighter?: string
-  neutralLight?: string
   neutral?: string
   neutralDark?: string
 }

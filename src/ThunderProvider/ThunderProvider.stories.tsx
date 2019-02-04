@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { storiesOf } from '@storybook/react'
 import { map } from 'lodash'
 
-import colors from '../colors'
+import theme from './ThunderProvider.theme'
 
 const Container = styled.div`
   display: flex;
@@ -23,7 +23,7 @@ const Circle = styled.div`
   height: 64px;
   width: 64px;
   border-radius: 50%;
-  border: 1px solid ${colors.paynesGrey};
+  border: 1px solid ${theme.neutral};
   background-color: ${({ color }) => color};
 `
 
@@ -34,7 +34,7 @@ const Label = styled.div`
 storiesOf('Theme', module)
   .add('default colors', () => (
     <Container>
-      {map(colors, (color, name) => (
+      {map(theme, (color, name) => (
         <Color>
           <Circle color={color} />
           <Label>{ name }</Label>
