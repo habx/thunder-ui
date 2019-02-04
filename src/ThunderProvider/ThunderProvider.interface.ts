@@ -1,9 +1,24 @@
+type ThunderUITheme = {
+  error?: string
+  warning?: string
+
+  primaryLight?: string
+  primary?: string
+  primaryDark?: string
+
+  neutralLighter?: string
+  neutralLight?: string
+  neutral?: string
+  neutralDark?: string
+}
+
 export default interface ThunderProviderProps {
-  theme?: object
+  theme?: ThunderUITheme
 }
 
 export interface ThunderProviderInnerProps extends ThunderProviderProps {
-  customTheme?: object
+  customTheme?: ThunderUITheme
+  theme?: object
 }
 
 export interface ThunderProviderState {
