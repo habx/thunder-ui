@@ -32,4 +32,5 @@ export interface ActionBarProps {
   onSelect: () => void
   onCustomize: () => void
   onValidateCustomization: () => void
+  canCustomize: boolean
 }

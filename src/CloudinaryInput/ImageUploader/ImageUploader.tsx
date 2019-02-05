@@ -79,12 +79,26 @@ class ImageUploader extends React.PureComponent<ImageUploaderProps, ImageUploade
     selectedImage: prevState.selectedImage === selectedImage ? null : selectedImage
   }))
 
+  getImageInOutputFormat = (image: ACECloudinaryImage) => {
+    const { format } = this.props
+
+    if (format === 'ace') {
+      return image
+    }
+
+    if (format === 'id') {
+      return image.id
+    }
+
+    return createCloudinaryURL(image)
+  }
+
   handleImageChange = (image: ACECloudinaryImage) => {
-    const { onChange, format } = this.props
+    const { onChange } = this.props
 
     this.setState(() => ({ selectedImage: null, page: 'directory' }))
 
-    const formattedImage = format === 'ace' ? image : createCloudinaryURL(image)
+    const formattedImage = this.getImageInOutputFormat(image)
 
     onChange(formattedImage)
   }
@@ -232,7 +246,7 @@ class ImageUploader extends React.PureComponent<ImageUploaderProps, ImageUploade
   }
 
   render () {
-    const { open, onClose } = this.props
+    const { open, onClose, format } = this.props
     const { page, selectedImage } = this.state
 
     return (
@@ -261,6 +275,7 @@ class ImageUploader extends React.PureComponent<ImageUploaderProps, ImageUploade
                   onSelect={this.handleImageValidationWithoutCustomization}
                   onCustomize={this.handleImageCustomization}
                   onValidateCustomization={this.handleImageValidationWithCustomization}
+                  canCustomize={format !== 'id'}
                 />
               )}
             </React.Fragment>
