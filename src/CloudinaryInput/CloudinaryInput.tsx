@@ -15,11 +15,25 @@ class CloudinaryInput extends React.PureComponent<CloudinaryInputProps> {
     const { value, imageFormat } = nextProps
 
     if (value !== prevState.value) {
+      if (imageFormat === 'ace') {
+        return {
+          value,
+          image: value
+        }
+      }
+
+      if (imageFormat === 'id') {
+        return {
+          value,
+          image: {
+            id: value,
+            transforms: []
+          }
+        }
+      }
       return {
         value,
-        image: imageFormat === 'ace' || !value
-          ? value
-          : parseCloudinaryURL(value)
+        image: parseCloudinaryURL(value)
       }
     }
 
