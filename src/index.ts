@@ -74,6 +74,7 @@ export { default as SpotlightSectionPlaceholder } from './SpotlightSectionPlaceh
   Helpers
  */
 export { default as withLabel } from './withLabel'
+export { default as withTriggerElement } from './withTriggerElement'
 
 /*
   Theme

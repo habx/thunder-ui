@@ -7,6 +7,7 @@ import {
   Overlay,
   ModalCard,
   RemoveBodyScroll,
+  CloseButtonContainer,
   ANIMATION_DURATION
 } from './Modal.style'
 
@@ -100,7 +101,7 @@ class Modal extends PureComponent<ModalProps> {
   }
 
   render () {
-    const { children, title, open, ...props } = this.props
+    const { children, title, open, closeButton, ...props } = this.props
     const currentState = this.getCurrentState()
 
     return (
@@ -108,6 +109,7 @@ class Modal extends PureComponent<ModalProps> {
         <Overlay data-state={currentState}>
           <div ref={this.ref}>
             <ModalCard title={title} headerPosition='inside' {...props}>
+              {closeButton && <CloseButtonContainer hasTitle={title} onClick={this.handleClose}>{closeButton}</CloseButtonContainer>}
               {
                 isFunction(children)
                  ? children({ state: currentState })
