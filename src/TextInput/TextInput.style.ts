@@ -1,5 +1,4 @@
 import styled, { css } from 'styled-components'
-import colorLib from 'colors'
 
 import { FontIconContainer } from '../FontIcon/FontIcon.style'
 import Spinner from '../Spinner'
