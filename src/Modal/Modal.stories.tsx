@@ -6,7 +6,12 @@ import { withKnobs, boolean } from '@storybook/addon-knobs'
 import { action } from '@storybook/addon-actions'
 
 import Modal from './index'
+import Button from '../Button'
 import { longText, regularText } from './Modal.data'
+import withTriggerElement from '../withTriggerElement'
+import FontIcon from '../FontIcon'
+
+const TriggeredModal = withTriggerElement(Modal)
 
 const Container = styled.div`
   line-height: 1.5;
@@ -20,7 +25,7 @@ const props = () => ({
 storiesOf('Layouts/Modal', module)
   .addDecorator(withKnobs)
   .add('full example', () => (
-    <Modal {...props()} title='Concerning Hobbits' subtitle='Chapter 1'>
+    <Modal {...props()} title='Concerning Hobbits' subtitle='Chapter 1' closeButton={<FontIcon icon='close'/>}>
       {longText}
     </Modal>
   ))
@@ -45,6 +50,13 @@ storiesOf('Layouts/Modal', module)
       </Container>
     </Modal>
   ))
+  .add('with close button', () => (
+    <Modal {...props()} closeButton={<FontIcon icon='close'/>}>
+      <Container>
+        {longText}
+      </Container>
+    </Modal>
+  ))
   .add('with title', () => (
     <Modal {...props()} title='Concerning Hobbits'>
       <Container>
@@ -60,4 +72,9 @@ storiesOf('Layouts/Modal', module)
         </Container>
       )}
     </Modal>
+  ))
+  .add('with trigger element HOC', () => (
+    <TriggeredModal triggerElement={<Button>Open modal</Button>}>
+      {longText}
+    </TriggeredModal>
   ))

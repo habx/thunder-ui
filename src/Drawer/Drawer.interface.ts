@@ -1,13 +1,15 @@
 import * as React from 'react'
+import { OpenableProps } from '../_internal/types'
 
 interface InjectedRenderProps {
   state: 'opened' | 'closed' | 'opening' | 'closing'
 }
 
-export default interface DrawerProps {
+export interface DrawerSpecificProps {
   title?: string
-  open: boolean
-  onClose: (e: React.FormEvent<HTMLInputElement>) => void
   children?: React.ReactNode | ((props: InjectedRenderProps) => JSX.Element)
   closeButton?: React.ReactNode | ((props: InjectedRenderProps) => JSX.Element)
+}
+
+export default interface DrawerInterface extends DrawerSpecificProps, OpenableProps {
 }

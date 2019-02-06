@@ -6,8 +6,12 @@ import { withKnobs, boolean, select } from '@storybook/addon-knobs'
 import { action } from '@storybook/addon-actions'
 
 import Drawer from './index'
+import Button from '../Button'
+import withTriggerElement from '../withTriggerElement'
 import { longText, regularText } from './Drawer.data'
 import FontIcon from '../FontIcon'
+
+const TriggeredDrawer = withTriggerElement(Drawer)
 
 const Content = styled.div`
   width: 80vw;
@@ -56,4 +60,20 @@ storiesOf('Layouts/Drawer', module)
         {longText}
       </Content>
     </DrawerWithState>
+  ))
+  .add('with render props', () => (
+    <DrawerWithState {...props()} title='Concerning Hobbits' closeButton={<FontIcon icon='arrow_back'/>}>
+      {({ state }) => (
+        <Content>
+          {`Current state : ${state}`}
+        </Content>
+      )}
+    </DrawerWithState>
+  ))
+  .add('with trigger element', () => (
+    <TriggeredDrawer triggerElement={<Button>Open drawer</Button>} title='Concerning Hobbits' closeButton={<FontIcon icon='arrow_back'/>}>
+      <Content>
+        {longText}
+      </Content>
+    </TriggeredDrawer>
   ))

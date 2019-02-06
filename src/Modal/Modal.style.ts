@@ -58,3 +58,14 @@ export const RemoveBodyScroll = createGlobalStyle`
     overflow: hidden;
   }
 `
+
+export const CloseButtonContainer = styled.div`
+  position: absolute;
+  top: ${({ hasTitle }) => hasTitle ? '32px' : '16px'};
+  right: ${({ hasTitle }) => hasTitle ? '32px' : '16px'};
+  transition: opacity 200ms ease-in-out;
+  &:hover {
+    opacity: 0.7;
+    cursor: pointer;
+  }
+`

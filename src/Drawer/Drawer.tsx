@@ -8,7 +8,8 @@ import {
   DrawerContainer,
   DrawerClose,
   DrawerTitle,
-  DrawerContent
+  DrawerContent,
+  ANIMATION_DURATION
 } from './Drawer.style'
 
 const ESCAPE_KEY = 27
@@ -39,7 +40,7 @@ class Drawer extends PureComponent<DrawerProps> {
 
   componentDidUpdate (prevProps: Readonly<DrawerProps>): void {
     if (prevProps.open !== this.props.open) {
-      this.setState({ open: this.props.open })
+      setTimeout(() => this.setState({ open: this.props.open }), ANIMATION_DURATION)
     }
   }
 
@@ -86,7 +87,6 @@ class Drawer extends PureComponent<DrawerProps> {
     if (isFunction(onClose)) {
       onClose(e)
     }
-    this.setState({ open: false })
   }
 
   render () {
