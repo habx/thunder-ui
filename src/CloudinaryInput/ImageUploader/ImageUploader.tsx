@@ -69,9 +69,9 @@ class ImageUploader extends React.PureComponent<ImageUploaderProps, ImageUploade
 
     const selectedImage = await uploadImage(file, { directory })
 
-    this.setState({
-      selectedImage
-    })
+    this.setState({ selectedImage })
+
+    this.props.onStatusChange('customizer')
   }
 
   handleImageSelect = selectedImage => () => this.setState(prevState => ({
