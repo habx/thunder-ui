@@ -38,10 +38,11 @@ const withTriggerElement = (WrappedComponent: withTriggerElementWrappedComponent
     render () {
       const { triggerElement, ...props } = this.props
       const { open } = this.state
+      const wrappedComponentProps = props as (ModalSpecificProps | DrawerSpecificProps)
       return (
         <React.Fragment>
           {this.renderTriggerElement()}
-          <WrappedComponent open={open} onClose={this.handleClose} {...props} />
+          <WrappedComponent open={open} onClose={this.handleClose} {...wrappedComponentProps} />
         </React.Fragment>
       )
     }
