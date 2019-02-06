@@ -41,7 +41,7 @@ const withTriggerElement = (WrappedComponent: withTriggerElementWrappedComponent
       return (
         <React.Fragment>
           {this.renderTriggerElement()}
-          <WrappedComponent open={open} onClose={this.handleToggle} {...props} />
+          <WrappedComponent open={open} onClose={this.handleClose} {...props} />
         </React.Fragment>
       )
     }
