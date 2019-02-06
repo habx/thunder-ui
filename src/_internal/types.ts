@@ -38,8 +38,3 @@ export interface Button extends DOMNode {
   color?: string
   hoverColor?: string
 }
-
-export interface OpenableProps {
-  open: boolean
-  onClose: (e: React.FormEvent<HTMLInputElement>) => void
-}
