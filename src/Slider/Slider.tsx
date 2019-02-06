@@ -1,4 +1,5 @@
 import * as React from 'react'
+import { withTheme } from 'styled-components'
 import BaseSlider, { Range } from 'rc-slider'
 import { omit } from 'lodash'
 
@@ -117,4 +118,4 @@ class Slider extends React.Component<SliderProps> {
   }
 }
 
-export default withLabel({ padding: 12 })(Slider)
+export default withTheme(withLabel({ padding: 12 })(Slider))
