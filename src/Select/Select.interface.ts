@@ -15,6 +15,8 @@ export default interface SelectProps extends Input<any> {
   filterable?: boolean
   compact ?: boolean
   multi?: boolean
+  canSelectAll?: boolean
+  selectAllLabel?: string
 }
 
 export interface SelectState {
