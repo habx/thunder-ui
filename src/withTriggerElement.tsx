@@ -1,7 +1,7 @@
 import * as React from 'react'
 import Modal from './Modal'
 import Drawer from './Drawer'
-import { isFunction } from 'lodash'
+import { isFunction, omit } from 'lodash'
 import { DrawerSpecificProps } from './Drawer/Drawer.interface'
 import { ModalSpecificProps } from './Modal/Modal.interface'
 
@@ -36,9 +36,8 @@ const withTriggerElement = (WrappedComponent: withTriggerElementWrappedComponent
     }
 
     render () {
-      const { triggerElement, ...props } = this.props
       const { open } = this.state
-      const wrappedComponentProps = props as (ModalSpecificProps | DrawerSpecificProps)
+      const wrappedComponentProps = omit(this.props, ['triggerElement', 'onClose']) as (ModalSpecificProps | DrawerSpecificProps)
       return (
         <React.Fragment>
           {this.renderTriggerElement()}
