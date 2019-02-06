@@ -13,7 +13,8 @@ const Header: React.StatelessComponent<HeaderProps> = ({ goTo, onUploadImages, t
       status !== 'home' && (
         <Uploader>
           <label htmlFor='cloudinary-uploader'>
-            <FontIcon icon='add' interactive />
+            Nouvelle image
+            <FontIcon icon='add' />
           </label>
           <input
             type='file'

@@ -23,6 +23,15 @@ export const Title = styled.div`
 export const Uploader = styled.div`
   flex: 1 1 100%;
   text-align: right;
+  display: flex;
+  justify-content: flex-end;
+
+  & label {
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  }
 
   & input {
     display: none;
