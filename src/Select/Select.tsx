@@ -149,7 +149,7 @@ export class BaseSelect extends React.Component<SelectProps, SelectState> {
     return has(value, 'value') ? FORMAT_VALUE_FULL : FORMAT_VALUE_SIMPLE
   }
 
-  getCleanValue (newValue) {
+  getCleanValue = newValue => {
     const format = this.getCurrentValueFormat()
 
     return format === FORMAT_VALUE_FULL ? newValue : get(newValue, 'value')
@@ -176,6 +176,13 @@ export class BaseSelect extends React.Component<SelectProps, SelectState> {
     }
 
     return option.value === value
+  }
+
+  areAllOptionsSelected = () => {
+    const { options, multi } = this.props
+    const { value } = this.state
+    if (!multi || !value) return false
+    return options.length === value.length
   }
 
   handleClickOutside = () => {
@@ -245,6 +252,15 @@ export class BaseSelect extends React.Component<SelectProps, SelectState> {
     }
   }
 
+  handleSelectAll = (value: boolean) => {
+    const { options, onChange } = this.props
+    if (value) {
+      onChange(options.map(this.getCleanValue))
+    } else {
+      onChange([])
+    }
+  }
+
   handleReset = e => {
     const { multi, onChange } = this.props
 
@@ -284,7 +300,9 @@ export class BaseSelect extends React.Component<SelectProps, SelectState> {
       canReset,
       disabled,
       filterable,
-      compact
+      compact,
+      canSelectAll,
+      selectAllLabel
     } = this.props
 
     const safeProps = omit(this.props, INTERNAL_PROPS)
@@ -342,12 +360,16 @@ export class BaseSelect extends React.Component<SelectProps, SelectState> {
           options={options}
           open={open}
           multi={multi}
+          allSelected={this.areAllOptionsSelected()}
           onSelect={this.handleSelect}
+          onSelectAll={this.handleSelectAll}
           isOptionSelected={this.isOptionSelected}
           focusedItem={focusedItem}
           annotation={annotation}
           description={description}
           compact={compact}
+          canSelectAll={!!canSelectAll}
+          selectAllLabel={selectAllLabel}
         />
       </SelectContainer>
     )

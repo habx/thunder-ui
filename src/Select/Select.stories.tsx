@@ -51,3 +51,6 @@ storiesOf('Inputs/Select', module)
   .add('multi items', () => (
     <SelectWithState multi />
   ))
+  .add('multi items with select all', () => (
+    <SelectWithState multi canSelectAll />
+  ))

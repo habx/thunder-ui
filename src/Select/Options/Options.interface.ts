@@ -13,4 +13,8 @@ export default interface Options {
   multi: boolean
   isOptionSelected: (option: Option) => boolean
   onSelect: (option: Option) => void
+  onSelectAll: (value: boolean) => void
+  canSelectAll: boolean
+  selectAllLabel?: string
+  allSelected: boolean
 }
