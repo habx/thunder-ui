@@ -69,6 +69,11 @@
     "typescript": "^3.2.1"
   },
   "jest": {
+    "globals": {
+      "ts-jest": {
+        "diagnostics": false
+      }
+    },
     "transform": {
       ".(ts|tsx)": "ts-jest"
     },
