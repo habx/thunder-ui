@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components'
+import colorLib from 'colors'
 
 import { FontIconContainer } from '../FontIcon/FontIcon.style'
 import Spinner from '../Spinner'
@@ -6,6 +7,8 @@ import fontSizes from '../fontSizes'
 
 export const InputContainer = styled.div`
   position: relative;
+  display: flex;
+  flex-direction: column;
 
   ${FontIconContainer} {
     font-size: 18px;
@@ -20,6 +23,26 @@ export const InputContainer = styled.div`
    .hover-element-right {
       opacity: 1;
       transition: opacity 150ms ease-in-out;
+    }
+  }
+
+  &::after {
+    content: "";
+    width: 100%;
+    height: 1px;
+    background-color: ${({ color }) => color};
+    opacity: 0.3;
+    transition: all 150ms ease-in-out;
+  }
+
+  &:focus-within {
+    &::after {
+      opacity: 1;
+    }
+  }
+  &[data-disabled="true"] {
+    &::after {
+      opacity: 0;
     }
   }
 `
@@ -39,6 +62,8 @@ export const RightElementContainer = styled.div`
 export const Input = styled.input`
   border: none;
   outline: none;
+  display: flex;
+  flex-direction: column;
 
   padding: 2px 0;
   width: 100%;
@@ -48,7 +73,6 @@ export const Input = styled.input`
   transition: border-bottom-color 150ms ease-in-out;
 
   background-color: transparent;
-  border-bottom: 1px solid transparent;
 
   &::placeholder {
     opacity: 0.5;
@@ -57,10 +81,5 @@ export const Input = styled.input`
 
   &:disabled {
     color: ${({ placeholderColor }) => placeholderColor};
-    border-bottom-color: transparent;
-  }
-
-  &:not(:disabled):focus {
-    border-bottom-color: ${({ color }) => color};
   }
 `

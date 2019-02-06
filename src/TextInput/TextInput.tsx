@@ -27,7 +27,7 @@ const BaseTextInput: React.StatelessComponent<TextInputProps> = props => {
   }
 
   return (
-    <InputContainer {...rest} {...colorProps}>
+    <InputContainer {...rest} {...colorProps} data-disabled={disabled}>
       <Input
         value={value}
         onChange={e => onChange(e.target.value)}
