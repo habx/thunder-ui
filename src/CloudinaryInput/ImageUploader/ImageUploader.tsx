@@ -31,7 +31,6 @@ class ImageUploader extends React.PureComponent<ImageUploaderProps, ImageUploade
 
       return {
         fieldImage: image,
-        page: 'directory',
         directory: directory || prevState.directory,
         fetchFieldImagePromise: null
       }
@@ -45,19 +44,20 @@ class ImageUploader extends React.PureComponent<ImageUploaderProps, ImageUploade
     fieldImage: null as ACECloudinaryImage,
     fieldImageConfig: null as CloudinaryImage,
     customizedImage: null as ACECloudinaryImage,
-    page: 'directory',
     directory: this.props.defaultDirectory || 'cities',
     fetchFieldImagePromise: null,
     images: []
   }
 
   async componentDidMount () {
-    await this.fetchFieldImageConfig(this.props.image)
+    await this.fetchFieldImageConfig(this.state.fieldImage)
   }
 
-  async componentDidUpdate (prevProps) {
-    if (this.props.image !== prevProps.image) {
-      await this.fetchFieldImageConfig(this.props.image)
+  async componentDidUpdate (prevProps, prevState) {
+    const { fieldImage } = this.state
+
+    if (fieldImage && fieldImage !== prevState.fieldImage) {
+      await this.fetchFieldImageConfig(fieldImage)
     }
   }
 
@@ -70,7 +70,6 @@ class ImageUploader extends React.PureComponent<ImageUploaderProps, ImageUploade
     const selectedImage = await uploadImage(file, { directory })
 
     this.setState({
-      page: 'directory',
       selectedImage
     })
   }
@@ -96,7 +95,7 @@ class ImageUploader extends React.PureComponent<ImageUploaderProps, ImageUploade
   handleImageChange = (image: ACECloudinaryImage) => {
     const { onChange } = this.props
 
-    this.setState(() => ({ selectedImage: null, page: 'directory' }))
+    this.setState(() => ({ selectedImage: null }))
 
     const formattedImage = this.getImageInOutputFormat(image)
 
@@ -129,45 +128,46 @@ class ImageUploader extends React.PureComponent<ImageUploaderProps, ImageUploade
   ])
 
   getCurrentTitle () {
-    const { page, directory, selectedImage } = this.state
+    const { status } = this.props
+    const { directory, selectedImage } = this.state
 
-    if (page === 'home') {
+    if (status === 'home') {
       return 'Liste des dossiers'
     }
 
-    if (page === 'directory') {
+    if (status === 'directory') {
       return `Dossier : ${directory}`
     }
 
-    if (page === 'uploader') {
+    if (status === 'uploader') {
       return `Dossier : ${directory} (ajout d'une image)`
     }
 
-    if (page === 'customizer') {
+    if (status === 'customizer') {
       return `Personnalisation de ${get(selectedImage, 'public_id', 'image inconnue')}`
     }
 
     return ''
   }
 
-  goTo = (page: string, params = {}) => this.setState(() => ({ page, ...params }))
+  goTo = (status: string, params = {}) => {
+    this.props.onStatusChange(status)
+    this.setState(() => params)
+
+    if (status === 'directory') {
+      this.setState(() => ({ selectedImage: null }))
+    }
+  }
 
   saveImages = images => setTimeout(() => this.setState(() => ({ images })))
 
   fetchFieldImageConfig = async (image: ACECloudinaryImage) => {
-    if (image && image.id && !this.state.fetchFieldImagePromise) {
-      const fetchFieldImagePromise = this.props.fetchImageConfig(image.id)
-      this.setState(() => ({ fetchFieldImagePromise }))
+    const config = await this.props.fetchImageConfig(image.id)
 
-      const config = await fetchFieldImagePromise
-
-      this.setState(() => ({
-        fetchFieldImagePromise: null,
-        selectedImage: config,
-        fieldImageConfig: config,
-        page: 'customizer'
-      }))
-    }
+    this.setState(() => ({
+      selectedImage: config,
+      fieldImageConfig: config
+    }))
   }
 
   renderHome () {
@@ -246,11 +246,11 @@ class ImageUploader extends React.PureComponent<ImageUploaderProps, ImageUploade
   }
 
   render () {
-    const { open, onClose, format } = this.props
-    const { page, selectedImage } = this.state
+    const { status, onClose, format } = this.props
+    const { selectedImage } = this.state
 
     return (
-      <ImageUploaderContainer open={open} onClose={onClose}>
+      <ImageUploaderContainer open={status !== 'closed'} onClose={onClose}>
         {({ state }) => {
           if (state === 'closed') {
             return null
@@ -262,16 +262,16 @@ class ImageUploader extends React.PureComponent<ImageUploaderProps, ImageUploade
                 goTo={this.goTo}
                 title={this.getCurrentTitle()}
                 onUploadImages={this.handleImageUpload}
-                page={page}
+                status={status}
               />
-              <Content data-page={page}>
-                { page === 'home' && this.renderHome() }
-                { page === 'directory' && this.renderDirectory() }
-                { page === 'customizer' && this.renderCustomizer() }
+              <Content data-status={status}>
+                { status === 'home' && this.renderHome() }
+                { status === 'directory' && this.renderDirectory() }
+                { status === 'customizer' && this.renderCustomizer() }
               </Content>
               { selectedImage && (
                 <ActionBar
-                  page={page}
+                  status={status}
                   onSelect={this.handleImageValidationWithoutCustomization}
                   onCustomize={this.handleImageCustomization}
                   onValidateCustomization={this.handleImageValidationWithCustomization}

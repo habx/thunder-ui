@@ -1,4 +1,3 @@
-import ModalProps from '../../Modal/Modal.interface'
 import { CloudinaryImage, ACECloudinaryImage, ImageFile } from '../Image/Image.interface'
 
 export type RenderParams = {
@@ -10,25 +9,27 @@ export interface ImageUploaderState {
   selectedImage?: CloudinaryImage
   customizedImage?: ACECloudinaryImage
   directory: string
-  page: string,
   fieldImage: ACECloudinaryImage
   fieldImageConfig?: CloudinaryImage
   fetchFieldImagePromise: Promise<CloudinaryImage>
   images: CloudinaryImage[]
 }
 
-export default interface ImageUploaderProps extends ModalProps {
+export default interface ImageUploaderProps {
+  status: string
   defaultDirectory?: string
   renderImages: (RenderParams) => JSX.Element
   onChange: (image: ACECloudinaryImage | string) => void
+  onStatusChange: (status: string) => void
   format: string
   image: ACECloudinaryImage
   fetchImageConfig: (path: string) => Promise<CloudinaryImage>
   uploadImage: (image: ImageFile, params: { directory: string }) => Promise<CloudinaryImage>
+  onClose: () => void
 }
 
 export interface ActionBarProps {
-  page: string
+  status: string
   onSelect: () => void
   onCustomize: () => void
   onValidateCustomization: () => void

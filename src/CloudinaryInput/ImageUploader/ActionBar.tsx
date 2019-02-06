@@ -5,10 +5,10 @@ import { ActionBarContainer } from './ImageUploader.style'
 
 import TextButton from '../../TextButton'
 
-const ActionBar: React.StatelessComponent<ActionBarProps> = ({ page, onSelect, onCustomize, onValidateCustomization, canCustomize }) => (
+const ActionBar: React.StatelessComponent<ActionBarProps> = ({ status, onSelect, onCustomize, onValidateCustomization, canCustomize }) => (
   <ActionBarContainer>
     {
-      page === 'directory' && (
+      status === 'directory' && (
         <React.Fragment>
           <TextButton onClick={onSelect}>Sélectionner</TextButton>
           { canCustomize && <TextButton onClick={onCustomize}>Personnaliser</TextButton> }
@@ -16,7 +16,7 @@ const ActionBar: React.StatelessComponent<ActionBarProps> = ({ page, onSelect, o
       )
     }
     {
-      page === 'customizer' && (
+      status === 'customizer' && (
         <React.Fragment>
           <TextButton onClick={onValidateCustomization}>Valider</TextButton>
         </React.Fragment>

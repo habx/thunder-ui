@@ -27,3 +27,12 @@ export const EmptyImage = styled.div`
   background-color: ${colors.whiteSmoke};
   border-radius: ${borderRadius.wide};
 `
+
+export const ActionsBar = styled.div`
+  display: flex;
+  justify-content: flex-end;
+
+  > * {
+    margin-left: 16px;
+  }
+`
