@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components'
 import fontSizes from '../fontSizes'
 
 import FontIcon from '../FontIcon'
-import { colors } from '../index'
+import colors from '../colors'
 import Option from './Option'
 
 export const SelectContainer = styled.div`
