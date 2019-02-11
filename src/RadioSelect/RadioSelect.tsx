@@ -1,55 +1,72 @@
 import * as React from 'react'
-import { map, includes, filter, isEmpty } from 'lodash'
+import { map, includes, filter, isEmpty, isNil } from 'lodash'
 import { withTheme } from 'styled-components'
 
 import withLabel from '../withLabel'
 import { getMainColor } from '../_internal/colors'
+import { formValue } from '../_internal/types'
 
-import { RadioSelectContainer, RadioSelectElement } from './RadioSelect.style'
+import { RadioSelectContainer, Option } from './RadioSelect.style'
 import RadioSelectProps from './RadioSelect.interface'
 
-const RadioSelect: React.StatelessComponent<RadioSelectProps> = props => {
+const getNewValueNotMulti = (item: formValue, value: formValue, { canBeEmpty }) => {
+  if (value === item && canBeEmpty) {
+    return null
+  }
+
+  return item
+}
+
+const getNewValueMulti = (item: formValue, value: formValue[], { canBeEmpty }) => {
+  if (includes(value, item)) {
+    const newValue = filter(value, value => value !== item)
+
+    if (isEmpty(newValue)) {
+      if (canBeEmpty) {
+        return newValue
+      }
+
+      return value
+    }
+
+    return newValue
+  }
+
+  return [...value, item]
+}
+
+const getCurrentValue = (value, { multi }) => {
+  if (isNil(value)) {
+    return multi ? [] : null
+  }
+
+  return value
+}
+
+export const BaseRadioSelect: React.StatelessComponent<RadioSelectProps> = props => {
   const {
     options,
     onChange,
-    value: currentValue,
-    canBeEmpty,
     multi,
+    value,
+    canBeEmpty,
     disabled,
     ...rest
   } = props
 
-  const getNewValue = item => {
-    if (multi && Array.isArray(currentValue)) {
-      if (includes(currentValue, item)) {
-        const newValue = filter(currentValue, value => value !== item)
+  const currentValue = getCurrentValue(value, { multi })
 
-        if (isEmpty(newValue)) {
-          if (canBeEmpty) {
-            return newValue
-          }
+  const onItemClick = item => {
+    const newValue = multi
+      ? getNewValueMulti(item, currentValue as formValue[], { canBeEmpty })
+      : getNewValueNotMulti(item, currentValue as formValue, { canBeEmpty })
 
-          return currentValue
-        }
-
-        return newValue
-      }
-
-      return [...currentValue, item]
-    }
-
-    if (currentValue === item) {
-      if (canBeEmpty) {
-        return null
-      }
-    }
-
-    return item
+    return onChange(newValue)
   }
 
   const selected = map(options, ({ value }) => {
-    if (multi && Array.isArray(currentValue)) {
-      return includes(currentValue, value)
+    if (multi) {
+      return includes(currentValue as formValue[], value)
     }
 
     return value === currentValue
@@ -59,27 +76,29 @@ const RadioSelect: React.StatelessComponent<RadioSelectProps> = props => {
 
   return (
     <RadioSelectContainer color={color} data-disabled={disabled} {...rest}>
-      {map(options, ({ value, label }, index) => (
-        <RadioSelectElement
+      {options.map(({ value, label }, index) => (
+        <Option
           isNextSelected={index < options.length - 1 && selected[index + 1]}
           isPreviousSelected={index > 0 && selected[index - 1]}
           key={value}
           color={color}
-          onClick={() => onChange(getNewValue(value))}
+          onClick={() => onItemClick(value)}
           data-checked={selected[index]}
         >
           {label}
-        </RadioSelectElement>
+        </Option>
       ))}
     </RadioSelectContainer>
   )
 }
 
-RadioSelect.defaultProps = {
+BaseRadioSelect.defaultProps = {
   canBeEmpty: true,
   multi: false,
   disabled: false,
-  value: null
+  options: []
 }
 
-export default withLabel({ padding: 12 })(withTheme(RadioSelect))
+const RadioSelect = withLabel({ padding: 12 })(withTheme(BaseRadioSelect))
+
+export default RadioSelect
