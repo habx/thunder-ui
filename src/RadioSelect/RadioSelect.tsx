@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { map, includes, filter, isEmpty } from 'lodash'
+import { map, includes, filter, isEmpty, isNil } from 'lodash'
 import { withTheme } from 'styled-components'
 
 import withLabel from '../withLabel'
@@ -8,6 +8,40 @@ import { getMainColor } from '../_internal/colors'
 import { RadioSelectContainer, Option } from './RadioSelect.style'
 import RadioSelectProps from './RadioSelect.interface'
 import { formValue } from '../_internal/types'
+
+const getNewValueNotMulti = (item: formValue, value: formValue, { canBeEmpty }) => {
+  if (value === item && canBeEmpty) {
+    return null
+  }
+
+  return item
+}
+
+const getNewValueMulti = (item: formValue, value: formValue[], { canBeEmpty }) => {
+  if (includes(value, item)) {
+    const newValue = filter(value, value => value !== item)
+
+    if (isEmpty(newValue)) {
+      if (canBeEmpty) {
+        return newValue
+      }
+
+      return value
+    }
+
+    return newValue
+  }
+
+  return [...value, item]
+}
+
+const getCurrentValue = (value, { multi }) => {
+  if (isNil(value)) {
+    return multi ? [] : null
+  }
+
+  return value
+}
 
 export const BaseRadioSelect: React.StatelessComponent<RadioSelectProps> = props => {
   const {
@@ -20,38 +54,14 @@ export const BaseRadioSelect: React.StatelessComponent<RadioSelectProps> = props
     ...rest
   } = props
 
-  const currentValue = value || (multi ? [] : null)
+  const currentValue = getCurrentValue(value, { multi })
 
-  const getNewValueMulti = (item: formValue, value: formValue[]) => {
-    if (includes(value, item)) {
-      const newValue = filter(value, value => value !== item)
+  const onItemClick = item => {
+    const newValue = multi
+      ? getNewValueMulti(item, currentValue as formValue[], { canBeEmpty })
+      : getNewValueNotMulti(item, currentValue as formValue, { canBeEmpty })
 
-      if (isEmpty(newValue)) {
-        if (canBeEmpty) {
-          return newValue
-        }
-
-        return value
-      }
-
-      return newValue
-    }
-
-    return [...value, item]
-  }
-
-  const getNewValue = item => {
-    if (multi) {
-      return getNewValueMulti(item, currentValue as formValue[])
-    }
-
-    if (currentValue === item) {
-      if (canBeEmpty) {
-        return null
-      }
-    }
-
-    return item
+    return onChange(newValue)
   }
 
   const selected = map(options, ({ value }) => {
@@ -72,7 +82,7 @@ export const BaseRadioSelect: React.StatelessComponent<RadioSelectProps> = props
           isPreviousSelected={index > 0 && selected[index - 1]}
           key={value}
           color={color}
-          onClick={() => onChange(getNewValue(value))}
+          onClick={() => onItemClick(value)}
           data-checked={selected[index]}
         >
           {label}
