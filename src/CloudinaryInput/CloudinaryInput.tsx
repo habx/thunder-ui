@@ -91,7 +91,7 @@ class CloudinaryInput extends React.PureComponent<CloudinaryInputProps> {
         }
         <ActionsBar>
           {
-            hasImage && (
+            hasImage && imageFormat !== 'id' && (
               <Button onClick={() => this.handleStatusChange('customizer')} disabled={disabled}>
                 Éditer
               </Button>
