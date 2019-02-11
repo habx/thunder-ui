@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { map, uniq, get, initial } from 'lodash'
+import { map, uniq, get, initial, has } from 'lodash'
 
 import ImageUploaderProps, { ImageUploaderState } from './ImageUploader.interface'
 import { CloudinaryImage, ACECloudinaryImage } from '../Image/Image.interface'
@@ -162,6 +162,10 @@ class ImageUploader extends React.PureComponent<ImageUploaderProps, ImageUploade
   saveImages = images => setTimeout(() => this.setState(() => ({ images })))
 
   fetchFieldImageConfig = async (image: ACECloudinaryImage) => {
+    if (!has(image, 'id')) {
+      return null
+    }
+
     const config = await this.props.fetchImageConfig(image.id)
 
     this.setState(() => ({
