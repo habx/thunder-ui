@@ -16,7 +16,7 @@ export const RadioSelectContainer = styled.div`
   }
 `
 
-export const RadioSelectElement = styled.div`
+export const Option = styled.div`
   overflow: hidden;
   text-align: center;
   user-select: none;

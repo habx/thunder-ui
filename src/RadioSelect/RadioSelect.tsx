@@ -5,37 +5,44 @@ import { withTheme } from 'styled-components'
 import withLabel from '../withLabel'
 import { getMainColor } from '../_internal/colors'
 
-import { RadioSelectContainer, RadioSelectElement } from './RadioSelect.style'
+import { RadioSelectContainer, Option } from './RadioSelect.style'
 import RadioSelectProps from './RadioSelect.interface'
+import { formValue } from '../_internal/types'
 
-const RadioSelect: React.StatelessComponent<RadioSelectProps> = props => {
+export const BaseRadioSelect: React.StatelessComponent<RadioSelectProps> = props => {
   const {
     options,
     onChange,
-    value: currentValue,
-    canBeEmpty,
     multi,
+    value,
+    canBeEmpty,
     disabled,
     ...rest
   } = props
 
-  const getNewValue = item => {
-    if (multi && Array.isArray(currentValue)) {
-      if (includes(currentValue, item)) {
-        const newValue = filter(currentValue, value => value !== item)
+  const currentValue = value || (multi ? [] : null)
 
-        if (isEmpty(newValue)) {
-          if (canBeEmpty) {
-            return newValue
-          }
+  const getNewValueMulti = (item: formValue, value: formValue[]) => {
+    if (includes(value, item)) {
+      const newValue = filter(value, value => value !== item)
 
-          return currentValue
+      if (isEmpty(newValue)) {
+        if (canBeEmpty) {
+          return newValue
         }
 
-        return newValue
+        return value
       }
 
-      return [...currentValue, item]
+      return newValue
+    }
+
+    return [...value, item]
+  }
+
+  const getNewValue = item => {
+    if (multi) {
+      return getNewValueMulti(item, currentValue as formValue[])
     }
 
     if (currentValue === item) {
@@ -48,8 +55,8 @@ const RadioSelect: React.StatelessComponent<RadioSelectProps> = props => {
   }
 
   const selected = map(options, ({ value }) => {
-    if (multi && Array.isArray(currentValue)) {
-      return includes(currentValue, value)
+    if (multi) {
+      return includes(currentValue as formValue[], value)
     }
 
     return value === currentValue
@@ -59,8 +66,8 @@ const RadioSelect: React.StatelessComponent<RadioSelectProps> = props => {
 
   return (
     <RadioSelectContainer color={color} data-disabled={disabled} {...rest}>
-      {map(options, ({ value, label }, index) => (
-        <RadioSelectElement
+      {options.map(({ value, label }, index) => (
+        <Option
           isNextSelected={index < options.length - 1 && selected[index + 1]}
           isPreviousSelected={index > 0 && selected[index - 1]}
           key={value}
@@ -69,17 +76,19 @@ const RadioSelect: React.StatelessComponent<RadioSelectProps> = props => {
           data-checked={selected[index]}
         >
           {label}
-        </RadioSelectElement>
+        </Option>
       ))}
     </RadioSelectContainer>
   )
 }
 
-RadioSelect.defaultProps = {
+BaseRadioSelect.defaultProps = {
   canBeEmpty: true,
   multi: false,
   disabled: false,
-  value: null
+  options: []
 }
 
-export default withLabel({ padding: 12 })(withTheme(RadioSelect))
+const RadioSelect = withLabel({ padding: 12 })(withTheme(BaseRadioSelect))
+
+export default RadioSelect

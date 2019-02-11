@@ -2,21 +2,10 @@ import * as React from 'react'
 import { storiesOf } from '@storybook/react'
 import { withState } from 'recompose'
 
-import RadioSelect from './RadioSelect'
 import colors from '../colors'
 
-const SIMPLE_OPTIONS = [
-  { value: 0, label: 'Aucune' },
-  { value: 1, label: '1 place' },
-  { value: 2, label: '2 places' }
-]
-
-const CARDINAL_POINTS = [
-  { value: 'N', label: 'North' },
-  { value: 'E', label: 'East' },
-  { value: 'S', label: 'South' },
-  { value: 'W', label: 'West' }
-]
+import RadioSelect from './RadioSelect'
+import { simpleOptions, cardinalPoints, manyOptions } from './RadioSelect.data'
 
 const RadioSelectWithState = ({ value, ...props }) => {
   const Component = withState('value', 'onChange', value)(newProps => (
@@ -30,54 +19,47 @@ storiesOf('Inputs/RadioSelect', module)
   .add('basic', () => (
     <RadioSelectWithState
       value={1}
-      options={SIMPLE_OPTIONS}
+      options={simpleOptions}
     />
   ))
   .add('disabled', () => (
     <RadioSelectWithState
       value={1}
-      options={SIMPLE_OPTIONS}
+      options={simpleOptions}
       disabled
     />
   ))
   .add('error', () => (
     <RadioSelectWithState
       value={1}
-      options={SIMPLE_OPTIONS}
+      options={simpleOptions}
       error
     />
   ))
   .add('with custom color', () => (
     <RadioSelectWithState
       value={1}
-      options={SIMPLE_OPTIONS}
+      options={simpleOptions}
       color={colors.maastrichtBlue}
     />
   ))
   .add('can\'t be empty', () => (
     <RadioSelectWithState
       value={1}
-      options={SIMPLE_OPTIONS}
+      options={simpleOptions}
       canBeEmpty={false}
     />
   ))
   .add('with many option', () => (
     <RadioSelectWithState
       value={4}
-      options={[
-        { value: 0, label: '0' },
-        { value: 1, label: '1' },
-        { value: 2, label: '2' },
-        { value: 3, label: '3' },
-        { value: 4, label: '4' },
-        { value: 5, label: '5' }
-      ]}
+      options={manyOptions}
     />
   ))
   .add('with multi selection', () => (
     <RadioSelectWithState
       value={['E', 'W', 'S']}
-      options={CARDINAL_POINTS}
+      options={cardinalPoints}
       multi
     />
   ))
