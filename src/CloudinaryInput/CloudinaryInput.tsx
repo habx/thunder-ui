@@ -2,7 +2,7 @@ import * as React from 'react'
 import { get } from 'lodash'
 
 import CloudinaryInputProps from './CloudinaryInput.interface'
-import { CloudinaryInputContainer, PictureContainer, EmptyImage } from './CloudinaryInput.style'
+import { CloudinaryInputContainer, PictureContainer, EmptyImage, ActionsBar } from './CloudinaryInput.style'
 import { parseCloudinaryURL } from './CloudinaryInput.utils'
 
 import withLabel from '../withLabel'
@@ -47,12 +47,12 @@ class CloudinaryInput extends React.PureComponent<CloudinaryInputProps> {
   state = {
     value: null,
     image: null,
-    isUploaderOpen: false
+    status: 'closed'
   }
 
-  handleUploaderOpen = () => this.setState(() => ({ isUploaderOpen: true }))
+  handleStatusChange = status => this.setState(() => ({ status }))
 
-  handleUploaderClose = () => this.setState(() => ({ isUploaderOpen: false }))
+  handleUploaderClose = () => this.setState(() => ({ status: 'closed' }))
 
   handleChange = image => {
     this.props.onChange(image)
@@ -69,7 +69,7 @@ class CloudinaryInput extends React.PureComponent<CloudinaryInputProps> {
       uploadImage
     } = this.props
 
-    const { isUploaderOpen, image } = this.state
+    const { image, status } = this.state
 
     const hasImage = image && image.id
 
@@ -89,13 +89,23 @@ class CloudinaryInput extends React.PureComponent<CloudinaryInputProps> {
               <EmptyImage />
             )
         }
-        <Button onClick={this.handleUploaderOpen} disabled={disabled}>
-          { hasImage ? 'Éditer / Changer d\'image' : 'Choisir une image'}
-        </Button>
+        <ActionsBar>
+          {
+            hasImage && imageFormat !== 'id' && (
+              <Button onClick={() => this.handleStatusChange('customizer')} disabled={disabled}>
+                Éditer
+              </Button>
+            )
+          }
+          <Button onClick={() => this.handleStatusChange('directory')} disabled={disabled} reverse>
+            Nouvelle image
+          </Button>
+        </ActionsBar>
         <ImageUploader
-          open={isUploaderOpen}
+          status={status}
           onClose={this.handleUploaderClose}
           onChange={this.handleChange}
+          onStatusChange={this.handleStatusChange}
           defaultDirectory={defaultDirectory}
           renderImages={renderImages}
           format={imageFormat}

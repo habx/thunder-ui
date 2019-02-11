@@ -5,15 +5,16 @@ import HeaderProps from './Header.interface'
 
 import FontIcon from '../../FontIcon'
 
-const Header: React.StatelessComponent<HeaderProps> = ({ goTo, onUploadImages, title, page }) => (
+const Header: React.StatelessComponent<HeaderProps> = ({ goTo, onUploadImages, title, status }) => (
   <HeaderContainer>
     <FontIcon icon='home' onClick={() => goTo('home')} />
     <Title>{ title }</Title>
     {
-      page !== 'home' && (
+      status !== 'home' && (
         <Uploader>
           <label htmlFor='cloudinary-uploader'>
-            <FontIcon icon='add' interactive />
+            Nouvelle image
+            <FontIcon icon='add' />
           </label>
           <input
             type='file'

@@ -2,6 +2,7 @@ import * as React from 'react'
 import { memoize, filter, floor, get, find, values } from 'lodash'
 
 import FontIcon from '../../FontIcon'
+import Spinner from '../../Spinner'
 import Image from '../Image'
 import { createCloudinaryURL } from '../CloudinaryInput.utils'
 
@@ -12,7 +13,8 @@ import {
   OptionContainer,
   OptionContent,
   Slider,
-  ImageCroper
+  ImageCroper,
+  SpinnerContainer
 } from './ImageEditor.style'
 import ImageEditorProps, { ImageEditorState, CropConfiguration } from './ImageEditor.interface'
 
@@ -156,7 +158,16 @@ class ImageEditor extends React.PureComponent<ImageEditorProps, ImageEditorState
   }
 
   render () {
+    const { image } = this.props
     const { currentAction } = this.state
+
+    if (!image) {
+      return (
+        <SpinnerContainer>
+          <Spinner />
+        </SpinnerContainer>
+      )
+    }
 
     return (
       <ImageEditorContainer>

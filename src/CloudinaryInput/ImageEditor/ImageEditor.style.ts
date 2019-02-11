@@ -4,6 +4,13 @@ import ReactCrop from 'react-image-crop'
 import colors from '../../colors'
 import BaseSlider from '../../Slider'
 
+export const SpinnerContainer = styled.div`
+  flex: 1 1 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`
+
 export const ImageEditorContainer = styled.div`
   display: flex;
   flex-direction: column;
