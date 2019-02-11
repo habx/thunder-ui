@@ -11,7 +11,7 @@ describe('RadioSelect component', () => {
   let spyOnChange = null
 
   beforeEach(() => {
-    spyOnChange = sinon.spy(console.log)
+    spyOnChange = sinon.spy()
 
     wrapper = mount(
       <RadioSelect options={cardinalPoints} onChange={spyOnChange} value={null}>
