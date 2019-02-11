@@ -4,10 +4,10 @@ import { withTheme } from 'styled-components'
 
 import withLabel from '../withLabel'
 import { getMainColor } from '../_internal/colors'
+import { formValue } from '../_internal/types'
 
 import { RadioSelectContainer, Option } from './RadioSelect.style'
 import RadioSelectProps from './RadioSelect.interface'
-import { formValue } from '../_internal/types'
 
 const getNewValueNotMulti = (item: formValue, value: formValue, { canBeEmpty }) => {
   if (value === item && canBeEmpty) {
