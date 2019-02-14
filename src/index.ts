@@ -37,7 +37,6 @@ export { default as Select } from './Select'
 export { default as RadioSelect } from './RadioSelect'
 export { default as Slider } from './Slider'
 export { default as ArrayInput } from './ArrayInput'
-export { default as CloudinaryInput } from './CloudinaryInput'
 
 /*
   Miscellaneous
