@@ -9,6 +9,7 @@ export default {
   primary: colors.trueBlue,
 
   neutralLighter: colors.snow,
+  neutralLight: colors.paynesGrey,
   neutral: colors.paynesGrey,
   neutralDark: colors.maastrichtBlue
 }
