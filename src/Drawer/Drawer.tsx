@@ -14,9 +14,9 @@ import {
 
 const ESCAPE_KEY = 27
 
-// Should be named Slidal
 class Drawer extends PureComponent<DrawerProps> {
   private readonly ref: React.RefObject<any>
+  private timeout: any
 
   static defaultProps = {
     open: false,
@@ -30,23 +30,35 @@ class Drawer extends PureComponent<DrawerProps> {
   }
 
   state = {
-    open: this.props.open
+    open: false
   }
 
   componentDidMount () {
     window.addEventListener('keydown', this.handleKeyDown)
     window.addEventListener('click', this.handleClick, true)
+
+    if (this.props.open) {
+      this.animateOpening()
+    }
   }
 
   componentDidUpdate (prevProps: Readonly<DrawerProps>): void {
     if (prevProps.open !== this.props.open) {
-      setTimeout(() => this.setState({ open: this.props.open }), ANIMATION_DURATION)
+      this.animateOpening()
     }
   }
 
   componentWillUnmount () {
     window.removeEventListener('keydown', this.handleKeyDown)
     window.removeEventListener('click', this.handleClick, true)
+    clearTimeout(this.timeout)
+  }
+
+  animateOpening () {
+    this.timeout = setTimeout(
+      () => this.setState(() => ({ open: this.props.open })),
+      ANIMATION_DURATION
+    )
   }
 
   getCurrentState () {
