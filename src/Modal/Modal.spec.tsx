@@ -6,7 +6,7 @@ import Modal from './index'
 
 jest.useFakeTimers()
 
-describe('Drawer component', () => {
+describe('Modal component', () => {
   describe('with react node children', () => {
     let wrapper = null
 

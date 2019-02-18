@@ -22,7 +22,7 @@ const props = () => ({
   onClose: action('onClose')
 })
 
-storiesOf('Layouts/Drawer', module)
+storiesOf('Layouts/Modal', module)
   .addDecorator(withKnobs)
   .add('full example', () => (
     <Modal {...props()} title='Concerning Hobbits' subtitle='Chapter 1' closeButton={<FontIcon icon='close'/>}>
