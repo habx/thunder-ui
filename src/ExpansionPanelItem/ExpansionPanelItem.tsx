@@ -18,7 +18,7 @@ const useContentHeight = (children) => {
         setItemHeight(height)
       }
     },
-    [children, contentRef]
+    [children, contentRef.current]
   )
 
   return [contentRef, contentHeight]

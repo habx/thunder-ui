@@ -7,6 +7,7 @@ const COLOR_USC_GOLD = '#ffce00'
 const COLOR_POPSTAR = '#be3b5d'
 const COLOR_PLATINIUM = '#d0e4e6'
 const COLOR_WHITE = '#fff'
+const COLOR_GAINSBORO = '#dcdcdc'
 
 // Spotlight colors
 const COLOR_WHITE_SMOKE = '#f8f7f8'
@@ -25,5 +26,6 @@ export default {
   white: COLOR_WHITE,
   whiteSmoke: COLOR_WHITE_SMOKE,
   snow: COLOR_SNOW,
-  oldLace: COLOR_OLD_LACE
+  oldLace: COLOR_OLD_LACE,
+  gainsboro: COLOR_GAINSBORO
 }
