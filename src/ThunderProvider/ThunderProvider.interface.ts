@@ -7,6 +7,7 @@ type ThunderUITheme = {
   primary?: string
 
   neutralLighter?: string
+  neutralLight?: string
   neutral?: string
   neutralDark?: string
 }
