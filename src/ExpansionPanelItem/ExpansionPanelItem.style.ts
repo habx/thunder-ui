@@ -21,8 +21,7 @@ export const TitleBar = styled.div`
   user-select: none;
 `
 
-export const Content = styled.div`
-  padding: 0 16px;
+export const CoreContainer = styled.div`
   transition: max-height 300ms ease-in-out;
   overflow: hidden;
 
@@ -33,4 +32,8 @@ export const Content = styled.div`
   &[data-open="true"] {
     max-height: ${({ height }) => height}px;
   }
+`
+
+export const CoreContent = styled.div`
+  padding: 8px 16px 16px 16px;
 `

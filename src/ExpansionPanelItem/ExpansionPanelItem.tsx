@@ -4,7 +4,7 @@ import Title from '../Title'
 import FontIcon from '../FontIcon'
 
 import ExpansionPanelItemProps from './ExpansionPanelItem.interface'
-import { ExpansionPanelItemContainer, TitleBar, Content } from './ExpansionPanelItem.style'
+import { ExpansionPanelItemContainer, TitleBar, CoreContainer, CoreContent } from './ExpansionPanelItem.style'
 import { ExpansionPanelContext } from '../ExpansionPanel/ExpansionPanel.context'
 
 const useContentHeight = (children) => {
@@ -24,7 +24,7 @@ const useContentHeight = (children) => {
   return [contentRef, contentHeight]
 }
 
-const ExpansionPanelItem: React.StatelessComponent<ExpansionPanelItemProps> = ({ children, title }) => {
+const ExpansionPanelItem: React.StatelessComponent<ExpansionPanelItemProps> = ({ children, title, expandIcon, collapseIcon }) => {
   const { openedItem, setOpenedItem } = React.useContext(ExpansionPanelContext)
   const [itemId] = React.useState(Math.random())
   const [contentRef, contentHeight] = useContentHeight(children)
@@ -40,15 +40,26 @@ const ExpansionPanelItem: React.StatelessComponent<ExpansionPanelItemProps> = ({
     <ExpansionPanelItemContainer>
       <TitleBar onClick={onToggle}>
         <Title size={3}>{ title }</Title>
-        <FontIcon icon={isOpened ? 'expand_less' : 'expand_more'} />
+        {
+          !isOpened && (
+            expandIcon || <FontIcon icon='expand_more' />
+          )
+        }
+        {
+          isOpened && (
+            collapseIcon || <FontIcon icon='expand_less' />
+          )
+        }
       </TitleBar>
-      <Content
+      <CoreContainer
         data-open={isOpened}
         ref={contentRef}
         height={contentHeight}
       >
-        { children }
-      </Content>
+        <CoreContent>
+          { children }
+        </CoreContent>
+      </CoreContainer>
     </ExpansionPanelItemContainer>
   )
 }
