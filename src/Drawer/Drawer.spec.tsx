@@ -2,7 +2,7 @@ import * as React from 'react'
 import { mount } from 'enzyme'
 import sinon from 'sinon'
 
-import Modal from './index'
+import Drawer from './index'
 
 jest.useFakeTimers()
 
@@ -12,40 +12,40 @@ describe('Drawer component', () => {
 
     beforeEach(() => {
       wrapper = mount(
-        <Modal onClose={() => null}>
-          <div id='modal-content'>
+        <Drawer onClose={() => null}>
+          <div id='drawer-content'>
             CONTENT
           </div>
-        </Modal>
+        </Drawer>
       )
     })
 
     it('should pass children', () => {
-      expect(wrapper.find('#modal-content')).toHaveLength(1)
+      expect(wrapper.find('#drawer-content')).toHaveLength(1)
     })
   })
 
   describe('with render props children', () => {
-    it('should have state="closed" if modal is closed', () => {
+    it('should have state="closed" if drawer is closed', () => {
       const spyChildren = sinon.spy()
 
       mount(
-        <Modal onClose={() => null} open={false}>
+        <Drawer onClose={() => null} open={false}>
           {spyChildren}
-        </Modal>
+        </Drawer>
       )
 
       expect(spyChildren.calledOnce).toBe(true)
       expect(spyChildren.calledWith({ state: 'closed' })).toBe(true)
     })
 
-    it('should have state = "opening" if modal is mounted with open=true"', () => {
+    it('should have state = "opening" if drawer is mounted with open=true"', () => {
       const spyChildren = sinon.spy()
 
       mount(
-        <Modal onClose={() => null} open>
+        <Drawer onClose={() => null} open>
           {spyChildren}
-        </Modal>
+        </Drawer>
       )
 
       expect(spyChildren.calledOnce).toBe(true)
@@ -56,9 +56,9 @@ describe('Drawer component', () => {
       const spyChildren = sinon.spy()
 
       mount(
-        <Modal onClose={() => null} open>
+        <Drawer onClose={() => null} open>
           {spyChildren}
-        </Modal>
+        </Drawer>
       )
 
       setTimeout(() => {
@@ -73,9 +73,9 @@ describe('Drawer component', () => {
       const spyChildren = sinon.spy()
 
       const wrapper = mount(
-        <Modal onClose={() => null} open>
+        <Drawer onClose={() => null} open>
           {spyChildren}
-        </Modal>
+        </Drawer>
       )
 
       setTimeout(() => {
