@@ -1,8 +1,6 @@
 import * as React from 'react'
 import styled, { css } from 'styled-components'
-import tag from 'clean-tag'
 
-import colors from '../colors'
 import fontSizes from '../fontSizes'
 import { getMainColor } from '../_internal/colors'
 
@@ -24,7 +22,7 @@ const prepareProps = props => {
   })
 }
 
-const StyledTabsItem = styled(tag).attrs(prepareProps)`
+const StyledTabsItem = styled.div.attrs(prepareProps)`
   display: flex;
   padding: 16px 8px;
   margin: 0 8px;
