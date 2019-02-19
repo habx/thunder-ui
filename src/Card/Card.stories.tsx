@@ -29,7 +29,8 @@ const props = () => ({
   headerPosition: select('Position of the header', HEADER_POSITIONS, 'inside'),
   action: select('Action', ACTIONS, ACTIONS.Without),
   interactive: boolean('Interactive', false),
-  onClick: action('onClick'),
+  error: boolean('Error', false),
+  onClick: action('onClick')
 })
 
 storiesOf('Layouts/Card', module)
