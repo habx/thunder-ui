@@ -5,6 +5,7 @@ export default interface CardProps extends DOMNode {
   title?: string
   subtitle?: string
   interactive?: boolean
+  error?: boolean
   headerPosition?: 'inside' | 'outside'
   action?: React.ReactNode
   titleCount?: number
