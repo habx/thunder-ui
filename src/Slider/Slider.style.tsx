@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components'
+import colors from '../colors'
 
 export const Label = styled.span.attrs(({ value, max }) => ({
   style: {
@@ -35,6 +36,7 @@ export const RcSliderStyle = styled.div`
     border-radius: 6px;
   }
   .rc-slider-track {
+    z-index: 5;
     position: absolute;
     left: 0;
     height: 8px;
@@ -47,6 +49,7 @@ export const RcSliderStyle = styled.div`
     position: absolute;
     margin-left: -7px;
     margin-top: -5px;
+    z-index: 5;
 
     cursor: pointer;
     cursor: -webkit-grab;
@@ -268,4 +271,22 @@ export const SliderContainer = styled(RcSliderStyle)`
     opacity: 0.6;
     filter: grayscale();
   `};
+`
+
+export const SliderIndicator = styled.div`
+  position: absolute;
+  background-color: ${({ color }) => color || colors.internationalOrange};
+  width: ${({ size }) => size}%;
+  left: ${({ position }) => position}%;
+  height: 4px;
+  top: 5px;
+  border-radius: 8px;
+  z-index: 4;
+`
+
+export const SliderHandlerIndicator = styled.div`
+  margin: 25% auto auto;
+  height: 50%;
+  width: 50%;
+  border-radius: 100%;
 `

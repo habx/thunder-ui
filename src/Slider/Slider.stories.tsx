@@ -55,5 +55,16 @@ storiesOf('Inputs/Slider', module)
     return <EnhancedSlider />
   })
   .add('with custom color', () => (
-    <Slider onChange={action('Slider change')} value={40} color={colors.trueBlue} />
+    <Slider onChange={action('Slider change')} value={40} color={colors.internationalOrange} />
+  ))
+  .add('with indicators', () => (
+    <Slider
+      range
+      onChange={action('Slider change')}
+      value={[40, 60]}
+      indicators={[
+        { color: colors.popstar, range: [0, 15] },
+        { color: colors.oldLace, range: [90, 100] }
+      ]}
+    />
   ))
