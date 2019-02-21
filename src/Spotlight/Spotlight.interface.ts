@@ -7,10 +7,6 @@ type themeType = {
   border?: string
   text?: string
 
-  modal?: {
-    overlayOpacity?: number
-  },
-
   section?: {
     title?: string
   }

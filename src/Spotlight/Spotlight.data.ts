@@ -7,10 +7,6 @@ export const darkTheme = {
   border: '#1B355E',
   text: '#fff',
 
-  modal: {
-    overlayOpacity: 0.6
-  },
-
   section: {
     title: '#6d89b0'
   },

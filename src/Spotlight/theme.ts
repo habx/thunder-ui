@@ -7,10 +7,6 @@ export const DEFAULT_THEME = {
   border: colors.whiteSmoke,
   text: colors.paynesGrey,
 
-  modal: {
-    overlayOpacity: 0.35
-  },
-
   section: {
     title: colors.paynesGrey
   },
