@@ -121,9 +121,9 @@ class Modal extends PureComponent<ModalProps> {
 
     return (
       <Fragment>
-        <Overlay data-state={currentState} data-animated={animated}>
+        <Overlay data-state={currentState}>
           <div ref={this.ref}>
-            <ModalCard title={title} headerPosition='inside' {...props}>
+            <ModalCard title={title} headerPosition='inside' {...props} data-animated={animated}>
               {closeButton && <CloseButtonContainer hasTitle={title} onClick={this.handleClose}>{closeButton}</CloseButtonContainer>}
               {
                 isFunction(children)
