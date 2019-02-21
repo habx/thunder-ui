@@ -63,7 +63,7 @@ storiesOf('Inputs/Slider', module)
       onChange={action('Slider change')}
       value={[40, 60]}
       indicators={[
-        { color: colors.popstar, range: [0, 15] },
+        { color: colors.popstar, range: [0, 20] },
         { color: colors.oldLace, range: [90, 100] }
       ]}
     />

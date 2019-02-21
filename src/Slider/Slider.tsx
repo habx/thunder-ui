@@ -98,15 +98,14 @@ class Slider extends React.Component<SliderProps> {
       : `${(customValues ? customValues[(value as number)] : `${labelFormatter(value) || 0}${toolTipSuffix}`)}`
 
     const mainColor = getMainColor(this.props)
-
     return (
       <SliderContainer color={mainColor} {...innerProps}>
         {indicators.map(({ color, range }) =>
           <SliderIndicator
             key={range.join('.')}
             color={color}
-            size={(lodashMax(range) - lodashMin(range)) / realMax * 100}
-            position={lodashMin(range) / realMax * 100}
+            size={(lodashMax(range) - lodashMin(range)) / (realMax - realMin) * 100}
+            position={(lodashMin(range) - realMin) / (realMax - realMin) * 100}
           />
         )}
         <SliderComponent
