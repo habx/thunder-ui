@@ -8,7 +8,7 @@ export const DEFAULT_THEME = {
   text: colors.paynesGrey,
 
   modal: {
-    overlayOpacity: 0.1
+    overlayOpacity: 0.35
   },
 
   section: {
