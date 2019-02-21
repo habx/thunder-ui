@@ -129,6 +129,7 @@ class BaseSpotlight extends React.Component<SpotlightInnerProps> {
           style={style}
           open={this.isOpen()}
           onClose={this.handleClose}
+          animated={false}
         >
           {({ state }) => state !== 'closed' && (
             <SpotlightContent
