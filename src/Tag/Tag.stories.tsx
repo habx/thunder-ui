@@ -1,13 +1,20 @@
 import * as React from 'react'
 import { storiesOf } from '@storybook/react'
-import { withKnobs, text } from '@storybook/addon-knobs'
+import { withKnobs, text, select, boolean } from '@storybook/addon-knobs'
 
-import Tag from '.'
+import colors from '../colors'
+
+import Tag from './index'
+
+const props = () => ({
+  children: text('Content', 'paris'),
+  color: select('Color', { ...colors, 'none': undefined}, undefined),
+  colorSeed: text('Color seed', '')
+})
 
 storiesOf('Miscellaneous/Tag', module)
   .addDecorator(withKnobs)
-  .add('with manual color', () => <Tag color='#f9e38f'>groslay</Tag>)
-  .add('bold', () => <Tag color='#f9e38f' bold>groslay</Tag>)
-  .add('with generated color', () => (
-    <Tag colorSeed={text('Seed pour générer la couleur', 'groslay')}>groslay</Tag>
-  ))
+  .add('full example', () => <Tag {...props()} />)
+  .add('with manual color', () => <Tag color='#f9e38f'>paris</Tag>)
+  .add('bold', () => <Tag color='#f9e38f' bold>paris</Tag>)
+  .add('with generated color', () => <Tag colorSeed='paris'>paris</Tag>)
