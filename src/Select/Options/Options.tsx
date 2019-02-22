@@ -1,6 +1,6 @@
 import * as React from 'react'
-import withSizes from 'react-sizes'
 
+import withSizes from '../../_internal/withSizes'
 import Option from '../Option'
 import Modal from '../../Modal'
 
@@ -17,7 +17,6 @@ import { SelectAllOption } from '../Select.style'
 
 class Options extends React.PureComponent<OptionsProps, {}> {
   renderOptionsContent = (noMaxHeight = false) => {
-    console.log('asked', noMaxHeight)
     const {
       options,
       open,

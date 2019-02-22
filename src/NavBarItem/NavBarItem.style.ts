@@ -38,7 +38,7 @@ export const NavBarItemContainer = styled.div`
   color: #f9f9fb;
 
   i {
-    padding: 12px;
+    padding: 7px 12px;
     font-size: 20px;
     border-radius: 50%;
   }
