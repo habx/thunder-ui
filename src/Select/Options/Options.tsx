@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-import withSizes from '../../_internal/withSizes'
+import withIsMobile from '../../_internal/withIsMobile'
 import Option from '../Option'
 import Modal from '../../Modal'
 
@@ -117,8 +117,4 @@ class Options extends React.PureComponent<OptionsProps, {}> {
   }
 }
 
-const mapSizesToProps = ({ width }) => ({
-  isMobile: width <= 600
-})
-
-export default withSizes(mapSizesToProps)(Options)
+export default withIsMobile(Options)
