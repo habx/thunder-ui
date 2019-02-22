@@ -31,6 +31,7 @@ class Modal extends PureComponent<ModalProps> {
         open: nextProps.open
       }
     }
+    return prevState
   }
 
   constructor (props) {
