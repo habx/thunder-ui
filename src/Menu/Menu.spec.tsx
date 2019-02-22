@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { mount } from 'enzyme'
 
-import Menu from './index'
+import { BaseMenu as Menu } from './Menu'
 import MenuItem from '../MenuItem'
 import Button from '../Button'
 
@@ -10,7 +10,7 @@ describe('Menu component', () => {
 
   beforeEach(() => {
     wrapper = mount(
-      <Menu triggerElement={<Button id='triggerElement' />}>
+      <Menu triggerElement={<Button id='triggerElement' />} isMobile={false}>
       </Menu>
     )
   })
