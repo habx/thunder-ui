@@ -7,9 +7,8 @@
 
 ThunderUI is available on [npm](https://www.npmjs.com/package/@habx/thunder-ui)
 
-Current version :
 
-```console
+```
 // with npm
 npm install @habx/thunder-ui
 
