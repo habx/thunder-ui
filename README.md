@@ -1,4 +1,6 @@
-# lib-client-backoffx
+<h1 align="center">Thunder UI</h1>
+
+<p align="center" style="font-size: 1.2rem;">Modern React UI library. Code less, do more.</p>
 
 
 ## Installation
