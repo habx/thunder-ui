@@ -15,6 +15,7 @@ export const ModalCard = styled(Card)`
   overflow-y: auto;
 
   transform: translateY(32px);
+  box-sizing: border-box;
   transition: transform ${ANIMATION_DURATION}ms ease-in-out;
 `
 

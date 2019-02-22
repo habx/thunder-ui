@@ -9,6 +9,7 @@ export default interface CardProps extends DOMNode {
   headerPosition?: 'inside' | 'outside'
   action?: React.ReactNode
   titleCount?: number
+  noPadding?: boolean
 }
 
 export interface CardInnerProps extends CardProps {

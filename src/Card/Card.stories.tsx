@@ -36,9 +36,13 @@ const props = () => ({
 storiesOf('Layouts/Card', module)
   .addDecorator(withKnobs)
   .add('full example', () => (
-    <Card {...props()}>
-      <Container>
-        {regularText}
-      </Container>
-    </Card>
+    <React.Fragment>
+      <Card {...props()}>
+        <Container>
+          {regularText}
+        </Container>
+      </Card>
+      <div style={{ height: 40 }}>
+      </div>
+    </React.Fragment>
   ))

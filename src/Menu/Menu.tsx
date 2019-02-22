@@ -1,7 +1,7 @@
 import * as React from 'react'
 
 import MenuProps, { MenuState } from './Menu.interface'
-import { MenuWrapper, MenuContainer, MenuContent } from './Menu.style'
+import { MenuWrapper, MobileMenuContainer, MenuContainer, MenuContent } from './Menu.style'
 
 class Menu extends React.Component<MenuProps, MenuState> {
   static defaultProps = {
@@ -50,14 +50,29 @@ class Menu extends React.Component<MenuProps, MenuState> {
       onClick: this.handleToggle
     })
 
+    const els = [
+      <MenuContainer key='1' data-open={open} position={position}>
+        <MenuContent {...props} onClick={persistent ? null : this.handleClose}>
+          {children}
+        </MenuContent>
+      </MenuContainer>,
+
+      <MobileMenuContainer key='2' data-open={open} position={position}>
+        <MenuContent {...props} onClick={persistent ? null : this.handleClose}>
+          {children}
+        </MenuContent>
+      </MobileMenuContainer>
+    ]
+
+    const fn = ['right', 'left'].includes(position)
+      ? 'unshift'
+      : 'push'
+
+    els[fn](triggerElementWithAction)
+
     return (
       <MenuWrapper ref={this.wrapperRef} >
-        {triggerElementWithAction}
-        <MenuContainer data-open={open} position={position}>
-          <MenuContent {...props} onClick={persistent ? null : this.handleClose}>
-            {children}
-          </MenuContent>
-        </MenuContainer>
+        {els}
       </MenuWrapper>
     )
   }

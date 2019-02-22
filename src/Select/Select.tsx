@@ -370,6 +370,7 @@ export class BaseSelect extends React.Component<SelectProps, SelectState> {
           compact={compact}
           canSelectAll={!!canSelectAll}
           selectAllLabel={selectAllLabel}
+          onClose={this.handleToggle}
         />
       </SelectContainer>
     )
