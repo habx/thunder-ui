@@ -24,8 +24,6 @@ const props = () => ({
 storiesOf('Actions/Menu', module)
   .addDecorator(withKnobs)
   .add('full example', () => (
-    <Fragment>
-      <div data-ilyes="true"/>
     <Menu {...props()} triggerElement={<Button>Menu</Button>}>
       <Container>
         <MenuItem>Gestion des contacts</MenuItem>
@@ -33,7 +31,6 @@ storiesOf('Actions/Menu', module)
         <MenuItem>Gestion des pages</MenuItem>
       </Container>
     </Menu>
-    </Fragment>
   ))
   .add('with icons', () => (
     <Menu triggerElement={<Button>Menu</Button>}>
