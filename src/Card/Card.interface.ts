@@ -8,8 +8,8 @@ export default interface CardProps extends DOMNode {
   error?: boolean
   headerPosition?: 'inside' | 'outside'
   action?: React.ReactNode
-  titleCount?: number
   noPadding?: boolean
+  titleCount?: number | string
 }
 
 export interface CardInnerProps extends CardProps {

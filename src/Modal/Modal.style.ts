@@ -13,10 +13,12 @@ export const ModalCard = styled(Card)`
   max-height: calc(100vh - 64px);
   overflow-x: hidden;
   overflow-y: auto;
-
   transform: translateY(32px);
   box-sizing: border-box;
-  transition: transform ${ANIMATION_DURATION}ms ease-in-out;
+
+  &[data-animated="true"] {
+    transition: transform ${ANIMATION_DURATION}ms ease-in-out;
+  }
 `
 
 export const Overlay = styled.div`

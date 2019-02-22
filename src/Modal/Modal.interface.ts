@@ -13,4 +13,5 @@ export default interface ModalProps extends CardProps {
   closeButton?: JSX.Element
   open: boolean
   onClose: (e: React.FormEvent<HTMLInputElement>) => void
+  animated?: boolean
 }

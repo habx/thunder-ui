@@ -1,12 +1,12 @@
 import * as React from 'react'
 import { withTheme } from 'styled-components'
-import BaseSlider, { Range } from 'rc-slider'
-import { omit } from 'lodash'
+import BaseSlider, { Range, Handle } from 'rc-slider'
+import { omit, max as lodashMax, min as lodashMin, inRange } from 'lodash'
 
 import withLabel from '../withLabel'
 import { getMainColor } from '../_internal/colors'
 
-import { SliderContainer, Label } from './Slider.style'
+import { SliderContainer, Label, SliderIndicator, SliderHandlerIndicator } from './Slider.style'
 import SliderProps from './Slider.interface'
 
 const INTERNAL_PROPS = [
@@ -18,7 +18,8 @@ const INTERNAL_PROPS = [
   'step',
   'labelFormatter',
   'value',
-  'error'
+  'error',
+  'indicators'
 ]
 
 class Slider extends React.Component<SliderProps> {
@@ -30,7 +31,8 @@ class Slider extends React.Component<SliderProps> {
     toolTipSuffix: '',
     min: 0,
     max: 100,
-    step: 5
+    step: 5,
+    indicators: []
   }
 
   static getDerivedStateFromProps (nextProps, prevState) {
@@ -79,6 +81,7 @@ class Slider extends React.Component<SliderProps> {
       min,
       step,
       labelFormatter,
+      indicators,
       error
     } = this.props
     const { value } = this.state
@@ -95,9 +98,16 @@ class Slider extends React.Component<SliderProps> {
       : `${(customValues ? customValues[(value as number)] : `${labelFormatter(value) || 0}${toolTipSuffix}`)}`
 
     const mainColor = getMainColor(this.props)
-
     return (
       <SliderContainer color={mainColor} {...innerProps}>
+        {indicators.map(({ color, range }) =>
+          <SliderIndicator
+            key={range.join('.')}
+            color={color}
+            size={(lodashMax(range) - lodashMin(range)) / (realMax - realMin) * 100}
+            position={(lodashMin(range) - realMin) / (realMax - realMin) * 100}
+          />
+        )}
         <SliderComponent
           onAfterChange={this.handleChange}
           onChange={this.handleLocalChange}
@@ -106,6 +116,18 @@ class Slider extends React.Component<SliderProps> {
           max={realMax}
           min={realMin}
           step={customValues ? 1 : step}
+          handle={handleProps => {
+            const handleColor = indicators.reduce((currentColor, indicator) =>
+              inRange(handleProps.value, lodashMin(indicator.range), lodashMax(indicator.range) + 1)
+                ? indicator.color
+                : currentColor
+              , null)
+            return (
+              <Handle {...handleProps}>
+                <SliderHandlerIndicator style={{ backgroundColor: handleColor }} />
+              </Handle>
+            )
+          }}
         />
         <Label
           value={isValueArray ? value[0] : value} max={realMax}
