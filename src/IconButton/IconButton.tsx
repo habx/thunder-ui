@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import { getHoverColor, getMainColor } from '../_internal/colors'
 
 import IconButtonProps from './IconButton.interface'
+import shadows from '../shadows'
 
 const getDiameter = props => {
   if (props.small) {
@@ -36,17 +37,17 @@ const IconButton: React.StatelessComponent<IconButtonProps> = styled.button.attr
   border-radius: 50%;
 
   background-color: ${({ color }) => color};
-  box-shadow: 0 4px 12px 0 rgba(3, 54, 61, 0.32);
+  box-shadow: ${shadows.light};
 
   cursor: pointer;
   user-select: none;
 
   &:hover {
-    box-shadow:  0 4px 18px 0 rgba(80, 79, 79, 0.5);
+    box-shadow: ${shadows.strong};
   }
 
   &:active {
-    box-shadow: 0 4px 12px 0 rgba(80, 79, 79, 0.5);
+    box-shadow: ${shadows.strong};
   }
 
   &:hover,
