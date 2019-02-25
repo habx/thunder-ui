@@ -23,7 +23,7 @@ class Modal extends PureComponent<ModalProps> {
     animated: true
   }
 
-  static getDerivedStateFromProps (nextProps, prevState) {
+  static getDerivedStateFromProps (nextProps) {
     const { animated } = nextProps
 
     if (!animated) {
@@ -31,7 +31,8 @@ class Modal extends PureComponent<ModalProps> {
         open: nextProps.open
       }
     }
-    return prevState
+
+    return null
   }
 
   constructor (props) {
