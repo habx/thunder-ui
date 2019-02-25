@@ -19,6 +19,7 @@ const Container = styled.div`
 
 const props = () => ({
   open: boolean('Open', true),
+  animated: boolean('Animated', true),
   onClose: action('onClose')
 })
 

@@ -35,6 +35,38 @@ storiesOf('Layouts/ExpansionPanel', module)
       </ExpansionPanelItem>
     </ExpansionPanel>
   ))
+  .add('flat', () => (
+    <ExpansionPanel flat>
+      <ExpansionPanelItem title='First item'>
+        { regularData }
+      </ExpansionPanelItem>
+      <ExpansionPanelItem title='Second item'>
+        { regularData }
+      </ExpansionPanelItem>
+      <ExpansionPanelItem title='Third item'>
+        { regularData }
+      </ExpansionPanelItem>
+      <ExpansionPanelItem title='Fourth item'>
+        { regularData }
+      </ExpansionPanelItem>
+    </ExpansionPanel>
+  ))
+  .add('error', () => (
+    <ExpansionPanel>
+      <ExpansionPanelItem title='First item'>
+        { regularData }
+      </ExpansionPanelItem>
+      <ExpansionPanelItem title='Second item' error>
+        { regularData }
+      </ExpansionPanelItem>
+      <ExpansionPanelItem title='Third item'>
+        { regularData }
+      </ExpansionPanelItem>
+      <ExpansionPanelItem title='Fourth item'>
+        { regularData }
+      </ExpansionPanelItem>
+    </ExpansionPanel>
+  ))
   .add('with custom icons', () => (
     <ExpansionPanel>
       <ExpansionPanelItem

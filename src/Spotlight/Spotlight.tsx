@@ -5,12 +5,10 @@ import { withTheme, ThemeProvider } from 'styled-components'
 import SpotlightContent from './SpotlightContent'
 import { DEFAULT_THEME } from './theme'
 
-import { SpotlightModalContainer, SpotlightModal } from './Spotlight.style'
 import SpotlightProps, { SpotlightInnerProps } from './Spotlight.interface'
+import { SpotlightModal } from './Spotlight.style'
 
 const DOUBLE_KEY_PRESS_DURATION = 200
-
-const stopEvent = e => e.stopPropagation()
 
 class BaseSpotlight extends React.Component<SpotlightInnerProps> {
   private readonly modalRef: React.RefObject<any>
@@ -94,12 +92,6 @@ class BaseSpotlight extends React.Component<SpotlightInnerProps> {
     }
   }
 
-  handleClick = () => {
-    if (this.state.open) {
-      this.handleClose()
-    }
-  }
-
   handleClose = () => this.setState(() => ({
     open: false,
     query: ''
@@ -130,14 +122,16 @@ class BaseSpotlight extends React.Component<SpotlightInnerProps> {
   render () {
     const { className, style, ...rest } = this.props
 
-    if (!this.isOpen()) {
-      return null
-    }
-
     return (
       <ThemeProvider theme={this.generateTheme()}>
-        <SpotlightModalContainer onClick={this.handleClick}>
-          <SpotlightModal ref={this.modalRef} onClick={stopEvent} className={className} style={style}>
+        <SpotlightModal
+          className={className}
+          style={style}
+          open={this.isOpen()}
+          onClose={this.handleClose}
+          animated={false}
+        >
+          {({ state }) => state !== 'closed' && (
             <SpotlightContent
               {...rest}
               onClose={this.handleClose}
@@ -145,8 +139,8 @@ class BaseSpotlight extends React.Component<SpotlightInnerProps> {
               onQueryChange={this.handleQueryChange}
               inputRef={this.inputRef}
             />
-          </SpotlightModal>
-        </SpotlightModalContainer>
+          )}
+        </SpotlightModal>
       </ThemeProvider>
     )
   }

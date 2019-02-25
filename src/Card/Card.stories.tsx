@@ -1,16 +1,10 @@
 import * as React from 'react'
-import styled from 'styled-components'
 import { storiesOf } from '@storybook/react'
 import { action } from '@storybook/addon-actions'
 import { withKnobs, select, boolean, text } from '@storybook/addon-knobs'
 
 import Card from './index'
 import { regularText } from './Card.data'
-
-const Container = styled.div`
-  max-width: 500px;
-  line-height: 1.5;
-`
 
 const HEADER_POSITIONS = {
   Inside: 'inside',
@@ -25,7 +19,7 @@ const ACTIONS = {
 const props = () => ({
   title: text('Title', 'Concerning Hobbits'),
   subtitle: text('Subtitle', 'Chapter 1'),
-  titleCount: text('Title count', ''),
+  titleCount: text('Title count', undefined),
   headerPosition: select('Position of the header', HEADER_POSITIONS, 'inside'),
   action: select('Action', ACTIONS, ACTIONS.Without),
   interactive: boolean('Interactive', false),
@@ -35,14 +29,13 @@ const props = () => ({
 
 storiesOf('Layouts/Card', module)
   .addDecorator(withKnobs)
-  .add('full example', () => (
-    <React.Fragment>
-      <Card {...props()}>
-        <Container>
-          {regularText}
-        </Container>
-      </Card>
-      <div style={{ height: 40 }}>
-      </div>
-    </React.Fragment>
+  .add('full example', () => <Card {...props()}>{ regularText }</Card>)
+  .add('error', () => (
+    <Card error title='Concerning Hobbits' subtitle='Chapter 1'>{ regularText }</Card>
+  ))
+  .add('interactive', () => (
+    <Card interactive title='Concerning Hobbits' subtitle='Chapter 1'>{ regularText }</Card>
+  ))
+  .add('title count', () => (
+    <Card titleCount='5' title='Concerning Hobbits' subtitle='Chapter 1'>{ regularText }</Card>
   ))

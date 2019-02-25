@@ -1,28 +1,16 @@
 import styled from 'styled-components'
+
+import Modal from '../Modal'
+import borderRadius from '../borderRadius'
+
 import { get } from './theme'
 
-export const SpotlightModalContainer = styled.div`
-  background-color: rgba(0,0,0, ${get('modal.overlayOpacity')});
-  position: fixed;
-  height: 100vh;
-  width: 100vw;
-  top: 0;
-  left: 0;
-  display: flex;
-  justify-content: center;
-  padding-top: 10%;
-  align-items:flex-start;
-  align-content:flex-start;
-  z-index: 999999;
-`
-
-export const SpotlightModal = styled.div`
+export const SpotlightModal = styled(Modal)`
   background-color: ${get('background')};
   width: 600px;
-  border-radius: 8px;
-  padding: 0 0 32px;
-  max-height: 70%;
-  box-shadow: 0 4px 12px 0 rgba(3, 54, 61, 0.16);
+  border-radius: ${borderRadius.wide};
+  padding: 0 0 16px;
+  max-height: 70vh;
   display: flex;
   flex-direction: column;
 `

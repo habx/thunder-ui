@@ -19,7 +19,19 @@ class Modal extends PureComponent<ModalProps> {
 
   static defaultProps = {
     open: false,
-    persistent: false
+    persistent: false,
+    animated: true
+  }
+
+  static getDerivedStateFromProps (nextProps, prevState) {
+    const { animated } = nextProps
+
+    if (!animated) {
+      return {
+        open: nextProps.open
+      }
+    }
+    return prevState
   }
 
   constructor (props) {
@@ -54,10 +66,14 @@ class Modal extends PureComponent<ModalProps> {
   }
 
   animateOpening () {
-    this.timeout = setTimeout(
-      () => this.setState(() => ({ open: this.props.open })),
-      ANIMATION_DURATION
-    )
+    const { animated } = this.props
+
+    if (animated) {
+      this.timeout = setTimeout(
+        () => this.setState(() => ({ open: this.props.open })),
+        ANIMATION_DURATION
+      )
+    }
   }
 
   getCurrentState () {
@@ -101,14 +117,14 @@ class Modal extends PureComponent<ModalProps> {
   }
 
   render () {
-    const { children, title, open, closeButton, ...props } = this.props
+    const { children, title, open, closeButton, animated, ...props } = this.props
     const currentState = this.getCurrentState()
 
     return (
       <Fragment>
         <Overlay data-state={currentState}>
           <div ref={this.ref}>
-            <ModalCard title={title} headerPosition='inside' {...props}>
+            <ModalCard title={title} headerPosition='inside' {...props} data-animated={animated}>
               {closeButton && <CloseButtonContainer hasTitle={title} onClick={this.handleClose}>{closeButton}</CloseButtonContainer>}
               {
                 isFunction(children)
