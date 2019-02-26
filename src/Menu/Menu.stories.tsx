@@ -1,4 +1,4 @@
-import React, { Fragment} from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import { storiesOf } from '@storybook/react'
 import { withKnobs, select, boolean } from '@storybook/addon-knobs'
@@ -7,6 +7,14 @@ import Menu from './index'
 import MenuItem from '../MenuItem'
 import Button from '../Button'
 import FontIcon from '../FontIcon'
+
+const StoryContainer = styled.div`
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`
 
 const Container = styled.div`
   position: relative;
@@ -21,8 +29,15 @@ const props = () => ({
   persistent: boolean('Don\'t close after inside click')
 })
 
+const withContainer = storyFn => (
+  <StoryContainer>
+    {storyFn()}
+  </StoryContainer>
+)
+
 storiesOf('Actions/Menu', module)
   .addDecorator(withKnobs)
+  .addDecorator(withContainer)
   .add('full example', () => (
     <Menu {...props()} triggerElement={<Button>Menu</Button>}>
       <Container>
