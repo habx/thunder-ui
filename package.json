@@ -1,5 +1,5 @@
 {
-  "name": "@habx/lib-client-backoffx",
+  "name": "@habx/thunder-ui",
   "version": "2.36.0",
   "description": "UI Library for client-crm-v2 and client-housings",
   "main": "./index.js",
@@ -21,14 +21,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/habx/lib-client-backoffx.git"
+    "url": "git+https://github.com/habx/thunder-ui.git"
   },
   "author": "Habx Team",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/habx/lib-client-backoffx/issues"
+    "url": "https://github.com/habx/thunder-ui/issues"
   },
-  "homepage": "https://github.com/habx/lib-client-backoffx#readme",
+  "homepage": "https://github.com/habx/thunder-ui#readme",
   "dependencies": {
     "clean-tag": "^2.0.3",
     "color": "^3.1.0",
