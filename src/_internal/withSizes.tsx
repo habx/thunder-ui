@@ -9,11 +9,11 @@ const withSizes = (mapSizesToProps) => <P extends object>(Component: React.Compo
     static displayName = `WithSizes(${Component.displayName})`
     state = getWindowSizes()
 
-    componentDidMount() {
+    componentDidMount () {
       window.addEventListener('resize', this.onResize)
     }
 
-    componentWillUnmount() {
+    componentWillUnmount () {
       window.removeEventListener('resize', this.onResize)
     }
 
@@ -21,7 +21,7 @@ const withSizes = (mapSizesToProps) => <P extends object>(Component: React.Compo
       this.setState(getWindowSizes)
     }
 
-    render() {
+    render () {
       const additionalProps = mapSizesToProps(this.state)
       return <Component {...this.props} {...additionalProps} />
     }
