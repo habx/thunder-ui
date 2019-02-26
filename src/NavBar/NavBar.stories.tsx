@@ -75,3 +75,11 @@ storiesOf('Navigation/NavBar', module)
       <NavBarItem icon={<UserIcon />} tooltip='Profil' activeBackgroundColor={colors.brightCerualean} />
     </NavBar>
   ))
+  .add('with title', () => (
+    <NavBar
+      title={<span>H</span>}
+    >
+      <NavBarItem icon={<HomeIcon />} tooltip='Accueil' active />
+      <NavBarItem icon={<UserIcon />} tooltip='Profil' />
+    </NavBar>
+  ))

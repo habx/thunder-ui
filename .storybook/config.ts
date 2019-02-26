@@ -2,12 +2,11 @@ import { configure, addDecorator } from '@storybook/react'
 import { withInfo } from '@storybook/addon-info'
 import centered from '@storybook/addon-centered'
 
-import fontDecorator from './fontDecorator'
 import providerDecorator from './providerDecorator'
+import '!!style-loader!css-loader?url=false!../src/reset.css'
 
 addDecorator(withInfo)
 addDecorator(centered)
-addDecorator(fontDecorator)
 addDecorator(providerDecorator)
 
 const req = process.env.NODE_ENV === 'test' ?

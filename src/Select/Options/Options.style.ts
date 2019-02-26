@@ -34,8 +34,10 @@ export const OptionsContent = styled.div`
   overflow-y: auto;
   overflow-x: hidden;
   padding: 12px 0;
-  max-height: 300px;
+  max-height: ${({ noMaxHeight }) => noMaxHeight ? 'unset' : '300px'};
 `
+
+export const OptionsModalContent = styled.div``
 
 export const EmptyOptions = styled.div`
   padding: 8px 18px;

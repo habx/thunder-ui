@@ -19,6 +19,11 @@ export const NavBarItemTooltip = styled.span`
 
   display: flex;
   align-items: center;
+
+  @media (max-width: 600px) {
+    background-color: initial;
+  }
+
 `
 
 export const NavBarItemTooltipContent = styled.div`
@@ -33,24 +38,38 @@ export const NavBarItemContainer = styled.div`
   color: #f9f9fb;
 
   i {
-    padding: 12px;
+    padding: 7px 12px;
     font-size: 20px;
     border-radius: 50%;
   }
 
   &.active i {
     background-color: ${({ activebackgroundcolor }) => activebackgroundcolor};
+
   }
 
   ${({ active }) => active && css`
     i {
       background-color: ${({ activebackgroundcolor }) => activebackgroundcolor};
+
+      @media (max-width: 600px) {
+        background-color: initial;
+      }
     }
   `}
 
   &:hover {
     ${NavBarItemTooltip} {
       max-width: 250px;
+      opacity: 1;
+    }
+  }
+
+  @media (max-width: 600px) {
+    font-weight: normal;
+
+    ${NavBarItemTooltip} {
+      max-width: 300px;
       opacity: 1;
     }
   }

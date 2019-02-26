@@ -51,7 +51,7 @@ export const DrawerContainer = styled.div.attrs(prepareProps)`
 
   height: ${({ height }) => height};
   width: ${({ width }) => width};
-  max-width: 100vw;
+  max-width: calc(100vw - 42px);
   max-height: 100vh;
 
   background: white;
@@ -78,6 +78,7 @@ export const DrawerClose = styled.div`
   position: absolute;
   top: 32px;
   left: 32px;
+
   @media screen and (max-width: 992px) {
     left: 4px;
   }

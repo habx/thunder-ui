@@ -4,10 +4,10 @@ import shadows from '../shadows'
 import borderRadius from '../borderRadius'
 
 export const CardContainer = styled.div`
-  box-shadow: ${shadows.light};
+  box-shadow: ${shadows.medium};
   border-radius: ${borderRadius.narrow};
   background: #fff;
-  padding: 32px;
+  padding: ${({ noPadding }) => noPadding ? '0' : '32px'};
 
   ${({ interactive }) => interactive && css`
     cursor: pointer;

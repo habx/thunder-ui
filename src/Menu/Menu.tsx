@@ -1,9 +1,10 @@
 import * as React from 'react'
 
+import withIsMobile from '../_internal/withIsMobile'
 import MenuProps, { MenuState } from './Menu.interface'
-import { MenuWrapper, MenuContainer, MenuContent } from './Menu.style'
+import { MenuWrapper, MobileMenuContainer, MenuContainer, MenuContent } from './Menu.style'
 
-class Menu extends React.Component<MenuProps, MenuState> {
+export class BaseMenu extends React.Component<MenuProps, MenuState> {
   static defaultProps = {
     position: 'left'
   }
@@ -50,17 +51,29 @@ class Menu extends React.Component<MenuProps, MenuState> {
       onClick: this.handleToggle
     })
 
+    const MenuContainerEl = this.props.isMobile
+      ? MobileMenuContainer
+      : MenuContainer
+    const els = [
+      <MenuContainerEl key='1' data-open={open} position={position}>
+        <MenuContent {...props} onClick={persistent ? null : this.handleClose}>
+          {children}
+        </MenuContent>
+      </MenuContainerEl>
+    ]
+
+    const fn = ['right', 'left'].includes(position)
+      ? 'unshift'
+      : 'push'
+
+    els[fn](triggerElementWithAction)
+
     return (
       <MenuWrapper ref={this.wrapperRef} >
-        {triggerElementWithAction}
-        <MenuContainer data-open={open} position={position}>
-          <MenuContent {...props} onClick={persistent ? null : this.handleClose}>
-            {children}
-          </MenuContent>
-        </MenuContainer>
+        {els}
       </MenuWrapper>
     )
   }
 }
 
-export default Menu
+export default withIsMobile(BaseMenu)

@@ -10,6 +10,13 @@ const prepareProps = ({ position }) => ({
   top: ['top-left', 'top-right'].includes(position) ? 'unset' : 'calc(100% + 4px)'
 })
 
+const preparePropsMobile = ({ position }) => ({
+  left: '0px',
+  right: '0px',
+  marginTop: ['left', 'right'].includes(position) ? '4px' : '0',
+  transform: ['top-left', 'top-right'].includes(position) ? 'translateY(calc(-100% - 4px))' : 'none'
+})
+
 export const MenuContainer = styled.div.attrs(prepareProps)`
   position: absolute;
   top: ${({ top }) => top};
@@ -26,6 +33,34 @@ export const MenuContainer = styled.div.attrs(prepareProps)`
     pointer-events: auto;
     opacity: 1;
   }
+
+  @media (max-width: 600px) {
+    display: none;
+  }
+`
+
+export const MobileMenuContainer = styled.div.attrs(preparePropsMobile)`
+  display: none;
+  position: absolute;
+  left: ${({ left }) => left};
+  right: ${({ right }) => right};
+  right: ${({ right }) => right};
+  margin-top: ${({ marginTop }) => marginTop};
+  transform: ${({ transform }) => transform};
+  opacity: 0;
+  z-index: 100;
+  pointer-events: none;
+
+  transition: opacity ease-in-out 150ms;
+
+  &[data-open="true"] {
+    pointer-events: auto;
+    opacity: 1;
+  }
+
+  @media (max-width: 600px) {
+    display: block;
+  }
 `
 
 export const MenuContent = styled.ul`
@@ -39,4 +74,8 @@ export const MenuContent = styled.ul`
 
 export const MenuWrapper = styled.div`
   position: relative;
+
+  @media (max-width: 600px) {
+    position: static;
+  }
 `

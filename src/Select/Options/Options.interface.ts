@@ -17,4 +17,6 @@ export default interface Options {
   canSelectAll: boolean
   selectAllLabel?: string
   allSelected: boolean
+  isMobile: boolean
+  onClose: () => void
 }
