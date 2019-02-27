@@ -1,10 +1,10 @@
-import React from 'react'
+import * as React from 'react'
 
 const getWindowWidth = () => window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth
 const getWindowHeight = () => window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight
 const getWindowSizes = () => ({ width: getWindowWidth(), height: getWindowHeight() })
 
-const withSizes = (mapSizesToProps) => <P extends object>(Component: React.ComponentType<P>) => {
+const withSizes = (mapSizesToProps) => <P extends object>(Component: React.ComponentType<P>) =>
   class WithSizesHOC extends React.PureComponent<any, any> {
     static displayName = `WithSizes(${Component.displayName})`
     state = getWindowSizes()
@@ -26,7 +26,5 @@ const withSizes = (mapSizesToProps) => <P extends object>(Component: React.Compo
       return <Component {...this.props} {...additionalProps} />
     }
   }
-  return WithSizesHOC
-}
 
 export default withSizes
