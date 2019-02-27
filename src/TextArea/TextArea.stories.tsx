@@ -5,7 +5,7 @@ import { withState } from 'recompose'
 
 import TextArea from '.'
 
-const HABX_ADDRESS = '55 Rue d\'Amsterdam, 75008 Paris'
+const CONTENT = 'Hello world'
 
 const Container = styled.div`
   width: 350px;
@@ -24,7 +24,7 @@ const TextAreaWithState = ({ value = '', ...props }) => {
 }
 
 storiesOf('Inputs/TextArea', module)
-  .add('basic', () => <TextAreaWithState value={HABX_ADDRESS} />)
-  .add('disabled', () => <TextAreaWithState disabled value={HABX_ADDRESS} />)
-  .add('error', () => <TextAreaWithState error value={HABX_ADDRESS} />)
+  .add('basic', () => <TextAreaWithState value={CONTENT} />)
+  .add('disabled', () => <TextAreaWithState disabled value={CONTENT} />)
+  .add('error', () => <TextAreaWithState error value={CONTENT} />)
   .add('placeholder', () => <TextAreaWithState value='' placeholder='Type something here' />)

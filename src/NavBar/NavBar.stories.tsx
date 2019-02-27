@@ -6,6 +6,7 @@ import colors from '../colors'
 
 import NavBar from './index'
 import NavBarItem from '../NavBarItem'
+import FontIcon from '../FontIcon'
 
 const Container = styled.div`
   position: fixed;
@@ -20,28 +21,6 @@ const Content = styled.div`
   flex: 1 1 100%;
 `
 
-const Icon = styled.i`
-  display: inline-block;
-  font: normal normal normal 16px/1 'Habx';
-  font-size: inherit;
-  text-rendering: auto;
-  text-transform: none;
-  line-height: inherit;
-  vertical-align: bottom;
-`
-
-const HomeIcon = styled(Icon)`
-  &:before {
-    content: "\\2302";
-  }
-`
-
-const UserIcon = styled(Icon)`
-  &:before {
-    content: "\\1f468";
-  }
-`
-
 const navDecorator = storyFn => (
   <Container>
     {storyFn()}
@@ -53,33 +32,33 @@ storiesOf('Navigation/NavBar', module)
   .addDecorator(navDecorator)
   .add('basic', () => (
     <NavBar>
-      <NavBarItem icon={<HomeIcon />} tooltip='Accueil' active />
-      <NavBarItem icon={<UserIcon />} tooltip='Profil' />
+      <NavBarItem icon={<FontIcon icon='home' />} tooltip='Accueil' active />
+      <NavBarItem icon={<FontIcon icon='person' />} tooltip='Profil' />
     </NavBar>
   ))
   .add('with custom background color', () => (
     <NavBar backgroundColor={colors.maastrichtBlue}>
-      <NavBarItem icon={<HomeIcon />} tooltip='Accueil' active />
-      <NavBarItem icon={<UserIcon />} tooltip='Profil' />
+      <NavBarItem icon={<FontIcon icon='home' />} tooltip='Accueil' active />
+      <NavBarItem icon={<FontIcon icon='person' />} tooltip='Profil' />
     </NavBar>
   ))
   .add('with custom active color', () => (
-    <NavBar activeBackgroundColor={colors.brightCerualean}>
-      <NavBarItem icon={<HomeIcon />} tooltip='Accueil' active />
-      <NavBarItem icon={<UserIcon />} tooltip='Profil' />
+    <NavBar activeBackgroundColor={colors.maastrichtBlue}>
+      <NavBarItem icon={<FontIcon icon='home' />} tooltip='Accueil' active />
+      <NavBarItem icon={<FontIcon icon='person' />} tooltip='Profil' />
     </NavBar>
   ))
   .add('with custom active color on second item', () => (
     <NavBar>
-      <NavBarItem icon={<HomeIcon />} tooltip='Accueil' active />
-      <NavBarItem icon={<UserIcon />} tooltip='Profil' activeBackgroundColor={colors.brightCerualean} />
+      <NavBarItem icon={<FontIcon icon='home' />} tooltip='Accueil' active />
+      <NavBarItem icon={<FontIcon icon='person' />} tooltip='Profil' activeBackgroundColor={colors.maastrichtBlue} />
     </NavBar>
   ))
   .add('with title', () => (
     <NavBar
       title={<span>H</span>}
     >
-      <NavBarItem icon={<HomeIcon />} tooltip='Accueil' active />
-      <NavBarItem icon={<UserIcon />} tooltip='Profil' />
+      <NavBarItem icon={<FontIcon icon='home' />} tooltip='Accueil' active />
+      <NavBarItem icon={<FontIcon icon='person' />} tooltip='Profil' />
     </NavBar>
   ))
