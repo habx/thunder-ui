@@ -1,79 +1,56 @@
 import * as React from 'react'
+import useOnClickOutside from 'use-onclickoutside'
 
-import withIsMobile from '../_internal/withIsMobile'
-import MenuProps, { MenuState } from './Menu.interface'
-import { MenuWrapper, MobileMenuContainer, MenuContainer, MenuContent } from './Menu.style'
+import MenuProps from './Menu.interface'
+import { MenuWrapper, MobileMenuContainer, MenuContainerDesktop, MenuContent } from './Menu.style'
 
-export class BaseMenu extends React.Component<MenuProps, MenuState> {
-  static defaultProps = {
-    position: 'left'
-  }
+import { useIsSmallScreen } from '../_internal/hooks'
 
-  wrapperRef: React.RefObject<Element>
+const Menu: React.StatelessComponent<MenuProps> = ({
+  triggerElement,
+  children,
+  position,
+  persistent,
+  ...props
+}) => {
+  const wrapperRef = React.useRef(null)
+  const [open, setOpen] = React.useState(false)
+  const isMobile = useIsSmallScreen()
 
-  constructor (props) {
-    super(props)
+  const handleClose = React.useMemo(
+    () => () => setOpen(false),
+    []
+  )
 
-    this.wrapperRef = React.createRef()
-  }
+  const handleToggle = React.useMemo(
+    () => () => setOpen(wasOpen => !wasOpen),
+    []
+  )
 
-  state = {
-    open: false
-  }
+  useOnClickOutside(wrapperRef, handleClose)
 
-  componentDidMount () {
-    window.addEventListener('click', this.handleClickOutside)
-  }
+  const triggerElementWithAction = React.cloneElement(triggerElement, {
+    onClick: handleToggle
+  })
 
-  componentWillUnmount () {
-    window.removeEventListener('click', this.handleClickOutside)
-  }
+  const MenuContainer = isMobile ? MobileMenuContainer : MenuContainerDesktop
+  const isTriggerElementBeforeMenu = ['right', 'left'].includes(position)
 
-  handleClickOutside = event => {
-    if (
-      this.wrapperRef &&
-      !this.wrapperRef.current.contains(event.target) &&
-      this.state.open
-    ) {
-      this.setState({ open: false })
-    }
-  }
-
-  handleToggle = () => this.setState(prevState => ({ open: !prevState.open }))
-
-  handleClose = () => this.setState(() => ({ open: false }))
-
-  render () {
-    const { triggerElement, children, position, persistent, ...props } = this.props
-    const { open } = this.state
-
-    const triggerElementWithAction = React.cloneElement(triggerElement, {
-      onClick: this.handleToggle
-    })
-
-    const MenuContainerEl = this.props.isMobile
-      ? MobileMenuContainer
-      : MenuContainer
-    const els = [
-      <MenuContainerEl key='1' data-open={open} position={position}>
-        <MenuContent {...props} onClick={persistent ? null : this.handleClose}>
+  return (
+    <MenuWrapper ref={wrapperRef} >
+      { isTriggerElementBeforeMenu && triggerElementWithAction }
+      <MenuContainer data-open={open} position={position}>
+        <MenuContent {...props} onClick={persistent ? null : handleClose}>
           {children}
         </MenuContent>
-      </MenuContainerEl>
-    ]
-
-    const fn = ['right', 'left'].includes(position)
-      ? 'unshift'
-      : 'push'
-
-    els[fn](triggerElementWithAction)
-
-    return (
-      <MenuWrapper ref={this.wrapperRef} >
-        {els}
-      </MenuWrapper>
-    )
-  }
+      </MenuContainer>
+      { !isTriggerElementBeforeMenu && triggerElementWithAction }
+    </MenuWrapper>
+  )
 }
 
-export default withIsMobile(BaseMenu)
+Menu.defaultProps = {
+  position: 'left'
+}
+
+export default Menu
