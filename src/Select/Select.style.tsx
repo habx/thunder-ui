@@ -103,4 +103,3 @@ export const ResetIcon = styled(FontIcon)`
     opacity: 0;
   }
 `
-
