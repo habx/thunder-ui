@@ -41,6 +41,8 @@ export const ItemContent = styled.div`
 
 export const ItemHeaderContent = styled.div`
   flex: 1 1 auto;
+  overflow: hidden;
+  text-overflow: ellipsis;
   color: ${props => getMainColor(props, { themeKey: 'neutral' })};
   font-size: ${fontSizes.small};
 `
