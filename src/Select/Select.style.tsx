@@ -3,8 +3,6 @@ import styled, { css } from 'styled-components'
 import fontSizes from '../fontSizes'
 
 import FontIcon from '../FontIcon'
-import colors from '../colors'
-import Option from './Option'
 
 export const SelectContainer = styled.div`
   position: relative;
@@ -106,7 +104,3 @@ export const ResetIcon = styled(FontIcon)`
   }
 `
 
-export const SelectAllOption = styled(Option)`
-  border-bottom: solid 1px ${colors.paynesGrey};
-  font-weight: 600;
-`

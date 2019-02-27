@@ -15,7 +15,7 @@ const Menu: React.StatelessComponent<MenuProps> = ({
 }) => {
   const wrapperRef = React.useRef(null)
   const [open, setOpen] = React.useState(false)
-  const isMobile = useIsSmallScreen()
+  const isSmallScreen = useIsSmallScreen()
 
   const handleClose = React.useMemo(
     () => () => setOpen(false),
@@ -33,7 +33,7 @@ const Menu: React.StatelessComponent<MenuProps> = ({
     onClick: handleToggle
   })
 
-  const MenuContainer = isMobile ? MobileMenuContainer : MenuContainerDesktop
+  const MenuContainer = isSmallScreen ? MobileMenuContainer : MenuContainerDesktop
   const isTriggerElementBeforeMenu = ['right', 'left'].includes(position)
 
   return (
