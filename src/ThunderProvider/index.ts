@@ -1,3 +1,3 @@
-import HabxProvider from './ThunderProvider'
+import ThunderProvider from './ThunderProvider'
 
-export default HabxProvider
+export default ThunderProvider

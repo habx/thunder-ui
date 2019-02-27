@@ -223,7 +223,7 @@ storiesOf('Spotlight/item options', module)
             key={country}
             title={country}
             index={index}
-            href='https://habx.fr'
+            href='https://google.fr'
             target='_BLANK'
           />
         )}

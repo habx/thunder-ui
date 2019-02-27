@@ -10,12 +10,13 @@ export const NavBarItemTooltip = styled.span`
   opacity: 0;
   height: calc(100% - 16px);
   line-height: calc(100% - 16px);
+  cursor: pointer;
   border-radius: 22px;
   font-family: "Inter UI", sans-serif;
   font-size: 14px;
   white-space: nowrap;
   background-color: ${({ activebackgroundcolor }) => activebackgroundcolor};
-  transition: max-width 150ms linear;
+  transition: max-width 250ms ease-in-out;
 
   display: flex;
   align-items: center;
@@ -30,6 +31,16 @@ export const NavBarItemTooltipContent = styled.div`
   padding: 0 16px 0 8px;
 `
 
+export const IconContainer = styled.div`
+  height: 44px;
+  width: 44px;
+  min-width: 44px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+`
+
 export const NavBarItemContainer = styled.div`
   position: relative;
   font-size: 12px;
@@ -37,19 +48,13 @@ export const NavBarItemContainer = styled.div`
   padding: 8px 0;
   color: #f9f9fb;
 
-  i {
-    padding: 7px 12px;
-    font-size: 20px;
-    border-radius: 50%;
-  }
-
-  &.active i {
+  &.active ${IconContainer} {
     background-color: ${({ activebackgroundcolor }) => activebackgroundcolor};
 
   }
 
   ${({ active }) => active && css`
-    i {
+    ${IconContainer} {
       background-color: ${({ activebackgroundcolor }) => activebackgroundcolor};
 
       @media (max-width: 600px) {

@@ -6,7 +6,7 @@ import { withState } from 'recompose'
 import TextInput from '.'
 import FontIcon from '../FontIcon'
 
-const HABX_ADDRESS = '55 Rue d\'Amsterdam, 75008 Paris'
+const CONTENT = 'Hello world'
 
 const Container = styled.div`
   width: 300px;
@@ -25,11 +25,11 @@ const TextInputWithState = ({ value = '', ...props }) => {
 }
 
 storiesOf('Inputs/TextInput', module)
-  .add('basic', () => <TextInputWithState value={HABX_ADDRESS} />)
-  .add('disabled', () => <TextInputWithState disabled value={HABX_ADDRESS} />)
-  .add('error', () => <TextInputWithState error value={HABX_ADDRESS} />)
-  .add('small', () => <TextInputWithState small value={HABX_ADDRESS}/>)
+  .add('basic', () => <TextInputWithState value={CONTENT} />)
+  .add('disabled', () => <TextInputWithState disabled value={CONTENT} />)
+  .add('error', () => <TextInputWithState error value={CONTENT} />)
+  .add('small', () => <TextInputWithState small value={CONTENT}/>)
   .add('placeholder', () => <TextInputWithState value='' placeholder='Type something here' />)
-  .add('with loader', () => <TextInputWithState loading value={HABX_ADDRESS} />)
-  .add('with icon', () => <TextInputWithState value={HABX_ADDRESS} rightElement={<FontIcon icon='edit' size={18} />} />)
-  .add('with hover icon', () => <TextInputWithState value={HABX_ADDRESS} rightHoverElement={<FontIcon icon='edit' size={18} />} />)
+  .add('with loader', () => <TextInputWithState loading value={CONTENT} />)
+  .add('with icon', () => <TextInputWithState value={CONTENT} rightElement={<FontIcon icon='edit' size={18} />} />)
+  .add('with hover icon', () => <TextInputWithState value={CONTENT} rightHoverElement={<FontIcon icon='edit' size={18} />} />)

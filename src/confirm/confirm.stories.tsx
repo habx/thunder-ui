@@ -4,17 +4,17 @@ import { action } from '@storybook/addon-actions'
 
 import confirm from './index'
 
-import HabxProvider from '../ThunderProvider'
+import ThunderProvider from '../ThunderProvider'
 import Button from '../Button'
 
-const habxProvider = storyFn => (
-  <HabxProvider>
+const thunderDecorator = storyFn => (
+  <ThunderProvider>
     { storyFn() }
-  </HabxProvider>
+  </ThunderProvider>
 )
 
 storiesOf('Events/confirm', module)
-  .addDecorator(habxProvider)
+  .addDecorator(thunderDecorator)
   .add('basic', () => (
     <Button
       onClick={async () => {

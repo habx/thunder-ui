@@ -79,7 +79,6 @@ export const NavBarSideContainer = styled.nav`
 `
 
 export const NavBarTitle = styled.h4`
-  font-family: Habx;
   padding: 32px 0;
   text-align: center;
 

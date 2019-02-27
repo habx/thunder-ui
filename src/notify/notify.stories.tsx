@@ -4,17 +4,17 @@ import { action } from '@storybook/addon-actions'
 
 import notify from './index'
 
-import HabxProvider from '../ThunderProvider'
+import ThunderProvider from '../ThunderProvider'
 import Button from '../Button'
 
-const habxProvider = storyFn => (
-  <HabxProvider>
+const thunderDecorator = storyFn => (
+  <ThunderProvider>
     { storyFn() }
-  </HabxProvider>
+  </ThunderProvider>
 )
 
 storiesOf('Events/notify', module)
-  .addDecorator(habxProvider)
+  .addDecorator(thunderDecorator)
   .add('basic', () => (
     <Button onClick={() => notify('This is a notification')}>
       Trigger event

@@ -3,7 +3,7 @@ import * as React from 'react'
 import { withContext } from '../NavBar/context'
 
 import NavBarItemProps from './NavBarItem.interface'
-import { NavBarItemContainer, NavBarItemTooltip, NavBarItemTooltipContent } from './NavBarItem.style'
+import { IconContainer, NavBarItemContainer, NavBarItemTooltip, NavBarItemTooltipContent } from './NavBarItem.style'
 
 const NavBarItem: React.StatelessComponent<NavBarItemProps> = ({ icon, tooltip, activeBackgroundColor, ...props }) => (
   <NavBarItemContainer
@@ -11,12 +11,16 @@ const NavBarItem: React.StatelessComponent<NavBarItemProps> = ({ icon, tooltip, 
     activebackgroundcolor={activeBackgroundColor}
     {...props}
   >
-    {icon}
+    <IconContainer>
+      {icon}
+    </IconContainer>
     {
       tooltip && (
         <React.Fragment>
           <NavBarItemTooltip activebackgroundcolor={activeBackgroundColor}>
-            {icon}
+            <IconContainer>
+              {icon}
+            </IconContainer>
             <NavBarItemTooltipContent>
               {tooltip}
             </NavBarItemTooltipContent>
