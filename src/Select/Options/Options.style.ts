@@ -3,6 +3,8 @@ import styled from 'styled-components'
 import shadows from '../../shadows'
 import fontSizes from '../../fontSizes'
 import { getMainColor } from '../../_internal/colors'
+import Option from '../Option'
+import colors from '../../colors'
 
 export const OptionsContainer = styled.div`
   box-shadow: ${shadows.light};
@@ -51,4 +53,9 @@ export const Description = styled.div`
 export const DescriptionAnnotation = styled.div`
   font-size: ${fontSizes.tiny};
   color: ${props => getMainColor(props, { themeKey: 'neutral' })};
+`
+
+export const SelectAllOption = styled(Option)`
+  border-bottom: solid 1px ${colors.paynesGrey};
+  font-weight: 600;
 `

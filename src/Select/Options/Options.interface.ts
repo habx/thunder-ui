@@ -3,7 +3,7 @@ export type Option = {
   value: any
 }
 
-export default interface Options {
+export default interface OptionsProps {
   options: Option[]
   open: boolean
   compact: boolean
@@ -17,6 +17,5 @@ export default interface Options {
   canSelectAll: boolean
   selectAllLabel?: string
   allSelected: boolean
-  isMobile: boolean
   onClose: () => void
 }

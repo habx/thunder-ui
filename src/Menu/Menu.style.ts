@@ -17,7 +17,7 @@ const preparePropsMobile = ({ position }) => ({
   transform: ['top-left', 'top-right'].includes(position) ? 'translateY(calc(-100% - 4px))' : 'none'
 })
 
-export const MenuContainer = styled.div.attrs(prepareProps)`
+export const MenuContainerDesktop = styled.div.attrs(prepareProps)`
   position: absolute;
   top: ${({ top }) => top};
   bottom: ${({ bottom }) => bottom};

@@ -6,9 +6,4 @@ export default interface MenuProps extends DOMNode {
   triggerElement: React.ReactElement<any>
   position?: 'left' | 'right' | 'top-left' | 'top-right'
   persistent?: boolean
-  isMobile: boolean
-}
-
-export interface MenuState {
-  open: boolean
 }

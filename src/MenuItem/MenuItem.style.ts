@@ -18,7 +18,7 @@ export const MenuItemContainer = styled.li`
   transition: background-color ease-in-out 150ms;
 
   &:hover {
-    background-color: ${props => getMainColor(props, { themeKey: 'primaryLighter' })};
+    background-color: ${props => getMainColor(props, { themeKey: 'neutralLighter' })};
   }
 `
 
