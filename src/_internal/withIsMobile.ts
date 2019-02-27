@@ -1,8 +1,9 @@
-
 import withSizes from './withSizes'
 
 const mapSizesToProps = ({ width }) => ({
   isMobile: width <= 600
 })
 
-export default (Component) => withSizes(mapSizesToProps)(Component)
+const withIsMobile = Component => withSizes(mapSizesToProps)(Component)
+
+export default withIsMobile
