@@ -3,9 +3,12 @@ const path = require('path')
 const omit = require('lodash/omit')
 const pick = require('lodash/pick')
 
+const PEER_DEPENDENCIES = ['react', 'react-dom', 'styled-components']
+
 const transfomPackageJSON = packageJSON => ({
   ...omit(packageJSON, ['scripts', 'devDependencies', 'jest']),
-  peerDependencies: pick(packageJSON.devDependencies, ['react', 'react-dom', 'styled-components'])
+  peerDependencies: pick(packageJSON.dependencies, PEER_DEPENDENCIES),
+  dependencies: omit(packageJSON.dependencies, PEER_DEPENDENCIES)
 })
 
 const duplicatePackageJSON = () => {
@@ -16,7 +19,7 @@ const duplicatePackageJSON = () => {
     : packageJSON
 
   fs.writeFileSync('./lib/package.json', JSON.stringify(value, null, 2))
-  console.log('package.json duplicated')
+  console.log(`package.json duplicated (${process.env.IS_PUBLISHING ? 'publish mode' : 'dev mode'})`)
 }
 
 const duplicateReadme = () => {
