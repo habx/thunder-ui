@@ -1,5 +1,5 @@
 import * as React from 'react'
-import memoize from 'lodash/memoize'
+import memoize from 'lodash.memoize'
 
 import { pick, omit, mapValues } from '../_internal/data'
 import { withSpotlightContext } from '../Spotlight/Spotlight.context'
