@@ -1,6 +1,7 @@
 import * as React from 'react'
 import { withTheme } from 'styled-components'
-import { isEmpty, get, has } from 'lodash'
+import get from 'lodash/get'
+import has from 'lodash/has'
 
 import FontIcon from '../FontIcon'
 import withLabel from '../withLabel'
@@ -175,7 +176,7 @@ export class BaseSelect extends React.Component<SelectProps, SelectState> {
     const { value } = this.state
 
     if (multi) {
-      return value.some(el => el === option.value)
+      return (value || []).some(el => el === option.value)
     }
 
     return option.value === value
@@ -315,7 +316,7 @@ export class BaseSelect extends React.Component<SelectProps, SelectState> {
 
     const color = getMainColor(this.props, { themeKey: 'neutral' })
     const darkColor = getMainColor(this.props, { themeKey: 'neutralDark', customizable: false })
-    const hasValue = !(value || (Array.isArray(value) && value.length === 0))
+    const hasValue = !(!value || (Array.isArray(value) && value.length === 0))
 
     return (
       <SelectContainer ref={this.wrapperRef} {...safeProps}>
@@ -351,7 +352,7 @@ export class BaseSelect extends React.Component<SelectProps, SelectState> {
             {
               canReset &&
               <ResetIcon
-                data-visible={!disabled && !isEmpty(value)}
+                data-visible={!disabled && hasValue}
                 onClick={this.handleReset}
                 icon='close'
                 size={20}

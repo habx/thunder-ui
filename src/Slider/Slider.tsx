@@ -1,7 +1,6 @@
 import * as React from 'react'
 import { withTheme } from 'styled-components'
 import BaseSlider, { Range, Handle } from 'rc-slider'
-import { inRange } from 'lodash'
 
 import withLabel from '../withLabel'
 import { getMainColor } from '../_internal/colors'
@@ -23,11 +22,16 @@ const INTERNAL_PROPS = [
   'indicators'
 ]
 
-const getBackgroundColor = (value, indicators) => indicators.reduce((currentColor, indicator) =>
-    inRange(value, Math.min(...indicator.range), Math.max(...indicator.range) + 1)
-      ? indicator.color
-      : currentColor
-  , null)
+const getBackgroundColor = (value, indicators) => indicators.reduce(
+  (currentColor, indicator) => {
+    if (value >= Math.min(...indicator.range) && value <= Math.max(...indicator.range) + 1) {
+      return indicator.color
+    }
+
+    return currentColor
+  },
+  null
+)
 
 class Slider extends React.Component<SliderProps> {
   static defaultProps = {

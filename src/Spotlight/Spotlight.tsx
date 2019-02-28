@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { merge } from 'lodash'
+import merge from 'lodash/merge'
 import { withTheme, ThemeProvider } from 'styled-components'
 
 import { isFunction, isString, isBoolean } from '../_internal/data'

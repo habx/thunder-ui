@@ -1,4 +1,4 @@
-import { get as lodashGet } from 'lodash'
+import lodashGet from 'lodash/get'
 
 import colors from '../colors'
 

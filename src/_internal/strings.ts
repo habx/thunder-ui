@@ -1,7 +1,15 @@
-import { flow, lowerCase, trim, deburr } from 'lodash'
-import { replace } from 'lodash/fp'
+import deburr from 'lodash/deburr'
 
-const formatString = flow([lowerCase, trim, deburr, replace(/\s/g, '')])
+import { isString } from './data'
 
-export const searchInString = (s: string, search: string) =>
-  formatString(s).includes(formatString(search))
+const formatString = (str: string): string => {
+  if (!isString(str)) {
+    return ''
+  }
+
+  const cleanStr = str.toLowerCase().trim()
+
+  return deburr(cleanStr).replace(/\s/g, '')
+}
+
+export const searchInString = (s: string, search: string): boolean => formatString(s).includes(formatString(search))
