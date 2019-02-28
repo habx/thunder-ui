@@ -48,7 +48,6 @@ class Modal extends PureComponent<ModalProps> {
 
   componentDidMount () {
     window.addEventListener('keydown', this.handleKeyDown)
-    window.addEventListener('click', this.handleClick)
 
     if (this.props.open) {
       this.animateOpening()
@@ -63,7 +62,6 @@ class Modal extends PureComponent<ModalProps> {
 
   componentWillUnmount () {
     window.removeEventListener('keydown', this.handleKeyDown)
-    window.removeEventListener('click', this.handleClick, true)
     clearTimeout(this.timeout)
   }
 
@@ -124,8 +122,8 @@ class Modal extends PureComponent<ModalProps> {
 
     return (
       <Fragment>
-        <Overlay data-state={currentState}>
-          <div ref={this.ref}>
+        <Overlay data-state={currentState} onClick={this.handleClick}>
+          <div ref={this.ref} onClick={e => e.stopPropagation()}>
             <ModalCard title={title} headerPosition='inside' {...props} data-animated={animated}>
               {closeButton && <CloseButtonContainer hasTitle={title} onClick={this.handleClose}>{closeButton}</CloseButtonContainer>}
               {
