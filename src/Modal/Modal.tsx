@@ -45,7 +45,7 @@ class Modal extends PureComponent<ModalProps> {
 
   componentDidMount () {
     window.addEventListener('keydown', this.handleKeyDown)
-    window.addEventListener('click', this.handleClick, true)
+    window.addEventListener('click', this.handleClick)
 
     if (this.props.open) {
       this.animateOpening()
