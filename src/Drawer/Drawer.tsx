@@ -36,7 +36,6 @@ class Drawer extends PureComponent<DrawerProps> {
 
   componentDidMount () {
     window.addEventListener('keydown', this.handleKeyDown)
-    window.addEventListener('click', this.handleClick)
 
     if (this.props.open) {
       this.animateOpening()
@@ -51,7 +50,6 @@ class Drawer extends PureComponent<DrawerProps> {
 
   componentWillUnmount () {
     window.removeEventListener('keydown', this.handleKeyDown)
-    window.removeEventListener('click', this.handleClick, true)
     clearTimeout(this.timeout)
   }
 
@@ -107,8 +105,8 @@ class Drawer extends PureComponent<DrawerProps> {
     const currentState = this.getCurrentState()
 
     return (
-      <Overlay data-state={currentState}>
-        <div ref={this.ref}>
+      <Overlay data-state={currentState} onClick={this.handleClick}>
+        <div ref={this.ref} onClick={e => e.stopPropagation()}>
           <DrawerContainer data-state={currentState} {...props}>
             {title && <DrawerTitle size={3}>{title}</DrawerTitle>}
             {closeButton && <DrawerClose onClick={this.handleClose}>{closeButton}</DrawerClose>}
