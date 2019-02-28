@@ -1,9 +1,9 @@
 import * as React from 'react'
-import { map, pick } from 'lodash'
 
 import withLabel from '../withLabel'
 import TextButton from '../TextButton'
 import { getMainColor } from '../_internal/colors'
+import { pick } from '../_internal/data'
 
 import { ArrayContext } from './context'
 import Item from './Item'
@@ -14,7 +14,8 @@ import { ArrayInputContainer, ArrayInputAction } from './ArrayInput.style'
 class ArrayInput extends React.Component<ArrayInputProps, ArrayInputState> {
   static defaultProps = {
     addButtonLabel: 'Ajouter un élément',
-    canBeReordered: false
+    canBeReordered: false,
+    items: []
   }
 
   static getDerivedStateFromProps (nextProps, prevState) {
@@ -68,9 +69,11 @@ class ArrayInput extends React.Component<ArrayInputProps, ArrayInputState> {
     return (
       <ArrayContext.Provider value={this.buildContext()}>
         <ArrayInputContainer disabled={disabled}>
-          {map(items, (item, index) => (
-            <Item item={item} index={index} key={index} />
-          ))}
+          {
+            items.map((item, index) => (
+              <Item item={item} index={index} key={index} />
+            ))
+          }
           <ArrayInputAction>
             <TextButton onClick={onAppend}>
               { addButtonLabel }

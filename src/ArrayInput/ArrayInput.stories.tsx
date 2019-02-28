@@ -1,7 +1,7 @@
 import * as React from 'react'
 import styled from 'styled-components'
 import { storiesOf } from '@storybook/react'
-import { take, takeRight, clone } from 'lodash'
+import clone from 'lodash/clone'
 
 import ArrayInput from './index'
 import TextInput from '../TextInput'
@@ -54,13 +54,13 @@ class CountryArrayInput extends React.Component<any, any> {
   }
 
   handleChange = (value, index) => this.setState(({ items }) => ({
-    items: [...take(items, index), value, ...takeRight(items, items.length - index - 1)]
+    items: [...items.slice(0, index), value, ...items.slice(items.length - index - 1)]
   }))
 
   handleAppend = () => this.setState(({ items }) => ({ items: [...items, DEFAULT_FIELD] }))
 
   handleDelete = index => this.setState(({ items }) => ({
-    items: [...take(items, index), ...takeRight(items, items.length - index - 1)]
+    items: [...items.slice(0, index), ...items.slice(items, items.length - index - 1)]
   }))
 
   handleReorder = (oldPosition, newPosition) => this.setState(prevState => {

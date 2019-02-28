@@ -1,6 +1,8 @@
 import * as React from 'react'
-import { isBoolean, isString, isFunction, merge } from 'lodash'
+import { merge } from 'lodash'
 import { withTheme, ThemeProvider } from 'styled-components'
+
+import { isFunction, isString, isBoolean } from '../_internal/data'
 
 import SpotlightContent from './SpotlightContent'
 import { DEFAULT_THEME } from './theme'

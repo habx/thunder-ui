@@ -2,7 +2,6 @@ import * as React from 'react'
 import { storiesOf } from '@storybook/react'
 import { action } from '@storybook/addon-actions'
 import { withKnobs, boolean, text, number } from '@storybook/addon-knobs'
-import { filter, map } from 'lodash'
 import { withState } from 'recompose'
 
 import FontIcon from '../FontIcon'
@@ -19,10 +18,11 @@ const withQueryControl = withState('query', 'onQueryChange', 'france')
 
 const BasicSection: React.StatelessComponent<any> = ({ query }) => (
   <React.Fragment>
-    {map(
-      filter(data.countries, country => searchInString(country, query)),
-      (country: string, index) => <SpotlightItem key={country} title={country} index={index} />
-    )}
+    {
+      data.countries
+        .filter(country => searchInString(country, query))
+        .map((country: string, index) => <SpotlightItem key={country} title={country} index={index} />)
+    }
   </React.Fragment>
 )
 

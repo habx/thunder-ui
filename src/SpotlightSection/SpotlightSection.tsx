@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { get, map, take, memoize, filter as lodashFilter } from 'lodash'
+import memoize from 'lodash/memoize'
 
 import SpotlightSectionTitle from '../SpotlightSectionTitle'
 import { withSpotlightContext } from '../Spotlight/Spotlight.context'
@@ -11,13 +11,11 @@ import { SpotlightSectionContext } from './SpotlightSection.context'
 class BaseSpotlightSection extends React.Component<SpotlightSectionInnerProps> {
   getMatchingItems = () => {
     const { spotlight, filter, name } = this.props
-    const sectionData = get(spotlight.data, name)
+    const sectionData = spotlight.data[name] || []
 
     if (filter) {
-      return lodashFilter(
-        sectionData,
-        (...args) => filter(spotlight.query, ...args)
-      )
+      return sectionData
+        .filter((value, key, data) => filter(spotlight.query, value, key, data))
     }
 
     return sectionData
@@ -35,9 +33,11 @@ class BaseSpotlightSection extends React.Component<SpotlightSectionInnerProps> {
     if (renderItem && spotlight.data && name) {
       const items = this.getMatchingItems()
 
-      const limitItems = maxItems > -1 ? take(items, maxItems) : items
+      const limitItems = (maxItems > -1 && items.length > maxItems)
+        ? items.slice(0, maxItems)
+        : items
 
-      return map(limitItems, renderItem)
+      return limitItems.map(renderItem)
     }
 
     return null

@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { map, memoize, filter, get } from 'lodash'
+import { memoize, get } from 'lodash'
 
 import { subscribe, types } from '../ThunderProvider/ThunderProvider.events'
 
@@ -30,14 +30,14 @@ class NotificationList extends React.PureComponent<NotificationListProps, Notifi
 
   handleClose = memoize(id => () => {
     this.setState(prevState => ({
-      notifications: map(prevState.notifications, el => (el.id === id ? { ...el, open: false } : el))
+      notifications: prevState.notifications.map(el => (el.id === id ? { ...el, open: false } : el))
     }), () => this.handleNotificationClose(id))
   })
 
   handleNotificationClose (id) {
     setTimeout(() => {
       this.setState(prevState => ({
-        notifications: filter(prevState.notifications, el => el.id !== id)
+        notifications: prevState.notifications.filter(el => el.id !== id)
       }))
     }, ANIMATION_DURATION)
   }
@@ -47,7 +47,7 @@ class NotificationList extends React.PureComponent<NotificationListProps, Notifi
 
     return (
       <NotificationListContainer>
-        { map(notifications, notification => (
+        { notifications.map(notification => (
           <Notification
             key={notification.id}
             error={get(notification, 'options.type') === 'error'}
@@ -57,7 +57,7 @@ class NotificationList extends React.PureComponent<NotificationListProps, Notifi
           >
             { notification.message }
           </Notification>
-        ))}
+        )) }
       </NotificationListContainer>
     )
   }

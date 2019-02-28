@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react'
-import { isFunction } from 'lodash'
+
+import { isFunction } from '../_internal/data'
 
 import DrawerProps from './Drawer.interface'
 

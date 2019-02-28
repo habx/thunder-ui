@@ -1,4 +1,4 @@
-import { isFunction } from 'lodash'
+import { isFunction } from '../_internal/data'
 
 let subscriptions = {}
 

@@ -1,5 +1,4 @@
 import * as React from 'react'
-import { map, includes, filter, isEmpty, isNil } from 'lodash'
 import { withTheme } from 'styled-components'
 
 import withLabel from '../withLabel'
@@ -18,10 +17,10 @@ const getNewValueNotMulti = (item: formValue, value: formValue, { canBeEmpty }) 
 }
 
 const getNewValueMulti = (item: formValue, value: formValue[], { canBeEmpty }) => {
-  if (includes(value, item)) {
-    const newValue = filter(value, value => value !== item)
+  if (value.includes(item)) {
+    const newValue = value.filter(el => el !== item)
 
-    if (isEmpty(newValue)) {
+    if (newValue.length === 0) {
       if (canBeEmpty) {
         return newValue
       }
@@ -36,7 +35,7 @@ const getNewValueMulti = (item: formValue, value: formValue[], { canBeEmpty }) =
 }
 
 const getCurrentValue = (value, { multi }) => {
-  if (isNil(value)) {
+  if (!value && value !== 0) {
     return multi ? [] : null
   }
 
@@ -64,9 +63,9 @@ export const BaseRadioSelect: React.StatelessComponent<RadioSelectProps> = props
     return onChange(newValue)
   }
 
-  const selected = map(options, ({ value }) => {
+  const selected = options.map(({ value }) => {
     if (multi) {
-      return includes(currentValue as formValue[], value)
+      return currentValue.includes(value)
     }
 
     return value === currentValue
