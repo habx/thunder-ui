@@ -38,7 +38,7 @@ class SpotlightContent extends React.Component<SpotlightContentProps, SpotlightC
 
   getAllItemKeys = (): ItemRegistrationData[] => {
     const items: ItemRegistrationData[][] = Object.values(this.items)
-    console.log(items)
+
     return items.reduce(
       (acc: ItemRegistrationData[], sectionItems: { [key: number]: ItemRegistrationData }) => [
         ...acc,
