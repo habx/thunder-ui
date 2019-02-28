@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { withTheme } from 'styled-components'
-import get from 'lodash/get'
-import has from 'lodash/has'
+import get from 'lodash.get'
+import has from 'lodash.has'
 
 import FontIcon from '../FontIcon'
 import withLabel from '../withLabel'

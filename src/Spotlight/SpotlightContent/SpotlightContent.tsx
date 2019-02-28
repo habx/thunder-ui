@@ -1,5 +1,5 @@
 import * as React from 'react'
-import get from 'lodash/get'
+import get from 'lodash.get'
 
 import { omit } from '../../_internal/data'
 import { SpotlightContext } from '../Spotlight.context'

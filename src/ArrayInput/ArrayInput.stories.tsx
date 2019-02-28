@@ -1,7 +1,7 @@
 import * as React from 'react'
 import styled from 'styled-components'
 import { storiesOf } from '@storybook/react'
-import clone from 'lodash/clone'
+import clone from 'lodash.clone'
 
 import ArrayInput from './index'
 import TextInput from '../TextInput'
