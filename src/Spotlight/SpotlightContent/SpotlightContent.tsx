@@ -37,13 +37,17 @@ class SpotlightContent extends React.Component<SpotlightContentProps, SpotlightC
     window.removeEventListener('keydown', this.handleKeyDown)
   }
 
-  getAllItemKeys = (): ItemRegistrationData[] => (Object.values(this.items) as ItemRegistrationData[][]).reduce(
-    (acc: ItemRegistrationData[], sectionItems: ItemRegistrationData[]) => [
-      ...acc,
-      ...orderBy(sectionItems, ['index'], ['asc'])
-    ],
-    []
-  )
+  getAllItemKeys = (): ItemRegistrationData[] => {
+    const items: ItemRegistrationData[][] = Object.values(this.items)
+
+    return items.reduce(
+      (acc: ItemRegistrationData[], sectionItems: ItemRegistrationData[]) => [
+        ...acc,
+        ...orderBy(sectionItems, ['index'], ['asc'])
+      ],
+      []
+    )
+  }
 
   handleKeyDown = event => {
     const { key } = event

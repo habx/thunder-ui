@@ -37,7 +37,7 @@ const withTriggerElement = <Props extends TriggerElementState> (WrappedComponent
         {
           isFunction(triggerElement)
             ? triggerElement({ open })
-            : React.cloneElement(triggerElement as JSX.Element, { onClick: handleToggle })
+            : React.cloneElement(triggerElement, { onClick: handleToggle })
         }
         <WrappedComponent {...rest as Props} open={open} onClose={handleClose} />
       </React.Fragment>
