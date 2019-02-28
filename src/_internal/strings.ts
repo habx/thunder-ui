@@ -1,4 +1,4 @@
-import deburr from 'lodash/deburr'
+import deburr from 'lodash.deburr'
 
 import { isString } from './data'
 

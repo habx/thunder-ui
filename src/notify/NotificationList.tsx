@@ -1,6 +1,6 @@
 import * as React from 'react'
-import memoize from 'lodash/memoize'
-import get from 'lodash/get'
+import memoize from 'lodash.memoize'
+import get from 'lodash.get'
 
 import { subscribe, types } from '../ThunderProvider/ThunderProvider.events'
 
