@@ -1,6 +1,5 @@
 import * as React from 'react'
 import get from 'lodash/get'
-import orderBy from 'lodash/orderBy'
 
 import { omit } from '../../_internal/data'
 import { SpotlightContext } from '../Spotlight.context'
@@ -39,11 +38,11 @@ class SpotlightContent extends React.Component<SpotlightContentProps, SpotlightC
 
   getAllItemKeys = (): ItemRegistrationData[] => {
     const items: ItemRegistrationData[][] = Object.values(this.items)
-
+    console.log(items)
     return items.reduce(
-      (acc: ItemRegistrationData[], sectionItems: ItemRegistrationData[]) => [
+      (acc: ItemRegistrationData[], sectionItems: { [key: number]: ItemRegistrationData }) => [
         ...acc,
-        ...orderBy(sectionItems, ['index'], ['asc'])
+        ...Object.values(sectionItems).sort((a, b) => a.index > b.index ? 1 : -1)
       ],
       []
     )
