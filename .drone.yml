@@ -50,6 +50,7 @@ pipeline:
     secrets: [ NPM_TOKEN ]
     environment:
     - NPM_TOKEN=${NPM_TOKEN}
+    - IS_PUBLISHING=true
     commands:
     - npm run build
     when:

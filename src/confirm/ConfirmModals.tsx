@@ -1,5 +1,6 @@
 import * as React from 'react'
-import { map, get, memoize, filter } from 'lodash'
+import memoize from 'lodash/memoize'
+import get from 'lodash/get'
 
 import { subscribe, types } from '../ThunderProvider/ThunderProvider.events'
 
@@ -32,7 +33,7 @@ class ConfirmModal extends React.PureComponent<ConfirmModalProps, ConfirmModalsS
 
   handleResponse = (modal, response: boolean) => {
     this.setState(prevState => ({
-      modals: map(prevState.modals, el => (el.id === modal.id ? { ...el, open: false } : el))
+      modals: prevState.modals.map(el => (el.id === modal.id ? { ...el, open: false } : el))
     }), () => this.handleModalClose(modal.id))
 
     modal.resolve(response)
@@ -41,14 +42,14 @@ class ConfirmModal extends React.PureComponent<ConfirmModalProps, ConfirmModalsS
   handleModalClose (id) {
     setTimeout(() => {
       this.setState(prevState => ({
-        modals: filter(prevState.modals, el => el.id !== id)
+        modals: prevState.modals.filter(el => el.id !== id)
       }))
     }, ANIMATION_DURATION)
   }
 
   render () {
     const { modals } = this.state
-    return map(modals, modal => (
+    return modals.map(modal => (
       <Modal open={modal.open} onClose={this.handleCancel(modal)} key={modal.id}>
         <ConfirmModalContainer>
           <ConfirmModalContent>

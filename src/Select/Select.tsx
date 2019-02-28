@@ -1,6 +1,7 @@
 import * as React from 'react'
 import { withTheme } from 'styled-components'
-import { find, filter, findIndex, isEmpty, map, get, some, omit, has } from 'lodash'
+import get from 'lodash/get'
+import has from 'lodash/has'
 
 import FontIcon from '../FontIcon'
 import withLabel from '../withLabel'
@@ -8,6 +9,7 @@ import withLabel from '../withLabel'
 import { searchInString } from '../_internal/strings'
 import { formOption } from '../_internal/types'
 import { getMainColor } from '../_internal/colors'
+import { omit } from '../_internal/data'
 
 import Options from './Options'
 
@@ -63,13 +65,15 @@ export class BaseSelect extends React.Component<SelectProps, SelectState> {
   }
 
   static getStandardizedValue (value, multi) {
-    return multi
-      ? map(value, el => get(el, 'value', el))
-      : get(value, 'value', value)
+    if (multi) {
+      return value ? value.map(el => get(el, 'value', el)) : []
+    }
+
+    return get(value, 'value', value)
   }
 
-  static getStandardizedOptions (options) {
-    return map(options, option => ({
+  static getStandardizedOptions (options = []) {
+    return options.map(option => ({
       value: get(option, 'value', option),
       label: get(option, 'label', option)
     }))
@@ -93,7 +97,7 @@ export class BaseSelect extends React.Component<SelectProps, SelectState> {
     rawOptions: null,
     rawValue: null,
     options: null,
-    value: null
+    value: this.props.multi ? [] : null
   }
 
   componentDidMount () {
@@ -109,7 +113,7 @@ export class BaseSelect extends React.Component<SelectProps, SelectState> {
   getVisibleOptions = (): formOption[] => {
     const { search, options } = this.state
 
-    return filter(options, (option: formOption) => {
+    return options.filter((option: formOption) => {
       const matchValue = searchInString(`${option.value}`, search)
       const matchLabel = searchInString(option.label, search)
       return matchValue || matchLabel
@@ -125,10 +129,10 @@ export class BaseSelect extends React.Component<SelectProps, SelectState> {
     }
 
     if (multi) {
-      return filter(options, el => value.includes(el.value))
+      return options.filter(el => value.includes(el.value))
     }
 
-    return find(options, el => el.value === value)
+    return options.find(el => el.value === value)
   }
 
   getCurrentValueFormat () {
@@ -139,7 +143,7 @@ export class BaseSelect extends React.Component<SelectProps, SelectState> {
     }
 
     if (multi) {
-      if (isEmpty(value)) {
+      if (!value || value.length === 0) {
         return FORMAT_VALUE_SIMPLE
       }
 
@@ -172,7 +176,7 @@ export class BaseSelect extends React.Component<SelectProps, SelectState> {
     const { value } = this.state
 
     if (multi) {
-      return some(value, el => el === option.value)
+      return (value || []).some(el => el === option.value)
     }
 
     return option.value === value
@@ -197,7 +201,7 @@ export class BaseSelect extends React.Component<SelectProps, SelectState> {
 
     if (open) {
       const options = this.getVisibleOptions()
-      const focusedIndex = findIndex(options, el => el === focusedItem)
+      const focusedIndex = options.findIndex(el => el === focusedItem)
 
       if (key === 'ArrowDown' && focusedIndex < options.length) {
         event.preventDefault()
@@ -237,12 +241,12 @@ export class BaseSelect extends React.Component<SelectProps, SelectState> {
     const cleanOption = this.getCleanValue(option)
     const currentValue = (value || []) as any[]
 
-    const isSelected = some(currentValue, el => (
+    const isSelected = currentValue.some(el => (
       has(el, 'value') ? el.value === option.value : el === option.value
     ))
 
     if (isSelected) {
-      const newValue = filter(currentValue, el => (
+      const newValue = currentValue.filter(el => (
         has(el, 'value') ? el.value !== option.value : el !== option.value
       ))
       onChange(newValue)
@@ -312,6 +316,7 @@ export class BaseSelect extends React.Component<SelectProps, SelectState> {
 
     const color = getMainColor(this.props, { themeKey: 'neutral' })
     const darkColor = getMainColor(this.props, { themeKey: 'neutralDark', customizable: false })
+    const hasValue = !(!value || (Array.isArray(value) && value.length === 0))
 
     return (
       <SelectContainer ref={this.wrapperRef} {...safeProps}>
@@ -334,11 +339,11 @@ export class BaseSelect extends React.Component<SelectProps, SelectState> {
                   onChange={this.handleSearch}
                   onFocus={this.handleFocus}
                   onBlur={this.handleBlur}
-                  color={isEmpty(value) ? color : darkColor}
+                  color={hasValue ? darkColor : color}
                   ref={this.inputRef}
                 />
               ) : (
-                <Placeholder color={isEmpty(value) ? color : darkColor}>
+                <Placeholder color={hasValue ? darkColor : color}>
                   { this.getPlaceholder() }
                 </Placeholder>
               )
@@ -347,7 +352,7 @@ export class BaseSelect extends React.Component<SelectProps, SelectState> {
             {
               canReset &&
               <ResetIcon
-                data-visible={!disabled && !isEmpty(value)}
+                data-visible={!disabled && hasValue}
                 onClick={this.handleReset}
                 icon='close'
                 size={20}

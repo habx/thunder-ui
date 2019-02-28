@@ -12,3 +12,9 @@ export default interface SpotlightContentProps {
 export interface SpotlightContentState {
   selectedItem: number
 }
+
+export interface ItemRegistrationData {
+  onSubmit: (e: React.MouseEvent<HTMLInputElement>) => void
+  index: number
+  key: number
+}

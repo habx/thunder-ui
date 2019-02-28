@@ -1,7 +1,6 @@
 import * as React from 'react'
 import styled from 'styled-components'
 import { storiesOf } from '@storybook/react'
-import { map } from 'lodash'
 
 import theme from './ThunderProvider.theme'
 
@@ -34,7 +33,7 @@ const Label = styled.div`
 storiesOf('Theme', module)
   .add('default colors', () => (
     <Container>
-      {map(theme, (color, name) => (
+      {Object.values(theme).map((color, name) => (
         <Color>
           <Circle color={color} />
           <Label>{ name }</Label>

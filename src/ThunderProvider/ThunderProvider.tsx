@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { withTheme, ThemeProvider } from 'styled-components'
-import { merge } from 'lodash'
+import merge from 'lodash/merge'
 
 import ConfirmModals from '../confirm/ConfirmModals'
 import NotificationList from '../notify/NotificationList'
@@ -17,7 +17,7 @@ class BaseProvider extends React.Component<ThunderProviderInnerProps, ThunderPro
           nextProps.theme,
           { thunderUI: BASE_THEME },
           { thunderUI: nextProps.customTheme }
-          )
+        )
       }
     }
 

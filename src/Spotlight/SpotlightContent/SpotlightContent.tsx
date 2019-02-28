@@ -1,10 +1,12 @@
 import * as React from 'react'
-import { get, orderBy, omit, head, reduce } from 'lodash'
+import get from 'lodash/get'
 
+import { omit } from '../../_internal/data'
 import { SpotlightContext } from '../Spotlight.context'
+
 import SpotlightIcon from './icon'
 
-import SpotlightContentProps, { SpotlightContentState } from './SpotlightContent.interface'
+import SpotlightContentProps, { SpotlightContentState, ItemRegistrationData } from './SpotlightContent.interface'
 import { SpotlightSearch, SpotlightSections } from './SpotlightContent.style'
 
 class SpotlightContent extends React.Component<SpotlightContentProps, SpotlightContentState> {
@@ -34,10 +36,17 @@ class SpotlightContent extends React.Component<SpotlightContentProps, SpotlightC
     window.removeEventListener('keydown', this.handleKeyDown)
   }
 
-  getAllItemKeys = () => reduce(this.items, (context, sectionItems) => [
-    ...context,
-    ...orderBy(sectionItems, ['index'], ['asc'])
-  ], [])
+  getAllItemKeys = (): ItemRegistrationData[] => {
+    const items: ItemRegistrationData[][] = Object.values(this.items)
+
+    return items.reduce(
+      (acc: ItemRegistrationData[], sectionItems: { [key: number]: ItemRegistrationData }) => [
+        ...acc,
+        ...Object.values(sectionItems).sort((a, b) => a.index > b.index ? 1 : -1)
+      ],
+      []
+    )
+  }
 
   handleKeyDown = event => {
     const { key } = event
@@ -85,14 +94,14 @@ class SpotlightContent extends React.Component<SpotlightContentProps, SpotlightC
     const { key } = event
 
     if (key === 'Enter') {
-      const firstItem = head(this.getAllItemKeys())
-      if (firstItem) {
-        firstItem.onSubmit(event)
+      const items = this.getAllItemKeys()
+      if (items.length > 0) {
+        items[0].onSubmit(event)
       }
     }
   }
 
-  registerItem = (section, item) => {
+  registerItem = (section, item: ItemRegistrationData) => {
     this.items = {
       ...this.items,
       [section]: {

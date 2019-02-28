@@ -1,5 +1,6 @@
 import React, { Fragment, PureComponent } from 'react'
-import { isFunction } from 'lodash'
+
+import { isFunction } from '../_internal/data'
 
 import ModalProps from './Modal.interface'
 

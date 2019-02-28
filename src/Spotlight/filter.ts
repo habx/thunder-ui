@@ -1,7 +1,11 @@
-import { some as lodashSome, pick } from 'lodash'
+import { pick } from '../_internal/data'
 
 import { searchInString } from '../_internal/strings'
 
-export const some = (...keys) => (query, object) => (
-  lodashSome(pick(object, keys), value => searchInString(value, query))
-)
+export const some = (...keys) => (query, object) => {
+  if (!object) {
+    return false
+  }
+
+  return Object.values(pick(object, keys)).some((value: string) => searchInString(value, query))
+}
