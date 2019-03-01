@@ -35,7 +35,7 @@ const getNewValueMulti = (item: formValue, value: formValue[], { canBeEmpty }) =
 }
 
 const getCurrentValue = (value, { multi }) => {
-  if (!value && value !== 0) {
+  if (!value && value == null) { // '==' to check undefined values, not just null
     return multi ? [] : null
   }
 
