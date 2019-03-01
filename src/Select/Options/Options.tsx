@@ -1,4 +1,5 @@
 import * as React from 'react'
+import { createPortal } from 'react-dom'
 
 import Option from '../Option'
 import Modal from '../../Modal'
@@ -31,7 +32,7 @@ const Options: React.StatelessComponent<OptionsProps> = ({
   selectAllLabel,
   onClose,
   optionDisabled,
-  wrapperWidth
+  wrapperRect
 }) => {
   const isSmallScreen = useIsSmallScreen()
 
@@ -93,11 +94,15 @@ const Options: React.StatelessComponent<OptionsProps> = ({
     )
   }
 
-  return (
-    <OptionsContainer data-open={open} minWidth={wrapperWidth}>
+  const optionsContainer = (
+    <OptionsContainer data-open={open} wrapperRect={wrapperRect}>
       {content}
     </OptionsContainer>
   )
+  if (typeof document !== 'object') {
+    return optionsContainer
+  }
+  return createPortal(optionsContainer, document.body)
 }
 
 export default Options

@@ -2,12 +2,14 @@ import styled from 'styled-components'
 
 import shadows from '../../shadows'
 import fontSizes from '../../fontSizes'
+import zIndex from '../../_internal/zIndex'
 import { getMainColor } from '../../_internal/colors'
 import Option from '../Option'
 import colors from '../../colors'
 
 export const OptionsContainer = styled.div`
   position: fixed;
+  z-index: ${zIndex.highest};
 
   box-shadow: ${shadows.light};
   opacity: 0;
@@ -18,10 +20,11 @@ export const OptionsContainer = styled.div`
   border-radius: 0 0 4px 4px;
   border-top: 1px solid ${props => getMainColor(props, { themeKey: 'neutral' })};
   max-height: 0;
-  min-width: ${({ minWidth }) => minWidth ? `${minWidth}px` : 'auto'};
-  z-index: 5;
+  min-width: ${({ wrapperRect }) => `${wrapperRect.width}px`};
+  top: ${({ wrapperRect }) => `${wrapperRect.top + wrapperRect.height}px`};
+  left: ${({ wrapperRect }) => `${wrapperRect.left}px`};
 
-  transition: all ease-in-out 300ms;
+  transition: max-height ease-in-out 300ms, opacity ease-in-out 300ms;
 
   &[data-open="true"] {
     max-height: 300px;
