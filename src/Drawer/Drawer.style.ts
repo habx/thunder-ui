@@ -1,6 +1,7 @@
 import styled, { createGlobalStyle, css } from 'styled-components'
 
 import Title from '../Title'
+import zIndex from '../_internal/zIndex'
 
 export const ANIMATION_DURATION = 200
 
@@ -109,7 +110,7 @@ export const Overlay = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
-  z-index: 99999;
+  z-index: ${zIndex.high};
 
   opacity: 0;
 

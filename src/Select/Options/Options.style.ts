@@ -2,13 +2,14 @@ import styled from 'styled-components'
 
 import shadows from '../../shadows'
 import fontSizes from '../../fontSizes'
+import zIndex from '../../_internal/zIndex'
 import { getMainColor } from '../../_internal/colors'
 import Option from '../Option'
 import colors from '../../colors'
 
 export const OptionsContainer = styled.div`
   position: fixed;
-  z-index: 999999;
+  z-index: ${zIndex.highest};
 
   box-shadow: ${shadows.light};
   opacity: 0;

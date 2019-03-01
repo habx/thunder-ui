@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components'
+import zIndex from '../_internal/zIndex'
 
 export const NavBarItemTooltip = styled.span`
   max-width: 44px;
@@ -6,7 +7,7 @@ export const NavBarItemTooltip = styled.span`
   position: absolute;
   top: 8px;
   left: 0;
-  z-index: 50;
+  z-index: ${zIndex.medium};
   opacity: 0;
   height: calc(100% - 16px);
   line-height: calc(100% - 16px);

@@ -1,6 +1,7 @@
 import styled, { createGlobalStyle, css } from 'styled-components'
 
 import { FADE_IN } from '../_internal/animations'
+import zIndex from '../_internal/zIndex'
 import Card from '../Card'
 
 export const ANIMATION_DURATION = 300
@@ -31,7 +32,7 @@ export const Overlay = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
-  z-index: 99999;
+  z-index: ${zIndex.high};
 
   &[data-state="opening"] {
     animation: ${FADE_IN} ${ANIMATION_DURATION}ms linear 0ms;

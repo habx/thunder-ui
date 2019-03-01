@@ -11,6 +11,7 @@ import { searchInString } from '../_internal/strings'
 import { formOption } from '../_internal/types'
 import { getMainColor } from '../_internal/colors'
 import { omit } from '../_internal/data'
+import { isSSR, ssrDOMRect } from '../_internal/ssr'
 
 import Options from './Options'
 
@@ -87,7 +88,6 @@ export class BaseSelect extends React.Component<SelectProps, SelectState> {
 
   constructor (props) {
     super(props)
-
     this.wrapperRef = React.createRef()
     this.inputRef = React.createRef()
   }
@@ -101,7 +101,7 @@ export class BaseSelect extends React.Component<SelectProps, SelectState> {
     rawValue: null,
     options: null,
     value: this.props.multi ? [] : null,
-    wrapperRect: new DOMRect()
+    wrapperRect: typeof DOMRect === 'function' ? new DOMRect() : ssrDOMRect
   }
 
   componentDidMount () {
@@ -366,7 +366,7 @@ export class BaseSelect extends React.Component<SelectProps, SelectState> {
             <FontIcon icon={open ? 'arrow_drop_up' : 'arrow_drop_down'} color={darkColor} />
           </LabelIcons>
         </SelectContent>
-        {open && typeof document === 'object' && createPortal(<Overlay onClick={this.handleToggle}/>, document.body)}
+        {open && isSSR() && createPortal(<Overlay onClick={this.handleToggle}/>, document.body)}
         <Options
           optionDisabled={optionDisabled}
           options={options}

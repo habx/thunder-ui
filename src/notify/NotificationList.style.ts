@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 
 import BaseNotification from '../Notification'
+import zIndex from '../_internal/zIndex'
 
 export const ANIMATION_DURATION = 500
 
@@ -8,7 +9,7 @@ export const NotificationListContainer = styled.div`
   position: fixed;
   right: 20px;
   top: 20px;
-  z-index: 50;
+  z-index: ${zIndex.highest};
   max-width: 500px;
 `
 

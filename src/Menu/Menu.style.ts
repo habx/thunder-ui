@@ -2,6 +2,7 @@ import styled from 'styled-components'
 
 import shadows from '../shadows'
 import borderRadius from '../borderRadius'
+import zIndex from '../_internal/zIndex'
 
 const prepareProps = ({ position }) => ({
   left: ['left', 'top-left'].includes(position) ? '4px' : 'unset',
@@ -24,7 +25,7 @@ export const MenuContainerDesktop = styled.div.attrs(prepareProps)`
   left: ${({ left }) => left};
   right: ${({ right }) => right};
   opacity: 0;
-  z-index: 100;
+  z-index: ${zIndex.low};
   pointer-events: none;
 
   transition: opacity ease-in-out 150ms;
@@ -48,7 +49,7 @@ export const MobileMenuContainer = styled.div.attrs(preparePropsMobile)`
   margin-top: ${({ marginTop }) => marginTop};
   transform: ${({ transform }) => transform};
   opacity: 0;
-  z-index: 100;
+  z-index: ${zIndex.low};
   pointer-events: none;
 
   transition: opacity ease-in-out 150ms;

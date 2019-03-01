@@ -2,6 +2,7 @@ import React, { Fragment, PureComponent } from 'react'
 import { createPortal } from 'react-dom'
 
 import { isFunction } from '../_internal/data'
+import { isSSR } from '../_internal/ssr'
 
 import ModalProps from './Modal.interface'
 
@@ -140,7 +141,7 @@ class Modal extends PureComponent<ModalProps> {
       </Fragment>
     )
 
-    if (portal && typeof document === 'object') {
+    if (portal && isSSR()) {
       createPortal(modal, document.body)
     }
 

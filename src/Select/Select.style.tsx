@@ -3,6 +3,7 @@ import styled, { css } from 'styled-components'
 import fontSizes from '../fontSizes'
 
 import FontIcon from '../FontIcon'
+import zIndex from '../_internal/zIndex'
 
 export const SelectContainer = styled.div`
   position: relative;
@@ -111,5 +112,5 @@ export const Overlay = styled.div`
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: 999998;
+  z-index: ${zIndex.highest - 1};
 `
