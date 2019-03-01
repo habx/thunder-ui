@@ -6,4 +6,5 @@ export default interface OptionProps extends DOMNode {
   compact: boolean
   label: string
   selected: boolean
+  disabled: boolean
 }

@@ -29,7 +29,9 @@ const Options: React.StatelessComponent<OptionsProps> = ({
   onSelectAll,
   canSelectAll,
   selectAllLabel,
-  onClose
+  onClose,
+  optionDisabled,
+  wrapperWidth
 }) => {
   const isSmallScreen = useIsSmallScreen()
 
@@ -54,17 +56,21 @@ const Options: React.StatelessComponent<OptionsProps> = ({
                 label={selectAllLabel || 'Select all'}
               />
             )}
-            {options.map(option => (
-              <Option
-                key={option.value}
-                selected={isOptionSelected(option)}
-                onClick={() => onSelect(option)}
-                focused={option === focusedItem}
-                multi={multi}
-                compact={compact}
-                {...option}
-              />
-            ))}
+            {options.map(option => {
+              const disabled = React.useMemo(() => optionDisabled(option), [option])
+              return (
+                <Option
+                  key={option.value}
+                  selected={isOptionSelected(option)}
+                  onClick={() => !disabled ? onSelect(option) : null}
+                  focused={option === focusedItem}
+                  multi={multi}
+                  compact={compact}
+                  disabled={disabled}
+                  {...option}
+                />
+              )
+            })}
           </React.Fragment>
         ) : (
           <EmptyOptions>Aucune option</EmptyOptions>
@@ -88,7 +94,7 @@ const Options: React.StatelessComponent<OptionsProps> = ({
   }
 
   return (
-    <OptionsContainer data-open={open}>
+    <OptionsContainer data-open={open} minWidth={wrapperWidth}>
       {content}
     </OptionsContainer>
   )

@@ -1,4 +1,5 @@
 import React, { Fragment, PureComponent } from 'react'
+import { createPortal } from 'react-dom'
 
 import { isFunction } from '../_internal/data'
 
@@ -21,7 +22,8 @@ class Modal extends PureComponent<ModalProps> {
   static defaultProps = {
     open: false,
     persistent: false,
-    animated: true
+    animated: true,
+    portal: true
   }
 
   static getDerivedStateFromProps (nextProps) {
@@ -117,10 +119,10 @@ class Modal extends PureComponent<ModalProps> {
   }
 
   render () {
-    const { children, title, open, closeButton, animated, ...props } = this.props
+    const { children, title, open, closeButton, animated, portal, ...props } = this.props
     const currentState = this.getCurrentState()
 
-    return (
+    const modal = (
       <Fragment>
         <Overlay data-state={currentState} onClick={this.handleClick}>
           <div ref={this.ref} onClick={e => e.stopPropagation()}>
@@ -137,6 +139,12 @@ class Modal extends PureComponent<ModalProps> {
         {open && <RemoveBodyScroll />}
       </Fragment>
     )
+
+    if (portal && document) {
+      createPortal(modal, document.body)
+    }
+
+    return modal
   }
 }
 

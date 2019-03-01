@@ -14,4 +14,5 @@ export default interface ModalProps extends CardProps {
   open: boolean
   onClose: (e: React.FormEvent<HTMLInputElement>) => void
   animated?: boolean
+  portal?: boolean
 }

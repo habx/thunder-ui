@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react'
+import { createPortal } from 'react-dom'
 
 import { isFunction } from '../_internal/data'
 
@@ -21,7 +22,8 @@ class Drawer extends PureComponent<DrawerProps> {
 
   static defaultProps = {
     open: false,
-    position: 'right'
+    position: 'right',
+    portal: true
   }
 
   constructor (props) {
@@ -101,10 +103,10 @@ class Drawer extends PureComponent<DrawerProps> {
   }
 
   render () {
-    const { children, title, closeButton, ...props } = this.props
+    const { children, title, closeButton, portal, ...props } = this.props
     const currentState = this.getCurrentState()
 
-    return (
+    const drawer = (
       <Overlay data-state={currentState} onClick={this.handleClick}>
         <div ref={this.ref} onClick={e => e.stopPropagation()}>
           <DrawerContainer data-state={currentState} {...props}>
@@ -121,6 +123,12 @@ class Drawer extends PureComponent<DrawerProps> {
         </div>
       </Overlay>
     )
+
+    if (portal && document) {
+      return createPortal(drawer, document.body)
+    }
+
+    return drawer
   }
 }
 

@@ -18,4 +18,6 @@ export default interface OptionsProps {
   selectAllLabel?: string
   allSelected: boolean
   onClose: () => void
+  optionDisabled: (option: any) => boolean
+  wrapperWidth?: number
 }
