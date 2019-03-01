@@ -22,7 +22,8 @@ import {
   LabelIcons,
   CustomIconContainer,
   Placeholder,
-  ResetIcon
+  ResetIcon,
+  Overlay
 } from './Select.style'
 
 const INTERNAL_PROPS = [
@@ -46,7 +47,8 @@ export class BaseSelect extends React.Component<SelectProps, SelectState> {
     multi: false,
     canReset: true,
     filterable: false,
-    compact: false
+    compact: false,
+    optionDisabled: () => false
   }
 
   static getDerivedStateFromProps (nextProps, prevState) {
@@ -97,16 +99,16 @@ export class BaseSelect extends React.Component<SelectProps, SelectState> {
     rawOptions: null,
     rawValue: null,
     options: null,
-    value: this.props.multi ? [] : null
+    value: this.props.multi ? [] : null,
+    wrapperWidth: null
   }
 
   componentDidMount () {
-    window.addEventListener('click', this.handleClickOutside)
+    this.setState({ wrapperWidth: this.wrapperRef.current.clientWidth })
     window.addEventListener('keydown', this.handleKeyDown)
   }
 
   componentWillUnmount () {
-    window.removeEventListener('click', this.handleClickOutside)
     window.removeEventListener('keydown', this.handleKeyDown)
   }
 
@@ -187,12 +189,6 @@ export class BaseSelect extends React.Component<SelectProps, SelectState> {
     const { value } = this.state
     if (!multi || !value) return false
     return options.length === value.length
-  }
-
-  handleClickOutside = () => {
-    if (this.wrapperRef && !this.wrapperRef.current.contains(event.target) && this.state.open) {
-      this.handleToggle()
-    }
   }
 
   handleKeyDown = event => {
@@ -294,7 +290,7 @@ export class BaseSelect extends React.Component<SelectProps, SelectState> {
   }
 
   render () {
-    const { open, search, focusedItem } = this.state
+    const { open, search, focusedItem, wrapperWidth } = this.state
     const {
       multi,
       description,
@@ -306,7 +302,8 @@ export class BaseSelect extends React.Component<SelectProps, SelectState> {
       filterable,
       compact,
       canSelectAll,
-      selectAllLabel
+      selectAllLabel,
+      optionDisabled
     } = this.props
 
     const safeProps = omit(this.props, INTERNAL_PROPS)
@@ -361,7 +358,9 @@ export class BaseSelect extends React.Component<SelectProps, SelectState> {
             <FontIcon icon={open ? 'arrow_drop_up' : 'arrow_drop_down'} color={darkColor} />
           </LabelIcons>
         </SelectContent>
+        {open && <Overlay onClick={this.handleToggle}/>}
         <Options
+          optionDisabled={optionDisabled}
           options={options}
           open={open}
           multi={multi}
@@ -376,6 +375,7 @@ export class BaseSelect extends React.Component<SelectProps, SelectState> {
           canSelectAll={!!canSelectAll}
           selectAllLabel={selectAllLabel}
           onClose={this.handleToggle}
+          wrapperWidth={wrapperWidth}
         />
       </SelectContainer>
     )

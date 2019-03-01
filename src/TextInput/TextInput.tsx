@@ -7,7 +7,7 @@ import { getMainColor } from '../_internal/colors'
 import TextInputProps from './TextInput.interface'
 import { InputContainer, Input, InputSpinner, RightElementContainer } from './TextInput.style'
 
-const BaseTextInput: React.StatelessComponent<TextInputProps> = props => {
+const BaseTextInput: React.ComponentType<TextInputProps & React.ClassAttributes<any>> = React.forwardRef((props, ref) => {
   const {
     onChange,
     value,
@@ -31,7 +31,7 @@ const BaseTextInput: React.StatelessComponent<TextInputProps> = props => {
       <Input
         value={value}
         onChange={e => onChange(e.target.value)}
-        ref={inputRef}
+        ref={inputRef || ref}
         loading={loading}
         disabled={disabled}
         placeholder={placeholder}
@@ -55,7 +55,7 @@ const BaseTextInput: React.StatelessComponent<TextInputProps> = props => {
       }
     </InputContainer>
   )
-}
+})
 
 BaseTextInput.defaultProps = {
   onChange: () => null

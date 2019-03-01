@@ -17,6 +17,8 @@ export default interface SelectProps extends Input<any> {
   multi?: boolean
   canSelectAll?: boolean
   selectAllLabel?: string
+
+  optionDisabled?: (option: any) => boolean
 }
 
 export interface SelectState {
@@ -28,4 +30,5 @@ export interface SelectState {
   rawValue: any,
   options: formOption[],
   value: any | any[]
+  wrapperWidth?: number
 }

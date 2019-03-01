@@ -7,17 +7,18 @@ import Option from '../Option'
 import colors from '../../colors'
 
 export const OptionsContainer = styled.div`
+  position: fixed;
+
   box-shadow: ${shadows.light};
-  position: absolute;
-  top: calc(100% - 1px);
   opacity: 0;
   overflow: hidden;
+  margin-top: -1px;
 
   background-color: #ffffff;
   border-radius: 0 0 4px 4px;
   border-top: 1px solid ${props => getMainColor(props, { themeKey: 'neutral' })};
   max-height: 0;
-  min-width: 100%;
+  min-width: ${({ minWidth }) => minWidth ? `${minWidth}px` : 'auto'};
   z-index: 5;
 
   transition: all ease-in-out 300ms;

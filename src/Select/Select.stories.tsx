@@ -54,3 +54,6 @@ storiesOf('Inputs/Select', module)
   .add('multi items with select all', () => (
     <SelectWithState multi canSelectAll />
   ))
+  .add('with disabled options', () => (
+    <SelectWithState optionDisabled={option => option.value > 1} />
+  ))

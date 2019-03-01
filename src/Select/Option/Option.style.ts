@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
 import fontSizes from '../../fontSizes'
 import { getMainColor } from '../../_internal/colors'
@@ -22,7 +22,15 @@ export const OptionContainer = styled.div`
 
   &:hover,
   &:focus,
-  &[data-selected="true"] {
+  &[data-selected="true"]{
     background-color: ${props => getMainColor(props, { themeKey: 'neutralLighter' })};
+  }
+  &[disabled] {
+    opacity: 0.5;
+    user-focus: none;
+    &:hover, &:focus {
+      background-color: transparent;
+      cursor: auto;
+    }
   }
 `

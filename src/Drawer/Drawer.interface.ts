@@ -10,4 +10,5 @@ export default interface DrawerInterface {
   closeButton?: React.ReactNode | ((props: InjectedRenderProps) => JSX.Element)
   open: boolean
   onClose: (e: React.FormEvent<HTMLInputElement>) => void
+  portal?: boolean
 }
