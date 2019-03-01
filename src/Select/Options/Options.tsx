@@ -57,7 +57,7 @@ const Options: React.StatelessComponent<OptionsProps> = ({
               />
             )}
             {options.map(option => {
-              const disabled = React.useMemo(() => optionDisabled(option), [option])
+              const disabled = optionDisabled(option)
               return (
                 <Option
                   key={option.value}
