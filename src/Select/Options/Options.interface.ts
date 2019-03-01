@@ -19,5 +19,5 @@ export default interface OptionsProps {
   allSelected: boolean
   onClose: () => void
   optionDisabled: (option: any) => boolean
-  wrapperWidth?: number
+  wrapperRect: DOMRect
 }

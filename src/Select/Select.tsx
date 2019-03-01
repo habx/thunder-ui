@@ -1,4 +1,5 @@
 import * as React from 'react'
+import { createPortal } from 'react-dom'
 import { withTheme } from 'styled-components'
 import get from 'lodash.get'
 import has from 'lodash.has'
@@ -100,16 +101,18 @@ export class BaseSelect extends React.Component<SelectProps, SelectState> {
     rawValue: null,
     options: null,
     value: this.props.multi ? [] : null,
-    wrapperWidth: null
+    wrapperRect: new DOMRect()
   }
 
   componentDidMount () {
-    this.setState({ wrapperWidth: this.wrapperRef.current.clientWidth })
+    this.setState({ wrapperRect: this.wrapperRef.current.getBoundingClientRect() })
     window.addEventListener('keydown', this.handleKeyDown)
+    window.addEventListener('resize', this.handleResize)
   }
 
   componentWillUnmount () {
     window.removeEventListener('keydown', this.handleKeyDown)
+    window.removeEventListener('resize', this.handleResize)
   }
 
   getVisibleOptions = (): formOption[] => {
@@ -285,12 +288,17 @@ export class BaseSelect extends React.Component<SelectProps, SelectState> {
 
     this.setState(prevState => ({
       open: !prevState.open,
-      search: ''
+      search: '',
+      wrapperRect: this.wrapperRef.current.getBoundingClientRect()
     }))
   }
 
+  handleResize = () => {
+    this.setState({ wrapperRect: this.wrapperRef.current.getBoundingClientRect() })
+  }
+
   render () {
-    const { open, search, focusedItem, wrapperWidth } = this.state
+    const { open, search, focusedItem, wrapperRect } = this.state
     const {
       multi,
       description,
@@ -358,7 +366,7 @@ export class BaseSelect extends React.Component<SelectProps, SelectState> {
             <FontIcon icon={open ? 'arrow_drop_up' : 'arrow_drop_down'} color={darkColor} />
           </LabelIcons>
         </SelectContent>
-        {open && <Overlay onClick={this.handleToggle}/>}
+        {open && typeof document === 'object' && createPortal(<Overlay onClick={this.handleToggle}/>, document.body)}
         <Options
           optionDisabled={optionDisabled}
           options={options}
@@ -375,7 +383,7 @@ export class BaseSelect extends React.Component<SelectProps, SelectState> {
           canSelectAll={!!canSelectAll}
           selectAllLabel={selectAllLabel}
           onClose={this.handleToggle}
-          wrapperWidth={wrapperWidth}
+          wrapperRect={wrapperRect}
         />
       </SelectContainer>
     )

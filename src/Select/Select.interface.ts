@@ -30,5 +30,5 @@ export interface SelectState {
   rawValue: any,
   options: formOption[],
   value: any | any[]
-  wrapperWidth?: number
+  wrapperRect: DOMRect
 }

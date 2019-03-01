@@ -8,6 +8,7 @@ export const SelectContainer = styled.div`
   position: relative;
   width: 250px;
   flex: 0 0 auto;
+  display: block;
 
   ${({ disabled }) => disabled && css`
     pointer-events: none;
@@ -110,4 +111,5 @@ export const Overlay = styled.div`
   left: 0;
   width: 100%;
   height: 100%;
+  z-index: 999998;
 `
