@@ -124,7 +124,7 @@ class Drawer extends PureComponent<DrawerProps> {
       </Overlay>
     )
 
-    if (portal && document) {
+    if (portal && typeof document === 'object') {
       return createPortal(drawer, document.body)
     }
 

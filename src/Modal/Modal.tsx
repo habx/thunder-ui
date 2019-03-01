@@ -140,7 +140,7 @@ class Modal extends PureComponent<ModalProps> {
       </Fragment>
     )
 
-    if (portal && document) {
+    if (portal && typeof document === 'object') {
       createPortal(modal, document.body)
     }
 
