@@ -22,8 +22,8 @@ const BaseExpansionPanelItem: React.StatelessComponent<ExpansionPanelItemProps> 
     }
   })
 
-  const onToggle = React.useMemo(
-    () => () => setOpenedItem(openedItem === itemId ? null : itemId),
+  const onToggle = React.useCallback(
+    () => setOpenedItem(openedItem === itemId ? null : itemId),
     [openedItem, setOpenedItem, itemId]
   )
 

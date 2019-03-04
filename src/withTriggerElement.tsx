@@ -16,20 +16,20 @@ const withTriggerElement = <Props extends TriggerElementState> (WrappedComponent
 
     const [open, setOpen] = React.useState(false)
 
-    const handleToggle = React.useMemo(
-      () => () => setOpen(wasOpen => !wasOpen),
-      []
+    const handleToggle = React.useCallback(
+      () => setOpen(wasOpen => !wasOpen),
+      [setOpen]
     )
 
-    const handleClose = React.useMemo(
-      () => e => {
+    const handleClose = React.useCallback(
+      e => {
         if (isFunction(onClose)) {
           onClose(e)
         }
 
         setOpen(false)
       },
-      [onClose]
+      [setOpen, onClose]
     )
 
     return (
