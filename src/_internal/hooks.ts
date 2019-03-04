@@ -25,4 +25,3 @@ export const useIsSmallScreen = (breakpoint: number = 600) => {
 
   return width <= 600
 }
-
