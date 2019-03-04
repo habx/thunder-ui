@@ -132,16 +132,17 @@ class Slider extends React.Component<SliderProps> {
           max={realMax}
           min={realMin}
           step={customValues ? 1 : step}
-          handle={handleProps => (
-            <Handle {...handleProps}>
-              <SliderHandlerIndicator
-                style={{ backgroundColor: getBackgroundColor(handleProps.value, indicators) }}
-              />
-            </Handle>
-          )}
+          handle={({ dragging, ...handleProps }) => (
+              <Handle {...handleProps} dragging={`${dragging}`} key={Math.random()}>
+                <SliderHandlerIndicator
+                  style={{ backgroundColor: getBackgroundColor(handleProps.value, indicators) }}
+                />
+              </Handle>
+            )
+          }
         />
         <Label
-          value={isValueArray ? value[0] : value} max={realMax}
+          style={{ left: `calc(100%/${realMax}*${isValueArray ? value[0] : value})` }}
           color={getMainColor(this.props, { propName: 'tooltipColor' })}
         >
           {label ? label : ''}
