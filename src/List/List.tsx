@@ -1,8 +1,9 @@
 import * as React from 'react'
 import styled from 'styled-components'
 import ListProps from './List.interface'
+import { Context } from './context'
 
-const ListContainer = styled.div`
+const ListContainer = styled.ul`
   display: flex;
   flex-direction: column;
 `
@@ -13,13 +14,12 @@ const List: React.StatelessComponent<ListProps> = ({ hoverColor, clickable, item
     hoverColor,
     as: itemsAs
   }
-  const childrenWithProps = React.Children.map(children, child =>
-    React.cloneElement(child as React.ReactElement<any>, itemProps)
-  )
   return (
-    <ListContainer>
-      {childrenWithProps}
-    </ListContainer>
+    <Context.Provider value={itemProps}>
+      <ListContainer>
+        {children}
+      </ListContainer>
+    </Context.Provider>
   )
 }
 

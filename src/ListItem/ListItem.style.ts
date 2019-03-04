@@ -5,7 +5,7 @@ const prepareProps = props => ({
   hoverColor: props.hoverColor || getMainColor(props, { themeKey: 'neutralLight' })
 })
 
-export const ListItemContainer = styled.div.attrs(prepareProps)`
+export const ListItemContainer = styled.li.attrs(prepareProps)`
   padding: 16px;
   transition: background-color ease-in-out 200ms;
   display: flex;
