@@ -17,14 +17,14 @@ const Menu: React.StatelessComponent<MenuProps> = ({
   const [open, setOpen] = React.useState(false)
   const isSmallScreen = useIsSmallScreen()
 
-  const handleClose = React.useMemo(
-    () => () => setOpen(false),
-    []
+  const handleClose = React.useCallback(
+    () => setOpen(false),
+    [setOpen]
   )
 
-  const handleToggle = React.useMemo(
-    () => () => setOpen(wasOpen => !wasOpen),
-    []
+  const handleToggle = React.useCallback(
+    () => setOpen(wasOpen => !wasOpen),
+    [setOpen]
   )
 
   useOnClickOutside(wrapperRef, handleClose)
