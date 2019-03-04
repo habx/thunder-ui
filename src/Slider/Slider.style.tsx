@@ -1,15 +1,12 @@
 import styled, { css } from 'styled-components'
 import colors from '../colors'
 
-export const Label = styled.span.attrs(({ value, max }) => ({
-  style: {
-    left: `calc(100%/${max}*${value})`
-  }
-}))`
+export const Label = styled.span`
   position: absolute;
   margin-top: 10px;
   margin-left: -20px;
   color: ${({ color }) => color};
+  white-space: nowrap;
 `
 
 export const RcSliderStyle = styled.div`
