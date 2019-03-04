@@ -133,7 +133,7 @@ class Slider extends React.Component<SliderProps> {
           min={realMin}
           step={customValues ? 1 : step}
           handle={({ dragging, ...handleProps }) => (
-              <Handle {...handleProps} dragging={`${dragging}`} key={Math.random()}>
+              <Handle {...handleProps} dragging={`${dragging}`} key={`rc-handle-${handleProps.index}`}>
                 <SliderHandlerIndicator
                   style={{ backgroundColor: getBackgroundColor(handleProps.value, indicators) }}
                 />
