@@ -53,6 +53,8 @@ export { default as Card } from './Card'
 export { default as Modal } from './Modal'
 export { default as Drawer } from './Drawer'
 export { default as SlideShow } from './SlideShow'
+export { default as List } from './List'
+export { default as ListItem } from './ListItem'
 
 /*
   Events
