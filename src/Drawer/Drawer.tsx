@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react'
 import { createPortal } from 'react-dom'
 
 import { isFunction } from '../_internal/data'
-import { isSSR } from '../_internal/ssr'
+import { isClientSide } from '../_internal/ssr'
 
 import DrawerProps from './Drawer.interface'
 
@@ -125,7 +125,7 @@ class Drawer extends PureComponent<DrawerProps> {
       </Overlay>
     )
 
-    if (portal && isSSR()) {
+    if (portal && isClientSide()) {
       return createPortal(drawer, document.body)
     }
 

@@ -2,7 +2,7 @@ import React, { Fragment, PureComponent } from 'react'
 import { createPortal } from 'react-dom'
 
 import { isFunction } from '../_internal/data'
-import { isSSR } from '../_internal/ssr'
+import { isClientSide } from '../_internal/ssr'
 
 import ModalProps from './Modal.interface'
 
@@ -141,8 +141,8 @@ class Modal extends PureComponent<ModalProps> {
       </Fragment>
     )
 
-    if (portal && isSSR()) {
-      createPortal(modal, document.body)
+    if (portal && isClientSide()) {
+      return createPortal(modal, document.body)
     }
 
     return modal

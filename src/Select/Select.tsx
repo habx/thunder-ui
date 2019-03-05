@@ -11,7 +11,7 @@ import { searchInString } from '../_internal/strings'
 import { formOption } from '../_internal/types'
 import { getMainColor } from '../_internal/colors'
 import { omit } from '../_internal/data'
-import { isSSR, ssrDOMRect } from '../_internal/ssr'
+import { isClientSide, ssrDOMRect } from '../_internal/ssr'
 
 import Options from './Options'
 
@@ -366,7 +366,7 @@ export class BaseSelect extends React.Component<SelectProps, SelectState> {
             <FontIcon icon={open ? 'arrow_drop_up' : 'arrow_drop_down'} color={darkColor} />
           </LabelIcons>
         </SelectContent>
-        {open && isSSR() && createPortal(<Overlay onClick={this.handleToggle}/>, document.body)}
+        {open && isClientSide() && createPortal(<Overlay onClick={this.handleToggle}/>, document.body)}
         <Options
           optionDisabled={optionDisabled}
           options={options}
