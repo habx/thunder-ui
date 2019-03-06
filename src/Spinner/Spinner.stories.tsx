@@ -4,7 +4,7 @@ import { storiesOf } from '@storybook/react'
 import Spinner from './index'
 import colors from '../colors'
 
-storiesOf('Miscellaneous/Spinner', module)
+storiesOf('Miscellaneous|Spinner', module)
   .add('Basic', () => (
     <Spinner />
   ))

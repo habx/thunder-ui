@@ -26,7 +26,7 @@ const BasicSection: React.StatelessComponent<any> = ({ query }) => (
   </React.Fragment>
 )
 
-storiesOf('Spotlight/spotlight options', module)
+storiesOf('Spotlight|Spotlight', module)
   .addDecorator(withKnobs)
   .add('full example', () => {
     const open = boolean('Open', true)
@@ -85,7 +85,7 @@ storiesOf('Spotlight/spotlight options', module)
     </Spotlight>
   ))
 
-storiesOf('Spotlight/section options', module)
+storiesOf('Spotlight|SpotlightSection', module)
   .addDecorator(withKnobs)
   .add('full example', () => {
     const maxItems = number('Max items', 5, { range: true, min: 0, max: 50, step: 1 })
@@ -136,7 +136,7 @@ storiesOf('Spotlight/section options', module)
     </Spotlight>
   ))
 
-storiesOf('Spotlight/item options', module)
+storiesOf('Spotlight|SpotlightItem', module)
   .addDecorator(withKnobs)
   .add('full example', () => {
     const showIcons = boolean('Show icons', true)
@@ -250,7 +250,7 @@ storiesOf('Spotlight/item options', module)
     </Spotlight>
   ))
 
-storiesOf('Spotlight/welcome message', module)
+storiesOf('Spotlight|SpotlightWelcomeMessage', module)
   .add('basic', () => (
     <Spotlight open>
       <SpotlightWelcomeMessage>

@@ -15,7 +15,7 @@ const props = () => ({
   warning: boolean('Warning', false)
 })
 
-storiesOf('Actions/IconButton', module)
+storiesOf('Actions|IconButton', module)
   .addDecorator(withKnobs)
   .add('full example', () => {
     const storyProps = props()

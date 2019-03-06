@@ -1,4 +1,4 @@
-import { configure, addDecorator } from '@storybook/react'
+import { configure, addDecorator, addParameters } from '@storybook/react'
 import { withInfo } from '@storybook/addon-info'
 import centered from '@storybook/addon-centered'
 
@@ -8,6 +8,12 @@ import '!!style-loader!css-loader?url=false!../src/reset.css'
 addDecorator(withInfo)
 addDecorator(centered)
 addDecorator(providerDecorator)
+
+addParameters({
+  options: {
+    sortStoriesByKind: true
+  }
+})
 
 const req = process.env.NODE_ENV === 'test' ?
   require('./requireContext')('../src', true, /\.stories\.(tsx)$/) :

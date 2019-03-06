@@ -13,7 +13,7 @@ const thunderDecorator = storyFn => (
   </ThunderProvider>
 )
 
-storiesOf('Events/confirm', module)
+storiesOf('Events|confirm', module)
   .addDecorator(thunderDecorator)
   .add('basic', () => (
     <Button

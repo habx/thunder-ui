@@ -28,7 +28,7 @@ const navDecorator = storyFn => (
   </Container>
 )
 
-storiesOf('Navigation/NavBar', module)
+storiesOf('Navigation|NavBar', module)
   .addDecorator(navDecorator)
   .add('basic', () => (
     <NavBar>

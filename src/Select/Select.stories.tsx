@@ -23,7 +23,7 @@ const SelectWithState = ({ value = null, ...props }) => {
   return <Component {...props} />
 }
 
-storiesOf('Inputs/Select', module)
+storiesOf('Inputs|Select', module)
   .add('simple', () => (
     <SelectWithState />
   ))

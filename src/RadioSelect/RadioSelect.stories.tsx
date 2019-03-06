@@ -15,7 +15,7 @@ const RadioSelectWithState = ({ value, ...props }) => {
   return <Component {...props} />
 }
 
-storiesOf('Inputs/RadioSelect', module)
+storiesOf('Inputs|RadioSelect', module)
   .add('basic', () => (
     <RadioSelectWithState
       value={1}

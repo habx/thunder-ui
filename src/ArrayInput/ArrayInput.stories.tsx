@@ -110,7 +110,7 @@ const ItemDescription: React.StatelessComponent<any> = ({ value }) => (
   </React.Fragment>
 )
 
-storiesOf('Inputs/ArrayInput', module)
+storiesOf('Inputs|ArrayInput', module)
   .add('basic', () => (
     <CountryArrayInput
       itemTitleComponent={ItemTitle}

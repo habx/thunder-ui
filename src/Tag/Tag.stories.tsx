@@ -12,7 +12,7 @@ const props = () => ({
   colorSeed: text('Color seed', '')
 })
 
-storiesOf('Miscellaneous/Tag', module)
+storiesOf('Miscellaneous|Tag', module)
   .addDecorator(withKnobs)
   .add('full example', () => <Tag {...props()} />)
   .add('with manual color', () => <Tag color='#f9e38f'>paris</Tag>)

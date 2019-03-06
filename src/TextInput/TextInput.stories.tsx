@@ -24,7 +24,7 @@ const TextInputWithState = ({ value = '', ...props }) => {
   )
 }
 
-storiesOf('Inputs/TextInput', module)
+storiesOf('Inputs|TextInput', module)
   .add('basic', () => <TextInputWithState value={CONTENT} />)
   .add('disabled', () => <TextInputWithState disabled value={CONTENT} />)
   .add('error', () => <TextInputWithState error value={CONTENT} />)

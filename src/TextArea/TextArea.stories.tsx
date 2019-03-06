@@ -23,7 +23,7 @@ const TextAreaWithState = ({ value = '', ...props }) => {
   )
 }
 
-storiesOf('Inputs/TextArea', module)
+storiesOf('Inputs|TextArea', module)
   .add('basic', () => <TextAreaWithState value={CONTENT} />)
   .add('disabled', () => <TextAreaWithState disabled value={CONTENT} />)
   .add('error', () => <TextAreaWithState error value={CONTENT} />)
