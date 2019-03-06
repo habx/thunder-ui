@@ -35,7 +35,7 @@ const withContainer = storyFn => (
   </StoryContainer>
 )
 
-storiesOf('Actions/Menu', module)
+storiesOf('Actions|Menu', module)
   .addDecorator(withKnobs)
   .addDecorator(withContainer)
   .add('full example', () => (

@@ -33,7 +33,7 @@ const Label = styled.div`
 storiesOf('Theme', module)
   .add('default colors', () => (
     <Container>
-      {Object.values(theme).map((color, name) => (
+      {Object.entries(theme).map(([name, color]) => (
         <Color>
           <Circle color={color} />
           <Label>{ name }</Label>

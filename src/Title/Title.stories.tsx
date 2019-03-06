@@ -17,6 +17,6 @@ const props = () => ({
   warning: boolean('Warning', false)
 })
 
-storiesOf('Typography/Title', module)
+storiesOf('Typography|Title', module)
   .addDecorator(withKnobs)
   .add('full example', () => <Title {...props()} />)

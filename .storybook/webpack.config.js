@@ -1,7 +1,5 @@
-const path = require('path')
-
-module.exports = (baseConfig, env, config) => {
-  if (env === 'PRODUCTION') {
+module.exports = ({ config, mode }) => {
+  if (mode === 'PRODUCTION') {
     config.module.rules.push({
       test: /\.(ts|tsx)$/,
       use: [

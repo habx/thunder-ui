@@ -6,7 +6,7 @@ import TabsSection from '../TabsSection'
 import TabsItem from '../TabsItem'
 import TabsSeparator from '../TabsSeparator'
 
-storiesOf('Navigation/Tabs', module)
+storiesOf('Navigation|Tabs', module)
   .add('default', () => (
     <Tabs>
       <TabsItem>Documents</TabsItem>

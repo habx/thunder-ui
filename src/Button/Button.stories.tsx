@@ -17,7 +17,7 @@ const props = () => ({
   warning: boolean('Warning', false)
 })
 
-storiesOf('Actions/Button', module)
+storiesOf('Actions|Button', module)
   .addDecorator(withKnobs)
   .add('full example', () => <Button {...props()} />)
   .add('disabled', () => <Button disabled>{'Don\'t click one me !'}</Button>)

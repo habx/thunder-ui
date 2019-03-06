@@ -27,7 +27,7 @@ const props = () => ({
   onClick: action('onClick')
 })
 
-storiesOf('Layouts/Card', module)
+storiesOf('Layouts|Card', module)
   .addDecorator(withKnobs)
   .add('full example', () => <Card {...props()}>{ regularText }</Card>)
   .add('error', () => (

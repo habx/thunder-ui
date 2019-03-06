@@ -14,7 +14,7 @@ const props = () => ({
   warning: boolean('Warning', false)
 })
 
-storiesOf('Actions/TextButton', module)
+storiesOf('Actions|TextButton', module)
   .addDecorator(withKnobs)
   .add('full example', () => <TextButton {...props()}>Click on me !</TextButton>)
   .add('disabled', () => <TextButton disabled>{'Don\'t click one me !'}</TextButton>)

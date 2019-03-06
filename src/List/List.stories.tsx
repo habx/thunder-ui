@@ -9,7 +9,7 @@ const Container = styled.div`
   max-width: 500px;
 `
 
-storiesOf('Layouts/List', module)
+storiesOf('Layouts|List', module)
   .add('full example', () => {
     return (
       <Container>

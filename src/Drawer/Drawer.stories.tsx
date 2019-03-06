@@ -31,7 +31,7 @@ const DrawerWithState = props => {
   return <Component {...props} />
 }
 
-storiesOf('Layouts/Drawer', module)
+storiesOf('Layouts|Drawer', module)
   .addDecorator(withKnobs)
   .add('basic example', () => (
     <Drawer {...props()}>

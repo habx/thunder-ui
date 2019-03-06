@@ -28,7 +28,7 @@ const props = () => ({
   isNavigationVisible: boolean('Show navigation dots', true)
 })
 
-storiesOf('Layouts/SlideShow', module)
+storiesOf('Layouts|SlideShow', module)
   .addDecorator(withKnobs)
   .addDecorator(slideShowDecorator)
   .add('full example', () => (

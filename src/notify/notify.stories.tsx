@@ -13,7 +13,7 @@ const thunderDecorator = storyFn => (
   </ThunderProvider>
 )
 
-storiesOf('Events/notify', module)
+storiesOf('Events|notify', module)
   .addDecorator(thunderDecorator)
   .add('basic', () => (
     <Button onClick={() => notify('This is a notification')}>

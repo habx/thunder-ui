@@ -17,7 +17,7 @@ const navDecorator = storyFn => (
   </Container>
 )
 
-storiesOf('Layouts/ExpansionPanel', module)
+storiesOf('Layouts|ExpansionPanel', module)
   .addDecorator(navDecorator)
   .add('basic uncontrolled', () => (
     <ExpansionPanel>
