@@ -4,6 +4,7 @@ import CardProps from '../Card/Card.interface'
 
 interface InjectedRenderProps {
   state: 'opened' | 'closed' | 'opening' | 'closing'
+  close: (e?: Event) => void
 }
 
 export default interface ModalProps extends CardProps {

@@ -27,7 +27,7 @@ const BaseTitle = styled.h1.attrs(prepareProps)`
 `
 
 const Title1 = styled(BaseTitle)`
-  font-size: 54px;
+  font-size: 32px;
 
   &::after {
     width: 128px;

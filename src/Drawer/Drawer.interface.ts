@@ -2,6 +2,7 @@ import * as React from 'react'
 
 interface InjectedRenderProps {
   state: 'opened' | 'closed' | 'opening' | 'closing'
+  close: (e?: Event) => void
 }
 
 export default interface DrawerInterface {
