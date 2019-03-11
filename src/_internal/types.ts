@@ -19,7 +19,7 @@ export interface DOMNode {
 
 export interface Input<valueType> extends DOMNode {
   value?: valueType
-  onChange?: (value: valueType) => void
+  onChange?: (value: valueType, event?: React.ChangeEvent) => void
 
   error?: boolean
   disabled?: boolean

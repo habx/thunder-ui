@@ -36,7 +36,7 @@ describe('Modal component', () => {
       )
 
       expect(spyChildren.calledOnce).toBe(true)
-      expect(spyChildren.calledWith({ state: 'closed' })).toBe(true)
+      expect(spyChildren.lastCall.args[0].state).toEqual('closed')
     })
 
     it('should have state = "opening" if modal is mounted with open=true"', () => {
@@ -49,7 +49,7 @@ describe('Modal component', () => {
       )
 
       expect(spyChildren.calledOnce).toBe(true)
-      expect(spyChildren.calledWith({ state: 'opening' })).toBe(true)
+      expect(spyChildren.lastCall.args[0].state).toEqual('opening')
     })
 
     it('should have state="opened" if opened for more than 1 second"', done => {
@@ -62,7 +62,7 @@ describe('Modal component', () => {
       )
 
       setTimeout(() => {
-        expect(spyChildren.lastCall.calledWith({ state: 'opened' })).toBe(true)
+        expect(spyChildren.lastCall.args[0].state).toEqual('opened')
         done()
       }, 1000)
 
@@ -81,7 +81,7 @@ describe('Modal component', () => {
       setTimeout(() => {
         wrapper.setProps({ open: false })
 
-        expect(spyChildren.lastCall.calledWith({ state: 'closing' })).toBe(true)
+        expect(spyChildren.lastCall.args[0].state).toEqual('closing')
         done()
       }, 1000)
 
