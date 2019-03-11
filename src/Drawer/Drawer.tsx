@@ -96,7 +96,7 @@ class Drawer extends PureComponent<DrawerProps> {
     }
   }
 
-  handleClose = (e) => {
+  handleClose = (e = null) => {
     const { onClose } = this.props
     if (isFunction(onClose)) {
       onClose(e)
@@ -116,7 +116,7 @@ class Drawer extends PureComponent<DrawerProps> {
             <DrawerContent>
               {
                 isFunction(children)
-                  ? children({ state: currentState })
+                  ? children({ state: currentState, close: this.handleClose })
                   : children
               }
             </DrawerContent>

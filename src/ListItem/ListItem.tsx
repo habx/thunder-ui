@@ -5,7 +5,7 @@ import { withContext } from '../List/context'
 import ListItemProps from './ListItem.interface'
 import { ListItemContainer, RightElementContainer } from './ListItem.style'
 
-const ListItem: React.StatelessComponent<ListItemProps> = ({ children, selected, rightElement, ...props }) => {
+const BaseListItem: React.StatelessComponent<ListItemProps> = ({ children, selected, rightElement, ...props }) => {
   return (
     <ListItemContainer data-selected={selected} {...props}>
       <div>
@@ -18,4 +18,6 @@ const ListItem: React.StatelessComponent<ListItemProps> = ({ children, selected,
   )
 }
 
-export default withContext(withTheme(ListItem))
+const ListItem: React.StatelessComponent<ListItemProps> = withContext(withTheme(BaseListItem))
+
+export default ListItem

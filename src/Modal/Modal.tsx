@@ -112,7 +112,7 @@ class Modal extends PureComponent<ModalProps> {
     }
   }
 
-  handleClose = (e) => {
+  handleClose = (e = null) => {
     const { onClose } = this.props
     if (isFunction(onClose)) {
       onClose(e)
@@ -131,7 +131,7 @@ class Modal extends PureComponent<ModalProps> {
               {closeButton && <CloseButtonContainer hasTitle={title} onClick={this.handleClose}>{closeButton}</CloseButtonContainer>}
               {
                 isFunction(children)
-                 ? children({ state: currentState })
+                 ? children({ state: currentState, close: this.handleClose })
                  : children
               }
             </ModalCard>

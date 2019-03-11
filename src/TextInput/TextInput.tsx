@@ -30,7 +30,7 @@ const BaseTextInput: React.ComponentType<TextInputProps & React.ClassAttributes<
     <InputContainer {...rest} {...colorProps} data-disabled={disabled}>
       <Input
         value={value}
-        onChange={e => onChange(e.target.value)}
+        onChange={e => onChange(e.target.value, e)}
         ref={inputRef || ref}
         loading={loading}
         disabled={disabled}
