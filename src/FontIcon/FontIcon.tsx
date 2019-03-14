@@ -7,8 +7,7 @@ const FontIcon: React.StatelessComponent<FontIconProps> = ({ icon, ...props }) =
   <FontIconContainer {...props}>{icon}</FontIconContainer>
 
 FontIcon.defaultProps = {
-  size: 24,
-  color: 'inherit'
+  size: 24
 }
 
 export default FontIcon

@@ -13,7 +13,7 @@ export const OptionContainer = styled.div`
   align-items: center;
   font-size: ${fontSizes.regular};
   padding: ${({ compact }) => compact ? 6 : 12 }px 18px;
-  color: ${props => getMainColor(props, { themeKey: 'neutralDark' })};
+  color: ${props => getMainColor(props, { themeKey: 'neutralStronger' })};
 
   i {
     vertical-align: middle;

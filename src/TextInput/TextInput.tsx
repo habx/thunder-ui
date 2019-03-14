@@ -22,7 +22,7 @@ const BaseTextInput: React.ComponentType<TextInputProps & React.ClassAttributes<
   } = props
 
   const colorProps = {
-    color: getMainColor(props, { themeKey: 'neutralDark' }),
+    color: getMainColor(props, { themeKey: 'neutralStronger' }),
     placeholderColor: getMainColor(props, { themeKey: 'neutral', customizable: false })
   }
 

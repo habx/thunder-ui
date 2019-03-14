@@ -8,8 +8,10 @@ export default {
   primaryLight: colors.brightCerualean,
   primary: colors.trueBlue,
 
+  neutralLightest: colors.white,
   neutralLighter: colors.snow,
   neutralLight: colors.gainsboro,
   neutral: colors.paynesGrey,
-  neutralDark: colors.maastrichtBlue
+  neutralStronger: colors.maastrichtBlue,
+  neutralStrongest: colors.black
 }

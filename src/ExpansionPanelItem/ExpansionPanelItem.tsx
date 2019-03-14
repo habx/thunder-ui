@@ -28,7 +28,7 @@ const BaseExpansionPanelItem: React.StatelessComponent<ExpansionPanelItemProps> 
   )
 
   const isOpened = openedItem === itemId
-  const color = getMainColor(props, { themeKey: 'neutralDark' })
+  const color = getMainColor(props, { themeKey: 'neutralStronger' })
 
   return (
     <ExpansionPanelItemContainer>
