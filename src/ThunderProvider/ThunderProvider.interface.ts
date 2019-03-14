@@ -9,7 +9,9 @@ type ThunderUITheme = {
   neutralLighter?: string
   neutralLight?: string
   neutral?: string
-  neutralDark?: string
+  neutralStrong?: string
+  neutralStronger?: string
+  neutralStrongest?: string
 }
 
 export default interface ThunderProviderProps {

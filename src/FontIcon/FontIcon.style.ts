@@ -1,5 +1,7 @@
 import styled, { css } from 'styled-components'
 
+import { getMainColor } from '../_internal/colors'
+
 export const FontIconContainer = styled.i`
   font-family: 'Material Icons';
   font-weight: normal;
@@ -12,7 +14,7 @@ export const FontIconContainer = styled.i`
   word-wrap: normal;
   white-space: nowrap;
   direction: ltr;
-  color: ${({ color }) => color};
+  color: ${props => getMainColor(props, { themeKey: 'inherit' })};
 
   /* Support for all WebKit browsers. */
   -webkit-font-smoothing: antialiased;

@@ -1,3 +1,4 @@
+const COLOR_BLACK = '#000'
 const COLOR_MAASTRICHT_BLUE = '#061a3c'
 const COLOR_PAYNES_GREY = '#52627a'
 const COLOR_TRUE_BLUE = '#0071ce'
@@ -15,6 +16,7 @@ const COLOR_SNOW = '#fbf8f7'
 const COLOR_OLD_LACE = '#fcf8e3'
 
 export default {
+  black: COLOR_BLACK,
   maastrichtBlue: COLOR_MAASTRICHT_BLUE,
   paynesGrey: COLOR_PAYNES_GREY,
   trueBlue: COLOR_TRUE_BLUE,

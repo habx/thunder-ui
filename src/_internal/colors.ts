@@ -38,6 +38,10 @@ export const getMainColor = (props, config: { propName?: string, themeKey?: stri
     return 'transparent'
   }
 
+  if (themeKey === 'inherit') {
+    return 'inherit'
+  }
+
   return thunderUI[themeKey]
 }
 
