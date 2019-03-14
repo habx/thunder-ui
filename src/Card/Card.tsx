@@ -10,7 +10,7 @@ import { CardContainer, TitleContainer, SubtitleContainer, TitleCount } from './
 const BaseCard: React.StatelessComponent<CardInnerProps> = ({ headerPosition, action, title, titleCount, subtitle, children, ...props }) => {
   const titleElement = title && (
     <TitleContainer>
-      <Title size={3} color={getMainColor(props, { themeKey: 'neutralDark' })}>
+      <Title size={3} color={getMainColor(props, { themeKey: 'neutralStronger' })}>
         { title }{(titleCount || titleCount === 0) ? <TitleCount>({ titleCount })</TitleCount> : null}
       </Title>
       { action }

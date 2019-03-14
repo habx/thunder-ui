@@ -10,6 +10,7 @@ export default interface CardProps extends DOMNode {
   action?: React.ReactNode
   noPadding?: boolean
   titleCount?: number | string
+  backgroundColor?: string
 }
 
 export interface CardInnerProps extends CardProps {

@@ -59,7 +59,7 @@ class ArrayInput extends React.Component<ArrayInputProps, ArrayInputState> {
       onClose: this.handleEditStop,
       onDelete: this.handleDelete,
       onReorder: this.handleReorder,
-      iconColor: getMainColor(this.props, { themeKey: 'neutralDark', propName: 'iconColor' })
+      iconColor: getMainColor(this.props, { themeKey: 'neutralStronger', propName: 'iconColor' })
     }
   }
 

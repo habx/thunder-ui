@@ -6,7 +6,7 @@ import { getMainColor } from '../_internal/colors'
 import TitleProps from './Title.interface'
 
 const prepareProps = props => ({
-  color: getMainColor(props, { themeKey: 'neutralDark' })
+  color: getMainColor(props, { themeKey: 'neutralStronger' })
 })
 
 const BaseTitle = styled.h1.attrs(prepareProps)`

@@ -6,4 +6,6 @@ export default interface FontIconProps extends DOMNode {
   title?: string
   size?: number
   color?: string
+  warning?: boolean
+  error?: boolean
 }

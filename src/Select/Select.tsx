@@ -320,7 +320,7 @@ export class BaseSelect extends React.Component<SelectProps, SelectState> {
     const value = this.getCurrentValue()
 
     const color = getMainColor(this.props, { themeKey: 'neutral' })
-    const darkColor = getMainColor(this.props, { themeKey: 'neutralDark', customizable: false })
+    const darkColor = getMainColor(this.props, { themeKey: 'neutralStronger', customizable: false })
     const hasValue = !(!value || (Array.isArray(value) && value.length === 0))
 
     return (
