@@ -10,8 +10,6 @@ const prepareProps = props => ({
 })
 
 const BaseTitle = styled.h1.attrs(prepareProps)`
-  font-family: Inter UI;
-  font-weight: bold;
   color: ${({ color }) => color};
   margin: 0;
 
@@ -28,6 +26,7 @@ const BaseTitle = styled.h1.attrs(prepareProps)`
 
 const Title1 = styled(BaseTitle)`
   font-size: 32px;
+  font-weight: bold;
 
   &::after {
     width: 128px;
@@ -36,7 +35,8 @@ const Title1 = styled(BaseTitle)`
 `
 
 const Title2 = styled(BaseTitle.withComponent('h2'))`
-  font-size: 23px;
+  font-size: 24px;
+  font-weight: bold;
 
   &::after {
     width: 64px;
@@ -46,11 +46,11 @@ const Title2 = styled(BaseTitle.withComponent('h2'))`
 
 const Title3 = styled(BaseTitle.withComponent('h3'))`
   font-size: 18px;
+  font-weight: bold;
 `
 
 const Title4 = styled(BaseTitle.withComponent('h4'))`
   font-size: 14px;
-  font-weight: normal;
 `
 
 const Title: React.StatelessComponent<TitleProps> = ({ size, ...props }) => {
