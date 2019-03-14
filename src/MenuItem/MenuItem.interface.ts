@@ -4,4 +4,5 @@ import { DOMNode } from '../_internal/types'
 
 export default interface MenuItemProps extends DOMNode {
   icon?: React.ReactNode
+  disabled?: boolean
 }
