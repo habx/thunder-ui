@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import shadows from '../shadows'
 import borderRadius from '../borderRadius'
 import zIndex from '../_internal/zIndex'
+import { getMainColor } from '../_internal/colors'
 
 const prepareProps = ({ position }) => ({
   left: ['left', 'top-left'].includes(position) ? '4px' : 'unset',
@@ -68,7 +69,7 @@ export const MenuContent = styled.ul`
   box-shadow: ${shadows.light};
   border-radius: ${borderRadius.narrow};
   padding: 8px 0;
-  background-color: white;
+  background-color: ${props => getMainColor(props, { customizable: false, themeKey: 'neutralLightest' })};
 
   list-style-type: none;
 `

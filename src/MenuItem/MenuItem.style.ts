@@ -20,6 +20,11 @@ export const MenuItemContainer = styled.li`
   &:hover {
     background-color: ${props => getMainColor(props, { themeKey: 'neutralLighter' })};
   }
+
+  &[data-disabled="true"] {
+    pointer-events: none;
+    opacity: 0.5;
+  }
 `
 
 export const MenuItemContent = styled.div`
