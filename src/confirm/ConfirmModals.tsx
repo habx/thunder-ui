@@ -1,4 +1,5 @@
 import * as React from 'react'
+import { createPortal } from 'react-dom'
 import memoize from 'lodash.memoize'
 import get from 'lodash.get'
 
@@ -7,6 +8,7 @@ import { subscribe, types } from '../ThunderProvider/ThunderProvider.events'
 import Button from '../Button'
 import Modal from '../Modal'
 import { ANIMATION_DURATION } from '../Modal/Modal.style'
+import { isClientSide } from '../_internal/ssr'
 
 import ConfirmModalProps, { ConfirmModalsState } from './ConfirmModals.interface'
 import { ConfirmModalContainer, ConfirmModalContent, ConfirmModalActions } from './ConfirmModals.style'
@@ -49,23 +51,31 @@ class ConfirmModal extends React.PureComponent<ConfirmModalProps, ConfirmModalsS
 
   render () {
     const { modals } = this.state
-    return modals.map(modal => (
-      <Modal open={modal.open} onClose={this.handleCancel(modal)} key={modal.id}>
-        <ConfirmModalContainer>
-          <ConfirmModalContent>
-            {modal.message}
-          </ConfirmModalContent>
-          <ConfirmModalActions>
-            <Button error onClick={this.handleCancel(modal)}>
-              { get(modal, 'options.cancelText', 'Annuler')}
-            </Button>
-            <Button onClick={this.handleConfirm(modal)}>
-              { get(modal, 'options.confirmText', 'Valider')}
-            </Button>
-          </ConfirmModalActions>
-        </ConfirmModalContainer>
-      </Modal>
-    ))
+    return modals.map(modal => {
+      const content = (
+        <Modal open={modal.open} onClose={this.handleCancel(modal)} key={modal.id}>
+          <ConfirmModalContainer>
+            <ConfirmModalContent>
+              {modal.message}
+            </ConfirmModalContent>
+            <ConfirmModalActions>
+              <Button error onClick={this.handleCancel(modal)}>
+                { get(modal, 'options.cancelText', 'Annuler')}
+              </Button>
+              <Button onClick={this.handleConfirm(modal)}>
+                { get(modal, 'options.confirmText', 'Valider')}
+              </Button>
+            </ConfirmModalActions>
+          </ConfirmModalContainer>
+        </Modal>
+      )
+
+      if (isClientSide()) {
+        return createPortal(content, document.body)
+      }
+
+      return content
+    })
 
   }
 }
