@@ -7,7 +7,7 @@ import zIndex from '../_internal/zIndex'
 
 export const SelectContainer = styled.div`
   position: relative;
-  width: 250px;
+  width: 100%;
   flex: 0 0 auto;
   display: block;
 
