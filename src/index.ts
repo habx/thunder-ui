@@ -55,6 +55,8 @@ export { default as Drawer } from './Drawer'
 export { default as SlideShow } from './SlideShow'
 export { default as List } from './List'
 export { default as ListItem } from './ListItem'
+export { default as ExpansionPanel } from './ExpansionPanel'
+export { default as ExpansionPanelItem } from './ExpansionPanelItem'
 
 /*
   Events
