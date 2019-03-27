@@ -17,8 +17,8 @@ export const generateColorFromSeed = seed => {
   return `#${rgbCode}`
 }
 
-export const getMainColor = (props, config: { propName?: string, themeKey?: string, customizable?: boolean } = {}) => {
-  const { propName = 'color', themeKey = 'primary', customizable = true } = config
+export const getMainColor = (props, config: { propName?: string, themeKey?: string, customizable?: boolean, acceptError?: boolean } = {}) => {
+  const { propName = 'color', themeKey = 'primary', customizable = true, acceptError = true } = config
 
   if (customizable && props[propName]) {
     return props[propName]
@@ -30,7 +30,7 @@ export const getMainColor = (props, config: { propName?: string, themeKey?: stri
     return thunderUI.warning
   }
 
-  if (error) {
+  if (error && acceptError) {
     return thunderUI.error
   }
 
