@@ -83,7 +83,7 @@ const withItemBehavior = WrappedComponent => class Wrapper extends React.Compone
 
     return (
       <WrappedComponent
-        {...omit(this.props, ['spotlight', 'section', 'index'])}
+        {...omit(this.props, ['spotlight', 'section', 'index.ts'])}
         query={query}
         selected={selected}
         registerActions={this.registerActions}
