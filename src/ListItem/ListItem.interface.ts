@@ -4,6 +4,6 @@ import { DOMNode } from '../_internal/types'
 
 export default interface ListItemProps extends DOMNode {
   as?: React.ComponentType<any> | string
-  selected: boolean
-  rightElement: React.ReactNode
+  selected?: boolean
+  rightElement?: React.ReactNode
 }
