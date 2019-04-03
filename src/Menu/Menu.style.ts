@@ -7,9 +7,9 @@ import { getMainColor } from '../_internal/colors'
 
 const prepareProps = ({ position, wrapperRect }) => ({
   left: ['left', 'top-left'].includes(position) ? `${wrapperRect.left + 4}px` : 'unset',
-  right: ['right', 'top-right'].includes(position) ? `${wrapperRect.right - wrapperRect.width + 4}px` : 'unset',
+  right: ['right', 'top-right'].includes(position) ? `calc(100% - ${wrapperRect.right + 4}px)` : 'unset',
   bottom: ['top-left', 'top-right'].includes(position) ? `${wrapperRect.bottom + 4}px` : 'unset',
-  top: ['top-left', 'top-right'].includes(position) ? 'unset' : `calc(${wrapperRect.top + wrapperRect.height + 4}px)`
+  top: ['top-left', 'top-right'].includes(position) ? 'unset' : `calc(${wrapperRect.top}px + ${ wrapperRect.height + 4}px)`
 })
 
 const preparePropsMobile = ({ position, wrapperRect }) => ({
@@ -30,6 +30,7 @@ export const MenuContainerDesktop = styled.div.attrs(prepareProps)`
   pointer-events: none;
 
   transition: opacity ease-in-out 150ms;
+  z-index: ${zIndex.highest};
 
   &[data-open="true"] {
     pointer-events: auto;
@@ -54,9 +55,12 @@ export const MobileMenuContainer = styled.div.attrs(preparePropsMobile)`
 
   transition: opacity ease-in-out 150ms;
 
+  z-index: ${zIndex.highest};
+
   &[data-open="true"] {
     pointer-events: auto;
     opacity: 1;
+    display: block;
   }
 
   @media (max-width: 600px) {
@@ -79,4 +83,14 @@ export const MenuWrapper = styled.div`
   @media (max-width: 600px) {
     position: static;
   }
+`
+
+export const Overlay = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: ${zIndex.highest - 1};
+  overflow: hidden;
 `
