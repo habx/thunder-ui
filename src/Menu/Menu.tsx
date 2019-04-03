@@ -3,7 +3,7 @@ import { createPortal } from 'react-dom'
 import useOnClickOutside from 'use-onclickoutside'
 
 import MenuProps from './Menu.interface'
-import { MenuWrapper, MobileMenuContainer, MenuContainerDesktop, MenuContent } from './Menu.style'
+import { MenuWrapper, MobileMenuContainer, MenuContainerDesktop, MenuContent, Overlay } from './Menu.style'
 import { useIsSmallScreen, useOnWindowResize } from '../_internal/hooks'
 import { isClientSide, ssrDOMRect } from '../_internal/ssr'
 
@@ -17,14 +17,12 @@ const Menu: React.StatelessComponent<MenuProps> = ({
 }) => {
   const wrapperRef = React.useRef(null)
   const [wrapperRect, setWrapperRect] = React.useState(typeof DOMRect === 'function' ? new DOMRect() : ssrDOMRect)
+  const [open, setOpen] = React.useState(false)
 
-  const handleWrapperChange = () => {
-    setWrapperRect(wrapperRef.current.getBoundingClientRect())
-  }
-  React.useEffect(handleWrapperChange, [wrapperRef])
+  const handleWrapperChange = () => setWrapperRect(open ? wrapperRef.current.getBoundingClientRect() : new DOMRect())
+  React.useEffect(handleWrapperChange, [wrapperRef, open])
   useOnWindowResize(handleWrapperChange)
 
-  const [open, setOpen] = React.useState(false)
   const isSmallScreen = useIsSmallScreen()
 
   const handleClose = React.useCallback(
@@ -59,11 +57,15 @@ const Menu: React.StatelessComponent<MenuProps> = ({
       </MenuContent>
     </MenuContainer>
   return (
-    <MenuWrapper ref={wrapperRef} >
-      { isTriggerElementBeforeMenu && triggerElementWithAction }
-      {(portal && isClientSide()) ? createPortal(menu, document.body) : menu}
-      { !isTriggerElementBeforeMenu && triggerElementWithAction }
-    </MenuWrapper>
+    <React.Fragment>
+      {open && isClientSide() && createPortal(<Overlay onClick={this.handleToggle}/>, document.body)}
+      <MenuWrapper ref={wrapperRef} >
+        { isTriggerElementBeforeMenu && triggerElementWithAction }
+        {(portal && isClientSide()) ? createPortal(menu, document.body) : menu}
+        { !isTriggerElementBeforeMenu && triggerElementWithAction }
+      </MenuWrapper>
+    </React.Fragment>
+
   )
 }
 
