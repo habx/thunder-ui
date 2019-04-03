@@ -1,10 +1,11 @@
 import styled from 'styled-components'
+import borderRadius from '../../borderRadius'
 
 export const ToggleContainer = styled.div`
   position: relative;
   height: 16px;
   width: 16px;
-  border-radius: 50%;
+  border-radius: ${borderRadius.narrow};
   border: 2px solid #003a6c;
   margin-right: 12px;
   box-sizing: border-box;
@@ -15,7 +16,6 @@ export const ToggleContainer = styled.div`
 `
 
 export const ToggleContent = styled.div`
-  border-radius: 50%;
   background-color: #003a6c;
 
   width: 0;
