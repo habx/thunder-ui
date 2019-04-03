@@ -1,6 +1,5 @@
 import * as React from 'react'
 import { createPortal } from 'react-dom'
-import useOnClickOutside from 'use-onclickoutside'
 
 import MenuProps from './Menu.interface'
 import { MenuWrapper, MobileMenuContainer, MenuContainerDesktop, MenuContent, Overlay } from './Menu.style'
@@ -45,8 +44,6 @@ const Menu: React.StatelessComponent<MenuProps> = ({
     [setOpen]
   )
 
-  useOnClickOutside(wrapperRef, handleClose)
-
   const triggerElementWithAction = React.cloneElement(triggerElement, {
     onClick: handleToggle
   })
@@ -62,7 +59,7 @@ const Menu: React.StatelessComponent<MenuProps> = ({
     </MenuContainer>
   return (
     <React.Fragment>
-      {open && isClientSide() && createPortal(<Overlay onClick={this.handleToggle}/>, document.body)}
+      {open && isClientSide() && createPortal(<Overlay onClick={() => setOpen(false)}/>, document.body)}
       <MenuWrapper ref={wrapperRef} >
         { isTriggerElementBeforeMenu && triggerElementWithAction }
         {(portal && isClientSide()) ? createPortal(menu, document.body) : menu}
