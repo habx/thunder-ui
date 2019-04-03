@@ -30,6 +30,7 @@ export const MenuContainerDesktop = styled.div.attrs(prepareProps)`
   pointer-events: none;
 
   transition: opacity ease-in-out 150ms;
+  z-index: ${zIndex.highest};
 
   &[data-open="true"] {
     pointer-events: auto;
@@ -53,6 +54,8 @@ export const MobileMenuContainer = styled.div.attrs(preparePropsMobile)`
   pointer-events: none;
 
   transition: opacity ease-in-out 150ms;
+
+  z-index: ${zIndex.highest};
 
   &[data-open="true"] {
     pointer-events: auto;
