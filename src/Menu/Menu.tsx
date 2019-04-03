@@ -59,7 +59,7 @@ const Menu: React.StatelessComponent<MenuProps> = ({
     </MenuContainer>
   return (
     <React.Fragment>
-      {open && isClientSide() && createPortal(<Overlay onClick={() => setOpen(false)}/>, document.body)}
+      {open && isClientSide() && createPortal(<Overlay onClick={handleToggle}/>, document.body)}
       <MenuWrapper ref={wrapperRef} >
         { isTriggerElementBeforeMenu && triggerElementWithAction }
         {(portal && isClientSide()) ? createPortal(menu, document.body) : menu}
