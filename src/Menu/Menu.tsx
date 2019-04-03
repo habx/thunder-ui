@@ -19,7 +19,11 @@ const Menu: React.StatelessComponent<MenuProps> = ({
   const [wrapperRect, setWrapperRect] = React.useState(typeof DOMRect === 'function' ? new DOMRect() : ssrDOMRect)
   const [open, setOpen] = React.useState(false)
 
-  const handleWrapperChange = () => setWrapperRect(open ? wrapperRef.current.getBoundingClientRect() : new DOMRect())
+  const handleWrapperChange = () => {
+    if (open) {
+      setWrapperRect(wrapperRef.current.getBoundingClientRect())
+    }
+  }
   React.useEffect(handleWrapperChange, [wrapperRef, open])
   useOnWindowResize(handleWrapperChange)
 
