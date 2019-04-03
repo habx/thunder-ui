@@ -8,7 +8,7 @@ import { getMainColor } from '../_internal/colors'
 const prepareProps = ({ position, wrapperRect }) => ({
   left: ['left', 'top-left'].includes(position) ? `${wrapperRect.left + 4}px` : 'unset',
   right: ['right', 'top-right'].includes(position) ? `calc(100% - ${wrapperRect.right + 4}px)` : 'unset',
-  bottom: ['top-left', 'top-right'].includes(position) ? `${wrapperRect.bottom + 4}px` : 'unset',
+  bottom: ['top-left', 'top-right'].includes(position) ? `calc(100% - ${wrapperRect.top + 4}px)` : 'unset',
   top: ['top-left', 'top-right'].includes(position) ? 'unset' : `calc(${wrapperRect.top}px + ${ wrapperRect.height + 4}px)`
 })
 
