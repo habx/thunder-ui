@@ -20,8 +20,18 @@ export const useWindowWidth = () => {
   return width
 }
 
+export const useOnWindowResize = (onResize: () => void, effectInputs?: any[]) => {
+  React.useEffect(() => {
+    const handleResize = onResize
+    document.addEventListener('resize', handleResize)
+    return () => {
+      document.removeEventListener('resize', handleResize)
+    }
+  }, [onResize, ...effectInputs]) // eslint-disable-line
+}
+
 export const useIsSmallScreen = (breakpoint: number = 600) => {
   const width = useWindowWidth()
 
-  return width <= 600
+  return width <= breakpoint
 }

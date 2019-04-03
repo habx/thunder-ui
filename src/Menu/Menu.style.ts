@@ -5,18 +5,18 @@ import borderRadius from '../borderRadius'
 import zIndex from '../_internal/zIndex'
 import { getMainColor } from '../_internal/colors'
 
-const prepareProps = ({ position }) => ({
-  left: ['left', 'top-left'].includes(position) ? '4px' : 'unset',
-  right: ['right', 'top-right'].includes(position) ? '4px' : 'unset',
-  bottom: ['top-left', 'top-right'].includes(position) ? 'calc(100% + 4px)' : 'unset',
-  top: ['top-left', 'top-right'].includes(position) ? 'unset' : 'calc(100% + 4px)'
+const prepareProps = ({ position, wrapperRect }) => ({
+  left: ['left', 'top-left'].includes(position) ? `${wrapperRect.left + 4}px` : 'unset',
+  right: ['right', 'top-right'].includes(position) ? `${wrapperRect.right - wrapperRect.width + 4}px` : 'unset',
+  bottom: ['top-left', 'top-right'].includes(position) ? `${wrapperRect.bottom + 4}px` : 'unset',
+  top: ['top-left', 'top-right'].includes(position) ? 'unset' : `calc(${wrapperRect.top + wrapperRect.height + 4}px)`
 })
 
-const preparePropsMobile = ({ position }) => ({
+const preparePropsMobile = ({ position, wrapperRect }) => ({
   left: '0px',
   right: '0px',
   marginTop: ['left', 'right'].includes(position) ? '4px' : '0',
-  transform: ['top-left', 'top-right'].includes(position) ? 'translateY(calc(-100% - 4px))' : 'none'
+  transform: ['top-left', 'top-right'].includes(position) ? `translateY(0)` : `translateY(${wrapperRect.top + wrapperRect.height + 4}px)`
 })
 
 export const MenuContainerDesktop = styled.div.attrs(prepareProps)`
@@ -45,7 +45,6 @@ export const MobileMenuContainer = styled.div.attrs(preparePropsMobile)`
   display: none;
   position: absolute;
   left: ${({ left }) => left};
-  right: ${({ right }) => right};
   right: ${({ right }) => right};
   margin-top: ${({ marginTop }) => marginTop};
   transform: ${({ transform }) => transform};
