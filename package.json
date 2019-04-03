@@ -1,6 +1,6 @@
 {
   "name": "@habx/thunder-ui",
-  "version": "3.4.5",
+  "version": "3.4.6",
   "description": "Flawless Prototyping React library",
   "sideEffects": false,
   "main": "./index.js",
