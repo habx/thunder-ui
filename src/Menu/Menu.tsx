@@ -64,7 +64,7 @@ const Menu: React.StatelessComponent<MenuProps> = ({
       {(portal && isClientSide()) ? createPortal(menu, document.body) : menu}
       { !isTriggerElementBeforeMenu && triggerElementWithAction }
     </MenuWrapper>
-)
+  )
 }
 
 Menu.defaultProps = {
