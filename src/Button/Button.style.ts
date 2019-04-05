@@ -11,23 +11,16 @@ import { FontIconContainer } from '../FontIcon/FontIcon.style'
 const WHITE = color('#fff')
 const BLACK = color('#000')
 
-const findSecondaryColor = props => {
-  if (props.textColor) {
-    return props.textColor
-  }
-
-  return '#fff'
-}
-
 const prepareProps = props => {
-  const backgroundColor = props.reverse ?
-    findSecondaryColor(props) :
-    getMainColor(props)
+  const neutralColor = getMainColor(props, {
+    propName: 'textColor',
+    acceptError: false,
+    themeKey: 'neutral'
+  })
+  const primaryColor = getMainColor(props)
 
-  const textColor = props.reverse ?
-    getMainColor(props) :
-    findSecondaryColor(props)
-
+  const backgroundColor = props.reverse ? neutralColor : primaryColor
+  const textColor = props.reverse ? primaryColor : neutralColor
   const hoverMixColor = props.reverse ? BLACK : WHITE
 
   return {
