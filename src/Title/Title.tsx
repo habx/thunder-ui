@@ -26,7 +26,7 @@ const BaseTitle = styled.h1.attrs(prepareProps)`
 
 const Title1 = styled(BaseTitle)`
   font-size: 32px;
-  font-weight: bold;
+  font-weight: 600;
 
   &::after {
     width: 128px;
@@ -36,7 +36,7 @@ const Title1 = styled(BaseTitle)`
 
 const Title2 = styled(BaseTitle.withComponent('h2'))`
   font-size: 24px;
-  font-weight: bold;
+  font-weight: 600;
 
   &::after {
     width: 64px;
@@ -46,11 +46,12 @@ const Title2 = styled(BaseTitle.withComponent('h2'))`
 
 const Title3 = styled(BaseTitle.withComponent('h3'))`
   font-size: 18px;
-  font-weight: bold;
+  font-weight: 500;
 `
 
 const Title4 = styled(BaseTitle.withComponent('h4'))`
   font-size: 14px;
+  font-weight: 500;
 `
 
 const Title: React.StatelessComponent<TitleProps> = ({ size, ...props }) => {
