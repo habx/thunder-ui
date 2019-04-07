@@ -4,7 +4,7 @@ import Spinner from '../Spinner'
 
 import fontSizes from '../fontSizes'
 import borderRadius from '../borderRadius'
-import shadows from '../shadows'
+import theme from '../theme'
 import { getMainColor } from '../_internal/colors'
 import { FontIconContainer } from '../FontIcon/FontIcon.style'
 
@@ -46,7 +46,7 @@ export const ButtonContainer = styled.button.attrs(prepareProps)`
 
   border-radius: ${borderRadius.narrow};
   border: none;
-  box-shadow: ${shadows.light};
+  box-shadow: ${theme.get('shadowLight')};
   box-sizing: border-box;
   cursor: pointer;
   outline: none;
