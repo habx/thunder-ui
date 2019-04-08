@@ -73,6 +73,7 @@ export const MenuContent = styled.ul`
   border-radius: ${borderRadius.narrow};
   padding: 8px 0;
   background-color: ${props => getMainColor(props, { customizable: false, themeKey: 'neutralLightest' })};
+  margin: 8px 0 0 0;
 
   list-style-type: none;
 `
