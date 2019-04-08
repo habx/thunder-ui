@@ -16,7 +16,6 @@ const prepareProps = props => {
   return ({
     color,
     activeColor,
-    borderBottom: `3px solid ${activeColor}`,
     hoverColor: activeColor || props.hoverColor,
     activeClassName: 'active',
     className: `${props.className} ${props.active ? 'active' : ''}`
@@ -25,12 +24,12 @@ const prepareProps = props => {
 
 const StyledTabsItem = styled(tag).attrs(prepareProps)`
   display: flex;
+  position: relative;
   padding: 16px 8px;
   margin: 0 8px;
   font-size: ${fontSizes.regular};
   color: ${({ color }) => color};
   transition: all 150ms ease-in-out;
-  border-bottom: 3px solid transparent;
   white-space: nowrap;
 
   ${({ closed }) => closed && css`
@@ -39,17 +38,37 @@ const StyledTabsItem = styled(tag).attrs(prepareProps)`
   `}
 
   &.active {
-    border-bottom: ${({ borderBottom }) => borderBottom};
     color: ${({ activeColor }) => activeColor};
+
+    &::after {
+      width: 100%;
+      left: 0;
+      transition: all 250ms ease-in-out;
+    }
   }
+
   &:hover {
     text-decoration: none;
     color: ${({ hoverColor }) => hoverColor};
   }
+
+  &::after {
+    content: "";
+
+    width: 0;
+    height: 3px;
+
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+
+    background-color: ${({ activeColor }) => activeColor};
+  }
+
 `
 
 const TabsItem: React.StatelessComponent<TabsItemProps> = props => (
-  <StyledTabsItem blacklist={['activeColor', 'borderBottom', 'hoverColor', 'closed']} {...props} />
+  <StyledTabsItem blacklist={['activeColor', 'hoverColor', 'closed']} {...props} />
 )
 
 TabsItem.defaultProps = {

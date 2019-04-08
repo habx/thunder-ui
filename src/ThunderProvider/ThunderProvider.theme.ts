@@ -1,4 +1,5 @@
 import colors from '../colors'
+import shadows from '../shadows'
 
 export default {
   error: colors.popstar,
@@ -13,5 +14,9 @@ export default {
   neutralLight: colors.gainsboro,
   neutral: colors.paynesGrey,
   neutralStronger: colors.maastrichtBlue,
-  neutralStrongest: colors.black
+  neutralStrongest: colors.black,
+
+  shadowLight: shadows.light,
+  shadow: shadows.medium,
+  shadowStrong: shadows.strong
 }

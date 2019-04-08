@@ -1,8 +1,8 @@
 import styled from 'styled-components'
 
-import shadows from '../shadows'
 import borderRadius from '../borderRadius'
 import zIndex from '../_internal/zIndex'
+import theme from '../theme'
 import { getMainColor } from '../_internal/colors'
 
 const prepareProps = ({ position, wrapperRect }) => ({
@@ -69,7 +69,7 @@ export const MobileMenuContainer = styled.div.attrs(preparePropsMobile)`
 `
 
 export const MenuContent = styled.ul`
-  box-shadow: ${shadows.light};
+  box-shadow: ${theme.get('shadowLight')};
   border-radius: ${borderRadius.narrow};
   padding: 8px 0;
   background-color: ${props => getMainColor(props, { customizable: false, themeKey: 'neutralLightest' })};

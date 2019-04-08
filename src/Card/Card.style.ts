@@ -1,11 +1,11 @@
 import styled, { css } from 'styled-components'
 
-import shadows from '../shadows'
 import borderRadius from '../borderRadius'
+import theme from '../theme'
 import { getMainColor } from '../_internal/colors'
 
 export const CardContainer = styled.div`
-  box-shadow: ${shadows.medium};
+  box-shadow: ${theme.get('shadow')};
   border-radius: ${borderRadius.narrow};
   background: ${props => getMainColor(props, { themeKey: 'neutralLightest', propName: 'backgroundColor', acceptError: false })};
   padding: ${({ noPadding }) => noPadding ? '0' : '32px'};
@@ -15,11 +15,11 @@ export const CardContainer = styled.div`
     transition: box-shadow 150ms ease-in-out;
 
     &:hover {
-      box-shadow: ${shadows.strong};
+      box-shadow: ${theme.get('shadowStrong')};
     }
 
     &:active {
-      box-shadow: ${shadows.light};
+      box-shadow: ${theme.get('shadowLight')};
     }
   `};
 `
