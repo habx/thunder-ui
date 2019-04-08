@@ -55,7 +55,7 @@ const Spinner: React.StatelessComponent<SpinnerProps> = ({ size = 50, ...props }
   return (
     <SpinnerContainer {...props} size={size}>
       <SpinnerElement viewBox={`0 0 ${size} ${size}`} size={size}>
-        <circle className='path' cx={size / 2} cy={size / 2} r={(size / 2) - (size / 10)} fill='none' strokeWidth='3' stroke={color} />
+        <circle className='path' cx={size / 2} cy={size / 2} r={(size / 2) - (size / 10)} fill='none' strokeWidth={size / 15} stroke={color} />
       </SpinnerElement>
     </SpinnerContainer>
   )

@@ -5,9 +5,9 @@ import { getMainColor } from '../_internal/colors'
 
 export const MenuItemContainer = styled.li`
   display: flex;
-  align-items: center;
+  align-items: flex-start;
 
-  padding: 0 16px;
+  padding: 12px 16px;
 
   cursor: pointer;
 
@@ -18,7 +18,7 @@ export const MenuItemContainer = styled.li`
   transition: background-color ease-in-out 150ms;
 
   &:hover {
-    background-color: ${props => getMainColor(props, { themeKey: 'neutralLighter' })};
+    background-color: ${props => getMainColor(props, { themeKey: 'neutralLight', customizable: false })};
   }
 
   &[data-disabled="true"] {
@@ -27,10 +27,12 @@ export const MenuItemContainer = styled.li`
   }
 `
 
-export const MenuItemContent = styled.div`
-  line-height: 3;
-`
+export const MenuItemContent = styled.div``
 
 export const IconContainer = styled.div`
-  margin-right: 8px;
+  margin-right: 12px;
+
+  & > i {
+    font-size: ${fontSizes.regular};
+  }
 `
