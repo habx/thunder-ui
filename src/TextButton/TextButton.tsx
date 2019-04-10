@@ -55,4 +55,8 @@ const TextButton: React.StatelessComponent<TextButtonProps> = styled.button.attr
   `};
 `
 
+TextButton.defaultProps = {
+  type: 'button'
+}
+
 export default TextButton
