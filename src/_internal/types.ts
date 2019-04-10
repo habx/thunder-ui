@@ -37,4 +37,6 @@ export interface Button extends DOMNode {
 
   color?: string
   hoverColor?: string
+
+  type?: string
 }

@@ -27,4 +27,8 @@ const Button: React.StatelessComponent<ButtonProps> = ({ iconLeft, iconRight, ch
   </ButtonContainer>
 )
 
+Button.defaultProps = {
+  type: 'button'
+}
+
 export default Button

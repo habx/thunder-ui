@@ -61,4 +61,8 @@ const IconButton: React.StatelessComponent<IconButtonProps> = styled.button.attr
   }
 `
 
+IconButton.defaultProps = {
+  type: 'button'
+}
+
 export default IconButton
