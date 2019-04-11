@@ -30,6 +30,7 @@ export const NotificationIllustration = styled.div`
 
 export const NotificationContent = styled.p`
   padding: 16px 32px;
+  margin: 0;
   font-size: ${fontSizes.regular};
   color: #ffffff;
 `
