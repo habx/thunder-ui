@@ -18,7 +18,7 @@ workflows:
       - build:
           context: default_env_vars
           requires:
-          - get-build-infos
+          - lint
           filters:
             tags:
               only: /^v.*/
