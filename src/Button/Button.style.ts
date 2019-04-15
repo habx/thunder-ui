@@ -14,7 +14,7 @@ const BLACK = color('#000')
 const prepareProps = props => {
   const neutralColor = getMainColor(props, {
     propName: 'textColor',
-    acceptError: false,
+    acceptPropsOverwrite: false,
     themeKey: 'neutralLightest'
   })
   const primaryColor = getMainColor(props)
