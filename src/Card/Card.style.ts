@@ -7,7 +7,7 @@ import { getMainColor } from '../_internal/colors'
 export const CardContainer = styled.div`
   box-shadow: ${theme.get('shadow')};
   border-radius: ${borderRadius.narrow};
-  background: ${props => getMainColor(props, { themeKey: 'neutralLightest', propName: 'backgroundColor', acceptError: false })};
+  background: ${props => getMainColor(props, { themeKey: 'neutralLightest', propName: 'backgroundColor', acceptPropsOverwrite: false })};
   padding: ${({ noPadding }) => noPadding ? '0' : '32px'};
 
   ${({ interactive }) => interactive && css`
