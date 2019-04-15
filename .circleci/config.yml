@@ -116,7 +116,7 @@ jobs:
           at: /root/
       - run:
           command: |
-            npm run publish
+            NPM_TOKEN=${NPM_TOKEN_RW} npm run publish
 
   publish-storybook-on-tag:
     docker:
