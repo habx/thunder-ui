@@ -1,11 +1,11 @@
 import styled from 'styled-components'
 
-import shadows from '../shadows'
+import theme from '../theme'
 import borderRadius from '../borderRadius'
 
 export const ExpansionPanelContainer = styled.div`
   &:not([data-flat="true"]) {
-    box-shadow: ${shadows.strong};
+    box-shadow: ${theme.get('shadow')};
     border-radius: ${borderRadius.narrow};
   }
 `
