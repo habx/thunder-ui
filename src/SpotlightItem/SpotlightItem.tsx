@@ -93,7 +93,10 @@ class SpotlightItem extends React.PureComponent<ItemInnerProps> {
 
   handleSubmit = event => {
     const { onClick } = this.props
-    this.containerRef.current.click()
+
+    if (this.containerRef.current) {
+      this.containerRef.current.click()
+    }
 
     if (onClick) {
       onClick(event)
