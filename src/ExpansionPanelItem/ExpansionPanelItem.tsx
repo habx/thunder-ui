@@ -11,7 +11,7 @@ import { ExpansionPanelContext } from '../ExpansionPanel/ExpansionPanel.context'
 
 const BaseExpansionPanelItem: React.StatelessComponent<ExpansionPanelItemProps> = ({ children, title, expandIcon, collapseIcon, open, onToggle, ...props }) => {
   const { openedItems, setOpenedItems, multiOpen } = React.useContext(ExpansionPanelContext)
-  const [itemId] = React.useState(Math.random())
+  const itemRef = React.useRef(Math.random())
   const contentRef = React.useRef(null)
   const [contentHeight, setItemHeight] = React.useState(0)
 
@@ -22,32 +22,19 @@ const BaseExpansionPanelItem: React.StatelessComponent<ExpansionPanelItemProps> 
     }
   })
 
-  const handleToggle = React.useCallback(
+  const handleToggleLocally = React.useCallback(
     () => {
       if (multiOpen) {
-        const newOpenedItems = openedItems.includes(itemId) ? [...openedItems].filter(i => i !== itemId) : [...openedItems, itemId]
+        const newOpenedItems = openedItems.includes(itemRef.current) ? [...openedItems].filter(i => i !== itemRef.current) : [...openedItems, itemRef.current]
         setOpenedItems(newOpenedItems)
       } else {
-        setOpenedItems(openedItems.includes(itemId) ? [] : [itemId])
-      }
-      if (onToggle) {
-        onToggle()
+        setOpenedItems(openedItems.includes(itemRef.current) ? [] : [itemRef.current])
       }
     },
-    [openedItems, setOpenedItems, itemId, multiOpen, onToggle]
-  )
+    [openedItems, setOpenedItems, itemRef.current, multiOpen])
+  const handleToggle = onToggle || handleToggleLocally
 
-  React.useEffect(() => {
-    if (open === true && openedItems.includes(itemId)) {
-      if (multiOpen) {
-        setOpenedItems([...openedItems, itemId])
-      } else {
-        setOpenedItems([itemId])
-      }
-    }
-  }, [open])
-
-  const isOpened = open !== undefined ? open : openedItems.includes(itemId)
+  const isOpened = open !== undefined ? open : openedItems.includes(itemRef.current)
   const color = getMainColor(props, { themeKey: 'neutralStronger' })
 
   return (
