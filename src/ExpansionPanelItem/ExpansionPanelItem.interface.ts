@@ -7,4 +7,6 @@ export default interface ExpansionPanelItem extends DOMNode {
   error?: boolean
   expandIcon?: React.ReactNode
   collapseIcon?: React.ReactNode
+  open?: boolean
+  onToggle?: () => void
 }

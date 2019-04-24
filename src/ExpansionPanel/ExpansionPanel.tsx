@@ -4,13 +4,14 @@ import ExpansionPanelProps from './ExpansionPanel.interface'
 import { ExpansionPanelContainer } from './ExpansionPanel.style'
 import { ExpansionPanelContext } from './ExpansionPanel.context'
 
-const ExpansionPanel: React.StatelessComponent<ExpansionPanelProps> = ({ children, flat, ...rest }) => {
-  const [openedItem, setOpenedItem] = React.useState(-1)
+const ExpansionPanel: React.StatelessComponent<ExpansionPanelProps> = ({ children, flat, multiOpen, ...rest }) => {
+  const [openedItems, setOpenedItems] = React.useState([])
 
   const contextValue = React.useMemo(() => ({
-    openedItem,
-    setOpenedItem
-  }), [openedItem, setOpenedItem])
+    openedItems,
+    setOpenedItems,
+    multiOpen
+  }), [openedItems, setOpenedItems])
 
   return (
     <ExpansionPanelContext.Provider value={contextValue}>

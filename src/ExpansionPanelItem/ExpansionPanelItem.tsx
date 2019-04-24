@@ -9,8 +9,8 @@ import ExpansionPanelItemProps from './ExpansionPanelItem.interface'
 import { ExpansionPanelItemContainer, TitleBar, CoreContainer, CoreContent } from './ExpansionPanelItem.style'
 import { ExpansionPanelContext } from '../ExpansionPanel/ExpansionPanel.context'
 
-const BaseExpansionPanelItem: React.StatelessComponent<ExpansionPanelItemProps> = ({ children, title, expandIcon, collapseIcon, ...props }) => {
-  const { openedItem, setOpenedItem } = React.useContext(ExpansionPanelContext)
+const BaseExpansionPanelItem: React.StatelessComponent<ExpansionPanelItemProps> = ({ children, title, expandIcon, collapseIcon, open, onToggle, ...props }) => {
+  const { openedItems, setOpenedItems, multiOpen } = React.useContext(ExpansionPanelContext)
   const [itemId] = React.useState(Math.random())
   const contentRef = React.useRef(null)
   const [contentHeight, setItemHeight] = React.useState(0)
@@ -22,17 +22,37 @@ const BaseExpansionPanelItem: React.StatelessComponent<ExpansionPanelItemProps> 
     }
   })
 
-  const onToggle = React.useCallback(
-    () => setOpenedItem(openedItem === itemId ? null : itemId),
-    [openedItem, setOpenedItem, itemId]
+  const handleToggle = React.useCallback(
+    () => {
+      if (multiOpen) {
+        const newOpenedItems = openedItems.includes(itemId) ? [...openedItems].filter(i => i !== itemId) : [...openedItems, itemId]
+        setOpenedItems(newOpenedItems)
+      } else {
+        setOpenedItems(openedItems.includes(itemId) ? [] : [itemId])
+      }
+      if (onToggle) {
+        onToggle()
+      }
+    },
+    [openedItems, setOpenedItems, itemId, multiOpen, onToggle]
   )
 
-  const isOpened = openedItem === itemId
+  React.useEffect(() => {
+    if (open === true && openedItems.includes(itemId)) {
+      if (multiOpen) {
+        setOpenedItems([...openedItems, itemId])
+      } else {
+        setOpenedItems([itemId])
+      }
+    }
+  }, [open])
+
+  const isOpened = open !== undefined ? open : openedItems.includes(itemId)
   const color = getMainColor(props, { themeKey: 'neutralStronger' })
 
   return (
     <ExpansionPanelItemContainer>
-      <TitleBar onClick={onToggle}>
+      <TitleBar onClick={handleToggle}>
         <Title size={3} color={color}>{ title }</Title>
         {
           !isOpened && (
