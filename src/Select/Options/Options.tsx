@@ -15,6 +15,7 @@ import {
   EmptyOptions,
   SelectAllOption
 } from './Options.style'
+import {isClientSide} from '../../_internal/ssr'
 
 const Options: React.StatelessComponent<OptionsProps> = ({
   options,
@@ -99,10 +100,12 @@ const Options: React.StatelessComponent<OptionsProps> = ({
       {content}
     </OptionsContainer>
   )
-  if (typeof document !== 'object') {
-    return optionsContainer
+
+  if (!isClientSide()) {
+    return createPortal(optionsContainer, document.body)
   }
-  return createPortal(optionsContainer, document.body)
+
+  return optionsContainer
 }
 
 export default Options
