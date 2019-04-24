@@ -4,6 +4,7 @@ import { createPortal } from 'react-dom'
 import Option from '../Option'
 import Modal from '../../Modal'
 import { useIsSmallScreen } from '../../_internal/hooks'
+import { isClientSide } from '../../_internal/ssr'
 
 import OptionsProps from './Options.interface'
 import {
@@ -99,10 +100,12 @@ const Options: React.StatelessComponent<OptionsProps> = ({
       {content}
     </OptionsContainer>
   )
-  if (typeof document !== 'object') {
-    return optionsContainer
+
+  if (!isClientSide()) {
+    return createPortal(optionsContainer, document.body)
   }
-  return createPortal(optionsContainer, document.body)
+
+  return optionsContainer
 }
 
 export default Options
