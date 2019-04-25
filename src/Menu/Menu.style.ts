@@ -30,7 +30,7 @@ export const MenuContainerDesktop = styled.div.attrs(prepareProps)`
   pointer-events: none;
 
   transition: opacity ease-in-out 150ms;
-  z-index: ${zIndex.highest};
+  z-index: ${zIndex.higher};
 
   &[data-open="true"] {
     pointer-events: auto;
@@ -55,7 +55,7 @@ export const MobileMenuContainer = styled.div.attrs(preparePropsMobile)`
 
   transition: opacity ease-in-out 150ms;
 
-  z-index: ${zIndex.highest};
+  z-index: ${zIndex.higher};
 
   &[data-open="true"] {
     pointer-events: auto;
@@ -92,6 +92,6 @@ export const Overlay = styled.div`
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: ${zIndex.highest - 1};
+  z-index: ${zIndex.higher - 1};
   overflow: hidden;
 `
