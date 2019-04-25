@@ -9,4 +9,5 @@ export default interface ExpansionPanelItem extends DOMNode {
   collapseIcon?: React.ReactNode
   open?: boolean
   onToggle?: () => void
+  titleProps?: object
 }
