@@ -38,7 +38,7 @@ const BaseExpansionPanelItem: React.StatelessComponent<ExpansionPanelItemProps> 
   const color = getMainColor(props, { themeKey: 'neutralStronger' })
 
   return (
-    <ExpansionPanelItemContainer>
+    <ExpansionPanelItemContainer {...props}>
       <TitleBar onClick={handleToggle}>
         <Title size={3} color={color}>{ title }</Title>
         {
