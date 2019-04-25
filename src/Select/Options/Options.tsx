@@ -101,7 +101,7 @@ const Options: React.StatelessComponent<OptionsProps> = ({
     </OptionsContainer>
   )
 
-  if (!isClientSide()) {
+  if (isClientSide()) {
     return createPortal(optionsContainer, document.body)
   }
 
