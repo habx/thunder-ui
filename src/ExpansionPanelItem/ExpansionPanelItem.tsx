@@ -9,7 +9,7 @@ import ExpansionPanelItemProps from './ExpansionPanelItem.interface'
 import { ExpansionPanelItemContainer, TitleBar, CoreContainer, CoreContent } from './ExpansionPanelItem.style'
 import { ExpansionPanelContext } from '../ExpansionPanel/ExpansionPanel.context'
 
-const BaseExpansionPanelItem: React.StatelessComponent<ExpansionPanelItemProps> = ({ children, title, expandIcon, collapseIcon, open, onToggle, ...props }) => {
+const BaseExpansionPanelItem: React.StatelessComponent<ExpansionPanelItemProps> = ({ children, title, expandIcon, collapseIcon, open, onToggle, titleProps, ...props }) => {
   const { openedItems, setOpenedItems, multiOpen } = React.useContext(ExpansionPanelContext)
   const itemRef = React.useRef(Math.random())
   const contentRef = React.useRef(null)
@@ -38,8 +38,8 @@ const BaseExpansionPanelItem: React.StatelessComponent<ExpansionPanelItemProps> 
   const color = getMainColor(props, { themeKey: 'neutralStronger' })
 
   return (
-    <ExpansionPanelItemContainer {...props}>
-      <TitleBar onClick={handleToggle}>
+    <ExpansionPanelItemContainer>
+      <TitleBar onClick={handleToggle} {...titleProps}>
         <Title size={3} color={color}>{ title }</Title>
         {
           !isOpened && (
@@ -53,6 +53,7 @@ const BaseExpansionPanelItem: React.StatelessComponent<ExpansionPanelItemProps> 
         }
       </TitleBar>
       <CoreContainer
+        {...props}
         data-open={isOpened}
         ref={contentRef}
         height={contentHeight}
