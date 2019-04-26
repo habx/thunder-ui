@@ -390,6 +390,6 @@ export class BaseSelect extends React.Component<SelectProps, SelectState> {
   }
 }
 
-const Select = withLabel({ padding: 12 })(withTheme(BaseSelect))
+const Select = withLabel({ padding: 12 })(withTheme(BaseSelect) as React.ComponentType<SelectProps>)
 
 export default Select

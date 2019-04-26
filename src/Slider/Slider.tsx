@@ -152,4 +152,4 @@ class Slider extends React.Component<SliderProps> {
   }
 }
 
-export default withTheme(withLabel({ padding: 12 })(Slider))
+export default withLabel({ padding: 12 })(withTheme(Slider) as React.ComponentType<SliderProps>)
