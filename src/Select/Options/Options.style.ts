@@ -2,6 +2,7 @@ import styled from 'styled-components'
 
 import shadows from '../../shadows'
 import fontSizes from '../../fontSizes'
+import theme from '../../theme'
 import zIndex from '../../_internal/zIndex'
 import { getMainColor } from '../../_internal/colors'
 import Option from '../Option'
@@ -16,7 +17,7 @@ export const OptionsContainer = styled.div`
   overflow: hidden;
   margin-top: -1px;
 
-  background-color: #ffffff;
+  background-color: ${theme.get('neutralLightest')};
   border-radius: 0 0 4px 4px;
   border-top: 1px solid ${props => getMainColor(props, { themeKey: 'neutral' })};
   max-height: 0;
