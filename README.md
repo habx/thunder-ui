@@ -47,7 +47,7 @@ Pressing shift twice displays the spotlight. You can then search in your data an
 Look at the storybook to learn how to use and customize it ! 
 
 <p align="center" style="margin: 0 20%">
-  <img src="https://res.cloudinary.com/habx/image/upload/v1556272939/tech/thunder-ui/spotlight.gif" />
+  <img src="https://res.cloudinary.com/habx/image/upload/v1556273749/tech/thunder-ui/spotlight.gif" />
 </p>
 
 Every single component is detailed in the [Storybook](https://habx.github.io/thunder-ui).
