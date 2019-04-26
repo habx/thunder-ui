@@ -65,7 +65,7 @@ ReactDOM.render(<App />, document.querySelector('#app'));
 #### Call a promise to confirm an action
 
 <p align="center" style="margin: 0 20%">
-  <img height="500" src="https://res.cloudinary.com/habx/image/upload/v1556284860/tech/thunder-ui/Enregistrement-de-l_e%CC%81cran-2019-04-26-a%CC%80-15.20.05.gif" />
+  <img height="500" src="https://res.cloudinary.com/habx/image/upload/v1556284860/tech/thunder-ui/confirm.gif" />
 </p>
 
 ```js
