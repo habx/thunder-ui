@@ -1,5 +1,5 @@
 <p align="center" style="font-size: 1.2rem;">
-  <img src="https://res.cloudinary.com/habx/image/upload/v1551194374/Capture_d_e%CC%81cran_2019-02-26_a%CC%80_16.19.21.png" />
+  <img src="https://res.cloudinary.com/habx/image/upload/v1556272989/tech/thunder-ui/thunder-ui.png" />
 </p>
 
 
@@ -40,6 +40,12 @@ ReactDOM.render(<App />, document.querySelector('#app'));
 
 
 ## Documentation and examples
+
+### Find what you want at the speed of light with spotlight ⚡️
+
+<p align="center" >
+  <img src="https://res.cloudinary.com/habx/image/upload/v1556272939/tech/thunder-ui/spotlight.gif" />
+</p>
 
 Every single component is detailed in the [Storybook](https://habx.github.io/thunder-ui).
 
