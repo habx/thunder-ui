@@ -41,14 +41,67 @@ ReactDOM.render(<App />, document.querySelector('#app'));
 
 ## Documentation and examples
 
+#### Thunder form
+
+<p align="center">
+  <img height="500" src="https://res.cloudinary.com/habx/image/upload/v1556284086/tech/thunder-ui/form_example.png" />
+</p>
+
+```js
+  <Title underline>Form</Title>
+  <Card title='Who are you ?' style={{ marginTop: 32 }}>
+    <Container>
+      <TextInput label='Your name' value='Bobby'/>
+      <RadioSelect label='Your gender' options={[{ value: 1, label: 'Female' }, { value: 0, label: 'Male' }]} value={1} />
+      <Slider label='Your age' value={23} onChange={() => null}/>
+    </Container>
+    <TextArea label='Your description' value='Lorem ipsum'/>
+    <ButtonContainer>
+      <Button>Validate</Button>
+    </ButtonContainer>
+  </Card>
+```
+
+#### Call a promise to confirm an action
+
+<p align="center" style="margin: 0 20%">
+  <img height="500" src="https://res.cloudinary.com/habx/image/upload/v1556284860/tech/thunder-ui/Enregistrement-de-l_e%CC%81cran-2019-04-26-a%CC%80-15.20.05.gif" />
+</p>
+
+```js
+   <Button
+      onClick={async () => {
+        const response = await confirm('Voulez-vous continuer');
+        action('Confirm Modal response')(response);
+      }}
+    >
+      Trigger event
+    </Button>
+```
+
+
 #### Find what you want at the speed of light with spotlight ⚡
 Pressing shift twice displays the spotlight. You can then search in your data and have a quick access to anywhere in your app 🚀
 
 Look at the storybook to learn how to use and customize it ! 
 
 <p align="center" style="margin: 0 20%">
-  <img src="https://res.cloudinary.com/habx/image/upload/v1556273749/tech/thunder-ui/spotlight.gif" />
+  <img height="500" src="https://res.cloudinary.com/habx/image/upload/v1556273749/tech/thunder-ui/spotlight.gif" />
 </p>
+
+
+#### Use a theme and customize thunder components as you like
+
+
+
+<p align="center" style="margin: 0 20%">
+  <img height="500" src="https://res.cloudinary.com/habx/image/upload/v1556274666/tech/thunder-ui/spotlight_dark.png" />
+</p>
+
+
+
+
+----------
 
 Every single component is detailed in the [Storybook](https://habx.github.io/thunder-ui).
 

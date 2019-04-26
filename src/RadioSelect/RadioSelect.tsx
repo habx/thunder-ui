@@ -98,6 +98,6 @@ BaseRadioSelect.defaultProps = {
   options: []
 }
 
-const RadioSelect = withLabel({ padding: 12 })(withTheme(BaseRadioSelect))
+const RadioSelect = withLabel({ padding: 12 })(withTheme(BaseRadioSelect) as React.StatelessComponent<RadioSelectProps>)
 
 export default RadioSelect
