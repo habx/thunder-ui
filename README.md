@@ -41,9 +41,12 @@ ReactDOM.render(<App />, document.querySelector('#app'));
 
 ## Documentation and examples
 
-### Find what you want at the speed of light with spotlight ⚡️
+#### Find what you want at the speed of light with spotlight ⚡
+Pressing shift twice displays the spotlight. You can then search in your data and have a quick access to anywhere in your app 🚀
 
-<p align="center" >
+Look at the storybook to learn how to use and customize it ! 
+
+<p align="center" style="margin: 0 20%">
   <img src="https://res.cloudinary.com/habx/image/upload/v1556272939/tech/thunder-ui/spotlight.gif" />
 </p>
 
