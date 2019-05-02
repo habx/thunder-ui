@@ -104,7 +104,7 @@ class Drawer extends PureComponent<DrawerProps> {
   }
 
   render () {
-    const { children, title, closeButton, portal, ...props } = this.props
+    const { children, title, closeButton, portal, contentContainerComponent, ...props } = this.props
     const currentState = this.getCurrentState()
 
     const drawer = (
@@ -113,7 +113,7 @@ class Drawer extends PureComponent<DrawerProps> {
           <DrawerContainer data-state={currentState} {...props}>
             {title && <DrawerTitle size={3}>{title}</DrawerTitle>}
             {closeButton && <DrawerClose onClick={this.handleClose}>{closeButton}</DrawerClose>}
-            <DrawerContent>
+            <DrawerContent as={contentContainerComponent}>
               {
                 isFunction(children)
                   ? children({ state: currentState, close: this.handleClose })
