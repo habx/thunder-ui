@@ -12,5 +12,5 @@ export default interface DrawerInterface {
   open: boolean
   onClose: (e: React.FormEvent<HTMLInputElement>) => void
   portal?: boolean
-  contentContainerComponent: React.ComponentType
+  contentContainerComponent?: React.ComponentType
 }
