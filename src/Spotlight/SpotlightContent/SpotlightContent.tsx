@@ -1,29 +1,34 @@
-import * as React from 'react'
 import get from 'lodash.get'
+import * as React from 'react'
 
 import { omit } from '../../_internal/data'
 import { SpotlightContext } from '../Spotlight.context'
 
 import SpotlightIcon from './icon'
-
-import SpotlightContentProps, { SpotlightContentState, ItemRegistrationData } from './SpotlightContent.interface'
+import SpotlightContentProps, {
+  SpotlightContentState,
+  ItemRegistrationData,
+} from './SpotlightContent.interface'
 import { SpotlightSearch, SpotlightSections } from './SpotlightContent.style'
 
-class SpotlightContent extends React.Component<SpotlightContentProps, SpotlightContentState> {
+class SpotlightContent extends React.Component<
+  SpotlightContentProps,
+  SpotlightContentState
+> {
   static defaultProps = {
     data: {},
-    placeholder: 'Aller à...'
+    placeholder: 'Aller à...',
   }
 
   state = {
-    selectedItem: -1
+    selectedItem: -1,
   }
 
-  componentDidMount () {
+  componentDidMount() {
     window.addEventListener('keydown', this.handleKeyDown)
   }
 
-  componentDidUpdate (prevProps, prevState) {
+  componentDidUpdate(prevProps, prevState) {
     const { inputRef } = this.props
     const { selectedItem } = this.state
 
@@ -32,7 +37,7 @@ class SpotlightContent extends React.Component<SpotlightContentProps, SpotlightC
     }
   }
 
-  componentWillUnmount () {
+  componentWillUnmount() {
     window.removeEventListener('keydown', this.handleKeyDown)
   }
 
@@ -40,9 +45,14 @@ class SpotlightContent extends React.Component<SpotlightContentProps, SpotlightC
     const items: ItemRegistrationData[][] = Object.values(this.items)
 
     return items.reduce(
-      (acc: ItemRegistrationData[], sectionItems: { [key: number]: ItemRegistrationData }) => [
+      (
+        acc: ItemRegistrationData[],
+        sectionItems: { [key: number]: ItemRegistrationData }
+      ) => [
         ...acc,
-        ...Object.values(sectionItems).sort((a, b) => a.index > b.index ? 1 : -1)
+        ...Object.values(sectionItems).sort((a, b) =>
+          a.index > b.index ? 1 : -1
+        ),
       ],
       []
     )
@@ -59,17 +69,19 @@ class SpotlightContent extends React.Component<SpotlightContentProps, SpotlightC
 
         if (key === 'ArrowUp') {
           return {
-            selectedItem: selectedItem >= 0
-              ? selectedItem - 1
-              : this.getAllItemKeys().length - 1
+            selectedItem:
+              selectedItem >= 0
+                ? selectedItem - 1
+                : this.getAllItemKeys().length - 1,
           }
         }
 
         if (key === 'ArrowDown') {
           return {
-            selectedItem: selectedItem < this.getAllItemKeys().length - 1
-              ? selectedItem + 1
-              : -1
+            selectedItem:
+              selectedItem < this.getAllItemKeys().length - 1
+                ? selectedItem + 1
+                : -1,
           }
         }
 
@@ -106,21 +118,21 @@ class SpotlightContent extends React.Component<SpotlightContentProps, SpotlightC
       ...this.items,
       [section]: {
         ...get(this.items, section, {}),
-        [item.key]: item
-      }
+        [item.key]: item,
+      },
     }
   }
 
   unRegisterItem = (section, key) => {
     this.items = {
       ...this.items,
-      [section]: omit(this.items[section], [key])
+      [section]: omit(this.items[section], [key]),
     }
   }
 
   items = {}
 
-  render () {
+  render() {
     const { children, query, data, placeholder, inputRef } = this.props
     const { selectedItem } = this.state
     const selectedItemKey = get(this.getAllItemKeys(), [selectedItem, 'key'])
@@ -133,7 +145,7 @@ class SpotlightContent extends React.Component<SpotlightContentProps, SpotlightC
           data,
           registerItem: this.registerItem,
           unRegisterItem: this.unRegisterItem,
-          close: this.handleClose
+          close: this.handleClose,
         }}
       >
         <SpotlightSearch>
@@ -147,9 +159,7 @@ class SpotlightContent extends React.Component<SpotlightContentProps, SpotlightC
             placeholder={placeholder}
           />
         </SpotlightSearch>
-        <SpotlightSections>
-          {children}
-        </SpotlightSections>
+        <SpotlightSections>{children}</SpotlightSections>
       </SpotlightContext.Provider>
     )
   }

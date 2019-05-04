@@ -41,7 +41,7 @@ const INTERNAL_PROPS = [
 const FORMAT_VALUE_FULL = 'full'
 const FORMAT_VALUE_SIMPLE = 'simple'
 
-export class Select extends React.Component<SelectProps, SelectState> {
+export class BaseSelect extends React.Component<SelectProps, SelectState> {
   static defaultProps = {
     multi: false,
     canReset: true,
@@ -56,11 +56,11 @@ export class Select extends React.Component<SelectProps, SelectState> {
     return {
       ...(rawOptions !== prevState.rawOptions && {
         rawOptions,
-        options: Select.getStandardizedOptions(rawOptions),
+        options: BaseSelect.getStandardizedOptions(rawOptions),
       }),
       ...(rawValue !== prevState.rawValue && {
         rawValue,
-        value: Select.getStandardizedValue(rawValue, multi),
+        value: BaseSelect.getStandardizedValue(rawValue, multi),
       }),
     }
   }
@@ -394,5 +394,5 @@ export class Select extends React.Component<SelectProps, SelectState> {
 }
 
 export default withLabel({ padding: 12 })(withTheme(
-  Select
+  BaseSelect
 ) as React.ComponentType<SelectProps>)

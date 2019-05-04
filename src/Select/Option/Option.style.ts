@@ -12,8 +12,8 @@ export const OptionContainer = styled.div`
   display: flex;
   align-items: center;
   font-size: ${fontSizes.regular};
-  padding: ${({ compact }) => compact ? 6 : 12 }px 18px;
-  color: ${theme.get('neutralStronger',{ dynamic: true })};
+  padding: ${({ compact }) => (compact ? 6 : 12)}px 18px;
+  color: ${theme.get('neutralStronger', { dynamic: true })};
 
   i {
     vertical-align: middle;
@@ -22,13 +22,14 @@ export const OptionContainer = styled.div`
 
   &:hover,
   &:focus,
-  &[data-selected="true"]{
-    background-color: ${theme.get('neutralLighter',{ dynamic: true })};
+  &[data-selected='true'] {
+    background-color: ${theme.get('neutralLighter', { dynamic: true })};
   }
   &[disabled] {
     opacity: 0.5;
     user-focus: none;
-    &:hover, &:focus {
+    &:hover,
+    &:focus {
       background-color: transparent;
       cursor: auto;
     }

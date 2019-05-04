@@ -11,7 +11,9 @@ type TriggerState = {
   open: boolean
 }
 
-const withTriggerElement = <Props extends TriggerState> (WrappedComponent: React.ComponentType<Props>) => {
+const withTriggerElement = <Props extends TriggerState>(
+  WrappedComponent: React.ComponentType<Props>
+) => {
   const Wrapper = (props: Props & TriggerReceivedProps) => {
     const { triggerElement, onClose, ...rest } = props as TriggerReceivedProps
 
@@ -39,12 +41,14 @@ const withTriggerElement = <Props extends TriggerState> (WrappedComponent: React
 
     return (
       <React.Fragment>
-        {
-          isFunction(triggerElement)
-            ? triggerElement({ open })
-            : React.cloneElement(triggerElement, { onClick: handleToggle })
-        }
-        <WrappedComponent {...rest as Props} open={open} onClose={handleClose} />
+        {isFunction(triggerElement)
+          ? triggerElement({ open })
+          : React.cloneElement(triggerElement, { onClick: handleToggle })}
+        <WrappedComponent
+          {...rest as Props}
+          open={open}
+          onClose={handleClose}
+        />
       </React.Fragment>
     )
   }

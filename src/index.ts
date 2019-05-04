@@ -72,7 +72,9 @@ export { default as SpotlightSection } from './SpotlightSection'
 export { default as SpotlightItem } from './SpotlightItem'
 export { default as SpotlightSectionTitle } from './SpotlightSectionTitle'
 export { default as SpotlightWelcomeMessage } from './SpotlightWelcomeMessage'
-export { default as SpotlightSectionPlaceholder } from './SpotlightSectionPlaceholder'
+export {
+  default as SpotlightSectionPlaceholder,
+} from './SpotlightSectionPlaceholder'
 
 /*
   Helpers

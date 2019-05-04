@@ -29,5 +29,5 @@ export default {
   whiteSmoke: COLOR_WHITE_SMOKE,
   snow: COLOR_SNOW,
   oldLace: COLOR_OLD_LACE,
-  gainsboro: COLOR_GAINSBORO
+  gainsboro: COLOR_GAINSBORO,
 }

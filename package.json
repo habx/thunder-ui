@@ -15,7 +15,7 @@
     "storybook": "start-storybook -p 9001 -c .storybook -s ./assets",
     "storybook:build": "build-storybook -c .storybook -s ./assets -o .storybook-static",
     "test": "jest",
-    "lint": "eslint src/**/*.ts*",
+    "lint": "eslint \"src/**\"",
     "type-check": "tsc --noEmit -p"
   },
   "repository": {

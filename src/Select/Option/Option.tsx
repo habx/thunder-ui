@@ -2,44 +2,44 @@ import * as React from 'react'
 
 import Toggle from '../Toggle'
 
-import { OptionContainer } from './Option.style'
 import OptionProps from './Option.interface'
+import { OptionContainer } from './Option.style'
 
 class Option extends React.Component<OptionProps> {
   private readonly ref: React.RefObject<any>
 
-  constructor (props) {
+  constructor(props) {
     super(props)
 
     this.ref = React.createRef()
   }
 
-  componentDidMount () {
+  componentDidMount() {
     this.handleFocus()
   }
 
-  componentDidUpdate () {
+  componentDidUpdate() {
     this.handleFocus()
   }
 
-  handleFocus () {
+  handleFocus() {
     if (this.props.focused && this.ref.current) {
       this.ref.current.focus()
     }
   }
 
-  render () {
+  render() {
     const { multi, label, selected, disabled, ...props } = this.props
     return (
       <OptionContainer
         {...props}
         data-selected={selected}
         ref={this.ref}
-        tabIndex='0'
+        tabIndex="0"
         disabled={disabled}
       >
         {multi && <Toggle state={selected ? 'full' : 'empty'} />}
-        { label }
+        {label}
       </OptionContainer>
     )
   }
