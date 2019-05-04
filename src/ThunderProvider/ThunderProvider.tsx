@@ -5,48 +5,39 @@ import merge from 'lodash.merge'
 import ConfirmModals from '../confirm/ConfirmModals'
 import NotificationList from '../notify/NotificationList'
 
-import ThunderProviderProps, { ThunderProviderInnerProps, ThunderProviderState } from './ThunderProvider.interface'
-import BASE_THEME from './ThunderProvider.theme'
+import ThunderProviderProps, { ThunderProviderInnerProps } from './ThunderProvider.interface'
 
-class BaseProvider extends React.Component<ThunderProviderInnerProps, ThunderProviderState> {
-  static getDerivedStateFromProps (nextProps: ThunderProviderInnerProps, prevState: ThunderProviderState) {
-    if (nextProps.theme !== prevState.rawTheme || nextProps.customTheme !== prevState.rawCustomTheme) {
-      return {
-        theme: merge(
-          {},
-          nextProps.theme,
-          { thunderUI: BASE_THEME },
-          { thunderUI: nextProps.customTheme }
-        )
-      }
+import theme from '../theme'
+
+const getCustomTheme = customTheme => {
+  if (customTheme === 'light') {
+    return theme.light
+  }
+
+  if (customTheme === 'dark') {
+    return theme.dark
+  }
+
+  return merge({}, theme.light, customTheme)
+}
+
+const BaseProvider: React.StatelessComponent<ThunderProviderInnerProps> = props => {
+  const fullTheme = React.useMemo(() => merge(
+    {},
+    props.theme,
+    { thunderUI: getCustomTheme(props.customTheme)
     }
+  ), [])
 
-    return null
-  }
-
-  static defaultProps = {
-    theme: {}
-  }
-
-  state = {
-    rawTheme: null,
-    rawCustomTheme: null,
-    theme: null
-  }
-
-  render () {
-    const { theme } = this.state
-
-    return (
-      <ThemeProvider theme={theme}>
-        <React.Fragment>
-          { this.props.children }
-          <ConfirmModals />
-          <NotificationList />
-        </React.Fragment>
-      </ThemeProvider>
-    )
-  }
+  return (
+    <ThemeProvider theme={fullTheme}>
+      <React.Fragment>
+        { props.children }
+        <ConfirmModals />
+        <NotificationList />
+      </React.Fragment>
+    </ThemeProvider>
+  )
 }
 
 const EndhancedProvider = withTheme(BaseProvider)

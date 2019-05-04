@@ -1,17 +1,13 @@
 import * as React from 'react'
 import styled from 'styled-components'
 import { storiesOf } from '@storybook/react'
-import { withState } from 'recompose'
 import { withKnobs, boolean } from '@storybook/addon-knobs'
 import { action } from '@storybook/addon-actions'
 
 import Modal from './index'
 import Button from '../Button'
 import { longText, regularText } from './Modal.data'
-import withTriggerElement from '../withTriggerElement'
 import FontIcon from '../FontIcon'
-
-const TriggeredModal = withTriggerElement(Modal)
 
 const Container = styled.div`
   line-height: 1.5;
@@ -75,7 +71,7 @@ storiesOf('Layouts|Modal', module)
     </Modal>
   ))
   .add('with trigger element HOC', () => (
-    <TriggeredModal triggerElement={<Button>Open modal</Button>}>
+    <Modal triggerElement={<Button>Open modal</Button>}>
       {longText}
-    </TriggeredModal>
+    </Modal>
   ))

@@ -1,8 +1,7 @@
 import * as React from 'react'
 import styled from 'styled-components'
-import color from 'color'
 
-import colors from '../colors'
+import { getMainColor } from '../_internal/colors'
 import fontSizes from '../fontSizes'
 
 import TabsSectionProps from './TabsSection.interface'
@@ -17,7 +16,7 @@ const TabsSectionLabel = styled.span`
   top: 0;
   left: 16px;
   font-size: ${fontSizes.tiny};
-  color: ${({ labelColor }) => labelColor || color(colors.maastrichtBlue).fade(0.52).toString()}
+  color: ${props => getMainColor(props, { themeKey: 'neutral' })}
 `
 
 const TabsContainer = styled.div`

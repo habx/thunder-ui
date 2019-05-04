@@ -2,11 +2,11 @@ import * as React from 'react'
 import { withTheme } from 'styled-components'
 
 import withLabel from '../withLabel'
-import { getMainColor } from '../_internal/colors'
 import { formValue } from '../_internal/types'
 
 import { RadioSelectContainer, Option } from './RadioSelect.style'
-import RadioSelectProps from './RadioSelect.interface'
+import RadioSelectProps, { RadioSelectInnerProps } from './RadioSelect.interface'
+import theme from '../theme'
 
 const getNewValueNotMulti = (item: formValue, value: formValue, { canBeEmpty }) => {
   if (value === item && canBeEmpty) {
@@ -42,7 +42,7 @@ const getCurrentValue = (value, { multi }) => {
   return value
 }
 
-export const BaseRadioSelect: React.StatelessComponent<RadioSelectProps> = props => {
+export const BaseRadioSelect: React.StatelessComponent<RadioSelectInnerProps> = props => {
   const {
     options,
     onChange,
@@ -71,7 +71,7 @@ export const BaseRadioSelect: React.StatelessComponent<RadioSelectProps> = props
     return value === currentValue
   })
 
-  const color = getMainColor(props)
+  const color = theme.get('primary', { dynamic: true })(props)
 
   return (
     <RadioSelectContainer color={color} data-disabled={disabled} {...rest}>

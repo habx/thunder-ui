@@ -7,4 +7,5 @@ export default interface NavBarItemProps extends DOMNode {
   activeBackgroundColor?: string
   icon?: React.ReactNode
   tooltip?: React.ReactNode
+  active?: boolean
 }

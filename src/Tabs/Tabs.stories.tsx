@@ -1,5 +1,6 @@
 import * as React from 'react'
 import { storiesOf } from '@storybook/react'
+import { withKnobs, number } from '@storybook/addon-knobs'
 
 import Tabs from './index'
 import TabsSection from '../TabsSection'
@@ -7,76 +8,44 @@ import TabsItem from '../TabsItem'
 import TabsSeparator from '../TabsSeparator'
 
 storiesOf('Navigation|Tabs', module)
-  .add('default', () => (
-    <Tabs>
-      <TabsItem>Documents</TabsItem>
-      <TabsItem active>Infos</TabsItem>
-      <TabsItem>Echanges</TabsItem>
-      <TabsItem>Activités</TabsItem>
-      <TabsItem>Documents</TabsItem>
-    </Tabs>
-  ))
-  .add('with sections', () => (
-    <Tabs>
-      <TabsSection label='Contact'>
-        <TabsItem>Documents</TabsItem>
-        <TabsItem active>Infos</TabsItem>
-        <TabsItem>Echanges</TabsItem>
-        <TabsItem>Activités</TabsItem>
-        <TabsItem>Documents</TabsItem>
-      </TabsSection>
-      <TabsSection label='Candidatures'>
-        <TabsItem>Zelmis</TabsItem>
-        <TabsItem active>Groslay</TabsItem>
-      </TabsSection>
-    </Tabs>
-  ))
-  .add('with separators', () => (
-    <Tabs>
-      <TabsSection label='Contact'>
-        <TabsItem>Documents</TabsItem>
-        <TabsItem active>Infos</TabsItem>
-        <TabsSeparator />
-        <TabsItem>Echanges</TabsItem>
-        <TabsItem>Activités</TabsItem>
-        <TabsItem>Documents</TabsItem>
-        <TabsSeparator />
-      </TabsSection>
-      <TabsSection label='Candidatures'>
-        <TabsItem>Zelmis</TabsItem>
-        <TabsSeparator />
-        <TabsItem active>Groslay</TabsItem>
-      </TabsSection>
-    </Tabs>
-  ))
-  .add('customized', () => (
-    <Tabs hoverColor='red' activeColor='red' color='green'>
-      <TabsSection label='Contact' labelColor='yellow'>
-        <TabsItem>Merry</TabsItem>
-        <TabsItem active>Christmas</TabsItem>
-      </TabsSection>
-      <TabsSection label='Candidatures' labelColor='yellow'>
-        <TabsItem>Happy</TabsItem>
-        <TabsItem active>New</TabsItem>
-        <TabsItem>Year</TabsItem>
-      </TabsSection>
-    </Tabs>
-  ))
-  .add('with scroll', () => (
-    <Tabs>
-      <TabsSection label='Contact' style={{ maxWidth: 200 }}>
-        <TabsItem>Documents</TabsItem>
-        <TabsItem active>Infos</TabsItem>
-        <TabsSeparator />
-        <TabsItem>Echanges</TabsItem>
-        <TabsItem>Activités</TabsItem>
-        <TabsItem>Documents</TabsItem>
-        <TabsSeparator />
-      </TabsSection>
-      <TabsSection label='Candidatures'>
-        <TabsItem>Zelmis</TabsItem>
-        <TabsSeparator />
-        <TabsItem active>Groslay</TabsItem>
-      </TabsSection>
-    </Tabs>
-  ))
+  .addDecorator(withKnobs)
+  .add('full example', () => {
+    const active = number('Active slide', 1, { range: true, min: 0, max: 6, step: 1 })
+
+    return (
+      <Tabs>
+        <TabsSection>
+          <TabsItem active={active === 0}>Home</TabsItem>
+          <TabsItem active={active === 1}>Favorites</TabsItem>
+          <TabsItem active={active === 2}>Trends</TabsItem>
+          <TabsItem active={active === 3}>Best</TabsItem>
+        </TabsSection>
+        <TabsSection label='Categories'>
+          <TabsItem active={active === 4}>News</TabsItem>
+          <TabsSeparator />
+          <TabsItem active={active === 5}>Computer Science</TabsItem>
+          <TabsItem active={active === 6}>Miscellaneous</TabsItem>
+        </TabsSection>
+      </Tabs>
+    )
+  })
+  .add('with scroll', () => {
+    const active = number('Active slide', 1, { range: true, min: 0, max: 6, step: 1 })
+
+    return (
+      <Tabs>
+        <TabsSection style={{ maxWidth: 200 }}>
+          <TabsItem active={active === 0}>Home</TabsItem>
+          <TabsItem active={active === 1}>Favorites</TabsItem>
+          <TabsItem active={active === 2}>Trends</TabsItem>
+          <TabsItem active={active === 3}>Best</TabsItem>
+        </TabsSection>
+        <TabsSection label='Categories'>
+          <TabsItem active={active === 4}>News</TabsItem>
+          <TabsSeparator />
+          <TabsItem active={active === 5}>Computer Science</TabsItem>
+          <TabsItem active={active === 6}>Miscellaneous</TabsItem>
+        </TabsSection>
+      </Tabs>
+    )
+  })

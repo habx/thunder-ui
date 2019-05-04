@@ -6,6 +6,7 @@ export default interface CardProps extends DOMNode {
   subtitle?: string
   interactive?: boolean
   error?: boolean
+  warning?: boolean
   headerPosition?: 'inside' | 'outside'
   action?: React.ReactNode
   noPadding?: boolean

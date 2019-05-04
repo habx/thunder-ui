@@ -2,12 +2,12 @@ import * as React from 'react'
 import { withTheme } from 'styled-components'
 
 import withLabel from '../withLabel'
-import { getMainColor } from '../_internal/colors'
+import theme from '../theme'
 
-import TextInputProps from './TextInput.interface'
+import TextInputProps, { TextInputInnerProps } from './TextInput.interface'
 import { InputContainer, Input, InputSpinner, RightElementContainer } from './TextInput.style'
 
-const BaseTextInput: React.ComponentType<TextInputProps & React.ClassAttributes<any>> = React.forwardRef((props, ref) => {
+const BaseTextInput: React.ComponentType<TextInputInnerProps & React.ClassAttributes<any>> = React.forwardRef((props, ref) => {
   const {
     onChange,
     value,
@@ -22,8 +22,8 @@ const BaseTextInput: React.ComponentType<TextInputProps & React.ClassAttributes<
   } = props
 
   const colorProps = {
-    color: getMainColor(props, { themeKey: 'neutralStronger' }),
-    placeholderColor: getMainColor(props, { themeKey: 'neutral', customizable: false })
+    color: theme.get('neutralStrong', { dynamic: true })(props),
+    placeholderColor: theme.get('neutral')(props)
   }
 
   return (

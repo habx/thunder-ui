@@ -1,10 +1,11 @@
 import * as React from 'react'
 import styled from 'styled-components'
 
-import { getHoverColor, getMainColor } from '../_internal/colors'
+import { getHoverColor } from '../_internal/colors'
 
 import IconButtonProps from './IconButton.interface'
 import shadows from '../shadows'
+import theme from '../theme'
 
 const getDiameter = props => {
   if (props.small) {
@@ -19,7 +20,7 @@ const getDiameter = props => {
 }
 
 const prepareProps = props => {
-  const color = getMainColor(props)
+  const color = theme.get('primary', { dynamic: true })(props)
 
   return {
     color,

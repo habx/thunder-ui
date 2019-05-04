@@ -1,34 +1,40 @@
 import * as React from 'react'
 
-import { withContext } from '../NavBar/context'
+import { Context } from '../NavBar/context'
+
+import useMergedContext from '../_internal/useMergedContext'
 
 import NavBarItemProps from './NavBarItem.interface'
 import { IconContainer, NavBarItemContainer, NavBarItemTooltip, NavBarItemTooltipContent } from './NavBarItem.style'
 
-const NavBarItem: React.StatelessComponent<NavBarItemProps> = ({ icon, tooltip, activeBackgroundColor, ...props }) => (
-  <NavBarItemContainer
-    activeClassName='active'
-    activebackgroundcolor={activeBackgroundColor}
-    {...props}
-  >
-    <IconContainer>
-      {icon}
-    </IconContainer>
-    {
-      tooltip && (
-        <React.Fragment>
-          <NavBarItemTooltip activebackgroundcolor={activeBackgroundColor}>
-            <IconContainer>
-              {icon}
-            </IconContainer>
-            <NavBarItemTooltipContent>
-              {tooltip}
-            </NavBarItemTooltipContent>
-          </NavBarItemTooltip>
-        </React.Fragment>
-      )
-    }
-  </NavBarItemContainer>
-)
+const NavBarItem: React.StatelessComponent<NavBarItemProps> = rawProps => {
+  const { icon, tooltip, activeBackgroundColor, ...props } = useMergedContext(Context, rawProps)
 
-export default withContext(NavBarItem)
+  return (
+    <NavBarItemContainer
+      activeClassName='active'
+      activebackgroundcolor={activeBackgroundColor}
+      {...props}
+    >
+      <IconContainer>
+        {icon}
+      </IconContainer>
+      {
+        tooltip && (
+          <React.Fragment>
+            <NavBarItemTooltip activebackgroundcolor={activeBackgroundColor}>
+              <IconContainer>
+                {icon}
+              </IconContainer>
+              <NavBarItemTooltipContent>
+                {tooltip}
+              </NavBarItemTooltipContent>
+            </NavBarItemTooltip>
+          </React.Fragment>
+        )
+      }
+    </NavBarItemContainer>
+  )
+}
+
+export default NavBarItem

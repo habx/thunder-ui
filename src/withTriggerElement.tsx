@@ -2,23 +2,24 @@ import * as React from 'react'
 
 import { isFunction } from './_internal/data'
 
-type TriggerElementProps = {
-  triggerElement: ((state: TriggerElementState) => JSX.Element) | JSX.Element
+type TriggerReceivedProps = {
+  triggerElement: ((state: TriggerState) => JSX.Element) | JSX.Element
   onClose?: (e: React.FormEvent<HTMLInputElement>) => void
 }
-type TriggerElementState = {
+
+type TriggerState = {
   open: boolean
 }
 
-const withTriggerElement = <Props extends TriggerElementState> (WrappedComponent: React.ComponentType<Props>) => {
-  const Wrapper = (props: Props & TriggerElementProps) => {
-    const { triggerElement, onClose, ...rest } = props as TriggerElementProps
+const withTriggerElement = <Props extends TriggerState> (WrappedComponent: React.ComponentType<Props>) => {
+  const Wrapper = (props: Props & TriggerReceivedProps) => {
+    const { triggerElement, onClose, ...rest } = props as TriggerReceivedProps
 
     const [open, setOpen] = React.useState(false)
 
     const handleToggle = React.useCallback(
       () => setOpen(wasOpen => !wasOpen),
-      [setOpen]
+      []
     )
 
     const handleClose = React.useCallback(
@@ -29,8 +30,12 @@ const withTriggerElement = <Props extends TriggerElementState> (WrappedComponent
 
         setOpen(false)
       },
-      [setOpen, onClose]
+      [onClose]
     )
+
+    if (!triggerElement) {
+      return <WrappedComponent {...rest as Props} />
+    }
 
     return (
       <React.Fragment>

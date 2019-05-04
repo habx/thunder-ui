@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Input } from '../_internal/types'
+import {Input, styledTheme} from '../_internal/types'
 
 export default interface TextInputProps extends Input<string | number> {
   rightElement?: React.ReactNode
@@ -9,4 +9,8 @@ export default interface TextInputProps extends Input<string | number> {
   inputRef?: () => any
   loading?: boolean
   small?: boolean
+}
+
+export interface TextInputInnerProps extends TextInputProps {
+  theme: styledTheme
 }

@@ -49,7 +49,7 @@ export const NavBarItemContainer = styled.div`
   padding: 8px 0;
   color: #f9f9fb;
 
-  &.active ${IconContainer} {
+  &.active ${IconContainer}, &[data-active="true"] ${IconContainer} {
     background-color: ${({ activebackgroundcolor }) => activebackgroundcolor};
 
   }

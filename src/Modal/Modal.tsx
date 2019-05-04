@@ -4,6 +4,8 @@ import { createPortal } from 'react-dom'
 import { isFunction } from '../_internal/data'
 import { isClientSide } from '../_internal/ssr'
 
+import withTriggerElement from '../withTriggerElement'
+
 import ModalProps from './Modal.interface'
 
 import {
@@ -149,4 +151,4 @@ class Modal extends PureComponent<ModalProps> {
   }
 }
 
-export default Modal
+export default withTriggerElement(Modal)

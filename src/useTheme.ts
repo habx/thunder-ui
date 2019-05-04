@@ -15,7 +15,6 @@ export type ThunderUITheme = {
   neutral?: string
   neutralStrong?: string
   neutralStronger?: string
-  neutralStrongest?: string
 }
 
 type fullTheme = {

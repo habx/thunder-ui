@@ -1,4 +1,4 @@
-import styled, { keyframes, css } from 'styled-components'
+import styled, { css } from 'styled-components'
 
 import fontSizes from '../fontSizes'
 import { getMainColor } from '../_internal/colors'

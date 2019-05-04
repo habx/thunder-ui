@@ -1,16 +1,21 @@
 import * as React from 'react'
 import { withTheme } from 'styled-components'
 
-import { getMainColor } from '../_internal/colors'
+import theme from '../theme'
 import Title from '../Title'
 
 import CardProps, { CardInnerProps } from './Card.interface'
 import { CardContainer, TitleContainer, SubtitleContainer, TitleCount } from './Card.style'
 
-const BaseCard: React.StatelessComponent<CardInnerProps> = ({ headerPosition, action, title, titleCount, subtitle, children, ...props }) => {
+const BaseCard: React.StatelessComponent<CardInnerProps> = ({ headerPosition, action, title, titleCount, subtitle, children, error, warning, ...props }) => {
   const titleElement = title && (
     <TitleContainer>
-      <Title size={3} color={getMainColor(props, { themeKey: 'neutralStronger' })}>
+      <Title
+        size={3}
+        error={error}
+        warning={warning}
+        color={theme.get('neutralStronger', { dynamic: true })}
+      >
         { title }{(titleCount || titleCount === 0) ? <TitleCount>({ titleCount })</TitleCount> : null}
       </Title>
       { action }
@@ -20,12 +25,19 @@ const BaseCard: React.StatelessComponent<CardInnerProps> = ({ headerPosition, ac
   return (
     <React.Fragment>
       { headerPosition === 'outside' && titleElement }
-      <CardContainer {...props}>
+      <CardContainer {...props} error={error} warning={warning}>
         { headerPosition === 'inside' && titleElement }
         {
           subtitle &&
           <SubtitleContainer>
-            <Title size={4} color={getMainColor(props, { themeKey: 'neutral' })}>{ subtitle }</Title>
+            <Title
+              size={4}
+              error={error}
+              warning={warning}
+              color={theme.get('neutralStronger', { dynamic: true })}
+            >
+              { subtitle }
+            </Title>
           </SubtitleContainer>
         }
         { children }

@@ -2,12 +2,11 @@ import styled, { css } from 'styled-components'
 
 import borderRadius from '../borderRadius'
 import theme from '../theme'
-import { getMainColor } from '../_internal/colors'
 
 export const CardContainer = styled.div`
   box-shadow: ${theme.get('shadow')};
   border-radius: ${borderRadius.narrow};
-  background: ${props => getMainColor(props, { themeKey: 'neutralLightest', propName: 'backgroundColor', acceptPropsOverwrite: false })};
+  background-color: ${theme.get('neutralLightest', { propName: 'backgroundColor' })};
   padding: ${({ noPadding }) => noPadding ? '0' : '32px'};
 
   ${({ interactive }) => interactive && css`

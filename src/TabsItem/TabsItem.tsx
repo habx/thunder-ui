@@ -5,9 +5,10 @@ import tag from 'clean-tag'
 import fontSizes from '../fontSizes'
 import { getMainColor } from '../_internal/colors'
 
-import { withContext } from '../Tabs/context'
+import { Context } from '../Tabs/context'
 
 import TabsItemProps from './TabsItem.interface'
+import useMergedContext from '../_internal/useMergedContext'
 
 const prepareProps = props => {
   const activeColor = getMainColor(props, { propName: 'activeColor', themeKey: 'primary' })
@@ -67,9 +68,11 @@ const StyledTabsItem = styled(tag).attrs(prepareProps)`
 
 `
 
-const TabsItem: React.StatelessComponent<TabsItemProps> = props => (
-  <StyledTabsItem blacklist={['activeColor', 'hoverColor', 'closed']} {...props} />
-)
+const TabsItem: React.StatelessComponent<TabsItemProps> = rawProps => {
+  const props = useMergedContext(Context, rawProps)
+
+  return  <StyledTabsItem blacklist={['activeColor', 'hoverColor', 'closed']} {...props} />
+}
 
 TabsItem.defaultProps = {
   activeColor: null,
@@ -77,4 +80,4 @@ TabsItem.defaultProps = {
   closed: false
 }
 
-export default withContext(TabsItem)
+export default TabsItem

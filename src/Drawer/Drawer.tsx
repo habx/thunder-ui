@@ -4,6 +4,8 @@ import { createPortal } from 'react-dom'
 import { isFunction } from '../_internal/data'
 import { isClientSide } from '../_internal/ssr'
 
+import withTriggerElement from '../withTriggerElement'
+
 import DrawerProps from './Drawer.interface'
 
 import {
@@ -133,4 +135,4 @@ class Drawer extends PureComponent<DrawerProps> {
   }
 }
 
-export default Drawer
+export default withTriggerElement(Drawer)

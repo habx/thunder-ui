@@ -1,16 +1,11 @@
 import * as React from 'react'
 import styled, { css } from 'styled-components'
 
-import { getMainColor } from '../_internal/colors'
-
 import TitleProps from './Title.interface'
+import theme from '../theme'
 
-const prepareProps = props => ({
-  color: getMainColor(props, { themeKey: 'neutralStronger' })
-})
-
-const BaseTitle = styled.h1.attrs(prepareProps)`
-  color: ${({ color }) => color};
+const BaseTitle = styled.h1`
+  color: ${theme.get('neutralStronger')};
   margin: 0;
 
   ${({ underline }) => underline && css`
@@ -19,7 +14,7 @@ const BaseTitle = styled.h1.attrs(prepareProps)`
 
     &::after {
       content: '';
-      background-color: ${({ color }) => color};
+      color: ${theme.get('neutralStronger')};
     }
   `}
 `

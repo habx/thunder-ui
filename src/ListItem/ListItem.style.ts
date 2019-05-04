@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components'
+
 import { getMainColor } from '../_internal/colors'
 
 const prepareProps = props => ({
@@ -9,9 +10,11 @@ export const ListItemContainer = styled.li.attrs(prepareProps)`
   padding: 16px;
   transition: background-color ease-in-out 200ms;
   display: flex;
+
   &[data-selected="true"] {
     background-color: ${({ hoverColor }) => hoverColor};
   }
+
   ${({ clickable }) => clickable && css`
      &:hover {
       background-color: ${({ hoverColor }) => hoverColor};

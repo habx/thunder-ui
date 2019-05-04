@@ -2,7 +2,7 @@ import * as React from 'react'
 import styled from 'styled-components'
 import { storiesOf } from '@storybook/react'
 
-import theme from './ThunderProvider.theme'
+import theme from './theme'
 
 const Container = styled.div`
   display: flex;
@@ -22,7 +22,7 @@ const Circle = styled.div`
   height: 64px;
   width: 64px;
   border-radius: 50%;
-  border: 1px solid ${theme.neutral};
+  border: 1px solid ${theme.light.neutral};
   background-color: ${({ color }) => color};
 `
 
@@ -33,7 +33,7 @@ const Label = styled.div`
 storiesOf('Theme', module)
   .add('default colors', () => (
     <Container>
-      {Object.entries(theme).map(([name, color]) => (
+      {Object.entries(theme.light).map(([name, color]) => (
         <Color>
           <Circle color={color} />
           <Label>{ name }</Label>

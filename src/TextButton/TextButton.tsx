@@ -1,12 +1,13 @@
 import styled, { css } from 'styled-components'
 
 import fontSizes from '../fontSizes'
-import { getMainColor, getHoverColor } from '../_internal/colors'
+import { getHoverColor } from '../_internal/colors'
+import theme from '../theme'
 
 import TextButtonProps from './TextButton.interface'
 
 const prepareProps = props => {
-  const color = getMainColor(props)
+  const color = theme.get('primary', { dynamic: true })(props)
 
   return {
     color,

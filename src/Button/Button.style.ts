@@ -5,19 +5,14 @@ import Spinner from '../Spinner'
 import fontSizes from '../fontSizes'
 import borderRadius from '../borderRadius'
 import theme from '../theme'
-import { getMainColor } from '../_internal/colors'
 import { FontIconContainer } from '../FontIcon/FontIcon.style'
 
 const WHITE = color('#fff')
 const BLACK = color('#000')
 
 const prepareProps = props => {
-  const neutralColor = getMainColor(props, {
-    propName: 'textColor',
-    acceptPropsOverwrite: false,
-    themeKey: 'neutralLightest'
-  })
-  const primaryColor = getMainColor(props)
+  const neutralColor = theme.get('neutralLightest', { propName: 'textColor' })(props)
+  const primaryColor = theme.get('primary', { dynamic: true })(props)
 
   const backgroundColor = props.reverse ? neutralColor : primaryColor
   const textColor = props.reverse ? primaryColor : neutralColor

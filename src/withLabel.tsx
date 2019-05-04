@@ -2,27 +2,23 @@ import * as React from 'react'
 import styled from 'styled-components'
 
 import fontSizes from './fontSizes'
-import { getMainColor } from './_internal/colors'
+import theme from './theme'
 
 const FieldWithLabelContainer = styled.div`
   display: flex;
   flex-direction: column;
 `
 
-const prepareProps = props => ({
-  color: getMainColor(props, { themeKey: 'neutral' })
-})
-
-const LabelContainer = styled.div.attrs(prepareProps)`
+const LabelContainer = styled.div`
   font-size: ${fontSizes.tiny};
   font-weight: 500;
-  color: ${({ color }) => color };
+  color: ${theme.get('neutral', { dynamic: true })};
   user-select: none;
 
   padding-bottom: ${({ padding }) => padding}px;
 `
 
-type LabelProps = {
+type LabelReceivedProps = {
   label?: string
   labelColor?: string
 }
@@ -32,8 +28,8 @@ type Options = {
 }
 
 const withLabel = ({ padding = 4 }: Options = {}) => <Props extends object> (WrappedComponent: React.ComponentType<Props>) => {
-  const Field = (props: Props & LabelProps) => {
-    const { label, labelColor, ...rest } = props as LabelProps
+  const Field = (props: Props & LabelReceivedProps) => {
+    const { label, labelColor, ...rest } = props as LabelReceivedProps
 
     if (label) {
       return (
