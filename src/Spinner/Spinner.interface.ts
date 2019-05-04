@@ -1,6 +1,10 @@
-import { DOMNode } from '../_internal/types'
+import { color, DOMNode, styledTheme } from '../_internal/types'
 
 export default interface SpinnerProps extends DOMNode {
   size?: number
-  color?: string
+  color?: color
+}
+
+export interface SpinnerInnerProps extends SpinnerProps {
+  theme: styledTheme
 }
