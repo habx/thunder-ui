@@ -55,7 +55,7 @@ const getter = (
 
   return (props, runtimeConfig: { isRecursive?: boolean } = {}) => {
     const { theme = {} as { thunderUI: ThunderUITheme } } = props
-    const thunderTheme = theme.thunderUI
+    const thunderTheme = theme.thunderUI || LIGHT_THEME
 
     if (propName && props[propName] && !runtimeConfig.isRecursive) {
       if (isFunction(props[propName])) {

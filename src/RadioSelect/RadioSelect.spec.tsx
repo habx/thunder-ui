@@ -18,6 +18,7 @@ describe('RadioSelect component', () => {
         options={cardinalPoints}
         onChange={spyOnChange}
         value={null}
+        theme={{ thunderUI: {} }}
       />
     )
   })

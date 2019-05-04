@@ -42,6 +42,10 @@ const BaseProvider: React.StatelessComponent<
   )
 }
 
+BaseProvider.defaultProps = {
+  theme: {},
+}
+
 const EndhancedProvider = withTheme(BaseProvider)
 
 const ThunderProvider: React.StatelessComponent<ThunderProviderProps> = ({
