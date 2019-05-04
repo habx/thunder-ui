@@ -1,17 +1,19 @@
-import styled, { css } from 'styled-components'
 import color from 'color'
-import Spinner from '../Spinner'
+import styled, { css } from 'styled-components'
 
-import fontSizes from '../fontSizes'
 import borderRadius from '../borderRadius'
-import theme from '../theme'
 import { FontIconContainer } from '../FontIcon/FontIcon.style'
+import fontSizes from '../fontSizes'
+import Spinner from '../Spinner'
+import theme from '../theme'
 
 const WHITE = color('#fff')
 const BLACK = color('#000')
 
 const prepareProps = props => {
-  const neutralColor = theme.get('neutralLightest', { propName: 'textColor' })(props)
+  const neutralColor = theme.get('neutralLightest', { propName: 'textColor' })(
+    props
+  )
   const primaryColor = theme.get('primary', { dynamic: true })(props)
 
   const backgroundColor = props.reverse ? neutralColor : primaryColor
@@ -21,7 +23,11 @@ const prepareProps = props => {
   return {
     backgroundColor,
     textColor,
-    hoverColor: props.hoverColor || color(backgroundColor).mix(hoverMixColor, 0.2).string()
+    hoverColor:
+      props.hoverColor ||
+      color(backgroundColor)
+        .mix(hoverMixColor, 0.2)
+        .string(),
   }
 }
 
@@ -69,34 +75,42 @@ export const ButtonContainer = styled.button.attrs(prepareProps)`
 
   &:disabled {
     pointer-events: none;
-    ${({ loading }) => !loading && css`
-      filter:  grayscale();
-    `}}
+    ${({ loading }) =>
+      !loading &&
+      css`
+        filter: grayscale();
+      `}}
   }
 
-  ${({ small }) => small && css`
-    padding: 6px 16px;
-    font-size: ${fontSizes.small};
-    line-height: 1.25;
-    border-radius: ${borderRadius.round};
-  `};
+  ${({ small }) =>
+    small &&
+    css`
+      padding: 6px 16px;
+      font-size: ${fontSizes.small};
+      line-height: 1.25;
+      border-radius: ${borderRadius.round};
+    `};
 
-  ${({ large }) => large && css`
-    padding: 16px 24px;
-    font-size: ${fontSizes.large};
-    line-height: 1.11;
-  `};
+  ${({ large }) =>
+    large &&
+    css`
+      padding: 16px 24px;
+      font-size: ${fontSizes.large};
+      line-height: 1.11;
+    `};
 
-  ${({ small, large }) => !small && !large && css`
-    padding: 12px 20px;
-    font-size: ${fontSizes.regular};
-    line-height: 1.17;
-  `};
+  ${({ small, large }) =>
+    !small &&
+    !large &&
+    css`
+      padding: 12px 20px;
+      font-size: ${fontSizes.regular};
+      line-height: 1.17;
+    `};
 
   ${FontIconContainer} {
     font-size: 18px;
   }
-
 `
 
 export const ButtonSpinner = styled(Spinner)`

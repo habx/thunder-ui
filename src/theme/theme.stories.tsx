@@ -1,6 +1,6 @@
+import { storiesOf } from '@storybook/react'
 import * as React from 'react'
 import styled from 'styled-components'
-import { storiesOf } from '@storybook/react'
 
 import theme from './theme'
 
@@ -30,14 +30,13 @@ const Label = styled.div`
   padding-top: 8px;
 `
 
-storiesOf('Theme', module)
-  .add('default colors', () => (
-    <Container>
-      {Object.entries(theme.light).map(([name, color]) => (
-        <Color>
-          <Circle color={color} />
-          <Label>{ name }</Label>
-        </Color>
-      ))}
-    </Container>
-  ))
+storiesOf('Theme', module).add('default colors', () => (
+  <Container>
+    {Object.entries(theme.light).map(([name, color]) => (
+      <Color>
+        <Circle color={color} />
+        <Label>{name}</Label>
+      </Color>
+    ))}
+  </Container>
+))

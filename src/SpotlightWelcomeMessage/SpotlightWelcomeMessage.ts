@@ -1,8 +1,8 @@
 import * as React from 'react'
 import styled from 'styled-components'
 
-import { get } from '../Spotlight/theme'
 import { DOMNode } from '../_internal/types'
+import { get } from '../Spotlight/theme'
 
 const SpotlightWelcomeMessage: React.StatelessComponent<DOMNode> = styled.div`
   background-color: ${get('welcome.background')};

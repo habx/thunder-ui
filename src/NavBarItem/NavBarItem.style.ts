@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components'
+
 import zIndex from '../_internal/zIndex'
 
 export const NavBarItemTooltip = styled.span`
@@ -13,7 +14,7 @@ export const NavBarItemTooltip = styled.span`
   line-height: calc(100% - 16px);
   cursor: pointer;
   border-radius: 22px;
-  font-family: "Inter UI", sans-serif;
+  font-family: 'Inter UI', sans-serif;
   font-size: 14px;
   white-space: nowrap;
   background-color: ${({ activebackgroundcolor }) => activebackgroundcolor};
@@ -25,7 +26,6 @@ export const NavBarItemTooltip = styled.span`
   @media (max-width: 600px) {
     background-color: initial;
   }
-
 `
 
 export const NavBarItemTooltipContent = styled.div`
@@ -49,20 +49,22 @@ export const NavBarItemContainer = styled.div`
   padding: 8px 0;
   color: #f9f9fb;
 
-  &.active ${IconContainer}, &[data-active="true"] ${IconContainer} {
+  &.active ${IconContainer}, &[data-active='true'] ${IconContainer} {
     background-color: ${({ activebackgroundcolor }) => activebackgroundcolor};
-
   }
 
-  ${({ active }) => active && css`
-    ${IconContainer} {
-      background-color: ${({ activebackgroundcolor }) => activebackgroundcolor};
+  ${({ active }) =>
+    active &&
+    css`
+      ${IconContainer} {
+        background-color: ${({ activebackgroundcolor }) =>
+          activebackgroundcolor};
 
-      @media (max-width: 600px) {
-        background-color: initial;
+        @media (max-width: 600px) {
+          background-color: initial;
+        }
       }
-    }
-  `}
+    `}
 
   &:hover {
     ${NavBarItemTooltip} {

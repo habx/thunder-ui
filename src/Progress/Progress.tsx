@@ -1,8 +1,8 @@
 import * as React from 'react'
 import styled from 'styled-components'
 
-import colors from '../colors'
 import borderRadius from '../borderRadius'
+import colors from '../colors'
 
 import ProgressProps from './Progress.interface'
 
@@ -19,10 +19,12 @@ const getProgressionColor = progression => {
 }
 
 const prepareProps = props => ({
-  color: props.color || getProgressionColor(props.progression)
+  color: props.color || getProgressionColor(props.progression),
 })
 
-const Progress: React.StatelessComponent<ProgressProps> = styled.div.attrs(prepareProps)`
+const Progress: React.StatelessComponent<ProgressProps> = styled.div.attrs(
+  prepareProps
+)`
   position: relative;
 
   height: 9px;
@@ -33,7 +35,7 @@ const Progress: React.StatelessComponent<ProgressProps> = styled.div.attrs(prepa
   overflow: hidden;
 
   &::after {
-    content: "";
+    content: '';
     background-color: ${({ color }) => color};
 
     position: absolute;

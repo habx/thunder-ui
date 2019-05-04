@@ -27,11 +27,13 @@ export const FontIconContainer = styled.i`
   /* Support for IE. */
   font-feature-settings: 'liga';
 
-  ${({ onClick, interactive }) => (onClick || interactive) && css`
-    cursor: pointer;
+  ${({ onClick, interactive }) =>
+    (onClick || interactive) &&
+    css`
+      cursor: pointer;
 
-    &:hover {
-      opacity: 0.8;
-    }
-  `};
+      &:hover {
+        opacity: 0.8;
+      }
+    `};
 `

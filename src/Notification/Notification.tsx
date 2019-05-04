@@ -3,8 +3,12 @@ import * as React from 'react'
 import FontIcon from '../FontIcon'
 
 import NotificationProps from './Notification.interface'
-
-import { NotificationContainer, NotificationIllustration, NotificationContent, CloseContainer } from './Notification.style'
+import {
+  NotificationContainer,
+  NotificationIllustration,
+  NotificationContent,
+  CloseContainer,
+} from './Notification.style'
 
 const Notification: React.StatelessComponent<NotificationProps> = ({
   children,
@@ -22,10 +26,12 @@ const Notification: React.StatelessComponent<NotificationProps> = ({
     warning={warning}
     {...props}
   >
-    {illustration && <NotificationIllustration>{illustration}</NotificationIllustration>}
+    {illustration && (
+      <NotificationIllustration>{illustration}</NotificationIllustration>
+    )}
     <NotificationContent>{children}</NotificationContent>
     <CloseContainer onClick={onClose}>
-      {closeIcon || <FontIcon icon='close' />}
+      {closeIcon || <FontIcon icon="close" />}
     </CloseContainer>
   </NotificationContainer>
 )
@@ -36,7 +42,7 @@ Notification.defaultProps = {
   backgroundColor: null,
   closeIcon: null,
   error: false,
-  warning: false
+  warning: false,
 }
 
 export default Notification

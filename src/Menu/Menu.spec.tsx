@@ -1,18 +1,16 @@
-import * as React from 'react'
 import { mount } from 'enzyme'
+import * as React from 'react'
+
+import Button from '../Button'
+import MenuItem from '../MenuItem'
 
 import Menu from './Menu'
-import MenuItem from '../MenuItem'
-import Button from '../Button'
 
 describe('Menu component', () => {
   let wrapper = null
 
   beforeEach(() => {
-    wrapper = mount(
-      <Menu triggerElement={<Button id='triggerElement' />}>
-      </Menu>
-    )
+    wrapper = mount(<Menu triggerElement={<Button id="triggerElement" />} />)
   })
 
   it('should render the trigger element', () => {
@@ -30,14 +28,14 @@ describe('Menu component', () => {
   })
   */
 
-  it('should render it\'s children', () => {
+  it("should render it's children", () => {
     wrapper.setProps({
       children: (
         <React.Fragment>
           <MenuItem>Line 1</MenuItem>
           <MenuItem>Line 2</MenuItem>
         </React.Fragment>
-      )
+      ),
     })
 
     expect(wrapper.find(MenuItem)).toHaveLength(2)

@@ -8,7 +8,7 @@ export const DEFAULT_THEME = {
   text: colors.paynesGrey,
 
   section: {
-    title: colors.paynesGrey
+    title: colors.paynesGrey,
   },
 
   item: {
@@ -19,13 +19,13 @@ export const DEFAULT_THEME = {
     icon: colors.whiteSmoke,
     iconBackground: colors.trueBlue,
     highlight: colors.oldLace,
-    subtitleFont: 'Inter UI'
+    subtitleFont: 'Inter UI',
   },
 
   welcome: {
     background: colors.trueBlue,
-    color: colors.whiteSmoke
-  }
+    color: colors.whiteSmoke,
+  },
 }
 
 export const get = path => ({ theme }) => lodashGet(theme, `_spotlight.${path}`)

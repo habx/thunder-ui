@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
-import Modal from '../Modal'
 import borderRadius from '../borderRadius'
+import Modal from '../Modal'
 
 import { get } from './theme'
 

@@ -21,7 +21,7 @@ export const MenuItemContainer = styled.li`
     background-color: ${theme.get('neutralLight')};
   }
 
-  &[data-disabled="true"] {
+  &[data-disabled='true'] {
     pointer-events: none;
     opacity: 0.5;
   }

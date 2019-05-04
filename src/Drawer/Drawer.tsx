@@ -3,18 +3,16 @@ import { createPortal } from 'react-dom'
 
 import { isFunction } from '../_internal/data'
 import { isClientSide } from '../_internal/ssr'
-
 import withTriggerElement from '../withTriggerElement'
 
 import DrawerProps from './Drawer.interface'
-
 import {
   Overlay,
   DrawerContainer,
   DrawerClose,
   DrawerTitle,
   DrawerContent,
-  ANIMATION_DURATION
+  ANIMATION_DURATION,
 } from './Drawer.style'
 
 const ESCAPE_KEY = 27
@@ -26,20 +24,20 @@ class Drawer extends PureComponent<DrawerProps> {
   static defaultProps = {
     open: false,
     position: 'right',
-    portal: true
+    portal: true,
   }
 
-  constructor (props) {
+  constructor(props) {
     super(props)
 
     this.ref = React.createRef()
   }
 
   state = {
-    open: false
+    open: false,
   }
 
-  componentDidMount () {
+  componentDidMount() {
     window.addEventListener('keydown', this.handleKeyDown)
 
     if (this.props.open) {
@@ -47,25 +45,25 @@ class Drawer extends PureComponent<DrawerProps> {
     }
   }
 
-  componentDidUpdate (prevProps: Readonly<DrawerProps>): void {
+  componentDidUpdate(prevProps: Readonly<DrawerProps>): void {
     if (prevProps.open !== this.props.open) {
       this.animateOpening()
     }
   }
 
-  componentWillUnmount () {
+  componentWillUnmount() {
     window.removeEventListener('keydown', this.handleKeyDown)
     clearTimeout(this.timeout)
   }
 
-  animateOpening () {
+  animateOpening() {
     this.timeout = setTimeout(
       () => this.setState(() => ({ open: this.props.open })),
       ANIMATION_DURATION
     )
   }
 
-  getCurrentState () {
+  getCurrentState() {
     const { open: propsOpen } = this.props
     const { open: stateOpen } = this.state
 
@@ -84,14 +82,14 @@ class Drawer extends PureComponent<DrawerProps> {
     return 'opened'
   }
 
-  handleKeyDown = (e) => {
+  handleKeyDown = e => {
     const { open } = this.props
     if (open && e.keyCode === ESCAPE_KEY) {
       this.handleClose(e)
     }
   }
 
-  handleClick = (e) => {
+  handleClick = e => {
     const { open } = this.props
     if (open && !this.ref.current.contains(e.target)) {
       this.handleClose(e)
@@ -105,8 +103,15 @@ class Drawer extends PureComponent<DrawerProps> {
     }
   }
 
-  render () {
-    const { children, title, closeButton, portal, contentContainerComponent, ...props } = this.props
+  render() {
+    const {
+      children,
+      title,
+      closeButton,
+      portal,
+      contentContainerComponent,
+      ...props
+    } = this.props
     const currentState = this.getCurrentState()
 
     const drawer = (
@@ -114,13 +119,15 @@ class Drawer extends PureComponent<DrawerProps> {
         <div ref={this.ref} onClick={e => e.stopPropagation()}>
           <DrawerContainer data-state={currentState} {...props}>
             {title && <DrawerTitle size={3}>{title}</DrawerTitle>}
-            {closeButton && <DrawerClose onClick={this.handleClose}>{closeButton}</DrawerClose>}
+            {closeButton && (
+              <DrawerClose onClick={this.handleClose}>
+                {closeButton}
+              </DrawerClose>
+            )}
             <DrawerContent as={contentContainerComponent}>
-              {
-                isFunction(children)
-                  ? children({ state: currentState, close: this.handleClose })
-                  : children
-              }
+              {isFunction(children)
+                ? children({ state: currentState, close: this.handleClose })
+                : children}
             </DrawerContent>
           </DrawerContainer>
         </div>

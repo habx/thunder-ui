@@ -2,10 +2,10 @@ import * as React from 'react'
 import styled from 'styled-components'
 
 import { getHoverColor } from '../_internal/colors'
-
-import IconButtonProps from './IconButton.interface'
 import shadows from '../shadows'
 import theme from '../theme'
+
+import IconButtonProps from './IconButton.interface'
 
 const getDiameter = props => {
   if (props.small) {
@@ -25,11 +25,13 @@ const prepareProps = props => {
   return {
     color,
     hoverColor: getHoverColor(color, props),
-    diameter: getDiameter(props)
+    diameter: getDiameter(props),
   }
 }
 
-const IconButton: React.StatelessComponent<IconButtonProps> = styled.button.attrs(prepareProps)`
+const IconButton: React.StatelessComponent<
+  IconButtonProps
+> = styled.button.attrs(prepareProps)`
   border: none;
   outline: none;
   transition: all 150ms ease-in-out;
@@ -63,7 +65,7 @@ const IconButton: React.StatelessComponent<IconButtonProps> = styled.button.attr
 `
 
 IconButton.defaultProps = {
-  type: 'button'
+  type: 'button',
 }
 
 export default IconButton

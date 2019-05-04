@@ -9,7 +9,7 @@ export const RadioSelectContainer = styled.div`
 
   border: solid 1px ${({ color }) => color};
 
-  &[data-disabled="true"] {
+  &[data-disabled='true'] {
     pointer-events: none;
     opacity: 0.7;
     filter: grayscale();
@@ -38,22 +38,25 @@ export const Option = styled.div`
     border: none;
   }
 
-  &[data-checked="true"] {
+  &[data-checked='true'] {
     color: #ffffff;
     background-color: ${({ color }) => color};
     box-shadow: 6px 4px 12px 0 rgba(3, 54, 61, 0.16);
     margin: -4px;
     padding: 4px 24px;
 
-    ${({ isNextSelected }) => !isNextSelected && css`
-      border-top-right-radius: 3px;
-      border-bottom-right-radius: 3px;
+    ${({ isNextSelected }) =>
+      !isNextSelected &&
+      css`
+        border-top-right-radius: 3px;
+        border-bottom-right-radius: 3px;
+      `};
 
-    `};
-
-    ${({ isPreviousSelected }) => !isPreviousSelected && css`
-      border-top-left-radius: 3px;
-      border-bottom-left-radius: 3px;
-    `};
+    ${({ isPreviousSelected }) =>
+      !isPreviousSelected &&
+      css`
+        border-top-left-radius: 3px;
+        border-bottom-left-radius: 3px;
+      `};
   }
 `

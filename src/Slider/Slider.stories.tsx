@@ -1,11 +1,12 @@
-import * as React from 'react'
-import styled from 'styled-components'
-import { storiesOf } from '@storybook/react'
 import { action } from '@storybook/addon-actions'
+import { storiesOf } from '@storybook/react'
+import * as React from 'react'
 import { withState } from 'recompose'
+import styled from 'styled-components'
+
+import colors from '../colors'
 
 import Slider from './Slider'
-import colors from '../colors'
 
 const Container = styled.div`
   min-width: 300px;
@@ -13,17 +14,11 @@ const Container = styled.div`
 
 const enhance = withState('value', 'onChange', 0)
 
-const sliderDecorator = storyFn => (
-  <Container>
-    {storyFn()}
-  </Container>
-)
+const sliderDecorator = storyFn => <Container>{storyFn()}</Container>
 
 storiesOf('Inputs|Slider', module)
   .addDecorator(sliderDecorator)
-  .add('basic', () => (
-    <Slider onChange={action('Slider change')} value={40} />
-  ))
+  .add('basic', () => <Slider onChange={action('Slider change')} value={40} />)
   .add('disabled', () => (
     <Slider disabled onChange={action('Slider change')} value={40} />
   ))
@@ -34,16 +29,20 @@ storiesOf('Inputs|Slider', module)
     <Slider range onChange={action('Slider change')} value={[20, 60]} />
   ))
   .add('with tooltip suffix', () => (
-    <Slider
-      toolTipSuffix='m²'
-      onChange={action('Slider change')}
-      value={3}
-    />
+    <Slider toolTipSuffix="m²" onChange={action('Slider change')} value={3} />
   ))
   .add('with custom values', () => {
     const EnhancedSlider = enhance(({ value, onChange }) => (
       <Slider
-        customValues={['Cabane', 'Studio', 'Appartement', 'Loft', 'Maison', 'Manoir', 'Chateau']}
+        customValues={[
+          'Cabane',
+          'Studio',
+          'Appartement',
+          'Loft',
+          'Maison',
+          'Manoir',
+          'Chateau',
+        ]}
         value={value}
         onChange={val => {
           action('Slider change')
@@ -55,7 +54,11 @@ storiesOf('Inputs|Slider', module)
     return <EnhancedSlider />
   })
   .add('with custom color', () => (
-    <Slider onChange={action('Slider change')} value={40} color={colors.internationalOrange} />
+    <Slider
+      onChange={action('Slider change')}
+      value={40}
+      color={colors.internationalOrange}
+    />
   ))
   .add('with indicators', () => (
     <Slider
@@ -64,7 +67,7 @@ storiesOf('Inputs|Slider', module)
       value={[40, 60]}
       indicators={[
         { color: colors.popstar, range: [0, 20] },
-        { color: colors.oldLace, range: [90, 100] }
+        { color: colors.oldLace, range: [90, 100] },
       ]}
     />
   ))

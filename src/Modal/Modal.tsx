@@ -3,17 +3,15 @@ import { createPortal } from 'react-dom'
 
 import { isFunction } from '../_internal/data'
 import { isClientSide } from '../_internal/ssr'
-
 import withTriggerElement from '../withTriggerElement'
 
 import ModalProps from './Modal.interface'
-
 import {
   Overlay,
   ModalCard,
   RemoveBodyScroll,
   CloseButtonContainer,
-  ANIMATION_DURATION
+  ANIMATION_DURATION,
 } from './Modal.style'
 
 const ESCAPE_KEY = 27
@@ -26,32 +24,32 @@ class Modal extends PureComponent<ModalProps> {
     open: false,
     persistent: false,
     animated: true,
-    portal: true
+    portal: true,
   }
 
-  static getDerivedStateFromProps (nextProps) {
+  static getDerivedStateFromProps(nextProps) {
     const { animated } = nextProps
 
     if (!animated) {
       return {
-        open: nextProps.open
+        open: nextProps.open,
       }
     }
 
     return null
   }
 
-  constructor (props) {
+  constructor(props) {
     super(props)
 
     this.ref = React.createRef()
   }
 
   state = {
-    open: false
+    open: false,
   }
 
-  componentDidMount () {
+  componentDidMount() {
     window.addEventListener('keydown', this.handleKeyDown)
 
     if (this.props.open) {
@@ -59,18 +57,18 @@ class Modal extends PureComponent<ModalProps> {
     }
   }
 
-  componentDidUpdate (prevProps: Readonly<ModalProps>): void {
+  componentDidUpdate(prevProps: Readonly<ModalProps>): void {
     if (prevProps.open !== this.props.open) {
       this.animateOpening()
     }
   }
 
-  componentWillUnmount () {
+  componentWillUnmount() {
     window.removeEventListener('keydown', this.handleKeyDown)
     clearTimeout(this.timeout)
   }
 
-  animateOpening () {
+  animateOpening() {
     const { animated } = this.props
 
     if (animated) {
@@ -81,7 +79,7 @@ class Modal extends PureComponent<ModalProps> {
     }
   }
 
-  getCurrentState () {
+  getCurrentState() {
     const { open: propsOpen } = this.props
     const { open: stateOpen } = this.state
 
@@ -100,14 +98,14 @@ class Modal extends PureComponent<ModalProps> {
     return 'opened'
   }
 
-  handleKeyDown = (e) => {
+  handleKeyDown = e => {
     const { open, persistent } = this.props
     if (!persistent && open && e.keyCode === ESCAPE_KEY) {
       this.handleClose(e)
     }
   }
 
-  handleClick = (e) => {
+  handleClick = e => {
     const { open, persistent } = this.props
     if (!persistent && open && !this.ref.current.contains(e.target)) {
       this.handleClose(e)
@@ -121,21 +119,39 @@ class Modal extends PureComponent<ModalProps> {
     }
   }
 
-  render () {
-    const { children, title, open, closeButton, animated, portal, ...props } = this.props
+  render() {
+    const {
+      children,
+      title,
+      open,
+      closeButton,
+      animated,
+      portal,
+      ...props
+    } = this.props
     const currentState = this.getCurrentState()
 
     const modal = (
       <Fragment>
         <Overlay data-state={currentState} onClick={this.handleClick}>
           <div ref={this.ref} onClick={e => e.stopPropagation()}>
-            <ModalCard title={title} headerPosition='inside' {...props} data-animated={animated}>
-              {closeButton && <CloseButtonContainer hasTitle={title} onClick={this.handleClose}>{closeButton}</CloseButtonContainer>}
-              {
-                isFunction(children)
-                 ? children({ state: currentState, close: this.handleClose })
-                 : children
-              }
+            <ModalCard
+              title={title}
+              headerPosition="inside"
+              {...props}
+              data-animated={animated}
+            >
+              {closeButton && (
+                <CloseButtonContainer
+                  hasTitle={title}
+                  onClick={this.handleClose}
+                >
+                  {closeButton}
+                </CloseButtonContainer>
+              )}
+              {isFunction(children)
+                ? children({ state: currentState, close: this.handleClose })
+                : children}
             </ModalCard>
           </div>
         </Overlay>

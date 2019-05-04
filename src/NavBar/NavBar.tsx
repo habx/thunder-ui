@@ -1,12 +1,13 @@
+import color from 'color'
 import * as React from 'react'
 import { withTheme } from 'styled-components'
-import color from 'color'
 
+import { getMainColor } from '../_internal/colors'
 import FontIcon from '../FontIcon'
 import TextButton from '../TextButton'
-import { getMainColor } from '../_internal/colors'
-import { Context } from './context'
 
+import { Context } from './context'
+import NavBarProps, { NavBarState } from './NavBar.interface'
 import {
   NavBarContainer,
   NavBarSideContainer,
@@ -16,9 +17,8 @@ import {
   NavBarTopBar,
   NavBarTopBarTitle,
   NavBarClose,
-  NavBarTopBarSquare
+  NavBarTopBarSquare,
 } from './NavBar.style'
-import NavBarProps, { NavBarState } from './NavBar.interface'
 
 const WHITE = color('#fff')
 
@@ -27,20 +27,29 @@ const prepareProps = props => {
 
   return {
     backgroundColor: baseColor,
-    activeBackgroundColor: props.activeBackgroundColor || color(baseColor).mix(WHITE, 0.2).string(),
-    ...props
+    activeBackgroundColor:
+      props.activeBackgroundColor ||
+      color(baseColor)
+        .mix(WHITE, 0.2)
+        .string(),
+    ...props,
   }
 }
 
 class NavBar extends React.PureComponent<NavBarProps, NavBarState> {
   state = {
-    mobileIsOpen: this.props.defaultMobileIsOpen
+    mobileIsOpen: this.props.defaultMobileIsOpen,
   }
 
   toggleMenu = () => this.setState({ mobileIsOpen: !this.state.mobileIsOpen })
 
-  render () {
-    const { backgroundColor, activeBackgroundColor, title, children } = prepareProps(this.props)
+  render() {
+    const {
+      backgroundColor,
+      activeBackgroundColor,
+      title,
+      children,
+    } = prepareProps(this.props)
 
     return (
       <Context.Provider value={{ activeBackgroundColor }}>
@@ -50,16 +59,13 @@ class NavBar extends React.PureComponent<NavBarProps, NavBarState> {
           <NavBarTopBar>
             <NavBarTopBarSquare>
               <TextButton onClick={this.toggleMenu}>
-                <FontIcon icon='menu' />
+                <FontIcon icon="menu" />
               </TextButton>
             </NavBarTopBarSquare>
 
-            {title &&
-              <NavBarTopBarTitle>{title}</NavBarTopBarTitle>
-            }
+            {title && <NavBarTopBarTitle>{title}</NavBarTopBarTitle>}
 
-            <NavBarTopBarSquare>
-            </NavBarTopBarSquare>
+            <NavBarTopBarSquare />
           </NavBarTopBar>
 
           <NavBarSideContainer
@@ -67,15 +73,10 @@ class NavBar extends React.PureComponent<NavBarProps, NavBarState> {
             mobileIsOpen={this.state.mobileIsOpen}
           >
             <NavBarClose>
-              <FontIcon icon='arrow_back' onClick={this.toggleMenu} />
+              <FontIcon icon="arrow_back" onClick={this.toggleMenu} />
             </NavBarClose>
-            {
-              title &&
-              <NavBarTitle>{title}</NavBarTitle>
-            }
-            <NavBarItemsContainer>
-              {children}
-            </NavBarItemsContainer>
+            {title && <NavBarTitle>{title}</NavBarTitle>}
+            <NavBarItemsContainer>{children}</NavBarItemsContainer>
           </NavBarSideContainer>
         </NavBarContainer>
       </Context.Provider>

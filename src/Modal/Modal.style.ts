@@ -1,4 +1,4 @@
-import styled, { createGlobalStyle, css } from 'styled-components'
+import styled, { createGlobalStyle } from 'styled-components'
 
 import { FADE_IN } from '../_internal/animations'
 import zIndex from '../_internal/zIndex'
@@ -7,7 +7,7 @@ import Card from '../Card'
 export const ANIMATION_DURATION = 300
 
 export const ModalCard = styled(Card)`
-  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
   position: relative;
 
   max-width: 800px;
@@ -17,7 +17,7 @@ export const ModalCard = styled(Card)`
   transform: translateY(32px);
   box-sizing: border-box;
 
-  &[data-animated="true"] {
+  &[data-animated='true'] {
     transition: transform ${ANIMATION_DURATION}ms ease-in-out;
   }
 `
@@ -34,23 +34,23 @@ export const Overlay = styled.div`
   flex-direction: column;
   z-index: ${zIndex.high};
 
-  &[data-state="opening"] {
+  &[data-state='opening'] {
     animation: ${FADE_IN} ${ANIMATION_DURATION}ms linear 0ms;
   }
 
-  &[data-state="closing"] {
+  &[data-state='closing'] {
     animation: ${FADE_IN} ${ANIMATION_DURATION}ms linear 0ms reverse;
     opacity: 0;
     pointer-events: none;
   }
 
-  &[data-state="closed"] {
+  &[data-state='closed'] {
     opacity: 0;
     pointer-events: none;
   }
 
-  &[data-state="closing"],
-  &[data-state="closed"] {
+  &[data-state='closing'],
+  &[data-state='closed'] {
     ${ModalCard} {
       transform: translateY(0px);
     }
@@ -65,8 +65,8 @@ export const RemoveBodyScroll = createGlobalStyle`
 
 export const CloseButtonContainer = styled.div`
   position: absolute;
-  top: ${({ hasTitle }) => hasTitle ? '32px' : '16px'};
-  right: ${({ hasTitle }) => hasTitle ? '32px' : '16px'};
+  top: ${({ hasTitle }) => (hasTitle ? '32px' : '16px')};
+  right: ${({ hasTitle }) => (hasTitle ? '32px' : '16px')};
   transition: opacity 200ms ease-in-out;
   &:hover {
     opacity: 0.7;

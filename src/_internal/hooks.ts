@@ -1,7 +1,7 @@
 import * as React from 'react'
 
 export const useWindowWidth = () => {
-  const [ width, setWidth ] = React.useState(
+  const [width, setWidth] = React.useState(
     typeof window === 'object' ? window.innerWidth : 0
   )
 
@@ -20,7 +20,10 @@ export const useWindowWidth = () => {
   return width
 }
 
-export const useOnWindowResize = (onResize: () => void, effectInputs?: any[]) => {
+export const useOnWindowResize = (
+  onResize: () => void,
+  effectInputs?: any[]
+) => {
   React.useEffect(() => {
     const handleResize = onResize
     document.addEventListener('resize', handleResize)

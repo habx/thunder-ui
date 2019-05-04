@@ -1,22 +1,25 @@
 import * as React from 'react'
 import styled, { css } from 'styled-components'
 
-import TitleProps from './Title.interface'
 import theme from '../theme'
+
+import TitleProps from './Title.interface'
 
 const BaseTitle = styled.h1`
   color: ${theme.get('neutralStronger')};
   margin: 0;
 
-  ${({ underline }) => underline && css`
-    display: flex;
-    flex-direction: column;
+  ${({ underline }) =>
+    underline &&
+    css`
+      display: flex;
+      flex-direction: column;
 
-    &::after {
-      content: '';
-      color: ${theme.get('neutralStronger')};
-    }
-  `}
+      &::after {
+        content: '';
+        color: ${theme.get('neutralStronger')};
+      }
+    `}
 `
 
 const Title1 = styled(BaseTitle)`
@@ -51,28 +54,22 @@ const Title4 = styled(BaseTitle.withComponent('h4'))`
 
 const Title: React.StatelessComponent<TitleProps> = ({ size, ...props }) => {
   if (size === 1) {
-    return (
-      <Title1 {...props} />
-    )
+    return <Title1 {...props} />
   }
 
   if (size === 2) {
-    return (
-      <Title2 {...props} />
-    )
+    return <Title2 {...props} />
   }
 
   if (size === 3) {
-    return (
-      <Title3 {...props} />
-    )
+    return <Title3 {...props} />
   }
 
   return <Title4 {...props} />
 }
 
 Title.defaultProps = {
-  size: 1
+  size: 1,
 }
 
 export default Title

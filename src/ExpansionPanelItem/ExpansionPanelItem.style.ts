@@ -26,11 +26,11 @@ export const CoreContainer = styled.div`
   transition: max-height 300ms ease-in-out;
   overflow: hidden;
 
-  &[data-open="false"] {
+  &[data-open='false'] {
     max-height: 0;
   }
 
-  &[data-open="true"] {
+  &[data-open='true'] {
     max-height: ${({ height }) => height}px;
   }
 `

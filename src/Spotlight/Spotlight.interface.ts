@@ -20,7 +20,7 @@ type themeType = {
     iconBackground?: string
     highlight?: string
     subtitleFont?: string
-  },
+  }
 
   welcome?: {
     background?: string

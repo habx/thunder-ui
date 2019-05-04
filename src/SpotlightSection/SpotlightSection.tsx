@@ -1,12 +1,14 @@
-import * as React from 'react'
 import memoize from 'lodash.memoize'
+import * as React from 'react'
 
-import SpotlightSectionTitle from '../SpotlightSectionTitle'
 import { withSpotlightContext } from '../Spotlight/Spotlight.context'
+import SpotlightSectionTitle from '../SpotlightSectionTitle'
 
-import SpotlightSectionProps, { SpotlightSectionInnerProps } from './SpotlightSection.interface'
-import { SectionContainer } from './SpotlightSection.style'
 import { SpotlightSectionContext } from './SpotlightSection.context'
+import SpotlightSectionProps, {
+  SpotlightSectionInnerProps,
+} from './SpotlightSection.interface'
+import { SectionContainer } from './SpotlightSection.style'
 
 class BaseSpotlightSection extends React.Component<SpotlightSectionInnerProps> {
   getMatchingItems = () => {
@@ -14,8 +16,9 @@ class BaseSpotlightSection extends React.Component<SpotlightSectionInnerProps> {
     const sectionData = spotlight.data[name] || []
 
     if (filter) {
-      return sectionData
-        .filter((value, key, data) => filter(spotlight.query, value, key, data))
+      return sectionData.filter((value, key, data) =>
+        filter(spotlight.query, value, key, data)
+      )
     }
 
     return sectionData
@@ -23,7 +26,7 @@ class BaseSpotlightSection extends React.Component<SpotlightSectionInnerProps> {
 
   buildContext = memoize(name => ({ name }))
 
-  renderContent () {
+  renderContent() {
     const { render, spotlight, renderItem, name, maxItems } = this.props
 
     if (render) {
@@ -33,9 +36,10 @@ class BaseSpotlightSection extends React.Component<SpotlightSectionInnerProps> {
     if (renderItem && spotlight.data && name) {
       const items = this.getMatchingItems()
 
-      const limitItems = (maxItems > -1 && items.length > maxItems)
-        ? items.slice(0, maxItems)
-        : items
+      const limitItems =
+        maxItems > -1 && items.length > maxItems
+          ? items.slice(0, maxItems)
+          : items
 
       return limitItems.map(renderItem)
     }
@@ -43,20 +47,22 @@ class BaseSpotlightSection extends React.Component<SpotlightSectionInnerProps> {
     return null
   }
 
-  render () {
+  render() {
     const { title, name } = this.props
 
     return (
       <SpotlightSectionContext.Provider value={this.buildContext(name)}>
         <SectionContainer>
-          { title && <SpotlightSectionTitle>{ title }</SpotlightSectionTitle>}
-          { this.renderContent() }
+          {title && <SpotlightSectionTitle>{title}</SpotlightSectionTitle>}
+          {this.renderContent()}
         </SectionContainer>
       </SpotlightSectionContext.Provider>
     )
   }
 }
 
-const SpotlightSection: React.StatelessComponent<SpotlightSectionProps> = withSpotlightContext(BaseSpotlightSection)
+const SpotlightSection: React.StatelessComponent<
+  SpotlightSectionProps
+> = withSpotlightContext(BaseSpotlightSection)
 
 export default SpotlightSection

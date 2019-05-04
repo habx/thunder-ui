@@ -5,9 +5,24 @@ import theme from '../theme'
 import Title from '../Title'
 
 import CardProps, { CardInnerProps } from './Card.interface'
-import { CardContainer, TitleContainer, SubtitleContainer, TitleCount } from './Card.style'
+import {
+  CardContainer,
+  TitleContainer,
+  SubtitleContainer,
+  TitleCount,
+} from './Card.style'
 
-const Card: React.StatelessComponent<CardInnerProps> = ({ headerPosition, action, title, titleCount, subtitle, children, error, warning, ...props }) => {
+const Card: React.StatelessComponent<CardInnerProps> = ({
+  headerPosition,
+  action,
+  title,
+  titleCount,
+  subtitle,
+  children,
+  error,
+  warning,
+  ...props
+}) => {
   const titleElement = title && (
     <TitleContainer>
       <Title
@@ -16,19 +31,21 @@ const Card: React.StatelessComponent<CardInnerProps> = ({ headerPosition, action
         warning={warning}
         color={theme.get('neutralStronger', { dynamic: true })}
       >
-        { title }{(titleCount || titleCount === 0) ? <TitleCount>({ titleCount })</TitleCount> : null}
+        {title}
+        {titleCount || titleCount === 0 ? (
+          <TitleCount>({titleCount})</TitleCount>
+        ) : null}
       </Title>
-      { action }
+      {action}
     </TitleContainer>
   )
 
   return (
     <React.Fragment>
-      { headerPosition === 'outside' && titleElement }
+      {headerPosition === 'outside' && titleElement}
       <CardContainer {...props} error={error} warning={warning}>
-        { headerPosition === 'inside' && titleElement }
-        {
-          subtitle &&
+        {headerPosition === 'inside' && titleElement}
+        {subtitle && (
           <SubtitleContainer>
             <Title
               size={4}
@@ -36,11 +53,11 @@ const Card: React.StatelessComponent<CardInnerProps> = ({ headerPosition, action
               warning={warning}
               color={theme.get('neutralStronger', { dynamic: true })}
             >
-              { subtitle }
+              {subtitle}
             </Title>
           </SubtitleContainer>
-        }
-        { children }
+        )}
+        {children}
       </CardContainer>
     </React.Fragment>
   )
@@ -48,7 +65,7 @@ const Card: React.StatelessComponent<CardInnerProps> = ({ headerPosition, action
 
 Card.defaultProps = {
   headerPosition: 'inside',
-  theme: {}
+  theme: {},
 }
 
 export default withTheme(Card) as React.StatelessComponent<CardProps>

@@ -2,7 +2,9 @@ import * as React from 'react'
 
 export const Context = React.createContext({})
 
-export const withContext = <Props extends object> (Component: React.ComponentType<Props>) => {
+export const withContext = <Props extends object>(
+  Component: React.ComponentType<Props>
+) => {
   const WrappedComponent = (props: Props) => (
     <Context.Consumer>
       {context => <Component {...context} {...props} />}

@@ -1,5 +1,5 @@
-import * as React from 'react'
 import { mount } from 'enzyme'
+import * as React from 'react'
 import sinon from 'sinon'
 
 import Modal from './index'
@@ -13,9 +13,7 @@ describe('Modal component', () => {
     beforeEach(() => {
       wrapper = mount(
         <Modal onClose={() => null}>
-          <div id='modal-content'>
-            CONTENT
-          </div>
+          <div id="modal-content">CONTENT</div>
         </Modal>
       )
     })

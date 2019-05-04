@@ -1,13 +1,20 @@
 import * as React from 'react'
 import { withTheme } from 'styled-components'
 
-import withLabel from '../withLabel'
 import theme from '../theme'
+import withLabel from '../withLabel'
 
 import TextInputProps, { TextInputInnerProps } from './TextInput.interface'
-import { InputContainer, Input, InputSpinner, RightElementContainer } from './TextInput.style'
+import {
+  InputContainer,
+  Input,
+  InputSpinner,
+  RightElementContainer,
+} from './TextInput.style'
 
-const TextInput: React.ComponentType<TextInputInnerProps & React.ClassAttributes<any>> = React.forwardRef((props, ref) => {
+const TextInput: React.ComponentType<
+  TextInputInnerProps & React.ClassAttributes<any>
+> = React.forwardRef((props, ref) => {
   const {
     onChange,
     value,
@@ -21,11 +28,13 @@ const TextInput: React.ComponentType<TextInputInnerProps & React.ClassAttributes
     ...rest
   } = props
 
-  const handleChange = React.useCallback(e => onChange(e.target.value, e), [onChange])
+  const handleChange = React.useCallback(e => onChange(e.target.value, e), [
+    onChange,
+  ])
 
   const colorProps = {
     color: theme.get('neutralStronger', { dynamic: true })(props),
-    placeholderColor: theme.get('neutral')(props)
+    placeholderColor: theme.get('neutral')(props),
   }
 
   return (
@@ -41,26 +50,24 @@ const TextInput: React.ComponentType<TextInputInnerProps & React.ClassAttributes
         {...colorProps}
       />
       {loading && <InputSpinner size={small ? 15 : 18} />}
-      {
-        rightHoverElement && (
-          <RightElementContainer {...colorProps} className='hover-element-right'>
-            {rightHoverElement}
-          </RightElementContainer>
-        )
-      }
-      {
-        rightElement && (
-          <RightElementContainer {...colorProps}>
-            {rightElement}
-          </RightElementContainer>
-        )
-      }
+      {rightHoverElement && (
+        <RightElementContainer {...colorProps} className="hover-element-right">
+          {rightHoverElement}
+        </RightElementContainer>
+      )}
+      {rightElement && (
+        <RightElementContainer {...colorProps}>
+          {rightElement}
+        </RightElementContainer>
+      )}
     </InputContainer>
   )
 })
 
 TextInput.defaultProps = {
-  onChange: () => null
+  onChange: () => null,
 }
 
-export default withLabel()(withTheme(TextInput) as React.StatelessComponent<TextInputProps>)
+export default withLabel()(withTheme(TextInput) as React.StatelessComponent<
+  TextInputProps
+>)

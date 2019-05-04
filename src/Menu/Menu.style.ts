@@ -1,21 +1,31 @@
 import styled from 'styled-components'
 
-import borderRadius from '../borderRadius'
 import zIndex from '../_internal/zIndex'
+import borderRadius from '../borderRadius'
 import theme from '../theme'
 
 const prepareProps = ({ position, wrapperRect }) => ({
-  left: ['left', 'top-left'].includes(position) ? `${wrapperRect.left + 4}px` : 'unset',
-  right: ['right', 'top-right'].includes(position) ? `calc(100% - ${wrapperRect.right + 4}px)` : 'unset',
-  bottom: ['top-left', 'top-right'].includes(position) ? `calc(100% - ${wrapperRect.top + 4}px)` : 'unset',
-  top: ['top-left', 'top-right'].includes(position) ? 'unset' : `calc(${wrapperRect.top}px + ${ wrapperRect.height + 4}px)`
+  left: ['left', 'top-left'].includes(position)
+    ? `${wrapperRect.left + 4}px`
+    : 'unset',
+  right: ['right', 'top-right'].includes(position)
+    ? `calc(100% - ${wrapperRect.right + 4}px)`
+    : 'unset',
+  bottom: ['top-left', 'top-right'].includes(position)
+    ? `calc(100% - ${wrapperRect.top + 4}px)`
+    : 'unset',
+  top: ['top-left', 'top-right'].includes(position)
+    ? 'unset'
+    : `calc(${wrapperRect.top}px + ${wrapperRect.height + 4}px)`,
 })
 
 const preparePropsMobile = ({ position, wrapperRect }) => ({
   left: '0px',
   right: '0px',
   marginTop: ['left', 'right'].includes(position) ? '4px' : '0',
-  transform: ['top-left', 'top-right'].includes(position) ? `translateY(0)` : `translateY(${wrapperRect.top + wrapperRect.height + 4}px)`
+  transform: ['top-left', 'top-right'].includes(position)
+    ? `translateY(0)`
+    : `translateY(${wrapperRect.top + wrapperRect.height + 4}px)`,
 })
 
 export const MenuContainerDesktop = styled.div.attrs(prepareProps)`
@@ -31,7 +41,7 @@ export const MenuContainerDesktop = styled.div.attrs(prepareProps)`
   transition: opacity ease-in-out 150ms;
   z-index: ${zIndex.higher};
 
-  &[data-open="true"] {
+  &[data-open='true'] {
     pointer-events: auto;
     opacity: 1;
   }
@@ -56,7 +66,7 @@ export const MobileMenuContainer = styled.div.attrs(preparePropsMobile)`
 
   z-index: ${zIndex.higher};
 
-  &[data-open="true"] {
+  &[data-open='true'] {
     pointer-events: auto;
     opacity: 1;
     display: block;

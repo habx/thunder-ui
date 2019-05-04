@@ -1,14 +1,13 @@
-import * as React from 'react'
 import merge from 'lodash.merge'
+import * as React from 'react'
 import { withTheme, ThemeProvider } from 'styled-components'
 
 import { isFunction, isString, isBoolean } from '../_internal/data'
 
-import SpotlightContent from './SpotlightContent'
-import { DEFAULT_THEME } from './theme'
-
 import SpotlightProps, { SpotlightInnerProps } from './Spotlight.interface'
 import { SpotlightModal } from './Spotlight.style'
+import SpotlightContent from './SpotlightContent'
+import { DEFAULT_THEME } from './theme'
 
 const DOUBLE_KEY_PRESS_DURATION = 200
 
@@ -21,21 +20,21 @@ class BaseSpotlight extends React.Component<SpotlightInnerProps> {
     onOpen: () => null,
     className: '',
     style: null,
-    theme: null
+    theme: null,
   }
 
-  static getDerivedStateFromProps (nextProps, prevState) {
+  static getDerivedStateFromProps(nextProps, prevState) {
     if (nextProps.open !== prevState.propsOpen) {
       return {
         open: nextProps.open,
-        propsOpen: nextProps.open
+        propsOpen: nextProps.open,
       }
     }
 
     return null
   }
 
-  constructor (props) {
+  constructor(props) {
     super(props)
 
     this.modalRef = React.createRef()
@@ -45,18 +44,18 @@ class BaseSpotlight extends React.Component<SpotlightInnerProps> {
   state = {
     open: false,
     propsOpen: null,
-    query: ''
+    query: '',
   }
 
-  componentDidMount () {
+  componentDidMount() {
     window.addEventListener('keydown', this.handleKeyDown)
   }
 
-  componentWillUnmount () {
+  componentWillUnmount() {
     window.removeEventListener('keydown', this.handleKeyDown)
   }
 
-  getQuery () {
+  getQuery() {
     const { query } = this.props
 
     if (isString(query)) {
@@ -94,18 +93,19 @@ class BaseSpotlight extends React.Component<SpotlightInnerProps> {
     }
   }
 
-  handleClose = () => this.setState(() => ({
-    open: false,
-    query: ''
-  }))
+  handleClose = () =>
+    this.setState(() => ({
+      open: false,
+      query: '',
+    }))
 
-  handleSpotlightOpen () {
+  handleSpotlightOpen() {
     this.setState({ open: true })
     this.inputRef.current.focus()
     this.props.onOpen()
   }
 
-  isOpen () {
+  isOpen() {
     const { open: propsOpen } = this.props
 
     if (isBoolean(propsOpen)) {
@@ -115,13 +115,18 @@ class BaseSpotlight extends React.Component<SpotlightInnerProps> {
     return this.state.open
   }
 
-  generateTheme () {
+  generateTheme() {
     const { theme, customTheme } = this.props
 
-    return merge({}, theme, { _spotlight: DEFAULT_THEME }, { _spotlight: customTheme })
+    return merge(
+      {},
+      theme,
+      { _spotlight: DEFAULT_THEME },
+      { _spotlight: customTheme }
+    )
   }
 
-  render () {
+  render() {
     const { className, style, ...rest } = this.props
 
     return (
@@ -133,15 +138,17 @@ class BaseSpotlight extends React.Component<SpotlightInnerProps> {
           onClose={this.handleClose}
           animated={false}
         >
-          {({ state }) => state !== 'closed' && (
-            <SpotlightContent
-              {...rest}
-              onClose={this.handleClose}
-              query={this.getQuery()}
-              onQueryChange={this.handleQueryChange}
-              inputRef={this.inputRef}
-            />
-          )}
+          {({ state }) =>
+            state !== 'closed' && (
+              <SpotlightContent
+                {...rest}
+                onClose={this.handleClose}
+                query={this.getQuery()}
+                onQueryChange={this.handleQueryChange}
+                inputRef={this.inputRef}
+              />
+            )
+          }
         </SpotlightModal>
       </ThemeProvider>
     )
@@ -150,8 +157,9 @@ class BaseSpotlight extends React.Component<SpotlightInnerProps> {
 
 const EndhancedSpotlight = withTheme(BaseSpotlight)
 
-const Spotlight: React.StatelessComponent<SpotlightProps> = ({ theme, ...props }) => (
-  <EndhancedSpotlight customTheme={theme} {...props} />
-)
+const Spotlight: React.StatelessComponent<SpotlightProps> = ({
+  theme,
+  ...props
+}) => <EndhancedSpotlight customTheme={theme} {...props} />
 
 export default Spotlight

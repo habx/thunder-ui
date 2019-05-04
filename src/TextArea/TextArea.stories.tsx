@@ -1,7 +1,7 @@
-import * as React from 'react'
-import styled from 'styled-components'
 import { storiesOf } from '@storybook/react'
+import * as React from 'react'
 import { withState } from 'recompose'
+import styled from 'styled-components'
 
 import TextArea from '.'
 
@@ -27,4 +27,6 @@ storiesOf('Inputs|TextArea', module)
   .add('basic', () => <TextAreaWithState value={CONTENT} />)
   .add('disabled', () => <TextAreaWithState disabled value={CONTENT} />)
   .add('error', () => <TextAreaWithState error value={CONTENT} />)
-  .add('placeholder', () => <TextAreaWithState value='' placeholder='Type something here' />)
+  .add('placeholder', () => (
+    <TextAreaWithState value="" placeholder="Type something here" />
+  ))

@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components'
+
 import colors from '../colors'
 
 export const Label = styled.span`
@@ -165,13 +166,13 @@ export const RcSliderStyle = styled.div`
   }
   .rc-slider-tooltip-zoom-down-enter,
   .rc-slider-tooltip-zoom-down-appear {
-    animation-duration: .3s;
+    animation-duration: 0.3s;
     animation-fill-mode: both;
     display: block !important;
     animation-play-state: paused;
   }
   .rc-slider-tooltip-zoom-down-leave {
-    animation-duration: .3s;
+    animation-duration: 0.3s;
     animation-fill-mode: both;
     display: block !important;
     animation-play-state: paused;
@@ -263,11 +264,13 @@ export const SliderContainer = styled(RcSliderStyle)`
   position: relative;
   margin-bottom: 30px;
 
-  ${({ disabled }) => disabled && css`
-    pointer-events: none;
-    opacity: 0.6;
-    filter: grayscale();
-  `};
+  ${({ disabled }) =>
+    disabled &&
+    css`
+      pointer-events: none;
+      opacity: 0.6;
+      filter: grayscale();
+    `};
 `
 
 export const SliderIndicator = styled.div`

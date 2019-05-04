@@ -1,6 +1,6 @@
+import { storiesOf } from '@storybook/react'
 import * as React from 'react'
 import styled from 'styled-components'
-import { storiesOf } from '@storybook/react'
 
 import FontIcon from '.'
 
@@ -14,18 +14,16 @@ const SimpleIconContainer = styled.div`
   font-size: 22px;
 `
 
-const iconDecorator = storyFn => (
-  <Container>
-    {storyFn()}
-  </Container>
-)
+const iconDecorator = storyFn => <Container>{storyFn()}</Container>
 
 const icons = ['person']
 
 storiesOf('Miscellaneous|FontIcon', module)
   .addDecorator(iconDecorator)
-  .add('simple icons', () => icons.map(icon => (
-    <SimpleIconContainer key={icon}>
-      <FontIcon icon={icon} />
-    </SimpleIconContainer>
-  )))
+  .add('simple icons', () =>
+    icons.map(icon => (
+      <SimpleIconContainer key={icon}>
+        <FontIcon icon={icon} />
+      </SimpleIconContainer>
+    ))
+  )

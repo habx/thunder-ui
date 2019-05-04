@@ -1,7 +1,7 @@
-import styled, { createGlobalStyle, css } from 'styled-components'
+import styled from 'styled-components'
 
-import Title from '../Title'
 import zIndex from '../_internal/zIndex'
+import Title from '../Title'
 
 export const ANIMATION_DURATION = 200
 
@@ -25,9 +25,10 @@ const prepareProps = ({ position }) => {
       transformBefore = 'translateY(100%)'
       transformAfter = 'translateY(0)'
       break
-    default: break
+    default:
+      break
   }
-  return ({
+  return {
     left: position !== 'right' ? 0 : 'unset',
     right: position !== 'left' ? 0 : 'unset',
     bottom: position === 'top' ? 'unset' : 0,
@@ -35,12 +36,12 @@ const prepareProps = ({ position }) => {
     height: ['right', 'left'].includes(position) ? '100vh' : 'auto',
     width: ['bottom', 'top'].includes(position) ? '100vw' : 'auto',
     transformBefore,
-    transformAfter
-  })
+    transformAfter,
+  }
 }
 
 export const DrawerContainer = styled.div.attrs(prepareProps)`
-  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
   position: fixed;
   display: flex;
   flex-direction: column;
@@ -61,7 +62,7 @@ export const DrawerContainer = styled.div.attrs(prepareProps)`
   transition: transform ${ANIMATION_DURATION}ms ease-in-out;
   transform: ${({ transformBefore }) => transformBefore};
 
-  &[data-state="opened"] {
+  &[data-state='opened'] {
     transform: ${({ transformAfter }) => transformAfter};
   }
 `
@@ -117,9 +118,8 @@ export const Overlay = styled.div`
   transition: opacity ease-in-out ${ANIMATION_DURATION}ms;
   pointer-events: none;
 
-  &[data-state="opened"] {
+  &[data-state='opened'] {
     opacity: 1;
     pointer-events: auto;
   }
-
 `

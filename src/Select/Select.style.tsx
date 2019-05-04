@@ -1,9 +1,8 @@
 import styled, { css } from 'styled-components'
 
-import fontSizes from '../fontSizes'
-
-import FontIcon from '../FontIcon'
 import zIndex from '../_internal/zIndex'
+import FontIcon from '../FontIcon'
+import fontSizes from '../fontSizes'
 
 export const SelectContainer = styled.div`
   position: relative;
@@ -11,11 +10,13 @@ export const SelectContainer = styled.div`
   flex: 0 0 auto;
   display: block;
 
-  ${({ disabled }) => disabled && css`
-    pointer-events: none;
-    opacity: 0.6;
-    filter: grayscale();
-  `};
+  ${({ disabled }) =>
+    disabled &&
+    css`
+      pointer-events: none;
+      opacity: 0.6;
+      filter: grayscale();
+    `};
 `
 
 export const SelectContent = styled.div`
@@ -34,14 +35,14 @@ export const SelectContent = styled.div`
   font-size: ${fontSizes.regular};
   user-select: none;
 
-  &[data-open="true"] {
+  &[data-open='true'] {
     transition: z-index ease-in 0s;
     z-index: 10;
   }
 `
 
 export const SearchInput = styled.input.attrs(() => ({
-  type: 'text'
+  type: 'text',
 }))`
   flex: 1 1 100%;
 
@@ -101,7 +102,7 @@ export const CustomIconContainer = styled.div`
 export const ResetIcon = styled(FontIcon)`
   transition: opacity 150ms ease-in-out;
 
-  &:not([data-visible="true"]) {
+  &:not([data-visible='true']) {
     opacity: 0;
   }
 `

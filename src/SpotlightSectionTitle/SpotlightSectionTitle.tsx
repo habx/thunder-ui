@@ -1,12 +1,10 @@
 import * as React from 'react'
 
-import { SectionTitleContainer } from './SpotlightSectionTitle.style'
 import SpotlightSectionTitleProps from './SpotlightSectionTitle.interface'
+import { SectionTitleContainer } from './SpotlightSectionTitle.style'
 
-const SpotlightSectionTitle: React.StatelessComponent<SpotlightSectionTitleProps> = ({ children }) => (
-  <SectionTitleContainer>
-    { children }
-  </SectionTitleContainer>
-)
+const SpotlightSectionTitle: React.StatelessComponent<
+  SpotlightSectionTitleProps
+> = ({ children }) => <SectionTitleContainer>{children}</SectionTitleContainer>
 
 export default SpotlightSectionTitle

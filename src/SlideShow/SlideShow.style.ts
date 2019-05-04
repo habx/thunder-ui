@@ -9,19 +9,20 @@ export const SlideshowContainer = styled.div`
 export const SlideshowContent = styled.div`
   width: 100%;
   display: flex;
-  transition: transform ease-in-out ${({ transitionDuration }) => transitionDuration}ms;
+  transition: transform ease-in-out
+    ${({ transitionDuration }) => transitionDuration}ms;
   transform: translateX(0);
   ${({ length }) => css`
     ${new Array(length)
-    .fill(0)
-    .map(
-      (_, i) => `
+      .fill(0)
+      .map(
+        (_, i) => `
       &[data-index="${i}"] {
         transform: translateX(-${i * 100}%);
       }
     `
-    )
-    .join('')}
+      )
+      .join('')}
   }`}
 `
 

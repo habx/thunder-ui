@@ -1,22 +1,19 @@
+import get from 'lodash.get'
+import has from 'lodash.has'
 import * as React from 'react'
 import { createPortal } from 'react-dom'
 import { withTheme } from 'styled-components'
-import get from 'lodash.get'
-import has from 'lodash.has'
 
-import FontIcon from '../FontIcon'
-import withLabel from '../withLabel'
-
-import { searchInString } from '../_internal/strings'
-import { formOption } from '../_internal/types'
 import { getMainColor } from '../_internal/colors'
 import { omit } from '../_internal/data'
 import { isClientSide, ssrDOMRect } from '../_internal/ssr'
+import { searchInString } from '../_internal/strings'
+import { formOption } from '../_internal/types'
+import FontIcon from '../FontIcon'
+import withLabel from '../withLabel'
 
 import Options from './Options'
-
 import SelectProps, { SelectState } from './Select.interface'
-
 import {
   SelectContainer,
   SelectContent,
@@ -25,7 +22,7 @@ import {
   CustomIconContainer,
   Placeholder,
   ResetIcon,
-  Overlay
+  Overlay,
 } from './Select.style'
 
 const INTERNAL_PROPS = [
@@ -38,7 +35,7 @@ const INTERNAL_PROPS = [
   'value',
   'onChange',
   'placeholder',
-  'filterable'
+  'filterable',
 ]
 
 const FORMAT_VALUE_FULL = 'full'
@@ -50,25 +47,25 @@ export class Select extends React.Component<SelectProps, SelectState> {
     canReset: true,
     filterable: false,
     compact: false,
-    optionDisabled: () => false
+    optionDisabled: () => false,
   }
 
-  static getDerivedStateFromProps (nextProps, prevState) {
+  static getDerivedStateFromProps(nextProps, prevState) {
     const { value: rawValue, options: rawOptions, multi } = nextProps
 
     return {
-      ...(rawOptions !== prevState.rawOptions) && {
+      ...(rawOptions !== prevState.rawOptions && {
         rawOptions,
-        options: Select.getStandardizedOptions(rawOptions)
-      },
-      ...(rawValue !== prevState.rawValue) && {
+        options: Select.getStandardizedOptions(rawOptions),
+      }),
+      ...(rawValue !== prevState.rawValue && {
         rawValue,
-        value: Select.getStandardizedValue(rawValue, multi)
-      }
+        value: Select.getStandardizedValue(rawValue, multi),
+      }),
     }
   }
 
-  static getStandardizedValue (value, multi) {
+  static getStandardizedValue(value, multi) {
     if (multi) {
       return value ? value.map(el => get(el, 'value', el)) : []
     }
@@ -76,17 +73,17 @@ export class Select extends React.Component<SelectProps, SelectState> {
     return get(value, 'value', value)
   }
 
-  static getStandardizedOptions (options = []) {
+  static getStandardizedOptions(options = []) {
     return options.map(option => ({
       value: get(option, 'value', option),
-      label: get(option, 'label', option)
+      label: get(option, 'label', option),
     }))
   }
 
   wrapperRef: React.RefObject<any>
   inputRef: React.RefObject<any>
 
-  constructor (props) {
+  constructor(props) {
     super(props)
     this.wrapperRef = React.createRef()
     this.inputRef = React.createRef()
@@ -101,16 +98,18 @@ export class Select extends React.Component<SelectProps, SelectState> {
     rawValue: null,
     options: null,
     value: this.props.multi ? [] : null,
-    wrapperRect: typeof DOMRect === 'function' ? new DOMRect() : ssrDOMRect
+    wrapperRect: typeof DOMRect === 'function' ? new DOMRect() : ssrDOMRect,
   }
 
-  componentDidMount () {
-    this.setState({ wrapperRect: this.wrapperRef.current.getBoundingClientRect() })
+  componentDidMount() {
+    this.setState({
+      wrapperRect: this.wrapperRef.current.getBoundingClientRect(),
+    })
     window.addEventListener('keydown', this.handleKeyDown)
     window.addEventListener('resize', this.handleResize)
   }
 
-  componentWillUnmount () {
+  componentWillUnmount() {
     window.removeEventListener('keydown', this.handleKeyDown)
     window.removeEventListener('resize', this.handleResize)
   }
@@ -125,7 +124,7 @@ export class Select extends React.Component<SelectProps, SelectState> {
     })
   }
 
-  getCurrentValue () {
+  getCurrentValue() {
     const { multi } = this.props
     const { options, value } = this.state
 
@@ -140,7 +139,7 @@ export class Select extends React.Component<SelectProps, SelectState> {
     return options.find(el => el.value === value)
   }
 
-  getCurrentValueFormat () {
+  getCurrentValueFormat() {
     const { value, valueFormat, multi } = this.props
 
     if ([FORMAT_VALUE_FULL, FORMAT_VALUE_SIMPLE].includes(valueFormat)) {
@@ -164,7 +163,7 @@ export class Select extends React.Component<SelectProps, SelectState> {
     return format === FORMAT_VALUE_FULL ? newValue : get(newValue, 'value')
   }
 
-  getPlaceholder () {
+  getPlaceholder() {
     const { multi, placeholder } = this.props
 
     if (multi) {
@@ -240,14 +239,14 @@ export class Select extends React.Component<SelectProps, SelectState> {
     const cleanOption = this.getCleanValue(option)
     const currentValue = (value || []) as any[]
 
-    const isSelected = currentValue.some(el => (
+    const isSelected = currentValue.some(el =>
       has(el, 'value') ? el.value === option.value : el === option.value
-    ))
+    )
 
     if (isSelected) {
-      const newValue = currentValue.filter(el => (
+      const newValue = currentValue.filter(el =>
         has(el, 'value') ? el.value !== option.value : el !== option.value
-      ))
+      )
       onChange(newValue)
     } else {
       const newValue = [...currentValue, cleanOption]
@@ -276,10 +275,11 @@ export class Select extends React.Component<SelectProps, SelectState> {
 
   handleBlur = () => this.setState({ isInputFocus: false })
 
-  handleSearch = e => this.setState({
-    search: e.target.value,
-    open: true
-  })
+  handleSearch = e =>
+    this.setState({
+      search: e.target.value,
+      open: true,
+    })
 
   handleToggle = () => {
     if (!this.state.open && this.inputRef.current) {
@@ -289,15 +289,17 @@ export class Select extends React.Component<SelectProps, SelectState> {
     this.setState(prevState => ({
       open: !prevState.open,
       search: '',
-      wrapperRect: this.wrapperRef.current.getBoundingClientRect()
+      wrapperRect: this.wrapperRef.current.getBoundingClientRect(),
     }))
   }
 
   handleResize = () => {
-    this.setState({ wrapperRect: this.wrapperRef.current.getBoundingClientRect() })
+    this.setState({
+      wrapperRect: this.wrapperRef.current.getBoundingClientRect(),
+    })
   }
 
-  render () {
+  render() {
     const { open, search, focusedItem, wrapperRect } = this.state
     const {
       multi,
@@ -311,7 +313,7 @@ export class Select extends React.Component<SelectProps, SelectState> {
       compact,
       canSelectAll,
       selectAllLabel,
-      optionDisabled
+      optionDisabled,
     } = this.props
 
     const safeProps = omit(this.props, INTERNAL_PROPS)
@@ -320,7 +322,10 @@ export class Select extends React.Component<SelectProps, SelectState> {
     const value = this.getCurrentValue()
 
     const color = getMainColor(this.props, { themeKey: 'neutral' })
-    const darkColor = getMainColor(this.props, { themeKey: 'neutralStronger', customizable: false })
+    const darkColor = getMainColor(this.props, {
+      themeKey: 'neutralStronger',
+      customizable: false,
+    })
     const hasValue = !(!value || (Array.isArray(value) && value.length === 0))
 
     return (
@@ -331,42 +336,40 @@ export class Select extends React.Component<SelectProps, SelectState> {
           onClick={this.handleToggle}
           color={color}
         >
-          {
-            icon &&
-            <CustomIconContainer>{ icon }</CustomIconContainer>
-          }
-          {
-            filterable
-              ? (
-                <SearchInput
-                  value={search}
-                  placeholder={this.getPlaceholder()}
-                  onChange={this.handleSearch}
-                  onFocus={this.handleFocus}
-                  onBlur={this.handleBlur}
-                  color={hasValue ? darkColor : color}
-                  ref={this.inputRef}
-                />
-              ) : (
-                <Placeholder color={hasValue ? darkColor : color}>
-                  { this.getPlaceholder() }
-                </Placeholder>
-              )
-          }
+          {icon && <CustomIconContainer>{icon}</CustomIconContainer>}
+          {filterable ? (
+            <SearchInput
+              value={search}
+              placeholder={this.getPlaceholder()}
+              onChange={this.handleSearch}
+              onFocus={this.handleFocus}
+              onBlur={this.handleBlur}
+              color={hasValue ? darkColor : color}
+              ref={this.inputRef}
+            />
+          ) : (
+            <Placeholder color={hasValue ? darkColor : color}>
+              {this.getPlaceholder()}
+            </Placeholder>
+          )}
           <LabelIcons>
-            {
-              canReset &&
+            {canReset && (
               <ResetIcon
                 data-visible={!disabled && hasValue}
                 onClick={this.handleReset}
-                icon='close'
+                icon="close"
                 size={20}
               />
-            }
-            <FontIcon icon={open ? 'arrow_drop_up' : 'arrow_drop_down'} color={darkColor} />
+            )}
+            <FontIcon
+              icon={open ? 'arrow_drop_up' : 'arrow_drop_down'}
+              color={darkColor}
+            />
           </LabelIcons>
         </SelectContent>
-        {open && isClientSide() && createPortal(<Overlay onClick={this.handleToggle}/>, document.body)}
+        {open &&
+          isClientSide() &&
+          createPortal(<Overlay onClick={this.handleToggle} />, document.body)}
         <Options
           optionDisabled={optionDisabled}
           options={options}
@@ -390,4 +393,6 @@ export class Select extends React.Component<SelectProps, SelectState> {
   }
 }
 
-export default withLabel({ padding: 12 })(withTheme(Select) as React.ComponentType<SelectProps>)
+export default withLabel({ padding: 12 })(withTheme(
+  Select
+) as React.ComponentType<SelectProps>)

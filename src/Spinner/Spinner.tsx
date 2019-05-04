@@ -1,8 +1,9 @@
 import * as React from 'react'
 import styled, { withTheme } from 'styled-components'
 
-import SpinnerProps, { SpinnerInnerProps } from './Spinner.interface'
 import theme from '../theme'
+
+import SpinnerProps, { SpinnerInnerProps } from './Spinner.interface'
 
 const SpinnerContainer = styled.div`
   position: relative;
@@ -48,15 +49,18 @@ const SpinnerElement = styled.svg`
   }
 `
 
-const Spinner: React.StatelessComponent<SpinnerInnerProps> = ({ size = 50, ...props }) => (
+const Spinner: React.StatelessComponent<SpinnerInnerProps> = ({
+  size = 50,
+  ...props
+}) => (
   <SpinnerContainer {...props} size={size}>
     <SpinnerElement viewBox={`0 0 ${size} ${size}`} size={size}>
       <circle
-        className='path'
+        className="path"
         cx={size / 2}
         cy={size / 2}
-        r={(size / 2) - (size / 10)}
-        fill='none'
+        r={size / 2 - size / 10}
+        fill="none"
         strokeWidth={size / 15}
         stroke={theme.get('primary')(props)}
       />

@@ -1,5 +1,4 @@
 import { pick } from '../_internal/data'
-
 import { searchInString } from '../_internal/strings'
 
 export const some = (...keys) => (query, object) => {
@@ -7,5 +6,7 @@ export const some = (...keys) => (query, object) => {
     return false
   }
 
-  return Object.values(pick(object, keys)).some((value: string) => searchInString(value, query))
+  return Object.values(pick(object, keys)).some((value: string) =>
+    searchInString(value, query)
+  )
 }

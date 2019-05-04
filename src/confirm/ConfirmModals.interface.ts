@@ -1,5 +1,5 @@
 export type ConfirmModalOptions = {
-  confirmText?: string,
+  confirmText?: string
   cancelText?: string
 }
 

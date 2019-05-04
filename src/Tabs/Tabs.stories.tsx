@@ -1,16 +1,22 @@
-import * as React from 'react'
-import { storiesOf } from '@storybook/react'
 import { withKnobs, number } from '@storybook/addon-knobs'
+import { storiesOf } from '@storybook/react'
+import * as React from 'react'
+
+import TabsItem from '../TabsItem'
+import TabsSection from '../TabsSection'
+import TabsSeparator from '../TabsSeparator'
 
 import Tabs from './index'
-import TabsSection from '../TabsSection'
-import TabsItem from '../TabsItem'
-import TabsSeparator from '../TabsSeparator'
 
 storiesOf('Navigation|Tabs', module)
   .addDecorator(withKnobs)
   .add('full example', () => {
-    const active = number('Active slide', 1, { range: true, min: 0, max: 6, step: 1 })
+    const active = number('Active slide', 1, {
+      range: true,
+      min: 0,
+      max: 6,
+      step: 1,
+    })
 
     return (
       <Tabs>
@@ -20,7 +26,7 @@ storiesOf('Navigation|Tabs', module)
           <TabsItem active={active === 2}>Trends</TabsItem>
           <TabsItem active={active === 3}>Best</TabsItem>
         </TabsSection>
-        <TabsSection label='Categories'>
+        <TabsSection label="Categories">
           <TabsItem active={active === 4}>News</TabsItem>
           <TabsSeparator />
           <TabsItem active={active === 5}>Computer Science</TabsItem>
@@ -30,7 +36,12 @@ storiesOf('Navigation|Tabs', module)
     )
   })
   .add('with scroll', () => {
-    const active = number('Active slide', 1, { range: true, min: 0, max: 6, step: 1 })
+    const active = number('Active slide', 1, {
+      range: true,
+      min: 0,
+      max: 6,
+      step: 1,
+    })
 
     return (
       <Tabs>
@@ -40,7 +51,7 @@ storiesOf('Navigation|Tabs', module)
           <TabsItem active={active === 2}>Trends</TabsItem>
           <TabsItem active={active === 3}>Best</TabsItem>
         </TabsSection>
-        <TabsSection label='Categories'>
+        <TabsSection label="Categories">
           <TabsItem active={active === 4}>News</TabsItem>
           <TabsSeparator />
           <TabsItem active={active === 5}>Computer Science</TabsItem>

@@ -1,14 +1,20 @@
 import * as React from 'react'
 import { withTheme } from 'styled-components'
 
-import withLabel from '../withLabel'
 import { formValue } from '../_internal/types'
-
-import { RadioSelectContainer, Option } from './RadioSelect.style'
-import RadioSelectProps, { RadioSelectInnerProps } from './RadioSelect.interface'
 import theme from '../theme'
+import withLabel from '../withLabel'
 
-const getNewValueNotMulti = (item: formValue, value: formValue, { canBeEmpty }) => {
+import RadioSelectProps, {
+  RadioSelectInnerProps,
+} from './RadioSelect.interface'
+import { RadioSelectContainer, Option } from './RadioSelect.style'
+
+const getNewValueNotMulti = (
+  item: formValue,
+  value: formValue,
+  { canBeEmpty }
+) => {
   if (value === item && canBeEmpty) {
     return null
   }
@@ -16,7 +22,11 @@ const getNewValueNotMulti = (item: formValue, value: formValue, { canBeEmpty }) 
   return item
 }
 
-const getNewValueMulti = (item: formValue, value: formValue[], { canBeEmpty }) => {
+const getNewValueMulti = (
+  item: formValue,
+  value: formValue[],
+  { canBeEmpty }
+) => {
   if (value.includes(item)) {
     const newValue = value.filter(el => el !== item)
 
@@ -35,14 +45,17 @@ const getNewValueMulti = (item: formValue, value: formValue[], { canBeEmpty }) =
 }
 
 const getCurrentValue = (value, { multi }) => {
-  if (!value && value == null) { // '==' to check undefined values, not just null
+  if (!value && value == null) {
+    // '==' to check undefined values, not just null
     return multi ? [] : null
   }
 
   return value
 }
 
-export const BaseRadioSelect: React.StatelessComponent<RadioSelectInnerProps> = props => {
+export const BaseRadioSelect: React.StatelessComponent<
+  RadioSelectInnerProps
+> = props => {
   const {
     options,
     onChange,
@@ -95,7 +108,9 @@ BaseRadioSelect.defaultProps = {
   canBeEmpty: true,
   multi: false,
   disabled: false,
-  options: []
+  options: [],
 }
 
-export default withLabel({ padding: 12 })(withTheme(BaseRadioSelect) as React.StatelessComponent<RadioSelectProps>)
+export default withLabel({ padding: 12 })(withTheme(
+  BaseRadioSelect
+) as React.StatelessComponent<RadioSelectProps>)

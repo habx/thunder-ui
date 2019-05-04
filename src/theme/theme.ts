@@ -1,12 +1,12 @@
+import { isFunction } from '../_internal/data'
+import { themeAccessor } from '../_internal/types'
 import colors from '../colors'
 import shadows from '../shadows'
 import { ThunderUITheme } from '../useTheme'
-import { themeAccessor } from '../_internal/types'
-import { isFunction } from '../_internal/data'
 
 const BASE_THEME = {
   error: colors.popstar,
-  warning: colors.internationalOrange
+  warning: colors.internationalOrange,
 }
 
 const LIGHT_THEME = {
@@ -26,7 +26,7 @@ const LIGHT_THEME = {
 
   shadowLight: shadows.light,
   shadow: shadows.medium,
-  shadowStrong: shadows.strong
+  shadowStrong: shadows.strong,
 }
 
 const DARK_THEME = {
@@ -44,10 +44,13 @@ const DARK_THEME = {
 
   shadowLight: '0 2px 6px 0 rgba(0, 13, 27, 0.6)',
   shadow: '0 2px 6px 0 rgba(0, 13, 27, 0.7)',
-  shadowStrong: '0 3px 9px 0 rgba(0, 13, 27, 0.7)'
+  shadowStrong: '0 3px 9px 0 rgba(0, 13, 27, 0.7)',
 }
 
-const getter = (themeKey: string, config: { propName?: string, dynamic?: boolean } = {}): themeAccessor => {
+const getter = (
+  themeKey: string,
+  config: { propName?: string; dynamic?: boolean } = {}
+): themeAccessor => {
   const { propName = 'color', dynamic = false } = config
 
   return (props, runtimeConfig: { isRecursive?: boolean } = {}) => {
@@ -81,7 +84,7 @@ const getter = (themeKey: string, config: { propName?: string, dynamic?: boolean
 const theme = {
   get: getter,
   light: LIGHT_THEME,
-  dark: DARK_THEME
+  dark: DARK_THEME,
 }
 
 export default theme

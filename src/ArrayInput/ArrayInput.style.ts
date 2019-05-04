@@ -4,11 +4,13 @@ import fontSizes from '../fontSizes'
 import theme from '../theme'
 
 export const ArrayInputContainer = styled.div`
-  ${({ disabled }) => disabled && css`
-    pointer-events: none;
-    opacity: 0.8;
-    filter: grayscale();
-  `};
+  ${({ disabled }) =>
+    disabled &&
+    css`
+      pointer-events: none;
+      opacity: 0.8;
+      filter: grayscale();
+    `};
 `
 
 export const ItemContainer = styled.div`
@@ -18,7 +20,7 @@ export const ItemContainer = styled.div`
 
   &:not(:last-child) {
     padding-bottom: 8px;
-    border-bottom: 1px solid ${theme.get('neutral',{ dynamic: true })};
+    border-bottom: 1px solid ${theme.get('neutral', { dynamic: true })};
   }
 `
 
@@ -43,7 +45,7 @@ export const ItemHeaderContent = styled.div`
   flex: 1 1 auto;
   overflow: hidden;
   text-overflow: ellipsis;
-  color: ${theme.get('neutral',{ dynamic: true })};
+  color: ${theme.get('neutral', { dynamic: true })};
   font-size: ${fontSizes.small};
 `
 
@@ -60,14 +62,14 @@ export const ItemActions = styled.div`
       margin-left: 4px;
     }
 
-    &[data-disabled="true"] {
+    &[data-disabled='true'] {
       pointer-events: none;
-      color: ${theme.get('neutral',{ dynamic: true })};
+      color: ${theme.get('neutral', { dynamic: true })};
     }
   }
 `
 
 export const ItemDescription = styled.div`
   font-size: ${fontSizes.small};
-  color: ${theme.get('neutral',{ dynamic: true })};
+  color: ${theme.get('neutral', { dynamic: true })};
 `

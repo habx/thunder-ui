@@ -1,5 +1,5 @@
-import * as React from 'react'
 import { mount } from 'enzyme'
+import * as React from 'react'
 import sinon from 'sinon'
 
 import Drawer from './index'
@@ -13,9 +13,7 @@ describe('Drawer component', () => {
     beforeEach(() => {
       wrapper = mount(
         <Drawer onClose={() => null}>
-          <div id='drawer-content'>
-            CONTENT
-          </div>
+          <div id="drawer-content">CONTENT</div>
         </Drawer>
       )
     })

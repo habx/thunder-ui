@@ -7,16 +7,20 @@ export const ListItemContainer = styled.li`
   transition: background-color ease-in-out 200ms;
   display: flex;
 
-  &[data-selected="true"] {
-    background-color: ${theme.get('neutralLight',{ propName: 'hoverColor' })};
+  &[data-selected='true'] {
+    background-color: ${theme.get('neutralLight', { propName: 'hoverColor' })};
   }
 
-  ${({ clickable }) => clickable && css`
-     &:hover {
-      background-color: ${theme.get('neutralLight',{ propName: 'hoverColor' })};
-      cursor: pointer;
-    }
-  `}}
+  ${({ clickable }) =>
+    clickable &&
+    css`
+      &:hover {
+        background-color: ${theme.get('neutralLight', {
+          propName: 'hoverColor',
+        })};
+        cursor: pointer;
+      }
+    `}}
 `
 
 export const RightElementContainer = styled.div`

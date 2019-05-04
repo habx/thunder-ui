@@ -1,4 +1,5 @@
 import * as React from 'react'
+
 import { DOMNode } from '../_internal/types'
 
 export default interface ArrayInputProps extends DOMNode {
@@ -15,6 +16,6 @@ export default interface ArrayInputProps extends DOMNode {
 }
 
 export interface ArrayInputState {
-  editing?: boolean,
-  items?: any[],
+  editing?: boolean
+  items?: any[]
 }

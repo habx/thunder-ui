@@ -6,21 +6,25 @@ import theme from '../theme'
 export const CardContainer = styled.div`
   box-shadow: ${theme.get('shadow')};
   border-radius: ${borderRadius.narrow};
-  background-color: ${theme.get('neutralLightest', { propName: 'backgroundColor' })};
-  padding: ${({ noPadding }) => noPadding ? '0' : '32px'};
+  background-color: ${theme.get('neutralLightest', {
+    propName: 'backgroundColor',
+  })};
+  padding: ${({ noPadding }) => (noPadding ? '0' : '32px')};
 
-  ${({ interactive }) => interactive && css`
-    cursor: pointer;
-    transition: box-shadow 150ms ease-in-out;
+  ${({ interactive }) =>
+    interactive &&
+    css`
+      cursor: pointer;
+      transition: box-shadow 150ms ease-in-out;
 
-    &:hover {
-      box-shadow: ${theme.get('shadowStrong')};
-    }
+      &:hover {
+        box-shadow: ${theme.get('shadowStrong')};
+      }
 
-    &:active {
-      box-shadow: ${theme.get('shadowLight')};
-    }
-  `};
+      &:active {
+        box-shadow: ${theme.get('shadowLight')};
+      }
+    `};
 `
 
 export const TitleContainer = styled.div`

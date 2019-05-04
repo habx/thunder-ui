@@ -13,7 +13,7 @@ export default interface SelectProps extends Input<any> {
   annotation?: string
   canReset?: boolean
   filterable?: boolean
-  compact ?: boolean
+  compact?: boolean
   multi?: boolean
   canSelectAll?: boolean
   selectAllLabel?: string
@@ -22,13 +22,13 @@ export default interface SelectProps extends Input<any> {
 }
 
 export interface SelectState {
-  open: boolean,
-  search: string,
-  isInputFocus: boolean,
-  focusedItem: any,
-  rawOptions: [any],
-  rawValue: any,
-  options: formOption[],
+  open: boolean
+  search: string
+  isInputFocus: boolean
+  focusedItem: any
+  rawOptions: [any]
+  rawValue: any
+  options: formOption[]
   value: any | any[]
   wrapperRect: DOMRect
 }

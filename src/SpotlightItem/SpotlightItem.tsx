@@ -1,11 +1,20 @@
 import * as React from 'react'
 
-import FontIcon from '../FontIcon'
-import Highlight from './Highlight'
 import { omit } from '../_internal/data'
+import FontIcon from '../FontIcon'
 
-import { ItemContainer, ItemContent, ItemTitle, ItemActions, ItemIconContainer, ItemTitleInput, Title, Subtitle } from './SpotlightItem.style'
+import Highlight from './Highlight'
 import { ItemInnerProps } from './SpotlightItem.interface'
+import {
+  ItemContainer,
+  ItemContent,
+  ItemTitle,
+  ItemActions,
+  ItemIconContainer,
+  ItemTitleInput,
+  Title,
+  Subtitle,
+} from './SpotlightItem.style'
 
 const INTERNAL_PROPS = [
   'title',
@@ -19,21 +28,21 @@ const INTERNAL_PROPS = [
   'refPropName',
   'registerActions',
   'spotlight',
-  'as'
+  'as',
 ]
 
 class SpotlightItem extends React.PureComponent<ItemInnerProps> {
-  private readonly containerRef: { current: HTMLDivElement}
+  private readonly containerRef: { current: HTMLDivElement }
   private readonly inputRef: React.RefObject<any>
   private readonly itemContainerRef: React.RefObject<any>
 
   static defaultProps = {
     focusOnRender: false,
     refPropName: 'ref',
-    as: 'div'
+    as: 'div',
   }
 
-  constructor (props) {
+  constructor(props) {
     super(props)
 
     this.containerRef = { current: null }
@@ -43,14 +52,11 @@ class SpotlightItem extends React.PureComponent<ItemInnerProps> {
 
   state = {
     edit: this.props.focusOnRender,
-    value: this.props.title
+    value: this.props.title,
   }
 
-  componentDidMount () {
-    const {
-      focusOnRender,
-      registerActions
-    } = this.props
+  componentDidMount() {
+    const { focusOnRender, registerActions } = this.props
 
     if (focusOnRender) {
       this.focusInput()
@@ -59,7 +65,7 @@ class SpotlightItem extends React.PureComponent<ItemInnerProps> {
     registerActions('submit', this.handleSubmit)
   }
 
-  componentDidUpdate () {
+  componentDidUpdate() {
     const { selected } = this.props
 
     if (selected) {
@@ -67,7 +73,7 @@ class SpotlightItem extends React.PureComponent<ItemInnerProps> {
     }
   }
 
-  getContainerProps () {
+  getContainerProps() {
     const { refPropName } = this.props
 
     const ref = node => {
@@ -77,7 +83,7 @@ class SpotlightItem extends React.PureComponent<ItemInnerProps> {
     return { [refPropName]: ref }
   }
 
-  getContainerComponent (): React.ComponentType<any> | string {
+  getContainerComponent(): React.ComponentType<any> | string {
     const { href, as } = this.props
 
     if (as) {
@@ -103,7 +109,7 @@ class SpotlightItem extends React.PureComponent<ItemInnerProps> {
     }
   }
 
-  handleClick = (action ?: () => void) => e => {
+  handleClick = (action?: () => void) => e => {
     e.preventDefault()
 
     if (action) {
@@ -121,7 +127,10 @@ class SpotlightItem extends React.PureComponent<ItemInnerProps> {
   }
 
   handleKeyPress = e => {
-    if (e.key === 'Enter' && document.activeElement === this.itemContainerRef.current) {
+    if (
+      e.key === 'Enter' &&
+      document.activeElement === this.itemContainerRef.current
+    ) {
       this.handleSubmit(e)
     }
   }
@@ -142,35 +151,25 @@ class SpotlightItem extends React.PureComponent<ItemInnerProps> {
     this.inputRef.current.select()
   }
 
-  render () {
-    const {
-      title,
-      subtitle,
-      icon,
-      onDelete,
-      onEdit,
-      query
-    } = this.props
+  render() {
+    const { title, subtitle, icon, onDelete, onEdit, query } = this.props
 
     const { edit, value } = this.state
 
     const Container = this.getContainerComponent()
 
     return (
-      <Container {...this.getContainerProps()} {...omit(this.props, INTERNAL_PROPS)}>
+      <Container
+        {...this.getContainerProps()}
+        {...omit(this.props, INTERNAL_PROPS)}
+      >
         <ItemContainer
           ref={this.itemContainerRef}
           tabIndex={0}
           onClick={this.handleSubmit}
           onKeyPress={this.handleKeyPress}
         >
-          {
-            icon && (
-              <ItemIconContainer>
-                {icon}
-              </ItemIconContainer>
-            )
-          }
+          {icon && <ItemIconContainer>{icon}</ItemIconContainer>}
           <ItemContent>
             <ItemTitle>
               <ItemTitleInput
@@ -185,17 +184,24 @@ class SpotlightItem extends React.PureComponent<ItemInnerProps> {
               <Title data-editing={edit}>
                 <Highlight query={query}>{title}</Highlight>
               </Title>
-              <ItemActions data-editing={edit} onClick={e => e.stopPropagation()}>
-                {onEdit && <FontIcon icon='edit' onClick={this.handleEdit} />}
-                {onDelete && <FontIcon icon='delete' onClick={this.handleClick(onDelete)} />}
+              <ItemActions
+                data-editing={edit}
+                onClick={e => e.stopPropagation()}
+              >
+                {onEdit && <FontIcon icon="edit" onClick={this.handleEdit} />}
+                {onDelete && (
+                  <FontIcon
+                    icon="delete"
+                    onClick={this.handleClick(onDelete)}
+                  />
+                )}
               </ItemActions>
             </ItemTitle>
-            {
-              subtitle &&
+            {subtitle && (
               <Subtitle>
                 <Highlight query={query}>{subtitle}</Highlight>
               </Subtitle>
-            }
+            )}
           </ItemContent>
         </ItemContainer>
       </Container>

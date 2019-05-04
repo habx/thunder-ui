@@ -18,7 +18,6 @@ export const ItemContainer = styled.div`
     box-shadow: none;
     outline: none;
   }
-
 `
 
 export const ItemContent = styled.div`
@@ -54,7 +53,7 @@ export const ItemTitleInput = styled.input.attrs(() => ({ type: 'text' }))`
     outline: none;
   }
 
-  &[data-editing="true"] {
+  &[data-editing='true'] {
     display: initial;
     margin-top: -2px;
   }
@@ -72,7 +71,7 @@ export const ItemActions = styled.div`
     color: ${get('item.actionIcon')};
   }
 
-  &[data-editing="true"] {
+  &[data-editing='true'] {
     display: none;
   }
 `
@@ -99,7 +98,7 @@ export const Title = styled.div`
   overflow: hidden;
   text-overflow: ellipsis;
 
-  &[data-editing="true"] {
+  &[data-editing='true'] {
     display: none;
   }
 `

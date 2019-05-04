@@ -1,16 +1,13 @@
-import * as React from 'react'
 import { storiesOf } from '@storybook/react'
-import { action } from '@storybook/addon-actions'
+import * as React from 'react'
+
+import Button from '../Button'
+import ThunderProvider from '../ThunderProvider'
 
 import notify from './index'
 
-import ThunderProvider from '../ThunderProvider'
-import Button from '../Button'
-
 const thunderDecorator = storyFn => (
-  <ThunderProvider>
-    { storyFn() }
-  </ThunderProvider>
+  <ThunderProvider>{storyFn()}</ThunderProvider>
 )
 
 storiesOf('Events|notify', module)
@@ -26,13 +23,17 @@ storiesOf('Events|notify', module)
     </Button>
   ))
   .add('warning', () => (
-    <Button onClick={() => notify('This is a notification', { type: 'warning' })}>
+    <Button
+      onClick={() => notify('This is a notification', { type: 'warning' })}
+    >
       Trigger event
     </Button>
   ))
 
   .add('with custom duration', () => (
-    <Button onClick={() => notify('This is a notification', { duration: 1000 })}>
+    <Button
+      onClick={() => notify('This is a notification', { duration: 1000 })}
+    >
       Trigger event
     </Button>
   ))
