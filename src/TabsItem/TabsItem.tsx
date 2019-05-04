@@ -71,7 +71,7 @@ const StyledTabsItem = styled(tag).attrs(prepareProps)`
 const TabsItem: React.StatelessComponent<TabsItemProps> = rawProps => {
   const props = useMergedContext(Context, rawProps)
 
-  return  <StyledTabsItem blacklist={['activeColor', 'hoverColor', 'closed']} {...props} />
+  return <StyledTabsItem blacklist={['activeColor', 'hoverColor', 'closed']} {...props} />
 }
 
 TabsItem.defaultProps = {
