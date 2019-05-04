@@ -1,43 +1,65 @@
-import { mount } from 'enzyme'
 import * as React from 'react'
+import { render, cleanup, within, fireEvent } from 'react-testing-library'
+import sinon from 'sinon'
 
 import FontIcon from '../FontIcon'
 
 import Button from './index'
 
+afterEach(cleanup)
+
 describe('Button component', () => {
-  describe('with icons', () => {
-    it('should show icon left', () => {
-      const wrapper = mount(
-        <Button iconLeft={<FontIcon id="face-icon" icon="face" />}>
-          button
-        </Button>
-      )
-      expect(wrapper.find('#face-icon').exists()).toBe(true)
-    })
+  it('should display the right label', () => {
+    const { getByTestId } = render(<Button>Custom label</Button>)
 
-    it('should show icon right', () => {
-      const wrapper = mount(
-        <Button iconRight={<FontIcon id="face-icon" icon="face" />}>
-          button
-        </Button>
-      )
-      expect(wrapper.find('#face-icon').exists()).toBe(true)
-    })
+    expect(getByTestId('label-container').textContent).toEqual('Custom label')
   })
-  it('should have the right label', () => {
-    const wrapper = mount(<Button>click me</Button>)
-    expect(wrapper.contains('click me')).toBe(true)
-  })
-  it('should be a button', () => {
-    const wrapper = mount(<Button>click me</Button>)
-    expect(wrapper.find('button').exists()).toBe(true)
-  })
-  it('should call onClick function on click', () => {
-    const spy = jest.fn()
 
-    const wrapper = mount(<Button onClick={spy}>click me</Button>)
-    wrapper.find('button').simulate('click')
-    expect(spy).toHaveBeenCalled()
+  it('should display icon left', () => {
+    const { queryAllByTestId } = render(
+      <Button iconLeft={<FontIcon data-testid="face-icon" icon="face" />}>
+        Label
+      </Button>
+    )
+
+    const leftIconContainer = queryAllByTestId('icon-left-container')
+
+    expect(leftIconContainer).toHaveLength(1)
+    expect(queryAllByTestId('icon-right-container')).toHaveLength(0)
+    expect(
+      within(leftIconContainer[0]).queryAllByTestId('face-icon')
+    ).toHaveLength(1)
+  })
+
+  it('should display icon right', () => {
+    const { queryAllByTestId } = render(
+      <Button iconRight={<FontIcon data-testid="face-icon" icon="face" />}>
+        Label
+      </Button>
+    )
+
+    const rightIconContainer = queryAllByTestId('icon-right-container')
+
+    expect(rightIconContainer).toHaveLength(1)
+    expect(queryAllByTestId('icon-left-container')).toHaveLength(0)
+    expect(
+      within(rightIconContainer[0]).queryAllByTestId('face-icon')
+    ).toHaveLength(1)
+  })
+
+  it('should display no icon', () => {
+    const { queryAllByTestId } = render(<Button>Label</Button>)
+
+    expect(queryAllByTestId('icon-left-container')).toHaveLength(0)
+    expect(queryAllByTestId('icon-right-container')).toHaveLength(0)
+  })
+
+  it('should call the onClick property when clicked', () => {
+    const spyChildren = sinon.spy()
+    const { container } = render(<Button onClick={spyChildren}>Label</Button>)
+
+    fireEvent.click(container.firstChild as Element)
+
+    expect(spyChildren.calledOnce).toBe(true)
   })
 })

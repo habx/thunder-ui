@@ -21,16 +21,28 @@ const Button: React.StatelessComponent<ButtonProps> = ({
     {...otherProps}
   >
     {iconLeft && (
-      <IconContainer position="left" small={small} large={large}>
+      <IconContainer
+        data-testid="icon-left-container"
+        position="left"
+        small={small}
+        large={large}
+      >
         {iconLeft}
       </IconContainer>
     )}
-    <span style={{ visibility: loading ? 'hidden' : 'visible' }}>
+    <span
+      data-testid="label-container"
+      style={{ visibility: loading ? 'hidden' : 'visible' }}
+    >
       {children}
     </span>
     {loading && <ButtonSpinner color="white" size={small ? 16 : 24} />}
     {iconRight && (
-      <IconContainer position="right" small={small}>
+      <IconContainer
+        data-testid="icon-right-container"
+        position="right"
+        small={small}
+      >
         {iconRight}
       </IconContainer>
     )}
