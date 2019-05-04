@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { storiesOf } from '@storybook/react'
 
-import Notification from '.'
+import Notification from './index'
 
 storiesOf('Miscellaneous|Notification', module)
   .add('basic', () => <Notification>{'Impossible de modifier l\'email'}</Notification>)

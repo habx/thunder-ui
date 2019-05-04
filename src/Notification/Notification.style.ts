@@ -1,25 +1,15 @@
 import styled from 'styled-components'
-import color from 'color'
 
 import borderRadius from '../borderRadius'
 import fontSizes from '../fontSizes'
+import theme from '../theme'
 
-import { getMainColor } from '../_internal/colors'
-
-const prepareProps = props => {
-  const backgroundColor = getMainColor(props)
-
-  return {
-    backgroundColor,
-    shadowColor: color(backgroundColor).fade(0.5)
-  }
-}
-
-export const NotificationContainer = styled.div.attrs(prepareProps)`
-  background-color: ${({ backgroundColor }) => backgroundColor};
+export const NotificationContainer = styled.div`
+  background-color: ${theme.get('primary', { dynamic: true })};
   border-radius: ${borderRadius.narrow};
-  box-shadow: 0 6px 18px 0 ${({ shadowColor }) => shadowColor};
   display: flex;
+
+  box-shadow: ${theme.get('shadow')};
 `
 
 export const NotificationIllustration = styled.div`

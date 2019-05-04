@@ -14,7 +14,7 @@ const Container = styled.div`
 
 const TextInputWithState = ({ value = '', ...props }) => {
   const Component = withState('value', 'onChange', value)(newProps => (
-    <TextInput {...newProps} />
+    <TextInput {...newProps} onChange={value => newProps.onChange(value)} />
   ))
 
   return (

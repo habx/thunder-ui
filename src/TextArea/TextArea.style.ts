@@ -2,19 +2,14 @@ import styled from 'styled-components'
 
 import borderRadius from '../borderRadius'
 import fontSizes from '../fontSizes'
-import { getMainColor } from '../_internal/colors'
-
-const prepareProps = props => ({
-  color: getMainColor(props, { themeKey: 'neutral' }),
-  borderColor: getMainColor(props, { themeKey: 'primaryLighter' })
-})
+import theme from '../theme'
 
 export const TextAreaContainer = styled.div`
   flex: 1 1 100%;
   position: relative;
 `
 
-export const StyledTextArea = styled.textarea.attrs(prepareProps)`
+export const StyledTextArea = styled.textarea`
   height: 100%;
   width: 100%;
   resize: vertical;
@@ -23,9 +18,8 @@ export const StyledTextArea = styled.textarea.attrs(prepareProps)`
   min-height: 50px;
   font-size: ${fontSizes.small};
 
-  border: 1px solid ${({ borderColor }) => borderColor};
-  color: ${({ color }) => color};
-
+  border: 1px solid ${theme.get('primaryLighter', { dynamic: true })};
+  color: ${theme.get('neutral', { dynamic: true })};
   background-color: transparent;
 
   &:disabled {

@@ -4,7 +4,6 @@ import shadows from '../../shadows'
 import fontSizes from '../../fontSizes'
 import theme from '../../theme'
 import zIndex from '../../_internal/zIndex'
-import { getMainColor } from '../../_internal/colors'
 import Option from '../Option'
 import colors from '../../colors'
 
@@ -19,7 +18,7 @@ export const OptionsContainer = styled.div`
 
   background-color: ${theme.get('neutralLightest')};
   border-radius: 0 0 4px 4px;
-  border-top: 1px solid ${props => getMainColor(props, { themeKey: 'neutral' })};
+  border-top: 1px solid ${theme.get('neutral',{ dynamic: true })};
   max-height: 0;
   min-width: ${({ wrapperRect }) => `${wrapperRect.width}px`};
   top: ${({ wrapperRect }) => `${wrapperRect.top + wrapperRect.height}px`};
@@ -52,12 +51,12 @@ export const EmptyOptions = styled.div`
 
 export const Description = styled.div`
   padding: 0 18px 8px 18px;
-  border-bottom: solid 1px ${props => getMainColor(props, { themeKey: 'neutral' })};
+  border-bottom: solid 1px ${theme.get('neutral',{ dynamic: true })};
 `
 
 export const DescriptionAnnotation = styled.div`
   font-size: ${fontSizes.tiny};
-  color: ${props => getMainColor(props, { themeKey: 'neutral' })};
+  color: ${theme.get('neutral',{ dynamic: true })};
 `
 
 export const SelectAllOption = styled(Option)`

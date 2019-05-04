@@ -21,8 +21,10 @@ const BaseTextInput: React.ComponentType<TextInputInnerProps & React.ClassAttrib
     ...rest
   } = props
 
+  const handleChange = React.useCallback(e => onChange(e.target.value, e), [onChange])
+
   const colorProps = {
-    color: theme.get('neutralStrong', { dynamic: true })(props),
+    color: theme.get('neutralStronger', { dynamic: true })(props),
     placeholderColor: theme.get('neutral')(props)
   }
 
@@ -30,7 +32,7 @@ const BaseTextInput: React.ComponentType<TextInputInnerProps & React.ClassAttrib
     <InputContainer {...rest} {...colorProps} data-disabled={disabled}>
       <Input
         value={value}
-        onChange={e => onChange(e.target.value, e)}
+        onChange={handleChange}
         ref={inputRef || ref}
         loading={loading}
         disabled={disabled}

@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components'
 
 import fontSizes from '../fontSizes'
-import { getMainColor } from '../_internal/colors'
+import theme from '../theme'
 
 export const ArrayInputContainer = styled.div`
   ${({ disabled }) => disabled && css`
@@ -18,7 +18,7 @@ export const ItemContainer = styled.div`
 
   &:not(:last-child) {
     padding-bottom: 8px;
-    border-bottom: 1px solid ${props => getMainColor(props, { themeKey: 'neutral' })};
+    border-bottom: 1px solid ${theme.get('neutral',{ dynamic: true })};
   }
 `
 
@@ -43,7 +43,7 @@ export const ItemHeaderContent = styled.div`
   flex: 1 1 auto;
   overflow: hidden;
   text-overflow: ellipsis;
-  color: ${props => getMainColor(props, { themeKey: 'neutral' })};
+  color: ${theme.get('neutral',{ dynamic: true })};
   font-size: ${fontSizes.small};
 `
 
@@ -62,12 +62,12 @@ export const ItemActions = styled.div`
 
     &[data-disabled="true"] {
       pointer-events: none;
-      color: ${props => getMainColor(props, { themeKey: 'neutral' })};
+      color: ${theme.get('neutral',{ dynamic: true })};
     }
   }
 `
 
 export const ItemDescription = styled.div`
   font-size: ${fontSizes.small};
-  color: ${props => getMainColor(props, { themeKey: 'neutral' })};
+  color: ${theme.get('neutral',{ dynamic: true })};
 `

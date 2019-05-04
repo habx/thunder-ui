@@ -1,8 +1,8 @@
 import * as React from 'react'
 import styled from 'styled-components'
 
-import { getMainColor } from '../_internal/colors'
 import fontSizes from '../fontSizes'
+import theme from '../theme'
 
 import TabsSectionProps from './TabsSection.interface'
 
@@ -16,7 +16,7 @@ const TabsSectionLabel = styled.span`
   top: 0;
   left: 16px;
   font-size: ${fontSizes.tiny};
-  color: ${props => getMainColor(props, { themeKey: 'neutral' })}
+  color: ${theme.get('neutral', { dynamic: true })}
 `
 
 const TabsContainer = styled.div`

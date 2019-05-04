@@ -4,23 +4,10 @@ import BaseSlider, { Range, Handle } from 'rc-slider'
 
 import withLabel from '../withLabel'
 import { getMainColor } from '../_internal/colors'
-import { omit } from '../_internal/data'
+import theme from '../theme'
 
 import { SliderContainer, Label, SliderIndicator, SliderHandlerIndicator } from './Slider.style'
-import SliderProps from './Slider.interface'
-
-const INTERNAL_PROPS = [
-  'range',
-  'max',
-  'customValues',
-  'toolTipSuffix',
-  'min',
-  'step',
-  'labelFormatter',
-  'value',
-  'error',
-  'indicators'
-]
+import SliderProps, { SliderInnerProps } from './Slider.interface'
 
 const getBackgroundColor = (value, indicators) => indicators.reduce(
   (currentColor, indicator) => {
@@ -33,123 +20,91 @@ const getBackgroundColor = (value, indicators) => indicators.reduce(
   null
 )
 
-class Slider extends React.Component<SliderProps> {
-  static defaultProps = {
-    labelFormatter: label => label,
-    range: false,
-    customValues: null,
-    value: null,
-    toolTipSuffix: '',
-    min: 0,
-    max: 100,
-    step: 5,
-    indicators: []
-  }
+const Slider: React.StatelessComponent<SliderInnerProps> = ({
+  range,
+  max,
+  customValues,
+  toolTipSuffix,
+  min,
+  step,
+  labelFormatter,
+  indicators,
+  value,
+  onChange,
+  ...props
+}) => {
+  const [localValue, setLocalValue] = React.useState(value === null ? (range ? [min, max] : min) : value)
 
-  static getDerivedStateFromProps (nextProps, prevState) {
-    if (nextProps.value !== prevState.rawValue && nextProps.value != null) {
-      return {
-        value: nextProps.value,
-        rawValue: nextProps.value
-      }
-    }
-
-    return null
-  }
-
-  state = {
-    value: this.getInitialValue(),
-    rawValue: null
-  }
-
-  getInitialValue () {
-    const { value, range, min, max } = this.props
-
-    if (value == null) {
-      return range ? [min, max] : min
-    }
-
-    return value
-  }
-
-  handleLocalChange = value => this.setState({ value })
-
-  handleChange = () => {
-    const { value, onChange } = this.props
-    const { value: localValue } = this.state
-
+  const handleChange = React.useCallback(() => {
     if (value !== localValue) {
       onChange(localValue)
     }
-  }
+  }, [onChange, value])
 
-  render () {
-    const {
-      range,
-      max,
-      customValues,
-      toolTipSuffix,
-      min,
-      step,
-      labelFormatter,
-      indicators,
-      error
-    } = this.props
-    const { value } = this.state
+  const SliderComponent = range ? Range : BaseSlider
+  const realMax = customValues ? customValues.length - 1 : (max || 100) - ((max || 100) % step)
+  const realMin = customValues ? min : min - (min % step)
 
-    const innerProps = omit(this.props, INTERNAL_PROPS)
+  const isValueArray = Array.isArray(localValue)
+  const label = isValueArray
+    ? `${labelFormatter(value[0])} à ${labelFormatter(localValue[1])}${toolTipSuffix}`
+    : `${(customValues ? customValues[(localValue as number)] : `${labelFormatter(localValue) || 0}${toolTipSuffix}`)}`
 
-    const SliderComponent = range ? Range : BaseSlider
-    const realMax = customValues ? customValues.length - 1 : (max || 100) - ((max || 100) % step)
-    const realMin = customValues ? min : min - (min % step)
+  return (
+    <SliderContainer
+      color={theme.get('primary', { dynamic: true })(props)}
+      {...props}
+    >
+      {indicators.map(({ color, range }) => {
+        const size = (Math.max(...range) - Math.min(...range)) / (realMax - realMin) * 100
+        const position = (Math.min(...range) - realMin) / (realMax - realMin) * 100
 
-    const isValueArray = Array.isArray(value)
-    const label = isValueArray
-      ? `${labelFormatter(value[0])} à ${labelFormatter(value[1])}${toolTipSuffix}`
-      : `${(customValues ? customValues[(value as number)] : `${labelFormatter(value) || 0}${toolTipSuffix}`)}`
-
-    const mainColor = getMainColor(this.props)
-    return (
-      <SliderContainer color={mainColor} {...innerProps}>
-        {indicators.map(({ color, range }) => {
-          const size = (Math.max(...range) - Math.min(...range)) / (realMax - realMin) * 100
-          const position = (Math.min(...range) - realMin) / (realMax - realMin) * 100
-
-          return (
-            <SliderIndicator
-              key={range.join('.')}
-              color={color}
-              size={size}
-              position={position}
+        return (
+          <SliderIndicator
+            key={range.join('.')}
+            color={color}
+            size={size}
+            position={position}
+          />
+        )
+      })}
+      <SliderComponent
+        onAfterChange={handleChange}
+        onChange={setLocalValue}
+        value={localValue}
+        dots={!!customValues}
+        max={realMax}
+        min={realMin}
+        step={customValues ? 1 : step}
+        handle={({ dragging, ...handleProps }) => (
+          <Handle {...handleProps} dragging={`${dragging}`} key={`rc-handle-${handleProps.index}`}>
+            <SliderHandlerIndicator
+              style={{ backgroundColor: getBackgroundColor(handleProps.value, indicators) }}
             />
-          )
-        })}
-        <SliderComponent
-          onAfterChange={this.handleChange}
-          onChange={this.handleLocalChange}
-          value={value}
-          dots={!!customValues}
-          max={realMax}
-          min={realMin}
-          step={customValues ? 1 : step}
-          handle={({ dragging, ...handleProps }) => (
-              <Handle {...handleProps} dragging={`${dragging}`} key={`rc-handle-${handleProps.index}`}>
-                <SliderHandlerIndicator
-                  style={{ backgroundColor: getBackgroundColor(handleProps.value, indicators) }}
-                />
-              </Handle>
-            )
-          }
-        />
-        <Label
-          style={{ left: `calc(100%/${realMax}*${isValueArray ? value[0] : value})` }}
-          color={getMainColor(this.props, { propName: 'tooltipColor' })}
-        >
-          {label ? label : ''}
-        </Label>
-      </SliderContainer>
-    )
-  }
+          </Handle>
+        )
+        }
+      />
+      <Label
+        style={{ left: `calc(100%/${realMax}*${isValueArray ? localValue[0] : localValue})` }}
+        color={theme.get('primary', { propName: 'tooltipColor', dynamic: true })(props)}
+      >
+        {label || ''}
+      </Label>
+    </SliderContainer>
+  )
+}
+
+Slider.defaultProps = {
+  labelFormatter: label => label,
+  range: false,
+  customValues: null,
+  value: null,
+  toolTipSuffix: '',
+  min: 0,
+  max: 100,
+  step: 5,
+  indicators: []
 }
 
 export default withLabel({ padding: 12 })(withTheme(Slider) as React.ComponentType<SliderProps>)

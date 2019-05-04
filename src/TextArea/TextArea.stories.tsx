@@ -13,7 +13,7 @@ const Container = styled.div`
 
 const TextAreaWithState = ({ value = '', ...props }) => {
   const Component = withState('value', 'onChange', value)(newProps => (
-    <TextArea {...newProps} />
+    <TextArea {...newProps} onChange={value => newProps.onChange(value)} />
   ))
 
   return (

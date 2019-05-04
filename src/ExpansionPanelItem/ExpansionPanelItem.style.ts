@@ -1,12 +1,13 @@
 import styled from 'styled-components'
-import { getMainColor } from '../_internal/colors'
+
+import theme from '../theme'
 
 export const ExpansionPanelItemContainer = styled.div`
   display: flex;
   flex-direction: column;
 
   &:not(:last-child) {
-    border-bottom: 1px solid ${props => getMainColor(props, { themeKey: 'neutralLight' })};
+    border-bottom: 1px solid ${theme.get('neutralLight')};
   }
 `
 

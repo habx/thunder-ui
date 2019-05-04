@@ -1,7 +1,7 @@
-import styled, { css } from 'styled-components'
+import styled from 'styled-components'
 
 import fontSizes from '../../fontSizes'
-import { getMainColor } from '../../_internal/colors'
+import theme from '../../theme'
 
 export const OptionContainer = styled.div`
   transition: background-color ease-in 150ms;
@@ -13,7 +13,7 @@ export const OptionContainer = styled.div`
   align-items: center;
   font-size: ${fontSizes.regular};
   padding: ${({ compact }) => compact ? 6 : 12 }px 18px;
-  color: ${props => getMainColor(props, { themeKey: 'neutralStronger' })};
+  color: ${theme.get('neutralStronger',{ dynamic: true })};
 
   i {
     vertical-align: middle;
@@ -23,7 +23,7 @@ export const OptionContainer = styled.div`
   &:hover,
   &:focus,
   &[data-selected="true"]{
-    background-color: ${props => getMainColor(props, { themeKey: 'neutralLighter' })};
+    background-color: ${theme.get('neutralLighter',{ dynamic: true })};
   }
   &[disabled] {
     opacity: 0.5;
