@@ -7,7 +7,7 @@ import Title from '../Title'
 import CardProps, { CardInnerProps } from './Card.interface'
 import { CardContainer, TitleContainer, SubtitleContainer, TitleCount } from './Card.style'
 
-const BaseCard: React.StatelessComponent<CardInnerProps> = ({ headerPosition, action, title, titleCount, subtitle, children, error, warning, ...props }) => {
+const Card: React.StatelessComponent<CardInnerProps> = ({ headerPosition, action, title, titleCount, subtitle, children, error, warning, ...props }) => {
   const titleElement = title && (
     <TitleContainer>
       <Title
@@ -46,11 +46,9 @@ const BaseCard: React.StatelessComponent<CardInnerProps> = ({ headerPosition, ac
   )
 }
 
-BaseCard.defaultProps = {
+Card.defaultProps = {
   headerPosition: 'inside',
   theme: {}
 }
 
-const Card: React.StatelessComponent<CardProps> = withTheme(BaseCard)
-
-export default Card
+export default withTheme(Card) as React.StatelessComponent<CardProps>

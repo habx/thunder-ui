@@ -7,7 +7,7 @@ import theme from '../theme'
 import TextInputProps, { TextInputInnerProps } from './TextInput.interface'
 import { InputContainer, Input, InputSpinner, RightElementContainer } from './TextInput.style'
 
-const BaseTextInput: React.ComponentType<TextInputInnerProps & React.ClassAttributes<any>> = React.forwardRef((props, ref) => {
+const TextInput: React.ComponentType<TextInputInnerProps & React.ClassAttributes<any>> = React.forwardRef((props, ref) => {
   const {
     onChange,
     value,
@@ -59,10 +59,8 @@ const BaseTextInput: React.ComponentType<TextInputInnerProps & React.ClassAttrib
   )
 })
 
-BaseTextInput.defaultProps = {
+TextInput.defaultProps = {
   onChange: () => null
 }
 
-const TextInput: React.StatelessComponent<TextInputProps> = withTheme(BaseTextInput)
-
-export default withLabel()(TextInput)
+export default withLabel()(withTheme(TextInput) as React.StatelessComponent<TextInputProps>)

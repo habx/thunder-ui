@@ -3,13 +3,13 @@ import { withTheme } from 'styled-components'
 
 import Title from '../Title'
 import FontIcon from '../FontIcon'
-import { getMainColor } from '../_internal/colors'
+import theme from '../theme'
 
-import ExpansionPanelItemProps from './ExpansionPanelItem.interface'
+import ExpansionPanelItemProps, { ExpansionPanelItemInnerProps } from './ExpansionPanelItem.interface'
 import { ExpansionPanelItemContainer, TitleBar, CoreContainer, CoreContent } from './ExpansionPanelItem.style'
 import { ExpansionPanelContext } from '../ExpansionPanel/ExpansionPanel.context'
 
-const BaseExpansionPanelItem: React.StatelessComponent<ExpansionPanelItemProps> = ({ children, title, expandIcon, collapseIcon, open, onToggle, titleProps, ...props }) => {
+const ExpansionPanelItem: React.StatelessComponent<ExpansionPanelItemInnerProps> = ({ children, title, expandIcon, collapseIcon, open, onToggle, titleProps, ...props }) => {
   const { openedItems, setOpenedItems, multiOpen } = React.useContext(ExpansionPanelContext)
   const itemRef = React.useRef(Math.random())
   const contentRef = React.useRef(null)
@@ -35,7 +35,7 @@ const BaseExpansionPanelItem: React.StatelessComponent<ExpansionPanelItemProps> 
   const handleToggle = onToggle || handleToggleLocally
 
   const isOpened = open !== undefined ? open : openedItems.includes(itemRef.current)
-  const color = getMainColor(props, { themeKey: 'neutralStronger' })
+  const color = theme.get('neutralStronger', { dynamic: true })(props)
 
   return (
     <ExpansionPanelItemContainer>
@@ -66,6 +66,4 @@ const BaseExpansionPanelItem: React.StatelessComponent<ExpansionPanelItemProps> 
   )
 }
 
-const ExpansionPanelItem = withTheme(BaseExpansionPanelItem)
-
-export default ExpansionPanelItem
+export default withTheme(ExpansionPanelItem) as React.StatelessComponent<ExpansionPanelItemProps>

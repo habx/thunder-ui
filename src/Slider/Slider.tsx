@@ -3,7 +3,6 @@ import { withTheme } from 'styled-components'
 import BaseSlider, { Range, Handle } from 'rc-slider'
 
 import withLabel from '../withLabel'
-import { getMainColor } from '../_internal/colors'
 import theme from '../theme'
 
 import { SliderContainer, Label, SliderIndicator, SliderHandlerIndicator } from './Slider.style'

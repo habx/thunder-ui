@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-import { DOMNode } from '../_internal/types'
+import { DOMNode, styledTheme } from '../_internal/types'
 
 export default interface ExpansionPanelItem extends DOMNode {
   title: React.ReactNode
@@ -10,4 +10,8 @@ export default interface ExpansionPanelItem extends DOMNode {
   open?: boolean
   onToggle?: () => void
   titleProps?: object
+}
+
+export interface ExpansionPanelItemInnerProps extends ExpansionPanelItem {
+  theme: styledTheme
 }
