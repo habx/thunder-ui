@@ -12,7 +12,7 @@ describe('Menu component', () => {
     const { queryByTestId } = render(
       <Menu triggerElement={<Button data-testid="triggerElement" />} />
     )
-    expect(queryByTestId('triggerElement')).toBeDefined()
+    expect(queryByTestId('triggerElement')).toBeTruthy()
   })
 
   it('should be closed by default', () => {

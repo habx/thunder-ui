@@ -16,8 +16,8 @@ describe('Modal component', () => {
 
     const modalContainer = queryByTestId('modal-container')
 
-    expect(modalContainer).toBeDefined()
-    expect(within(modalContainer).queryByTestId('content')).toBeDefined()
+    expect(modalContainer).toBeTruthy()
+    expect(within(modalContainer).queryByTestId('content')).toBeTruthy()
   })
 
   describe('with render props children', () => {

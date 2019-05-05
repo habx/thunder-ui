@@ -48,6 +48,7 @@ export class BaseSelect extends React.Component<SelectProps, SelectState> {
     filterable: false,
     compact: false,
     optionDisabled: () => false,
+    onChange: () => null,
   }
 
   static getDerivedStateFromProps(nextProps, prevState) {
@@ -331,14 +332,16 @@ export class BaseSelect extends React.Component<SelectProps, SelectState> {
     return (
       <SelectContainer ref={this.wrapperRef} {...safeProps}>
         <SelectContent
-          className={placeholderClassName}
+          data-testid="select-content"
           data-open={open}
+          className={placeholderClassName}
           onClick={this.handleToggle}
           color={color}
         >
           {icon && <CustomIconContainer>{icon}</CustomIconContainer>}
           {filterable ? (
             <SearchInput
+              data-testid="select-input"
               value={search}
               placeholder={this.getPlaceholder()}
               onChange={this.handleSearch}
@@ -348,13 +351,17 @@ export class BaseSelect extends React.Component<SelectProps, SelectState> {
               ref={this.inputRef}
             />
           ) : (
-            <Placeholder color={hasValue ? darkColor : color}>
+            <Placeholder
+              data-testid="select-placeholder"
+              color={hasValue ? darkColor : color}
+            >
               {this.getPlaceholder()}
             </Placeholder>
           )}
           <LabelIcons>
             {canReset && (
               <ResetIcon
+                data-testid="select-reset-icon"
                 data-visible={!disabled && hasValue}
                 onClick={this.handleReset}
                 icon="close"

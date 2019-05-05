@@ -33,6 +33,7 @@ class Option extends React.Component<OptionProps> {
     return (
       <OptionContainer
         {...props}
+        data-testid="option-container"
         data-selected={selected}
         ref={this.ref}
         tabIndex="0"

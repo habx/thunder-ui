@@ -16,8 +16,8 @@ describe('Drawer component', () => {
 
     const modalContainer = queryByTestId('drawer-container')
 
-    expect(modalContainer).toBeDefined()
-    expect(within(modalContainer).queryByTestId('content')).toBeDefined()
+    expect(modalContainer).toBeTruthy()
+    expect(within(modalContainer).queryByTestId('content')).toBeTruthy()
   })
 
   describe('with render props children', () => {

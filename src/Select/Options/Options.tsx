@@ -88,7 +88,11 @@ const Options: React.StatelessComponent<OptionsProps> = ({
   }
 
   const optionsContainer = (
-    <OptionsContainer data-open={open} wrapperRect={wrapperRect}>
+    <OptionsContainer
+      data-testid="options-container"
+      data-open={open}
+      wrapperRect={wrapperRect}
+    >
       {content}
     </OptionsContainer>
   )
