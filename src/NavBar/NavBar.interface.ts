@@ -1,12 +1,13 @@
-import { DOMNode } from '../_internal/types'
+import * as React from 'react'
+
+import { DOMNode, styledTheme } from '../_internal/types'
 
 export default interface NavBarProps extends DOMNode {
   backgroundColor?: string
   activeBackgroundColor?: string
-  title?: string
-  defaultMobileIsOpen?: boolean
+  title?: React.ReactElement<any>
 }
 
-export interface NavBarState {
-  mobileIsOpen: boolean
+export interface NavBarInnerProps extends NavBarProps {
+  theme: styledTheme
 }

@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react'
+import * as React from 'react'
 import { createPortal } from 'react-dom'
 
 import { isFunction } from '../_internal/data'
@@ -17,7 +17,7 @@ import {
 
 const ESCAPE_KEY = 27
 
-class Drawer extends PureComponent<DrawerProps> {
+class Drawer extends React.PureComponent<DrawerProps> {
   private readonly ref: React.RefObject<any>
   private timeout: any
 

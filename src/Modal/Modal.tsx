@@ -1,9 +1,8 @@
-import React, { Fragment, PureComponent } from 'react'
+import * as React from 'react'
 import { createPortal } from 'react-dom'
 
 import { isFunction } from '../_internal/data'
 import { isClientSide } from '../_internal/ssr'
-import { DrawerContainer } from '../Drawer/Drawer.style'
 import withTriggerElement from '../withTriggerElement'
 
 import ModalProps from './Modal.interface'
@@ -17,7 +16,7 @@ import {
 
 const ESCAPE_KEY = 27
 
-class Modal extends PureComponent<ModalProps> {
+class Modal extends React.PureComponent<ModalProps> {
   private readonly ref: React.RefObject<any>
   private timeout: any
 
@@ -133,7 +132,7 @@ class Modal extends PureComponent<ModalProps> {
     const currentState = this.getCurrentState()
 
     const modal = (
-      <Fragment>
+      <React.Fragment>
         <Overlay data-state={currentState} onClick={this.handleOverlayClick}>
           <ModalCard
             data-testid="modal-container"
@@ -155,7 +154,7 @@ class Modal extends PureComponent<ModalProps> {
           </ModalCard>
         </Overlay>
         {open && <RemoveBodyScroll />}
-      </Fragment>
+      </React.Fragment>
     )
 
     if (portal && isClientSide()) {
