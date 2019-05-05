@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components'
+import styled from 'styled-components'
 
 import zIndex from '../_internal/zIndex'
 import FontIcon from '../FontIcon'

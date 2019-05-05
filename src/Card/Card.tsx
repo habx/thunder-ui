@@ -1,5 +1,4 @@
 import * as React from 'react'
-import { withTheme } from 'styled-components'
 
 import theme from '../theme'
 import Title from '../Title'
