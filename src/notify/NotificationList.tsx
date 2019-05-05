@@ -1,6 +1,7 @@
 import get from 'lodash.get'
 import * as React from 'react'
 
+import { useIsMounted } from '../_internal/hooks'
 import { subscribe, types } from '../ThunderProvider/ThunderProvider.events'
 
 import { StateNotification } from './NotificationList.interface'
@@ -9,18 +10,6 @@ import {
   Notification,
   ANIMATION_DURATION,
 } from './NotificationList.style'
-
-const useIsMounted = () => {
-  const isMounted = React.useRef(true)
-
-  React.useEffect(() => {
-    return () => {
-      isMounted.current = false
-    }
-  }, [])
-
-  return isMounted
-}
 
 const NotificationList: React.StatelessComponent<{}> = () => {
   const isMounted = useIsMounted()

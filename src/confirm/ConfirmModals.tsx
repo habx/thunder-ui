@@ -1,101 +1,100 @@
 import get from 'lodash.get'
-import memoize from 'lodash.memoize'
 import * as React from 'react'
 import { createPortal } from 'react-dom'
 
+import { useIsMounted } from '../_internal/hooks'
 import { isClientSide } from '../_internal/ssr'
 import Button from '../Button'
 import Modal from '../Modal'
 import { ANIMATION_DURATION } from '../Modal/Modal.style'
 import { subscribe, types } from '../ThunderProvider/ThunderProvider.events'
 
-import ConfirmModalProps, {
-  ConfirmModalsState,
-} from './ConfirmModals.interface'
+import { StateModal } from './ConfirmModals.interface'
 import {
   ConfirmModalContainer,
   ConfirmModalContent,
   ConfirmModalActions,
 } from './ConfirmModals.style'
 
-class ConfirmModal extends React.PureComponent<
-  ConfirmModalProps,
-  ConfirmModalsState
-> {
-  state = {
-    modals: [],
-  }
+const ConfirmModal: React.StatelessComponent<{}> = () => {
+  const isMounted = useIsMounted()
 
-  componentDidMount() {
-    subscribe(
-      types.CONFIRM_MODAL,
-      (message, options) =>
-        new Promise(resolve =>
-          this.setState(prevState => ({
-            modals: [
-              ...prevState.modals,
-              { message, options, resolve, open: true, id: Math.random() },
-            ],
-          }))
+  const [modals, setModals] = React.useState([] as StateModal[])
+
+  const handleResponse = React.useCallback(
+    (modal, response: boolean) => {
+      if (isMounted.current) {
+        setModals(prev =>
+          prev.map(el => (el.id === modal.id ? { ...el, open: false } : el))
         )
-    )
-  }
-
-  handleConfirm = memoize(modal => () => this.handleResponse(modal, true))
-
-  handleCancel = memoize(modal => () => this.handleResponse(modal, false))
-
-  handleResponse = (modal, response: boolean) => {
-    this.setState(
-      prevState => ({
-        modals: prevState.modals.map(el =>
-          el.id === modal.id ? { ...el, open: false } : el
-        ),
-      }),
-      () => this.handleModalClose(modal.id)
-    )
-
-    modal.resolve(response)
-  }
-
-  handleModalClose(id) {
-    setTimeout(() => {
-      this.setState(prevState => ({
-        modals: prevState.modals.filter(el => el.id !== id),
-      }))
-    }, ANIMATION_DURATION)
-  }
-
-  render() {
-    const { modals } = this.state
-    return modals.map(modal => {
-      const content = (
-        <Modal
-          open={modal.open}
-          onClose={this.handleCancel(modal)}
-          key={modal.id}
-        >
-          <ConfirmModalContainer>
-            <ConfirmModalContent>{modal.message}</ConfirmModalContent>
-            <ConfirmModalActions>
-              <Button error onClick={this.handleCancel(modal)}>
-                {get(modal, 'options.cancelText', 'Annuler')}
-              </Button>
-              <Button onClick={this.handleConfirm(modal)}>
-                {get(modal, 'options.confirmText', 'Valider')}
-              </Button>
-            </ConfirmModalActions>
-          </ConfirmModalContainer>
-        </Modal>
-      )
-
-      if (isClientSide()) {
-        return createPortal(content, document.body)
+        setTimeout(() => {
+          if (isMounted.current) {
+            setModals(prev => prev.filter(el => el.id !== modal.id))
+          }
+        }, ANIMATION_DURATION)
       }
 
-      return content
-    })
-  }
+      modal.resolve(response)
+    },
+    [isMounted]
+  )
+
+  const handleConfirm = React.useCallback(
+    modal => handleResponse(modal, true),
+    [handleResponse]
+  )
+
+  const handleCancel = React.useCallback(
+    modal => handleResponse(modal, false),
+    [handleResponse]
+  )
+
+  React.useEffect(
+    () =>
+      subscribe(
+        types.CONFIRM_MODAL,
+        (message, options) =>
+          new Promise(resolve =>
+            setModals(prev => [
+              ...prev,
+              { message, options, resolve, open: true, id: Math.random() },
+            ])
+          )
+      ),
+    []
+  )
+
+  return (
+    <React.Fragment>
+      {modals.map(modal => {
+        const content = (
+          <Modal
+            open={modal.open}
+            onClose={() => handleCancel(modal)}
+            key={modal.id}
+          >
+            <ConfirmModalContainer>
+              <ConfirmModalContent>{modal.message}</ConfirmModalContent>
+              <ConfirmModalActions>
+                <Button error onClick={() => handleCancel(modal)}>
+                  {get(modal, 'options.cancelText', 'Annuler')}
+                </Button>
+                <Button onClick={() => handleConfirm(modal)}>
+                  {get(modal, 'options.confirmText', 'Valider')}
+                </Button>
+              </ConfirmModalActions>
+            </ConfirmModalContainer>
+          </Modal>
+        )
+
+        if (isClientSide()) {
+          return createPortal(content, document.body)
+        }
+
+        return content
+      })}
+    </React.Fragment>
+  )
 }
 
 export default ConfirmModal
