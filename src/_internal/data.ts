@@ -31,3 +31,5 @@ export const isBoolean = (value: any): value is boolean =>
   value === true ||
   value === false ||
   Object.prototype.toString.call(value) === '[object Boolean]'
+
+export const isNil = (value: any): value is null | undefined => value == null

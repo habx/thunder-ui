@@ -10,13 +10,11 @@ export const SelectContainer = styled.div`
   flex: 0 0 auto;
   display: block;
 
-  ${({ disabled }) =>
-    disabled &&
-    css`
-      pointer-events: none;
-      opacity: 0.6;
-      filter: grayscale();
-    `};
+  &[data-disabled='true'] {
+    pointer-events: none;
+    opacity: 0.6;
+    filter: grayscale();
+  }
 `
 
 export const SelectContent = styled.div`

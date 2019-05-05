@@ -2,7 +2,7 @@ import * as React from 'react'
 import { render, fireEvent } from 'react-testing-library'
 import sinon from 'sinon'
 
-import { BaseSelect as Select } from './Select'
+import Select from './Select'
 import { longData } from './Select.data'
 
 import 'jest-dom/extend-expect'
@@ -313,9 +313,7 @@ describe('Select component', () => {
 
       fireEvent.click(getAllByTestId('option-container')[3])
       expect(spyOnChange.calledOnce).toBe(true)
-      expect(spyOnChange.calledWith([longData[2].value, longData[3]])).toBe(
-        true
-      )
+      expect(spyOnChange.calledWith([longData[2], longData[3]])).toBe(true)
     })
 
     it('should return an empty array if click on an option already selected in simple format', () => {
