@@ -1,7 +1,6 @@
 import * as React from 'react'
 import styled from 'styled-components'
 
-import { getHoverColor } from '../_internal/colors'
 import shadows from '../shadows'
 import theme from '../theme'
 
@@ -24,7 +23,7 @@ const prepareProps = props => {
 
   return {
     color,
-    hoverColor: getHoverColor(color, props),
+    hoverColor: theme.getActive(props.hoverColor, color),
     diameter: getDiameter(props),
   }
 }

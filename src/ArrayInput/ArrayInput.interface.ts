@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-import { DOMNode } from '../_internal/types'
+import { DOMNode, styledTheme } from '../_internal/types'
 
 export default interface ArrayInputProps extends DOMNode {
   addButtonLabel?: string
@@ -13,6 +13,10 @@ export default interface ArrayInputProps extends DOMNode {
   onDelete: (item) => void
   onReorder?: (oldPosition: number, newPosition: number) => void
   onAppend?: () => void
+}
+
+export interface ArrayInputInnerProps extends ArrayInputProps {
+  theme: styledTheme
 }
 
 export interface ArrayInputState {

@@ -1,6 +1,5 @@
 import styled, { css } from 'styled-components'
 
-import { getHoverColor } from '../_internal/colors'
 import fontSizes from '../fontSizes'
 import theme from '../theme'
 
@@ -11,7 +10,7 @@ const prepareProps = props => {
 
   return {
     color,
-    hoverColor: getHoverColor(color, props),
+    hoverColor: theme.getActive(props.hoverColor, color),
   }
 }
 

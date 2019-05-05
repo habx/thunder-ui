@@ -1,16 +1,23 @@
 import * as React from 'react'
+import { withTheme } from 'styled-components'
 
-import { getMainColor } from '../_internal/colors'
 import { pick } from '../_internal/data'
 import TextButton from '../TextButton'
+import theme from '../theme'
 import withLabel from '../withLabel'
 
-import ArrayInputProps, { ArrayInputState } from './ArrayInput.interface'
+import ArrayInputProps, {
+  ArrayInputInnerProps,
+  ArrayInputState,
+} from './ArrayInput.interface'
 import { ArrayInputContainer, ArrayInputAction } from './ArrayInput.style'
 import { ArrayContext } from './context'
 import Item from './Item'
 
-class ArrayInput extends React.Component<ArrayInputProps, ArrayInputState> {
+class ArrayInput extends React.Component<
+  ArrayInputInnerProps,
+  ArrayInputState
+> {
   static defaultProps = {
     addButtonLabel: 'Ajouter un élément',
     canBeReordered: false,
@@ -65,10 +72,9 @@ class ArrayInput extends React.Component<ArrayInputProps, ArrayInputState> {
       onClose: this.handleEditStop,
       onDelete: this.handleDelete,
       onReorder: this.handleReorder,
-      iconColor: getMainColor(this.props, {
-        themeKey: 'neutralStronger',
-        propName: 'iconColor',
-      }),
+      iconColor: theme.get('neutralStronger', { propName: 'iconColor' })(
+        this.props
+      ),
     }
   }
 
@@ -90,4 +96,6 @@ class ArrayInput extends React.Component<ArrayInputProps, ArrayInputState> {
   }
 }
 
-export default withLabel({ padding: 16 })(ArrayInput)
+export default withLabel({ padding: 16 })(withTheme(
+  ArrayInput
+) as React.StatelessComponent<ArrayInputProps>)

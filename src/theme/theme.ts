@@ -1,3 +1,5 @@
+import color from 'color'
+
 import { isFunction } from '../_internal/data'
 import { themeAccessor } from '../_internal/types'
 import colors from '../colors'
@@ -81,8 +83,31 @@ const getter = (
   }
 }
 
+const activeGetter = (
+  customColor: string,
+  baseColor?: string,
+  config: { reverse?: boolean } = {}
+) => {
+  const { reverse = false } = config
+
+  if (customColor) {
+    return customColor
+  }
+
+  if (baseColor) {
+    const mixedColor = reverse ? color('#000') : color('#fff')
+
+    return color(baseColor)
+      .mix(mixedColor, 0.2)
+      .string()
+  }
+
+  return LIGHT_THEME.neutral
+}
+
 const theme = {
   get: getter,
+  getActive: activeGetter,
   light: LIGHT_THEME,
   dark: DARK_THEME,
 }

@@ -1,4 +1,3 @@
-import color from 'color'
 import styled, { css } from 'styled-components'
 
 import borderRadius from '../borderRadius'
@@ -6,9 +5,6 @@ import { FontIconContainer } from '../FontIcon/FontIcon.style'
 import fontSizes from '../fontSizes'
 import Spinner from '../Spinner'
 import theme from '../theme'
-
-const WHITE = color('#fff')
-const BLACK = color('#000')
 
 const prepareProps = props => {
   const neutralColor = theme.get('neutralLightest', { propName: 'textColor' })(
@@ -18,16 +14,13 @@ const prepareProps = props => {
 
   const backgroundColor = props.reverse ? neutralColor : primaryColor
   const textColor = props.reverse ? primaryColor : neutralColor
-  const hoverMixColor = props.reverse ? BLACK : WHITE
 
   return {
     backgroundColor,
     textColor,
-    hoverColor:
-      props.hoverColor ||
-      color(backgroundColor)
-        .mix(hoverMixColor, 0.2)
-        .string(),
+    hoverColor: theme.getActive(props.hoverColor, backgroundColor, {
+      reverse: props.reverse,
+    }),
   }
 }
 

@@ -20,8 +20,6 @@ import {
   NavBarTopBarSquare,
 } from './NavBar.style'
 
-const WHITE = color('#fff')
-
 const NavBar: React.ComponentType<
   NavBarInnerProps & React.ClassAttributes<any>
 > = React.forwardRef((props, ref) => {
@@ -42,11 +40,10 @@ const NavBar: React.ComponentType<
   const backgroundColor = theme.get('primary', { propName: 'backgroundColor' })(
     props
   )
-  const activeBackgroundColor =
-    props.activeBackgroundColor ||
-    color(backgroundColor)
-      .mix(WHITE, 0.2)
-      .string()
+  const activeBackgroundColor = theme.getActive(
+    props.activeBackgroundColor,
+    backgroundColor
+  )
 
   return (
     <Context.Provider value={{ activeBackgroundColor }}>

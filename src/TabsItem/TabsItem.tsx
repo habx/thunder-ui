@@ -2,19 +2,16 @@ import tag from 'clean-tag'
 import * as React from 'react'
 import styled, { css } from 'styled-components'
 
-import { getMainColor } from '../_internal/colors'
 import useMergedContext from '../_internal/useMergedContext'
 import fontSizes from '../fontSizes'
 import { Context } from '../Tabs/context'
+import theme from '../theme'
 
 import TabsItemProps from './TabsItem.interface'
 
 const prepareProps = props => {
-  const activeColor = getMainColor(props, {
-    propName: 'activeColor',
-    themeKey: 'primary',
-  })
-  const color = getMainColor(props, { themeKey: 'neutral' })
+  const color = theme.get('neutral')(props)
+  const activeColor = theme.get('primary', { propName: 'activeColor' })(props)
 
   return {
     color,
