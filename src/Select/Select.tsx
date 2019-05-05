@@ -4,16 +4,16 @@ import * as React from 'react'
 import { createPortal } from 'react-dom'
 import { withTheme } from 'styled-components'
 
-import { getMainColor } from '../_internal/colors'
 import { isNil } from '../_internal/data'
 import { isClientSide, ssrDOMRect } from '../_internal/ssr'
 import { searchInString } from '../_internal/strings'
 import { formOption } from '../_internal/types'
 import FontIcon from '../FontIcon'
+import theme from '../theme'
 import withLabel from '../withLabel'
 
 import Options from './Options'
-import SelectProps from './Select.interface'
+import SelectProps, { SelectInnerProps, SelectState } from './Select.interface'
 import {
   SelectContainer,
   SelectContent,
@@ -119,7 +119,7 @@ const usePlaceholder = ({ rawPlaceholder, selectedOptions, multi }) =>
       : rawPlaceholder
   }, [selectedOptions, rawPlaceholder, multi])
 
-const BaseSelect: React.StatelessComponent<SelectProps> = ({
+const BaseSelect: React.StatelessComponent<SelectInnerProps> = ({
   multi,
   description,
   placeholderClassName,
@@ -182,7 +182,10 @@ const BaseSelect: React.StatelessComponent<SelectProps> = ({
     }
   }
 
-  const [state, dispatch] = React.useReducer(reducer, INITIAL_STATE)
+  const [state, dispatch] = React.useReducer(reducer, INITIAL_STATE) as [
+    SelectState,
+    any
+  ]
 
   const options = useOptions({ rawOptions })
   const value = useValue({ rawValue, multi, options })
@@ -197,13 +200,16 @@ const BaseSelect: React.StatelessComponent<SelectProps> = ({
     [valueFormat]
   )
 
-  const handleSearch = React.useCallback(e => {
-    dispatch({ type: 'UPDATE_QUERY', value: e.target.value })
-  }, [])
+  const handleSearch = React.useCallback(
+    e => {
+      dispatch({ type: 'UPDATE_QUERY', value: e.target.value })
+    },
+    [dispatch]
+  )
 
   const handleToggle = React.useCallback(() => {
     dispatch({ type: 'TOGGLE_VISIBILITY' })
-  }, [])
+  }, [dispatch])
 
   const handleSelectOne = React.useCallback(
     option => {
@@ -243,7 +249,7 @@ const BaseSelect: React.StatelessComponent<SelectProps> = ({
         handleToggle()
       }
     },
-    [handleSelectMulti, handleSelectOne, handleToggle, multi]
+    [dispatch, handleSelectMulti, handleSelectOne, handleToggle, multi]
   )
 
   const handleSelectAll = React.useCallback(
@@ -304,24 +310,28 @@ const BaseSelect: React.StatelessComponent<SelectProps> = ({
       window.removeEventListener('keyDown', handleKeyDown)
       window.removeEventListener('resize', handleResize)
     }
-  }, [handleSelect, options, state.focusedItem, state.isOpened, visibleOptions])
+  }, [
+    dispatch,
+    handleSelect,
+    options,
+    state.focusedItem,
+    state.isOpened,
+    visibleOptions,
+  ])
 
   const isOptionSelected = React.useCallback(
     option => {
       if (multi) {
-        return value.some(el => el === option.value)
+        return value.some(el => el.value === option.value)
       }
 
-      return option.value === value
+      return value ? option.value === value.value : false
     },
     [multi, value]
   )
 
-  const color = getMainColor(props, { themeKey: 'neutral' })
-  const darkColor = getMainColor(props, {
-    themeKey: 'neutralStronger',
-    customizable: false,
-  })
+  const color = theme.get('neutral', { dynamic: true })(props)
+  const darkColor = theme.get('neutralStronger')(props)
   const hasValue = multi ? value.length > 0 : !!value
 
   const areAllOptionsSelected = React.useMemo(() => {
@@ -404,6 +414,9 @@ BaseSelect.defaultProps = {
   compact: false,
   optionDisabled: () => false,
   onChange: () => null,
+  theme: {
+    thunderUI: {},
+  },
 }
 
 export default withLabel({ padding: 12 })(withTheme(

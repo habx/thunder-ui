@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-import { Input, formOption } from '../_internal/types'
+import { Input, formOption, styledTheme } from '../_internal/types'
 
 export default interface SelectProps extends Input<any> {
   placeholder?: string
@@ -21,14 +21,15 @@ export default interface SelectProps extends Input<any> {
   optionDisabled?: (option: any) => boolean
 }
 
+export interface SelectInnerProps extends SelectProps {
+  theme: styledTheme
+}
+
 export interface SelectState {
-  open: boolean
-  search: string
-  isInputFocus: boolean
+  isOpened: boolean
+  query: string
   focusedItem: any
-  rawOptions: [any]
-  rawValue: any
   options: formOption[]
-  value: any | any[]
+  value: formOption | formOption[]
   wrapperRect: DOMRect
 }
