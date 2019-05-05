@@ -3,6 +3,7 @@ import { createPortal } from 'react-dom'
 
 import { isFunction } from '../_internal/data'
 import { isClientSide } from '../_internal/ssr'
+import useModal, { ModalState } from '../_internal/useModal'
 import withTriggerElement from '../withTriggerElement'
 
 import ModalProps from './Modal.interface'
@@ -14,155 +15,60 @@ import {
   ANIMATION_DURATION,
 } from './Modal.style'
 
-const ESCAPE_KEY = 27
+const Modal: React.StatelessComponent<ModalProps> = ({
+  children,
+  title,
+  open,
+  closeButton,
+  animated,
+  portal,
+  persistent,
+  onClose,
+  ...props
+}) => {
+  const modal = useModal({
+    open,
+    onClose,
+    persistent,
+    animated,
+    animationDuration: ANIMATION_DURATION,
+  })
 
-class Modal extends React.PureComponent<ModalProps> {
-  private readonly ref: React.RefObject<any>
-  private timeout: any
+  const modalContent = (
+    <React.Fragment>
+      <Overlay data-state={modal.state} onClick={modal.overlayClick}>
+        <ModalCard
+          data-testid="modal-container"
+          data-animated={animated}
+          title={title}
+          headerPosition="inside"
+          {...props}
+          ref={modal.ref}
+          onClick={e => e.stopPropagation()}
+        >
+          {closeButton && (
+            <CloseButtonContainer hasTitle={title} onClick={modal.close}>
+              {closeButton}
+            </CloseButtonContainer>
+          )}
+          {isFunction(children) ? children(modal as ModalState) : children}
+        </ModalCard>
+      </Overlay>
+      {open && <RemoveBodyScroll />}
+    </React.Fragment>
+  )
 
-  static defaultProps = {
-    open: false,
-    persistent: false,
-    animated: true,
-    portal: true,
+  if (portal && isClientSide()) {
+    return createPortal(modalContent, document.body)
   }
 
-  static getDerivedStateFromProps(nextProps) {
-    const { animated } = nextProps
+  return modalContent
+}
 
-    if (!animated) {
-      return {
-        open: nextProps.open,
-      }
-    }
-
-    return null
-  }
-
-  constructor(props) {
-    super(props)
-
-    this.ref = React.createRef()
-  }
-
-  state = {
-    open: false,
-  }
-
-  componentDidMount() {
-    window.addEventListener('keydown', this.handleKeyDown)
-
-    if (this.props.open) {
-      this.animateOpening()
-    }
-  }
-
-  componentDidUpdate(prevProps: Readonly<ModalProps>): void {
-    if (prevProps.open !== this.props.open) {
-      this.animateOpening()
-    }
-  }
-
-  componentWillUnmount() {
-    window.removeEventListener('keydown', this.handleKeyDown)
-    clearTimeout(this.timeout)
-  }
-
-  animateOpening() {
-    const { animated } = this.props
-
-    if (animated) {
-      this.timeout = setTimeout(
-        () => this.setState(() => ({ open: this.props.open })),
-        ANIMATION_DURATION
-      )
-    }
-  }
-
-  getCurrentState() {
-    const { open: propsOpen } = this.props
-    const { open: stateOpen } = this.state
-
-    if (!propsOpen && !stateOpen) {
-      return 'closed'
-    }
-
-    if (!propsOpen && stateOpen) {
-      return 'closing'
-    }
-
-    if (propsOpen && !stateOpen) {
-      return 'opening'
-    }
-
-    return 'opened'
-  }
-
-  handleKeyDown = e => {
-    const { open, persistent } = this.props
-    if (!persistent && open && e.keyCode === ESCAPE_KEY) {
-      this.handleClose(e)
-    }
-  }
-
-  handleOverlayClick = e => {
-    const { open, persistent } = this.props
-    if (!persistent && open && !this.ref.current.contains(e.target)) {
-      this.handleClose(e)
-    }
-  }
-
-  handleClose = (e = null) => {
-    const { onClose } = this.props
-    if (isFunction(onClose)) {
-      onClose(e)
-    }
-  }
-
-  render() {
-    const {
-      children,
-      title,
-      open,
-      closeButton,
-      animated,
-      portal,
-      ...props
-    } = this.props
-    const currentState = this.getCurrentState()
-
-    const modal = (
-      <React.Fragment>
-        <Overlay data-state={currentState} onClick={this.handleOverlayClick}>
-          <ModalCard
-            data-testid="modal-container"
-            data-animated={animated}
-            title={title}
-            headerPosition="inside"
-            {...props}
-            ref={this.ref}
-            onClick={e => e.stopPropagation()}
-          >
-            {closeButton && (
-              <CloseButtonContainer hasTitle={title} onClick={this.handleClose}>
-                {closeButton}
-              </CloseButtonContainer>
-            )}
-            {isFunction(children)
-              ? children({ state: currentState, close: this.handleClose })
-              : children}
-          </ModalCard>
-        </Overlay>
-        {open && <RemoveBodyScroll />}
-      </React.Fragment>
-    )
-
-    if (portal && isClientSide()) {
-      return createPortal(modal, document.body)
-    }
-
-    return modal
-  }
+Modal.defaultProps = {
+  persistent: false,
+  animated: true,
+  portal: true,
 }
 
 export default withTriggerElement(Modal)

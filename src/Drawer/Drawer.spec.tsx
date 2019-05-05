@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { render, within } from 'react-testing-library'
+import { act, render, within } from 'react-testing-library'
 import sinon from 'sinon'
 
 import Drawer from './index'
@@ -9,7 +9,7 @@ jest.useFakeTimers()
 describe('Drawer component', () => {
   describe('with react node children', () => {
     const { queryByTestId } = render(
-      <Drawer onClick={() => null}>
+      <Drawer onClose={() => null}>
         <div data-testid="content">CONTENT</div>
       </Drawer>
     )
@@ -56,12 +56,16 @@ describe('Drawer component', () => {
         </Drawer>
       )
 
-      setTimeout(() => {
+      setTimeout(async () => {
+        await Promise.resolve()
+
         expect(spyChildren.lastCall.args[0].state).toEqual('opened')
         done()
       }, 1000)
 
-      jest.runAllTimers()
+      act(() => {
+        jest.runAllTimers()
+      })
     })
 
     it('should have state="closing" if open just switched to "false"', done => {
@@ -73,18 +77,22 @@ describe('Drawer component', () => {
         </Drawer>
       )
 
-      setTimeout(() => {
+      setTimeout(async () => {
         rerender(
           <Drawer onClose={() => null} open={false}>
             {spyChildren}
           </Drawer>
         )
 
+        await Promise.resolve()
+
         expect(spyChildren.lastCall.args[0].state).toEqual('closing')
         done()
       }, 1000)
 
-      jest.runAllTimers()
+      act(() => {
+        jest.runAllTimers()
+      })
     })
   })
 })

@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { render, within } from 'react-testing-library'
+import { render, within, act } from 'react-testing-library'
 import sinon from 'sinon'
 
 import Modal from './index'
@@ -56,12 +56,15 @@ describe('Modal component', () => {
         </Modal>
       )
 
-      setTimeout(() => {
+      setTimeout(async () => {
+        await Promise.resolve()
         expect(spyChildren.lastCall.args[0].state).toEqual('opened')
         done()
       }, 1000)
 
-      jest.runAllTimers()
+      act(() => {
+        jest.runAllTimers()
+      })
     })
 
     it('should have state="closing" if open just switched to "false"', done => {
@@ -73,18 +76,22 @@ describe('Modal component', () => {
         </Modal>
       )
 
-      setTimeout(() => {
+      setTimeout(async () => {
         rerender(
           <Modal onClose={() => null} open={false}>
             {spyChildren}
           </Modal>
         )
 
+        await Promise.resolve()
+
         expect(spyChildren.lastCall.args[0].state).toEqual('closing')
         done()
       }, 1000)
 
-      jest.runAllTimers()
+      act(() => {
+        jest.runAllTimers()
+      })
     })
   })
 })

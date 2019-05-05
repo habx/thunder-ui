@@ -21,16 +21,6 @@ const props = () => ({
   position: select('Position', ['right', 'left', 'top', 'bottom']),
 })
 
-const DrawerWithState = props => {
-  const Component = withState('open', 'onClose', true)(
-    ({ onClose, ...newProps }) => (
-      <Drawer {...newProps} onClose={() => onClose(false)} />
-    )
-  )
-
-  return <Component {...props} />
-}
-
 storiesOf('Layouts|Drawer', module)
   .addDecorator(withKnobs)
   .add('basic example', () => (
@@ -39,32 +29,32 @@ storiesOf('Layouts|Drawer', module)
     </Drawer>
   ))
   .add('with title', () => (
-    <DrawerWithState {...props()} title="Concerning Hobbits">
+    <Drawer {...props()} title="Concerning Hobbits">
       <Content>{longText}</Content>
-    </DrawerWithState>
+    </Drawer>
   ))
   .add('with close button', () => (
-    <DrawerWithState {...props()} closeButton={<FontIcon icon="arrow_back" />}>
+    <Drawer {...props()} closeButton={<FontIcon icon="arrow_back" />}>
       <Content>{longText}</Content>
-    </DrawerWithState>
+    </Drawer>
   ))
   .add('full example', () => (
-    <DrawerWithState
+    <Drawer
       {...props()}
       title="Concerning Hobbits"
       closeButton={<FontIcon icon="arrow_back" />}
     >
       <Content>{longText}</Content>
-    </DrawerWithState>
+    </Drawer>
   ))
   .add('with render props', () => (
-    <DrawerWithState
+    <Drawer
       {...props()}
       title="Concerning Hobbits"
       closeButton={<FontIcon icon="arrow_back" />}
     >
       {({ state }) => <Content>{`Current state : ${state}`}</Content>}
-    </DrawerWithState>
+    </Drawer>
   ))
   .add('with trigger element', () => (
     <Drawer

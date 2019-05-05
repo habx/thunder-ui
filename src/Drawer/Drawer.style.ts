@@ -28,6 +28,7 @@ const prepareProps = ({ position }) => {
     default:
       break
   }
+
   return {
     left: position !== 'right' ? 0 : 'unset',
     right: position !== 'left' ? 0 : 'unset',
@@ -71,6 +72,7 @@ export const DrawerTitle = styled(Title)`
   display: flex;
   padding: 32px 64px 16px;
   border-bottom: solid #efefef 1px;
+
   @media screen and (max-width: 992px) {
     padding: 32px;
   }

@@ -3,7 +3,7 @@ import * as React from 'react'
 import { isFunction } from './_internal/data'
 
 type TriggerReceivedProps = {
-  triggerElement: ((state: TriggerState) => JSX.Element) | JSX.Element
+  triggerElement?: ((state: TriggerState) => JSX.Element) | JSX.Element
   onClose?: (e: React.FormEvent<HTMLInputElement>) => void
 }
 
@@ -11,7 +11,7 @@ type TriggerState = {
   open: boolean
 }
 
-const withTriggerElement = <Props extends TriggerState>(
+const withTriggerElement = <Props extends object>(
   WrappedComponent: React.ComponentType<Props>
 ) => {
   const Wrapper = (props: Props & TriggerReceivedProps) => {
@@ -36,7 +36,7 @@ const withTriggerElement = <Props extends TriggerState>(
     )
 
     if (!triggerElement) {
-      return <WrappedComponent {...rest as Props} />
+      return <WrappedComponent {...rest as Props} onClose={onClose} />
     }
 
     return (
