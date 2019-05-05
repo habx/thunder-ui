@@ -90,6 +90,7 @@ export const BaseRadioSelect: React.StatelessComponent<
     <RadioSelectContainer color={color} data-disabled={disabled} {...rest}>
       {options.map(({ value, label }, index) => (
         <Option
+          data-testid="radio-select-option"
           isNextSelected={index < options.length - 1 && selected[index + 1]}
           isPreviousSelected={index > 0 && selected[index - 1]}
           key={value}
@@ -109,6 +110,9 @@ BaseRadioSelect.defaultProps = {
   multi: false,
   disabled: false,
   options: [],
+  theme: {
+    thunderUI: {},
+  },
 }
 
 export default withLabel({ padding: 12 })(withTheme(

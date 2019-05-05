@@ -53,11 +53,11 @@ describe('Button component', () => {
   })
 
   it('should call the onClick property when clicked', () => {
-    const spyCallback = sinon.spy()
-    const { container } = render(<Button onClick={spyCallback}>Label</Button>)
+    const spyOnChange = sinon.spy()
+    const { container } = render(<Button onClick={spyOnChange}>Label</Button>)
 
     fireEvent.click(container.firstChild as Element)
 
-    expect(spyCallback.calledOnce).toBe(true)
+    expect(spyOnChange.calledOnce).toBe(true)
   })
 })

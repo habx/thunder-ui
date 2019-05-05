@@ -18,15 +18,15 @@ describe('IconButton component', () => {
   })
 
   it('should call onClick function on click', () => {
-    const spyCallback = sinon.spy()
+    const spyOnChange = sinon.spy()
     const { container } = render(
-      <IconButton onClick={spyCallback}>
+      <IconButton onClick={spyOnChange}>
         <FontIcon data-testid="face-icon" icon="face" />
       </IconButton>
     )
 
     fireEvent.click(container.firstChild as Element)
 
-    expect(spyCallback.calledOnce).toBe(true)
+    expect(spyOnChange.calledOnce).toBe(true)
   })
 })
