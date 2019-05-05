@@ -17,7 +17,7 @@ ThunderUI is available on [npm](https://www.npmjs.com/package/@habx/thunder-ui)
 # using npm
 npm install @habx/thunder-ui
 
-# using yarn like the cool kids out there
+# using yarn
 yarn add @habx/thunder-ui
 ```
 
