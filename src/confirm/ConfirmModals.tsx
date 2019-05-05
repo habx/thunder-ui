@@ -54,12 +54,17 @@ const ConfirmModal: React.StatelessComponent<{}> = () => {
       subscribe(
         types.CONFIRM_MODAL,
         (message, options) =>
-          new Promise(resolve =>
-            setModals(prev => [
-              ...prev,
-              { message, options, resolve, open: true, id: Math.random() },
-            ])
-          )
+          new Promise(resolve => {
+            const modal = {
+              message,
+              options,
+              resolve,
+              open: true,
+              id: Math.random(),
+            }
+
+            setModals(prev => [...prev, modal])
+          })
       ),
     []
   )
@@ -73,13 +78,22 @@ const ConfirmModal: React.StatelessComponent<{}> = () => {
             onClose={() => handleCancel(modal)}
             key={modal.id}
           >
-            <ConfirmModalContainer>
-              <ConfirmModalContent>{modal.message}</ConfirmModalContent>
+            <ConfirmModalContainer data-testid="confirm-modal-container">
+              <ConfirmModalContent data-testid="confirm-modal-content">
+                {modal.message}
+              </ConfirmModalContent>
               <ConfirmModalActions>
-                <Button error onClick={() => handleCancel(modal)}>
+                <Button
+                  data-testid="confirm-modal-cancel"
+                  error
+                  onClick={() => handleCancel(modal)}
+                >
                   {get(modal, 'options.cancelText', 'Annuler')}
                 </Button>
-                <Button onClick={() => handleConfirm(modal)}>
+                <Button
+                  data-testid="confirm-modal-confirm"
+                  onClick={() => handleConfirm(modal)}
+                >
                   {get(modal, 'options.confirmText', 'Valider')}
                 </Button>
               </ConfirmModalActions>

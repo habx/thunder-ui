@@ -12,14 +12,20 @@ const MESSAGE_1 = 'test message 1'
 const MESSAGE_2 = 'test message 2'
 
 describe('notify function', () => {
+  it('should display no notification if not called', () => {
+    const { queryAllByTestId } = render(<ThunderProvider />)
+
+    expect(queryAllByTestId('notification-container')).toHaveLength(0)
+  })
+
   it('should display one notification with message if called once', () => {
-    const { getAllByTestId } = render(<ThunderProvider />)
+    const { queryAllByTestId } = render(<ThunderProvider />)
 
     act(() => {
       notify(MESSAGE_1)
     })
 
-    const notifications = getAllByTestId('notification-container')
+    const notifications = queryAllByTestId('notification-container')
     expect(notifications).toHaveLength(1)
     expect(
       within(notifications[0]).getByTestId('notification-content').textContent

@@ -19,15 +19,19 @@ const NotificationList: React.StatelessComponent<{}> = () => {
   )
 
   const handleClose = React.useCallback(
-    id => {
+    notification => {
       if (isMounted.current) {
         setNotifications(prev =>
-          prev.map(el => (el.id === id ? { ...el, open: false } : el))
+          prev.map(el =>
+            el.id === notification.id ? { ...el, open: false } : el
+          )
         )
 
         setTimeout(() => {
           if (isMounted.current) {
-            setNotifications(prev => prev.filter(el => el.id !== id))
+            setNotifications(prev =>
+              prev.filter(el => el.id !== notification.id)
+            )
           }
         }, ANIMATION_DURATION)
       }
@@ -38,15 +42,12 @@ const NotificationList: React.StatelessComponent<{}> = () => {
   React.useEffect(
     () =>
       subscribe(types.NOTIFY, (message, options) => {
-        const id = Math.random()
+        const notification = { message, options, open: true, id: Math.random() }
 
-        setNotifications(prev => [
-          ...prev,
-          { message, options, open: true, id },
-        ])
+        setNotifications(prev => [...prev, notification])
 
         if (options.duration !== 0) {
-          setTimeout(() => handleClose(id), options.duration || 5000)
+          setTimeout(() => handleClose(notification), options.duration || 5000)
         }
       }),
     [handleClose]
@@ -59,7 +60,7 @@ const NotificationList: React.StatelessComponent<{}> = () => {
           key={notification.id}
           error={get(notification, 'options.type') === 'error'}
           warning={get(notification, 'options.type') === 'warning'}
-          onClose={() => handleClose(notification.id)}
+          onClose={() => handleClose(notification)}
           data-closing={!notification.open}
         >
           {notification.message}
