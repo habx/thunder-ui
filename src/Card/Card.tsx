@@ -12,17 +12,21 @@ import {
   TitleCount,
 } from './Card.style'
 
-const Card: React.StatelessComponent<CardInnerProps> = ({
-  headerPosition,
-  action,
-  title,
-  titleCount,
-  subtitle,
-  children,
-  error,
-  warning,
-  ...props
-}) => {
+const Card: React.ComponentType<
+  CardInnerProps & React.ClassAttributes<any>
+> = React.forwardRef((props, ref) => {
+  const {
+    headerPosition,
+    action,
+    title,
+    titleCount,
+    subtitle,
+    children,
+    error,
+    warning,
+    ...rest
+  } = props
+
   const titleElement = title && (
     <TitleContainer>
       <Title
@@ -43,7 +47,7 @@ const Card: React.StatelessComponent<CardInnerProps> = ({
   return (
     <React.Fragment>
       {headerPosition === 'outside' && titleElement}
-      <CardContainer {...props} error={error} warning={warning}>
+      <CardContainer {...rest} error={error} warning={warning} ref={ref}>
         {headerPosition === 'inside' && titleElement}
         {subtitle && (
           <SubtitleContainer>
@@ -61,11 +65,11 @@ const Card: React.StatelessComponent<CardInnerProps> = ({
       </CardContainer>
     </React.Fragment>
   )
-}
+})
 
 Card.defaultProps = {
   headerPosition: 'inside',
   theme: {},
 }
 
-export default withTheme(Card) as React.StatelessComponent<CardProps>
+export default Card as React.StatelessComponent<CardProps>

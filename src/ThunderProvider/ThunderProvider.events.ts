@@ -4,6 +4,10 @@ let subscriptions = {}
 
 export const subscribe = (messageType, callback) => {
   subscriptions[messageType] = callback
+
+  return () => {
+    subscriptions[messageType] = null
+  }
 }
 
 export const dispatch = (

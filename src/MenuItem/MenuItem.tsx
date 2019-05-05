@@ -13,7 +13,11 @@ const MenuItem: React.StatelessComponent<MenuItemProps> = ({
   icon,
   ...props
 }) => (
-  <MenuItemContainer {...props} data-disabled={disabled}>
+  <MenuItemContainer
+    data-testid="menu-item-container"
+    data-disabled={disabled}
+    {...props}
+  >
     {icon && <IconContainer>{icon}</IconContainer>}
     <MenuItemContent>{children}</MenuItemContent>
   </MenuItemContainer>

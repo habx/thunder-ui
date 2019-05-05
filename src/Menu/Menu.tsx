@@ -61,6 +61,7 @@ const Menu: React.StatelessComponent<MenuProps> = ({
 
   const menu = (
     <MenuContainer
+      data-testid="menu-container"
       data-open={open}
       position={position}
       wrapperRect={wrapperRect}

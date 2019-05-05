@@ -1,12 +1,10 @@
 import * as React from 'react'
-import { render, cleanup, within, fireEvent } from 'react-testing-library'
+import { render, within, fireEvent } from 'react-testing-library'
 import sinon from 'sinon'
 
 import FontIcon from '../FontIcon'
 
 import Button from './index'
-
-afterEach(cleanup)
 
 describe('Button component', () => {
   it('should display the right label', () => {
@@ -55,11 +53,11 @@ describe('Button component', () => {
   })
 
   it('should call the onClick property when clicked', () => {
-    const spyChildren = sinon.spy()
-    const { container } = render(<Button onClick={spyChildren}>Label</Button>)
+    const spyCallback = sinon.spy()
+    const { container } = render(<Button onClick={spyCallback}>Label</Button>)
 
     fireEvent.click(container.firstChild as Element)
 
-    expect(spyChildren.calledOnce).toBe(true)
+    expect(spyCallback.calledOnce).toBe(true)
   })
 })

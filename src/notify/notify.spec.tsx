@@ -1,35 +1,68 @@
-import { mount } from 'enzyme'
 import * as React from 'react'
+import { render, within, act } from 'react-testing-library'
 
 import ThunderProvider from '../ThunderProvider'
 
 import notify from './index'
 import { ANIMATION_DURATION } from './NotificationList.style'
 
+jest.useFakeTimers()
+
+const MESSAGE_1 = 'test message 1'
+const MESSAGE_2 = 'test message 2'
+
 describe('notify function', () => {
-  const message = 'test message'
-  it('should not show the notification if not called', () => {
-    const wrapper = mount(<ThunderProvider />)
-    expect(wrapper.contains(message)).toBe(false)
+  it('should display one notification with message if called once', () => {
+    const { getAllByTestId } = render(<ThunderProvider />)
+
+    act(() => {
+      notify(MESSAGE_1)
+    })
+
+    const notifications = getAllByTestId('notification-container')
+    expect(notifications).toHaveLength(1)
+    expect(
+      within(notifications[0]).getByTestId('notification-content').textContent
+    ).toEqual(MESSAGE_1)
   })
-  it('should show the confirm modal if called', () => {
-    const wrapper = mount(<ThunderProvider />)
-    notify(message)
-    wrapper.mount()
-    expect(wrapper.contains(message)).toBe(true)
+
+  it('should display two notifications in chronological order if called twice', () => {
+    const { getAllByTestId } = render(<ThunderProvider />)
+
+    act(() => {
+      notify(MESSAGE_1)
+      notify(MESSAGE_2)
+    })
+
+    const notifications = getAllByTestId('notification-container')
+    expect(notifications).toHaveLength(2)
+    expect(
+      within(notifications[0]).getByTestId('notification-content').textContent
+    ).toEqual(MESSAGE_1)
+    expect(
+      within(notifications[1]).getByTestId('notification-content').textContent
+    ).toEqual(MESSAGE_2)
   })
-  it('should disapear after timeout', () => {
-    const wrapper = mount(<ThunderProvider />)
+
+  it('should remove notification after timeout', done => {
+    const { queryAllByTestId, rerender } = render(<ThunderProvider />)
+
     const duration = 200
-    notify(message, { duration })
-    wrapper.mount()
-    expect(wrapper.contains(message)).toBe(true)
-    return new Promise(resolve => {
-      setTimeout(() => {
-        wrapper.mount()
-        expect(wrapper.contains(message)).toBe(false)
-        resolve()
-      }, ANIMATION_DURATION + duration + 50)
+
+    act(() => {
+      notify(MESSAGE_1, { duration })
+    })
+
+    setTimeout(async () => {
+      rerender(<ThunderProvider />)
+      await Promise.resolve()
+      const notifications = queryAllByTestId('notification-container')
+      expect(notifications).toHaveLength(0)
+      done()
+    }, ANIMATION_DURATION + duration + 5000)
+
+    act(() => {
+      jest.runAllTimers()
     })
   })
 })

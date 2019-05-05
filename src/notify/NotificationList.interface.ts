@@ -3,15 +3,9 @@ export type NotificationOptions = {
   duration?: number
 }
 
-export type Notification = {
+export type StateNotification = {
   message: string
   options: NotificationOptions
   open: boolean
   id: number
-}
-
-export default interface NotificationListProps {}
-
-export interface NotificationListState {
-  notifications: Notification[]
 }

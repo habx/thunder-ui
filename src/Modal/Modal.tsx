@@ -3,6 +3,7 @@ import { createPortal } from 'react-dom'
 
 import { isFunction } from '../_internal/data'
 import { isClientSide } from '../_internal/ssr'
+import { DrawerContainer } from '../Drawer/Drawer.style'
 import withTriggerElement from '../withTriggerElement'
 
 import ModalProps from './Modal.interface'
@@ -105,7 +106,7 @@ class Modal extends PureComponent<ModalProps> {
     }
   }
 
-  handleClick = e => {
+  handleOverlayClick = e => {
     const { open, persistent } = this.props
     if (!persistent && open && !this.ref.current.contains(e.target)) {
       this.handleClose(e)
@@ -133,27 +134,25 @@ class Modal extends PureComponent<ModalProps> {
 
     const modal = (
       <Fragment>
-        <Overlay data-state={currentState} onClick={this.handleClick}>
-          <div ref={this.ref} onClick={e => e.stopPropagation()}>
-            <ModalCard
-              title={title}
-              headerPosition="inside"
-              {...props}
-              data-animated={animated}
-            >
-              {closeButton && (
-                <CloseButtonContainer
-                  hasTitle={title}
-                  onClick={this.handleClose}
-                >
-                  {closeButton}
-                </CloseButtonContainer>
-              )}
-              {isFunction(children)
-                ? children({ state: currentState, close: this.handleClose })
-                : children}
-            </ModalCard>
-          </div>
+        <Overlay data-state={currentState} onClick={this.handleOverlayClick}>
+          <ModalCard
+            data-testid="modal-container"
+            data-animated={animated}
+            title={title}
+            headerPosition="inside"
+            {...props}
+            ref={this.ref}
+            onClick={e => e.stopPropagation()}
+          >
+            {closeButton && (
+              <CloseButtonContainer hasTitle={title} onClick={this.handleClose}>
+                {closeButton}
+              </CloseButtonContainer>
+            )}
+            {isFunction(children)
+              ? children({ state: currentState, close: this.handleClose })
+              : children}
+          </ModalCard>
         </Overlay>
         {open && <RemoveBodyScroll />}
       </Fragment>

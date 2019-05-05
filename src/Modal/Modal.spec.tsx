@@ -1,5 +1,5 @@
-import { mount } from 'enzyme'
 import * as React from 'react'
+import { render, within } from 'react-testing-library'
 import sinon from 'sinon'
 
 import Modal from './index'
@@ -8,26 +8,23 @@ jest.useFakeTimers()
 
 describe('Modal component', () => {
   describe('with react node children', () => {
-    let wrapper = null
+    const { queryByTestId } = render(
+      <Modal onClick={() => null}>
+        <div data-testid="content">CONTENT</div>
+      </Modal>
+    )
 
-    beforeEach(() => {
-      wrapper = mount(
-        <Modal onClose={() => null}>
-          <div id="modal-content">CONTENT</div>
-        </Modal>
-      )
-    })
+    const modalContainer = queryByTestId('modal-container')
 
-    it('should pass children', () => {
-      expect(wrapper.find('#modal-content')).toHaveLength(1)
-    })
+    expect(modalContainer).toBeDefined()
+    expect(within(modalContainer).queryByTestId('content')).toBeDefined()
   })
 
   describe('with render props children', () => {
     it('should have state="closed" if modal is closed', () => {
       const spyChildren = sinon.spy()
 
-      mount(
+      render(
         <Modal onClose={() => null} open={false}>
           {spyChildren}
         </Modal>
@@ -40,7 +37,7 @@ describe('Modal component', () => {
     it('should have state = "opening" if modal is mounted with open=true"', () => {
       const spyChildren = sinon.spy()
 
-      mount(
+      render(
         <Modal onClose={() => null} open>
           {spyChildren}
         </Modal>
@@ -53,7 +50,7 @@ describe('Modal component', () => {
     it('should have state="opened" if opened for more than 1 second"', done => {
       const spyChildren = sinon.spy()
 
-      mount(
+      render(
         <Modal onClose={() => null} open>
           {spyChildren}
         </Modal>
@@ -70,14 +67,18 @@ describe('Modal component', () => {
     it('should have state="closing" if open just switched to "false"', done => {
       const spyChildren = sinon.spy()
 
-      const wrapper = mount(
+      const { rerender } = render(
         <Modal onClose={() => null} open>
           {spyChildren}
         </Modal>
       )
 
       setTimeout(() => {
-        wrapper.setProps({ open: false })
+        rerender(
+          <Modal onClose={() => null} open={false}>
+            {spyChildren}
+          </Modal>
+        )
 
         expect(spyChildren.lastCall.args[0].state).toEqual('closing')
         done()

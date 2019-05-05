@@ -21,6 +21,7 @@ const Notification: React.StatelessComponent<NotificationProps> = ({
   ...props
 }) => (
   <NotificationContainer
+    data-testid="notification-container"
     backgroundColor={backgroundColor}
     error={error}
     warning={warning}
@@ -29,7 +30,9 @@ const Notification: React.StatelessComponent<NotificationProps> = ({
     {illustration && (
       <NotificationIllustration>{illustration}</NotificationIllustration>
     )}
-    <NotificationContent>{children}</NotificationContent>
+    <NotificationContent data-testid="notification-content">
+      {children}
+    </NotificationContent>
     <CloseContainer onClick={onClose}>
       {closeIcon || <FontIcon icon="close" />}
     </CloseContainer>

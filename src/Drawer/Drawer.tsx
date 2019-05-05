@@ -89,7 +89,7 @@ class Drawer extends PureComponent<DrawerProps> {
     }
   }
 
-  handleClick = e => {
+  handleOverlayClick = e => {
     const { open } = this.props
     if (open && !this.ref.current.contains(e.target)) {
       this.handleClose(e)
@@ -115,22 +115,24 @@ class Drawer extends PureComponent<DrawerProps> {
     const currentState = this.getCurrentState()
 
     const drawer = (
-      <Overlay data-state={currentState} onClick={this.handleClick}>
-        <div ref={this.ref} onClick={e => e.stopPropagation()}>
-          <DrawerContainer data-state={currentState} {...props}>
-            {title && <DrawerTitle size={3}>{title}</DrawerTitle>}
-            {closeButton && (
-              <DrawerClose onClick={this.handleClose}>
-                {closeButton}
-              </DrawerClose>
-            )}
-            <DrawerContent as={contentContainerComponent}>
-              {isFunction(children)
-                ? children({ state: currentState, close: this.handleClose })
-                : children}
-            </DrawerContent>
-          </DrawerContainer>
-        </div>
+      <Overlay data-state={currentState} onClick={this.handleOverlayClick}>
+        <DrawerContainer
+          data-testid="drawer-container"
+          data-state={currentState}
+          {...props}
+          ref={this.ref}
+          onClick={e => e.stopPropagation()}
+        >
+          {title && <DrawerTitle size={3}>{title}</DrawerTitle>}
+          {closeButton && (
+            <DrawerClose onClick={this.handleClose}>{closeButton}</DrawerClose>
+          )}
+          <DrawerContent as={contentContainerComponent}>
+            {isFunction(children)
+              ? children({ state: currentState, close: this.handleClose })
+              : children}
+          </DrawerContent>
+        </DrawerContainer>
       </Overlay>
     )
 
