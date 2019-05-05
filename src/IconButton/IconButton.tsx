@@ -1,7 +1,6 @@
 import * as React from 'react'
 import styled from 'styled-components'
 
-import shadows from '../shadows'
 import theme from '../theme'
 
 import IconButtonProps from './IconButton.interface'
@@ -39,17 +38,17 @@ const IconButton: React.StatelessComponent<
   border-radius: 50%;
 
   background-color: ${({ color }) => color};
-  box-shadow: ${shadows.light};
+  box-shadow: ${theme.get('shadowLight')};
 
   cursor: pointer;
   user-select: none;
 
   &:hover {
-    box-shadow: ${shadows.strong};
+    box-shadow: ${theme.get('shadowStrong')};
   }
 
   &:active {
-    box-shadow: ${shadows.strong};
+    box-shadow: ${theme.get('shadowStrong')};
   }
 
   &:hover,

@@ -1,7 +1,5 @@
 import React from 'react'
 
-import colors from '../colors'
-
 import Navigation from './Navigation'
 import SlideShowProps from './SlideShow.interface'
 import {
@@ -47,7 +45,6 @@ const SlideShow: React.StatelessComponent<SlideShowProps> = ({
 
 SlideShow.defaultProps = {
   isNavigationVisible: true,
-  color: colors.trueBlue,
   transitionDuration: 200,
 }
 

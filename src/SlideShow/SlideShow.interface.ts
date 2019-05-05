@@ -10,7 +10,7 @@ export default interface SlideShowProps extends DOMNode {
 
 export interface NavigationProps {
   canNavigate: boolean
-  color: string
+  color?: string
   length: number
   active: number
   onClick?: (index: number) => void

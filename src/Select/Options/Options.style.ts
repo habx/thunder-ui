@@ -1,9 +1,7 @@
 import styled from 'styled-components'
 
 import zIndex from '../../_internal/zIndex'
-import colors from '../../colors'
 import fontSizes from '../../fontSizes'
-import shadows from '../../shadows'
 import theme from '../../theme'
 import Option from '../Option'
 
@@ -11,7 +9,7 @@ export const OptionsContainer = styled.div`
   position: fixed;
   z-index: ${zIndex.highest};
 
-  box-shadow: ${shadows.light};
+  box-shadow: ${theme.get('shadowLight')};
   opacity: 0;
   overflow: hidden;
   margin-top: -1px;
@@ -60,6 +58,6 @@ export const DescriptionAnnotation = styled.div`
 `
 
 export const SelectAllOption = styled(Option)`
-  border-bottom: solid 1px ${colors.paynesGrey};
+  border-bottom: solid 1px ${theme.get('neutral')};
   font-weight: 600;
 `

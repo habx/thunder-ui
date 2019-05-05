@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components'
 
-import colors from '../colors'
+import theme from '../theme'
 
 export const Label = styled.span`
   position: absolute;
@@ -275,7 +275,7 @@ export const SliderContainer = styled(RcSliderStyle)`
 
 export const SliderIndicator = styled.div`
   position: absolute;
-  background-color: ${({ color }) => color || colors.internationalOrange};
+  background-color: ${theme.get('warning')};
   width: ${({ size }) => size}%;
   left: ${({ position }) => position}%;
   height: 4px;

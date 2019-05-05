@@ -1,5 +1,7 @@
 import styled, { css } from 'styled-components'
 
+import theme from '../theme'
+
 export const SlideshowContainer = styled.div`
   width: 100%;
   position: relative;
@@ -56,6 +58,6 @@ export const Dot = styled.div`
 
   &[data-active='true'] {
     width: 16px;
-    background-color: ${({ color }) => color};
+    background-color: ${theme.get('primary')};
   }
 `
