@@ -121,6 +121,6 @@
       "js",
       "json"
     ],
-    "setupTestFrameworkScriptFile": "./config/jest.ts"
+    "setupFilesAfterEnv": ["./config/jest.ts"]
   }
 }
