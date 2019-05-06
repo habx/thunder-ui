@@ -1,7 +1,7 @@
 import get from 'lodash.get'
 import * as React from 'react'
 
-import { useIsMounted } from '../_internal/hooks'
+import { useIsMounted, useTimeout } from '../_internal/hooks'
 import { subscribe, types } from '../ThunderProvider/ThunderProvider.events'
 
 import { StateNotification } from './NotificationList.interface'
@@ -13,6 +13,7 @@ import {
 
 const NotificationList: React.StatelessComponent<{}> = () => {
   const isMounted = useIsMounted()
+  const registerTimeout = useTimeout()
 
   const [notifications, setNotifications] = React.useState(
     [] as StateNotification[]
@@ -27,16 +28,18 @@ const NotificationList: React.StatelessComponent<{}> = () => {
           )
         )
 
-        setTimeout(() => {
-          if (isMounted.current) {
-            setNotifications(prev =>
-              prev.filter(el => el.id !== notification.id)
-            )
-          }
-        }, ANIMATION_DURATION)
+        registerTimeout(
+          setTimeout(() => {
+            if (isMounted.current) {
+              setNotifications(prev =>
+                prev.filter(el => el.id !== notification.id)
+              )
+            }
+          }, ANIMATION_DURATION)
+        )
       }
     },
-    [isMounted]
+    [isMounted, registerTimeout]
   )
 
   React.useEffect(
@@ -47,10 +50,15 @@ const NotificationList: React.StatelessComponent<{}> = () => {
         setNotifications(prev => [...prev, notification])
 
         if (options.duration !== 0) {
-          setTimeout(() => handleClose(notification), options.duration || 5000)
+          registerTimeout(
+            setTimeout(
+              () => handleClose(notification),
+              options.duration || 5000
+            )
+          )
         }
       }),
-    [handleClose]
+    [registerTimeout, handleClose]
   )
 
   return (

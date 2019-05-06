@@ -2,7 +2,7 @@ import get from 'lodash.get'
 import * as React from 'react'
 import { createPortal } from 'react-dom'
 
-import { useIsMounted } from '../_internal/hooks'
+import { useIsMounted, useTimeout } from '../_internal/hooks'
 import { isClientSide } from '../_internal/ssr'
 import Button from '../Button'
 import Modal from '../Modal'
@@ -18,6 +18,7 @@ import {
 
 const ConfirmModal: React.StatelessComponent<{}> = () => {
   const isMounted = useIsMounted()
+  const registerTimeout = useTimeout()
 
   const [modals, setModals] = React.useState([] as StateModal[])
 
@@ -27,16 +28,19 @@ const ConfirmModal: React.StatelessComponent<{}> = () => {
         setModals(prev =>
           prev.map(el => (el.id === modal.id ? { ...el, open: false } : el))
         )
-        setTimeout(() => {
-          if (isMounted.current) {
-            setModals(prev => prev.filter(el => el.id !== modal.id))
-          }
-        }, ANIMATION_DURATION)
+
+        registerTimeout(
+          setTimeout(() => {
+            if (isMounted.current) {
+              setModals(prev => prev.filter(el => el.id !== modal.id))
+            }
+          }, ANIMATION_DURATION)
+        )
       }
 
       modal.resolve(response)
     },
-    [isMounted]
+    [isMounted, registerTimeout]
   )
 
   const handleConfirm = React.useCallback(
