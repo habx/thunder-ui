@@ -36,29 +36,32 @@ const INITIAL_STATE = {
 }
 
 const useOptions = ({ rawOptions }) =>
-  React.useMemo(
-    () =>
-      rawOptions.map(option => ({
-        value: get(option, 'value', option),
-        label: get(option, 'label', option),
-      })),
-    [rawOptions]
-  )
+  React.useMemo(() => {
+    if (!rawOptions) {
+      return []
+    }
+
+    return rawOptions.map(option => ({
+      value: get(option, 'value', option),
+      label: get(option, 'label', option),
+    }))
+  }, [rawOptions])
 
 const useValue = ({ rawValue, multi, options }) =>
   React.useMemo(() => {
     const cleanValue = value => {
       if (isNil(value)) {
-        return null
+        return { value, label: 'No value' }
       }
 
       if (has(value, 'value')) {
         return value
       }
 
+      const matchingOption = options.find(el => el.value === value)
       return {
         value,
-        label: options.find(el => el.value === value).label || value,
+        label: matchingOption ? matchingOption.label : value,
       }
     }
 
@@ -226,9 +229,11 @@ const BaseSelect: React.StatelessComponent<SelectInnerProps> = ({
       )
 
       if (isSelected) {
-        const newValue = value.filter(el =>
-          has(el, 'value') ? el.value !== option.value : el !== option.value
-        )
+        const newValue = value
+          .filter(el =>
+            has(el, 'value') ? el.value !== option.value : el !== option.value
+          )
+          .map(getCleanValue)
         onChange(newValue)
       } else {
         const newValue = [...value, option].map(getCleanValue)

@@ -25,7 +25,7 @@ export const OptionsContainer = styled.div`
   transition: max-height ease-in-out 300ms, opacity ease-in-out 300ms;
 
   &[data-open='true'] {
-    max-height: 300px;
+    max-height: 324px;
     opacity: 1;
   }
 
