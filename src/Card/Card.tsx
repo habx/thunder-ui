@@ -1,5 +1,7 @@
 import * as React from 'react'
+import { withTheme } from 'styled-components'
 
+import { styledTheme } from '../_internal/types'
 import theme from '../theme'
 import Title from '../Title'
 
@@ -26,14 +28,11 @@ const Card: React.ComponentType<
     ...rest
   } = props
 
+  const color = theme.get('neutralStronger', { dynamic: true })(props)
+
   const titleElement = title && (
     <TitleContainer>
-      <Title
-        size={3}
-        error={error}
-        warning={warning}
-        color={theme.get('neutralStronger', { dynamic: true })}
-      >
+      <Title size={3} error={error} warning={warning} color={color}>
         {title}
         {titleCount || titleCount === 0 ? (
           <TitleCount>({titleCount})</TitleCount>
@@ -68,7 +67,7 @@ const Card: React.ComponentType<
 
 Card.defaultProps = {
   headerPosition: 'inside',
-  theme: {},
+  theme: {} as styledTheme,
 }
 
-export default Card as React.StatelessComponent<CardProps>
+export default withTheme(Card) as React.StatelessComponent<CardProps>

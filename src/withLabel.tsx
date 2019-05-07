@@ -36,7 +36,10 @@ const withLabel = ({ padding = 4 }: Options = {}) => <Props extends object>(
     if (label) {
       return (
         <FieldWithLabelContainer>
-          <LabelContainer padding={padding} color={labelColor}>
+          <LabelContainer
+            padding={padding}
+            color={labelColor ? labelColor : undefined}
+          >
             {label}
           </LabelContainer>
           <WrappedComponent {...rest as Props} />

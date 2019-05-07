@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-import { DOMNode } from '../_internal/types'
+import { DOMNode, styledTheme } from '../_internal/types'
 
 export default interface CardProps extends DOMNode {
   title?: string
@@ -17,5 +17,5 @@ export default interface CardProps extends DOMNode {
 }
 
 export interface CardInnerProps extends CardProps {
-  theme?: object
+  theme: styledTheme
 }

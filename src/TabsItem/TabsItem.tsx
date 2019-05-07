@@ -25,6 +25,7 @@ const prepareProps = props => {
 const StyledTabsItem = styled(tag).attrs(prepareProps)`
   display: flex;
   position: relative;
+
   padding: 16px 8px;
   margin: 0 8px;
   font-size: ${fontSizes.regular};

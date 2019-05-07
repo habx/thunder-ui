@@ -56,7 +56,7 @@ const Slider: React.StatelessComponent<SliderInnerProps> = ({
 
   const isValueArray = Array.isArray(localValue)
   const label = isValueArray
-    ? `${labelFormatter(value[0])} à ${labelFormatter(
+    ? `${labelFormatter(localValue[0])} à ${labelFormatter(
         localValue[1]
       )}${toolTipSuffix}`
     : `${

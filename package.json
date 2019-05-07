@@ -121,6 +121,8 @@
       "js",
       "json"
     ],
-    "setupFilesAfterEnv": ["./config/jest.ts"]
+    "setupFilesAfterEnv": [
+      "./config/jest.ts"
+    ]
   }
 }
