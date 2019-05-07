@@ -337,7 +337,9 @@ const BaseSelect: React.StatelessComponent<SelectInnerProps> = ({
 
   const color = theme.get('neutral', { dynamic: true })(props)
   const darkColor = theme.get('neutralStronger')(props)
-  const hasValue = multi ? value.length > 0 : !!value
+  const hasValue = multi
+    ? Array.isArray(rawValue) && rawValue.length > 0
+    : !isNil(rawValue)
 
   const areAllOptionsSelected = React.useMemo(() => {
     if (!multi || !value) return false
