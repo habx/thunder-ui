@@ -306,13 +306,13 @@ const BaseSelect: React.StatelessComponent<SelectInnerProps> = ({
       dispatch({ type: 'RESIZE' })
     }
 
-    window.addEventListener('keyDown', handleKeyDown)
+    window.addEventListener('keydown', handleKeyDown)
     window.addEventListener('resize', handleResize)
 
     handleResize()
 
     return () => {
-      window.removeEventListener('keyDown', handleKeyDown)
+      window.removeEventListener('keydown', handleKeyDown)
       window.removeEventListener('resize', handleResize)
     }
   }, [
