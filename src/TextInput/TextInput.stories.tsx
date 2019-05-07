@@ -5,7 +5,7 @@ import styled from 'styled-components'
 
 import FontIcon from '../FontIcon'
 
-import TextInput from '.'
+import TextInput from './index'
 
 const CONTENT = 'Hello world'
 

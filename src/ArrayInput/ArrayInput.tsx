@@ -1,6 +1,7 @@
 import * as React from 'react'
 import { withTheme } from 'styled-components'
 
+import { styledTheme } from '../_internal/types'
 import ExpansionPanel from '../ExpansionPanel'
 import TextButton from '../TextButton'
 import withLabel from '../withLabel'
@@ -34,12 +35,14 @@ const ArrayInput: React.StatelessComponent<ArrayInputInnerProps> = ({
     itemsRef.current = items
   }, [items])
 
-  const renderItem = rawRenderItem || (props => <ItemComponent {...props} />)
+  const renderItem =
+    rawRenderItem || (ItemComponent && (props => <ItemComponent {...props} />))
   const renderItemTitle =
-    rawRenderItemTitle || (props => <ItemTitleComponent {...props} />)
+    rawRenderItemTitle ||
+    (ItemTitleComponent && (props => <ItemTitleComponent {...props} />))
 
   return (
-    <ExpansionPanel disabled={disabled}>
+    <ExpansionPanel disabled={disabled} data-testid="array-input">
       {items.map((item, index) => (
         <Item
           key={index}
@@ -56,7 +59,13 @@ const ArrayInput: React.StatelessComponent<ArrayInputInnerProps> = ({
         />
       ))}
       <ArrayInputAction>
-        <TextButton onClick={onAppend}>{addButtonLabel}</TextButton>
+        <TextButton
+          data-testid="array-input-add"
+          disabled={disabled}
+          onClick={onAppend}
+        >
+          {addButtonLabel}
+        </TextButton>
       </ArrayInputAction>
     </ExpansionPanel>
   )
@@ -66,6 +75,7 @@ ArrayInput.defaultProps = {
   addButtonLabel: 'Ajouter un élément',
   canBeReordered: false,
   items: [],
+  theme: {} as styledTheme,
 }
 
 export default withLabel({ padding: 16 })(withTheme(

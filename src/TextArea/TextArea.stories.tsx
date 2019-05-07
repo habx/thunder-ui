@@ -3,7 +3,7 @@ import * as React from 'react'
 import { withState } from 'recompose'
 import styled from 'styled-components'
 
-import TextArea from '.'
+import TextArea from './index'
 
 const CONTENT = 'Hello world'
 

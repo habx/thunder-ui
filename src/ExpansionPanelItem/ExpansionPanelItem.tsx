@@ -2,6 +2,7 @@ import * as React from 'react'
 import { withTheme } from 'styled-components'
 
 import { isFunction } from '../_internal/data'
+import { styledTheme } from '../_internal/types'
 import { ExpansionPanelContext } from '../ExpansionPanel/ExpansionPanel.context'
 import FontIcon from '../FontIcon'
 import theme from '../theme'
@@ -63,7 +64,7 @@ const ExpansionPanelItem: React.StatelessComponent<
   const color = theme.get('neutralStronger', { dynamic: true })(props)
 
   return (
-    <ExpansionPanelItemContainer>
+    <ExpansionPanelItemContainer {...props}>
       <TitleBar onClick={handleToggle}>
         {header}
         {!header && (
@@ -81,7 +82,6 @@ const ExpansionPanelItem: React.StatelessComponent<
         )}
       </TitleBar>
       <CoreContainer
-        {...props}
         data-open={isOpened}
         ref={contentRef}
         height={contentHeight}
@@ -92,6 +92,10 @@ const ExpansionPanelItem: React.StatelessComponent<
       </CoreContainer>
     </ExpansionPanelItemContainer>
   )
+}
+
+ExpansionPanelItem.defaultProps = {
+  theme: {} as styledTheme,
 }
 
 export default withTheme(ExpansionPanelItem) as React.StatelessComponent<

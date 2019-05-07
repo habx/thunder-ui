@@ -12,8 +12,8 @@ export default interface ItemProps extends DOMNode {
   item: any
   disabled?: boolean
   canBeReordered?: boolean
-  renderItem: (item: ItemComponentProps) => JSX.Element
-  renderItemTitle: (item: ItemComponentProps) => JSX.Element
+  renderItem: (itemProps: ItemComponentProps) => JSX.Element
+  renderItemTitle: (itemProps: ItemComponentProps) => JSX.Element
   onReorder?: (oldPosition: number, newPosition: number) => void
-  onDelete: (item) => void
+  onDelete: (position: number) => void
 }

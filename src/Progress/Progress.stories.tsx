@@ -3,7 +3,7 @@ import * as React from 'react'
 
 import colors from '../colors'
 
-import Progress from '.'
+import Progress from './index'
 
 storiesOf('Miscellaneous|Progress', module)
   .add('with low progression', () => <Progress progression={20} />)

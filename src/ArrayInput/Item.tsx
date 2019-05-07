@@ -42,7 +42,10 @@ const Item: React.StatelessComponent<ItemProps> = ({
   const state = { index, value: item, editing: open }
 
   const header = (
-    <ItemHeaderContainer onClick={onClick}>
+    <ItemHeaderContainer
+      onClick={onClick}
+      data-testid="array-input-item-header"
+    >
       <ItemHeaderContent>
         {isFunction(renderItemTitle) && renderItemTitle(state)}
       </ItemHeaderContent>
@@ -50,15 +53,21 @@ const Item: React.StatelessComponent<ItemProps> = ({
         {!disabled && canBeReordered && (
           <Fragment>
             <FontIcon
+              data-disabled={index === 0}
+              data-testid="array-input-item-mode-up"
               icon="arrow_upward"
               onClick={handleMoveUp}
-              data-disabled={index === 0}
               size={18}
             />
           </Fragment>
         )}
         {!disabled && (
-          <FontIcon icon="delete" onClick={handleDelete} size={18} />
+          <FontIcon
+            icon="delete"
+            onClick={handleDelete}
+            size={18}
+            data-testid="array-input-item-delete"
+          />
         )}
         <FontIcon icon={open ? 'expand_less' : 'expand_more'} />
       </ItemActions>
@@ -66,7 +75,11 @@ const Item: React.StatelessComponent<ItemProps> = ({
   )
 
   return (
-    <ExpansionPanelItem header={header} open={open}>
+    <ExpansionPanelItem
+      header={header}
+      open={open}
+      data-testid="array-input-item"
+    >
       {isFunction(renderItem) && renderItem(state)}
     </ExpansionPanelItem>
   )

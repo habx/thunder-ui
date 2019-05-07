@@ -5,17 +5,17 @@ import { DOMNode, styledTheme } from '../_internal/types'
 import { ItemComponentProps } from './Item.interface'
 
 export default interface ArrayInputProps extends DOMNode {
+  items?: any[]
   addButtonLabel?: string
-  items: any[]
   canBeReordered?: boolean
   disabled?: boolean
-  onDelete: (item) => void
+  onDelete?: (position: number) => void
   onReorder?: (oldPosition: number, newPosition: number) => void
   onAppend?: () => void
-  itemComponent: React.ComponentType<ItemComponentProps>
-  itemTitleComponent: React.ComponentType<ItemComponentProps>
-  renderItem: (item: ItemComponentProps) => JSX.Element
-  renderItemTitle: (item: ItemComponentProps) => JSX.Element
+  itemComponent?: React.ComponentType<ItemComponentProps>
+  itemTitleComponent?: React.ComponentType<ItemComponentProps>
+  renderItem?: (itemProps: ItemComponentProps) => JSX.Element
+  renderItemTitle?: (itemProps: ItemComponentProps) => JSX.Element
 }
 
 export interface ArrayInputInnerProps extends ArrayInputProps {

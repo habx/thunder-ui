@@ -8,16 +8,18 @@ jest.useFakeTimers()
 
 describe('Drawer component', () => {
   describe('with react node children', () => {
-    const { queryByTestId } = render(
-      <Drawer onClose={() => null}>
-        <div data-testid="content">CONTENT</div>
-      </Drawer>
-    )
+    it('should pass children', () => {
+      const { queryByTestId } = render(
+        <Drawer onClose={() => null}>
+          <div data-testid="content">CONTENT</div>
+        </Drawer>
+      )
 
-    const modalContainer = queryByTestId('drawer-container')
+      const modalContainer = queryByTestId('drawer-container')
 
-    expect(modalContainer).toBeTruthy()
-    expect(within(modalContainer).queryByTestId('content')).toBeTruthy()
+      expect(modalContainer).toBeTruthy()
+      expect(within(modalContainer).queryByTestId('content')).toBeTruthy()
+    })
   })
 
   describe('with render props children', () => {

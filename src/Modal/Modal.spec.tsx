@@ -8,16 +8,18 @@ jest.useFakeTimers()
 
 describe('Modal component', () => {
   describe('with react node children', () => {
-    const { queryByTestId } = render(
-      <Modal onClick={() => null}>
-        <div data-testid="content">CONTENT</div>
-      </Modal>
-    )
+    it('should pass children', () => {
+      const { queryByTestId } = render(
+        <Modal onClick={() => null}>
+          <div data-testid="content">CONTENT</div>
+        </Modal>
+      )
 
-    const modalContainer = queryByTestId('modal-container')
+      const modalContainer = queryByTestId('modal-container')
 
-    expect(modalContainer).toBeTruthy()
-    expect(within(modalContainer).queryByTestId('content')).toBeTruthy()
+      expect(modalContainer).toBeTruthy()
+      expect(within(modalContainer).queryByTestId('content')).toBeTruthy()
+    })
   })
 
   describe('with render props children', () => {
