@@ -3,7 +3,6 @@ import clone from 'lodash.clone'
 import * as React from 'react'
 import styled from 'styled-components'
 
-import colors from '../colors'
 import TextInput from '../TextInput'
 
 import ArrayInput from './index'
@@ -56,11 +55,7 @@ class CountryArrayInput extends React.Component<any, any> {
 
   handleChange = (value, index) =>
     this.setState(({ items }) => ({
-      items: [
-        ...items.slice(0, index),
-        value,
-        ...items.slice(items.length - index - 1),
-      ],
+      items: [...items.slice(0, index), value, ...items.slice(index + 1)],
     }))
 
   handleAppend = () =>
@@ -68,10 +63,7 @@ class CountryArrayInput extends React.Component<any, any> {
 
   handleDelete = index =>
     this.setState(({ items }) => ({
-      items: [
-        ...items.slice(0, index),
-        ...items.slice(items, items.length - index - 1),
-      ],
+      items: [...items.slice(0, index), ...items.slice(index + 1)],
     }))
 
   handleReorder = (oldPosition, newPosition) =>
@@ -114,12 +106,13 @@ const ItemTitle: React.StatelessComponent<any> = ({ value }) => (
   </React.Fragment>
 )
 
-const ItemTitleSimple: React.StatelessComponent<any> = ({ value }) => (
-  <React.Fragment>{value.name}</React.Fragment>
-)
-
-const ItemDescription: React.StatelessComponent<any> = ({ value }) => (
-  <React.Fragment>{`Country: ${value.country}`}</React.Fragment>
+const ItemMultiLineTitle: React.StatelessComponent<any> = ({ value }) => (
+  <React.Fragment>
+    <div>
+      {value.name ? `${value.name} (${value.country})` : 'Empty element'}
+    </div>
+    <div>{`Country: ${value.country}`}</div>
+  </React.Fragment>
 )
 
 storiesOf('Inputs|ArrayInput', module)
@@ -127,11 +120,8 @@ storiesOf('Inputs|ArrayInput', module)
   .add('disabled', () => (
     <CountryArrayInput itemTitleComponent={ItemTitle} disabled />
   ))
-  .add('with description line', () => (
-    <CountryArrayInput
-      itemTitleComponent={ItemTitleSimple}
-      itemDescriptionComponent={ItemDescription}
-    />
+  .add('with multiline title', () => (
+    <CountryArrayInput itemTitleComponent={ItemMultiLineTitle} />
   ))
   .add('with order change allowed', () => (
     <CountryArrayInput itemTitleComponent={ItemTitle} canBeReordered />
@@ -140,12 +130,5 @@ storiesOf('Inputs|ArrayInput', module)
     <CountryArrayInput
       itemTitleComponent={ItemTitle}
       addButtonLabel="Add a city"
-    />
-  ))
-  .add('with custom color icon', () => (
-    <CountryArrayInput
-      itemTitleComponent={ItemTitle}
-      addButtonLabel="Add a city"
-      iconColor={colors.brightCerualean}
     />
   ))

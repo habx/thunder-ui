@@ -6,7 +6,7 @@ import { ExpansionPanelContainer } from './ExpansionPanel.style'
 
 const ExpansionPanel: React.StatelessComponent<ExpansionPanelProps> = ({
   children,
-  flat,
+  disabled,
   multiOpen,
   ...rest
 }) => {
@@ -23,7 +23,7 @@ const ExpansionPanel: React.StatelessComponent<ExpansionPanelProps> = ({
 
   return (
     <ExpansionPanelContext.Provider value={contextValue}>
-      <ExpansionPanelContainer data-flat={flat} {...rest}>
+      <ExpansionPanelContainer {...rest} data-disabled={disabled}>
         {children}
       </ExpansionPanelContainer>
     </ExpansionPanelContext.Provider>

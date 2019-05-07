@@ -73,14 +73,6 @@ storiesOf('Layouts|ExpansionPanel', module)
       <ExpansionPanelItem title="Fourth item">{regularData}</ExpansionPanelItem>
     </ExpansionPanel>
   ))
-  .add('flat', () => (
-    <ExpansionPanel flat>
-      <ExpansionPanelItem title="First item">{regularData}</ExpansionPanelItem>
-      <ExpansionPanelItem title="Second item">{regularData}</ExpansionPanelItem>
-      <ExpansionPanelItem title="Third item">{regularData}</ExpansionPanelItem>
-      <ExpansionPanelItem title="Fourth item">{regularData}</ExpansionPanelItem>
-    </ExpansionPanel>
-  ))
   .add('error', () => (
     <ExpansionPanel>
       <ExpansionPanelItem title="First item">{regularData}</ExpansionPanelItem>

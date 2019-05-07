@@ -15,9 +15,9 @@ export const TitleBar = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 48px;
-  line-height: 48px;
-  padding: 0 16px;
+  min-height: 32px;
+  line-height: 1.3;
+  padding: 8px 16px;
   cursor: pointer;
   user-select: none;
 `

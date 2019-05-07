@@ -1,6 +1,7 @@
 import * as React from 'react'
 import { withTheme } from 'styled-components'
 
+import { isFunction } from '../_internal/data'
 import { ExpansionPanelContext } from '../ExpansionPanel/ExpansionPanel.context'
 import FontIcon from '../FontIcon'
 import theme from '../theme'
@@ -24,8 +25,8 @@ const ExpansionPanelItem: React.StatelessComponent<
   expandIcon,
   collapseIcon,
   open,
+  header,
   onToggle,
-  titleProps,
   ...props
 }) => {
   const { openedItems, setOpenedItems, multiOpen } = React.useContext(
@@ -35,12 +36,13 @@ const ExpansionPanelItem: React.StatelessComponent<
   const contentRef = React.useRef(null)
   const [contentHeight, setItemHeight] = React.useState(0)
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   React.useLayoutEffect(() => {
     if (contentRef.current) {
       const height = contentRef.current.scrollHeight
       setItemHeight(height)
     }
-  }, [])
+  })
 
   const handleToggleLocally = React.useCallback(() => {
     if (multiOpen) {
@@ -62,14 +64,21 @@ const ExpansionPanelItem: React.StatelessComponent<
 
   return (
     <ExpansionPanelItemContainer>
-      <TitleBar onClick={handleToggle} {...titleProps}>
-        <Title size={3} color={color}>
-          {title}
-        </Title>
-        {!isOpened &&
-          (expandIcon || <FontIcon icon="expand_more" color={color} />)}
-        {isOpened &&
-          (collapseIcon || <FontIcon icon="expand_less" color={color} />)}
+      <TitleBar onClick={handleToggle}>
+        {header}
+        {!header && (
+          <React.Fragment>
+            {title && (
+              <Title size={3} color={color}>
+                {title}
+              </Title>
+            )}
+            {!isOpened &&
+              (expandIcon || <FontIcon icon="expand_more" color={color} />)}
+            {isOpened &&
+              (collapseIcon || <FontIcon icon="expand_less" color={color} />)}
+          </React.Fragment>
+        )}
       </TitleBar>
       <CoreContainer
         {...props}
@@ -77,7 +86,9 @@ const ExpansionPanelItem: React.StatelessComponent<
         ref={contentRef}
         height={contentHeight}
       >
-        <CoreContent>{children}</CoreContent>
+        <CoreContent>
+          {isFunction(children) ? children({ open }) : children}
+        </CoreContent>
       </CoreContainer>
     </ExpansionPanelItemContainer>
   )

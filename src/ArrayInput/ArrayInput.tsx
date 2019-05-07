@@ -1,99 +1,71 @@
 import * as React from 'react'
 import { withTheme } from 'styled-components'
 
-import { pick } from '../_internal/data'
+import ExpansionPanel from '../ExpansionPanel'
 import TextButton from '../TextButton'
-import theme from '../theme'
 import withLabel from '../withLabel'
 
-import ArrayInputProps, {
-  ArrayInputInnerProps,
-  ArrayInputState,
-} from './ArrayInput.interface'
-import { ArrayInputContainer, ArrayInputAction } from './ArrayInput.style'
-import { ArrayContext } from './context'
+import ArrayInputProps, { ArrayInputInnerProps } from './ArrayInput.interface'
+import { ArrayInputAction } from './ArrayInput.style'
 import Item from './Item'
 
-class ArrayInput extends React.Component<
-  ArrayInputInnerProps,
-  ArrayInputState
-> {
-  static defaultProps = {
-    addButtonLabel: 'Ajouter un élément',
-    canBeReordered: false,
-    items: [],
-  }
+const ArrayInput: React.StatelessComponent<ArrayInputInnerProps> = ({
+  items,
+  onAppend,
+  onDelete,
+  onReorder,
+  addButtonLabel,
+  disabled,
+  itemTitleComponent: ItemTitleComponent,
+  itemComponent: ItemComponent,
+  renderItem: rawRenderItem,
+  renderItemTitle: rawRenderItemTitle,
+  canBeReordered,
+}) => {
+  const [openedItem, setOpenedItem] = React.useState(-1)
+  const itemsRef: React.MutableRefObject<any[]> = React.useRef(items)
 
-  static getDerivedStateFromProps(nextProps, prevState) {
-    if (prevState.items !== nextProps.items) {
-      if (prevState.items && nextProps.items.length > prevState.items.length) {
-        return {
-          items: nextProps.items,
-          editing: nextProps.items.length - 1,
-        }
-      }
-      return { items: nextProps.items }
+  React.useEffect(() => {
+    const amount = items.length
+    if (amount > itemsRef.current.length) {
+      setOpenedItem(amount - 1)
     }
 
-    return null
-  }
+    itemsRef.current = items
+  }, [items])
 
-  state = {
-    editing: null,
-    items: null,
-  }
+  const renderItem = rawRenderItem || (props => <ItemComponent {...props} />)
+  const renderItemTitle =
+    rawRenderItemTitle || (props => <ItemTitleComponent {...props} />)
 
-  handleEditStart = index => this.setState(() => ({ editing: index }))
+  return (
+    <ExpansionPanel disabled={disabled}>
+      {items.map((item, index) => (
+        <Item
+          key={index}
+          renderItem={renderItem}
+          renderItemTitle={renderItemTitle}
+          item={item}
+          index={index}
+          open={openedItem === index}
+          disabled={disabled}
+          canBeReordered={canBeReordered}
+          onDelete={onDelete}
+          onReorder={onReorder}
+          onClick={() => setOpenedItem(prev => (prev === index ? -1 : index))}
+        />
+      ))}
+      <ArrayInputAction>
+        <TextButton onClick={onAppend}>{addButtonLabel}</TextButton>
+      </ArrayInputAction>
+    </ExpansionPanel>
+  )
+}
 
-  handleEditStop = () => this.setState(() => ({ editing: null }))
-
-  handleDelete = index =>
-    this.setState(() => ({ editing: null }), () => this.props.onDelete(index))
-
-  handleReorder = (oldPosition, newPosition) => {
-    this.setState(
-      () => ({ editing: null }),
-      () => this.props.onReorder(oldPosition, newPosition)
-    )
-  }
-
-  buildContext() {
-    return {
-      ...pick(this.props, [
-        'itemTitleComponent',
-        'itemDescriptionComponent',
-        'itemComponent',
-        'canBeReordered',
-        'disabled',
-      ]),
-      ...pick(this.state, ['editing']),
-      amount: this.props.items.length,
-      onOpen: this.handleEditStart,
-      onClose: this.handleEditStop,
-      onDelete: this.handleDelete,
-      onReorder: this.handleReorder,
-      iconColor: theme.get('neutralStronger', { propName: 'iconColor' })(
-        this.props
-      ),
-    }
-  }
-
-  render() {
-    const { items, onAppend, addButtonLabel, disabled } = this.props
-
-    return (
-      <ArrayContext.Provider value={this.buildContext()}>
-        <ArrayInputContainer disabled={disabled}>
-          {items.map((item, index) => (
-            <Item item={item} index={index} key={index} />
-          ))}
-          <ArrayInputAction>
-            <TextButton onClick={onAppend}>{addButtonLabel}</TextButton>
-          </ArrayInputAction>
-        </ArrayInputContainer>
-      </ArrayContext.Provider>
-    )
-  }
+ArrayInput.defaultProps = {
+  addButtonLabel: 'Ajouter un élément',
+  canBeReordered: false,
+  items: [],
 }
 
 export default withLabel({ padding: 16 })(withTheme(
