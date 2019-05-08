@@ -2,7 +2,7 @@ import get from 'lodash.get'
 import * as React from 'react'
 
 import { omit } from '../../_internal/data'
-import { SpotlightContext } from '../Spotlight.context'
+import SpotlightContext from '../Spotlight.context'
 
 import SpotlightIcon from './icon'
 import SpotlightContentProps, {

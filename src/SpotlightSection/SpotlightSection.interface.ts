@@ -15,7 +15,3 @@ export default interface SpotlightSectionProps extends DOMNode {
     elements: Array<any>
   ) => boolean
 }
-
-export interface SpotlightSectionInnerProps extends SpotlightSectionProps {
-  spotlight: spotlightContext
-}
