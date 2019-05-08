@@ -9,10 +9,6 @@ export default interface SpotlightContentProps {
   data?: Array<any> | object
 }
 
-export interface SpotlightContentState {
-  selectedItem: number
-}
-
 export interface ItemRegistrationData {
   onSubmit: (e: React.MouseEvent<HTMLInputElement>) => void
   index: number

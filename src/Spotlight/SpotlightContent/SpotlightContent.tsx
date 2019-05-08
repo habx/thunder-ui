@@ -3,6 +3,7 @@ import * as React from 'react'
 
 import { omit } from '../../_internal/data'
 import SpotlightContext from '../Spotlight.context'
+import { SpotlightContextProps } from '../Spotlight.interface'
 
 import SpotlightIcon from './icon'
 import SpotlightContentProps, {
@@ -44,11 +45,11 @@ const SpotlightContent: React.StatelessComponent<SpotlightContentProps> = ({
   const selectedItemKey = get(getAllItemKeys(), [selectedItem, 'key'])
 
   const registerItem = React.useCallback(
-    (section, item: ItemRegistrationData) => {
+    (sectionName: string, item: ItemRegistrationData) => {
       items.current = {
         ...items.current,
-        [section]: {
-          ...get(items.current, section, {}),
+        [sectionName]: {
+          ...get(items.current, sectionName, {}),
           [item.key]: item,
         },
       }
@@ -56,19 +57,22 @@ const SpotlightContent: React.StatelessComponent<SpotlightContentProps> = ({
     []
   )
 
-  const unRegisterItem = React.useCallback((section, key) => {
-    items.current = {
-      ...items.current,
-      [section]: omit(items.current[section], [key]),
-    }
-  }, [])
+  const unRegisterItem = React.useCallback(
+    (sectionName: string, itemKey: number) => {
+      items.current = {
+        ...items.current,
+        [sectionName]: omit(items.current[sectionName], [itemKey]),
+      }
+    },
+    []
+  )
 
   const handleClose = React.useCallback(() => {
     setSelectedItem(-1)
     onClose()
   }, [onClose])
 
-  const context = React.useMemo(
+  const context: SpotlightContextProps = React.useMemo(
     () => ({
       query,
       selectedItemKey,

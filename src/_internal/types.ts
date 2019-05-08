@@ -18,11 +18,6 @@ export type themeAccessor = (props: {
 
 export type color = string | themeAccessor
 
-export type spotlightContext = {
-  query: string
-  data: any
-}
-
 export interface DOMNode {
   children?: React.ReactNode
   onClick?: (e: React.MouseEvent<HTMLElement>) => void

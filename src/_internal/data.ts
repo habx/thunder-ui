@@ -1,7 +1,13 @@
-export const omit = (obj: object, keys: string[]): object =>
+export const omit = <Object extends object>(
+  obj: Object,
+  keys: (string | number)[]
+): Object =>
   Object.entries(obj)
     .filter(([key]) => !keys.includes(key))
-    .reduce((obj, [key, val]) => Object.assign(obj, { [key]: val }), {})
+    .reduce(
+      (obj, [key, val]) => Object.assign(obj, { [key]: val }),
+      {}
+    ) as Object
 
 export const pick = (obj: object, keys: string[]): object =>
   Object.entries(obj)

@@ -3,7 +3,7 @@ import * as React from 'react'
 import SpotlightContext from '../Spotlight/Spotlight.context'
 import SpotlightSectionTitle from '../SpotlightSectionTitle'
 
-import { SpotlightSectionContext } from './SpotlightSection.context'
+import SpotlightSectionContext from './SpotlightSection.context'
 import SpotlightSectionProps from './SpotlightSection.interface'
 import { SectionContainer } from './SpotlightSection.style'
 
