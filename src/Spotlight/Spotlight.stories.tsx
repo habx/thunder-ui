@@ -11,7 +11,7 @@ import SpotlightSection from '../SpotlightSection'
 import SpotlightWelcomeMessage from '../SpotlightWelcomeMessage'
 
 import Spotlight from './index'
-import { data, darkTheme } from './Spotlight.data'
+import { data } from './Spotlight.data'
 
 const withQueryControl = withState('query', 'onQueryChange', 'france')
 
@@ -74,17 +74,6 @@ storiesOf('Spotlight|Spotlight', module)
       </ControlledSpotlight>
     )
   })
-  .add('with custom theme', () => (
-    <Spotlight open data={data} theme={darkTheme}>
-      <SpotlightSection
-        name="countries"
-        filter={(query, country) => searchInString(country, query)}
-        renderItem={(country, index) => (
-          <SpotlightItem key={country} title={country} index={index} />
-        )}
-      />
-    </Spotlight>
-  ))
   .add('with custom placeholder', () => (
     <Spotlight
       open

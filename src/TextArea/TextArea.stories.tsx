@@ -25,8 +25,15 @@ const TextAreaWithState = ({ value = '', ...props }) => {
 
 storiesOf('Inputs|TextArea', module)
   .add('basic', () => <TextAreaWithState value={CONTENT} />)
+  .add('small', () => <TextAreaWithState small value={CONTENT} />)
   .add('disabled', () => <TextAreaWithState disabled value={CONTENT} />)
-  .add('error', () => <TextAreaWithState error value={CONTENT} />)
   .add('placeholder', () => (
     <TextAreaWithState value="" placeholder="Type something here" />
+  ))
+  .add('error', () => (
+    <TextAreaWithState
+      error
+      value={CONTENT}
+      placeholder="Type something here"
+    />
   ))

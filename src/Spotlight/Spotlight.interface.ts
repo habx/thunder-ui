@@ -37,8 +37,3 @@ export default interface SpotlightProps extends DOMNode {
   placeholder?: string
   theme?: themeType
 }
-
-export interface SpotlightInnerProps extends SpotlightProps {
-  customTheme?: themeType
-  theme: themeType
-}

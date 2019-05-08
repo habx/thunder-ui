@@ -3,7 +3,7 @@ import * as React from 'react'
 import withLabel from '../withLabel'
 
 import TextAreaProps from './TextArea.interface'
-import { TextAreaContainer, StyledTextArea } from './TextArea.style'
+import { StyledTextArea } from './TextArea.style'
 
 const TextArea: React.StatelessComponent<TextAreaProps> = ({
   onChange,
@@ -13,11 +13,7 @@ const TextArea: React.StatelessComponent<TextAreaProps> = ({
     onChange,
   ])
 
-  return (
-    <TextAreaContainer>
-      <StyledTextArea {...props} onChange={handleChange} />
-    </TextAreaContainer>
-  )
+  return <StyledTextArea {...props} onChange={handleChange} />
 }
 
 export default withLabel({ padding: 12 })(TextArea)

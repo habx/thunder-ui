@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { get } from '../Spotlight/theme'
+import theme from '../theme'
 
 export const ItemContainer = styled.div`
   position: relative;
@@ -11,7 +11,7 @@ export const ItemContainer = styled.div`
 
   &:hover,
   &:focus {
-    background-color: ${get('item.focus')};
+    background-color: ${theme.get('neutralLighter')};
     cursor: pointer;
     text-decoration: none;
     border: none;
@@ -48,6 +48,7 @@ export const ItemTitleInput = styled.input.attrs(() => ({ type: 'text' }))`
   background: none;
   flex: 1 1 100%;
   display: none;
+  color: ${theme.get('neutralStronger')};
 
   &:focus {
     outline: none;
@@ -68,7 +69,7 @@ export const ItemActions = styled.div`
     transition: all ease-in-out 200ms;
     opacity: 0;
     font-size: 18px;
-    color: ${get('item.actionIcon')};
+    color: ${theme.get('neutral')};
   }
 
   &[data-editing='true'] {
@@ -88,12 +89,12 @@ export const ItemIconContainer = styled.div`
   height: 40px;
   width: 40px;
 
-  background-color: ${get('item.iconBackground')};
-  color: ${get('item.icon')};
+  background-color: ${theme.get('primary')};
+  color: ${theme.get('neutralLightest')};
 `
 
 export const Title = styled.div`
-  color: ${get('item.title')};
+  color: ${theme.get('neutral')};
   font-size: 23px;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -104,8 +105,7 @@ export const Title = styled.div`
 `
 
 export const Subtitle = styled.div`
-  color: ${get('item.subtitle')};
-  font-family: ${get('item.subtitleFont')};
+  color: ${theme.get('neutral')};
   height: 15px;
   font-size: 11px;
   overflow: hidden;

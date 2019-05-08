@@ -28,10 +28,16 @@ const TextInputWithState = ({ value = '', ...props }) => {
 storiesOf('Inputs|TextInput', module)
   .add('basic', () => <TextInputWithState value={CONTENT} />)
   .add('disabled', () => <TextInputWithState disabled value={CONTENT} />)
-  .add('error', () => <TextInputWithState error value={CONTENT} />)
   .add('small', () => <TextInputWithState small value={CONTENT} />)
   .add('placeholder', () => (
     <TextInputWithState value="" placeholder="Type something here" />
+  ))
+  .add('error', () => (
+    <TextInputWithState
+      error
+      value={CONTENT}
+      placeholder="Type something here"
+    />
   ))
   .add('with loader', () => <TextInputWithState loading value={CONTENT} />)
   .add('with icon', () => (

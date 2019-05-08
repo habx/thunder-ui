@@ -7,7 +7,7 @@ import shadows from '../shadows'
 import { ThunderUITheme } from '../useTheme'
 
 const BASE_THEME = {
-  error: colors.popstar,
+  error: '#cc0000',
   warning: colors.internationalOrange,
 }
 
@@ -19,12 +19,21 @@ const LIGHT_THEME = {
   primaryLighter: colors.platinium,
   primaryLight: colors.brightCerualean,
   primary: colors.trueBlue,
+  primaryStrong: '#00316B',
+  primaryStronger: '#001c3d', // Maastricht Blue
+
+  secondaryLighter: '#fff9f5',
+  secondaryLight: '#ffebdb',
+  secondary: '#FF9E4F',
+  secondaryStrong: '#ff7402',
 
   neutralLightest: colors.white,
   neutralLighter: colors.snow,
   neutralLight: colors.gainsboro,
   neutral: colors.paynesGrey,
-  neutralStronger: colors.maastrichtBlue,
+  neutralStrong: '#3e4a5c',
+  neutralStronger: '#232934',
+  neutralStrongest: '#0b0d10',
 
   shadowLight: shadows.light,
   shadow: shadows.medium,

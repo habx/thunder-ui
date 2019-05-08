@@ -3,48 +3,7 @@ import styled from 'styled-components'
 import { FontIconContainer } from '../FontIcon/FontIcon.style'
 import fontSizes from '../fontSizes'
 import Spinner from '../Spinner'
-
-export const InputContainer = styled.div`
-  position: relative;
-  display: flex;
-  flex-direction: column;
-
-  ${FontIconContainer} {
-    font-size: 18px;
-  }
-
-  .hover-element-right {
-    opacity: 0;
-    transition: opacity 150ms ease-in-out;
-  }
-
-  &:hover {
-    .hover-element-right {
-      opacity: 1;
-      transition: opacity 150ms ease-in-out;
-    }
-  }
-
-  &::after {
-    content: '';
-    width: 100%;
-    height: 1px;
-    background-color: ${({ color }) => color};
-    opacity: 0.3;
-    transition: all 150ms ease-in-out;
-  }
-
-  &:focus-within {
-    &::after {
-      opacity: 1;
-    }
-  }
-  &[data-disabled='true'] {
-    &::after {
-      opacity: 0;
-    }
-  }
-`
+import theme from '../theme'
 
 export const InputSpinner = styled(Spinner)`
   position: absolute;
@@ -59,9 +18,8 @@ export const RightElementContainer = styled.div`
 `
 
 export const Input = styled.input`
-  border: none;
-  outline: none;
-  display: flex;
+  border: 0;
+  display: block;
   flex-direction: column;
 
   padding: 2px 0;
@@ -69,16 +27,52 @@ export const Input = styled.input`
   font-size: ${({ small }) => (small ? fontSizes.small : fontSizes.regular)};
   color: ${({ color }) => color};
   line-height: 1.5;
-  transition: border-bottom-color 150ms ease-in-out;
+`
 
-  background-color: transparent;
+export const InputContainer = styled.div`
+  position: relative;
+  display: flex;
+  flex-direction: column;
 
-  &::placeholder {
-    opacity: 0.5;
-    color: ${({ placeholderColor }) => placeholderColor};
+  & ${FontIconContainer} {
+    font-size: 18px;
   }
 
-  &:disabled {
-    color: ${({ placeholderColor }) => placeholderColor};
+  & ${Input} {
+    background: transparent no-repeat;
+    background-image: linear-gradient(
+        to bottom,
+        ${theme.get('primary', { dynamic: true })},
+        ${theme.get('primary', { dynamic: true })}
+      ),
+      linear-gradient(to bottom, silver, silver);
+    background-size: 0 2px, 100% 1px;
+    background-position: 50% 100%, 50% 100%;
+    transition: background-size 0.3s cubic-bezier(0.64, 0.09, 0.08, 1);
+
+    &:focus {
+      background-size: 100% 2px, 100% 1px;
+      outline: none;
+    }
+
+    color: ${theme.get('neutralStrong', { dynamic: true })};
+
+    &::placeholder,
+    &:disabled {
+      opacity: 0.5;
+      color: ${theme.get('neutralStrong', { dynamic: true })};
+    }
+  }
+
+  .hover-element-right {
+    opacity: 0;
+    transition: opacity 150ms ease-in-out;
+  }
+
+  &:hover {
+    .hover-element-right {
+      opacity: 1;
+      transition: opacity 150ms ease-in-out;
+    }
   }
 `

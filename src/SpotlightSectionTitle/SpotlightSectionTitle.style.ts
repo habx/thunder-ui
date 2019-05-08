@@ -1,11 +1,11 @@
 import styled from 'styled-components'
 
-import { get } from '../Spotlight/theme'
+import theme from '../theme'
 
 export const SectionTitleContainer = styled.div`
   padding: 16px 32px;
   user-select: none;
-  color: ${get('section.title')};
+  color: ${theme.get('neutral')};
 
   > i {
     border-radius: 50%;

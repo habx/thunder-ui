@@ -1,17 +1,15 @@
 import merge from 'lodash.merge'
 import * as React from 'react'
-import { withTheme, ThemeProvider } from 'styled-components'
 
 import { isFunction, isString, isBoolean } from '../_internal/data'
 
-import SpotlightProps, { SpotlightInnerProps } from './Spotlight.interface'
+import SpotlightProps from './Spotlight.interface'
 import { SpotlightModal } from './Spotlight.style'
 import SpotlightContent from './SpotlightContent'
-import { DEFAULT_THEME } from './theme'
 
 const DOUBLE_KEY_PRESS_DURATION = 200
 
-class BaseSpotlight extends React.Component<SpotlightInnerProps> {
+class Spotlight extends React.Component<SpotlightProps> {
   private readonly modalRef: React.RefObject<any>
   private readonly inputRef: React.RefObject<any>
   private lastOpenKeyPress: number = 0
@@ -115,51 +113,31 @@ class BaseSpotlight extends React.Component<SpotlightInnerProps> {
     return this.state.open
   }
 
-  generateTheme() {
-    const { theme, customTheme } = this.props
-
-    return merge(
-      {},
-      theme,
-      { _spotlight: DEFAULT_THEME },
-      { _spotlight: customTheme }
-    )
-  }
-
   render() {
     const { className, style, ...rest } = this.props
 
     return (
-      <ThemeProvider theme={this.generateTheme()}>
-        <SpotlightModal
-          className={className}
-          style={style}
-          open={this.isOpen()}
-          onClose={this.handleClose}
-          animated={false}
-        >
-          {({ state }) =>
-            state !== 'closed' && (
-              <SpotlightContent
-                {...rest}
-                onClose={this.handleClose}
-                query={this.getQuery()}
-                onQueryChange={this.handleQueryChange}
-                inputRef={this.inputRef}
-              />
-            )
-          }
-        </SpotlightModal>
-      </ThemeProvider>
+      <SpotlightModal
+        className={className}
+        style={style}
+        open={this.isOpen()}
+        onClose={this.handleClose}
+        animated={false}
+      >
+        {({ state }) =>
+          state !== 'closed' && (
+            <SpotlightContent
+              {...rest}
+              onClose={this.handleClose}
+              query={this.getQuery()}
+              onQueryChange={this.handleQueryChange}
+              inputRef={this.inputRef}
+            />
+          )
+        }
+      </SpotlightModal>
     )
   }
 }
-
-const EndhancedSpotlight = withTheme(BaseSpotlight)
-
-const Spotlight: React.StatelessComponent<SpotlightProps> = ({
-  theme,
-  ...props
-}) => <EndhancedSpotlight customTheme={theme} {...props} />
 
 export default Spotlight

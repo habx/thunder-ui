@@ -1,7 +1,7 @@
 import * as React from 'react'
 import styled from 'styled-components'
 
-import { get } from '../../Spotlight/theme'
+import theme from '../../theme'
 
 const rawRemovalMap = [
   {
@@ -304,7 +304,7 @@ const HighlightContainer = styled.div`
 
   & mark {
     padding: 0;
-    background-color: ${get('item.highlight')};
+    background-color: ${theme.get('secondaryLighter')};
     color: inherit;
   }
 `

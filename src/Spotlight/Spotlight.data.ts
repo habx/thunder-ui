@@ -207,21 +207,3 @@ export const data = {
     'Zimbabwe',
   ],
 }
-
-export const darkTheme = {
-  background: '#112340',
-  border: '#1B355E',
-  text: '#fff',
-
-  section: {
-    title: '#6d89b0',
-  },
-
-  item: {
-    title: '#fff',
-    subtitle: '#fff',
-    focus: '#1B355E',
-    highlight: '#1B355E',
-    subtitleFont: 'Averta',
-  },
-}

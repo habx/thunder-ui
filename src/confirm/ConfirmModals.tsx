@@ -89,7 +89,7 @@ const ConfirmModal: React.StatelessComponent<{}> = () => {
               <ConfirmModalActions>
                 <Button
                   data-testid="confirm-modal-cancel"
-                  error
+                  warning
                   onClick={() => handleCancel(modal)}
                 >
                   {get(modal, 'options.cancelText', 'Annuler')}

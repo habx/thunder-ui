@@ -2,11 +2,10 @@ import styled from 'styled-components'
 
 import borderRadius from '../borderRadius'
 import Modal from '../Modal'
-
-import { get } from './theme'
+import theme from '../theme'
 
 export const SpotlightModal = styled(Modal)`
-  background-color: ${get('background')};
+  background-color: ${theme.get('neutralLightest')};
   width: 600px;
   border-radius: ${borderRadius.wide};
   padding: 0 0 16px;

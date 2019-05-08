@@ -32,13 +32,8 @@ const TextInput: React.ComponentType<
     onChange,
   ])
 
-  const colorProps = {
-    color: theme.get('neutralStronger', { dynamic: true })(props),
-    placeholderColor: theme.get('neutral')(props),
-  }
-
   return (
-    <InputContainer {...rest} {...colorProps} data-disabled={disabled}>
+    <InputContainer {...rest} data-disabled={disabled}>
       <Input
         value={value}
         onChange={handleChange}
@@ -47,18 +42,15 @@ const TextInput: React.ComponentType<
         disabled={disabled}
         placeholder={placeholder}
         small={small}
-        {...colorProps}
       />
       {loading && <InputSpinner size={small ? 15 : 18} />}
       {rightHoverElement && (
-        <RightElementContainer {...colorProps} className="hover-element-right">
+        <RightElementContainer className="hover-element-right">
           {rightHoverElement}
         </RightElementContainer>
       )}
       {rightElement && (
-        <RightElementContainer {...colorProps}>
-          {rightElement}
-        </RightElementContainer>
+        <RightElementContainer>{rightElement}</RightElementContainer>
       )}
     </InputContainer>
   )
