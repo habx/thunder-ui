@@ -32,7 +32,7 @@ export default interface SpotlightProps extends DOMNode {
   query?: string
   data?: Array<any> | object
   open?: boolean
-  onOpen?: () => void
+  onClose?: () => void
   onQueryChange?: (query: string) => void
   placeholder?: string
   theme?: themeType

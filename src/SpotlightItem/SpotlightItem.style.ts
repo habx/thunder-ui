@@ -10,13 +10,22 @@ export const ItemContainer = styled.div`
   text-decoration: none;
 
   &:hover,
-  &:focus {
-    background-color: ${theme.get('neutralLighter')};
+  &:focus,
+  &:active {
     cursor: pointer;
     text-decoration: none;
     border: none;
     box-shadow: none;
     outline: none;
+  }
+
+  &:hover {
+    background-color: ${theme.get('primaryLightest')};
+  }
+
+  &:active,
+  &:focus {
+    background-color: ${theme.get('primaryLighter')};
   }
 `
 

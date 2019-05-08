@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 
 import zIndex from '../_internal/zIndex'
+import theme from '../theme'
 import Title from '../Title'
 
 export const ANIMATION_DURATION = 200
@@ -57,7 +58,7 @@ export const DrawerContainer = styled.div.attrs(prepareProps)`
   max-width: calc(100vw - 42px);
   max-height: 100vh;
 
-  background: white;
+  background: ${theme.get('neutralLightest')};
   overflow: hidden;
 
   transition: transform ${ANIMATION_DURATION}ms ease-in-out;
@@ -98,6 +99,7 @@ export const DrawerContent = styled.div`
   height: 100%;
   overflow-y: auto;
   padding: 16px 64px;
+
   @media screen and (max-width: 992px) {
     padding: 32px;
   }

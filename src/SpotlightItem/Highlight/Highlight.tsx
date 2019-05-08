@@ -304,7 +304,7 @@ const HighlightContainer = styled.div`
 
   & mark {
     padding: 0;
-    background-color: ${theme.get('secondaryLighter')};
+    background-color: ${theme.get('primaryLighter')};
     color: inherit;
   }
 `

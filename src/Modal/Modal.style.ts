@@ -3,11 +3,12 @@ import styled, { createGlobalStyle } from 'styled-components'
 import { FADE_IN } from '../_internal/animations'
 import zIndex from '../_internal/zIndex'
 import Card from '../Card'
+import theme from '../theme'
 
 export const ANIMATION_DURATION = 300
 
 export const ModalCard = styled(Card)`
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  box-shadow: ${theme.get('shadowStrong')};
   position: relative;
 
   max-width: 800px;

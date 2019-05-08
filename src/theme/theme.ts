@@ -16,20 +16,16 @@ const LIGHT_THEME = {
 
   name: 'light',
 
-  primaryLighter: colors.platinium,
+  primaryLightest: '#f2f7fc',
+  primaryLighter: '#e5f0fa',
   primaryLight: colors.brightCerualean,
   primary: colors.trueBlue,
   primaryStrong: '#00316B',
   primaryStronger: '#001c3d', // Maastricht Blue
 
-  secondaryLighter: '#fff9f5',
-  secondaryLight: '#ffebdb',
-  secondary: '#FF9E4F',
-  secondaryStrong: '#ff7402',
-
-  neutralLightest: colors.white,
-  neutralLighter: colors.snow,
-  neutralLight: colors.gainsboro,
+  neutralLightest: '#fff',
+  neutralLighter: '#ebecee',
+  neutralLight: '#d8dade',
   neutral: colors.paynesGrey,
   neutralStrong: '#3e4a5c',
   neutralStronger: '#232934',
@@ -45,17 +41,26 @@ const DARK_THEME = {
 
   name: 'dark',
 
-  primary: '#06d1c2',
+  error: '#ff0033',
 
-  neutralLightest: '#07234f',
-  neutralLighter: '#082554',
-  neutralLight: '#294975',
-  neutral: '#fff',
-  neutralStronger: '#fff',
+  primaryLightest: '#1d0838',
+  primaryLighter: '#4A148C',
+  primaryLight: '#6A1B9A',
+  primary: '#AB47BC',
+  primaryStrong: '#E1BEE7',
+  primaryStronger: '#EDE7F6',
+
+  neutralLightest: '#13161c',
+  neutralLighter: '#263238',
+  neutralLight: '#3e4a5c',
+  neutral: '#ebecee',
+  neutralStrong: '#fff',
+  neutralStronger: '#ebecee',
+  neutralStrongest: '#d8dade',
 
   shadowLight: '0 2px 6px 0 rgba(0, 13, 27, 0.6)',
   shadow: '0 2px 6px 0 rgba(0, 13, 27, 0.7)',
-  shadowStrong: '0 3px 9px 0 rgba(0, 13, 27, 0.7)',
+  shadowStrong: '0 3px 9px 0 rgba(0, 13, 27, 0.9)',
 }
 
 const getter = (
