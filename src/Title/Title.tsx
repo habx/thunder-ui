@@ -17,7 +17,7 @@ const BaseTitle = styled.h1`
 
       &::after {
         content: '';
-        color: ${theme.get('neutralStronger')};
+        background-color: ${theme.get('neutralStronger')};
       }
     `}
 `
@@ -28,7 +28,8 @@ const Title1 = styled(BaseTitle)`
 
   &::after {
     width: 128px;
-    height: 12px;
+    margin-top: 4px;
+    height: 10px;
   }
 `
 
@@ -52,20 +53,17 @@ const Title4 = styled(BaseTitle.withComponent('h4'))`
   font-weight: 500;
 `
 
+const components = {
+  1: Title1,
+  2: Title2,
+  3: Title3,
+  4: Title4,
+}
+
 const Title: React.StatelessComponent<TitleProps> = ({ size, ...props }) => {
-  if (size === 1) {
-    return <Title1 {...props} />
-  }
+  const TitleComponent = components[size] || Title
 
-  if (size === 2) {
-    return <Title2 {...props} />
-  }
-
-  if (size === 3) {
-    return <Title3 {...props} />
-  }
-
-  return <Title4 {...props} />
+  return <TitleComponent {...props} />
 }
 
 Title.defaultProps = {

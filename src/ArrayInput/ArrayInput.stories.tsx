@@ -1,5 +1,4 @@
 import { storiesOf } from '@storybook/react'
-import clone from 'lodash.clone'
 import * as React from 'react'
 import styled from 'styled-components'
 
@@ -48,27 +47,21 @@ const CountryArrayInputElement = ({ value, index }) => (
   </Context.Consumer>
 )
 
-class CountryArrayInput extends React.Component<any, any> {
-  state = {
-    items: FIELDS,
-  }
+const CountryArrayInput: React.StatelessComponent<any> = props => {
+  const [items, setItems] = React.useState(FIELDS)
 
-  handleChange = (value, index) =>
-    this.setState(({ items }) => ({
-      items: [...items.slice(0, index), value, ...items.slice(index + 1)],
-    }))
+  const handleChange = (value, index) =>
+    setItems(prev => [...prev.slice(0, index), value, ...prev.slice(index + 1)])
 
-  handleAppend = () =>
-    this.setState(({ items }) => ({ items: [...items, DEFAULT_FIELD] }))
+  const handleAppend = () => setItems(prev => [...prev, DEFAULT_FIELD])
 
-  handleDelete = index =>
-    this.setState(({ items }) => ({
-      items: [...items.slice(0, index), ...items.slice(index + 1)],
-    }))
+  const handleDelete = index =>
+    setItems(prev => [...prev.slice(0, index), ...prev.slice(index + 1)])
 
-  handleReorder = (oldPosition, newPosition) =>
-    this.setState(prevState => {
-      const items = clone(prevState.items)
+  const handleReorder = (oldPosition, newPosition) => {
+    setItems(prev => {
+      const items = [...prev]
+
       items.splice(
         newPosition > oldPosition ? newPosition + 1 : newPosition,
         0,
@@ -76,28 +69,25 @@ class CountryArrayInput extends React.Component<any, any> {
       )
       items.splice(newPosition > oldPosition ? oldPosition : oldPosition + 1, 1)
 
-      return { items }
+      return items
     })
-
-  render() {
-    const { items } = this.state
-
-    return (
-      <Container>
-        <Context.Provider value={{ onChange: this.handleChange }}>
-          <ArrayInput
-            items={items}
-            onAppend={this.handleAppend}
-            onDelete={this.handleDelete}
-            onReorder={this.handleReorder}
-            itemComponent={CountryArrayInputElement}
-            itemTitleComponent={ItemTitle}
-            {...this.props}
-          />
-        </Context.Provider>
-      </Container>
-    )
   }
+
+  return (
+    <Container>
+      <Context.Provider value={{ onChange: handleChange }}>
+        <ArrayInput
+          items={items}
+          onAppend={handleAppend}
+          onDelete={handleDelete}
+          onReorder={handleReorder}
+          itemComponent={CountryArrayInputElement}
+          itemTitleComponent={ItemTitle}
+          {...props}
+        />
+      </Context.Provider>
+    </Container>
+  )
 }
 
 const ItemTitle: React.StatelessComponent<any> = ({ value }) => (

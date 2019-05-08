@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import zIndex from '../_internal/zIndex'
 import FontIcon from '../FontIcon'
 import fontSizes from '../fontSizes'
+import theme from '../theme'
 
 export const SelectContainer = styled.div`
   position: relative;
@@ -28,7 +29,7 @@ export const SelectContent = styled.div`
   padding: 8px 4px;
   height: 40px;
   line-height: 24px;
-  border-bottom: 1px solid ${({ color }) => color};
+  border-bottom: 1px solid ${theme.get('neutralLight', { dynamic: true })};
 
   font-size: ${fontSizes.regular};
   user-select: none;

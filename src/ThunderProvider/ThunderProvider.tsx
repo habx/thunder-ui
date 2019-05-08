@@ -18,7 +18,7 @@ const getCustomTheme = customTheme => {
     return theme.dark
   }
 
-  return { ...theme.light, customTheme }
+  return { ...theme.light, ...customTheme }
 }
 
 const BaseProvider: React.StatelessComponent<ThunderProviderInnerProps> = ({

@@ -10,7 +10,6 @@ export const NotificationListContainer = styled.div`
   right: 20px;
   top: 20px;
   z-index: ${zIndex.highest};
-  max-width: 500px;
 `
 
 export const Notification = styled(BaseNotification)`

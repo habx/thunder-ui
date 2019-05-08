@@ -98,7 +98,7 @@ const Spotlight: React.StatelessComponent<SpotlightProps> = ({
   }, [isOpenControlled, onClose])
 
   const query = isQueryControlled ? propQuery : state.query
-  const isOpened = isOpenControlled ? propOpen : state.open
+  const isOpened = isOpenControlled ? propOpen : state.isOpened
 
   return (
     <SpotlightModal

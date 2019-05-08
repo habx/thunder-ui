@@ -38,4 +38,10 @@ export const isBoolean = (value: any): value is boolean =>
   value === false ||
   Object.prototype.toString.call(value) === '[object Boolean]'
 
+export const isObject = (value: object): value is object =>
+  typeof value === 'object'
+
 export const isNil = (value: any): value is null | undefined => value == null
+
+export const has = (value: object, key): boolean =>
+  isObject(value) && !isNil(value) && value.hasOwnProperty(key)

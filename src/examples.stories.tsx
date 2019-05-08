@@ -22,32 +22,23 @@ const ButtonContainer = styled.div`
   margin: 16px auto;
 `
 
-storiesOf('Examples|Basic', module)
-  .add('Form', () => (
-    <div>
-      <Title underline>Form</Title>
-      <Card title="Who are you ?" style={{ marginTop: 32 }}>
-        <Container>
-          <TextInput label="Your name" value="Bobby" />
-          <RadioSelect
-            label="Your gender"
-            options={[
-              { value: 1, label: 'Female' },
-              { value: 0, label: 'Male' },
-            ]}
-            value={1}
-          />
-          <Slider label="Your age" value={23} onChange={() => null} />
-        </Container>
-        <TextArea label="Your description" value="Lorem ipsum" />
-        <ButtonContainer>
-          <Button>Validate</Button>
-        </ButtonContainer>
-      </Card>
-    </div>
-  ))
-  .add('Navigation', () => (
-    <div>
-      <Title underline>Navigation</Title>
-    </div>
-  ))
+storiesOf('Examples', module).add('Form', () => (
+  <div>
+    <Title underline>Form</Title>
+    <Card title="Who are you ?" style={{ marginTop: 32 }}>
+      <Container>
+        <TextInput label="Your name" value="Bobby" />
+        <RadioSelect
+          label="Your gender"
+          options={[{ value: 1, label: 'Female' }, { value: 0, label: 'Male' }]}
+          value={1}
+        />
+        <Slider label="Your age" value={23} onChange={() => null} />
+      </Container>
+      <TextArea label="Your description" value="Lorem ipsum" />
+      <ButtonContainer>
+        <Button>Validate</Button>
+      </ButtonContainer>
+    </Card>
+  </div>
+))

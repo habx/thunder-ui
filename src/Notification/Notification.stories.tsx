@@ -5,26 +5,18 @@ import Notification from './index'
 
 storiesOf('Miscellaneous|Notification', module)
   .add('basic', () => (
-    <Notification>{"Impossible de modifier l'email"}</Notification>
+    <Notification>{'Short notification message'}</Notification>
   ))
   .add('warning', () => (
-    <Notification warning>{"Impossible de modifier l'email"}</Notification>
+    <Notification warning>{'Short warning message'}</Notification>
   ))
   .add('error', () => (
-    <Notification error>{"Impossible de modifier l'email"}</Notification>
+    <Notification error>{'Short error message'}</Notification>
   ))
-  .add('with illustration', () => (
-    <Notification
-      illustration={
-        <span
-          role="img"
-          aria-label="Icone de la notification"
-          style={{ fontSize: '50px' }}
-        >
-          🎉
-        </span>
+  .add('multiline', () => (
+    <Notification>
+      {
+        'This book is largely concerned with Hobbits, and from its pages a reader may discover much of their character and a little of their history.'
       }
-    >
-      {"Impossible de modifier l'email"}
     </Notification>
   ))

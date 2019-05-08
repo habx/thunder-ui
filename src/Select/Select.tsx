@@ -1,10 +1,9 @@
 import get from 'lodash.get'
-import has from 'lodash.has'
 import * as React from 'react'
 import { createPortal } from 'react-dom'
 import { withTheme } from 'styled-components'
 
-import { isNil } from '../_internal/data'
+import { isNil, has } from '../_internal/data'
 import { isClientSide, ssrDOMRect } from '../_internal/ssr'
 import { searchInString } from '../_internal/strings'
 import { formOption } from '../_internal/types'
@@ -353,7 +352,6 @@ const BaseSelect: React.StatelessComponent<SelectInnerProps> = ({
         data-open={state.isOpened}
         className={placeholderClassName}
         onClick={handleToggle}
-        color={color}
       >
         {icon && <CustomIconContainer>{icon}</CustomIconContainer>}
         {filterable ? (
@@ -385,7 +383,7 @@ const BaseSelect: React.StatelessComponent<SelectInnerProps> = ({
           )}
           <FontIcon
             icon={state.isOpened ? 'arrow_drop_up' : 'arrow_drop_down'}
-            color={darkColor}
+            color={theme.get('neutralStronger', { dynamic: true })(props)}
           />
         </LabelIcons>
       </SelectContent>

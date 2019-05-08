@@ -45,7 +45,11 @@ export const InputContainer = styled.div`
         ${theme.get('primary', { dynamic: true })},
         ${theme.get('primary', { dynamic: true })}
       ),
-      linear-gradient(to bottom, silver, silver);
+      linear-gradient(
+        to bottom,
+        ${theme.get('neutralLight', { dynamic: true })},
+        ${theme.get('neutralLight', { dynamic: true })}
+      );
     background-size: 0 2px, 100% 1px;
     background-position: 50% 100%, 50% 100%;
     transition: background-size 0.3s cubic-bezier(0.64, 0.09, 0.08, 1);

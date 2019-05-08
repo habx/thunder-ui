@@ -24,12 +24,11 @@ const LIGHT_THEME = {
   primaryStronger: '#001c3d', // Maastricht Blue
 
   neutralLightest: '#fff',
-  neutralLighter: '#ebecee',
+  neutralLighter: '#efeff1',
   neutralLight: '#d8dade',
   neutral: colors.paynesGrey,
   neutralStrong: '#3e4a5c',
   neutralStronger: '#232934',
-  neutralStrongest: '#0b0d10',
 
   shadowLight: shadows.light,
   shadow: shadows.medium,
@@ -55,8 +54,7 @@ const DARK_THEME = {
   neutralLight: '#3e4a5c',
   neutral: '#ebecee',
   neutralStrong: '#fff',
-  neutralStronger: '#ebecee',
-  neutralStrongest: '#d8dade',
+  neutralStronger: '#efeff1',
 
   shadowLight: '0 2px 6px 0 rgba(0, 13, 27, 0.6)',
   shadow: '0 2px 6px 0 rgba(0, 13, 27, 0.7)',

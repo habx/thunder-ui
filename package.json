@@ -42,7 +42,6 @@
   "dependencies": {
     "clean-tag": "^2.0.3",
     "color": "^3.1.0",
-    "lodash.clone": "^4.5.0",
     "lodash.deburr": "^4.1.0",
     "lodash.get": "^4.4.2",
     "lodash.has": "^4.5.2",
