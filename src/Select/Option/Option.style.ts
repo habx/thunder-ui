@@ -25,7 +25,8 @@ export const OptionContainer = styled.div`
   &[data-selected='true'] {
     background-color: ${theme.get('neutralLighter', { dynamic: true })};
   }
-  &[disabled] {
+
+  &[data-disabled='true'] {
     opacity: 0.5;
     user-focus: none;
     &:hover,
