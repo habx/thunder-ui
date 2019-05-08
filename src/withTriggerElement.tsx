@@ -14,7 +14,9 @@ type TriggerState = {
 const withTriggerElement = <Props extends object>(
   WrappedComponent: React.ComponentType<Props>
 ) => {
-  const Wrapper = (props: Props & TriggerReceivedProps) => {
+  const Wrapper: React.StatelessComponent<
+    Props & TriggerReceivedProps
+  > = props => {
     const { triggerElement, onClose, ...rest } = props as TriggerReceivedProps
 
     const [open, setOpen] = React.useState(false)

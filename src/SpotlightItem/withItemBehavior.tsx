@@ -4,6 +4,26 @@ import { mapValues } from '../_internal/data'
 import SpotlightContext from '../Spotlight/Spotlight.context'
 import SpotlightSectionContext from '../SpotlightSection/SpotlightSection.context'
 
+interface ItemInjectedProps {
+  query: string
+  selected: boolean
+  registerActions: (
+    actionName: string,
+    actionCallback: (e: React.FormEvent<HTMLInputElement>) => void
+  ) => void
+}
+
+export interface ItemActions {
+  onSubmit?: (e: React.UIEvent<HTMLInputElement>) => void
+  onBlur?: (e: React.UIEvent<HTMLInputElement>) => void
+  onFocus?: (e: React.UIEvent<HTMLInputElement>) => void
+  onClick?: (e: React.UIEvent<HTMLInputElement>) => void
+}
+
+export interface ItemReceivedProps extends ItemActions {
+  index: number
+}
+
 const useWrappedActions = ({
   spotlight,
   section,
@@ -21,7 +41,8 @@ const useWrappedActions = ({
 
   return React.useMemo(() => {
     const actions = [onClick, onFocus, onBlur]
-    mapValues(actions, (_, actionName) => e =>
+
+    return mapValues(actions, (_, actionName) => e =>
       actions[actionName](e, {
         spotlight: spotlightRef.current,
         section: sectionRef.current,
@@ -30,14 +51,21 @@ const useWrappedActions = ({
   }, [onBlur, onClick, onFocus])
 }
 
-const withItemBehavior = WrappedComponent => {
-  const Component: React.StatelessComponent<any> = ({
-    index,
-    onClick,
-    onFocus,
-    onBlur,
-    ...props
-  }) => {
+const withItemBehavior = <Props extends ItemInjectedProps>(
+  WrappedComponent: React.ComponentType<Props>
+) => {
+  const Component: React.StatelessComponent<
+    Pick<Props, Exclude<keyof Props, keyof ItemInjectedProps>> &
+      ItemReceivedProps
+  > = props => {
+    const {
+      index,
+      onClick,
+      onFocus,
+      onBlur,
+      ...rest
+    } = props as ItemReceivedProps
+
     const id = React.useRef(Math.random())
     const actions = React.useRef({
       submit: (...args) => null,
@@ -75,11 +103,11 @@ const withItemBehavior = WrappedComponent => {
 
     return (
       <WrappedComponent
-        {...props}
-        query={spotlight.query}
+        {...rest as Props}
+        {...wrappedActions as ItemActions}
         selected={selected}
         registerActions={registerActions}
-        {...wrappedActions}
+        query={spotlight.query}
       />
     )
   }

@@ -30,7 +30,7 @@ type Options = {
 const withLabel = ({ padding = 4 }: Options = {}) => <Props extends object>(
   WrappedComponent: React.ComponentType<Props>
 ) => {
-  const Field = (props: Props & LabelReceivedProps) => {
+  const Field: React.StatelessComponent<Props & LabelReceivedProps> = props => {
     const { label, labelColor, ...rest } = props as LabelReceivedProps
 
     if (label) {

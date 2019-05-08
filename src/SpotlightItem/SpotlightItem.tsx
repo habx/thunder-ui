@@ -1,10 +1,10 @@
 import * as React from 'react'
 
-import { omit } from '../_internal/data'
+import { isFunction } from '../_internal/data'
 import FontIcon from '../FontIcon'
 
 import Highlight from './Highlight'
-import { ItemInnerProps } from './SpotlightItem.interface'
+import ItemProps from './SpotlightItem.interface'
 import {
   ItemContainer,
   ItemContent,
@@ -16,76 +16,123 @@ import {
   Subtitle,
 } from './SpotlightItem.style'
 
-const INTERNAL_PROPS = [
-  'title',
-  'subtitle',
-  'icon',
-  'iconStyle',
-  'onDelete',
-  'onEdit',
-  'onClick',
-  'focusOnRender',
-  'refPropName',
-  'registerActions',
-  'spotlight',
-  'as',
-]
-
-class SpotlightItem extends React.PureComponent<ItemInnerProps> {
-  private readonly containerRef: { current: HTMLDivElement }
-  private readonly inputRef: React.RefObject<any>
-  private readonly itemContainerRef: React.RefObject<any>
-
-  static defaultProps = {
-    focusOnRender: false,
-    refPropName: 'ref',
-    as: 'div',
-  }
-
-  constructor(props) {
-    super(props)
-
-    this.containerRef = { current: null }
-    this.itemContainerRef = React.createRef()
-    this.inputRef = React.createRef()
-  }
-
-  state = {
-    edit: this.props.focusOnRender,
-    value: this.props.title,
-  }
-
-  componentDidMount() {
-    const { focusOnRender, registerActions } = this.props
-
-    if (focusOnRender) {
-      this.focusInput()
+const reducer = (state, action) => {
+  switch (action.type) {
+    case 'START_EDITING': {
+      return { ...state, isEditing: true, value: action.value }
     }
 
-    registerActions('submit', this.handleSubmit)
+    case 'STOP_EDITING': {
+      return { ...state, isEditing: false }
+    }
+
+    case 'UPDATE_VALUE': {
+      return { ...state, value: action.value }
+    }
+
+    default: {
+      throw new Error(`Thunder SpotlightItem : Unknown action ${action.type}`)
+    }
+  }
+}
+
+const INITIAL_STATE = {
+  isEditing: false,
+  value: '',
+}
+
+const preventDefault = e => e.preventDefault()
+
+const SpotlightItem: React.StatelessComponent<ItemProps> = ({
+  title,
+  subtitle,
+  icon,
+  onDelete,
+  onEdit,
+  onClick,
+  href,
+  as,
+  query,
+  selected,
+  registerActions,
+  focusOnMount,
+  refPropName,
+  ...props
+}) => {
+  const [state, dispatch] = React.useReducer(reducer, INITIAL_STATE)
+  const itemContainerRef = React.useRef(null)
+  const inputRef = React.useRef(null)
+  const containerRef = React.useRef(null)
+
+  const handleSubmit = React.useCallback(
+    event => {
+      if (containerRef.current) {
+        containerRef.current.click()
+      }
+
+      if (onClick) {
+        onClick(event)
+      }
+    },
+    [onClick]
+  )
+
+  const handleEdit = e => {
+    e.preventDefault()
+    dispatch({ type: 'START_EDITING', value: title })
   }
 
-  componentDidUpdate() {
-    const { selected } = this.props
+  const handleDelete = e => {
+    e.preventDefault()
+    if (isFunction(onDelete)) {
+      onDelete(e)
+    }
+  }
 
+  const handleChange = e => {
+    dispatch({ type: 'UPDATE_VALUE', value: e.target.value })
+  }
+
+  const handleKeyPress = e => {
+    if (
+      e.key === 'Enter' &&
+      document.activeElement === itemContainerRef.current
+    ) {
+      handleSubmit(e)
+    }
+  }
+
+  const handleInputKeyPress = e => {
+    if (e.key === 'Enter') {
+      handleStopEditing()
+    }
+  }
+
+  const handleStopEditing = () => {
+    dispatch({ type: 'STOP_EDITING' })
+    if (isFunction(onEdit)) {
+      onEdit(state.value)
+    }
+  }
+
+  React.useEffect(() => {
+    registerActions('submit', handleSubmit)
+  }, [handleSubmit, registerActions])
+
+  React.useLayoutEffect(() => {
+    if (focusOnMount) {
+      inputRef.current.focus()
+      inputRef.current.select()
+    }
+  }, [focusOnMount])
+
+  React.useLayoutEffect(() => {
     if (selected) {
-      this.itemContainerRef.current.focus()
+      itemContainerRef.current.focus()
     }
-  }
+  }, [selected])
 
-  getContainerProps() {
-    const { refPropName } = this.props
-
-    const ref = node => {
-      this.containerRef.current = node
-    }
-
-    return { [refPropName]: ref }
-  }
-
-  getContainerComponent(): React.ComponentType<any> | string {
-    const { href, as } = this.props
-
+  const Container: React.ComponentType<any> | string = React.useMemo(() => {
     if (as) {
       return as
     }
@@ -95,118 +142,55 @@ class SpotlightItem extends React.PureComponent<ItemInnerProps> {
     }
 
     return 'div'
-  }
+  }, [as, href])
 
-  handleSubmit = event => {
-    const { onClick } = this.props
+  const containerProps = { [refPropName]: containerRef }
 
-    if (this.containerRef.current) {
-      this.containerRef.current.click()
-    }
-
-    if (onClick) {
-      onClick(event)
-    }
-  }
-
-  handleClick = (action?: () => void) => e => {
-    e.preventDefault()
-
-    if (action) {
-      action()
-    }
-  }
-
-  handleEdit = e => {
-    e.preventDefault()
-    this.setState({ edit: true }, this.focusInput)
-  }
-
-  handleChange = e => {
-    this.setState({ value: e.target.value })
-  }
-
-  handleKeyPress = e => {
-    if (
-      e.key === 'Enter' &&
-      document.activeElement === this.itemContainerRef.current
-    ) {
-      this.handleSubmit(e)
-    }
-  }
-
-  handleInputKeyPress = e => {
-    if (e.key === 'Enter') {
-      this.handleStopEditing()
-    }
-  }
-
-  handleStopEditing = () => {
-    this.setState({ edit: false })
-    this.props.onEdit(this.state.value)
-  }
-
-  focusInput = () => {
-    this.inputRef.current.focus()
-    this.inputRef.current.select()
-  }
-
-  render() {
-    const { title, subtitle, icon, onDelete, onEdit, query } = this.props
-
-    const { edit, value } = this.state
-
-    const Container = this.getContainerComponent()
-
-    return (
-      <Container
-        {...this.getContainerProps()}
-        {...omit(this.props, INTERNAL_PROPS)}
+  return (
+    <Container {...containerProps} {...props} href={href} as={as}>
+      <ItemContainer
+        ref={itemContainerRef}
+        tabIndex={0}
+        onClick={handleSubmit}
+        onKeyPress={handleKeyPress}
       >
-        <ItemContainer
-          ref={this.itemContainerRef}
-          tabIndex={0}
-          onClick={this.handleSubmit}
-          onKeyPress={this.handleKeyPress}
-        >
-          {icon && <ItemIconContainer>{icon}</ItemIconContainer>}
-          <ItemContent>
-            <ItemTitle>
-              <ItemTitleInput
-                ref={this.inputRef}
-                value={value}
-                onKeyPress={this.handleInputKeyPress}
-                onChange={this.handleChange}
-                onClick={this.handleClick()}
-                onBlur={this.handleStopEditing}
-                data-editing={edit}
-              />
-              <Title data-editing={edit}>
-                <Highlight query={query}>{title}</Highlight>
-              </Title>
-              <ItemActions
-                data-editing={edit}
-                onClick={e => e.stopPropagation()}
-              >
-                {onEdit && <FontIcon icon="edit" onClick={this.handleEdit} />}
-                {onDelete && (
-                  <FontIcon
-                    icon="delete"
-                    onClick={this.handleClick(onDelete)}
-                  />
-                )}
-              </ItemActions>
-            </ItemTitle>
-            {subtitle && (
-              <Subtitle>
-                <Highlight query={query}>{subtitle}</Highlight>
-              </Subtitle>
-            )}
-          </ItemContent>
-        </ItemContainer>
-      </Container>
-    )
-  }
+        {icon && <ItemIconContainer>{icon}</ItemIconContainer>}
+        <ItemContent>
+          <ItemTitle>
+            <ItemTitleInput
+              ref={inputRef}
+              value={state.value}
+              onKeyPress={handleInputKeyPress}
+              onChange={handleChange}
+              onClick={preventDefault}
+              onBlur={handleStopEditing}
+              data-editing={state.isEditing}
+            />
+            <Title data-editing={state.isEditing}>
+              <Highlight query={query}>{title}</Highlight>
+            </Title>
+            <ItemActions
+              data-editing={state.isEditing}
+              onClick={e => e.stopPropagation()}
+            >
+              {onEdit && <FontIcon icon="edit" onClick={handleEdit} />}
+              {onDelete && <FontIcon icon="delete" onClick={handleDelete} />}
+            </ItemActions>
+          </ItemTitle>
+          {subtitle && (
+            <Subtitle>
+              <Highlight query={query}>{subtitle}</Highlight>
+            </Subtitle>
+          )}
+        </ItemContent>
+      </ItemContainer>
+    </Container>
+  )
+}
+
+SpotlightItem.defaultProps = {
+  refPropName: 'ref',
+  as: 'div',
 }
 
 export default SpotlightItem
