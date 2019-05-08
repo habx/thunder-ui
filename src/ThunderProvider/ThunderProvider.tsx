@@ -1,4 +1,3 @@
-import merge from 'lodash.merge'
 import * as React from 'react'
 import { withTheme, ThemeProvider } from 'styled-components'
 
@@ -19,22 +18,23 @@ const getCustomTheme = customTheme => {
     return theme.dark
   }
 
-  return merge({}, theme.light, customTheme)
+  return { ...theme.light, customTheme }
 }
 
-const BaseProvider: React.StatelessComponent<
-  ThunderProviderInnerProps
-> = props => {
+const BaseProvider: React.StatelessComponent<ThunderProviderInnerProps> = ({
+  customTheme,
+  theme,
+  children,
+}) => {
   const fullTheme = React.useMemo(
-    () =>
-      merge({}, props.theme, { thunderUI: getCustomTheme(props.customTheme) }),
-    [props.customTheme, props.theme]
+    () => ({ ...theme, thunderUI: getCustomTheme(customTheme) }),
+    [customTheme, theme]
   )
 
   return (
     <ThemeProvider theme={fullTheme}>
       <React.Fragment>
-        {props.children}
+        {children}
         <ConfirmModals />
         <NotificationList />
       </React.Fragment>
