@@ -40,14 +40,19 @@ const useWrappedActions = ({
   })
 
   return React.useMemo(() => {
-    const actions = [onClick, onFocus, onBlur]
+    const actions = { onClick, onFocus, onBlur }
 
-    return mapValues(actions, (_, actionName) => e =>
-      actions[actionName](e, {
-        spotlight: spotlightRef.current,
-        section: sectionRef.current,
-      })
-    )
+    return mapValues(actions, (action, actionName) => {
+      if (!action) {
+        return null
+      }
+
+      return e =>
+        action(e, {
+          spotlight: spotlightRef.current,
+          section: sectionRef.current,
+        })
+    })
   }, [onBlur, onClick, onFocus])
 }
 

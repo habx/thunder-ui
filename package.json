@@ -66,7 +66,7 @@
     "@storybook/storybook-deployer": "^2.8.1",
     "@types/jest": "^24.0.12",
     "@types/lodash": "^4.14.123",
-    "@types/react": "16.7.0",
+    "@types/react": "^16.8.17",
     "@types/react-dom": "16.0.11",
     "@types/storybook__react": "^4.0.1",
     "@types/webpack-env": "^1.13.6",
