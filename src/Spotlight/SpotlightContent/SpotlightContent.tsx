@@ -6,163 +6,159 @@ import { SpotlightContext } from '../Spotlight.context'
 
 import SpotlightIcon from './icon'
 import SpotlightContentProps, {
-  SpotlightContentState,
   ItemRegistrationData,
 } from './SpotlightContent.interface'
 import { SpotlightSearch, SpotlightSections } from './SpotlightContent.style'
 
-class SpotlightContent extends React.Component<
-  SpotlightContentProps,
-  SpotlightContentState
-> {
-  static defaultProps = {
-    data: {},
-    placeholder: 'Aller à...',
-  }
+const SpotlightContent: React.StatelessComponent<SpotlightContentProps> = ({
+  children,
+  query,
+  data,
+  placeholder,
+  inputRef,
+  onClose,
+  onQueryChange,
+}) => {
+  const [selectedItem, setSelectedItem] = React.useState(-1)
+  const items: React.MutableRefObject<{
+    [key: string]: ItemRegistrationData[]
+  }> = React.useRef({})
 
-  state = {
-    selectedItem: -1,
-  }
+  const getAllItemKeys = React.useCallback(
+    (): ItemRegistrationData[] =>
+      Object.values(items.current).reduce(
+        (
+          acc: ItemRegistrationData[],
+          sectionItems: { [key: number]: ItemRegistrationData }
+        ) => [
+          ...acc,
+          ...Object.values(sectionItems).sort((a, b) =>
+            a.index > b.index ? 1 : -1
+          ),
+        ],
+        []
+      ),
+    []
+  )
 
-  componentDidMount() {
-    window.addEventListener('keydown', this.handleKeyDown)
-  }
+  const selectedItemKey = get(getAllItemKeys(), [selectedItem, 'key'])
 
-  componentDidUpdate(prevProps, prevState) {
-    const { inputRef } = this.props
-    const { selectedItem } = this.state
+  const registerItem = React.useCallback(
+    (section, item: ItemRegistrationData) => {
+      items.current = {
+        ...items.current,
+        [section]: {
+          ...get(items.current, section, {}),
+          [item.key]: item,
+        },
+      }
+    },
+    []
+  )
 
-    if (selectedItem === -1 && prevState.selectedItem !== -1) {
-      inputRef.current.select()
+  const unRegisterItem = React.useCallback((section, key) => {
+    items.current = {
+      ...items.current,
+      [section]: omit(items.current[section], [key]),
     }
-  }
+  }, [])
 
-  componentWillUnmount() {
-    window.removeEventListener('keydown', this.handleKeyDown)
-  }
+  const handleClose = React.useCallback(() => {
+    setSelectedItem(-1)
+    onClose()
+  }, [onClose])
 
-  getAllItemKeys = (): ItemRegistrationData[] => {
-    const items: ItemRegistrationData[][] = Object.values(this.items)
+  const context = React.useMemo(
+    () => ({
+      query,
+      selectedItemKey,
+      data,
+      registerItem,
+      unRegisterItem,
+      close: handleClose,
+    }),
+    [data, handleClose, query, registerItem, selectedItemKey, unRegisterItem]
+  )
 
-    return items.reduce(
-      (
-        acc: ItemRegistrationData[],
-        sectionItems: { [key: number]: ItemRegistrationData }
-      ) => [
-        ...acc,
-        ...Object.values(sectionItems).sort((a, b) =>
-          a.index > b.index ? 1 : -1
-        ),
-      ],
-      []
-    )
-  }
+  React.useEffect(() => {
+    const handleKeyDown = event => {
+      const { key } = event
 
-  handleKeyDown = event => {
-    const { key } = event
+      if (['ArrowUp', 'ArrowDown'].includes(key)) {
+        event.preventDefault()
 
-    if (['ArrowUp', 'ArrowDown'].includes(key)) {
-      event.preventDefault()
-
-      this.setState(prevState => {
-        const { selectedItem } = prevState
-
-        if (key === 'ArrowUp') {
-          return {
-            selectedItem:
-              selectedItem >= 0
-                ? selectedItem - 1
-                : this.getAllItemKeys().length - 1,
+        setSelectedItem(prev => {
+          if (key === 'ArrowUp') {
+            return prev >= 0 ? prev - 1 : getAllItemKeys().length - 1
           }
-        }
 
-        if (key === 'ArrowDown') {
-          return {
-            selectedItem:
-              selectedItem < this.getAllItemKeys().length - 1
-                ? selectedItem + 1
-                : -1,
+          if (key === 'ArrowDown') {
+            return prev < getAllItemKeys().length - 1 ? prev + 1 : -1
           }
-        }
 
-        return null
-      })
-    }
-  }
-
-  handleClose = () => {
-    this.setState({ selectedItem: -1 })
-    this.props.onClose()
-  }
-
-  handleSearch = e => {
-    this.setState({ selectedItem: -1 })
-    this.props.onQueryChange(e.target.value)
-  }
-
-  handleFocus = () => this.setState({ selectedItem: -1 })
-
-  handleSearchKeyPress = event => {
-    const { key } = event
-
-    if (key === 'Enter') {
-      const items = this.getAllItemKeys()
-      if (items.length > 0) {
-        items[0].onSubmit(event)
+          return null
+        })
       }
     }
-  }
 
-  registerItem = (section, item: ItemRegistrationData) => {
-    this.items = {
-      ...this.items,
-      [section]: {
-        ...get(this.items, section, {}),
-        [item.key]: item,
-      },
+    window.addEventListener('keydown', handleKeyDown)
+
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown)
     }
-  }
+  }, [getAllItemKeys])
 
-  unRegisterItem = (section, key) => {
-    this.items = {
-      ...this.items,
-      [section]: omit(this.items[section], [key]),
+  React.useEffect(() => {
+    if (selectedItem === -1) {
+      inputRef.current.select()
     }
-  }
+  }, [inputRef, selectedItem])
 
-  items = {}
+  const handleSearch = React.useCallback(
+    e => {
+      setSelectedItem(-1)
+      onQueryChange(e.target.value)
+    },
+    [onQueryChange]
+  )
 
-  render() {
-    const { children, query, data, placeholder, inputRef } = this.props
-    const { selectedItem } = this.state
-    const selectedItemKey = get(this.getAllItemKeys(), [selectedItem, 'key'])
+  const handleFocus = React.useCallback(() => setSelectedItem(-1), [])
 
-    return (
-      <SpotlightContext.Provider
-        value={{
-          query,
-          selectedItemKey,
-          data,
-          registerItem: this.registerItem,
-          unRegisterItem: this.unRegisterItem,
-          close: this.handleClose,
-        }}
-      >
-        <SpotlightSearch>
-          <SpotlightIcon />
-          <input
-            onKeyPress={this.handleSearchKeyPress}
-            ref={inputRef}
-            onFocus={this.handleFocus}
-            value={query}
-            onChange={this.handleSearch}
-            placeholder={placeholder}
-          />
-        </SpotlightSearch>
-        <SpotlightSections>{children}</SpotlightSections>
-      </SpotlightContext.Provider>
-    )
-  }
+  const handleSearchKeyPress = React.useCallback(
+    event => {
+      const { key } = event
+
+      if (key === 'Enter') {
+        const items = getAllItemKeys()
+        if (items.length > 0) {
+          items[0].onSubmit(event)
+        }
+      }
+    },
+    [getAllItemKeys]
+  )
+
+  return (
+    <SpotlightContext.Provider value={context}>
+      <SpotlightSearch>
+        <SpotlightIcon />
+        <input
+          onKeyPress={handleSearchKeyPress}
+          ref={inputRef}
+          onFocus={handleFocus}
+          value={query}
+          onChange={handleSearch}
+          placeholder={placeholder}
+        />
+      </SpotlightSearch>
+      <SpotlightSections>{children}</SpotlightSections>
+    </SpotlightContext.Provider>
+  )
+}
+
+SpotlightContent.defaultProps = {
+  data: {},
+  placeholder: 'Aller à...',
 }
 
 export default SpotlightContent
