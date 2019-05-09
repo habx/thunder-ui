@@ -4,7 +4,7 @@ import { mapValues } from '../_internal/data'
 import SpotlightContext from '../Spotlight/Spotlight.context'
 import SpotlightSectionContext from '../SpotlightSection/SpotlightSection.context'
 
-interface ItemInjectedProps {
+export interface ItemInjectedProps {
   query: string
   selected: boolean
   registerActions: (
