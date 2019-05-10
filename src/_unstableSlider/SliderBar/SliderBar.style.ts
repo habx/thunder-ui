@@ -8,6 +8,5 @@ export const SliderBarContainer = styled.div`
 
   z-index: 4;
   height: 8px;
-  background-color: rgb(0, 113, 206);
   border-radius: 4px;
 `

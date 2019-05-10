@@ -2,6 +2,9 @@ import styled from 'styled-components'
 
 import theme from '../theme'
 
+import { SliderBarContainer } from './SliderBar/SliderBar.style'
+import { SliderDotContainer } from './SliderDot/SliderDot.style'
+
 export const SliderContent = styled.div`
   background-color: ${theme.get('neutralStrong')};
   position: absolute;
@@ -12,6 +15,15 @@ export const SliderContent = styled.div`
 
 export const SliderContainer = styled.div`
   position: relative;
+  & ${SliderDotContainer}, & ${SliderBarContainer} {
+    background-color: ${theme.get('primary', { dynamic: true })};
+  }
+
+  &[data-disabled='true'] {
+    opacity: 0.7;
+    pointer-events: none;
+    filter: grayscale();
+  }
 `
 
 export const SliderLabel = styled.div`

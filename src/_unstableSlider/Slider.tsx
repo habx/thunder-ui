@@ -11,6 +11,7 @@ import SliderBar from './SliderBar'
 import SliderDot from './SliderDot'
 
 const Slider: React.FunctionComponent<SliderProps> = ({
+  disabled,
   range,
   value,
   onChange,
@@ -120,7 +121,7 @@ const Slider: React.FunctionComponent<SliderProps> = ({
   )
 
   return (
-    <SliderContainer {...props}>
+    <SliderContainer {...props} data-disabled={disabled}>
       <SliderContent ref={barRef} />
       {valueDots}
       {valueBars}

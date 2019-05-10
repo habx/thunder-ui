@@ -10,7 +10,6 @@ export const SliderDotContainer = styled.div`
   cursor: grab;
   width: 16px;
   height: 16px;
-  background-color: rgb(0, 113, 206);
   box-shadow: ${theme.get('shadowLight')};
   touch-action: pan-x;
   border-radius: 50%;

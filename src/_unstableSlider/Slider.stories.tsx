@@ -17,6 +17,12 @@ const sliderDecorator = storyFn => <Container>{storyFn()}</Container>
 storiesOf('Inputs|Slider unstable', module)
   .addDecorator(sliderDecorator)
   .add('basic', () => <Slider onChange={action('Slider change')} value={40} />)
+  .add('disabled', () => (
+    <Slider disabled onChange={action('Slider change')} value={40} />
+  ))
+  .add('error', () => (
+    <Slider error onChange={action('Slider change')} value={40} />
+  ))
   .add('with range', () => (
     <Slider range onChange={action('Slider change')} value={[20, 60]} />
   ))
