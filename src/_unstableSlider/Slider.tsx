@@ -39,6 +39,10 @@ const Slider: React.FunctionComponent<SliderProps> = ({
     localValueRef.current = localValue
   }, [localValue])
 
+  React.useEffect(() => {
+    setLocalValue(value)
+  }, [value])
+
   const getBarWidth = () => barRef.current.offsetWidth
 
   const getPositionFromValue = currentValue =>
