@@ -1,11 +1,7 @@
 import * as React from 'react'
 
 import SliderDotProps from './SliderDot.interface'
-import {
-  SliderDotContainer,
-  SliderDotContent,
-  SliderDotLabel,
-} from './SliderDot.style'
+import { SliderDotContainer } from './SliderDot.style'
 
 type Listeners = {
   mousemove?: EventListener
@@ -49,16 +45,10 @@ const useMouseMove = ({ onMove }) => {
 const SliderDot: React.FunctionComponent<SliderDotProps> = ({
   position,
   onMove,
-  labelFormatter,
 }) => {
   const eventProps = useMouseMove({ onMove })
 
-  return (
-    <SliderDotContainer style={{ left: `${position}%` }}>
-      <SliderDotContent {...eventProps} />
-      <SliderDotLabel>{labelFormatter(position)}</SliderDotLabel>
-    </SliderDotContainer>
-  )
+  return <SliderDotContainer style={{ left: `${position}%` }} {...eventProps} />
 }
 
 export default SliderDot

@@ -13,3 +13,8 @@ export const SliderContent = styled.div`
 export const SliderContainer = styled.div`
   position: relative;
 `
+
+export const SliderLabel = styled.div`
+  position: absolute;
+  top: 16px;
+`

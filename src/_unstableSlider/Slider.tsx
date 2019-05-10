@@ -1,7 +1,7 @@
 import * as React from 'react'
 
 import SliderProps from './Slider.interface'
-import { SliderContainer, SliderContent } from './Slider.style'
+import { SliderContainer, SliderContent, SliderLabel } from './Slider.style'
 import SliderBar from './SliderBar'
 import SliderDot from './SliderDot'
 
@@ -13,6 +13,7 @@ const Slider: React.FunctionComponent<SliderProps> = ({
   max,
   step,
   labelFormatter,
+  toolTipSuffix,
   ...props
 }) => {
   const barRef = React.useRef(null)
@@ -47,13 +48,7 @@ const Slider: React.FunctionComponent<SliderProps> = ({
       })
     }
 
-    return (
-      <SliderDot
-        position={position}
-        labelFormatter={labelFormatter}
-        onMove={handlePositionChange}
-      />
-    )
+    return <SliderDot position={position} onMove={handlePositionChange} />
   }
 
   const buildBar = ({ from, to }) => {
@@ -71,11 +66,31 @@ const Slider: React.FunctionComponent<SliderProps> = ({
     ? buildBar({ from: localValue[0], to: localValue[1] })
     : buildBar({ from: min, to: localValue })
 
+  const label = (() => {
+    const buildValueLabel = value => labelFormatter(value)
+
+    if (range) {
+      const from = buildValueLabel(localValue[0])
+      const to = buildValueLabel(localValue[1])
+      return `${from} à ${to}${toolTipSuffix}`
+    }
+
+    const label = buildValueLabel(localValue)
+    return `${label}${toolTipSuffix}`
+  })()
+
+  const labelPosition = range
+    ? getPositionFromValue(localValue[0])
+    : getPositionFromValue(localValue)
+
   return (
     <SliderContainer {...props}>
       <SliderContent ref={barRef} />
       {valueDots}
       {valueBars}
+      <SliderLabel style={{ left: `calc(${labelPosition}% - 4px)` }}>
+        {label}
+      </SliderLabel>
     </SliderContainer>
   )
 }
