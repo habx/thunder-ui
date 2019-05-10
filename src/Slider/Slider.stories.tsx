@@ -29,7 +29,7 @@ storiesOf('Inputs|Slider', module)
     <Slider range onChange={action('Slider change')} value={[20, 60]} />
   ))
   .add('with tooltip suffix', () => (
-    <Slider toolTipSuffix="m²" onChange={action('Slider change')} value={3} />
+    <Slider labelSuffix="m²" onChange={action('Slider change')} value={3} />
   ))
   .add('with custom values', () => {
     const EnhancedSlider = enhance(({ value, onChange }) => (

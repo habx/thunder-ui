@@ -1,145 +1,200 @@
-import BaseSlider, { Range, Handle } from 'rc-slider'
 import * as React from 'react'
-import { withTheme } from 'styled-components'
 
-import theme from '../theme'
 import withLabel from '../withLabel'
 
-import SliderProps, { SliderInnerProps } from './Slider.interface'
+import SliderProps from './Slider.interface'
 import {
   SliderContainer,
-  Label,
+  SliderContent,
+  SliderMainBar,
+  SliderLabel,
+  SliderBackgroundDot,
   SliderIndicator,
-  SliderHandlerIndicator,
 } from './Slider.style'
+import SliderBar from './SliderBar'
+import SliderDot from './SliderDot'
 
-const getBackgroundColor = (value, indicators) =>
-  indicators.reduce((currentColor, indicator) => {
-    if (
-      value >= Math.min(...indicator.range) &&
-      value <= Math.max(...indicator.range) + 1
-    ) {
-      return indicator.color
-    }
-
-    return currentColor
-  }, null)
-
-const Slider: React.FunctionComponent<SliderInnerProps> = ({
+const Slider: React.FunctionComponent<SliderProps> = ({
+  disabled,
   range,
-  max,
-  customValues,
-  toolTipSuffix,
-  min,
-  step,
-  labelFormatter,
-  indicators,
-  value,
   onChange,
+  labelFormatter,
+  labelRangeSeparator,
+  labelSuffix,
+  customValues,
+  indicators,
+  min,
+  max: rawMax,
+  step: rawStep,
+  dots: rawDots,
+  value: rawValue,
   ...props
 }) => {
-  const [localValue, setLocalValue] = React.useState(
-    value === null ? (range ? [min, max] : min) : value
+  const max = customValues ? customValues.length - 1 : rawMax
+  const step = customValues ? 1 : rawStep
+  const dots = customValues ? true : rawDots
+  const value = !Array.isArray(rawValue) && range ? [null, null] : rawValue
+
+  const barRef = React.useRef(null)
+  const [localValue, setLocalValue] = React.useState(value)
+  const localValueRef = React.useRef(value)
+
+  React.useEffect(() => {
+    localValueRef.current = localValue
+  }, [localValue])
+
+  React.useEffect(() => {
+    setLocalValue(value)
+  }, [value])
+
+  const getBarWidth = () => barRef.current.offsetWidth
+
+  const getPositionFromValue = currentValue =>
+    (100 * (currentValue - min)) / (max - min)
+
+  const buildDot = (rangeIndex?: number) => {
+    const dotValue = range ? localValue[rangeIndex] : localValue
+    const matchingIndicator = indicators.find(
+      ({ range }) =>
+        Math.min(...range) <= dotValue && Math.max(...range) >= dotValue
+    )
+
+    const position = getPositionFromValue(dotValue)
+
+    const getPossibleValuesBoundaries = () => {
+      if (range) {
+        if (rangeIndex === 0) {
+          return { min: 0, max: localValue[1] }
+        }
+
+        return { min: localValue[0], max: 100 }
+      }
+
+      return { min: 0, max: 100 }
+    }
+
+    const handlePositionChange = delta => {
+      const boundaries = getPossibleValuesBoundaries()
+      const newPosition = position + (delta / getBarWidth()) * 100
+
+      const boundedPosition = Math.min(
+        Math.max(newPosition, boundaries.min),
+        boundaries.max
+      )
+      const exactValue = (boundedPosition * (max - min)) / 100 + min
+
+      const newValue = Math.round(exactValue / step) * step
+
+      setLocalValue(prev => {
+        if (range) {
+          const values = [...prev]
+          values[rangeIndex] = newValue
+          return values
+        }
+
+        return newValue
+      })
+    }
+
+    const handleChange = () => {
+      onChange(localValueRef.current)
+    }
+
+    return (
+      <SliderDot
+        key={rangeIndex}
+        position={position}
+        onMove={handlePositionChange}
+        onRest={handleChange}
+        innerColor={matchingIndicator ? matchingIndicator.color : null}
+      />
+    )
+  }
+
+  const buildBar = ({ from, to }) => (
+    <SliderBar
+      from={getPositionFromValue(from)}
+      to={getPositionFromValue(to)}
+    />
   )
 
-  const handleChange = React.useCallback(() => {
-    if (value !== localValue) {
-      onChange(localValue)
+  const valueDots = range ? [buildDot(0), buildDot(1)] : buildDot()
+
+  const valueBars = range
+    ? buildBar({ from: localValue[0], to: localValue[1] })
+    : buildBar({ from: min, to: localValue })
+
+  const label = (() => {
+    const buildValueLabel = value => {
+      const label = customValues ? customValues[value] : value
+
+      return labelFormatter(label)
     }
-  }, [localValue, onChange, value])
 
-  const SliderComponent = range ? Range : BaseSlider
-  const realMax = customValues
-    ? customValues.length - 1
-    : (max || 100) - ((max || 100) % step)
-  const realMin = customValues ? min : min - (min % step)
+    if (range) {
+      const from = buildValueLabel(localValue[0])
+      const to = buildValueLabel(localValue[1])
+      return `${from}${labelRangeSeparator}${to}${labelSuffix}`
+    }
 
-  const isValueArray = Array.isArray(localValue)
-  const label = isValueArray
-    ? `${labelFormatter(localValue[0])} à ${labelFormatter(
-        localValue[1]
-      )}${toolTipSuffix}`
-    : `${
-        customValues
-          ? customValues[localValue as number]
-          : `${labelFormatter(localValue) || 0}${toolTipSuffix}`
-      }`
+    const label = buildValueLabel(localValue)
+    return `${label}${labelSuffix}`
+  })()
+
+  const labelPosition = range
+    ? getPositionFromValue(localValue[0])
+    : getPositionFromValue(localValue)
+
+  const possibleValues = Array.from(
+    { length: (max - min) / step + 1 },
+    (_, i) => (min + i) * step
+  )
 
   return (
-    <SliderContainer
-      color={theme.get('primary', { dynamic: true })(props)}
-      {...props}
-    >
-      {indicators.map(({ color, range }) => {
-        const size =
-          ((Math.max(...range) - Math.min(...range)) / (realMax - realMin)) *
-          100
-        const position =
-          ((Math.min(...range) - realMin) / (realMax - realMin)) * 100
-
-        return (
+    <SliderContainer>
+      <SliderContent {...props} data-disabled={disabled}>
+        <SliderMainBar ref={barRef} />
+        {valueDots}
+        {valueBars}
+        {indicators.map(({ color, range }) => (
           <SliderIndicator
             key={range.join('.')}
             color={color}
-            size={size}
-            position={position}
+            style={{
+              left: `${((Math.min(...range) - min) / (max - min)) * 100}%`,
+              right: `${(1 - (Math.max(...range) - min) / (max - min)) * 100}%`,
+            }}
           />
-        )
-      })}
-      <SliderComponent
-        onAfterChange={handleChange}
-        onChange={setLocalValue}
-        value={localValue}
-        dots={!!customValues}
-        max={realMax}
-        min={realMin}
-        step={customValues ? 1 : step}
-        handle={({ dragging, ...handleProps }) => (
-          <Handle
-            {...handleProps}
-            dragging={`${dragging}`}
-            key={`rc-handle-${handleProps.index}`}
-          >
-            <SliderHandlerIndicator
-              style={{
-                backgroundColor: getBackgroundColor(
-                  handleProps.value,
-                  indicators
-                ),
-              }}
+        ))}
+        <SliderLabel
+          data-testid="slider-label"
+          style={{ paddingLeft: `${labelPosition}%` }}
+        >
+          {label}
+        </SliderLabel>
+        {dots &&
+          possibleValues.map((value, index) => (
+            <SliderBackgroundDot
+              key={index}
+              style={{ left: `${getPositionFromValue(value)}%` }}
             />
-          </Handle>
-        )}
-      />
-      <Label
-        style={{
-          left: `calc(100%/${realMax}*${
-            isValueArray ? localValue[0] : localValue
-          })`,
-        }}
-        color={theme.get('primary', {
-          propName: 'tooltipColor',
-          dynamic: true,
-        })(props)}
-      >
-        {label || ''}
-      </Label>
+          ))}
+      </SliderContent>
     </SliderContainer>
   )
 }
 
 Slider.defaultProps = {
   labelFormatter: label => label,
+  labelRangeSeparator: ' to ',
   range: false,
   customValues: null,
   value: null,
-  toolTipSuffix: '',
+  labelSuffix: '',
   min: 0,
   max: 100,
   step: 5,
   indicators: [],
 }
 
-export default withLabel({ padding: 12 })(withTheme(
-  Slider
-) as React.ComponentType<SliderProps>)
+export default withLabel()(Slider)
