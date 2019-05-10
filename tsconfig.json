@@ -2,14 +2,15 @@
   "compilerOptions": {
     "jsx": "react",
     "rootDirs": ["./src", "./.storybook"],
-    "outDir": "./lib",
+    "outDir": "./dist",
+    "declarationDir": "./dist/typings",
     "lib": ["es7", "dom"],
     "moduleResolution": "node",
     "removeComments": true,
     "sourceMap": true,
     "declaration": true,
     "declarationMap": true,
-    "target": "es5",
+    "target": "esnext",
     "module": "commonjs",
     "esModuleInterop": true
   },

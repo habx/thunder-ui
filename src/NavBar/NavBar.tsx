@@ -66,7 +66,7 @@ const NavBar: React.ComponentType<
           data-mobile-open={isOpenedOnMobile}
         >
           <NavBarClose>
-            <FontIcon icon="arrow_back" onClick={this.toggleMenu} />
+            <FontIcon icon="arrow_back" onClick={handleMobileToggle} />
           </NavBarClose>
           {title && <NavBarTitle>{title}</NavBarTitle>}
           <NavBarItemsContainer>{children}</NavBarItemsContainer>

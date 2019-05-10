@@ -3,17 +3,13 @@
 
 # Build output folders
 lib/
-typings/
+dist/
 
 # Logs
 logs
 *.log
 .cache
-
-# Runtime data
-pids
-*.pid
-*.seed
+.rpt2_cache
 
 # Coverage directory used by tools like istanbul
 coverage
