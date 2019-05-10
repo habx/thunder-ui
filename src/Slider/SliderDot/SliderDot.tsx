@@ -6,7 +6,12 @@ import { SliderDotContainer, SliderInnerDot } from './SliderDot.style'
 type Listeners = {
   mousemove?: EventListener
   mouseup?: EventListener
+  touchmove?: EventListener
+  touchend?: EventListener
 }
+
+const getTouchPosition = e => e.touches[0].pageX
+const getMousePosition = e => e.pageX
 
 const useMouseMove = ({ onMove, onRest }) => {
   const listeners: React.MutableRefObject<Listeners> = React.useRef({})
@@ -24,7 +29,7 @@ const useMouseMove = ({ onMove, onRest }) => {
 
   const handleMouseDown = e => {
     const handleMouseMove = e => {
-      onMove(e.pageX - restPosition.current)
+      onMove(getMousePosition(e) - restPosition.current)
       e.preventDefault()
     }
 
@@ -37,10 +42,28 @@ const useMouseMove = ({ onMove, onRest }) => {
     addListener('mousemove', handleMouseMove)
     addListener('mouseup', handleMouseUp)
 
-    restPosition.current = e.pageX
+    restPosition.current = getMousePosition(e)
   }
 
-  return { onMouseDown: handleMouseDown }
+  const handleTouchStart = e => {
+    const handleTouchMove = e => {
+      onMove(getTouchPosition(e) - restPosition.current)
+      e.preventDefault()
+    }
+
+    const handleTouchEnd = () => {
+      removeListener('touchmove')
+      removeListener('touchend')
+      onRest()
+    }
+
+    addListener('touchmove', handleTouchMove)
+    addListener('touchend', handleTouchEnd)
+
+    restPosition.current = getTouchPosition(e)
+  }
+
+  return { onMouseDown: handleMouseDown, onTouchStart: handleTouchStart }
 }
 
 const SliderDot: React.FunctionComponent<SliderDotProps> = ({

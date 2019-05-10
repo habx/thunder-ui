@@ -54,7 +54,7 @@ const Slider: React.FunctionComponent<SliderProps> = ({
     const dotValue = range ? localValue[rangeIndex] : localValue
     const matchingIndicator = indicators.find(
       ({ range }) =>
-        Math.min(...range) < dotValue && Math.max(...range) > dotValue
+        Math.min(...range) <= dotValue && Math.max(...range) >= dotValue
     )
 
     const position = getPositionFromValue(dotValue)
