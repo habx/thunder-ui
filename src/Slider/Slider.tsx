@@ -13,14 +13,14 @@ import {
 } from './Slider.style'
 import SliderBar from './SliderBar'
 import SliderDot from './SliderDot'
-import {isNil} from '../_internal/data'
 
 const Slider: React.FunctionComponent<SliderProps> = ({
   disabled,
   range,
   onChange,
   labelFormatter,
-  toolTipSuffix,
+  labelRangeSeparator,
+  labelSuffix,
   customValues,
   indicators,
   min,
@@ -33,7 +33,7 @@ const Slider: React.FunctionComponent<SliderProps> = ({
   const max = customValues ? customValues.length - 1 : rawMax
   const step = customValues ? 1 : rawStep
   const dots = customValues ? true : rawDots
-  const value = (!Array.isArray(rawValue) && range) ? [null, null] : rawValue
+  const value = !Array.isArray(rawValue) && range ? [null, null] : rawValue
 
   const barRef = React.useRef(null)
   const [localValue, setLocalValue] = React.useState(value)
@@ -102,6 +102,7 @@ const Slider: React.FunctionComponent<SliderProps> = ({
 
     return (
       <SliderDot
+        key={rangeIndex}
         position={position}
         onMove={handlePositionChange}
         onRest={handleChange}
@@ -133,11 +134,11 @@ const Slider: React.FunctionComponent<SliderProps> = ({
     if (range) {
       const from = buildValueLabel(localValue[0])
       const to = buildValueLabel(localValue[1])
-      return `${from} à ${to}${toolTipSuffix}`
+      return `${from}${labelRangeSeparator}${to}${labelSuffix}`
     }
 
     const label = buildValueLabel(localValue)
-    return `${label}${toolTipSuffix}`
+    return `${label}${labelSuffix}`
   })()
 
   const labelPosition = range
@@ -165,12 +166,16 @@ const Slider: React.FunctionComponent<SliderProps> = ({
             }}
           />
         ))}
-        <SliderLabel style={{ paddingLeft: `${labelPosition}%` }}>
+        <SliderLabel
+          data-testid="slider-label"
+          style={{ paddingLeft: `${labelPosition}%` }}
+        >
           {label}
         </SliderLabel>
         {dots &&
-          possibleValues.map(value => (
+          possibleValues.map((value, index) => (
             <SliderBackgroundDot
+              key={index}
               style={{ left: `${getPositionFromValue(value)}%` }}
             />
           ))}
@@ -181,10 +186,11 @@ const Slider: React.FunctionComponent<SliderProps> = ({
 
 Slider.defaultProps = {
   labelFormatter: label => label,
+  labelRangeSeparator: ' to ',
   range: false,
   customValues: null,
   value: null,
-  toolTipSuffix: '',
+  labelSuffix: '',
   min: 0,
   max: 100,
   step: 5,

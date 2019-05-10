@@ -75,7 +75,11 @@ const SliderDot: React.FunctionComponent<SliderDotProps> = ({
   const eventProps = useMouseMove({ onMove, onRest })
 
   return (
-    <SliderDotContainer style={{ left: `${position}%` }} {...eventProps}>
+    <SliderDotContainer
+      data-testid="slider-dot"
+      style={{ left: `${position}%` }}
+      {...eventProps}
+    >
       {innerColor && <SliderInnerDot style={{ backgroundColor: innerColor }} />}
     </SliderDotContainer>
   )
