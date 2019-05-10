@@ -7,7 +7,7 @@ import theme from '../src/theme'
 
 import providerDecorator from './providerDecorator'
 
-const thunderTheme = theme.dark
+const thunderTheme = theme.light
 
 addDecorator(withInfo)
 addDecorator(centered)
