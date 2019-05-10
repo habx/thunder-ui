@@ -92,14 +92,12 @@ const Slider: React.FunctionComponent<SliderProps> = ({
     )
   }
 
-  const buildBar = ({ from, to }) => {
-    return (
-      <SliderBar
-        from={getPositionFromValue(from)}
-        to={getPositionFromValue(to)}
-      />
-    )
-  }
+  const buildBar = ({ from, to }) => (
+    <SliderBar
+      from={getPositionFromValue(from)}
+      to={getPositionFromValue(to)}
+    />
+  )
 
   const valueDots = range ? [buildDot(0), buildDot(1)] : buildDot()
 
