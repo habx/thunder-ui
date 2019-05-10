@@ -20,10 +20,13 @@ const Slider: React.FunctionComponent<SliderProps> = ({
 
   const getBarWidth = () => barRef.current.offsetWidth
 
+  const getPositionFromValue = currentValue =>
+    (100 * (currentValue - min)) / (max - min)
+
   const buildDot = (rangeIndex?: number) => {
     const dotValue = range ? localValue[rangeIndex] : localValue
 
-    const position = (100 * (dotValue - min)) / (max - min)
+    const position = getPositionFromValue(dotValue)
 
     const handlePositionChange = delta => {
       const newPosition = position + (delta / getBarWidth()) * 100
@@ -53,15 +56,26 @@ const Slider: React.FunctionComponent<SliderProps> = ({
     )
   }
 
+  const buildBar = ({ from, to }) => {
+    return (
+      <SliderBar
+        from={getPositionFromValue(from)}
+        to={getPositionFromValue(to)}
+      />
+    )
+  }
+
   const valueDots = range ? [buildDot(0), buildDot(1)] : buildDot()
 
-  const valueBar = <SliderBar />
+  const valueBars = range
+    ? buildBar({ from: localValue[0], to: localValue[1] })
+    : buildBar({ from: min, to: localValue })
 
   return (
     <SliderContainer {...props}>
       <SliderContent ref={barRef} />
       {valueDots}
-      {valueBar}
+      {valueBars}
     </SliderContainer>
   )
 }
