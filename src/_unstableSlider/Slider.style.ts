@@ -17,4 +17,19 @@ export const SliderContainer = styled.div`
 export const SliderLabel = styled.div`
   position: absolute;
   top: 16px;
+  margin-left: -4px;
+`
+
+export const SliderBackgroundDot = styled.div`
+  position: absolute;
+  margin-left: -4px;
+  margin-top: -2px;
+  z-index: 3;
+  cursor: grab;
+  width: 8px;
+  height: 8px;
+  background-color: ${theme.get('neutralStrong')};
+  box-shadow: ${theme.get('shadowLight')};
+  touch-action: pan-x;
+  border-radius: 50%;
 `

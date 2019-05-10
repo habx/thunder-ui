@@ -4,8 +4,8 @@ import theme from '../../theme'
 
 export const SliderDotContainer = styled.div`
   position: absolute;
-  margin-left: -7px;
-  margin-top: -5px;
+  margin-left: -8px;
+  margin-top: -6px;
   z-index: 5;
   cursor: grab;
   width: 16px;

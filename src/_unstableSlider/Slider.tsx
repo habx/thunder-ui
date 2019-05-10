@@ -1,7 +1,12 @@
 import * as React from 'react'
 
 import SliderProps from './Slider.interface'
-import { SliderContainer, SliderContent, SliderLabel } from './Slider.style'
+import {
+  SliderContainer,
+  SliderContent,
+  SliderLabel,
+  SliderBackgroundDot,
+} from './Slider.style'
 import SliderBar from './SliderBar'
 import SliderDot from './SliderDot'
 
@@ -9,13 +14,17 @@ const Slider: React.FunctionComponent<SliderProps> = ({
   range,
   value,
   onChange,
-  min,
-  max,
-  step,
   labelFormatter,
   toolTipSuffix,
+  customValues,
+  min,
+  max: rawMax,
+  step: rawStep,
   ...props
 }) => {
+  const max = customValues ? customValues.length - 1 : rawMax
+  const step = customValues ? 1 : rawStep
+
   const barRef = React.useRef(null)
   const [localValue, setLocalValue] = React.useState(value)
 
@@ -29,11 +38,27 @@ const Slider: React.FunctionComponent<SliderProps> = ({
 
     const position = getPositionFromValue(dotValue)
 
+    const getPossibleValuesBoundaries = () => {
+      if (range) {
+        if (rangeIndex === 0) {
+          return { min: 0, max: localValue[1] }
+        }
+
+        return { min: localValue[0], max: 100 }
+      }
+
+      return { min: 0, max: 100 }
+    }
+
     const handlePositionChange = delta => {
+      const boundaries = getPossibleValuesBoundaries()
       const newPosition = position + (delta / getBarWidth()) * 100
 
-      const exactPosition = Math.min(Math.max(newPosition, 0), 100)
-      const exactValue = (exactPosition * (max - min)) / 100 + min
+      const boundedPosition = Math.min(
+        Math.max(newPosition, boundaries.min),
+        boundaries.max
+      )
+      const exactValue = (boundedPosition * (max - min)) / 100 + min
 
       const newValue = Math.round(exactValue / step) * step
 
@@ -67,7 +92,11 @@ const Slider: React.FunctionComponent<SliderProps> = ({
     : buildBar({ from: min, to: localValue })
 
   const label = (() => {
-    const buildValueLabel = value => labelFormatter(value)
+    const buildValueLabel = value => {
+      const label = customValues ? customValues[value] : value
+
+      return labelFormatter(label)
+    }
 
     if (range) {
       const from = buildValueLabel(localValue[0])
@@ -83,14 +112,25 @@ const Slider: React.FunctionComponent<SliderProps> = ({
     ? getPositionFromValue(localValue[0])
     : getPositionFromValue(localValue)
 
+  const showDots = !!customValues
+
+  const possibleValues = Array.from(
+    { length: (max - min) / step + 1 },
+    (_, i) => (min + i) * step
+  )
+
   return (
     <SliderContainer {...props}>
       <SliderContent ref={barRef} />
       {valueDots}
       {valueBars}
-      <SliderLabel style={{ left: `calc(${labelPosition}% - 4px)` }}>
-        {label}
-      </SliderLabel>
+      <SliderLabel style={{ left: `${labelPosition}%` }}>{label}</SliderLabel>
+      {showDots &&
+        possibleValues.map(value => (
+          <SliderBackgroundDot
+            style={{ left: `${getPositionFromValue(value)}%` }}
+          />
+        ))}
     </SliderContainer>
   )
 }
