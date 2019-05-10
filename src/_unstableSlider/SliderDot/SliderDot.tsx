@@ -1,3 +1,4 @@
+import { exact } from 'prop-types'
 import * as React from 'react'
 
 import SliderDotProps from './SliderDot.interface'
@@ -45,18 +46,34 @@ const useMouseMove = ({ onMove }) => {
 const SliderDot: React.FunctionComponent<SliderDotProps> = ({
   min,
   max,
+  step,
   value,
   getBarWidth,
 }) => {
-  const [position, setPosition] = React.useState(
-    (100 * (value - min)) / (max - min)
+  const getPositionFromValue = currentValue =>
+    (100 * (currentValue - min)) / (max - min)
+
+  const [position, setPosition] = React.useState(getPositionFromValue(value))
+
+  const possibleValues = Array.from(
+    { length: (max - min) / step + 1 },
+    (_, i) => min + i * step
   )
 
-  React.useEffect(() => {
-    window.addEventListener('mouseup', () => console.log('WINDOW MOUSE UP'))
-  }, [])
+  const sanitizePosition = position => {
+    const exactPosition = Math.min(Math.max(position, 0), 100)
 
-  const sanitizePosition = position => Math.min(Math.max(position, 0), 100)
+    const exactValue = (exactPosition * (max - min)) / 100 + min
+
+    // const lowerValue = Math.floor(exactValue / step) * step
+    const value = Math.round(exactValue / step) * step
+
+    return getPositionFromValue(value)
+
+    // position = (100 * (value - min)) / (max - min)
+    // position * (max - min) / 100 = value - min
+    // value = (position * (max - min)) / 100 + min
+  }
 
   const handlePositionChange = delta => {
     const newPosition = position + (delta / getBarWidth()) * 100

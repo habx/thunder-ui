@@ -10,6 +10,7 @@ const Slider: React.FunctionComponent<SliderProps> = ({
   onChange,
   min,
   max,
+  step,
   ...props
 }) => {
   const barRef = React.useRef(null)
@@ -27,8 +28,16 @@ const Slider: React.FunctionComponent<SliderProps> = ({
   }, [localValue, onChange, value])
 
   const valueButtons = React.useMemo(
-    () => <SliderDot min={min} max={max} value={value} getBarWidth={getBarWidth} />,
-    [max, min, value]
+    () => (
+      <SliderDot
+        min={min}
+        max={max}
+        value={value}
+        step={step}
+        getBarWidth={getBarWidth}
+      />
+    ),
+    [max, min, step, value]
   )
 
   return (
