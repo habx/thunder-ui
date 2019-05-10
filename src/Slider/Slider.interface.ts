@@ -1,8 +1,6 @@
-import { Input, styledTheme } from '../_internal/types'
+import { Input } from '../_internal/types'
 
-export type value = number | number[]
-
-export default interface SliderProps extends Input<value> {
+export default interface SliderProps extends Input<any> {
   customValues?: string[]
   toolTipSuffix?: string
   min?: number
@@ -10,9 +8,6 @@ export default interface SliderProps extends Input<value> {
   step?: number
   labelFormatter?: (label) => string
   range?: boolean
+  dots?: boolean
   indicators?: { color?: string; range: [number, number] }[]
-}
-
-export interface SliderInnerProps extends SliderProps {
-  theme: styledTheme
 }
