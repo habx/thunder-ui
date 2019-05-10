@@ -8,7 +8,7 @@ type Listeners = {
   mouseup?: EventListener
 }
 
-const useMouseMove = ({ onMove }) => {
+const useMouseMove = ({ onMove, onRest }) => {
   const listeners: React.MutableRefObject<Listeners> = React.useRef({})
   const restPosition: React.MutableRefObject<number> = React.useRef(0)
 
@@ -31,6 +31,7 @@ const useMouseMove = ({ onMove }) => {
     const handleMouseUp = () => {
       removeListener('mousemove')
       removeListener('mouseup')
+      onRest()
     }
 
     addListener('mousemove', handleMouseMove)
@@ -45,9 +46,10 @@ const useMouseMove = ({ onMove }) => {
 const SliderDot: React.FunctionComponent<SliderDotProps> = ({
   position,
   onMove,
+  onRest,
   innerColor,
 }) => {
-  const eventProps = useMouseMove({ onMove })
+  const eventProps = useMouseMove({ onMove, onRest })
 
   return (
     <SliderDotContainer style={{ left: `${position}%` }} {...eventProps}>

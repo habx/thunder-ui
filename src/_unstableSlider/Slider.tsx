@@ -33,6 +33,11 @@ const Slider: React.FunctionComponent<SliderProps> = ({
 
   const barRef = React.useRef(null)
   const [localValue, setLocalValue] = React.useState(value)
+  const localValueRef = React.useRef(value)
+
+  React.useEffect(() => {
+    localValueRef.current = localValue
+  }, [localValue])
 
   const getBarWidth = () => barRef.current.offsetWidth
 
@@ -83,10 +88,15 @@ const Slider: React.FunctionComponent<SliderProps> = ({
       })
     }
 
+    const handleChange = () => {
+      onChange(localValueRef.current)
+    }
+
     return (
       <SliderDot
         position={position}
         onMove={handlePositionChange}
+        onRest={handleChange}
         innerColor={matchingIndicator ? matchingIndicator.color : null}
       />
     )
