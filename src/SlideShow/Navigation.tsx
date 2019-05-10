@@ -3,7 +3,7 @@ import * as React from 'react'
 import { NavigationProps } from './SlideShow.interface'
 import { NavigationDotsContainer, Dot } from './SlideShow.style'
 
-const Navigation: React.StatelessComponent<NavigationProps> = ({
+const Navigation: React.FunctionComponent<NavigationProps> = ({
   length,
   active,
   onClick,

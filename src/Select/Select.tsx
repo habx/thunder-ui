@@ -121,7 +121,7 @@ const usePlaceholder = ({ rawPlaceholder, selectedOptions, multi }) =>
       : rawPlaceholder
   }, [selectedOptions, rawPlaceholder, multi])
 
-const BaseSelect: React.StatelessComponent<SelectInnerProps> = ({
+const BaseSelect: React.FunctionComponent<SelectInnerProps> = ({
   multi,
   description,
   placeholderClassName,

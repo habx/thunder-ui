@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import { DOMNode } from '../_internal/types'
 import theme from '../theme'
 
-const SpotlightWelcomeMessage: React.StatelessComponent<DOMNode> = styled.div`
+const SpotlightWelcomeMessage: React.FunctionComponent<DOMNode> = styled.div`
   background-color: ${theme.get('primary')};
   color: ${theme.get('neutralLighter')};
   padding: 16px;

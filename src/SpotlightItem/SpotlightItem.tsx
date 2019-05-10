@@ -43,7 +43,7 @@ const INITIAL_STATE = {
 
 const preventDefault = e => e.preventDefault()
 
-const SpotlightItem: React.StatelessComponent<ItemProps> = ({
+const SpotlightItem: React.FunctionComponent<ItemProps> = ({
   title,
   subtitle,
   icon,

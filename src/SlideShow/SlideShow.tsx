@@ -8,7 +8,7 @@ import {
   SlideshowElement,
 } from './SlideShow.style'
 
-const SlideShow: React.StatelessComponent<SlideShowProps> = ({
+const SlideShow: React.FunctionComponent<SlideShowProps> = ({
   children,
   active,
   color,

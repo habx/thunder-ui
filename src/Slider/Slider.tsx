@@ -25,7 +25,7 @@ const getBackgroundColor = (value, indicators) =>
     return currentColor
   }, null)
 
-const Slider: React.StatelessComponent<SliderInnerProps> = ({
+const Slider: React.FunctionComponent<SliderInnerProps> = ({
   range,
   max,
   customValues,

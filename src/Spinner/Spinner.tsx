@@ -49,7 +49,7 @@ const SpinnerElement = styled.svg`
   }
 `
 
-const Spinner: React.StatelessComponent<SpinnerInnerProps> = ({
+const Spinner: React.FunctionComponent<SpinnerInnerProps> = ({
   size = 50,
   ...props
 }) => (
@@ -68,4 +68,4 @@ const Spinner: React.StatelessComponent<SpinnerInnerProps> = ({
   </SpinnerContainer>
 )
 
-export default withTheme(Spinner) as React.StatelessComponent<SpinnerProps>
+export default withTheme(Spinner) as React.FunctionComponent<SpinnerProps>

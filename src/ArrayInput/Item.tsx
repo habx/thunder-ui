@@ -11,7 +11,7 @@ import {
 } from './ArrayInput.style'
 import ItemProps from './Item.interface'
 
-const Item: React.StatelessComponent<ItemProps> = ({
+const Item: React.FunctionComponent<ItemProps> = ({
   item,
   index,
   canBeReordered,

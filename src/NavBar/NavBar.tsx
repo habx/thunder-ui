@@ -76,4 +76,4 @@ const NavBar: React.ComponentType<
   )
 })
 
-export default withTheme(NavBar) as React.StatelessComponent<NavBarProps>
+export default withTheme(NavBar) as React.FunctionComponent<NavBarProps>

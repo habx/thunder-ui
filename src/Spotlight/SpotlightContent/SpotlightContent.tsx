@@ -11,7 +11,7 @@ import SpotlightContentProps, {
 } from './SpotlightContent.interface'
 import { SpotlightSearch, SpotlightSections } from './SpotlightContent.style'
 
-const SpotlightContent: React.StatelessComponent<SpotlightContentProps> = ({
+const SpotlightContent: React.FunctionComponent<SpotlightContentProps> = ({
   children,
   query,
   data,

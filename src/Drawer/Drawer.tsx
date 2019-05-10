@@ -16,7 +16,7 @@ import {
   ANIMATION_DURATION,
 } from './Drawer.style'
 
-const Drawer: React.StatelessComponent<DrawerProps> = ({
+const Drawer: React.FunctionComponent<DrawerProps> = ({
   children,
   title,
   open,

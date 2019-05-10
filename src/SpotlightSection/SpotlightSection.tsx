@@ -7,7 +7,7 @@ import SpotlightSectionContext from './SpotlightSection.context'
 import SpotlightSectionProps from './SpotlightSection.interface'
 import { SectionContainer } from './SpotlightSection.style'
 
-const SpotlightSection: React.StatelessComponent<SpotlightSectionProps> = ({
+const SpotlightSection: React.FunctionComponent<SpotlightSectionProps> = ({
   title,
   name,
   filter,

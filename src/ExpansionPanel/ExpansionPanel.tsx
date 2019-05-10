@@ -4,7 +4,7 @@ import { ExpansionPanelContext } from './ExpansionPanel.context'
 import ExpansionPanelProps from './ExpansionPanel.interface'
 import { ExpansionPanelContainer } from './ExpansionPanel.style'
 
-const ExpansionPanel: React.StatelessComponent<ExpansionPanelProps> = ({
+const ExpansionPanel: React.FunctionComponent<ExpansionPanelProps> = ({
   children,
   disabled,
   multiOpen,

@@ -33,7 +33,7 @@ const INITIAL_STATE = {
   isOpened: false,
 }
 
-const Spotlight: React.StatelessComponent<SpotlightProps> = ({
+const Spotlight: React.FunctionComponent<SpotlightProps> = ({
   className,
   style,
   query: propQuery,

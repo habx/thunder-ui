@@ -60,6 +60,6 @@ TextInput.defaultProps = {
   onChange: () => null,
 }
 
-export default withLabel()(withTheme(TextInput) as React.StatelessComponent<
+export default withLabel()(withTheme(TextInput) as React.FunctionComponent<
   TextInputProps
 >)

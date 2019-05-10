@@ -11,7 +11,7 @@ const TabsContainer = styled.div`
   }
 `
 
-const Tabs: React.StatelessComponent<TabsProps> = ({
+const Tabs: React.FunctionComponent<TabsProps> = ({
   color,
   hoverColor,
   activeColor,

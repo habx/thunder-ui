@@ -70,4 +70,4 @@ Card.defaultProps = {
   theme: {} as styledTheme,
 }
 
-export default withTheme(Card) as React.StatelessComponent<CardProps>
+export default withTheme(Card) as React.FunctionComponent<CardProps>

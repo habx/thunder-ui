@@ -17,7 +17,7 @@ import {
   SelectAllOption,
 } from './Options.style'
 
-const Options: React.StatelessComponent<OptionsProps> = ({
+const Options: React.FunctionComponent<OptionsProps> = ({
   options,
   open,
   compact,

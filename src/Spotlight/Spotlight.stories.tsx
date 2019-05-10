@@ -15,7 +15,7 @@ import { data } from './Spotlight.data'
 
 const withQueryControl = withState('query', 'onQueryChange', 'france')
 
-const BasicSection: React.StatelessComponent<any> = ({ query }) => (
+const BasicSection: React.FunctionComponent<any> = ({ query }) => (
   <React.Fragment>
     {data.countries
       .filter(country => searchInString(country, query))

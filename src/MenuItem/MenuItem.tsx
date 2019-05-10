@@ -7,7 +7,7 @@ import {
   IconContainer,
 } from './MenuItem.style'
 
-const MenuItem: React.StatelessComponent<MenuItemProps> = ({
+const MenuItem: React.FunctionComponent<MenuItemProps> = ({
   children,
   disabled,
   icon,

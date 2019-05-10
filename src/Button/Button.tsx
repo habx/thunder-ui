@@ -3,7 +3,7 @@ import * as React from 'react'
 import ButtonProps from './Button.interface'
 import { ButtonContainer, IconContainer, ButtonSpinner } from './Button.style'
 
-const Button: React.StatelessComponent<ButtonProps> = ({
+const Button: React.FunctionComponent<ButtonProps> = ({
   iconLeft,
   iconRight,
   children,

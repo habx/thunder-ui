@@ -6,7 +6,7 @@ import { Context } from '../List/context'
 import ListItemProps from './ListItem.interface'
 import { ListItemContainer, RightElementContainer } from './ListItem.style'
 
-const ListItem: React.StatelessComponent<ListItemProps> = rawProps => {
+const ListItem: React.FunctionComponent<ListItemProps> = rawProps => {
   const { children, selected, rightElement, ...props } = useMergedContext(
     Context,
     rawProps

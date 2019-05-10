@@ -5,7 +5,7 @@ import withLabel from '../withLabel'
 import TextAreaProps from './TextArea.interface'
 import { StyledTextArea } from './TextArea.style'
 
-const TextArea: React.StatelessComponent<TextAreaProps> = ({
+const TextArea: React.FunctionComponent<TextAreaProps> = ({
   onChange,
   ...props
 }) => {

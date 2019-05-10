@@ -9,7 +9,7 @@ const ListContainer = styled.ul`
   flex-direction: column;
 `
 
-const List: React.StatelessComponent<ListProps> = ({
+const List: React.FunctionComponent<ListProps> = ({
   hoverColor,
   clickable,
   itemsAs,

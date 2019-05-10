@@ -22,7 +22,7 @@ const prepareProps = props => ({
   color: props.color || getProgressionColor(props.progression),
 })
 
-const Progress: React.StatelessComponent<ProgressProps> = styled.div.attrs(
+const Progress: React.FunctionComponent<ProgressProps> = styled.div.attrs(
   prepareProps
 )`
   position: relative;

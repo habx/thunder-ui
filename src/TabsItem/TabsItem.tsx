@@ -69,7 +69,7 @@ const StyledTabsItem = styled(tag).attrs(prepareProps)`
   }
 `
 
-const TabsItem: React.StatelessComponent<TabsItemProps> = rawProps => {
+const TabsItem: React.FunctionComponent<TabsItemProps> = rawProps => {
   const props = useMergedContext(Context, rawProps)
 
   return (

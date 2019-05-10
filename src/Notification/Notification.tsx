@@ -9,7 +9,7 @@ import {
   CloseContainer,
 } from './Notification.style'
 
-const Notification: React.StatelessComponent<NotificationProps> = ({
+const Notification: React.FunctionComponent<NotificationProps> = ({
   children,
   onClose,
   backgroundColor,

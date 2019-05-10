@@ -18,7 +18,7 @@ import {
   CoreContent,
 } from './ExpansionPanelItem.style'
 
-const ExpansionPanelItem: React.StatelessComponent<
+const ExpansionPanelItem: React.FunctionComponent<
   ExpansionPanelItemInnerProps
 > = ({
   children,
@@ -98,6 +98,6 @@ ExpansionPanelItem.defaultProps = {
   theme: {} as styledTheme,
 }
 
-export default withTheme(ExpansionPanelItem) as React.StatelessComponent<
+export default withTheme(ExpansionPanelItem) as React.FunctionComponent<
   ExpansionPanelItemProps
 >

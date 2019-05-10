@@ -60,7 +60,7 @@ const components = {
   4: Title4,
 }
 
-const Title: React.StatelessComponent<TitleProps> = ({ size, ...props }) => {
+const Title: React.FunctionComponent<TitleProps> = ({ size, ...props }) => {
   const TitleComponent = components[size] || Title
 
   return <TitleComponent {...props} />

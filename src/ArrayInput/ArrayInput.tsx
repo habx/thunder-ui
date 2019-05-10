@@ -10,7 +10,7 @@ import ArrayInputProps, { ArrayInputInnerProps } from './ArrayInput.interface'
 import { ArrayInputAction } from './ArrayInput.style'
 import Item from './Item'
 
-const ArrayInput: React.StatelessComponent<ArrayInputInnerProps> = ({
+const ArrayInput: React.FunctionComponent<ArrayInputInnerProps> = ({
   items,
   onAppend,
   onDelete,
@@ -80,4 +80,4 @@ ArrayInput.defaultProps = {
 
 export default withLabel({ padding: 16 })(withTheme(
   ArrayInput
-) as React.StatelessComponent<ArrayInputProps>)
+) as React.FunctionComponent<ArrayInputProps>)

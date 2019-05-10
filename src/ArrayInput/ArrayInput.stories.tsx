@@ -47,7 +47,7 @@ const CountryArrayInputElement = ({ value, index }) => (
   </Context.Consumer>
 )
 
-const CountryArrayInput: React.StatelessComponent<any> = props => {
+const CountryArrayInput: React.FunctionComponent<any> = props => {
   const [items, setItems] = React.useState(FIELDS)
 
   const handleChange = (value, index) =>
@@ -90,13 +90,13 @@ const CountryArrayInput: React.StatelessComponent<any> = props => {
   )
 }
 
-const ItemTitle: React.StatelessComponent<any> = ({ value }) => (
+const ItemTitle: React.FunctionComponent<any> = ({ value }) => (
   <React.Fragment>
     {value.name ? `${value.name} (${value.country})` : 'Empty element'}
   </React.Fragment>
 )
 
-const ItemMultiLineTitle: React.StatelessComponent<any> = ({ value }) => (
+const ItemMultiLineTitle: React.FunctionComponent<any> = ({ value }) => (
   <React.Fragment>
     <div>
       {value.name ? `${value.name} (${value.country})` : 'Empty element'}

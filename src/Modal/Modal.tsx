@@ -15,7 +15,7 @@ import {
   ANIMATION_DURATION,
 } from './Modal.style'
 
-const Modal: React.StatelessComponent<ModalProps> = ({
+const Modal: React.FunctionComponent<ModalProps> = ({
   children,
   title,
   open,

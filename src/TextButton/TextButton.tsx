@@ -14,7 +14,7 @@ const prepareProps = props => {
   }
 }
 
-const TextButton: React.StatelessComponent<
+const TextButton: React.FunctionComponent<
   TextButtonProps
 > = styled.button.attrs(prepareProps)`
   border: none;

@@ -13,7 +13,7 @@ import {
   Overlay,
 } from './Menu.style'
 
-const Menu: React.StatelessComponent<MenuProps> = ({
+const Menu: React.FunctionComponent<MenuProps> = ({
   triggerElement,
   children,
   position,

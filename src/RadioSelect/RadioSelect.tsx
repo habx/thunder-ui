@@ -53,7 +53,7 @@ const getCurrentValue = (value, { multi }) => {
   return value
 }
 
-export const BaseRadioSelect: React.StatelessComponent<
+export const BaseRadioSelect: React.FunctionComponent<
   RadioSelectInnerProps
 > = props => {
   const {
@@ -117,4 +117,4 @@ BaseRadioSelect.defaultProps = {
 
 export default withLabel({ padding: 12 })(withTheme(
   BaseRadioSelect
-) as React.StatelessComponent<RadioSelectProps>)
+) as React.FunctionComponent<RadioSelectProps>)

@@ -11,7 +11,7 @@ import {
   ANIMATION_DURATION,
 } from './NotificationList.style'
 
-const NotificationList: React.StatelessComponent<{}> = () => {
+const NotificationList: React.FunctionComponent<{}> = () => {
   const isMounted = useIsMounted()
   const registerTimeout = useTimeout()
 

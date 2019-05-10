@@ -5,7 +5,7 @@ import Toggle from '../Toggle'
 import OptionProps from './Option.interface'
 import { OptionContainer } from './Option.style'
 
-const Option: React.StatelessComponent<OptionProps> = ({
+const Option: React.FunctionComponent<OptionProps> = ({
   multi,
   label,
   selected,

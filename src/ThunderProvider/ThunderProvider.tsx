@@ -21,7 +21,7 @@ const getCustomTheme = customTheme => {
   return { ...theme.light, ...customTheme }
 }
 
-const BaseProvider: React.StatelessComponent<ThunderProviderInnerProps> = ({
+const BaseProvider: React.FunctionComponent<ThunderProviderInnerProps> = ({
   customTheme,
   theme,
   children,
@@ -48,7 +48,7 @@ BaseProvider.defaultProps = {
 
 const EndhancedProvider = withTheme(BaseProvider)
 
-const ThunderProvider: React.StatelessComponent<ThunderProviderProps> = ({
+const ThunderProvider: React.FunctionComponent<ThunderProviderProps> = ({
   theme,
   ...props
 }) => <EndhancedProvider customTheme={theme} {...props} />

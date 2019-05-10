@@ -16,7 +16,7 @@ import {
   ConfirmModalActions,
 } from './ConfirmModals.style'
 
-const ConfirmModal: React.StatelessComponent<{}> = () => {
+const ConfirmModal: React.FunctionComponent<{}> = () => {
   const isMounted = useIsMounted()
   const registerTimeout = useTimeout()
 

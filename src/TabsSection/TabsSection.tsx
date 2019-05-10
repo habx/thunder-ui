@@ -24,7 +24,7 @@ const TabsContainer = styled.div`
   overflow-x: auto;
 `
 
-const TabsSection: React.StatelessComponent<TabsSectionProps> = ({
+const TabsSection: React.FunctionComponent<TabsSectionProps> = ({
   children,
   label,
   labelColor,

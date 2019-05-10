@@ -11,7 +11,7 @@ import {
   NavBarItemTooltipContent,
 } from './NavBarItem.style'
 
-const NavBarItem: React.StatelessComponent<NavBarItemProps> = rawProps => {
+const NavBarItem: React.FunctionComponent<NavBarItemProps> = rawProps => {
   const { icon, tooltip, activeBackgroundColor, ...props } = useMergedContext(
     Context,
     rawProps

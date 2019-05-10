@@ -59,7 +59,7 @@ const useWrappedActions = ({
 const withItemBehavior = <Props extends ItemInjectedProps>(
   WrappedComponent: React.ComponentType<Props>
 ) => {
-  const Component: React.StatelessComponent<
+  const Component: React.FunctionComponent<
     Pick<Props, Exclude<keyof Props, keyof ItemInjectedProps>> &
       ItemReceivedProps
   > = props => {

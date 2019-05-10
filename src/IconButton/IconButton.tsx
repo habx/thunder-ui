@@ -27,7 +27,7 @@ const prepareProps = props => {
   }
 }
 
-const IconButton: React.StatelessComponent<
+const IconButton: React.FunctionComponent<
   IconButtonProps
 > = styled.button.attrs(prepareProps)`
   border: none;
