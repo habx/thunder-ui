@@ -48,6 +48,7 @@
     "lodash.get": "^4.4.2",
     "react": ">=16.8.0",
     "react-dom": ">=16.8.0",
+    "source-map-support": "^0.5.12",
     "styled-components": ">=4.1.3"
   },
   "devDependencies": {
@@ -96,44 +97,8 @@
     "rimraf": "^2.6.3",
     "rollup-plugin-typescript2": "^0.21.0",
     "sinon": "^7.3.2",
-    "source-map-support": "^0.5.12",
     "styled-normalize": "^8.0.6",
     "ts-jest": "^24.0.2",
-    "ts-node": "^8.1.0",
     "typescript": "^3.4.5"
-  },
-  "jest": {
-    "transform": {
-      ".(ts|tsx)": "ts-jest"
-    },
-    "transformIgnorePatterns": [
-      "/node_modules/"
-    ],
-    "testPathIgnorePatterns": [
-      "/node_modules/",
-      "/lib/",
-      "/dist"
-    ],
-    "testRegex": "(/test/.*|\\.(test|spec))\\.(ts|tsx)$",
-    "moduleFileExtensions": [
-      "ts",
-      "tsx",
-      "js",
-      "json"
-    ],
-    "setupFilesAfterEnv": [
-      "./config/jest.ts"
-    ],
-    "collectCoverageFrom": [
-      "./src/**/*.ts",
-      "./src/**/*.tsx",
-      "!src/**/index.ts",
-      "!src/**/*.style.ts",
-      "!src/**/*.style.tsx",
-      "!src/**/*.data.ts",
-      "!src/**/*.data.tsx",
-      "!src/**/*.stories.ts",
-      "!src/**/*.stories.tsx"
-    ]
   }
 }
