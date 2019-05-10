@@ -137,18 +137,16 @@ const Slider: React.FunctionComponent<SliderProps> = ({
         <SliderMainBar ref={barRef} />
         {valueDots}
         {valueBars}
-        {indicators.map(({ color, range }) => {
-          const left = ((Math.min(...range) - min) / (max - min)) * 100
-          const right = 100 - ((Math.max(...range) - min) / (max - min)) * 100
-
-          return (
-            <SliderIndicator
-              key={range.join('.')}
-              color={color}
-              style={{ left: `${left}%`, right: `${right}%` }}
-            />
-          )
-        })}
+        {indicators.map(({ color, range }) => (
+          <SliderIndicator
+            key={range.join('.')}
+            color={color}
+            style={{
+              left: `${((Math.min(...range) - min) / (max - min)) * 100}%`,
+              right: `${((Math.max(...range) - min) / (max - min)) * 100}%`,
+            }}
+          />
+        ))}
         <SliderLabel style={{ paddingLeft: `${labelPosition}%` }}>
           {label}
         </SliderLabel>
