@@ -8,5 +8,6 @@ export default interface SliderProps extends Input<any> {
   step?: number
   labelFormatter?: (label) => string
   range?: boolean
+  dots?: boolean
   indicators?: { color?: string; range: [number, number] }[]
 }

@@ -4,6 +4,8 @@ import * as React from 'react'
 import { withState } from 'recompose'
 import styled from 'styled-components'
 
+import colors from '../colors'
+
 import Slider from './Slider'
 
 const Container = styled.div`
@@ -29,6 +31,9 @@ storiesOf('Inputs|Slider unstable', module)
   .add('with tooltip suffix', () => (
     <Slider toolTipSuffix="m²" onChange={action('Slider change')} value={3} />
   ))
+  .add('with dots', () => (
+    <Slider dots onChange={action('Slider change')} value={40} step={20} />
+  ))
   .add('with custom values', () => {
     const EnhancedSlider = enhance(({ value, onChange }) => (
       <Slider
@@ -51,3 +56,21 @@ storiesOf('Inputs|Slider unstable', module)
 
     return <EnhancedSlider />
   })
+  .add('with custom color', () => (
+    <Slider
+      onChange={action('Slider change')}
+      value={40}
+      color={colors.internationalOrange}
+    />
+  ))
+  .add('with indicators', () => (
+    <Slider
+      range
+      onChange={action('Slider change')}
+      value={[40, 60]}
+      indicators={[
+        { color: colors.popstar, range: [0, 20] },
+        { color: colors.oldLace, range: [90, 100] },
+      ]}
+    />
+  ))

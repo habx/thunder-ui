@@ -4,8 +4,10 @@ import SliderProps from './Slider.interface'
 import {
   SliderContainer,
   SliderContent,
+  SliderMainBar,
   SliderLabel,
   SliderBackgroundDot,
+  SliderIndicator,
 } from './Slider.style'
 import SliderBar from './SliderBar'
 import SliderDot from './SliderDot'
@@ -18,13 +20,16 @@ const Slider: React.FunctionComponent<SliderProps> = ({
   labelFormatter,
   toolTipSuffix,
   customValues,
+  indicators,
   min,
   max: rawMax,
   step: rawStep,
+  dots: rawDots,
   ...props
 }) => {
   const max = customValues ? customValues.length - 1 : rawMax
   const step = customValues ? 1 : rawStep
+  const dots = customValues ? true : rawDots
 
   const barRef = React.useRef(null)
   const [localValue, setLocalValue] = React.useState(value)
@@ -113,25 +118,39 @@ const Slider: React.FunctionComponent<SliderProps> = ({
     ? getPositionFromValue(localValue[0])
     : getPositionFromValue(localValue)
 
-  const showDots = !!customValues
-
   const possibleValues = Array.from(
     { length: (max - min) / step + 1 },
     (_, i) => (min + i) * step
   )
 
   return (
-    <SliderContainer {...props} data-disabled={disabled}>
-      <SliderContent ref={barRef} />
-      {valueDots}
-      {valueBars}
-      <SliderLabel style={{ left: `${labelPosition}%` }}>{label}</SliderLabel>
-      {showDots &&
-        possibleValues.map(value => (
-          <SliderBackgroundDot
-            style={{ left: `${getPositionFromValue(value)}%` }}
-          />
-        ))}
+    <SliderContainer>
+      <SliderContent {...props} data-disabled={disabled}>
+        <SliderMainBar ref={barRef} />
+        {valueDots}
+        {valueBars}
+        {indicators.map(({ color, range }) => {
+          const left = ((Math.min(...range) - min) / (max - min)) * 100
+          const right = 100 - ((Math.max(...range) - min) / (max - min)) * 100
+
+          return (
+            <SliderIndicator
+              key={range.join('.')}
+              color={color}
+              style={{ left: `${left}%`, right: `${right}%` }}
+            />
+          )
+        })}
+        <SliderLabel style={{ paddingLeft: `${labelPosition}%` }}>
+          {label}
+        </SliderLabel>
+        {dots &&
+          possibleValues.map(value => (
+            <SliderBackgroundDot
+              style={{ left: `${getPositionFromValue(value)}%` }}
+            />
+          ))}
+      </SliderContent>
     </SliderContainer>
   )
 }
