@@ -13,11 +13,11 @@ import {
 } from './Slider.style'
 import SliderBar from './SliderBar'
 import SliderDot from './SliderDot'
+import {isNil} from '../_internal/data'
 
 const Slider: React.FunctionComponent<SliderProps> = ({
   disabled,
   range,
-  value,
   onChange,
   labelFormatter,
   toolTipSuffix,
@@ -27,11 +27,13 @@ const Slider: React.FunctionComponent<SliderProps> = ({
   max: rawMax,
   step: rawStep,
   dots: rawDots,
+  value: rawValue,
   ...props
 }) => {
   const max = customValues ? customValues.length - 1 : rawMax
   const step = customValues ? 1 : rawStep
   const dots = customValues ? true : rawDots
+  const value = (!Array.isArray(rawValue) && range) ? [null, null] : rawValue
 
   const barRef = React.useRef(null)
   const [localValue, setLocalValue] = React.useState(value)
