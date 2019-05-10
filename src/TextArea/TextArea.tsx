@@ -2,13 +2,18 @@ import * as React from 'react'
 
 import withLabel from '../withLabel'
 
-import { TextAreaContainer, StyledTextArea } from './TextArea.style'
 import TextAreaProps from './TextArea.interface'
+import { StyledTextArea } from './TextArea.style'
 
-const TextArea: React.StatelessComponent<TextAreaProps> = props => (
-  <TextAreaContainer>
-    <StyledTextArea {...props} />
-  </TextAreaContainer>
-)
+const TextArea: React.FunctionComponent<TextAreaProps> = ({
+  onChange,
+  ...props
+}) => {
+  const handleChange = React.useCallback(e => onChange(e.target.value, e), [
+    onChange,
+  ])
+
+  return <StyledTextArea {...props} onChange={handleChange} />
+}
 
 export default withLabel({ padding: 12 })(TextArea)

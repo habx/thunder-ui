@@ -1,9 +1,15 @@
 import * as React from 'react'
 
-import { NavigationDotsContainer, Dot } from './SlideShow.style'
 import { NavigationProps } from './SlideShow.interface'
+import { NavigationDotsContainer, Dot } from './SlideShow.style'
 
-const Navigation: React.StatelessComponent<NavigationProps> = ({ length, active, onClick, color, canNavigate }) => (
+const Navigation: React.FunctionComponent<NavigationProps> = ({
+  length,
+  active,
+  onClick,
+  color,
+  canNavigate,
+}) => (
   <NavigationDotsContainer canNavigate={canNavigate}>
     {Array.from(Array(length)).map((_, index) => (
       <Dot
@@ -18,7 +24,7 @@ const Navigation: React.StatelessComponent<NavigationProps> = ({ length, active,
 
 Navigation.defaultProps = {
   canNavigate: true,
-  onClick: () => null
+  onClick: () => null,
 }
 
 export default Navigation

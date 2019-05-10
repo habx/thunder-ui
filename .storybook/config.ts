@@ -1,17 +1,43 @@
 import { configure, addDecorator, addParameters } from '@storybook/react'
 import { withInfo } from '@storybook/addon-info'
 import centered from '@storybook/addon-centered'
+import { create } from '@storybook/theming'
+
+import theme from '../src/theme'
 
 import providerDecorator from './providerDecorator'
-import '!!style-loader!css-loader?url=false!../src/reset.css'
+
+const thunderTheme = theme.light
 
 addDecorator(withInfo)
 addDecorator(centered)
-addDecorator(providerDecorator)
+addDecorator(providerDecorator(thunderTheme.name as 'light' | 'dark'))
+
+const storyBookDarkTheme = create({
+  base: thunderTheme.name === 'dark' ? 'dark' : 'light',
+
+  colorPrimary: thunderTheme.primary,
+  colorSecondary: 'deepskyblue',
+
+  // UI
+  appBg: thunderTheme.neutralLightest,
+  appContentBg: thunderTheme.neutralLighter,
+
+  // Text colors
+  textColor: thunderTheme.neutral,
+
+  // Toolbar default and active colors
+  barTextColor: thunderTheme.neutral,
+  barSelectedColor: thunderTheme.neutralStronger,
+  barBg: thunderTheme.neutralLightest,
+
+  brandTitle: 'Habx Thunder UI'
+})
 
 addParameters({
   options: {
-    sortStoriesByKind: true
+    sortStoriesByKind: true,
+    theme: storyBookDarkTheme
   }
 })
 

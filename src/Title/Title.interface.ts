@@ -1,7 +1,9 @@
-import { DOMNode } from '../_internal/types'
+import { DOMNode, color } from '../_internal/types'
 
 export default interface TitleProps extends DOMNode {
   size?: number
-  color?: string
+  color?: color
   underline?: boolean
+  error?: boolean
+  warning?: boolean
 }

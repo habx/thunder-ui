@@ -1,41 +1,88 @@
-import * as React from 'react'
+import React, { Fragment } from 'react'
 
-import ItemHeader from './ItemHeader'
+import { isFunction } from '../_internal/data'
+import ExpansionPanelItem from '../ExpansionPanelItem'
+import FontIcon from '../FontIcon'
 
-import { withArrayContext } from './context'
-import { ItemContainer, ItemContent, ItemDescription } from './ArrayInput.style'
+import {
+  ItemHeaderContainer,
+  ItemHeaderContent,
+  ItemActions,
+} from './ArrayInput.style'
 import ItemProps from './Item.interface'
 
-const Item: React.StatelessComponent<ItemProps> = ({
-  context: {
-    editing,
-    itemComponent: ItemComponent,
-    itemDescriptionComponent: ItemDescriptionComponent
-  },
+const Item: React.FunctionComponent<ItemProps> = ({
+  item,
   index,
-  item
+  canBeReordered,
+  disabled,
+  onReorder,
+  onDelete,
+  onClick,
+  open,
+  renderItem,
+  renderItemTitle,
 }) => {
-  const isEditing = editing === index
+  const handleDelete = e => {
+    e.stopPropagation()
+
+    if (isFunction(onDelete)) {
+      onDelete(index)
+    }
+  }
+
+  const handleMoveUp = e => {
+    e.stopPropagation()
+
+    if (isFunction(onReorder) && index > 0) {
+      onReorder(index, index - 1)
+    }
+  }
+
+  const state = { index, value: item, editing: open }
+
+  const header = (
+    <ItemHeaderContainer
+      onClick={onClick}
+      data-testid="array-input-item-header"
+    >
+      <ItemHeaderContent>
+        {isFunction(renderItemTitle) && renderItemTitle(state)}
+      </ItemHeaderContent>
+      <ItemActions>
+        {!disabled && canBeReordered && (
+          <Fragment>
+            <FontIcon
+              data-disabled={index === 0}
+              data-testid="array-input-item-mode-up"
+              icon="arrow_upward"
+              onClick={handleMoveUp}
+              size={18}
+            />
+          </Fragment>
+        )}
+        {!disabled && (
+          <FontIcon
+            icon="delete"
+            onClick={handleDelete}
+            size={18}
+            data-testid="array-input-item-delete"
+          />
+        )}
+        <FontIcon icon={open ? 'expand_less' : 'expand_more'} />
+      </ItemActions>
+    </ItemHeaderContainer>
+  )
 
   return (
-    <ItemContainer>
-      <ItemHeader item={item} index={index} />
-      {
-        isEditing && (
-          <ItemContent>
-            <ItemComponent value={item} index={index} />
-          </ItemContent>
-        )
-      }
-      {
-        !isEditing && ItemDescriptionComponent && (
-          <ItemDescription>
-            {<ItemDescriptionComponent value={item} index={index} />}
-          </ItemDescription>
-        )
-      }
-    </ItemContainer>
+    <ExpansionPanelItem
+      header={header}
+      open={open}
+      data-testid="array-input-item"
+    >
+      {isFunction(renderItem) && renderItem(state)}
+    </ExpansionPanelItem>
   )
 }
 
-export default withArrayContext(Item)
+export default Item

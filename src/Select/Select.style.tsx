@@ -1,9 +1,9 @@
-import styled, { css } from 'styled-components'
+import styled from 'styled-components'
 
-import fontSizes from '../fontSizes'
-
-import FontIcon from '../FontIcon'
 import zIndex from '../_internal/zIndex'
+import FontIcon from '../FontIcon'
+import fontSizes from '../fontSizes'
+import theme from '../theme'
 
 export const SelectContainer = styled.div`
   position: relative;
@@ -11,11 +11,11 @@ export const SelectContainer = styled.div`
   flex: 0 0 auto;
   display: block;
 
-  ${({ disabled }) => disabled && css`
+  &[data-disabled='true'] {
     pointer-events: none;
     opacity: 0.6;
     filter: grayscale();
-  `};
+  }
 `
 
 export const SelectContent = styled.div`
@@ -29,19 +29,19 @@ export const SelectContent = styled.div`
   padding: 8px 4px;
   height: 40px;
   line-height: 24px;
-  border-bottom: 1px solid ${({ color }) => color};
+  border-bottom: 1px solid ${theme.get('neutralLight', { dynamic: true })};
 
   font-size: ${fontSizes.regular};
   user-select: none;
 
-  &[data-open="true"] {
+  &[data-open='true'] {
     transition: z-index ease-in 0s;
     z-index: 10;
   }
 `
 
 export const SearchInput = styled.input.attrs(() => ({
-  type: 'text'
+  type: 'text',
 }))`
   flex: 1 1 100%;
 
@@ -101,7 +101,7 @@ export const CustomIconContainer = styled.div`
 export const ResetIcon = styled(FontIcon)`
   transition: opacity 150ms ease-in-out;
 
-  &:not([data-visible="true"]) {
+  &:not([data-visible='true']) {
     opacity: 0;
   }
 `

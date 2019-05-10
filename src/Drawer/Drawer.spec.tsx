@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { mount } from 'enzyme'
+import { act, render, within } from 'react-testing-library'
 import sinon from 'sinon'
 
 import Drawer from './index'
@@ -8,20 +8,17 @@ jest.useFakeTimers()
 
 describe('Drawer component', () => {
   describe('with react node children', () => {
-    let wrapper = null
-
-    beforeEach(() => {
-      wrapper = mount(
+    it('should pass children', () => {
+      const { queryByTestId } = render(
         <Drawer onClose={() => null}>
-          <div id='drawer-content'>
-            CONTENT
-          </div>
+          <div data-testid="content">CONTENT</div>
         </Drawer>
       )
-    })
 
-    it('should pass children', () => {
-      expect(wrapper.find('#drawer-content')).toHaveLength(1)
+      const modalContainer = queryByTestId('drawer-container')
+
+      expect(modalContainer).toBeTruthy()
+      expect(within(modalContainer).queryByTestId('content')).toBeTruthy()
     })
   })
 
@@ -29,7 +26,7 @@ describe('Drawer component', () => {
     it('should have state="closed" if drawer is closed', () => {
       const spyChildren = sinon.spy()
 
-      mount(
+      render(
         <Drawer onClose={() => null} open={false}>
           {spyChildren}
         </Drawer>
@@ -42,7 +39,7 @@ describe('Drawer component', () => {
     it('should have state = "opening" if drawer is mounted with open=true"', () => {
       const spyChildren = sinon.spy()
 
-      mount(
+      render(
         <Drawer onClose={() => null} open>
           {spyChildren}
         </Drawer>
@@ -55,37 +52,49 @@ describe('Drawer component', () => {
     it('should have state="opened" if opened for more than 1 second"', done => {
       const spyChildren = sinon.spy()
 
-      mount(
+      render(
         <Drawer onClose={() => null} open>
           {spyChildren}
         </Drawer>
       )
 
-      setTimeout(() => {
+      setTimeout(async () => {
+        await Promise.resolve()
+
         expect(spyChildren.lastCall.args[0].state).toEqual('opened')
         done()
       }, 1000)
 
-      jest.runAllTimers()
+      act(() => {
+        jest.runAllTimers()
+      })
     })
 
     it('should have state="closing" if open just switched to "false"', done => {
       const spyChildren = sinon.spy()
 
-      const wrapper = mount(
+      const { rerender } = render(
         <Drawer onClose={() => null} open>
           {spyChildren}
         </Drawer>
       )
 
-      setTimeout(() => {
-        wrapper.setProps({ open: false })
+      setTimeout(async () => {
+        rerender(
+          <Drawer onClose={() => null} open={false}>
+            {spyChildren}
+          </Drawer>
+        )
+
+        await Promise.resolve()
 
         expect(spyChildren.lastCall.args[0].state).toEqual('closing')
         done()
       }, 1000)
 
-      jest.runAllTimers()
+      act(() => {
+        jest.runAllTimers()
+      })
     })
   })
 })

@@ -1,58 +1,56 @@
 import * as React from 'react'
 import { withTheme, ThemeProvider } from 'styled-components'
-import merge from 'lodash.merge'
 
 import ConfirmModals from '../confirm/ConfirmModals'
 import NotificationList from '../notify/NotificationList'
+import theme from '../theme'
 
-import ThunderProviderProps, { ThunderProviderInnerProps, ThunderProviderState } from './ThunderProvider.interface'
-import BASE_THEME from './ThunderProvider.theme'
+import ThunderProviderProps, {
+  ThunderProviderInnerProps,
+} from './ThunderProvider.interface'
 
-class BaseProvider extends React.Component<ThunderProviderInnerProps, ThunderProviderState> {
-  static getDerivedStateFromProps (nextProps: ThunderProviderInnerProps, prevState: ThunderProviderState) {
-    if (nextProps.theme !== prevState.rawTheme || nextProps.customTheme !== prevState.rawCustomTheme) {
-      return {
-        theme: merge(
-          {},
-          nextProps.theme,
-          { thunderUI: BASE_THEME },
-          { thunderUI: nextProps.customTheme }
-        )
-      }
-    }
-
-    return null
+const getCustomTheme = customTheme => {
+  if (customTheme === 'light') {
+    return theme.light
   }
 
-  static defaultProps = {
-    theme: {}
+  if (customTheme === 'dark') {
+    return theme.dark
   }
 
-  state = {
-    rawTheme: null,
-    rawCustomTheme: null,
-    theme: null
-  }
+  return { ...theme.light, ...customTheme }
+}
 
-  render () {
-    const { theme } = this.state
+const BaseProvider: React.FunctionComponent<ThunderProviderInnerProps> = ({
+  customTheme,
+  theme,
+  children,
+}) => {
+  const fullTheme = React.useMemo(
+    () => ({ ...theme, thunderUI: getCustomTheme(customTheme) }),
+    [customTheme, theme]
+  )
 
-    return (
-      <ThemeProvider theme={theme}>
-        <React.Fragment>
-          { this.props.children }
-          <ConfirmModals />
-          <NotificationList />
-        </React.Fragment>
-      </ThemeProvider>
-    )
-  }
+  return (
+    <ThemeProvider theme={fullTheme}>
+      <React.Fragment>
+        {children}
+        <ConfirmModals />
+        <NotificationList />
+      </React.Fragment>
+    </ThemeProvider>
+  )
+}
+
+BaseProvider.defaultProps = {
+  theme: {},
 }
 
 const EndhancedProvider = withTheme(BaseProvider)
 
-const ThunderProvider: React.StatelessComponent<ThunderProviderProps> = ({ theme, ...props }) => (
-  <EndhancedProvider customTheme={theme} {...props} />
-)
+const ThunderProvider: React.FunctionComponent<ThunderProviderProps> = ({
+  theme,
+  ...props
+}) => <EndhancedProvider customTheme={theme} {...props} />
 
 export default ThunderProvider

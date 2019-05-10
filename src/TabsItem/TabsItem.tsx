@@ -1,30 +1,31 @@
+import tag from 'clean-tag'
 import * as React from 'react'
 import styled, { css } from 'styled-components'
-import tag from 'clean-tag'
 
+import useMergedContext from '../_internal/useMergedContext'
 import fontSizes from '../fontSizes'
-import { getMainColor } from '../_internal/colors'
-
-import { withContext } from '../Tabs/context'
+import { Context } from '../Tabs/context'
+import theme from '../theme'
 
 import TabsItemProps from './TabsItem.interface'
 
 const prepareProps = props => {
-  const activeColor = getMainColor(props, { propName: 'activeColor', themeKey: 'primary' })
-  const color = getMainColor(props, { themeKey: 'neutral' })
+  const color = theme.get('neutral')(props)
+  const activeColor = theme.get('primary', { propName: 'activeColor' })(props)
 
-  return ({
+  return {
     color,
     activeColor,
     hoverColor: activeColor || props.hoverColor,
     activeClassName: 'active',
-    className: `${props.className} ${props.active ? 'active' : ''}`
-  })
+    className: `${props.className} ${props.active ? 'active' : ''}`,
+  }
 }
 
 const StyledTabsItem = styled(tag).attrs(prepareProps)`
   display: flex;
   position: relative;
+
   padding: 16px 8px;
   margin: 0 8px;
   font-size: ${fontSizes.regular};
@@ -32,10 +33,12 @@ const StyledTabsItem = styled(tag).attrs(prepareProps)`
   transition: all 150ms ease-in-out;
   white-space: nowrap;
 
-  ${({ closed }) => closed && css`
-    opacity: 0.7;
-    text-decoration: line-through;
-  `}
+  ${({ closed }) =>
+    closed &&
+    css`
+      opacity: 0.7;
+      text-decoration: line-through;
+    `}
 
   &.active {
     color: ${({ activeColor }) => activeColor};
@@ -53,7 +56,7 @@ const StyledTabsItem = styled(tag).attrs(prepareProps)`
   }
 
   &::after {
-    content: "";
+    content: '';
 
     width: 0;
     height: 3px;
@@ -64,17 +67,23 @@ const StyledTabsItem = styled(tag).attrs(prepareProps)`
 
     background-color: ${({ activeColor }) => activeColor};
   }
-
 `
 
-const TabsItem: React.StatelessComponent<TabsItemProps> = props => (
-  <StyledTabsItem blacklist={['activeColor', 'hoverColor', 'closed']} {...props} />
-)
+const TabsItem: React.FunctionComponent<TabsItemProps> = rawProps => {
+  const props = useMergedContext(Context, rawProps)
+
+  return (
+    <StyledTabsItem
+      blacklist={['activeColor', 'hoverColor', 'closed']}
+      {...props}
+    />
+  )
+}
 
 TabsItem.defaultProps = {
   activeColor: null,
   hoverColor: null,
-  closed: false
+  closed: false,
 }
 
-export default withContext(TabsItem)
+export default TabsItem

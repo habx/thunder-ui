@@ -1,13 +1,20 @@
 import * as React from 'react'
 import { withTheme } from 'styled-components'
 
+import theme from '../theme'
 import withLabel from '../withLabel'
-import { getMainColor } from '../_internal/colors'
 
-import TextInputProps from './TextInput.interface'
-import { InputContainer, Input, InputSpinner, RightElementContainer } from './TextInput.style'
+import TextInputProps, { TextInputInnerProps } from './TextInput.interface'
+import {
+  InputContainer,
+  Input,
+  InputSpinner,
+  RightElementContainer,
+} from './TextInput.style'
 
-const BaseTextInput: React.ComponentType<TextInputProps & React.ClassAttributes<any>> = React.forwardRef((props, ref) => {
+const TextInput: React.ComponentType<
+  TextInputInnerProps & React.ClassAttributes<any>
+> = React.forwardRef((props, ref) => {
   const {
     onChange,
     value,
@@ -21,46 +28,38 @@ const BaseTextInput: React.ComponentType<TextInputProps & React.ClassAttributes<
     ...rest
   } = props
 
-  const colorProps = {
-    color: getMainColor(props, { themeKey: 'neutralStronger' }),
-    placeholderColor: getMainColor(props, { themeKey: 'neutral', customizable: false })
-  }
+  const handleChange = React.useCallback(e => onChange(e.target.value, e), [
+    onChange,
+  ])
 
   return (
-    <InputContainer {...rest} {...colorProps} data-disabled={disabled}>
+    <InputContainer {...rest} data-disabled={disabled}>
       <Input
         value={value}
-        onChange={e => onChange(e.target.value, e)}
+        onChange={handleChange}
         ref={inputRef || ref}
         loading={loading}
         disabled={disabled}
         placeholder={placeholder}
         small={small}
-        {...colorProps}
       />
       {loading && <InputSpinner size={small ? 15 : 18} />}
-      {
-        rightHoverElement && (
-          <RightElementContainer {...colorProps} className='hover-element-right'>
-            {rightHoverElement}
-          </RightElementContainer>
-        )
-      }
-      {
-        rightElement && (
-          <RightElementContainer {...colorProps}>
-            {rightElement}
-          </RightElementContainer>
-        )
-      }
+      {rightHoverElement && (
+        <RightElementContainer className="hover-element-right">
+          {rightHoverElement}
+        </RightElementContainer>
+      )}
+      {rightElement && (
+        <RightElementContainer>{rightElement}</RightElementContainer>
+      )}
     </InputContainer>
   )
 })
 
-BaseTextInput.defaultProps = {
-  onChange: () => null
+TextInput.defaultProps = {
+  onChange: () => null,
 }
 
-const TextInput: React.StatelessComponent<TextInputProps> = withTheme(BaseTextInput)
-
-export default withLabel()(TextInput)
+export default withLabel()(withTheme(TextInput) as React.FunctionComponent<
+  TextInputProps
+>)

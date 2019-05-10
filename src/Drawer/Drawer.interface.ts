@@ -9,8 +9,9 @@ export default interface DrawerInterface {
   title?: string
   children?: React.ReactNode | ((props: InjectedRenderProps) => JSX.Element)
   closeButton?: React.ReactNode | ((props: InjectedRenderProps) => JSX.Element)
-  open: boolean
-  onClose: (e: React.FormEvent<HTMLInputElement>) => void
+  onClose?: (e: React.FormEvent<HTMLInputElement>) => void
+  open?: boolean
   portal?: boolean
   contentContainerComponent?: React.ComponentType
+  position?: 'right' | 'left' | 'top' | 'bottom'
 }

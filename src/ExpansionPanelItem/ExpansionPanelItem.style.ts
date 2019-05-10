@@ -1,12 +1,13 @@
 import styled from 'styled-components'
-import { getMainColor } from '../_internal/colors'
+
+import theme from '../theme'
 
 export const ExpansionPanelItemContainer = styled.div`
   display: flex;
   flex-direction: column;
 
   &:not(:last-child) {
-    border-bottom: 1px solid ${props => getMainColor(props, { themeKey: 'neutralLight' })};
+    border-bottom: 1px solid ${theme.get('neutralLight')};
   }
 `
 
@@ -14,9 +15,9 @@ export const TitleBar = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 48px;
-  line-height: 48px;
-  padding: 0 16px;
+  min-height: 32px;
+  line-height: 1.3;
+  padding: 8px 16px;
   cursor: pointer;
   user-select: none;
 `
@@ -25,11 +26,11 @@ export const CoreContainer = styled.div`
   transition: max-height 300ms ease-in-out;
   overflow: hidden;
 
-  &[data-open="false"] {
+  &[data-open='false'] {
     max-height: 0;
   }
 
-  &[data-open="true"] {
+  &[data-open='true'] {
     max-height: ${({ height }) => height}px;
   }
 `

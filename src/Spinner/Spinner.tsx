@@ -1,9 +1,9 @@
 import * as React from 'react'
 import styled, { withTheme } from 'styled-components'
 
-import { getMainColor } from '../_internal/colors'
+import theme from '../theme'
 
-import SpinnerProps from './Spinner.interface'
+import SpinnerProps, { SpinnerInnerProps } from './Spinner.interface'
 
 const SpinnerContainer = styled.div`
   position: relative;
@@ -49,16 +49,23 @@ const SpinnerElement = styled.svg`
   }
 `
 
-const Spinner: React.StatelessComponent<SpinnerProps> = ({ size = 50, ...props }) => {
-  const color = getMainColor(props, { themeKey: 'primary' })
+const Spinner: React.FunctionComponent<SpinnerInnerProps> = ({
+  size = 50,
+  ...props
+}) => (
+  <SpinnerContainer {...props} size={size}>
+    <SpinnerElement viewBox={`0 0 ${size} ${size}`} size={size}>
+      <circle
+        className="path"
+        cx={size / 2}
+        cy={size / 2}
+        r={size / 2 - size / 10}
+        fill="none"
+        strokeWidth={size / 15}
+        stroke={theme.get('primary')(props)}
+      />
+    </SpinnerElement>
+  </SpinnerContainer>
+)
 
-  return (
-    <SpinnerContainer {...props} size={size}>
-      <SpinnerElement viewBox={`0 0 ${size} ${size}`} size={size}>
-        <circle className='path' cx={size / 2} cy={size / 2} r={(size / 2) - (size / 10)} fill='none' strokeWidth={size / 15} stroke={color} />
-      </SpinnerElement>
-    </SpinnerContainer>
-  )
-}
-
-export default withTheme(Spinner)
+export default withTheme(Spinner) as React.FunctionComponent<SpinnerProps>

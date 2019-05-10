@@ -1,12 +1,12 @@
 import * as React from 'react'
 import { withTheme } from 'styled-components'
-import color from 'color'
 
 import FontIcon from '../FontIcon'
 import TextButton from '../TextButton'
-import { getMainColor } from '../_internal/colors'
-import { Context } from './context'
+import theme from '../theme'
 
+import { Context } from './context'
+import NavBarProps, { NavBarInnerProps } from './NavBar.interface'
 import {
   NavBarContainer,
   NavBarSideContainer,
@@ -16,71 +16,64 @@ import {
   NavBarTopBar,
   NavBarTopBarTitle,
   NavBarClose,
-  NavBarTopBarSquare
+  NavBarTopBarSquare,
 } from './NavBar.style'
-import NavBarProps, { NavBarState } from './NavBar.interface'
 
-const WHITE = color('#fff')
+const NavBar: React.ComponentType<
+  NavBarInnerProps & React.ClassAttributes<any>
+> = React.forwardRef((props, ref) => {
+  const {
+    children,
+    title,
+    backgroundColor: rawBackgroundColor,
+    ...rest
+  } = props
 
-const prepareProps = props => {
-  const baseColor = getMainColor(props, { propName: 'backgroundColor' })
+  const [isOpenedOnMobile, setOpenedOnMobile] = React.useState(false)
 
-  return {
-    backgroundColor: baseColor,
-    activeBackgroundColor: props.activeBackgroundColor || color(baseColor).mix(WHITE, 0.2).string(),
-    ...props
-  }
-}
+  const handleMobileToggle = React.useCallback(
+    () => setOpenedOnMobile(prev => !prev),
+    []
+  )
 
-class NavBar extends React.PureComponent<NavBarProps, NavBarState> {
-  state = {
-    mobileIsOpen: this.props.defaultMobileIsOpen
-  }
+  const backgroundColor = theme.get('primary', { propName: 'backgroundColor' })(
+    props
+  )
+  const activeBackgroundColor = theme.getActive(
+    props.activeBackgroundColor,
+    backgroundColor
+  )
 
-  toggleMenu = () => this.setState({ mobileIsOpen: !this.state.mobileIsOpen })
+  return (
+    <Context.Provider value={{ activeBackgroundColor }}>
+      <NavBarContainer data-testid="nav-bar-container" {...rest} ref={ref}>
+        <NavBarPaddingTop />
 
-  render () {
-    const { backgroundColor, activeBackgroundColor, title, children } = prepareProps(this.props)
+        <NavBarTopBar>
+          <NavBarTopBarSquare>
+            <TextButton onClick={handleMobileToggle}>
+              <FontIcon icon="menu" />
+            </TextButton>
+          </NavBarTopBarSquare>
 
-    return (
-      <Context.Provider value={{ activeBackgroundColor }}>
-        <NavBarContainer>
-          <NavBarPaddingTop />
+          {title && <NavBarTopBarTitle>{title}</NavBarTopBarTitle>}
 
-          <NavBarTopBar>
-            <NavBarTopBarSquare>
-              <TextButton onClick={this.toggleMenu}>
-                <FontIcon icon='menu' />
-              </TextButton>
-            </NavBarTopBarSquare>
+          <NavBarTopBarSquare />
+        </NavBarTopBar>
 
-            {title &&
-              <NavBarTopBarTitle>{title}</NavBarTopBarTitle>
-            }
+        <NavBarSideContainer
+          backgroundcolor={backgroundColor}
+          data-mobile-open={isOpenedOnMobile}
+        >
+          <NavBarClose>
+            <FontIcon icon="arrow_back" onClick={this.toggleMenu} />
+          </NavBarClose>
+          {title && <NavBarTitle>{title}</NavBarTitle>}
+          <NavBarItemsContainer>{children}</NavBarItemsContainer>
+        </NavBarSideContainer>
+      </NavBarContainer>
+    </Context.Provider>
+  )
+})
 
-            <NavBarTopBarSquare>
-            </NavBarTopBarSquare>
-          </NavBarTopBar>
-
-          <NavBarSideContainer
-            backgroundcolor={backgroundColor}
-            mobileIsOpen={this.state.mobileIsOpen}
-          >
-            <NavBarClose>
-              <FontIcon icon='arrow_back' onClick={this.toggleMenu} />
-            </NavBarClose>
-            {
-              title &&
-              <NavBarTitle>{title}</NavBarTitle>
-            }
-            <NavBarItemsContainer>
-              {children}
-            </NavBarItemsContainer>
-          </NavBarSideContainer>
-        </NavBarContainer>
-      </Context.Provider>
-    )
-  }
-}
-
-export default withTheme(NavBar)
+export default withTheme(NavBar) as React.FunctionComponent<NavBarProps>

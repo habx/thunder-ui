@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components'
 
-import { getMainColor } from '../_internal/colors'
+import theme from '../theme'
 
 export const FontIconContainer = styled.i`
   font-family: 'Material Icons';
@@ -14,7 +14,7 @@ export const FontIconContainer = styled.i`
   word-wrap: normal;
   white-space: nowrap;
   direction: ltr;
-  color: ${props => getMainColor(props, { themeKey: 'inherit' })};
+  color: ${theme.get('inherit')};
 
   /* Support for all WebKit browsers. */
   -webkit-font-smoothing: antialiased;
@@ -27,11 +27,13 @@ export const FontIconContainer = styled.i`
   /* Support for IE. */
   font-feature-settings: 'liga';
 
-  ${({ onClick, interactive }) => (onClick || interactive) && css`
-    cursor: pointer;
+  ${({ onClick, interactive }) =>
+    (onClick || interactive) &&
+    css`
+      cursor: pointer;
 
-    &:hover {
-      opacity: 0.8;
-    }
-  `};
+      &:hover {
+        opacity: 0.8;
+      }
+    `};
 `

@@ -1,9 +1,7 @@
 import * as React from 'react'
 
-export const SpotlightContext = React.createContext({})
+import { SpotlightContextProps } from './Spotlight.interface'
 
-export const withSpotlightContext = Component => props => (
-  <SpotlightContext.Consumer>
-    {context => <Component {...props} spotlight={context} />}
-  </SpotlightContext.Consumer>
-)
+const SpotlightContext = React.createContext({} as SpotlightContextProps)
+
+export default SpotlightContext

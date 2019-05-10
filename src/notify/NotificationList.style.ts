@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
-import BaseNotification from '../Notification'
 import zIndex from '../_internal/zIndex'
+import BaseNotification from '../Notification'
 
 export const ANIMATION_DURATION = 500
 
@@ -10,7 +10,6 @@ export const NotificationListContainer = styled.div`
   right: 20px;
   top: 20px;
   z-index: ${zIndex.highest};
-  max-width: 500px;
 `
 
 export const Notification = styled(BaseNotification)`
@@ -27,7 +26,7 @@ export const Notification = styled(BaseNotification)`
   animation: fadein ${ANIMATION_DURATION}ms ease-in-out;
   transition: transform ${ANIMATION_DURATION}ms ease-in-out;
 
-  &[data-closing="true"] {
+  &[data-closing='true'] {
     transform: translateX(520px);
   }
 `

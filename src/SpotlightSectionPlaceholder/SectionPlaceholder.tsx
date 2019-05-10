@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 import { DOMNode } from '../_internal/types'
 
-const SectionPlaceholder: React.StatelessComponent<DOMNode> = styled.div`
+const SectionPlaceholder: React.FunctionComponent<DOMNode> = styled.div`
   display: flex;
   justify-content: center;
   margin-bottom: 16px;

@@ -1,34 +1,24 @@
 import * as React from 'react'
-import { mount } from 'enzyme'
+import { render, fireEvent } from 'react-testing-library'
+import sinon from 'sinon'
 
 import TextButton from './index'
 
-describe('Button component', () => {
-  it('should have the right label', () => {
-    const wrapper = mount(
-      <TextButton>
-        click me
-    </TextButton>
-  )
-    expect(wrapper.contains('click me')).toBe(true)
-  })
-  it('should be a button', () => {
-    const wrapper = mount(
-      <TextButton>
-        click me
-    </TextButton>
-  )
-    expect(wrapper.find('button').exists()).toBe(true)
-  })
-  it('should call onClick function on click', () => {
-    const spy = jest.fn()
+describe('TextButton component', () => {
+  it('should display the right label', () => {
+    const { container } = render(<TextButton>Custom label</TextButton>)
 
-    const wrapper = mount(
-      <TextButton onClick={spy}>
-        click me
-    </TextButton>
-  )
-    wrapper.find('button').simulate('click')
-    expect(spy).toHaveBeenCalled()
+    expect(container.firstChild.textContent).toEqual('Custom label')
+  })
+
+  it('should call the onClick property when clicked', () => {
+    const spyOnChange = sinon.spy()
+    const { container } = render(
+      <TextButton onClick={spyOnChange}>Label</TextButton>
+    )
+
+    fireEvent.click(container.firstChild as Element)
+
+    expect(spyOnChange.calledOnce).toBe(true)
   })
 })

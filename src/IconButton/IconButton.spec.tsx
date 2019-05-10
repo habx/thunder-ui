@@ -1,35 +1,32 @@
 import * as React from 'react'
-import { mount } from 'enzyme'
+import { render, fireEvent } from 'react-testing-library'
+import sinon from 'sinon'
 
-import IconButton from './index'
 import FontIcon from '../FontIcon'
 
+import IconButton from './index'
+
 describe('IconButton component', () => {
-  it('should have the right icon', () => {
-    const wrapper = mount(
-      <IconButton >
-        <FontIcon id='face-icon' icon='face'/>
+  it('should display the right icon', () => {
+    const { getAllByTestId } = render(
+      <IconButton>
+        <FontIcon data-testid="face-icon" icon="face" />
       </IconButton>
     )
-    expect(wrapper.find('#face-icon').exists()).toBe(true)
-  })
-  it('should be a button', () => {
-    const wrapper = mount(
-      <IconButton>
-        click me
-     </IconButton>
-  )
-    expect(wrapper.find('button').exists()).toBe(true)
-  })
-  it('should call onClick function on click', () => {
-    const spy = jest.fn()
 
-    const wrapper = mount(
-      <IconButton onClick={spy}>
-        click me
-    </IconButton>
-  )
-    wrapper.find('button').simulate('click')
-    expect(spy).toHaveBeenCalled()
+    expect(getAllByTestId('face-icon')).toHaveLength(1)
+  })
+
+  it('should call onClick function on click', () => {
+    const spyOnChange = sinon.spy()
+    const { container } = render(
+      <IconButton onClick={spyOnChange}>
+        <FontIcon data-testid="face-icon" icon="face" />
+      </IconButton>
+    )
+
+    fireEvent.click(container.firstChild as Element)
+
+    expect(spyOnChange.calledOnce).toBe(true)
   })
 })

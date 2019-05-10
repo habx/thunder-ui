@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
-import { get } from '../Spotlight/theme'
+import theme from '../theme'
 
 export const SectionContainer = styled.div`
-  color: ${get('text')};
+  color: ${theme.get('neutral')};
 `

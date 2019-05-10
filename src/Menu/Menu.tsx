@@ -1,12 +1,19 @@
 import * as React from 'react'
 import { createPortal } from 'react-dom'
 
-import MenuProps from './Menu.interface'
-import { MenuWrapper, MobileMenuContainer, MenuContainerDesktop, MenuContent, Overlay } from './Menu.style'
 import { useIsSmallScreen, useOnWindowResize } from '../_internal/hooks'
 import { isClientSide, ssrDOMRect } from '../_internal/ssr'
 
-const Menu: React.StatelessComponent<MenuProps> = ({
+import MenuProps from './Menu.interface'
+import {
+  MenuWrapper,
+  MobileMenuContainer,
+  MenuContainerDesktop,
+  MenuContent,
+  Overlay,
+} from './Menu.style'
+
+const Menu: React.FunctionComponent<MenuProps> = ({
   triggerElement,
   children,
   position,
@@ -15,7 +22,9 @@ const Menu: React.StatelessComponent<MenuProps> = ({
   ...props
 }) => {
   const wrapperRef = React.useRef(null)
-  const [wrapperRect, setWrapperRect] = React.useState(typeof DOMRect === 'function' ? new DOMRect() : ssrDOMRect)
+  const [wrapperRect, setWrapperRect] = React.useState(
+    typeof DOMRect === 'function' ? new DOMRect() : ssrDOMRect
+  )
   const [open, setOpen] = React.useState(false)
 
   const handleWrapperChange = () => {
@@ -28,10 +37,7 @@ const Menu: React.StatelessComponent<MenuProps> = ({
 
   const isSmallScreen = useIsSmallScreen()
 
-  const handleClose = React.useCallback(
-    () => setOpen(false),
-    [setOpen]
-  )
+  const handleClose = React.useCallback(() => setOpen(false), [setOpen])
 
   const handleToggle = React.useCallback(
     e => {
@@ -45,34 +51,43 @@ const Menu: React.StatelessComponent<MenuProps> = ({
   )
 
   const triggerElementWithAction = React.cloneElement(triggerElement, {
-    onClick: handleToggle
+    onClick: handleToggle,
   })
 
-  const MenuContainer = isSmallScreen ? MobileMenuContainer : MenuContainerDesktop
+  const MenuContainer = isSmallScreen
+    ? MobileMenuContainer
+    : MenuContainerDesktop
   const isTriggerElementBeforeMenu = ['right', 'left'].includes(position)
 
-  const menu =
-    <MenuContainer data-open={open} position={position} wrapperRect={wrapperRect}>
+  const menu = (
+    <MenuContainer
+      data-testid="menu-container"
+      data-open={open}
+      position={position}
+      wrapperRect={wrapperRect}
+    >
       <MenuContent {...props} onClick={persistent ? null : handleClose}>
         {children}
       </MenuContent>
     </MenuContainer>
+  )
   return (
     <React.Fragment>
-      {open && isClientSide() && createPortal(<Overlay onClick={handleToggle}/>, document.body)}
-      <MenuWrapper ref={wrapperRef} >
-        { isTriggerElementBeforeMenu && triggerElementWithAction }
-        {(portal && isClientSide()) ? createPortal(menu, document.body) : menu}
-        { !isTriggerElementBeforeMenu && triggerElementWithAction }
+      {open &&
+        isClientSide() &&
+        createPortal(<Overlay onClick={handleToggle} />, document.body)}
+      <MenuWrapper ref={wrapperRef}>
+        {isTriggerElementBeforeMenu && triggerElementWithAction}
+        {portal && isClientSide() ? createPortal(menu, document.body) : menu}
+        {!isTriggerElementBeforeMenu && triggerElementWithAction}
       </MenuWrapper>
     </React.Fragment>
-
   )
 }
 
 Menu.defaultProps = {
   position: 'left',
-  portal: true
+  portal: true,
 }
 
 export default Menu
