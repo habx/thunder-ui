@@ -91,6 +91,7 @@ jobs:
             npm run build
           environment:
             NODE_ENV: production
+            IS_PUBLISHING: true
       - persist_to_workspace:
           root: /root
           paths:

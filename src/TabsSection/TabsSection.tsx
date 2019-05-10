@@ -1,9 +1,8 @@
 import * as React from 'react'
 import styled from 'styled-components'
-import color from 'color'
 
-import colors from '../colors'
 import fontSizes from '../fontSizes'
+import theme from '../theme'
 
 import TabsSectionProps from './TabsSection.interface'
 
@@ -17,7 +16,7 @@ const TabsSectionLabel = styled.span`
   top: 0;
   left: 16px;
   font-size: ${fontSizes.tiny};
-  color: ${({ labelColor }) => labelColor || color(colors.maastrichtBlue).fade(0.52).toString()}
+  color: ${theme.get('neutral', { dynamic: true })};
 `
 
 const TabsContainer = styled.div`
@@ -25,12 +24,17 @@ const TabsContainer = styled.div`
   overflow-x: auto;
 `
 
-const TabsSection: React.StatelessComponent<TabsSectionProps> = ({ children, label, labelColor, ...props }) => (
+const TabsSection: React.FunctionComponent<TabsSectionProps> = ({
+  children,
+  label,
+  labelColor,
+  ...props
+}) => (
   <TabsSectionContainer>
-    {label && <TabsSectionLabel labelColor={labelColor}>{label}</TabsSectionLabel>}
-    <TabsContainer {...props}>
-      {children}
-    </TabsContainer>
+    {label && (
+      <TabsSectionLabel labelColor={labelColor}>{label}</TabsSectionLabel>
+    )}
+    <TabsContainer {...props}>{children}</TabsContainer>
   </TabsSectionContainer>
 )
 

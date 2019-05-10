@@ -1,12 +1,13 @@
+import { withKnobs, select, boolean } from '@storybook/addon-knobs'
+import { storiesOf } from '@storybook/react'
 import React from 'react'
 import styled from 'styled-components'
-import { storiesOf } from '@storybook/react'
-import { withKnobs, select, boolean } from '@storybook/addon-knobs'
 
-import Menu from './index'
-import MenuItem from '../MenuItem'
 import Button from '../Button'
 import FontIcon from '../FontIcon'
+import MenuItem from '../MenuItem'
+
+import Menu from './index'
 
 const StoryContainer = styled.div`
   width: 100vw;
@@ -23,17 +24,18 @@ const Container = styled.div`
 const props = () => ({
   position: select(
     'Position',
-    { Left: 'left', Right: 'right', 'Top Right': 'top-right', 'Top Left': 'top-left' },
+    {
+      Left: 'left',
+      Right: 'right',
+      'Top Right': 'top-right',
+      'Top Left': 'top-left',
+    },
     'left'
   ),
-  persistent: boolean('Don\'t close after inside click')
+  persistent: boolean("Don't close after inside click"),
 })
 
-const withContainer = storyFn => (
-  <StoryContainer>
-    {storyFn()}
-  </StoryContainer>
-)
+const withContainer = storyFn => <StoryContainer>{storyFn()}</StoryContainer>
 
 storiesOf('Actions|Menu', module)
   .addDecorator(withKnobs)
@@ -50,22 +52,30 @@ storiesOf('Actions|Menu', module)
   .add('with icons', () => (
     <Menu triggerElement={<Button>Menu</Button>}>
       <Container>
-        <MenuItem icon={<FontIcon icon='people' />}>Gestion des contacts</MenuItem>
-        <MenuItem icon={<FontIcon icon='location_city' />}>Gestion des projets</MenuItem>
-        <MenuItem icon={<FontIcon icon='create' />}>Gestion des pages</MenuItem>
+        <MenuItem icon={<FontIcon icon="people" />}>
+          Gestion des contacts
+        </MenuItem>
+        <MenuItem icon={<FontIcon icon="location_city" />}>
+          Gestion des projets
+        </MenuItem>
+        <MenuItem icon={<FontIcon icon="create" />}>Gestion des pages</MenuItem>
       </Container>
     </Menu>
   ))
   .add('in top position', () => (
-    <Menu triggerElement={<Button>Menu</Button>} position='top-left'>
+    <Menu triggerElement={<Button>Menu</Button>} position="top-left">
       <Container>
-        <MenuItem icon={<FontIcon icon='people' />}>Gestion des contacts</MenuItem>
-        <MenuItem icon={<FontIcon icon='location_city' />}>Gestion des projets</MenuItem>
-        <MenuItem icon={<FontIcon icon='create' />}>Gestion des pages</MenuItem>
+        <MenuItem icon={<FontIcon icon="people" />}>
+          Gestion des contacts
+        </MenuItem>
+        <MenuItem icon={<FontIcon icon="location_city" />}>
+          Gestion des projets
+        </MenuItem>
+        <MenuItem icon={<FontIcon icon="create" />}>Gestion des pages</MenuItem>
       </Container>
     </Menu>
   ))
-  .add('don\'t close after inside click', () => (
+  .add("don't close after inside click", () => (
     <Menu triggerElement={<Button>Menu</Button>} persistent>
       <Container>
         <MenuItem>Gestion des contacts</MenuItem>

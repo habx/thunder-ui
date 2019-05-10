@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 import fontSizes from '../fontSizes'
-import { getMainColor } from '../_internal/colors'
+import theme from '../theme'
 
 export const MenuItemContainer = styled.li`
   display: flex;
@@ -13,15 +13,15 @@ export const MenuItemContainer = styled.li`
 
   font-size: ${fontSizes.small};
   white-space: nowrap;
-  color: ${props => getMainColor(props, { themeKey: 'neutral' })};
+  color: ${theme.get('neutral')};
 
   transition: background-color ease-in-out 150ms;
 
   &:hover {
-    background-color: ${props => getMainColor(props, { themeKey: 'neutralLight', customizable: false })};
+    background-color: ${theme.get('neutralLight')};
   }
 
-  &[data-disabled="true"] {
+  &[data-disabled='true'] {
     pointer-events: none;
     opacity: 0.5;
   }

@@ -1,23 +1,26 @@
 import styled, { css } from 'styled-components'
-import { getMainColor } from '../_internal/colors'
 
-const prepareProps = props => ({
-  hoverColor: props.hoverColor || getMainColor(props, { themeKey: 'neutralLight' })
-})
+import theme from '../theme'
 
-export const ListItemContainer = styled.li.attrs(prepareProps)`
+export const ListItemContainer = styled.li`
   padding: 16px;
   transition: background-color ease-in-out 200ms;
   display: flex;
-  &[data-selected="true"] {
-    background-color: ${({ hoverColor }) => hoverColor};
+
+  &[data-selected='true'] {
+    background-color: ${theme.get('neutralLight', { propName: 'hoverColor' })};
   }
-  ${({ clickable }) => clickable && css`
-     &:hover {
-      background-color: ${({ hoverColor }) => hoverColor};
-      cursor: pointer;
-    }
-  `}}
+
+  ${({ clickable }) =>
+    clickable &&
+    css`
+      &:hover {
+        background-color: ${theme.get('neutralLight', {
+          propName: 'hoverColor',
+        })};
+        cursor: pointer;
+      }
+    `}}
 `
 
 export const RightElementContainer = styled.div`

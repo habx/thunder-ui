@@ -14,11 +14,11 @@ export default interface ItemProps extends DOMNode {
   refPropName?: string
   onDelete?: () => void
   onEdit?: (value: any) => void
-  focusOnRender?: boolean
-}
-
-export interface ItemInnerProps extends ItemProps {
+  focusOnMount?: boolean
   query: string
   selected: boolean
-  registerActions: (actionName: string, actionCallback: (e: React.FormEvent<HTMLInputElement>) => void) => void
+  registerActions: (
+    actionName: string,
+    actionCallback: (e: React.FormEvent<HTMLInputElement>) => void
+  ) => void
 }

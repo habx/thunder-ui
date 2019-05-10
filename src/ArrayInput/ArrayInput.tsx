@@ -1,88 +1,83 @@
 import * as React from 'react'
+import { withTheme } from 'styled-components'
 
-import withLabel from '../withLabel'
+import { styledTheme } from '../_internal/types'
+import ExpansionPanel from '../ExpansionPanel'
 import TextButton from '../TextButton'
-import { getMainColor } from '../_internal/colors'
-import { pick } from '../_internal/data'
+import withLabel from '../withLabel'
 
-import { ArrayContext } from './context'
+import ArrayInputProps, { ArrayInputInnerProps } from './ArrayInput.interface'
+import { ArrayInputAction } from './ArrayInput.style'
 import Item from './Item'
 
-import ArrayInputProps, { ArrayInputState } from './ArrayInput.interface'
-import { ArrayInputContainer, ArrayInputAction } from './ArrayInput.style'
+const ArrayInput: React.FunctionComponent<ArrayInputInnerProps> = ({
+  items,
+  onAppend,
+  onDelete,
+  onReorder,
+  addButtonLabel,
+  disabled,
+  itemTitleComponent: ItemTitleComponent,
+  itemComponent: ItemComponent,
+  renderItem: rawRenderItem,
+  renderItemTitle: rawRenderItemTitle,
+  canBeReordered,
+}) => {
+  const [openedItem, setOpenedItem] = React.useState(-1)
+  const itemsRef: React.MutableRefObject<any[]> = React.useRef(items)
 
-class ArrayInput extends React.Component<ArrayInputProps, ArrayInputState> {
-  static defaultProps = {
-    addButtonLabel: 'Ajouter un élément',
-    canBeReordered: false,
-    items: []
-  }
-
-  static getDerivedStateFromProps (nextProps, prevState) {
-    if (prevState.items !== nextProps.items) {
-      if (prevState.items && nextProps.items.length > prevState.items.length) {
-        return {
-          items: nextProps.items,
-          editing: nextProps.items.length - 1
-        }
-      }
-      return { items: nextProps.items }
+  React.useEffect(() => {
+    const amount = items.length
+    if (amount > itemsRef.current.length) {
+      setOpenedItem(amount - 1)
     }
 
-    return null
-  }
+    itemsRef.current = items
+  }, [items])
 
-  state = {
-    editing: null,
-    items: null
-  }
+  const renderItem =
+    rawRenderItem || (ItemComponent && (props => <ItemComponent {...props} />))
+  const renderItemTitle =
+    rawRenderItemTitle ||
+    (ItemTitleComponent && (props => <ItemTitleComponent {...props} />))
 
-  handleEditStart = index => this.setState(() => ({ editing: index }))
-
-  handleEditStop = () => this.setState(() => ({ editing: null }))
-
-  handleDelete = index => this.setState(
-    () => ({ editing: null }),
-    () => this.props.onDelete(index)
+  return (
+    <ExpansionPanel disabled={disabled} data-testid="array-input">
+      {items.map((item, index) => (
+        <Item
+          key={index}
+          renderItem={renderItem}
+          renderItemTitle={renderItemTitle}
+          item={item}
+          index={index}
+          open={openedItem === index}
+          disabled={disabled}
+          canBeReordered={canBeReordered}
+          onDelete={onDelete}
+          onReorder={onReorder}
+          onClick={() => setOpenedItem(prev => (prev === index ? -1 : index))}
+        />
+      ))}
+      <ArrayInputAction>
+        <TextButton
+          data-testid="array-input-add"
+          disabled={disabled}
+          onClick={onAppend}
+        >
+          {addButtonLabel}
+        </TextButton>
+      </ArrayInputAction>
+    </ExpansionPanel>
   )
-
-  handleReorder = (oldPosition, newPosition) => {
-    this.setState(() => ({ editing: null }), () => this.props.onReorder(oldPosition, newPosition))
-  }
-
-  buildContext () {
-    return {
-      ...pick(this.props, ['itemTitleComponent', 'itemDescriptionComponent', 'itemComponent', 'canBeReordered', 'disabled']),
-      ...pick(this.state, ['editing']),
-      amount: this.props.items.length,
-      onOpen: this.handleEditStart,
-      onClose: this.handleEditStop,
-      onDelete: this.handleDelete,
-      onReorder: this.handleReorder,
-      iconColor: getMainColor(this.props, { themeKey: 'neutralStronger', propName: 'iconColor' })
-    }
-  }
-
-  render () {
-    const { items, onAppend, addButtonLabel, disabled } = this.props
-
-    return (
-      <ArrayContext.Provider value={this.buildContext()}>
-        <ArrayInputContainer disabled={disabled}>
-          {
-            items.map((item, index) => (
-              <Item item={item} index={index} key={index} />
-            ))
-          }
-          <ArrayInputAction>
-            <TextButton onClick={onAppend}>
-              { addButtonLabel }
-            </TextButton>
-          </ArrayInputAction>
-        </ArrayInputContainer>
-      </ArrayContext.Provider>
-    )
-  }
 }
 
-export default withLabel({ padding: 16 })(ArrayInput)
+ArrayInput.defaultProps = {
+  addButtonLabel: 'Ajouter un élément',
+  canBeReordered: false,
+  items: [],
+  theme: {} as styledTheme,
+}
+
+export default withLabel({ padding: 16 })(withTheme(
+  ArrayInput
+) as React.FunctionComponent<ArrayInputProps>)

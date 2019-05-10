@@ -1,17 +1,14 @@
+import { action } from '@storybook/addon-actions'
+import { withKnobs, boolean, select } from '@storybook/addon-knobs'
+import { storiesOf } from '@storybook/react'
 import * as React from 'react'
 import styled from 'styled-components'
-import { storiesOf } from '@storybook/react'
-import { withState } from 'recompose'
-import { withKnobs, boolean, select } from '@storybook/addon-knobs'
-import { action } from '@storybook/addon-actions'
 
-import Drawer from './index'
 import Button from '../Button'
-import withTriggerElement from '../withTriggerElement'
-import { longText, regularText } from './Drawer.data'
 import FontIcon from '../FontIcon'
 
-const TriggeredDrawer = withTriggerElement(Drawer)
+import { longText, regularText } from './Drawer.data'
+import Drawer from './index'
 
 const Content = styled.div`
   width: 80vw;
@@ -20,60 +17,50 @@ const Content = styled.div`
 const props = () => ({
   open: boolean('Open', true),
   onClose: action('onClose'),
-  position: select('Position', ['right', 'left', 'top', 'bottom'])
+  position: select('Position', ['right', 'left', 'top', 'bottom']),
 })
-
-const DrawerWithState = props => {
-  const Component = withState('open', 'onClose', true)(({ onClose, ...newProps }) => (
-    <Drawer {...newProps} onClose={() => onClose(false)}/>
-  ))
-
-  return <Component {...props} />
-}
 
 storiesOf('Layouts|Drawer', module)
   .addDecorator(withKnobs)
   .add('basic example', () => (
     <Drawer {...props()}>
-      <Content>
-        {regularText}
-      </Content>
+      <Content>{regularText}</Content>
     </Drawer>
   ))
   .add('with title', () => (
-    <DrawerWithState {...props()} title='Concerning Hobbits'>
-      <Content>
-        {longText}
-      </Content>
-    </DrawerWithState>
+    <Drawer {...props()} title="Concerning Hobbits">
+      <Content>{longText}</Content>
+    </Drawer>
   ))
   .add('with close button', () => (
-    <DrawerWithState {...props()} closeButton={<FontIcon icon='arrow_back'/>}>
-      <Content>
-        {longText}
-      </Content>
-    </DrawerWithState>
+    <Drawer {...props()} closeButton={<FontIcon icon="arrow_back" />}>
+      <Content>{longText}</Content>
+    </Drawer>
   ))
   .add('full example', () => (
-    <DrawerWithState {...props()} title='Concerning Hobbits' closeButton={<FontIcon icon='arrow_back'/>}>
-      <Content>
-        {longText}
-      </Content>
-    </DrawerWithState>
+    <Drawer
+      {...props()}
+      title="Concerning Hobbits"
+      closeButton={<FontIcon icon="arrow_back" />}
+    >
+      <Content>{longText}</Content>
+    </Drawer>
   ))
   .add('with render props', () => (
-    <DrawerWithState {...props()} title='Concerning Hobbits' closeButton={<FontIcon icon='arrow_back'/>}>
-      {({ state }) => (
-        <Content>
-          {`Current state : ${state}`}
-        </Content>
-      )}
-    </DrawerWithState>
+    <Drawer
+      {...props()}
+      title="Concerning Hobbits"
+      closeButton={<FontIcon icon="arrow_back" />}
+    >
+      {({ state }) => <Content>{`Current state : ${state}`}</Content>}
+    </Drawer>
   ))
   .add('with trigger element', () => (
-    <TriggeredDrawer triggerElement={<Button>Open drawer</Button>} title='Concerning Hobbits' closeButton={<FontIcon icon='arrow_back'/>}>
-      <Content>
-        {longText}
-      </Content>
-    </TriggeredDrawer>
+    <Drawer
+      triggerElement={<Button>Open drawer</Button>}
+      title="Concerning Hobbits"
+      closeButton={<FontIcon icon="arrow_back" />}
+    >
+      <Content>{longText}</Content>
+    </Drawer>
   ))

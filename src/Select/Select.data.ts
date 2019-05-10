@@ -28,11 +28,11 @@ export const longData = [
   { value: 'toulon', label: 'Toulon' },
   { value: 'toulouse', label: 'Toulouse' },
   { value: 'tours', label: 'Tours' },
-  { value: 'villeurbanne', label: 'Villeurbanne' }
+  { value: 'villeurbanne', label: 'Villeurbanne' },
 ]
 
 export const shortData = [
   { value: 1, label: 'Option 1' },
   { value: 2, label: 'Option 2' },
-  { value: 3, label: 'Option 3' }
+  { value: 3, label: 'Option 3' },
 ]

@@ -5,12 +5,10 @@ export const NavBarTopBarSquare = styled.div`
   text-align: center;
 `
 
-export const NavBarTopBarTitle = styled.div`
-
-`
+export const NavBarTopBarTitle = styled.div``
 
 export const NavBarTopBar = styled.div`
-  display:none;
+  display: none;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
@@ -61,11 +59,15 @@ export const NavBarSideContainer = styled.nav`
   color: white;
 
   @media (max-width: 600px) {
-    transform: ${({ mobileIsOpen }) => mobileIsOpen ? 'none' : 'translateX(-100%)'};
+    transform: translateX(-100%);
     transition: transform 300ms ease;
     box-sizing: border-box;
     width: 285px;
     padding: 16px;
+
+    &[data-mobile-open='true'] {
+      transform: none;
+    }
   }
 
   a {

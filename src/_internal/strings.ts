@@ -12,4 +12,5 @@ const formatString = (str: string): string => {
   return deburr(cleanStr).replace(/\s/g, '')
 }
 
-export const searchInString = (s: string, search: string): boolean => formatString(s).includes(formatString(search))
+export const searchInString = (s: string, search: string): boolean =>
+  formatString(s).includes(formatString(search))

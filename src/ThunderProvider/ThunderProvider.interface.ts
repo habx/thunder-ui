@@ -1,16 +1,12 @@
 import { ThunderUITheme } from '../useTheme'
 
+type theme = ThunderUITheme | 'light' | 'dark'
+
 export default interface ThunderProviderProps {
-  theme?: ThunderUITheme
+  theme?: theme
 }
 
 export interface ThunderProviderInnerProps extends ThunderProviderProps {
-  customTheme?: ThunderUITheme
+  customTheme?: theme
   theme?: object
-}
-
-export interface ThunderProviderState {
-  theme: object
-  rawTheme?: object
-  rawCustomTheme?: object
 }

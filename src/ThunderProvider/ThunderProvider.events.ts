@@ -4,9 +4,18 @@ let subscriptions = {}
 
 export const subscribe = (messageType, callback) => {
   subscriptions[messageType] = callback
+
+  return () => {
+    subscriptions[messageType] = null
+  }
 }
 
-export const dispatch = (messageType: string, returnPromise: boolean, message: string, options = {}) => {
+export const dispatch = (
+  messageType: string,
+  returnPromise: boolean,
+  message: string,
+  options = {}
+) => {
   if (isFunction(subscriptions[messageType])) {
     return subscriptions[messageType](message, options)
   }
@@ -18,5 +27,5 @@ export const dispatch = (messageType: string, returnPromise: boolean, message: s
 
 export const types = {
   CONFIRM_MODAL: 'CONFIRM_MODAL',
-  NOTIFY: 'NOTIFY'
+  NOTIFY: 'NOTIFY',
 }

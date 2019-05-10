@@ -1,12 +1,12 @@
+import { storiesOf } from '@storybook/react'
 import * as React from 'react'
 import styled from 'styled-components'
-import { storiesOf } from '@storybook/react'
 
 import colors from '../colors'
+import FontIcon from '../FontIcon'
+import NavBarItem from '../NavBarItem'
 
 import NavBar from './index'
-import NavBarItem from '../NavBarItem'
-import FontIcon from '../FontIcon'
 
 const Container = styled.div`
   position: fixed;
@@ -32,33 +32,35 @@ storiesOf('Navigation|NavBar', module)
   .addDecorator(navDecorator)
   .add('basic', () => (
     <NavBar>
-      <NavBarItem icon={<FontIcon icon='home' />} tooltip='Accueil' active />
-      <NavBarItem icon={<FontIcon icon='person' />} tooltip='Profil' />
+      <NavBarItem icon={<FontIcon icon="home" />} tooltip="Accueil" active />
+      <NavBarItem icon={<FontIcon icon="person" />} tooltip="Profil" />
     </NavBar>
   ))
   .add('with custom background color', () => (
     <NavBar backgroundColor={colors.maastrichtBlue}>
-      <NavBarItem icon={<FontIcon icon='home' />} tooltip='Accueil' active />
-      <NavBarItem icon={<FontIcon icon='person' />} tooltip='Profil' />
+      <NavBarItem icon={<FontIcon icon="home" />} tooltip="Accueil" active />
+      <NavBarItem icon={<FontIcon icon="person" />} tooltip="Profil" />
     </NavBar>
   ))
   .add('with custom active color', () => (
     <NavBar activeBackgroundColor={colors.maastrichtBlue}>
-      <NavBarItem icon={<FontIcon icon='home' />} tooltip='Accueil' active />
-      <NavBarItem icon={<FontIcon icon='person' />} tooltip='Profil' />
+      <NavBarItem icon={<FontIcon icon="home" />} tooltip="Accueil" active />
+      <NavBarItem icon={<FontIcon icon="person" />} tooltip="Profil" />
     </NavBar>
   ))
   .add('with custom active color on second item', () => (
     <NavBar>
-      <NavBarItem icon={<FontIcon icon='home' />} tooltip='Accueil' active />
-      <NavBarItem icon={<FontIcon icon='person' />} tooltip='Profil' activeBackgroundColor={colors.maastrichtBlue} />
+      <NavBarItem icon={<FontIcon icon="home" />} tooltip="Accueil" active />
+      <NavBarItem
+        icon={<FontIcon icon="person" />}
+        tooltip="Profil"
+        activeBackgroundColor={colors.maastrichtBlue}
+      />
     </NavBar>
   ))
   .add('with title', () => (
-    <NavBar
-      title={<span>H</span>}
-    >
-      <NavBarItem icon={<FontIcon icon='home' />} tooltip='Accueil' active />
-      <NavBarItem icon={<FontIcon icon='person' />} tooltip='Profil' />
+    <NavBar title={<span>H</span>}>
+      <NavBarItem icon={<FontIcon icon="home" />} tooltip="Accueil" active />
+      <NavBarItem icon={<FontIcon icon="person" />} tooltip="Profil" />
     </NavBar>
   ))

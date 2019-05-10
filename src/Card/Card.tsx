@@ -1,44 +1,73 @@
 import * as React from 'react'
 import { withTheme } from 'styled-components'
 
-import { getMainColor } from '../_internal/colors'
+import { styledTheme } from '../_internal/types'
+import theme from '../theme'
 import Title from '../Title'
 
 import CardProps, { CardInnerProps } from './Card.interface'
-import { CardContainer, TitleContainer, SubtitleContainer, TitleCount } from './Card.style'
+import {
+  CardContainer,
+  TitleContainer,
+  SubtitleContainer,
+  TitleCount,
+} from './Card.style'
 
-const BaseCard: React.StatelessComponent<CardInnerProps> = ({ headerPosition, action, title, titleCount, subtitle, children, ...props }) => {
+const Card: React.ComponentType<
+  CardInnerProps & React.ClassAttributes<any>
+> = React.forwardRef((props, ref) => {
+  const {
+    headerPosition,
+    action,
+    title,
+    titleCount,
+    subtitle,
+    children,
+    error,
+    warning,
+    ...rest
+  } = props
+
+  const color = theme.get('neutralStronger', { dynamic: true })(props)
+
   const titleElement = title && (
     <TitleContainer>
-      <Title size={3} color={getMainColor(props, { themeKey: 'neutralStronger' })}>
-        { title }{(titleCount || titleCount === 0) ? <TitleCount>({ titleCount })</TitleCount> : null}
+      <Title size={3} error={error} warning={warning} color={color}>
+        {title}
+        {titleCount || titleCount === 0 ? (
+          <TitleCount>({titleCount})</TitleCount>
+        ) : null}
       </Title>
-      { action }
+      {action}
     </TitleContainer>
   )
 
   return (
     <React.Fragment>
-      { headerPosition === 'outside' && titleElement }
-      <CardContainer {...props}>
-        { headerPosition === 'inside' && titleElement }
-        {
-          subtitle &&
+      {headerPosition === 'outside' && titleElement}
+      <CardContainer {...rest} error={error} warning={warning} ref={ref}>
+        {headerPosition === 'inside' && titleElement}
+        {subtitle && (
           <SubtitleContainer>
-            <Title size={4} color={getMainColor(props, { themeKey: 'neutral' })}>{ subtitle }</Title>
+            <Title
+              size={4}
+              error={error}
+              warning={warning}
+              color={theme.get('neutralStronger', { dynamic: true })}
+            >
+              {subtitle}
+            </Title>
           </SubtitleContainer>
-        }
-        { children }
+        )}
+        {children}
       </CardContainer>
     </React.Fragment>
   )
-}
+})
 
-BaseCard.defaultProps = {
+Card.defaultProps = {
   headerPosition: 'inside',
-  theme: {}
+  theme: {} as styledTheme,
 }
 
-const Card: React.StatelessComponent<CardProps> = withTheme(BaseCard)
-
-export default Card
+export default withTheme(Card) as React.FunctionComponent<CardProps>

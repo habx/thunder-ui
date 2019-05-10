@@ -1,23 +1,25 @@
 import * as React from 'react'
-import { withTheme } from 'styled-components'
 
-import { withContext } from '../List/context'
+import useMergedContext from '../_internal/useMergedContext'
+import { Context } from '../List/context'
+
 import ListItemProps from './ListItem.interface'
 import { ListItemContainer, RightElementContainer } from './ListItem.style'
 
-const BaseListItem: React.StatelessComponent<ListItemProps> = ({ children, selected, rightElement, ...props }) => {
+const ListItem: React.FunctionComponent<ListItemProps> = rawProps => {
+  const { children, selected, rightElement, ...props } = useMergedContext(
+    Context,
+    rawProps
+  )
+
   return (
     <ListItemContainer data-selected={selected} {...props}>
-      <div>
-        {children}
-      </div>
-      {rightElement && <RightElementContainer>
-        {rightElement}
-      </RightElementContainer>}
+      <div>{children}</div>
+      {rightElement && (
+        <RightElementContainer>{rightElement}</RightElementContainer>
+      )}
     </ListItemContainer>
   )
 }
-
-const ListItem: React.StatelessComponent<ListItemProps> = withContext(withTheme(BaseListItem))
 
 export default ListItem

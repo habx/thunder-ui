@@ -1,12 +1,14 @@
 import React from 'react'
 
-import colors from '../colors'
-
 import Navigation from './Navigation'
-import { SlideshowContainer, SlideshowContent, SlideshowElement } from './SlideShow.style'
 import SlideShowProps from './SlideShow.interface'
+import {
+  SlideshowContainer,
+  SlideshowContent,
+  SlideshowElement,
+} from './SlideShow.style'
 
-const SlideShow: React.StatelessComponent<SlideShowProps> = ({
+const SlideShow: React.FunctionComponent<SlideShowProps> = ({
   children,
   active,
   color,
@@ -43,8 +45,7 @@ const SlideShow: React.StatelessComponent<SlideShowProps> = ({
 
 SlideShow.defaultProps = {
   isNavigationVisible: true,
-  color: colors.trueBlue,
-  transitionDuration: 200
+  transitionDuration: 200,
 }
 
 export default SlideShow

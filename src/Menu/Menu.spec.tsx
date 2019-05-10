@@ -1,45 +1,45 @@
 import * as React from 'react'
-import { mount } from 'enzyme'
+import { render, fireEvent } from 'react-testing-library'
+
+import Button from '../Button'
+import MenuItem from '../MenuItem'
 
 import Menu from './Menu'
-import MenuItem from '../MenuItem'
-import Button from '../Button'
+import 'jest-dom/extend-expect'
 
 describe('Menu component', () => {
-  let wrapper = null
-
-  beforeEach(() => {
-    wrapper = mount(
-      <Menu triggerElement={<Button id='triggerElement' />}>
-      </Menu>
-    )
-  })
-
   it('should render the trigger element', () => {
-    expect(wrapper.find('button#triggerElement')).toHaveLength(1)
+    const { queryByTestId } = render(
+      <Menu triggerElement={<Button data-testid="triggerElement" />} />
+    )
+    expect(queryByTestId('triggerElement')).toBeTruthy()
   })
 
-  /*
   it('should be closed by default', () => {
-    expect(wrapper.state('open')).toEqual(false)
+    const { getByTestId } = render(
+      <Menu triggerElement={<Button data-testid="triggerElement" />} />
+    )
+
+    expect(getByTestId('menu-container')).toHaveAttribute('data-open', 'false')
   })
 
   it('should be opened after click on trigger element', () => {
-    wrapper.find('button').simulate('click')
-    expect(wrapper.state('open')).toEqual(true)
+    const { queryByTestId, getByTestId } = render(
+      <Menu triggerElement={<Button data-testid="triggerElement" />} />
+    )
+
+    fireEvent.click(queryByTestId('triggerElement'))
+    expect(getByTestId('menu-container')).toHaveAttribute('data-open', 'true')
   })
-  */
 
-  it('should render it\'s children', () => {
-    wrapper.setProps({
-      children: (
-        <React.Fragment>
-          <MenuItem>Line 1</MenuItem>
-          <MenuItem>Line 2</MenuItem>
-        </React.Fragment>
-      )
-    })
+  it("should render it's children", () => {
+    const { queryAllByTestId } = render(
+      <Menu triggerElement={<Button data-testid="triggerElement" />}>
+        <MenuItem>Line 1</MenuItem>
+        <MenuItem>Line 2</MenuItem>
+      </Menu>
+    )
 
-    expect(wrapper.find(MenuItem)).toHaveLength(2)
+    expect(queryAllByTestId('menu-item-container')).toHaveLength(2)
   })
 })

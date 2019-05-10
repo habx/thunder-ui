@@ -1,10 +1,9 @@
 import * as React from 'react'
 import styled from 'styled-components'
 
-import { getHoverColor, getMainColor } from '../_internal/colors'
+import theme from '../theme'
 
 import IconButtonProps from './IconButton.interface'
-import shadows from '../shadows'
 
 const getDiameter = props => {
   if (props.small) {
@@ -19,16 +18,18 @@ const getDiameter = props => {
 }
 
 const prepareProps = props => {
-  const color = getMainColor(props)
+  const color = theme.get('primary', { dynamic: true })(props)
 
   return {
     color,
-    hoverColor: getHoverColor(color, props),
-    diameter: getDiameter(props)
+    hoverColor: theme.getActive(props.hoverColor, color),
+    diameter: getDiameter(props),
   }
 }
 
-const IconButton: React.StatelessComponent<IconButtonProps> = styled.button.attrs(prepareProps)`
+const IconButton: React.FunctionComponent<
+  IconButtonProps
+> = styled.button.attrs(prepareProps)`
   border: none;
   outline: none;
   transition: all 150ms ease-in-out;
@@ -37,17 +38,17 @@ const IconButton: React.StatelessComponent<IconButtonProps> = styled.button.attr
   border-radius: 50%;
 
   background-color: ${({ color }) => color};
-  box-shadow: ${shadows.light};
+  box-shadow: ${theme.get('shadowLight')};
 
   cursor: pointer;
   user-select: none;
 
   &:hover {
-    box-shadow: ${shadows.strong};
+    box-shadow: ${theme.get('shadowStrong')};
   }
 
   &:active {
-    box-shadow: ${shadows.strong};
+    box-shadow: ${theme.get('shadowStrong')};
   }
 
   &:hover,
@@ -62,7 +63,7 @@ const IconButton: React.StatelessComponent<IconButtonProps> = styled.button.attr
 `
 
 IconButton.defaultProps = {
-  type: 'button'
+  type: 'button',
 }
 
 export default IconButton

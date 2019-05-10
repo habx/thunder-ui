@@ -1,67 +1,81 @@
-import * as React from 'react'
-import memoize from 'lodash.memoize'
 import get from 'lodash.get'
+import * as React from 'react'
 
+import { useIsMounted, useTimeout } from '../_internal/hooks'
 import { subscribe, types } from '../ThunderProvider/ThunderProvider.events'
 
-import NotificationListProps, { NotificationListState } from './NotificationList.interface'
-import { NotificationListContainer, Notification, ANIMATION_DURATION } from './NotificationList.style'
+import { StateNotification } from './NotificationList.interface'
+import {
+  NotificationListContainer,
+  Notification,
+  ANIMATION_DURATION,
+} from './NotificationList.style'
 
-class NotificationList extends React.PureComponent<NotificationListProps, NotificationListState> {
-  state = {
-    notifications: []
-  }
+const NotificationList: React.FunctionComponent<{}> = () => {
+  const isMounted = useIsMounted()
+  const registerTimeout = useTimeout()
 
-  componentDidMount () {
-    subscribe(types.NOTIFY, (message, options) => {
-      const id = Math.random()
+  const [notifications, setNotifications] = React.useState(
+    [] as StateNotification[]
+  )
 
-      this.setState(prevState => ({
-        notifications: [
-          ...prevState.notifications,
-          { message, options, open: true, id }
-        ]
-      }))
+  const handleClose = React.useCallback(
+    notification => {
+      if (isMounted.current) {
+        setNotifications(prev =>
+          prev.map(el =>
+            el.id === notification.id ? { ...el, open: false } : el
+          )
+        )
 
-      if (options.duration !== 0) {
-        setTimeout(this.handleClose(id), options.duration || 5000)
+        registerTimeout(
+          setTimeout(() => {
+            if (isMounted.current) {
+              setNotifications(prev =>
+                prev.filter(el => el.id !== notification.id)
+              )
+            }
+          }, ANIMATION_DURATION)
+        )
       }
-    })
-  }
+    },
+    [isMounted, registerTimeout]
+  )
 
-  handleClose = memoize(id => () => {
-    this.setState(prevState => ({
-      notifications: prevState.notifications.map(el => (el.id === id ? { ...el, open: false } : el))
-    }), () => this.handleNotificationClose(id))
-  })
+  React.useEffect(
+    () =>
+      subscribe(types.NOTIFY, (message, options) => {
+        const notification = { message, options, open: true, id: Math.random() }
 
-  handleNotificationClose (id) {
-    setTimeout(() => {
-      this.setState(prevState => ({
-        notifications: prevState.notifications.filter(el => el.id !== id)
-      }))
-    }, ANIMATION_DURATION)
-  }
+        setNotifications(prev => [...prev, notification])
 
-  render () {
-    const { notifications } = this.state
+        if (options.duration !== 0) {
+          registerTimeout(
+            setTimeout(
+              () => handleClose(notification),
+              options.duration || 5000
+            )
+          )
+        }
+      }),
+    [registerTimeout, handleClose]
+  )
 
-    return (
-      <NotificationListContainer>
-        { notifications.map(notification => (
-          <Notification
-            key={notification.id}
-            error={get(notification, 'options.type') === 'error'}
-            warning={get(notification, 'options.type') === 'warning'}
-            onClose={this.handleClose(notification.id)}
-            data-closing={!notification.open}
-          >
-            { notification.message }
-          </Notification>
-        )) }
-      </NotificationListContainer>
-    )
-  }
+  return (
+    <NotificationListContainer>
+      {notifications.map(notification => (
+        <Notification
+          key={notification.id}
+          error={get(notification, 'options.type') === 'error'}
+          warning={get(notification, 'options.type') === 'warning'}
+          onClose={() => handleClose(notification)}
+          data-closing={!notification.open}
+        >
+          {notification.message}
+        </Notification>
+      ))}
+    </NotificationListContainer>
+  )
 }
 
 export default NotificationList

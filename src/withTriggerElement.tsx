@@ -2,23 +2,28 @@ import * as React from 'react'
 
 import { isFunction } from './_internal/data'
 
-type TriggerElementProps = {
-  triggerElement: ((state: TriggerElementState) => JSX.Element) | JSX.Element
+type TriggerReceivedProps = {
+  triggerElement?: ((state: TriggerState) => JSX.Element) | JSX.Element
   onClose?: (e: React.FormEvent<HTMLInputElement>) => void
 }
-type TriggerElementState = {
+
+type TriggerState = {
   open: boolean
 }
 
-const withTriggerElement = <Props extends TriggerElementState> (WrappedComponent: React.ComponentType<Props>) => {
-  const Wrapper = (props: Props & TriggerElementProps) => {
-    const { triggerElement, onClose, ...rest } = props as TriggerElementProps
+const withTriggerElement = <Props extends object>(
+  WrappedComponent: React.ComponentType<Props>
+) => {
+  const Wrapper: React.FunctionComponent<
+    Props & TriggerReceivedProps
+  > = props => {
+    const { triggerElement, onClose, ...rest } = props as TriggerReceivedProps
 
     const [open, setOpen] = React.useState(false)
 
     const handleToggle = React.useCallback(
       () => setOpen(wasOpen => !wasOpen),
-      [setOpen]
+      []
     )
 
     const handleClose = React.useCallback(
@@ -29,17 +34,23 @@ const withTriggerElement = <Props extends TriggerElementState> (WrappedComponent
 
         setOpen(false)
       },
-      [setOpen, onClose]
+      [onClose]
     )
+
+    if (!triggerElement) {
+      return <WrappedComponent {...rest as Props} onClose={onClose} />
+    }
 
     return (
       <React.Fragment>
-        {
-          isFunction(triggerElement)
-            ? triggerElement({ open })
-            : React.cloneElement(triggerElement, { onClick: handleToggle })
-        }
-        <WrappedComponent {...rest as Props} open={open} onClose={handleClose} />
+        {isFunction(triggerElement)
+          ? triggerElement({ open })
+          : React.cloneElement(triggerElement, { onClick: handleToggle })}
+        <WrappedComponent
+          {...rest as Props}
+          open={open}
+          onClose={handleClose}
+        />
       </React.Fragment>
     )
   }

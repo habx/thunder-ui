@@ -1,14 +1,20 @@
 import * as React from 'react'
 import { withTheme } from 'styled-components'
 
-import withLabel from '../withLabel'
-import { getMainColor } from '../_internal/colors'
 import { formValue } from '../_internal/types'
+import theme from '../theme'
+import withLabel from '../withLabel'
 
+import RadioSelectProps, {
+  RadioSelectInnerProps,
+} from './RadioSelect.interface'
 import { RadioSelectContainer, Option } from './RadioSelect.style'
-import RadioSelectProps from './RadioSelect.interface'
 
-const getNewValueNotMulti = (item: formValue, value: formValue, { canBeEmpty }) => {
+const getNewValueNotMulti = (
+  item: formValue,
+  value: formValue,
+  { canBeEmpty }
+) => {
   if (value === item && canBeEmpty) {
     return null
   }
@@ -16,7 +22,11 @@ const getNewValueNotMulti = (item: formValue, value: formValue, { canBeEmpty }) 
   return item
 }
 
-const getNewValueMulti = (item: formValue, value: formValue[], { canBeEmpty }) => {
+const getNewValueMulti = (
+  item: formValue,
+  value: formValue[],
+  { canBeEmpty }
+) => {
   if (value.includes(item)) {
     const newValue = value.filter(el => el !== item)
 
@@ -35,14 +45,17 @@ const getNewValueMulti = (item: formValue, value: formValue[], { canBeEmpty }) =
 }
 
 const getCurrentValue = (value, { multi }) => {
-  if (!value && value == null) { // '==' to check undefined values, not just null
+  if (!value && value == null) {
+    // '==' to check undefined values, not just null
     return multi ? [] : null
   }
 
   return value
 }
 
-export const BaseRadioSelect: React.StatelessComponent<RadioSelectProps> = props => {
+export const BaseRadioSelect: React.FunctionComponent<
+  RadioSelectInnerProps
+> = props => {
   const {
     options,
     onChange,
@@ -71,12 +84,13 @@ export const BaseRadioSelect: React.StatelessComponent<RadioSelectProps> = props
     return value === currentValue
   })
 
-  const color = getMainColor(props)
+  const color = theme.get('primary', { dynamic: true })(props)
 
   return (
     <RadioSelectContainer color={color} data-disabled={disabled} {...rest}>
       {options.map(({ value, label }, index) => (
         <Option
+          data-testid="radio-select-option"
           isNextSelected={index < options.length - 1 && selected[index + 1]}
           isPreviousSelected={index > 0 && selected[index - 1]}
           key={value}
@@ -95,9 +109,12 @@ BaseRadioSelect.defaultProps = {
   canBeEmpty: true,
   multi: false,
   disabled: false,
-  options: []
+  options: [],
+  theme: {
+    thunderUI: {},
+  },
 }
 
-const RadioSelect = withLabel({ padding: 12 })(withTheme(BaseRadioSelect) as React.StatelessComponent<RadioSelectProps>)
-
-export default RadioSelect
+export default withLabel({ padding: 12 })(withTheme(
+  BaseRadioSelect
+) as React.FunctionComponent<RadioSelectProps>)

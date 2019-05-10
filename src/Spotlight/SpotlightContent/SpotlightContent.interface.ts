@@ -6,11 +6,7 @@ export default interface SpotlightContentProps {
   onClose: () => void
   onQueryChange: (query: string) => void
   query: string
-  data: object | object[]
-}
-
-export interface SpotlightContentState {
-  selectedItem: number
+  data?: Array<any> | object
 }
 
 export interface ItemRegistrationData {

@@ -9,5 +9,5 @@ export default {
   medium: MEDIUM,
   high: HIGH,
   higher: HIGHER,
-  highest: HIGHEST
+  highest: HIGHEST,
 }

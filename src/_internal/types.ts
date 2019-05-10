@@ -1,13 +1,22 @@
 import * as React from 'react'
 
-export type formOption = { value: any, label: string }
+import { ThunderUITheme } from '../useTheme'
+
+export type formOption = { value: any; label: string }
 
 export type formValue = formOption | string | number
 
-export type spotlightContext = {
-  query: string,
-  data: any
+export type styledTheme = {
+  thunderUI: ThunderUITheme
 }
+
+export type themeAccessor = (props: {
+  theme: styledTheme
+  warning?: boolean
+  error?: boolean
+}) => string
+
+export type color = string | themeAccessor
 
 export interface DOMNode {
   children?: React.ReactNode

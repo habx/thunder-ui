@@ -1,96 +1,123 @@
 import * as React from 'react'
-import memoize from 'lodash.memoize'
 
-import { pick, omit, mapValues } from '../_internal/data'
-import { withSpotlightContext } from '../Spotlight/Spotlight.context'
-import { withSpotlightSectionContext } from '../SpotlightSection/SpotlightSection.context'
+import { mapValues } from '../_internal/data'
+import SpotlightContext from '../Spotlight/Spotlight.context'
+import SpotlightSectionContext from '../SpotlightSection/SpotlightSection.context'
 
-const ACTIONS = ['onClick', 'onFocus', 'onBlur']
+export interface ItemInjectedProps {
+  query: string
+  selected: boolean
+  registerActions: (
+    actionName: string,
+    actionCallback: (e: React.FormEvent<HTMLInputElement>) => void
+  ) => void
+}
 
-const withItemBehavior = WrappedComponent => class Wrapper extends React.Component<any> {
-  private readonly id: number
+export interface ItemActions {
+  onSubmit?: (e: React.UIEvent<HTMLInputElement>) => void
+  onBlur?: (e: React.UIEvent<HTMLInputElement>) => void
+  onFocus?: (e: React.UIEvent<HTMLInputElement>) => void
+  onClick?: (e: React.UIEvent<HTMLInputElement>) => void
+}
 
-  constructor (props) {
-    super(props)
+export interface ItemReceivedProps extends ItemActions {
+  index: number
+}
 
-    this.id = Math.random()
-  }
+const useWrappedActions = ({
+  spotlight,
+  section,
+  onClick,
+  onFocus,
+  onBlur,
+}) => {
+  const spotlightRef = React.useRef(null)
+  const sectionRef = React.useRef(null)
 
-  componentDidMount () {
-    this.register()
-  }
-
-  componentDidUpdate (prevProps) {
-    const { index } = this.props
-
-    if (prevProps.index !== index) {
-      this.register()
-    }
-  }
-
-  componentWillUnmount () {
-    const {
-      spotlight: {
-        unRegisterItem
-      },
-      section: {
-        name
-      }
-    } = this.props
-
-    unRegisterItem(name, this.id)
-  }
-
-  handleEvent = memoize(actionName => e => {
-    const { spotlight, section } = this.props
-    return this.props[actionName](e, { spotlight, section })
+  React.useEffect(() => {
+    spotlightRef.current = spotlight
+    sectionRef.current = section
   })
 
-  wrapActions = () => mapValues(
-    pick(this.props, ACTIONS),
-    (_, actionName) => this.handleEvent(actionName)
-  )
+  return React.useMemo(() => {
+    const actions = { onClick, onFocus, onBlur }
 
-  register () {
+    return mapValues(actions, (action, actionName) => {
+      if (!action) {
+        return null
+      }
+
+      return e =>
+        action(e, {
+          spotlight: spotlightRef.current,
+          section: sectionRef.current,
+        })
+    })
+  }, [onBlur, onClick, onFocus])
+}
+
+const withItemBehavior = <Props extends ItemInjectedProps>(
+  WrappedComponent: React.ComponentType<Props>
+) => {
+  const Component: React.FunctionComponent<
+    Pick<Props, Exclude<keyof Props, keyof ItemInjectedProps>> &
+      ItemReceivedProps
+  > = props => {
     const {
       index,
-      spotlight: {
-        registerItem
-      },
-      section: {
-        name
-      }
-    } = this.props
+      onClick,
+      onFocus,
+      onBlur,
+      ...rest
+    } = props as ItemReceivedProps
 
-    registerItem(name, {
-      index,
-      key: this.id,
-      onSubmit: (...args) => this.actions.submit(...args)
+    const id = React.useRef(Math.random())
+    const actions = React.useRef({
+      submit: (...args) => null,
     })
-  }
+    const spotlight = React.useContext(SpotlightContext)
+    const section = React.useContext(SpotlightSectionContext)
 
-  registerActions = (actionName, action) => {
-    this.actions[actionName] = action
-  }
+    const registerActions = React.useCallback((actionName, action) => {
+      actions.current[actionName] = action
+    }, [])
 
-  actions = {
-    submit: (...args) => null
-  }
+    React.useEffect(() => {
+      spotlight.registerItem(section.name, {
+        index,
+        key: id.current,
+        onSubmit: (...args) => actions.current.submit(...args),
+      })
 
-  render () {
-    const { spotlight: { selectedItemKey, query } } = this.props
-    const selected = this.id === selectedItemKey
+      return () => {
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+        spotlight.unRegisterItem(section.name, id.current)
+      }
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [index, section.name, spotlight.registerItem, spotlight.unRegisterItem])
+
+    const wrappedActions = useWrappedActions({
+      spotlight,
+      section,
+      onClick,
+      onFocus,
+      onBlur,
+    })
+
+    const selected = id.current === spotlight.selectedItemKey
 
     return (
       <WrappedComponent
-        {...omit(this.props, ['spotlight', 'section', 'index'])}
-        query={query}
+        {...rest as Props}
+        {...wrappedActions as ItemActions}
         selected={selected}
-        registerActions={this.registerActions}
-        {...this.wrapActions()}
+        registerActions={registerActions}
+        query={spotlight.query}
       />
     )
   }
+
+  return Component
 }
 
-export default Wrapped => withSpotlightSectionContext(withSpotlightContext(withItemBehavior(Wrapped)))
+export default withItemBehavior

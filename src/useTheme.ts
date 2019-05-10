@@ -1,5 +1,4 @@
 import * as React from 'react'
-
 import { ThemeContext } from 'styled-components'
 
 export type ThunderUITheme = {
@@ -15,7 +14,6 @@ export type ThunderUITheme = {
   neutral?: string
   neutralStrong?: string
   neutralStronger?: string
-  neutralStrongest?: string
 }
 
 type fullTheme = {
