@@ -1,7 +1,8 @@
 import * as React from 'react'
 
 import SliderProps from './Slider.interface'
-import { SliderContainer, SliderBar } from './Slider.style'
+import { SliderContainer, SliderContent } from './Slider.style'
+import SliderBar from './SliderBar'
 import SliderDot from './SliderDot'
 
 const Slider: React.FunctionComponent<SliderProps> = ({
@@ -11,39 +12,56 @@ const Slider: React.FunctionComponent<SliderProps> = ({
   min,
   max,
   step,
+  labelFormatter,
   ...props
 }) => {
   const barRef = React.useRef(null)
+  const [localValue, setLocalValue] = React.useState(value)
 
   const getBarWidth = () => barRef.current.offsetWidth
 
-  const [localValue, setLocalValue] = React.useState(
-    value === null ? (range ? [min, max] : min) : value
-  )
+  const buildDot = (rangeIndex?: number) => {
+    const dotValue = range ? localValue[rangeIndex] : localValue
 
-  const handleChange = React.useCallback(() => {
-    if (value !== localValue) {
-      onChange(localValue)
+    const position = (100 * (dotValue - min)) / (max - min)
+
+    const handlePositionChange = delta => {
+      const newPosition = position + (delta / getBarWidth()) * 100
+
+      const exactPosition = Math.min(Math.max(newPosition, 0), 100)
+      const exactValue = (exactPosition * (max - min)) / 100 + min
+
+      const newValue = Math.round(exactValue / step) * step
+
+      setLocalValue(prev => {
+        if (range) {
+          const values = [...prev]
+          values[rangeIndex] = newValue
+          return values
+        }
+
+        return newValue
+      })
     }
-  }, [localValue, onChange, value])
 
-  const valueButtons = React.useMemo(
-    () => (
+    return (
       <SliderDot
-        min={min}
-        max={max}
-        value={value}
-        step={step}
-        getBarWidth={getBarWidth}
+        position={position}
+        labelFormatter={labelFormatter}
+        onMove={handlePositionChange}
       />
-    ),
-    [max, min, step, value]
-  )
+    )
+  }
+
+  const valueDots = range ? [buildDot(0), buildDot(1)] : buildDot()
+
+  const valueBar = <SliderBar />
 
   return (
     <SliderContainer {...props}>
-      <SliderBar ref={barRef} />
-      {valueButtons}
+      <SliderContent ref={barRef} />
+      {valueDots}
+      {valueBar}
     </SliderContainer>
   )
 }

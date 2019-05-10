@@ -6,6 +6,9 @@ export const SliderDotContainer = styled.div`
   position: absolute;
   margin-left: -7px;
   margin-top: -5px;
+`
+
+export const SliderDotContent = styled.div`
   z-index: 5;
   cursor: grab;
   width: 16px;
@@ -14,4 +17,9 @@ export const SliderDotContainer = styled.div`
   box-shadow: ${theme.get('shadowLight')};
   touch-action: pan-x;
   border-radius: 50%;
+`
+
+export const SliderDotLabel = styled.div`
+  margin-top: 8px;
+  padding-left: 2px;
 `

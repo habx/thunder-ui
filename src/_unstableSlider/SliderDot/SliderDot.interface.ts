@@ -1,7 +1,5 @@
 export default interface SliderDotProps {
-  value: number
-  min: number
-  max: number
-  step: number
-  getBarWidth: () => number
+  position: number
+  onMove: (deltaPixel: number) => void
+  labelFormatter?: (label) => string
 }

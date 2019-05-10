@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 import theme from '../theme'
 
-export const SliderBar = styled.div`
+export const SliderContent = styled.div`
   background-color: ${theme.get('neutralStrong')};
   position: absolute;
   width: 100%;

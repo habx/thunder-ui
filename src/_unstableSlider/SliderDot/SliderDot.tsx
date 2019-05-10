@@ -1,8 +1,11 @@
-import { exact } from 'prop-types'
 import * as React from 'react'
 
 import SliderDotProps from './SliderDot.interface'
-import { SliderDotContainer } from './SliderDot.style'
+import {
+  SliderDotContainer,
+  SliderDotContent,
+  SliderDotLabel,
+} from './SliderDot.style'
 
 type Listeners = {
   mousemove?: EventListener
@@ -44,46 +47,18 @@ const useMouseMove = ({ onMove }) => {
 }
 
 const SliderDot: React.FunctionComponent<SliderDotProps> = ({
-  min,
-  max,
-  step,
-  value,
-  getBarWidth,
+  position,
+  onMove,
+  labelFormatter,
 }) => {
-  const getPositionFromValue = currentValue =>
-    (100 * (currentValue - min)) / (max - min)
+  const eventProps = useMouseMove({ onMove })
 
-  const [position, setPosition] = React.useState(getPositionFromValue(value))
-
-  const possibleValues = Array.from(
-    { length: (max - min) / step + 1 },
-    (_, i) => min + i * step
+  return (
+    <SliderDotContainer style={{ left: `${position}%` }}>
+      <SliderDotContent {...eventProps} />
+      <SliderDotLabel>{labelFormatter(position)}</SliderDotLabel>
+    </SliderDotContainer>
   )
-
-  const sanitizePosition = position => {
-    const exactPosition = Math.min(Math.max(position, 0), 100)
-
-    const exactValue = (exactPosition * (max - min)) / 100 + min
-
-    // const lowerValue = Math.floor(exactValue / step) * step
-    const value = Math.round(exactValue / step) * step
-
-    return getPositionFromValue(value)
-
-    // position = (100 * (value - min)) / (max - min)
-    // position * (max - min) / 100 = value - min
-    // value = (position * (max - min)) / 100 + min
-  }
-
-  const handlePositionChange = delta => {
-    const newPosition = position + (delta / getBarWidth()) * 100
-
-    setPosition(sanitizePosition(newPosition))
-  }
-
-  const eventProps = useMouseMove({ onMove: handlePositionChange })
-
-  return <SliderDotContainer style={{ left: `${position}%` }} {...eventProps} />
 }
 
 export default SliderDot
