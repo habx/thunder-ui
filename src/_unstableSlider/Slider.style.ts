@@ -63,10 +63,3 @@ export const SliderIndicator = styled.div`
   border-radius: 8px;
   z-index: 4;
 `
-
-export const SliderHandlerIndicator = styled.div`
-  margin: 25% auto auto;
-  height: 50%;
-  width: 50%;
-  border-radius: 100%;
-`

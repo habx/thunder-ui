@@ -6,7 +6,7 @@ export const SliderBarContainer = styled.div`
   margin-left: -4px;
   margin-right: -4px;
 
-  z-index: 4;
+  z-index: 5;
   height: 8px;
   border-radius: 4px;
 `

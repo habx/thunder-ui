@@ -41,6 +41,10 @@ const Slider: React.FunctionComponent<SliderProps> = ({
 
   const buildDot = (rangeIndex?: number) => {
     const dotValue = range ? localValue[rangeIndex] : localValue
+    const matchingIndicator = indicators.find(
+      ({ range }) =>
+        Math.min(...range) < dotValue && Math.max(...range) > dotValue
+    )
 
     const position = getPositionFromValue(dotValue)
 
@@ -79,7 +83,13 @@ const Slider: React.FunctionComponent<SliderProps> = ({
       })
     }
 
-    return <SliderDot position={position} onMove={handlePositionChange} />
+    return (
+      <SliderDot
+        position={position}
+        onMove={handlePositionChange}
+        innerColor={matchingIndicator ? matchingIndicator.color : null}
+      />
+    )
   }
 
   const buildBar = ({ from, to }) => {

@@ -1,7 +1,7 @@
 import * as React from 'react'
 
 import SliderDotProps from './SliderDot.interface'
-import { SliderDotContainer } from './SliderDot.style'
+import { SliderDotContainer, SliderInnerDot } from './SliderDot.style'
 
 type Listeners = {
   mousemove?: EventListener
@@ -45,10 +45,15 @@ const useMouseMove = ({ onMove }) => {
 const SliderDot: React.FunctionComponent<SliderDotProps> = ({
   position,
   onMove,
+  innerColor,
 }) => {
   const eventProps = useMouseMove({ onMove })
 
-  return <SliderDotContainer style={{ left: `${position}%` }} {...eventProps} />
+  return (
+    <SliderDotContainer style={{ left: `${position}%` }} {...eventProps}>
+      {innerColor && <SliderInnerDot style={{ backgroundColor: innerColor }} />}
+    </SliderDotContainer>
+  )
 }
 
 export default SliderDot
