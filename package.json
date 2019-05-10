@@ -40,7 +40,7 @@
   },
   "homepage": "https://github.com/habx/thunder-ui#readme",
   "dependencies": {
-    "clean-tag": "^2.0.3",
+    "clean-tag": "^3.1.1",
     "color": "^3.1.0",
     "lodash.deburr": "^4.1.0",
     "lodash.get": "^4.4.2",
