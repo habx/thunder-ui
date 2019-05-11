@@ -7,13 +7,21 @@ import ListItemProps from './ListItem.interface'
 import { ListItemContainer, RightElementContainer } from './ListItem.style'
 
 const ListItem: React.FunctionComponent<ListItemProps> = rawProps => {
-  const { children, selected, rightElement, ...props } = useMergedContext(
-    ListContext,
-    rawProps
-  )
+  const {
+    children,
+    selected,
+    rightElement,
+    clickable,
+    ...props
+  } = useMergedContext(ListContext, rawProps)
 
   return (
-    <ListItemContainer data-selected={selected} {...props}>
+    <ListItemContainer
+      tabIndex={clickable ? 0 : null}
+      data-selected={selected}
+      data-clickable={clickable}
+      {...props}
+    >
       <div>{children}</div>
       {rightElement && (
         <RightElementContainer>{rightElement}</RightElementContainer>

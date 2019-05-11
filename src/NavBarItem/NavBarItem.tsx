@@ -30,6 +30,7 @@ const NavBarItem: React.FunctionComponent<NavBarItemProps> = rawProps => {
     <NavBarItemContainer
       data-testid="nav-bar-item"
       activeClassName="active"
+      tabIndex={0}
       activebackgroundcolor={activeBackgroundColor}
       {...props}
     >

@@ -33,6 +33,7 @@ const StyledTabsItem = styled(tag.li).attrs(prepareProps)`
   color: ${({ color }) => color};
   transition: all 150ms ease-in-out;
   white-space: nowrap;
+  outline: none;
 
   ${({ closed }) =>
     closed &&
@@ -41,7 +42,7 @@ const StyledTabsItem = styled(tag.li).attrs(prepareProps)`
       text-decoration: line-through;
     `}
 
-  &.active {
+  &.active, &:focus {
     color: ${({ activeColor }) => activeColor};
 
     &::after {
@@ -51,9 +52,14 @@ const StyledTabsItem = styled(tag.li).attrs(prepareProps)`
     }
   }
 
-  &:hover {
+  &:hover,
+  &:focus {
     text-decoration: none;
     color: ${({ hoverColor }) => hoverColor};
+  }
+
+  &:focus {
+    opacity: 0.7;
   }
 
   &::after {
@@ -79,6 +85,7 @@ const TabsItem: React.FunctionComponent<TabsItemProps> = rawProps => {
     <StyledTabsItem
       data-testid="tabs-item"
       blacklist={['activeColor', 'hoverColor', 'closed']}
+      tabIndex={0}
       {...props}
     />
   )

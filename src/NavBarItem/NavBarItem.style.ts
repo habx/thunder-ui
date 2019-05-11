@@ -48,9 +48,15 @@ export const NavBarItemContainer = styled.li`
   font-weight: bold;
   padding: 8px 0;
   color: #f9f9fb;
+  outline: none;
 
   &.active ${IconContainer}, &[data-active='true'] ${IconContainer} {
     background-color: ${({ activebackgroundcolor }) => activebackgroundcolor};
+  }
+
+  &:focus ${IconContainer} {
+    background-color: ${({ activebackgroundcolor }) => activebackgroundcolor};
+    opacity: 0.6;
   }
 
   ${({ active }) =>
