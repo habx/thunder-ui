@@ -1,5 +1,5 @@
-import { pick } from '../_internal/data'
-import { searchInString } from '../_internal/strings'
+import { pick } from './_internal/data'
+import { searchInString } from './_internal/strings'
 
 export const some = (...keys) => (query, object) => {
   if (!object) {

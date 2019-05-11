@@ -91,3 +91,8 @@ export { default as shadows } from './shadows'
 export { default as borderRadius } from './borderRadius'
 export { default as theme } from './theme'
 export { default as useTheme } from './useTheme'
+
+/*
+  Utils
+ */
+export { default as filter } from './filter'
