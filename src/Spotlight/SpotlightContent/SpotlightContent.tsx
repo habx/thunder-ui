@@ -90,17 +90,17 @@ const SpotlightContent: React.FunctionComponent<SpotlightContentProps> = ({
 
   React.useEffect(() => {
     const handleKeyDown = event => {
-      const { key } = event
+      const { key, shiftKey } = event
 
-      if (['ArrowUp', 'ArrowDown'].includes(key)) {
+      if (['ArrowUp', 'ArrowDown', 'Tab'].includes(key)) {
         event.preventDefault()
 
         setSelectedItem(prev => {
-          if (key === 'ArrowUp') {
+          if (key === 'ArrowUp' || (key === 'Tab' && shiftKey)) {
             return prev >= 0 ? prev - 1 : getAllItemKeys().length - 1
           }
 
-          if (key === 'ArrowDown') {
+          if (key === 'ArrowDown' || (key === 'Tab' && !shiftKey)) {
             return prev < getAllItemKeys().length - 1 ? prev + 1 : -1
           }
 

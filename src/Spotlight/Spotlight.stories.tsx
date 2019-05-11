@@ -256,6 +256,7 @@ storiesOf('Spotlight|SpotlightItem', module)
             index={index}
             onEdit={action('Item edit')}
             onDelete={action('Item delete')}
+            onClick={action('Item click')}
           />
         )}
         maxItems={5}

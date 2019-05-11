@@ -6,26 +6,40 @@ export const ItemContainer = styled.li`
   position: relative;
   display: flex;
   padding: 16px 32px;
-  transition: background-color ease-in-out 200ms;
+  transition-property: background-color, opacity;
+  transition-duration: 150ms;
+  transition-timing-function: ease-in-out;
   text-decoration: none;
+  cursor: pointer;
+  user-select: none;
 
   &:hover,
   &:focus,
   &:active {
-    cursor: pointer;
     text-decoration: none;
     border: none;
     box-shadow: none;
     outline: none;
   }
 
-  &:hover {
-    background-color: ${theme.get('primaryLightest')};
+  &:not([data-editing='true']) {
+    &:hover {
+      background-color: ${theme.get('primaryLightest')};
+    }
+
+    &:active,
+    &:focus {
+      background-color: ${theme.get('primaryLighter')};
+    }
+
+    &:active {
+      opacity: 0.85;
+    }
   }
 
-  &:active,
-  &:focus {
-    background-color: ${theme.get('primaryLighter')};
+  &[data-editing='true'] {
+    background-color: ${theme.get('neutralLighter')};
+    padding-bottom: 15px;
   }
 `
 
@@ -65,7 +79,7 @@ export const ItemTitleInput = styled.input.attrs(() => ({ type: 'text' }))`
 
   &[data-editing='true'] {
     display: initial;
-    margin-top: -2px;
+    margin-top: -1px;
   }
 `
 
@@ -77,7 +91,6 @@ export const ItemActions = styled.div`
     vertical-align: baseline;
     transition: all ease-in-out 200ms;
     opacity: 0;
-    font-size: 18px;
     color: ${theme.get('neutral')};
   }
 

@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components'
 
 import theme from '../theme'
 
-export const FontIconContainer = styled.span`
+export const FontIconContainer = styled.i`
   font-family: 'Material Icons';
   font-weight: normal;
   font-style: normal;
