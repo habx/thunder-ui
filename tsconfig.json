@@ -12,7 +12,7 @@
     "declarationMap": true,
     "target": "esnext",
     "module": "commonjs",
-    "esModuleInterop": true,
+    "esModuleInterop": true
   },
   "files": ["./src/index.ts"]
 }
