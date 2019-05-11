@@ -45,7 +45,10 @@ export const NavBarPaddingTop = styled.div`
   }
 `
 
-export const NavBarContainer = styled.div`
+export const NavBarContainer = styled.ul`
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
   flex: 0 0 auto;
   height: 100vh;
 `

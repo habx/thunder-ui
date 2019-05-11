@@ -1,8 +1,9 @@
-import { DOMNode, color } from '../_internal/types'
+import * as React from 'react'
 
-export default interface TitleProps extends DOMNode {
+export default interface TitleProps
+  extends React.HTMLAttributes<HTMLHeadingElement> {
   size?: number
-  color?: color
+  color?: string
   underline?: boolean
   error?: boolean
   warning?: boolean

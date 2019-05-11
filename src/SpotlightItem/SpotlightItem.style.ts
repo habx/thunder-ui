@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 import theme from '../theme'
 
-export const ItemContainer = styled.div`
+export const ItemContainer = styled.li`
   position: relative;
   display: flex;
   padding: 16px 32px;

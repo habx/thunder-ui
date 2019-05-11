@@ -1,4 +1,4 @@
-import { DOMNode } from '../_internal/types'
+import * as React from 'react'
 
 export interface ItemComponentProps {
   value: any
@@ -6,7 +6,7 @@ export interface ItemComponentProps {
   editing: boolean
 }
 
-export default interface ItemProps extends DOMNode {
+export default interface ItemProps extends React.HTMLAttributes<HTMLLIElement> {
   index: number
   open: boolean
   item: any

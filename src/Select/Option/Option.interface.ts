@@ -1,6 +1,7 @@
-import { DOMNode } from '../../_internal/types'
+import * as React from 'react'
 
-export default interface OptionProps extends DOMNode {
+export default interface OptionProps
+  extends React.HTMLAttributes<HTMLLIElement> {
   focused: boolean
   multi: boolean
   compact: boolean

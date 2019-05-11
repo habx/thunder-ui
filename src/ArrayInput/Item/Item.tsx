@@ -1,14 +1,14 @@
 import React, { Fragment } from 'react'
 
-import { isFunction } from '../_internal/data'
-import ExpansionPanelItem from '../ExpansionPanelItem'
-import FontIcon from '../FontIcon'
-
+import { isFunction } from '../../_internal/data'
+import ExpansionPanelItem from '../../ExpansionPanelItem'
+import FontIcon from '../../FontIcon'
 import {
   ItemHeaderContainer,
   ItemHeaderContent,
   ItemActions,
-} from './ArrayInput.style'
+} from '../ArrayInput.style'
+
 import ItemProps from './Item.interface'
 
 const Item: React.FunctionComponent<ItemProps> = ({
@@ -22,6 +22,7 @@ const Item: React.FunctionComponent<ItemProps> = ({
   open,
   renderItem,
   renderItemTitle,
+  ...rest
 }) => {
   const handleDelete = e => {
     e.stopPropagation()
@@ -79,6 +80,7 @@ const Item: React.FunctionComponent<ItemProps> = ({
       header={header}
       open={open}
       data-testid="array-input-item"
+      {...rest}
     >
       {isFunction(renderItem) && renderItem(state)}
     </ExpansionPanelItem>

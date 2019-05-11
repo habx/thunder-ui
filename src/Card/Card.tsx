@@ -49,12 +49,7 @@ const Card: React.ComponentType<
         {headerPosition === 'inside' && titleElement}
         {subtitle && (
           <SubtitleContainer>
-            <Title
-              size={4}
-              error={error}
-              warning={warning}
-              color={theme.get('neutralStronger', { dynamic: true })}
-            >
+            <Title size={4} error={error} warning={warning} color={color}>
               {subtitle}
             </Title>
           </SubtitleContainer>

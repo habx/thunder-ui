@@ -42,7 +42,7 @@ export const IconContainer = styled.div`
   border-radius: 50%;
 `
 
-export const NavBarItemContainer = styled.div`
+export const NavBarItemContainer = styled.li`
   position: relative;
   font-size: 12px;
   font-weight: bold;

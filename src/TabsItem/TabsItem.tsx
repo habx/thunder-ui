@@ -23,10 +23,10 @@ const prepareProps = props => {
   }
 }
 
-const StyledTabsItem = styled(tag).attrs(prepareProps)`
+const StyledTabsItem = styled(tag.li).attrs(prepareProps)`
   display: flex;
   position: relative;
-
+  cursor: pointer;
   padding: 16px 8px;
   margin: 0 8px;
   font-size: ${fontSizes.regular};

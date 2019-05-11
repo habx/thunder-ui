@@ -1,8 +1,7 @@
 import * as React from 'react'
 
-import { DOMNode } from '../_internal/types'
-
-export default interface ListItemProps extends DOMNode {
+export default interface ListItemProps
+  extends React.HTMLAttributes<HTMLLIElement> {
   as?: React.ComponentType<any> | string
   selected?: boolean
   rightElement?: React.ReactNode

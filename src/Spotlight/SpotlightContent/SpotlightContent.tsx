@@ -9,7 +9,11 @@ import SpotlightIcon from './icon'
 import SpotlightContentProps, {
   ItemRegistrationData,
 } from './SpotlightContent.interface'
-import { SpotlightSearch, SpotlightSections } from './SpotlightContent.style'
+import {
+  SpotlightSearchContainer,
+  SpotlightSearch,
+  SpotlightSections,
+} from './SpotlightContent.style'
 
 const SpotlightContent: React.FunctionComponent<SpotlightContentProps> = ({
   children,
@@ -144,9 +148,9 @@ const SpotlightContent: React.FunctionComponent<SpotlightContentProps> = ({
 
   return (
     <SpotlightContext.Provider value={context}>
-      <SpotlightSearch>
+      <SpotlightSearchContainer>
         <SpotlightIcon />
-        <input
+        <SpotlightSearch
           onKeyPress={handleSearchKeyPress}
           ref={inputRef}
           onFocus={handleFocus}
@@ -154,7 +158,7 @@ const SpotlightContent: React.FunctionComponent<SpotlightContentProps> = ({
           onChange={handleSearch}
           placeholder={placeholder}
         />
-      </SpotlightSearch>
+      </SpotlightSearchContainer>
       <SpotlightSections>{children}</SpotlightSections>
     </SpotlightContext.Provider>
   )

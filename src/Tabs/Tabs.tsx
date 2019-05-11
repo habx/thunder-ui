@@ -4,11 +4,11 @@ import styled from 'styled-components'
 import TabsContext from './Tabs.context'
 import TabsProps from './Tabs.interface'
 
-const TabsContainer = styled.div`
+const TabsContainer = styled.ul`
   display: flex;
-  &:hover {
-    cursor: pointer;
-  }
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
 `
 
 const Tabs: React.FunctionComponent<TabsProps> = ({

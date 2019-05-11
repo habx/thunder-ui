@@ -83,7 +83,6 @@ export const MenuContent = styled.ul`
   padding: 8px 0;
   background-color: ${theme.get('neutralLightest')};
   margin: 8px 0 0 0;
-
   list-style-type: none;
 `
 

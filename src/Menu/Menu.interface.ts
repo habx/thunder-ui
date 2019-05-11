@@ -1,8 +1,7 @@
 import * as React from 'react'
 
-import { DOMNode } from '../_internal/types'
-
-export default interface MenuProps extends DOMNode {
+export default interface MenuProps
+  extends React.HTMLAttributes<HTMLUListElement> {
   triggerElement: React.ReactElement<any>
   position?: 'left' | 'right' | 'top-left' | 'top-right'
   persistent?: boolean

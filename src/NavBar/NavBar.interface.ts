@@ -1,8 +1,11 @@
 import * as React from 'react'
 
-import { DOMNode, styledTheme } from '../_internal/types'
+import { styledTheme } from '../_internal/types'
 
-export default interface NavBarProps extends DOMNode {
+type Li = React.HTMLAttributes<HTMLLIElement>
+
+export default interface NavBarProps
+  extends Pick<Li, Exclude<keyof Li, 'title'>> {
   backgroundColor?: string
   activeBackgroundColor?: string
   title?: React.ReactElement<any>

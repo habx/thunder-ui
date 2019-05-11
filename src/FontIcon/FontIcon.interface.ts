@@ -1,6 +1,7 @@
-import { DOMNode } from '../_internal/types'
+import * as React from 'react'
 
-export default interface FontIconProps extends DOMNode {
+export default interface FontIconProps
+  extends React.HTMLAttributes<HTMLSpanElement> {
   icon: string
   interactive?: boolean
   title?: string

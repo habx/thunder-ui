@@ -2,8 +2,11 @@ import * as React from 'react'
 
 import { Input, formOption, styledTheme } from '../_internal/types'
 
-export default interface SelectProps extends Input<any> {
-  placeholder?: string
+type S = React.HTMLAttributes<HTMLElement>
+
+export default interface SelectProps
+  extends Input<any>,
+    Pick<S, Exclude<keyof S, keyof Input<any>>> {
   options: any[]
   description?: string
   placeholderClassName?: string

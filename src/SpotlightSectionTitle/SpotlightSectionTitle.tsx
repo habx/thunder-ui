@@ -1,10 +1,9 @@
 import * as React from 'react'
 
-import SpotlightSectionTitleProps from './SpotlightSectionTitle.interface'
 import { SectionTitleContainer } from './SpotlightSectionTitle.style'
 
 const SpotlightSectionTitle: React.FunctionComponent<
-  SpotlightSectionTitleProps
+  React.HTMLAttributes<HTMLDivElement>
 > = ({ children }) => <SectionTitleContainer>{children}</SectionTitleContainer>
 
 export default SpotlightSectionTitle

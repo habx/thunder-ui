@@ -1,12 +1,13 @@
-import { DOMNode } from '../_internal/types'
+import * as React from 'react'
 
-export default interface TabsProps extends DOMNode {
+export default interface TabsProps
+  extends React.HTMLAttributes<HTMLUListElement> {
   hoverColor?: string
   activeColor?: string
   color?: string
 }
 
-export interface TabsContextProps extends DOMNode {
+export interface TabsContextProps {
   isInsideATabs: boolean
   hoverColor?: string
   activeColor?: string

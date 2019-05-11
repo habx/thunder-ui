@@ -1,8 +1,9 @@
 import * as React from 'react'
 
-import { DOMNode, styledTheme } from '../_internal/types'
+import { styledTheme } from '../_internal/types'
 
-export default interface ExpansionPanelItem extends DOMNode {
+export default interface ExpansionPanelItem
+  extends React.HTMLAttributes<HTMLLIElement> {
   title?: string
   header?: React.ReactNode
   error?: boolean
