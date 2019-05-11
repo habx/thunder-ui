@@ -6,7 +6,8 @@ export default interface ExpansionPanel extends DOMNode {
 }
 
 export type ExpansionPanelContextType = {
+  isInsideAnExpansionPanel: boolean
   openedItems: number[]
-  setOpenedItems: (newOpenedItem: number[]) => void
+  setOpenedItems: (newOpenedItem: (prev: number[]) => number[]) => void
   multiOpen?: boolean
 }

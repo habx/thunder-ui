@@ -7,5 +7,5 @@ export default interface ListProps extends DOMNode {
   hoverColor?: string
   clickable?: boolean
   selectable?: boolean
-  children: React.ReactElement<any>[]
+  children?: React.ReactElement<any>[]
 }

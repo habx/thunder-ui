@@ -10,13 +10,14 @@ const ExpansionPanel: React.FunctionComponent<ExpansionPanelProps> = ({
   multiOpen,
   ...rest
 }) => {
-  const [openedItems, setOpenedItems] = React.useState([])
+  const [openedItems, setOpenedItems] = React.useState([] as number[])
 
   const contextValue = React.useMemo(
     () => ({
       openedItems,
       setOpenedItems,
       multiOpen,
+      isInsideAnExpansionPanel: true,
     }),
     [multiOpen, openedItems]
   )

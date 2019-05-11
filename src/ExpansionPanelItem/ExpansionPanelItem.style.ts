@@ -22,7 +22,7 @@ export const TitleBar = styled.div`
   user-select: none;
 `
 
-export const CoreContainer = styled.div`
+export const ExpansionPanelItemContent = styled.div`
   transition: max-height 300ms ease-in-out;
   overflow: hidden;
 
