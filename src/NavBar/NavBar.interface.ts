@@ -11,3 +11,8 @@ export default interface NavBarProps extends DOMNode {
 export interface NavBarInnerProps extends NavBarProps {
   theme: styledTheme
 }
+
+export interface NavBarContextProps {
+  isInsideANavBar: boolean
+  activeBackgroundColor?: string
+}
