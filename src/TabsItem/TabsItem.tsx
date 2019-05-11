@@ -3,8 +3,9 @@ import * as React from 'react'
 import styled, { css } from 'styled-components'
 
 import useMergedContext from '../_internal/useMergedContext'
+import { assert } from '../_internal/validityCheck'
 import fontSizes from '../fontSizes'
-import { Context } from '../Tabs/context'
+import TabsContext from '../Tabs/Tabs.context'
 import theme from '../theme'
 
 import TabsItemProps from './TabsItem.interface'
@@ -70,10 +71,13 @@ const StyledTabsItem = styled(tag).attrs(prepareProps)`
 `
 
 const TabsItem: React.FunctionComponent<TabsItemProps> = rawProps => {
-  const props = useMergedContext(Context, rawProps)
+  const { isInsideATabs, ...props } = useMergedContext(TabsContext, rawProps)
+
+  assert(isInsideATabs, 'TabsItem should be used inside a Tabs')
 
   return (
     <StyledTabsItem
+      data-testid="tabs-item"
       blacklist={['activeColor', 'hoverColor', 'closed']}
       {...props}
     />

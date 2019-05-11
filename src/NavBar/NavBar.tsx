@@ -1,6 +1,7 @@
 import * as React from 'react'
 import { withTheme } from 'styled-components'
 
+import { styledTheme } from '../_internal/types'
 import FontIcon from '../FontIcon'
 import TextButton from '../TextButton'
 import theme from '../theme'
@@ -80,5 +81,9 @@ const NavBar: React.ComponentType<
     </NavBarContext.Provider>
   )
 })
+
+NavBar.defaultProps = {
+  theme: {} as styledTheme,
+}
 
 export default withTheme(NavBar) as React.FunctionComponent<NavBarProps>

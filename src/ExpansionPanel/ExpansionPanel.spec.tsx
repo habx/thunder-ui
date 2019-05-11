@@ -9,8 +9,13 @@ import ExpansionPanel from './index'
 import 'jest-dom/extend-expect'
 
 jest.useFakeTimers()
+const sinonSandbox = sinon.createSandbox()
 
 describe('ExpansionPanel component', () => {
+  afterEach(() => {
+    sinonSandbox.restore()
+  })
+
   it('should render each ExpansionPanelItem as closed', async () => {
     const { queryAllByTestId } = render(
       <ExpansionPanel>
@@ -219,8 +224,19 @@ describe('ExpansionPanel component', () => {
     expect(spyOnToggle.calledOnce).toBe(true)
   })
 
+  it('should not log a warning if ExpansionPanelItem is called with an ExpansionPanel parent', () => {
+    const logWarnStub = sinonSandbox.stub(validityCheck, 'logWarn')
+    render(
+      <ExpansionPanel>
+        <ExpansionPanelItem />
+      </ExpansionPanel>
+    )
+
+    expect(logWarnStub.notCalled).toBe(true)
+  })
+
   it('should log a warning if ExpansionPanelItem is called without an ExpansionPanel parent', () => {
-    const logWarnStub = sinon.stub(validityCheck, 'logWarn')
+    const logWarnStub = sinonSandbox.stub(validityCheck, 'logWarn')
     render(<ExpansionPanelItem />)
 
     expect(logWarnStub.calledOnce).toBe(true)

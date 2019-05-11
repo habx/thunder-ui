@@ -3,44 +3,44 @@ import { render } from 'react-testing-library'
 import sinon from 'sinon'
 
 import * as validityCheck from '../_internal/validityCheck'
-import NavBarItem from '../NavBarItem'
+import TabsItem from '../TabsItem'
 
-import NavBar from './index'
+import Tabs from './index'
 import 'jest-dom/extend-expect'
 
 jest.useFakeTimers()
 const sinonSandbox = sinon.createSandbox()
 
-describe('NavBar component', () => {
+describe('Tabs component', () => {
   afterEach(() => {
     sinonSandbox.restore()
   })
 
-  it('should render each NavBarItem', async () => {
+  it('should render each TabsItem', async () => {
     const { queryAllByTestId } = render(
-      <NavBar>
-        <NavBarItem />
-        <NavBarItem />
-      </NavBar>
+      <Tabs>
+        <TabsItem />
+        <TabsItem />
+      </Tabs>
     )
 
-    expect(queryAllByTestId('nav-bar-item')).toHaveLength(2)
+    expect(queryAllByTestId('tabs-item')).toHaveLength(2)
   })
 
-  it('should not log a warning if NavBarItem is called with an NavBar parent', () => {
+  it('should not log a warning if TabsItem is called with an Tabs parent', () => {
     const logWarnStub = sinonSandbox.stub(validityCheck, 'logWarn')
     render(
-      <NavBar>
-        <NavBarItem />
-      </NavBar>
+      <Tabs>
+        <TabsItem />
+      </Tabs>
     )
 
     expect(logWarnStub.notCalled).toBe(true)
   })
 
-  it('should log a warning if NavBarItem is called without a NavBar parent', () => {
+  it('should log a warning if TabsItem is called without a Tabs parent', () => {
     const logWarnStub = sinonSandbox.stub(validityCheck, 'logWarn')
-    render(<NavBarItem />)
+    render(<TabsItem />)
 
     expect(logWarnStub.calledOnce).toBe(true)
   })

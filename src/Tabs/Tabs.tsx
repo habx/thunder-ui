@@ -1,7 +1,7 @@
 import * as React from 'react'
 import styled from 'styled-components'
 
-import { Context } from './context'
+import TabsContext from './Tabs.context'
 import TabsProps from './Tabs.interface'
 
 const TabsContainer = styled.div`
@@ -17,16 +17,22 @@ const Tabs: React.FunctionComponent<TabsProps> = ({
   activeColor,
   children,
   ...other
-}) => (
-  <Context.Provider value={{ hoverColor, activeColor, color }}>
-    <TabsContainer {...other}>{children}</TabsContainer>
-  </Context.Provider>
-)
+}) => {
+  const context = React.useMemo(
+    () => ({
+      hoverColor,
+      activeColor,
+      color,
+      isInsideATabs: true,
+    }),
+    [activeColor, color, hoverColor]
+  )
 
-Tabs.defaultProps = {
-  hoverColor: null,
-  activeColor: null,
-  color: null,
+  return (
+    <TabsContext.Provider value={context}>
+      <TabsContainer {...other}>{children}</TabsContainer>
+    </TabsContext.Provider>
+  )
 }
 
 export default Tabs
