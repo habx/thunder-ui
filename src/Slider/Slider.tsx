@@ -1,5 +1,6 @@
 import * as React from 'react'
 
+import { isFunction } from '../_internal/data'
 import withLabel from '../withLabel'
 
 import SliderProps from './Slider.interface'
@@ -7,20 +8,46 @@ import {
   SliderContainer,
   SliderContent,
   SliderMainBar,
-  SliderLabel,
+  SliderTooltip,
   SliderBackgroundDot,
   SliderIndicator,
 } from './Slider.style'
 import SliderBar from './SliderBar'
 import SliderDot from './SliderDot'
 
+const getTooltip = ({
+  localValue,
+  range,
+  customValues,
+  tooltipFormatter: formatter,
+  tooltipRangeSeparator: rangeSeparator,
+  tooltipSuffix: suffix,
+}) => {
+  const getDotLabel = value => (customValues ? customValues[value] : value)
+
+  const buildRawTooltip = () => {
+    if (range) {
+      const from = getDotLabel(localValue[0])
+      const to = getDotLabel(localValue[1])
+
+      return `${from}${rangeSeparator}${to}${suffix}`
+    }
+
+    return `${getDotLabel(localValue)}${suffix}`
+  }
+
+  const rawTooltip = buildRawTooltip()
+
+  return isFunction(formatter) ? formatter(localValue, rawTooltip) : rawTooltip
+}
+
 const Slider: React.FunctionComponent<SliderProps> = ({
   disabled,
   range,
   onChange,
-  labelFormatter,
-  labelRangeSeparator,
-  labelSuffix,
+  tooltipFormatter,
+  tooltipRangeSeparator,
+  tooltipSuffix,
   customValues,
   indicators,
   min,
@@ -46,8 +73,6 @@ const Slider: React.FunctionComponent<SliderProps> = ({
   React.useEffect(() => {
     setLocalValue(value)
   }, [value])
-
-  const getBarWidth = () => barRef.current.offsetWidth
 
   const getPositionFromValue = currentValue =>
     (100 * (currentValue - min)) / (max - min)
@@ -75,7 +100,7 @@ const Slider: React.FunctionComponent<SliderProps> = ({
 
     const handlePositionChange = delta => {
       const boundaries = getPossibleValuesBoundaries()
-      const newPosition = position + (delta / getBarWidth()) * 100
+      const newPosition = position + (delta / barRef.current.offsetWidth) * 100
 
       const boundedPosition = Math.min(
         Math.max(newPosition, boundaries.min),
@@ -124,24 +149,16 @@ const Slider: React.FunctionComponent<SliderProps> = ({
     ? buildBar({ from: localValue[0], to: localValue[1] })
     : buildBar({ from: min, to: localValue })
 
-  const label = (() => {
-    const buildValueLabel = value => {
-      const label = customValues ? customValues[value] : value
+  const tooltip = getTooltip({
+    localValue,
+    customValues,
+    tooltipFormatter,
+    tooltipSuffix,
+    tooltipRangeSeparator,
+    range,
+  })
 
-      return labelFormatter(label)
-    }
-
-    if (range) {
-      const from = buildValueLabel(localValue[0])
-      const to = buildValueLabel(localValue[1])
-      return `${from}${labelRangeSeparator}${to}${labelSuffix}`
-    }
-
-    const label = buildValueLabel(localValue)
-    return `${label}${labelSuffix}`
-  })()
-
-  const labelPosition = range
+  const tooltipPosition = range
     ? getPositionFromValue(localValue[0])
     : getPositionFromValue(localValue)
 
@@ -166,12 +183,12 @@ const Slider: React.FunctionComponent<SliderProps> = ({
             }}
           />
         ))}
-        <SliderLabel
-          data-testid="slider-label"
-          style={{ paddingLeft: `${labelPosition}%` }}
+        <SliderTooltip
+          data-testid="slider-tooltip"
+          style={{ paddingLeft: `${tooltipPosition}%` }}
         >
-          {label}
-        </SliderLabel>
+          {tooltip}
+        </SliderTooltip>
         {dots &&
           possibleValues.map((value, index) => (
             <SliderBackgroundDot
@@ -185,12 +202,11 @@ const Slider: React.FunctionComponent<SliderProps> = ({
 }
 
 Slider.defaultProps = {
-  labelFormatter: label => label,
-  labelRangeSeparator: ' to ',
+  tooltipRangeSeparator: ' to ',
+  tooltipSuffix: '',
   range: false,
   customValues: null,
   value: null,
-  labelSuffix: '',
   min: 0,
   max: 100,
   step: 5,

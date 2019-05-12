@@ -36,6 +36,7 @@ const INITIAL_STATE = {
 const Spotlight: React.FunctionComponent<SpotlightProps> = ({
   onQueryChange,
   onClose,
+  onOpen,
   query: propQuery,
   open: propOpen,
   placeholder,
@@ -72,6 +73,10 @@ const Spotlight: React.FunctionComponent<SpotlightProps> = ({
         ) {
           dispatch({ type: 'OPEN' })
           inputRef.current.focus()
+
+          if (isFunction(onOpen)) {
+            onOpen()
+          }
         }
         lastOpenKeyPress.current = currentTime
       }
@@ -86,7 +91,7 @@ const Spotlight: React.FunctionComponent<SpotlightProps> = ({
     return () => {
       window.removeEventListener('keydown', handleKeyDown)
     }
-  }, [])
+  }, [onOpen])
 
   const handleClose = React.useCallback(() => {
     if (isOpenControlled) {

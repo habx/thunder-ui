@@ -41,7 +41,6 @@ export { default as ArrayInput } from './ArrayInput'
 /*
   Miscellaneous
  */
-export { default as Progress } from './Progress'
 export { default as Tag } from './Tag/index'
 export { default as Notification } from './Notification'
 export { default as Spinner } from './Spinner'

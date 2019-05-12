@@ -14,7 +14,6 @@ export const NavBarItemTooltip = styled.span`
   line-height: calc(100% - 16px);
   cursor: pointer;
   border-radius: 22px;
-  font-family: 'Inter UI', sans-serif;
   font-size: 14px;
   white-space: nowrap;
   background-color: ${({ activebackgroundcolor }) => activebackgroundcolor};

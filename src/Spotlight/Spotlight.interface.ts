@@ -35,6 +35,7 @@ export default interface SpotlightProps extends ModalProps {
   data?: Array<any> | object
   open?: boolean
   onClose?: () => void
+  onOpen?: () => void
   onQueryChange?: (query: string) => void
   placeholder?: string
   theme?: themeType

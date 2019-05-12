@@ -9,7 +9,7 @@ export default interface SliderProps extends Input<any> {
   dots?: boolean
   indicators?: { color?: string; range: [number, number] }[]
 
-  labelFormatter?: (label) => string
-  labelRangeSeparator?: string
-  labelSuffix?: string
+  tooltipFormatter?: (label) => string
+  tooltipRangeSeparator?: string
+  tooltipSuffix?: string
 }

@@ -166,7 +166,7 @@ const SpotlightContent: React.FunctionComponent<SpotlightContentProps> = ({
 
 SpotlightContent.defaultProps = {
   data: {},
-  placeholder: 'Aller à...',
+  placeholder: 'Search...',
 }
 
 export default SpotlightContent

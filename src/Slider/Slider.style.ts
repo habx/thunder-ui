@@ -9,7 +9,7 @@ export const SliderContainer = styled.div`
   padding: 8px 8px 38px 8px;
 `
 
-export const SliderLabel = styled.div`
+export const SliderTooltip = styled.div`
   position: absolute;
   top: 16px;
   margin-left: -4px;
@@ -21,7 +21,7 @@ export const SliderContent = styled.div`
     background-color: ${theme.get('primary', { dynamic: true })};
   }
 
-  & ${SliderLabel} {
+  & ${SliderTooltip} {
     color: ${theme.get('primary', { dynamic: true })};
   }
 
