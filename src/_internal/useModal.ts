@@ -1,6 +1,7 @@
 import * as React from 'react'
 
 import { isFunction } from './data'
+import { useTimeout } from './hooks'
 
 export type ModalParams = {
   open?: boolean
@@ -25,7 +26,7 @@ const useModal = ({
   ...restParams
 }: ModalParams): ModalState => {
   const [hasAlreadyRendered, setHasAlreadyRendered] = React.useState(false)
-  const timeout = React.useRef(null)
+  const registerTimeout = useTimeout()
   const domRef = React.useRef(null)
 
   const params = { animated, animationDuration, ...restParams } as ModalParams
@@ -66,12 +67,14 @@ const useModal = ({
 
   React.useEffect(() => {
     if (paramsRef.current.animated) {
-      timeout.current = setTimeout(
-        () => setLocalOpened(params.open),
-        paramsRef.current.animationDuration
+      registerTimeout(
+        setTimeout(
+          () => setLocalOpened(params.open),
+          paramsRef.current.animationDuration
+        )
       )
     }
-  }, [params.open])
+  }, [params.open, registerTimeout])
 
   React.useEffect(() => {
     const handleKeyDown = e => {
@@ -88,7 +91,6 @@ const useModal = ({
 
     return () => {
       window.removeEventListener('keydown', handleKeyDown)
-      clearTimeout(timeout.current)
     }
   }, [handleClose])
 
