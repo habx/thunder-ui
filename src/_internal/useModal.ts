@@ -24,17 +24,26 @@ const useModal = ({
   animationDuration,
   ...restParams
 }: ModalParams): ModalState => {
-  const params = { animated, animationDuration, ...restParams } as ModalParams
-
+  const [hasAlreadyRendered, setHasAlreadyRendered] = React.useState(false)
   const timeout = React.useRef(null)
   const domRef = React.useRef(null)
+
+  const params = { animated, animationDuration, ...restParams } as ModalParams
   const paramsRef = React.useRef(params)
+
+  if (!hasAlreadyRendered && animated) {
+    params.open = false
+  }
 
   const [isLocalOpened, setLocalOpened] = React.useState(false)
 
   React.useEffect(() => {
     paramsRef.current = params
   })
+
+  React.useEffect(() => {
+    setHasAlreadyRendered(true)
+  }, [])
 
   const handleClose = React.useCallback((e = null) => {
     if (isFunction(paramsRef.current.onClose)) {
