@@ -1,6 +1,6 @@
-import { DOMNode } from '../_internal/types'
+import * as React from 'react'
 
-export default interface TagProps extends DOMNode {
+export default interface TagProps extends React.HTMLAttributes<HTMLDivElement> {
   bold?: boolean
   colorSeed?: string
   color?: string

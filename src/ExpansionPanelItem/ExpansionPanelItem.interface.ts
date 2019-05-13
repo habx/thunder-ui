@@ -1,8 +1,9 @@
 import * as React from 'react'
 
-import { DOMNode, styledTheme } from '../_internal/types'
+import { styledTheme } from '../_internal/types'
 
-export default interface ExpansionPanelItem extends DOMNode {
+export default interface ExpansionPanelItem
+  extends React.HTMLAttributes<HTMLLIElement> {
   title?: string
   header?: React.ReactNode
   error?: boolean
@@ -10,7 +11,7 @@ export default interface ExpansionPanelItem extends DOMNode {
   collapseIcon?: React.ReactNode
   open?: boolean
   onToggle?: () => void
-  children: React.ReactNode | ((config: { open: boolean }) => JSX.Element)
+  children?: React.ReactNode | ((config: { open: boolean }) => JSX.Element)
 }
 
 export interface ExpansionPanelItemInnerProps extends ExpansionPanelItem {

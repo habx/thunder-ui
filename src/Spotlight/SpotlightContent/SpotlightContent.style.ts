@@ -2,12 +2,15 @@ import styled from 'styled-components'
 
 import theme from '../../theme'
 
-export const SpotlightSections = styled.div`
+export const SpotlightSections = styled.ul`
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
   overflow-y: auto;
   overflow-x: hidden;
 `
 
-export const SpotlightSearch = styled.div`
+export const SpotlightSearchContainer = styled.div`
   display: flex;
   align-items: center;
   flex: 0 0 auto;
@@ -16,17 +19,17 @@ export const SpotlightSearch = styled.div`
   border-top-right-radius: 8px;
   border-bottom: solid 1px ${theme.get('neutralLight')};
   padding: 16px 32px;
+`
 
-  input {
-    box-shadow: none;
-    border: none;
-    font-size: 22px;
-    flex: 1 1 100%;
-    background-color: transparent;
-    color: ${theme.get('neutral')};
+export const SpotlightSearch = styled.input`
+  box-shadow: none;
+  border: none;
+  font-size: 22px;
+  flex: 1 1 100%;
+  background-color: transparent;
+  color: ${theme.get('neutral')};
 
-    &:focus {
-      outline: none;
-    }
+  &:focus {
+    outline: none;
   }
 `

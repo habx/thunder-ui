@@ -1,7 +1,8 @@
 import * as React from 'react'
 
 import useMergedContext from '../_internal/useMergedContext'
-import { Context } from '../NavBar/context'
+import { assert } from '../_internal/validityCheck'
+import NavBarContext from '../NavBar/NavBar.context'
 
 import NavBarItemProps from './NavBarItem.interface'
 import {
@@ -12,14 +13,24 @@ import {
 } from './NavBarItem.style'
 
 const NavBarItem: React.FunctionComponent<NavBarItemProps> = rawProps => {
-  const { icon, tooltip, activeBackgroundColor, ...props } = useMergedContext(
-    Context,
-    rawProps
+  const {
+    icon,
+    tooltip,
+    activeBackgroundColor,
+    isInsideANavBar,
+    ...props
+  } = useMergedContext(NavBarContext, rawProps as NavBarItemProps)
+
+  assert(
+    isInsideANavBar,
+    'ExpansionPanelItem should be used inside an ExpansionPanel'
   )
 
   return (
     <NavBarItemContainer
+      data-testid="nav-bar-item"
       activeClassName="active"
+      tabIndex={0}
       activebackgroundcolor={activeBackgroundColor}
       {...props}
     >

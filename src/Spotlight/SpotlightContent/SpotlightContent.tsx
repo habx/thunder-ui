@@ -9,7 +9,11 @@ import SpotlightIcon from './icon'
 import SpotlightContentProps, {
   ItemRegistrationData,
 } from './SpotlightContent.interface'
-import { SpotlightSearch, SpotlightSections } from './SpotlightContent.style'
+import {
+  SpotlightSearchContainer,
+  SpotlightSearch,
+  SpotlightSections,
+} from './SpotlightContent.style'
 
 const SpotlightContent: React.FunctionComponent<SpotlightContentProps> = ({
   children,
@@ -86,17 +90,17 @@ const SpotlightContent: React.FunctionComponent<SpotlightContentProps> = ({
 
   React.useEffect(() => {
     const handleKeyDown = event => {
-      const { key } = event
+      const { key, shiftKey } = event
 
-      if (['ArrowUp', 'ArrowDown'].includes(key)) {
+      if (['ArrowUp', 'ArrowDown', 'Tab'].includes(key)) {
         event.preventDefault()
 
         setSelectedItem(prev => {
-          if (key === 'ArrowUp') {
+          if (key === 'ArrowUp' || (key === 'Tab' && shiftKey)) {
             return prev >= 0 ? prev - 1 : getAllItemKeys().length - 1
           }
 
-          if (key === 'ArrowDown') {
+          if (key === 'ArrowDown' || (key === 'Tab' && !shiftKey)) {
             return prev < getAllItemKeys().length - 1 ? prev + 1 : -1
           }
 
@@ -144,9 +148,9 @@ const SpotlightContent: React.FunctionComponent<SpotlightContentProps> = ({
 
   return (
     <SpotlightContext.Provider value={context}>
-      <SpotlightSearch>
+      <SpotlightSearchContainer>
         <SpotlightIcon />
-        <input
+        <SpotlightSearch
           onKeyPress={handleSearchKeyPress}
           ref={inputRef}
           onFocus={handleFocus}
@@ -154,7 +158,7 @@ const SpotlightContent: React.FunctionComponent<SpotlightContentProps> = ({
           onChange={handleSearch}
           placeholder={placeholder}
         />
-      </SpotlightSearch>
+      </SpotlightSearchContainer>
       <SpotlightSections>{children}</SpotlightSections>
     </SpotlightContext.Provider>
   )
@@ -162,7 +166,7 @@ const SpotlightContent: React.FunctionComponent<SpotlightContentProps> = ({
 
 SpotlightContent.defaultProps = {
   data: {},
-  placeholder: 'Aller à...',
+  placeholder: 'Search...',
 }
 
 export default SpotlightContent

@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-import { DOMNode } from '../_internal/types'
+import ModalProps from '../Modal/Modal.interface'
 
 import { ItemRegistrationData } from './SpotlightContent/SpotlightContent.interface'
 
@@ -30,11 +30,12 @@ type themeType = {
   }
 }
 
-export default interface SpotlightProps extends DOMNode {
+export default interface SpotlightProps extends ModalProps {
   query?: string
   data?: Array<any> | object
   open?: boolean
   onClose?: () => void
+  onOpen?: () => void
   onQueryChange?: (query: string) => void
   placeholder?: string
   theme?: themeType

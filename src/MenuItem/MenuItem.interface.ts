@@ -1,8 +1,7 @@
 import * as React from 'react'
 
-import { DOMNode } from '../_internal/types'
-
-export default interface MenuItemProps extends DOMNode {
+export default interface MenuItemProps
+  extends React.HTMLAttributes<HTMLLIElement> {
   icon?: React.ReactNode
   disabled?: boolean
 }

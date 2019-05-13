@@ -34,12 +34,14 @@ const INITIAL_STATE = {
 }
 
 const Spotlight: React.FunctionComponent<SpotlightProps> = ({
-  className,
-  style,
-  query: propQuery,
   onQueryChange,
-  open: propOpen,
   onClose,
+  onOpen,
+  query: propQuery,
+  open: propOpen,
+  placeholder,
+  data,
+  children,
   ...rest
 }) => {
   const isQueryControlled = isFunction(onQueryChange)
@@ -71,6 +73,10 @@ const Spotlight: React.FunctionComponent<SpotlightProps> = ({
         ) {
           dispatch({ type: 'OPEN' })
           inputRef.current.focus()
+
+          if (isFunction(onOpen)) {
+            onOpen()
+          }
         }
         lastOpenKeyPress.current = currentTime
       }
@@ -85,7 +91,7 @@ const Spotlight: React.FunctionComponent<SpotlightProps> = ({
     return () => {
       window.removeEventListener('keydown', handleKeyDown)
     }
-  }, [])
+  }, [onOpen])
 
   const handleClose = React.useCallback(() => {
     if (isOpenControlled) {
@@ -102,21 +108,23 @@ const Spotlight: React.FunctionComponent<SpotlightProps> = ({
 
   return (
     <SpotlightModal
-      className={className}
-      style={style}
       open={isOpened}
       onClose={handleClose}
       animated={false}
+      {...rest}
     >
       {({ state }) =>
         state !== 'closed' && (
           <SpotlightContent
-            {...rest}
-            onClose={handleClose}
-            query={query}
-            onQueryChange={handleQueryChange}
             inputRef={inputRef}
-          />
+            onClose={handleClose}
+            onQueryChange={handleQueryChange}
+            query={query}
+            data={data}
+            placeholder={placeholder}
+          >
+            {children}
+          </SpotlightContent>
         )
       }
     </SpotlightModal>

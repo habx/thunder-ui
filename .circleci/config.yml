@@ -91,7 +91,6 @@ jobs:
             npm run build
           environment:
             NODE_ENV: production
-            IS_PUBLISHING: true
       - persist_to_workspace:
           root: /root
           paths:
@@ -127,4 +126,4 @@ jobs:
           at: /root/
       - run:
           command: |
-            npm run deploy-storybook
+            npm run storybook:deploy

@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { createPortal } from 'react-dom'
 
-import { useIsSmallScreen, useOnWindowResize } from '../_internal/hooks'
+import { useIsSmallScreen } from '../_internal/hooks'
 import { isClientSide, ssrDOMRect } from '../_internal/ssr'
 
 import MenuProps from './Menu.interface'
@@ -27,13 +27,21 @@ const Menu: React.FunctionComponent<MenuProps> = ({
   )
   const [open, setOpen] = React.useState(false)
 
-  const handleWrapperChange = () => {
-    if (open) {
-      setWrapperRect(wrapperRef.current.getBoundingClientRect())
+  React.useEffect(() => {
+    const handleWrapperChange = () => {
+      if (open) {
+        setWrapperRect(wrapperRef.current.getBoundingClientRect())
+      }
     }
-  }
-  React.useEffect(handleWrapperChange, [wrapperRef, open])
-  useOnWindowResize(handleWrapperChange)
+
+    handleWrapperChange()
+
+    document.addEventListener('resize', handleWrapperChange)
+
+    return () => {
+      document.removeEventListener('resize', handleWrapperChange)
+    }
+  }, [open])
 
   const isSmallScreen = useIsSmallScreen()
 

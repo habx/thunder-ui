@@ -1,12 +1,14 @@
 import * as React from 'react'
 import styled from 'styled-components'
 
-import { Context } from './context'
+import ListContext from './List.context'
 import ListProps from './List.interface'
 
 const ListContainer = styled.ul`
   display: flex;
   flex-direction: column;
+  padding: 0;
+  margin: 0;
 `
 
 const List: React.FunctionComponent<ListProps> = ({
@@ -15,15 +17,19 @@ const List: React.FunctionComponent<ListProps> = ({
   itemsAs,
   children,
 }) => {
-  const itemProps = {
-    clickable,
-    hoverColor,
-    as: itemsAs,
-  }
+  const context = React.useMemo(
+    () => ({
+      clickable,
+      hoverColor,
+      as: itemsAs,
+    }),
+    [clickable, hoverColor, itemsAs]
+  )
+
   return (
-    <Context.Provider value={itemProps}>
+    <ListContext.Provider value={context}>
       <ListContainer>{children}</ListContainer>
-    </Context.Provider>
+    </ListContext.Provider>
   )
 }
 

@@ -36,7 +36,11 @@ const Modal: React.FunctionComponent<ModalProps> = ({
 
   const modalContent = (
     <React.Fragment>
-      <Overlay data-state={modal.state} onClick={modal.overlayClick}>
+      <Overlay
+        data-state={modal.state}
+        data-animated={animated}
+        onClick={modal.overlayClick}
+      >
         <ModalCard
           data-testid="modal-container"
           data-animated={animated}

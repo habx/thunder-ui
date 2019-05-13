@@ -7,37 +7,35 @@ import theme from '../src/theme'
 
 import providerDecorator from './providerDecorator'
 
-const thunderTheme = theme.dark
+const thunderTheme = process.env.STORYBOOK_THEME === 'dark' ? theme.dark : theme.light
 
 addDecorator(withInfo)
 addDecorator(centered)
 addDecorator(providerDecorator(thunderTheme.name as 'light' | 'dark'))
 
-const storyBookDarkTheme = create({
-  base: thunderTheme.name === 'dark' ? 'dark' : 'light',
-
-  colorPrimary: thunderTheme.primary,
-  colorSecondary: 'deepskyblue',
-
-  // UI
-  appBg: thunderTheme.neutralLightest,
-  appContentBg: thunderTheme.neutralLighter,
-
-  // Text colors
-  textColor: thunderTheme.neutral,
-
-  // Toolbar default and active colors
-  barTextColor: thunderTheme.neutral,
-  barSelectedColor: thunderTheme.neutralStronger,
-  barBg: thunderTheme.neutralLightest,
-
-  brandTitle: 'Habx Thunder UI'
-})
-
 addParameters({
   options: {
     sortStoriesByKind: true,
-    theme: storyBookDarkTheme
+    theme: create({
+      base: thunderTheme.name === 'dark' ? 'dark' : 'light',
+
+      colorPrimary: thunderTheme.primary,
+      colorSecondary: 'deepskyblue',
+
+      // UI
+      appBg: thunderTheme.neutralLightest,
+      appContentBg: thunderTheme.neutralLighter,
+
+      // Text colors
+      textColor: thunderTheme.neutral,
+
+      // Toolbar default and active colors
+      barTextColor: thunderTheme.neutral,
+      barSelectedColor: thunderTheme.neutralStronger,
+      barBg: thunderTheme.neutralLightest,
+
+      brandTitle: 'Habx Thunder UI'
+    })
   }
 })
 

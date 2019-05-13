@@ -14,7 +14,6 @@ export const NavBarItemTooltip = styled.span`
   line-height: calc(100% - 16px);
   cursor: pointer;
   border-radius: 22px;
-  font-family: 'Inter UI', sans-serif;
   font-size: 14px;
   white-space: nowrap;
   background-color: ${({ activebackgroundcolor }) => activebackgroundcolor};
@@ -42,15 +41,21 @@ export const IconContainer = styled.div`
   border-radius: 50%;
 `
 
-export const NavBarItemContainer = styled.div`
+export const NavBarItemContainer = styled.li`
   position: relative;
   font-size: 12px;
   font-weight: bold;
   padding: 8px 0;
   color: #f9f9fb;
+  outline: none;
 
   &.active ${IconContainer}, &[data-active='true'] ${IconContainer} {
     background-color: ${({ activebackgroundcolor }) => activebackgroundcolor};
+  }
+
+  &:focus ${IconContainer} {
+    background-color: ${({ activebackgroundcolor }) => activebackgroundcolor};
+    opacity: 0.6;
   }
 
   ${({ active }) =>

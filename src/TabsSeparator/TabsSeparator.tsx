@@ -1,10 +1,12 @@
 import * as React from 'react'
 import styled from 'styled-components'
 
-import { DOMNode } from '../_internal/types'
+import theme from '../theme'
 
-const TabsSeparator: React.FunctionComponent<DOMNode> = styled.div`
-  background-color: #e0e0e0;
+const TabsSeparator: React.FunctionComponent<
+  React.HTMLAttributes<HTMLDivElement>
+> = styled.div`
+  background-color: ${theme.get('neutralLight')};
   height: 32px;
   margin-top: 12px;
   width: 1px;

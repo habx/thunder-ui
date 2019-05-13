@@ -1,7 +1,6 @@
 import * as React from 'react'
 import { withTheme } from 'styled-components'
 
-import theme from '../theme'
 import withLabel from '../withLabel'
 
 import TextInputProps, { TextInputInnerProps } from './TextInput.interface'

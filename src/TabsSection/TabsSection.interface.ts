@@ -1,6 +1,7 @@
-import { DOMNode } from '../_internal/types'
+import * as React from 'react'
 
-export default interface TabsSectionProps extends DOMNode {
+export default interface TabsSectionProps
+  extends React.HTMLAttributes<HTMLDivElement> {
   label?: string
   labelColor?: string
 }

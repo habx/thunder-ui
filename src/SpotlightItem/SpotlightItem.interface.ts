@@ -1,8 +1,6 @@
 import * as React from 'react'
 
-import { DOMNode } from '../_internal/types'
-
-export default interface ItemProps extends DOMNode {
+export default interface ItemProps extends React.HTMLAttributes<HTMLLIElement> {
   index: number
   title: string
   subtitle?: string

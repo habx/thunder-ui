@@ -1,4 +1,3 @@
-import get from 'lodash.get'
 import * as React from 'react'
 import { createPortal } from 'react-dom'
 
@@ -76,6 +75,9 @@ const ConfirmModal: React.FunctionComponent<{}> = () => {
   return (
     <React.Fragment>
       {modals.map(modal => {
+        const { options = {} } = modal
+        const { cancelText = 'Annuler', confirmText = 'Valider' } = options
+
         const content = (
           <Modal
             open={modal.open}
@@ -92,13 +94,13 @@ const ConfirmModal: React.FunctionComponent<{}> = () => {
                   warning
                   onClick={() => handleCancel(modal)}
                 >
-                  {get(modal, 'options.cancelText', 'Annuler')}
+                  {cancelText}
                 </Button>
                 <Button
                   data-testid="confirm-modal-confirm"
                   onClick={() => handleConfirm(modal)}
                 >
-                  {get(modal, 'options.confirmText', 'Valider')}
+                  {confirmText}
                 </Button>
               </ConfirmModalActions>
             </ConfirmModalContainer>

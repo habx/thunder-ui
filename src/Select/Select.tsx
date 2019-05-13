@@ -6,7 +6,7 @@ import { withTheme } from 'styled-components'
 import { isNil, has } from '../_internal/data'
 import { isClientSide, ssrDOMRect } from '../_internal/ssr'
 import { searchInString } from '../_internal/strings'
-import { formOption } from '../_internal/types'
+import { formOption, styledTheme } from '../_internal/types'
 import FontIcon from '../FontIcon'
 import theme from '../theme'
 import withLabel from '../withLabel'
@@ -419,9 +419,7 @@ BaseSelect.defaultProps = {
   compact: false,
   optionDisabled: () => false,
   onChange: () => null,
-  theme: {
-    thunderUI: {},
-  },
+  theme: {} as styledTheme,
 }
 
 export default withLabel({ padding: 12 })(withTheme(

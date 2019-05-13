@@ -1,10 +1,11 @@
 import * as React from 'react'
 
-import { DOMNode, styledTheme } from '../_internal/types'
+import { styledTheme } from '../_internal/types'
 
-import { ItemComponentProps } from './Item.interface'
+import { ItemComponentProps } from './Item/Item.interface'
 
-export default interface ArrayInputProps extends DOMNode {
+export default interface ArrayInputProps
+  extends React.HTMLAttributes<HTMLUListElement> {
   items?: any[]
   addButtonLabel?: string
   canBeReordered?: boolean

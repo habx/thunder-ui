@@ -32,7 +32,6 @@ describe('Drawer component', () => {
         </Drawer>
       )
 
-      expect(spyChildren.calledOnce).toBe(true)
       expect(spyChildren.lastCall.args[0].state).toEqual('closed')
     })
 
@@ -45,7 +44,6 @@ describe('Drawer component', () => {
         </Drawer>
       )
 
-      expect(spyChildren.calledOnce).toBe(true)
       expect(spyChildren.lastCall.args[0].state).toEqual('opening')
     })
 

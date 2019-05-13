@@ -34,7 +34,8 @@ export const OptionsContainer = styled.div`
   }
 `
 
-export const OptionsContent = styled.div`
+export const OptionsContent = styled.ul`
+  list-style-type: none;
   overflow-y: auto;
   overflow-x: hidden;
   padding: 12px 0;
@@ -47,7 +48,7 @@ export const EmptyOptions = styled.div`
   padding: 8px 18px;
 `
 
-export const Description = styled.div`
+export const Description = styled.li`
   padding: 0 18px 8px 18px;
   border-bottom: solid 1px ${theme.get('neutral', { dynamic: true })};
 `

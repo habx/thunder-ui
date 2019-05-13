@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components'
+import styled from 'styled-components'
 
 import theme from '../theme'
 
@@ -6,21 +6,22 @@ export const ListItemContainer = styled.li`
   padding: 16px;
   transition: background-color ease-in-out 200ms;
   display: flex;
+  outline: none;
 
   &[data-selected='true'] {
     background-color: ${theme.get('neutralLight', { propName: 'hoverColor' })};
   }
 
-  ${({ clickable }) =>
-    clickable &&
-    css`
-      &:hover {
-        background-color: ${theme.get('neutralLight', {
-          propName: 'hoverColor',
-        })};
-        cursor: pointer;
-      }
-    `}}
+  &[data-clickable='true'] {
+    cursor: pointer;
+
+    &:hover,
+    &:focus {
+      background-color: ${theme.get('neutralLight', {
+        propName: 'hoverColor',
+      })};
+    }
+  }
 `
 
 export const RightElementContainer = styled.div`

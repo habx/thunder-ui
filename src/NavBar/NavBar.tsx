@@ -1,11 +1,12 @@
 import * as React from 'react'
 import { withTheme } from 'styled-components'
 
+import { styledTheme } from '../_internal/types'
 import FontIcon from '../FontIcon'
 import TextButton from '../TextButton'
 import theme from '../theme'
 
-import { Context } from './context'
+import NavBarContext from './NavBar.context'
 import NavBarProps, { NavBarInnerProps } from './NavBar.interface'
 import {
   NavBarContainer,
@@ -44,8 +45,13 @@ const NavBar: React.ComponentType<
     backgroundColor
   )
 
+  const context = React.useMemo(
+    () => ({ activeBackgroundColor, isInsideANavBar: true }),
+    [activeBackgroundColor]
+  )
+
   return (
-    <Context.Provider value={{ activeBackgroundColor }}>
+    <NavBarContext.Provider value={context}>
       <NavBarContainer data-testid="nav-bar-container" {...rest} ref={ref}>
         <NavBarPaddingTop />
 
@@ -66,14 +72,18 @@ const NavBar: React.ComponentType<
           data-mobile-open={isOpenedOnMobile}
         >
           <NavBarClose>
-            <FontIcon icon="arrow_back" onClick={this.toggleMenu} />
+            <FontIcon icon="arrow_back" onClick={handleMobileToggle} />
           </NavBarClose>
           {title && <NavBarTitle>{title}</NavBarTitle>}
           <NavBarItemsContainer>{children}</NavBarItemsContainer>
         </NavBarSideContainer>
       </NavBarContainer>
-    </Context.Provider>
+    </NavBarContext.Provider>
   )
 })
+
+NavBar.defaultProps = {
+  theme: {} as styledTheme,
+}
 
 export default withTheme(NavBar) as React.FunctionComponent<NavBarProps>

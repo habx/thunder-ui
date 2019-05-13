@@ -1,8 +1,9 @@
 import * as React from 'react'
 
-import { DOMNode, styledTheme } from '../_internal/types'
+import { styledTheme } from '../_internal/types'
 
-export default interface CardProps extends DOMNode {
+export default interface CardProps
+  extends React.HTMLAttributes<HTMLDivElement> {
   title?: string
   subtitle?: string
   interactive?: boolean

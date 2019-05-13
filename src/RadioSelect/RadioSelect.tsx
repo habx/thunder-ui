@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { withTheme } from 'styled-components'
 
-import { formValue } from '../_internal/types'
+import { formValue, styledTheme } from '../_internal/types'
 import theme from '../theme'
 import withLabel from '../withLabel'
 
@@ -110,9 +110,7 @@ BaseRadioSelect.defaultProps = {
   multi: false,
   disabled: false,
   options: [],
-  theme: {
-    thunderUI: {},
-  },
+  theme: {} as styledTheme,
 }
 
 export default withLabel({ padding: 12 })(withTheme(

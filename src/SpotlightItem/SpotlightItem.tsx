@@ -127,6 +127,13 @@ const SpotlightItem: React.FunctionComponent<ItemProps> = ({
   }, [focusOnMount])
 
   React.useLayoutEffect(() => {
+    if (state.isEditing) {
+      inputRef.current.focus()
+      inputRef.current.select()
+    }
+  }, [state.isEditing])
+
+  React.useLayoutEffect(() => {
     if (selected) {
       itemContainerRef.current.focus()
     }
@@ -149,6 +156,7 @@ const SpotlightItem: React.FunctionComponent<ItemProps> = ({
   return (
     <Container {...containerProps} {...props} href={href} as={as}>
       <ItemContainer
+        data-editing={state.isEditing}
         ref={itemContainerRef}
         tabIndex={0}
         onClick={handleSubmit}
@@ -173,8 +181,12 @@ const SpotlightItem: React.FunctionComponent<ItemProps> = ({
               data-editing={state.isEditing}
               onClick={e => e.stopPropagation()}
             >
-              {onEdit && <FontIcon icon="edit" onClick={handleEdit} />}
-              {onDelete && <FontIcon icon="delete" onClick={handleDelete} />}
+              {onEdit && (
+                <FontIcon icon="edit" onClick={handleEdit} size={18} />
+              )}
+              {onDelete && (
+                <FontIcon icon="delete" onClick={handleDelete} size={18} />
+              )}
             </ItemActions>
           </ItemTitle>
           {subtitle && (

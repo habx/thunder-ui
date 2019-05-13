@@ -4,14 +4,15 @@ import { isFunction } from '../_internal/data'
 import { themeAccessor } from '../_internal/types'
 import colors from '../colors'
 import shadows from '../shadows'
-import { ThunderUITheme } from '../useTheme'
+
+import ThunderUITheme from './theme.interface'
 
 const BASE_THEME = {
   error: '#cc0000',
   warning: colors.internationalOrange,
 }
 
-const LIGHT_THEME = {
+const LIGHT_THEME: ThunderUITheme = {
   ...BASE_THEME,
 
   name: 'light',
@@ -35,7 +36,7 @@ const LIGHT_THEME = {
   shadowStrong: shadows.strong,
 }
 
-const DARK_THEME = {
+const DARK_THEME: ThunderUITheme = {
   ...BASE_THEME,
 
   name: 'dark',
@@ -62,7 +63,7 @@ const DARK_THEME = {
 }
 
 const getter = (
-  themeKey: string,
+  themeKey: keyof ThunderUITheme | 'inherit',
   config: { propName?: string; dynamic?: boolean } = {}
 ): themeAccessor => {
   const { propName = 'color', dynamic = false } = config

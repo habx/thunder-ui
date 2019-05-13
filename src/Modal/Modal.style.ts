@@ -35,8 +35,10 @@ export const Overlay = styled.div`
   flex-direction: column;
   z-index: ${zIndex.high};
 
-  &[data-state='opening'] {
-    animation: ${FADE_IN} ${ANIMATION_DURATION}ms linear 0ms;
+  &[data-animated='true'] {
+    &[data-state='opening'] {
+      animation: ${FADE_IN} ${ANIMATION_DURATION}ms linear 0ms;
+    }
   }
 
   &[data-state='closing'] {

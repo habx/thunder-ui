@@ -41,7 +41,6 @@ export { default as ArrayInput } from './ArrayInput'
 /*
   Miscellaneous
  */
-export { default as Progress } from './Progress'
 export { default as Tag } from './Tag/index'
 export { default as Notification } from './Notification'
 export { default as Spinner } from './Spinner'
@@ -91,3 +90,8 @@ export { default as shadows } from './shadows'
 export { default as borderRadius } from './borderRadius'
 export { default as theme } from './theme'
 export { default as useTheme } from './useTheme'
+
+/*
+  Utils
+ */
+export { default as filter } from './filter'

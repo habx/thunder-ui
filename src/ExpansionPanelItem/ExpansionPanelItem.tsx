@@ -1,8 +1,9 @@
 import * as React from 'react'
 import { withTheme } from 'styled-components'
 
-import { isFunction } from '../_internal/data'
+import { isFunction, isNil } from '../_internal/data'
 import { styledTheme } from '../_internal/types'
+import { assert } from '../_internal/validityCheck'
 import { ExpansionPanelContext } from '../ExpansionPanel/ExpansionPanel.context'
 import FontIcon from '../FontIcon'
 import theme from '../theme'
@@ -14,7 +15,7 @@ import ExpansionPanelItemProps, {
 import {
   ExpansionPanelItemContainer,
   TitleBar,
-  CoreContainer,
+  ExpansionPanelItemContent,
   CoreContent,
 } from './ExpansionPanelItem.style'
 
@@ -25,47 +26,72 @@ const ExpansionPanelItem: React.FunctionComponent<
   title,
   expandIcon,
   collapseIcon,
-  open,
+  open: rawOpen,
   header,
   onToggle,
   ...props
 }) => {
-  const { openedItems, setOpenedItems, multiOpen } = React.useContext(
-    ExpansionPanelContext
+  const isControlled = !isNil(rawOpen)
+
+  const {
+    openedItems,
+    setOpenedItems,
+    multiOpen,
+    isInsideAnExpansionPanel,
+  } = React.useContext(ExpansionPanelContext)
+
+  assert(
+    isInsideAnExpansionPanel,
+    'ExpansionPanelItem should be used inside an ExpansionPanel'
   )
+
   const itemRef = React.useRef(Math.random())
   const contentRef = React.useRef(null)
   const [contentHeight, setItemHeight] = React.useState(0)
+
+  const open = isControlled ? rawOpen : openedItems.includes(itemRef.current)
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
   React.useLayoutEffect(() => {
     if (contentRef.current) {
       const height = contentRef.current.scrollHeight
-      setItemHeight(height)
+
+      if (height !== contentHeight) {
+        setItemHeight(height)
+      }
     }
   })
 
-  const handleToggleLocally = React.useCallback(() => {
-    if (multiOpen) {
-      const newOpenedItems = openedItems.includes(itemRef.current)
-        ? [...openedItems].filter(i => i !== itemRef.current)
-        : [...openedItems, itemRef.current]
-      setOpenedItems(newOpenedItems)
-    } else {
-      setOpenedItems(
-        openedItems.includes(itemRef.current) ? [] : [itemRef.current]
-      )
-    }
-  }, [openedItems, setOpenedItems, multiOpen])
-  const handleToggle = onToggle || handleToggleLocally
+  const handleToggle = React.useCallback(
+    e => {
+      if (!isControlled) {
+        if (multiOpen) {
+          setOpenedItems(prev =>
+            prev.includes(itemRef.current)
+              ? prev.filter(i => i !== itemRef.current)
+              : [...prev, itemRef.current]
+          )
+        } else {
+          setOpenedItems(prev =>
+            prev.includes(itemRef.current) ? [] : [itemRef.current]
+          )
+        }
+      }
 
-  const isOpened =
-    open !== undefined ? open : openedItems.includes(itemRef.current)
+      if (isFunction(onToggle)) {
+        onToggle(e)
+      }
+    },
+    [isControlled, onToggle, multiOpen, setOpenedItems]
+  )
   const color = theme.get('neutralStronger', { dynamic: true })(props)
 
   return (
-    <ExpansionPanelItemContainer {...props}>
-      <TitleBar onClick={handleToggle}>
+    <ExpansionPanelItemContainer data-testid="expansion-panel-item" {...props}>
+      <TitleBar
+        data-testid="expansion-panel-item-title-bar"
+        onClick={handleToggle}
+      >
         {header}
         {!header && (
           <React.Fragment>
@@ -74,22 +100,23 @@ const ExpansionPanelItem: React.FunctionComponent<
                 {title}
               </Title>
             )}
-            {!isOpened &&
+            {!open &&
               (expandIcon || <FontIcon icon="expand_more" color={color} />)}
-            {isOpened &&
+            {open &&
               (collapseIcon || <FontIcon icon="expand_less" color={color} />)}
           </React.Fragment>
         )}
       </TitleBar>
-      <CoreContainer
-        data-open={isOpened}
+      <ExpansionPanelItemContent
+        data-testid="expansion-panel-item-content"
+        data-open={open}
         ref={contentRef}
         height={contentHeight}
       >
         <CoreContent>
           {isFunction(children) ? children({ open }) : children}
         </CoreContent>
-      </CoreContainer>
+      </ExpansionPanelItemContent>
     </ExpansionPanelItemContainer>
   )
 }

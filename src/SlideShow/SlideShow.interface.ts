@@ -1,6 +1,7 @@
-import { DOMNode } from '../_internal/types'
+import * as React from 'react'
 
-export default interface SlideShowProps extends DOMNode {
+export default interface SlideShowProps
+  extends React.HTMLAttributes<HTMLDivElement> {
   onNavigationClick?: (index: number) => void
   isNavigationVisible?: boolean
   active: number

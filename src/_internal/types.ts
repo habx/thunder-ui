@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-import { ThunderUITheme } from '../useTheme'
+import ThunderUITheme from '../theme/theme.interface'
 
 export type formOption = { value: any; label: string }
 
@@ -16,17 +16,7 @@ export type themeAccessor = (props: {
   error?: boolean
 }) => string
 
-export type color = string | themeAccessor
-
-export interface DOMNode {
-  children?: React.ReactNode
-  onClick?: (e: React.MouseEvent<HTMLElement>) => void
-  style?: React.CSSProperties
-  className?: string
-  id?: string
-}
-
-export interface Input<valueType> extends DOMNode {
+export interface Input<valueType> {
   value?: valueType
   onChange?: (value: valueType, event?: React.ChangeEvent) => void
 
@@ -36,7 +26,7 @@ export interface Input<valueType> extends DOMNode {
   color?: string
 }
 
-export interface Button extends DOMNode {
+export interface Button extends React.HTMLAttributes<HTMLButtonElement> {
   error?: boolean
   warning?: boolean
   info?: boolean

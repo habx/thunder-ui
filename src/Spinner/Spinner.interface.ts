@@ -1,8 +1,11 @@
-import { color, DOMNode, styledTheme } from '../_internal/types'
+import * as React from 'react'
 
-export default interface SpinnerProps extends DOMNode {
+import { styledTheme } from '../_internal/types'
+
+export default interface SpinnerProps
+  extends React.HTMLAttributes<HTMLDivElement> {
   size?: number
-  color?: color
+  color?: string
 }
 
 export interface SpinnerInnerProps extends SpinnerProps {
