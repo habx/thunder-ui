@@ -6,7 +6,7 @@ import { SliderBarContainer } from './SliderBar/SliderBar.style'
 import { SliderDotContainer } from './SliderDot/SliderDot.style'
 
 export const SliderContainer = styled.div`
-  padding: 8px 8px 30px 8px;
+  padding: 8px 8px 26px 8px;
 `
 
 export const SliderTooltip = styled.div`
