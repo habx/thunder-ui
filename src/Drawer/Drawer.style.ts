@@ -64,7 +64,8 @@ export const DrawerContainer = styled.div.attrs(prepareProps)`
   transition: transform ${ANIMATION_DURATION}ms ease-in-out;
   transform: ${({ transformBefore }) => transformBefore};
 
-  &[data-state='opened'] {
+  &[data-state='opened'],
+  &[data-state='opening'] {
     transform: ${({ transformAfter }) => transformAfter};
   }
 `
@@ -122,7 +123,8 @@ export const Overlay = styled.div`
   transition: opacity ease-in-out ${ANIMATION_DURATION}ms;
   pointer-events: none;
 
-  &[data-state='opened'] {
+  &[data-state='opened'],
+  &[data-state='opening'] {
     opacity: 1;
     pointer-events: auto;
   }
