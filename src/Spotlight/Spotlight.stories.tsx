@@ -13,8 +13,6 @@ import SpotlightWelcomeMessage from '../SpotlightWelcomeMessage'
 import Spotlight from './index'
 import { data } from './Spotlight.data'
 
-const withQueryControl = withState('query', 'onQueryChange', 'france')
-
 const BasicSection: React.FunctionComponent<any> = ({ query }) => (
   <React.Fragment>
     {data.countries
@@ -47,7 +45,7 @@ storiesOf('Spotlight|Spotlight', module)
       </Spotlight>
     )
   })
-  .add('basic uncontrolled', () => (
+  .add('basic', () => (
     <Spotlight open data={data}>
       <SpotlightSection
         name="countries"
@@ -58,22 +56,6 @@ storiesOf('Spotlight|Spotlight', module)
       />
     </Spotlight>
   ))
-  .add('basic controlled', () => {
-    const ControlledSpotlight = withQueryControl(Spotlight)
-
-    return (
-      <ControlledSpotlight open data={data}>
-        <SpotlightSection
-          name="countries"
-          filter={(query, country) => searchInString(country, query)}
-          renderItem={(country, index) => (
-            <SpotlightItem key={country} title={country} index={index} />
-          )}
-          maxItems={5}
-        />
-      </ControlledSpotlight>
-    )
-  })
   .add('with custom placeholder', () => (
     <Spotlight
       open
