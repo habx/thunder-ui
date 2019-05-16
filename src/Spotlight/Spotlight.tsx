@@ -34,31 +34,22 @@ const INITIAL_STATE = {
 }
 
 const Spotlight: React.FunctionComponent<SpotlightProps> = ({
-  onQueryChange,
+  onFetchData,
   onClose,
   onOpen,
-  query: propQuery,
   open: propOpen,
   placeholder,
   data,
   children,
   ...rest
 }) => {
-  const isQueryControlled = isFunction(onQueryChange)
-  const isOpenControlled = isFunction(onClose) || isBoolean(propOpen)
-
   const [state, dispatch] = React.useReducer(reducer, INITIAL_STATE)
+  const isOpenControlled = isFunction(onClose) || isBoolean(propOpen)
+  const isOpened = isOpenControlled ? propOpen : state.isOpened
 
-  const handleQueryChange = React.useCallback(
-    (newQuery: string) => {
-      if (isQueryControlled) {
-        onQueryChange(newQuery)
-      } else {
-        dispatch({ type: 'UPDATE_QUERY', value: newQuery })
-      }
-    },
-    [isQueryControlled, onQueryChange]
-  )
+  const handleQueryChange = React.useCallback((newQuery: string) => {
+    dispatch({ type: 'UPDATE_QUERY', value: newQuery })
+  }, [])
 
   const lastOpenKeyPress = React.useRef(0)
   const inputRef = React.useRef(null)
@@ -93,6 +84,12 @@ const Spotlight: React.FunctionComponent<SpotlightProps> = ({
     }
   }, [onOpen])
 
+  React.useLayoutEffect(() => {
+    if (isOpened && isFunction(onFetchData)) {
+      onFetchData({ query: state.query })
+    }
+  }, [state.query, isOpened]) // eslint-disable-line react-hooks/exhaustive-deps
+
   const handleClose = React.useCallback(() => {
     if (isOpenControlled) {
       if (isFunction(onClose)) {
@@ -103,9 +100,6 @@ const Spotlight: React.FunctionComponent<SpotlightProps> = ({
     }
   }, [isOpenControlled, onClose])
 
-  const query = isQueryControlled ? propQuery : state.query
-  const isOpened = isOpenControlled ? propOpen : state.isOpened
-
   return (
     <SpotlightModal
       open={isOpened}
@@ -113,13 +107,13 @@ const Spotlight: React.FunctionComponent<SpotlightProps> = ({
       animated={false}
       {...rest}
     >
-      {({ state }) =>
-        state !== 'closed' && (
+      {modal =>
+        modal.state !== 'closed' && (
           <SpotlightContent
             inputRef={inputRef}
             onClose={handleClose}
             onQueryChange={handleQueryChange}
-            query={query}
+            query={state.query}
             data={data}
             placeholder={placeholder}
           >

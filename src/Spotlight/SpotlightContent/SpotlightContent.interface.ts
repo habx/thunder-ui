@@ -1,12 +1,14 @@
 import * as React from 'react'
 
+export type data = any[] | { [key: string]: any[] }
+
 export default interface SpotlightContentProps {
   placeholder?: string
   inputRef: React.RefObject<any>
   onClose: () => void
   onQueryChange: (query: string) => void
   query: string
-  data?: Array<any> | object
+  data?: data
 }
 
 export interface ItemRegistrationData {
