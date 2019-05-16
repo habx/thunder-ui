@@ -25,7 +25,7 @@ const getTooltip = ({
   min,
   max,
 }) => {
-  const getValue = (value, rangeIndex) => {
+  const getValue = (value: number, rangeIndex?: 0 | 1) => {
     if (isNil(value)) {
       return rangeIndex === 1 ? max : min
     }
@@ -33,7 +33,7 @@ const getTooltip = ({
     return value
   }
 
-  const getDotLabel = (value, rangeIndex = 0) => {
+  const getDotLabel = (value, rangeIndex?: 0 | 1) => {
     const sanitizedValue = getValue(value, rangeIndex)
 
     return customValues ? customValues[sanitizedValue] || '' : sanitizedValue
@@ -93,7 +93,7 @@ const Slider: React.FunctionComponent<SliderProps> = ({
     setLocalValue(value)
   }, [value])
 
-  const getPositionFromValue = currentValue => {
+  const getPositionFromValue = (currentValue?: number) => {
     if (isNil(currentValue)) {
       return 0
     }
@@ -101,7 +101,7 @@ const Slider: React.FunctionComponent<SliderProps> = ({
     return (100 * (currentValue - min)) / (max - min)
   }
 
-  const getValueFromPosition = currentPosition => {
+  const getValueFromPosition = (currentPosition: number) => {
     const boundedPosition = Math.min(Math.max(currentPosition, 0), 100)
 
     const exactValue = (boundedPosition * (max - min)) / 100 + min
@@ -131,7 +131,7 @@ const Slider: React.FunctionComponent<SliderProps> = ({
 
     const position = getPositionFromValue(dotValue)
 
-    const handlePositionChange = delta => {
+    const handlePositionChange = (delta: number) => {
       const newPosition = position + (delta / barRef.current.offsetWidth) * 100
 
       const newValue = getValueFromPosition(newPosition)
@@ -158,7 +158,7 @@ const Slider: React.FunctionComponent<SliderProps> = ({
     )
   }
 
-  const handleBarClick = e => {
+  const handleBarClick = (e: React.MouseEvent<HTMLDivElement>) => {
     const setValue = val => {
       setLocalValue(val)
       handleChange(val)
