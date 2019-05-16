@@ -14,11 +14,13 @@ export const ItemHeaderContainer = styled.div`
   display: flex;
   align-items: baseline;
   flex: 1 1 100%;
+  max-width: 100%;
 `
 
 export const ItemHeaderContent = styled.div`
   flex: 1 1 auto;
   overflow: hidden;
+  white-space: nowrap;
   text-overflow: ellipsis;
   color: ${theme.get('neutral', { dynamic: true })};
   font-size: ${fontSizes.small};
