@@ -6,7 +6,7 @@ import { SliderBarContainer } from './SliderBar/SliderBar.style'
 import { SliderDotContainer } from './SliderDot/SliderDot.style'
 
 export const SliderContainer = styled.div`
-  padding: 8px 8px 38px 8px;
+  padding: 8px 8px 30px 8px;
 `
 
 export const SliderTooltip = styled.div`
@@ -17,6 +17,9 @@ export const SliderTooltip = styled.div`
 
 export const SliderContent = styled.div`
   position: relative;
+  padding: 8px 0;
+  cursor: pointer;
+
   & ${SliderDotContainer}, & ${SliderBarContainer} {
     background-color: ${theme.get('primary', { dynamic: true })};
   }

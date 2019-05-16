@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 export const SliderBarContainer = styled.div`
   position: absolute;
-  top: -2px;
+  top: 6px;
   margin-left: -4px;
   margin-right: -4px;
 
