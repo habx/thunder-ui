@@ -91,6 +91,7 @@ const ExpansionPanelItem: React.FunctionComponent<
     },
     [isControlled, onToggle, multiOpen, setOpenedItems]
   )
+
   const color = theme.get('neutralStronger', { dynamic: true })(props)
   return (
     <ExpansionPanelItemContainer data-testid="expansion-panel-item" {...props}>

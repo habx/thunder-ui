@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { render, within, fireEvent } from 'react-testing-library'
+import { render, within, fireEvent, act } from 'react-testing-library'
 import sinon from 'sinon'
 
 import * as validityCheck from '../_internal/validityCheck'
@@ -29,10 +29,10 @@ describe('ExpansionPanel component', () => {
     expect(items).toHaveLength(2)
     expect(
       within(items[0]).getByTestId('expansion-panel-item-content')
-    ).toHaveAttribute('data-open', 'false')
+    ).toHaveAttribute('data-state', 'closed')
     expect(
       within(items[1]).getByTestId('expansion-panel-item-content')
-    ).toHaveAttribute('data-open', 'false')
+    ).toHaveAttribute('data-state', 'closed')
   })
 
   it("should open the ExpansionPanelItem when click on it's title bar and leave the other closed", () => {
@@ -51,11 +51,11 @@ describe('ExpansionPanel component', () => {
 
     expect(
       within(items[0]).getByTestId('expansion-panel-item-content')
-    ).toHaveAttribute('data-open', 'false')
+    ).toHaveAttribute('data-state', 'closed')
 
     expect(
       within(items[1]).getByTestId('expansion-panel-item-content')
-    ).toHaveAttribute('data-open', 'true')
+    ).toHaveAttribute('data-state', 'opening')
   })
 
   it("should close the ExpansionPanelItem when open and click on it's title bar", () => {
@@ -78,7 +78,7 @@ describe('ExpansionPanel component', () => {
 
     expect(
       within(items[1]).getByTestId('expansion-panel-item-content')
-    ).toHaveAttribute('data-open', 'false')
+    ).toHaveAttribute('data-state', 'closed')
   })
 
   it('should close the ExpansionPanelItem when click on another one and no multiOpen given', () => {
@@ -101,7 +101,7 @@ describe('ExpansionPanel component', () => {
 
     expect(
       within(items[1]).getByTestId('expansion-panel-item-content')
-    ).toHaveAttribute('data-open', 'false')
+    ).toHaveAttribute('data-state', 'closed')
   })
 
   it('should not close the ExpansionPanelItem when click on another one and multiOpen = true', () => {
@@ -124,7 +124,7 @@ describe('ExpansionPanel component', () => {
 
     expect(
       within(items[1]).getByTestId('expansion-panel-item-content')
-    ).toHaveAttribute('data-open', 'true')
+    ).toHaveAttribute('data-state', 'opening')
   })
 
   it("should close the ExpansionPanelItem but not the others when open and click on it's title bar (multiOpen: true)", () => {
@@ -151,16 +151,15 @@ describe('ExpansionPanel component', () => {
 
     expect(
       within(items[0]).getByTestId('expansion-panel-item-content')
-    ).toHaveAttribute('data-open', 'false')
+    ).toHaveAttribute('data-state', 'closed')
 
     expect(
       within(items[1]).getByTestId('expansion-panel-item-content')
-    ).toHaveAttribute('data-open', 'true')
+    ).toHaveAttribute('data-state', 'opening')
   })
 
   it('should call the ExpansionPanelItem children render props with open: false by default', () => {
     const spyChildren = sinon.spy()
-
     render(
       <ExpansionPanel>
         <ExpansionPanelItem>{spyChildren}</ExpansionPanelItem>
@@ -168,7 +167,6 @@ describe('ExpansionPanel component', () => {
       </ExpansionPanel>
     )
 
-    expect(spyChildren.calledOnce).toBe(true)
     expect(spyChildren.lastCall.args[0].open).toEqual(false)
   })
 
@@ -186,8 +184,6 @@ describe('ExpansionPanel component', () => {
     fireEvent.click(
       within(items[0]).getByTestId('expansion-panel-item-title-bar')
     )
-
-    expect(spyChildren.calledTwice).toBe(true)
     expect(spyChildren.lastCall.args[0].open).toEqual(true)
   })
 
@@ -203,7 +199,7 @@ describe('ExpansionPanel component', () => {
 
     expect(
       within(items[0]).getByTestId('expansion-panel-item-content')
-    ).toHaveAttribute('data-open', 'true')
+    ).toHaveAttribute('data-state', 'opening')
   })
 
   it("should call the ExpansionPanelItem onToggle props after click on it's title bar", () => {
