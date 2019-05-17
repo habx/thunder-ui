@@ -3,8 +3,6 @@ import * as React from 'react'
 import { withState } from 'recompose'
 import styled from 'styled-components'
 
-import TextInput from '../TextInput'
-
 import AutoCompleteBox from './AutoCompleteBox'
 import DATA from './AutoCompleteBox.data'
 
@@ -29,7 +27,6 @@ const AutoCompleteBoxWithState = ({ value = '', ...props }) => {
 
 storiesOf('Inputs|AutoCompleteBox', module).add('basic', () => (
   <AutoCompleteBoxWithState
-    inputComponent={TextInput}
     value=""
     options={DATA}
     placeholder="French cities"

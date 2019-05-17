@@ -6,7 +6,7 @@ export type option = {
 }
 
 export default interface AutoCompleteBoxProps {
-  inputComponent: React.ComponentType<any>
+  inputComponent?: React.ComponentType<any>
   options?: option[]
   value?: string
   onChange: (e: React.ChangeEvent) => void

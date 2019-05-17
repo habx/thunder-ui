@@ -3,6 +3,7 @@ import { createPortal } from 'react-dom'
 
 import { isClientSide, ssrDOMRect } from '../_internal/ssr'
 import { searchInString } from '../_internal/strings'
+import TextInput from '../TextInput'
 
 import AutoCompleteBoxProps, {
   AutoCompleteBoxState,
@@ -25,7 +26,7 @@ const EMPTY_OPTIONS = []
 
 const AutoCompleteBox: React.FunctionComponent<AutoCompleteBoxProps> = ({
   options = EMPTY_OPTIONS,
-  inputComponent: Input,
+  inputComponent: Input = TextInput,
   onChange,
   value,
   ...rest
