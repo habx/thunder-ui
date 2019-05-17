@@ -3,10 +3,10 @@ import * as React from 'react'
 import { withState } from 'recompose'
 import styled from 'styled-components'
 
-import { longData } from '../Select/Select.data'
 import TextInput from '../TextInput'
 
 import AutoCompleteBox from './AutoCompleteBox'
+import DATA from './AutoCompleteBox.data'
 
 const Container = styled.div`
   width: 300px;
@@ -28,5 +28,10 @@ const AutoCompleteBoxWithState = ({ value = '', ...props }) => {
 }
 
 storiesOf('Inputs|AutoCompleteBox', module).add('basic', () => (
-  <AutoCompleteBoxWithState input={TextInput} value="" options={longData} />
+  <AutoCompleteBoxWithState
+    inputComponent={TextInput}
+    value=""
+    options={DATA}
+    placeholder="French cities"
+  />
 ))

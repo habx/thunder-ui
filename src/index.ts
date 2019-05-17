@@ -31,6 +31,7 @@ export { default as MenuItem } from './MenuItem'
 /*
   Inputs
  */
+export { default as AutoCompleteBox } from './AutoCompleteBox'
 export { default as TextInput } from './TextInput'
 export { default as TextArea } from './TextArea'
 export { default as Select } from './Select'
@@ -44,7 +45,6 @@ export { default as ArrayInput } from './ArrayInput'
 export { default as Tag } from './Tag/index'
 export { default as Notification } from './Notification'
 export { default as Spinner } from './Spinner'
-export { default as AutoCompleteBox } from './AutoCompleteBox'
 
 /*
   Layouts

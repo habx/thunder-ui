@@ -6,17 +6,14 @@ export type option = {
 }
 
 export default interface AutoCompleteBoxProps {
-  input: React.ComponentType<any>
-  options: any[]
+  inputComponent: React.ComponentType<any>
+  options?: option[]
   value?: string
-  onPick: (option: option) => void
-  onClose: (e: React.MouseEvent<HTMLElement>) => void
   onChange: (e: React.ChangeEvent) => void
 }
 
 export interface AutoCompleteBoxState {
   isOpened: boolean
-  query: string
   focusedItem: any
   wrapperRect: DOMRect
 }

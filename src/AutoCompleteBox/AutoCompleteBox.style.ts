@@ -3,16 +3,6 @@ import styled from 'styled-components'
 import zIndex from '../_internal/zIndex'
 import theme from '../theme'
 
-export const Overlay = styled.div`
-  pointer-events: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: ${zIndex.highest - 1};
-`
-
 export const AutoCompleteBoxContainer = styled.span``
 
 export const Options = styled.div`

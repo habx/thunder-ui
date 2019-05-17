@@ -9,7 +9,6 @@ import AutoCompleteBoxProps, {
 } from './AutoCompleteBox.interface'
 import {
   AutoCompleteBoxContainer,
-  Overlay,
   Options,
   OptionsContent,
 } from './AutoCompleteBox.style'
@@ -22,10 +21,11 @@ const INITIAL_STATE = {
   wrapperRect: typeof DOMRect === 'function' ? new DOMRect() : ssrDOMRect,
 }
 
+const EMPTY_OPTIONS = []
+
 const AutoCompleteBox: React.FunctionComponent<AutoCompleteBoxProps> = ({
-  options,
-  input: Input,
-  onPick,
+  options = EMPTY_OPTIONS,
+  inputComponent: Input,
   onChange,
   value,
   ...rest
@@ -121,31 +121,41 @@ const AutoCompleteBox: React.FunctionComponent<AutoCompleteBoxProps> = ({
           el => el === state.focusedItem
         )
 
-        if (key === 'ArrowDown' && focusedIndex < options.length) {
+        if (key === 'ArrowDown' && focusedIndex < visibleOptions.length) {
           event.preventDefault()
-          dispatch({ type: 'ADD_FOCUS_ITEM', value: options[focusedIndex + 1] })
+          dispatch({
+            type: 'ADD_FOCUS_ITEM',
+            value: visibleOptions[focusedIndex + 1],
+          })
         }
 
         if (key === 'ArrowUp' && focusedIndex > 0) {
           event.preventDefault()
-          dispatch({ type: 'ADD_FOCUS_ITEM', value: options[focusedIndex - 1] })
+          dispatch({
+            type: 'ADD_FOCUS_ITEM',
+            value: visibleOptions[focusedIndex - 1],
+          })
         }
 
         if (key === 'Enter' && focusedIndex >= 0) {
           handleChange(state.focusedItem.value)
         }
+
+        if (key === 'Escape') {
+          handleClose()
+        }
       }
     }
 
     window.addEventListener('resize', handleResize)
-    window.addEventListener('click', handleClick)
+    window.addEventListener('click', handleClick, true)
     window.addEventListener('keydown', handleKeyDown)
 
     handleResize()
 
     return () => {
       window.removeEventListener('resize', handleResize)
-      window.removeEventListener('click', handleClick)
+      window.removeEventListener('click', handleClick, true)
       window.removeEventListener('keydown', handleKeyDown)
     }
   }, [
@@ -153,7 +163,6 @@ const AutoCompleteBox: React.FunctionComponent<AutoCompleteBoxProps> = ({
     handleChange,
     handleClose,
     onChange,
-    options,
     state.focusedItem,
     state.isOpened,
     visibleOptions,
@@ -165,7 +174,6 @@ const AutoCompleteBox: React.FunctionComponent<AutoCompleteBoxProps> = ({
         isClientSide() &&
         createPortal(
           <React.Fragment>
-            <Overlay />
             <Options
               id="options"
               wrapperRect={state.wrapperRect}
