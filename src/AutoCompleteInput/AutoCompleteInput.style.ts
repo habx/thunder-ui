@@ -1,11 +1,11 @@
 import styled from 'styled-components'
 
-import zIndex from '../../_internal/zIndex'
-import fontSizes from '../../fontSizes'
-import theme from '../../theme'
-import Option from '../Option'
+import zIndex from '../_internal/zIndex'
+import theme from '../theme'
 
-export const OptionsContainer = styled.div`
+export const AutoCompleteInputContainer = styled.span``
+
+export const Options = styled.div`
   position: fixed;
   z-index: ${zIndex.highest};
   pointer-events: none;
@@ -42,25 +42,4 @@ export const OptionsContent = styled.ul`
   overflow-x: hidden;
   padding: 12px 0;
   max-height: ${({ noMaxHeight }) => (noMaxHeight ? 'unset' : '300px')};
-`
-
-export const OptionsModalContent = styled.div``
-
-export const EmptyOptions = styled.div`
-  padding: 8px 18px;
-`
-
-export const Description = styled.li`
-  padding: 0 18px 8px 18px;
-  border-bottom: solid 1px ${theme.get('neutral', { dynamic: true })};
-`
-
-export const DescriptionAnnotation = styled.div`
-  font-size: ${fontSizes.tiny};
-  color: ${theme.get('neutral', { dynamic: true })};
-`
-
-export const SelectAllOption = styled(Option)`
-  border-bottom: solid 1px ${theme.get('neutral')};
-  font-weight: 600;
 `
