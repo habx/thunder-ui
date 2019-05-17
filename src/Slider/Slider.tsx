@@ -51,7 +51,6 @@ const getTooltip = ({
   }
 
   const rawTooltip = buildRawTooltip()
-
   return isFunction(formatter) ? formatter(localValue, rawTooltip) : rawTooltip
 }
 
@@ -257,16 +256,24 @@ const Slider: React.FunctionComponent<SliderProps> = ({
         <SliderMainBar ref={barRef} />
         {valueDots}
         {valueBar}
-        {indicators.map(({ color, range }) => (
-          <SliderIndicator
-            key={range.join('.')}
-            color={color}
-            style={{
-              left: `${((Math.min(...range) - min) / (max - min)) * 100}%`,
-              right: `${(1 - (Math.max(...range) - min) / (max - min)) * 100}%`,
-            }}
-          />
-        ))}
+        {indicators.map(({ color, range }) => {
+          const indicatorMinInRange = Math.min(...range)
+          const indicatorMaxInRange = Math.max(...range)
+          const indicatorMin =
+            indicatorMinInRange > min ? indicatorMinInRange : min
+          const indicatorMax =
+            indicatorMaxInRange < max ? indicatorMaxInRange : max
+          return (
+            <SliderIndicator
+              key={range.join('.')}
+              color={color}
+              style={{
+                left: `${((indicatorMin - min) / (max - min)) * 100}%`,
+                right: `${(1 - (indicatorMax - min) / (max - min)) * 100}%`,
+              }}
+            />
+          )
+        })}
         <SliderTooltip
           data-testid="slider-tooltip"
           style={{ paddingLeft: `${tooltipPosition}%` }}
