@@ -62,7 +62,6 @@ export const SliderIndicator = styled.div`
 
   background-color: ${theme.get('warning')};
   height: 4px;
-  top: 0;
   border-radius: 8px;
   z-index: 4;
 `
