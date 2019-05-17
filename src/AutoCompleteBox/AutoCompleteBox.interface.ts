@@ -1,14 +1,17 @@
 import * as React from 'react'
 
-type option = {
+export type option = {
   label: string
   value: any
 }
 
 export default interface AutoCompleteBoxProps {
+  input: React.ComponentType<any>
   options: any[]
   onPick: (option: option) => void
   onClose: (e: React.MouseEvent<HTMLElement>) => void
+  onChange: (e: React.ChangeEvent) => void
+  inputRef: React.RefObject<HTMLElement>
 }
 
 export interface AutoCompleteBoxState {

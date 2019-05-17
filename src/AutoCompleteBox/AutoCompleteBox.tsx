@@ -6,7 +6,12 @@ import { isClientSide, ssrDOMRect } from '../_internal/ssr'
 import AutoCompleteBoxProps, {
   AutoCompleteBoxState,
 } from './AutoCompleteBox.interface'
-import { Overlay } from './AutoCompleteBox.style'
+import {
+  AutoCompleteBoxContainer,
+  Overlay,
+  Options,
+  OptionsContent,
+} from './AutoCompleteBox.style'
 import Option from './Option'
 
 const INITIAL_STATE = {
@@ -18,10 +23,13 @@ const INITIAL_STATE = {
 
 const AutoCompleteBox: React.FunctionComponent<AutoCompleteBoxProps> = ({
   options,
+  input: Input,
   onPick,
-  onClose,
+  onChange,
+  ...rest
 }) => {
   const wrapperRef = React.useRef(null)
+  const optionsRef = React.useRef(null)
 
   const reducer = (state, action) => {
     switch (action.type) {
@@ -40,6 +48,14 @@ const AutoCompleteBox: React.FunctionComponent<AutoCompleteBoxProps> = ({
         }
       }
 
+      case 'OPEN': {
+        return { ...state, isOpened: true }
+      }
+
+      case 'CLOSE': {
+        return { ...state, isOpened: false }
+      }
+
       default: {
         throw new Error(
           `Thunder AutoCompleteBox : Unknown action ${action.type}`
@@ -53,33 +69,70 @@ const AutoCompleteBox: React.FunctionComponent<AutoCompleteBoxProps> = ({
     any
   ]
 
+  const handleFocus = React.useCallback(() => dispatch({ type: 'OPEN' }), [
+    dispatch,
+  ])
+
+  const handleClose = React.useCallback(() => dispatch({ type: 'CLOSE' }), [
+    dispatch,
+  ])
+
   React.useEffect(() => {
     const handleResize = () => {
       dispatch({ type: 'RESIZE' })
     }
 
+    const handleClick = e => {
+      if (
+        wrapperRef.current &&
+        !wrapperRef.current.contains(e.target) &&
+        (optionsRef.current && !optionsRef.current.contains(e.target))
+      ) {
+        handleClose()
+      }
+    }
+
     window.addEventListener('resize', handleResize)
+    window.addEventListener('click', handleClick)
 
     handleResize()
 
     return () => {
       window.removeEventListener('resize', handleResize)
+      window.removeEventListener('click', handleClick)
     }
-  }, [dispatch, state.focusedItem, state.isOpened])
+  }, [dispatch, handleClose])
 
   return (
     <React.Fragment>
       {state.isOpened &&
         isClientSide() &&
-        createPortal(<Overlay onClick={onClose} />, document.body)}
-      {options.map(option => (
-        <Option
-          key={option.value}
-          onClick={() => null}
-          focused={false}
-          label={option.label}
-        />
-      ))}
+        createPortal(
+          <React.Fragment>
+            <Overlay />
+            <Options
+              id="options"
+              wrapperRect={state.wrapperRect}
+              data-open={state.isOpened}
+              ref={optionsRef}
+            >
+              <OptionsContent>
+                {options.map(option => (
+                  <Option
+                    key={option.value}
+                    onClick={() => onChange(option.value)}
+                    focused={false}
+                    label={option.label}
+                  />
+                ))}
+              </OptionsContent>
+            </Options>
+          </React.Fragment>,
+          document.body
+        )}
+      <AutoCompleteBoxContainer ref={wrapperRef}>
+        <Input {...rest} onFocus={handleFocus} onChange={onChange} />
+      </AutoCompleteBoxContainer>
     </React.Fragment>
   )
 }

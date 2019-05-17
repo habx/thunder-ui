@@ -44,6 +44,7 @@ export { default as ArrayInput } from './ArrayInput'
 export { default as Tag } from './Tag/index'
 export { default as Notification } from './Notification'
 export { default as Spinner } from './Spinner'
+export { default as AutoCompleteBox } from './AutoCompleteBox'
 
 /*
   Layouts

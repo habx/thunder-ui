@@ -8,6 +8,7 @@ import Option from '../Option'
 export const OptionsContainer = styled.div`
   position: fixed;
   z-index: ${zIndex.highest};
+  pointer-events: none;
 
   box-shadow: ${theme.get('shadowLight')};
   opacity: 0;
@@ -27,6 +28,7 @@ export const OptionsContainer = styled.div`
   &[data-open='true'] {
     max-height: 324px;
     opacity: 1;
+    pointer-events: unset;
   }
 
   & * {

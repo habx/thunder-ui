@@ -14,4 +14,9 @@ export const OptionContainer = styled.li`
   font-size: ${fontSizes.regular};
   padding: 12px 18px;
   color: ${theme.get('neutralStronger', { dynamic: true })};
+
+  &:hover,
+  &:focus {
+    background-color: ${theme.get('neutralLighter', { dynamic: true })};
+  }
 `
