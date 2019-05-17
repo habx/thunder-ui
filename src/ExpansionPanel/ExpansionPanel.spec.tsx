@@ -235,6 +235,6 @@ describe('ExpansionPanel component', () => {
     const logWarnStub = sinonSandbox.stub(validityCheck, 'logWarn')
     render(<ExpansionPanelItem />)
 
-    expect(logWarnStub.calledOnce).toBe(true)
+    expect(logWarnStub.called).toBe(true)
   })
 })
