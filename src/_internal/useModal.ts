@@ -20,19 +20,26 @@ export type ModalState = {
 
 const ESCAPE_KEY = 27
 
+const useForceRender = () => {
+  const [, setState] = React.useState()
+
+  return React.useCallback(() => setState(null), [])
+}
+
 const useModal = ({
   animated,
   animationDuration,
   ...restParams
 }: ModalParams): ModalState => {
-  const [hasAlreadyRendered, setHasAlreadyRendered] = React.useState(false)
-  const registerTimeout = useTimeout()
+  const hasAlreadyRendered = React.useRef(false)
   const domRef = React.useRef(null)
+  const forceRender = useForceRender()
+  const registerTimeout = useTimeout()
 
   const params = { animated, animationDuration, ...restParams } as ModalParams
   const paramsRef = React.useRef(params)
 
-  if (!hasAlreadyRendered && animated) {
+  if (!hasAlreadyRendered.current && animated) {
     params.open = false
   }
 
@@ -43,8 +50,11 @@ const useModal = ({
   })
 
   React.useEffect(() => {
-    setHasAlreadyRendered(true)
-  }, [])
+    hasAlreadyRendered.current = true
+    if (restParams.open) {
+      forceRender()
+    }
+  }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
   const handleClose = React.useCallback((e = null) => {
     if (isFunction(paramsRef.current.onClose)) {
