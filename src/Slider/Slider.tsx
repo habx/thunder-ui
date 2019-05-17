@@ -118,7 +118,7 @@ const Slider: React.FunctionComponent<SliderProps> = ({
         return isNil(localValue[0]) ? min : localValue[0]
       }
 
-      return isNil(value) ? min : value
+      return isNil(localValue) ? min : localValue
     }
 
     const dotValue = getDotValue()
@@ -222,9 +222,29 @@ const Slider: React.FunctionComponent<SliderProps> = ({
     return getComponent({ from: min, to: localValue })
   }
 
+  const buildIndicator = () =>
+    indicators.map(({ color, range }) => {
+      const indicatorMinInRange = Math.min(...range)
+      const indicatorMaxInRange = Math.max(...range)
+      const indicatorMin = indicatorMinInRange > min ? indicatorMinInRange : min
+      const indicatorMax = indicatorMaxInRange < max ? indicatorMaxInRange : max
+      return (
+        <SliderIndicator
+          key={range.join('.')}
+          color={color}
+          style={{
+            left: `${((indicatorMin - min) / (max - min)) * 100}%`,
+            right: `${(1 - (indicatorMax - min) / (max - min)) * 100}%`,
+          }}
+        />
+      )
+    })
+
   const valueDots = range ? [buildDot(0), buildDot(1)] : buildDot()
 
   const valueBar = buildBar()
+
+  const valueIndicator = buildIndicator()
 
   const tooltip = getTooltip({
     localValue,
@@ -256,24 +276,7 @@ const Slider: React.FunctionComponent<SliderProps> = ({
         <SliderMainBar ref={barRef} />
         {valueDots}
         {valueBar}
-        {indicators.map(({ color, range }) => {
-          const indicatorMinInRange = Math.min(...range)
-          const indicatorMaxInRange = Math.max(...range)
-          const indicatorMin =
-            indicatorMinInRange > min ? indicatorMinInRange : min
-          const indicatorMax =
-            indicatorMaxInRange < max ? indicatorMaxInRange : max
-          return (
-            <SliderIndicator
-              key={range.join('.')}
-              color={color}
-              style={{
-                left: `${((indicatorMin - min) / (max - min)) * 100}%`,
-                right: `${(1 - (indicatorMax - min) / (max - min)) * 100}%`,
-              }}
-            />
-          )
-        })}
+        {valueIndicator}
         <SliderTooltip
           data-testid="slider-tooltip"
           style={{ paddingLeft: `${tooltipPosition}%` }}
