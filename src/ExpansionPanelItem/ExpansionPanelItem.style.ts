@@ -2,6 +2,8 @@ import styled from 'styled-components'
 
 import theme from '../theme'
 
+export const ANIMATION_DURATION = 300
+
 export const ExpansionPanelItemContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -23,15 +25,16 @@ export const TitleBar = styled.div`
 `
 
 export const ExpansionPanelItemContent = styled.div`
-  transition: max-height 300ms ease-in-out;
+  transition: max-height ${ANIMATION_DURATION}ms ease-in-out;
   overflow: hidden;
 
-  &[data-open='false'] {
-    max-height: 0;
+  &[data-state='opening'],
+  &[data-state='closing'] {
+    max-height: ${({ height }) => height}px;
   }
 
-  &[data-open='true'] {
-    max-height: ${({ height }) => height}px;
+  &[data-state='closed'] {
+    max-height: 0;
   }
 `
 

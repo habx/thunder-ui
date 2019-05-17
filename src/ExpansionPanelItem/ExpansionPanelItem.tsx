@@ -3,6 +3,7 @@ import { withTheme } from 'styled-components'
 
 import { isFunction, isNil } from '../_internal/data'
 import { styledTheme } from '../_internal/types'
+import useModal from '../_internal/useModal'
 import { assert } from '../_internal/validityCheck'
 import { ExpansionPanelContext } from '../ExpansionPanel/ExpansionPanel.context'
 import FontIcon from '../FontIcon'
@@ -17,6 +18,7 @@ import {
   TitleBar,
   ExpansionPanelItemContent,
   CoreContent,
+  ANIMATION_DURATION,
 } from './ExpansionPanelItem.style'
 
 const ExpansionPanelItem: React.FunctionComponent<
@@ -48,8 +50,13 @@ const ExpansionPanelItem: React.FunctionComponent<
   const itemRef = React.useRef(Math.random())
   const contentRef = React.useRef(null)
   const [contentHeight, setItemHeight] = React.useState(0)
-
   const open = isControlled ? rawOpen : openedItems.includes(itemRef.current)
+  const panel = useModal({
+    open,
+    persistent: true,
+    animated: true,
+    animationDuration: open ? ANIMATION_DURATION : 0,
+  })
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
   React.useLayoutEffect(() => {
@@ -84,8 +91,8 @@ const ExpansionPanelItem: React.FunctionComponent<
     },
     [isControlled, onToggle, multiOpen, setOpenedItems]
   )
-  const color = theme.get('neutralStronger', { dynamic: true })(props)
 
+  const color = theme.get('neutralStronger', { dynamic: true })(props)
   return (
     <ExpansionPanelItemContainer data-testid="expansion-panel-item" {...props}>
       <TitleBar
@@ -100,21 +107,23 @@ const ExpansionPanelItem: React.FunctionComponent<
                 {title}
               </Title>
             )}
-            {!open &&
+            {panel.state === 'closed' &&
               (expandIcon || <FontIcon icon="expand_more" color={color} />)}
-            {open &&
+            {panel.state !== 'closed' &&
               (collapseIcon || <FontIcon icon="expand_less" color={color} />)}
           </React.Fragment>
         )}
       </TitleBar>
       <ExpansionPanelItemContent
         data-testid="expansion-panel-item-content"
-        data-open={open}
         ref={contentRef}
         height={contentHeight}
+        data-state={panel.state}
       >
         <CoreContent>
-          {isFunction(children) ? children({ open }) : children}
+          {isFunction(children)
+            ? children({ open: ['open', 'opening'].includes(panel.state) })
+            : children}
         </CoreContent>
       </ExpansionPanelItemContent>
     </ExpansionPanelItemContainer>
