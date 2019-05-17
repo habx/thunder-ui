@@ -2,6 +2,7 @@ import * as React from 'react'
 import { createPortal } from 'react-dom'
 
 import { isClientSide, ssrDOMRect } from '../_internal/ssr'
+import { searchInString } from '../_internal/strings'
 
 import AutoCompleteBoxProps, {
   AutoCompleteBoxState,
@@ -26,6 +27,7 @@ const AutoCompleteBox: React.FunctionComponent<AutoCompleteBoxProps> = ({
   input: Input,
   onPick,
   onChange,
+  value,
   ...rest
 }) => {
   const wrapperRef = React.useRef(null)
@@ -33,14 +35,6 @@ const AutoCompleteBox: React.FunctionComponent<AutoCompleteBoxProps> = ({
 
   const reducer = (state, action) => {
     switch (action.type) {
-      case 'REMOVE_FOCUS_ITEM': {
-        return { ...state, focusedItem: null }
-      }
-
-      case 'ADD_FOCUS_ITEM': {
-        return { ...state, focusedItem: action.value }
-      }
-
       case 'RESIZE': {
         return {
           ...state,
@@ -56,6 +50,14 @@ const AutoCompleteBox: React.FunctionComponent<AutoCompleteBoxProps> = ({
         return { ...state, isOpened: false }
       }
 
+      case 'REMOVE_FOCUS_ITEM': {
+        return { ...state, focusedItem: null }
+      }
+
+      case 'ADD_FOCUS_ITEM': {
+        return { ...state, focusedItem: action.value }
+      }
+
       default: {
         throw new Error(
           `Thunder AutoCompleteBox : Unknown action ${action.type}`
@@ -69,6 +71,16 @@ const AutoCompleteBox: React.FunctionComponent<AutoCompleteBoxProps> = ({
     any
   ]
 
+  const visibleOptions = React.useMemo(
+    () =>
+      options.filter(option => {
+        const matchValue = searchInString(`${option.value}`, value)
+        const matchLabel = searchInString(option.label, value)
+        return matchValue || matchLabel
+      }),
+    [options, value]
+  )
+
   const handleFocus = React.useCallback(() => dispatch({ type: 'OPEN' }), [
     dispatch,
   ])
@@ -76,6 +88,15 @@ const AutoCompleteBox: React.FunctionComponent<AutoCompleteBoxProps> = ({
   const handleClose = React.useCallback(() => dispatch({ type: 'CLOSE' }), [
     dispatch,
   ])
+
+  const handleChange = React.useCallback(
+    value => {
+      handleClose()
+      onChange(value)
+      dispatch({ type: 'REMOVE_FOCUS_ITEM' })
+    },
+    [dispatch, handleClose, onChange]
+  )
 
   React.useEffect(() => {
     const handleResize = () => {
@@ -92,16 +113,51 @@ const AutoCompleteBox: React.FunctionComponent<AutoCompleteBoxProps> = ({
       }
     }
 
+    const handleKeyDown = event => {
+      const { key } = event
+
+      if (state.isOpened) {
+        const focusedIndex = visibleOptions.findIndex(
+          el => el === state.focusedItem
+        )
+
+        if (key === 'ArrowDown' && focusedIndex < options.length) {
+          event.preventDefault()
+          dispatch({ type: 'ADD_FOCUS_ITEM', value: options[focusedIndex + 1] })
+        }
+
+        if (key === 'ArrowUp' && focusedIndex > 0) {
+          event.preventDefault()
+          dispatch({ type: 'ADD_FOCUS_ITEM', value: options[focusedIndex - 1] })
+        }
+
+        if (key === 'Enter' && focusedIndex >= 0) {
+          handleChange(state.focusedItem.value)
+        }
+      }
+    }
+
     window.addEventListener('resize', handleResize)
     window.addEventListener('click', handleClick)
+    window.addEventListener('keydown', handleKeyDown)
 
     handleResize()
 
     return () => {
       window.removeEventListener('resize', handleResize)
       window.removeEventListener('click', handleClick)
+      window.removeEventListener('keydown', handleKeyDown)
     }
-  }, [dispatch, handleClose])
+  }, [
+    dispatch,
+    handleChange,
+    handleClose,
+    onChange,
+    options,
+    state.focusedItem,
+    state.isOpened,
+    visibleOptions,
+  ])
 
   return (
     <React.Fragment>
@@ -117,11 +173,11 @@ const AutoCompleteBox: React.FunctionComponent<AutoCompleteBoxProps> = ({
               ref={optionsRef}
             >
               <OptionsContent>
-                {options.map(option => (
+                {visibleOptions.map(option => (
                   <Option
                     key={option.value}
-                    onClick={() => onChange(option.value)}
-                    focused={false}
+                    onClick={() => handleChange(option.value)}
+                    focused={option === state.focusedItem}
                     label={option.label}
                   />
                 ))}
@@ -131,7 +187,12 @@ const AutoCompleteBox: React.FunctionComponent<AutoCompleteBoxProps> = ({
           document.body
         )}
       <AutoCompleteBoxContainer ref={wrapperRef}>
-        <Input {...rest} onFocus={handleFocus} onChange={onChange} />
+        <Input
+          {...rest}
+          onFocus={handleFocus}
+          onChange={onChange}
+          value={value}
+        />
       </AutoCompleteBoxContainer>
     </React.Fragment>
   )

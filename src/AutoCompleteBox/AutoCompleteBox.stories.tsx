@@ -28,5 +28,5 @@ const AutoCompleteBoxWithState = ({ value = '', ...props }) => {
 }
 
 storiesOf('Inputs|AutoCompleteBox', module).add('basic', () => (
-  <AutoCompleteBoxWithState input={TextInput} value="test" options={longData} />
+  <AutoCompleteBoxWithState input={TextInput} value="" options={longData} />
 ))

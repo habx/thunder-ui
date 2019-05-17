@@ -8,10 +8,10 @@ export type option = {
 export default interface AutoCompleteBoxProps {
   input: React.ComponentType<any>
   options: any[]
+  value?: string
   onPick: (option: option) => void
   onClose: (e: React.MouseEvent<HTMLElement>) => void
   onChange: (e: React.ChangeEvent) => void
-  inputRef: React.RefObject<HTMLElement>
 }
 
 export interface AutoCompleteBoxState {
