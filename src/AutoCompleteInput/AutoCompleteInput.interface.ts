@@ -5,14 +5,14 @@ export type option = {
   value: any
 }
 
-export default interface AutoCompleteBoxProps {
+export default interface AutoCompleteInputProps {
   inputComponent?: React.ComponentType<any>
   options?: option[]
   value?: string
   onChange: (e: React.ChangeEvent) => void
 }
 
-export interface AutoCompleteBoxState {
+export interface AutoCompleteInputState {
   isOpened: boolean
   focusedItem: any
   wrapperRect: DOMRect

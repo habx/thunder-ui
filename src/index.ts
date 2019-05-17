@@ -31,7 +31,7 @@ export { default as MenuItem } from './MenuItem'
 /*
   Inputs
  */
-export { default as AutoCompleteBox } from './AutoCompleteBox'
+export { default as AutoCompleteInput } from './AutoCompleteInput'
 export { default as TextInput } from './TextInput'
 export { default as TextArea } from './TextArea'
 export { default as Select } from './Select'

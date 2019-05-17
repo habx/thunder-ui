@@ -3,16 +3,16 @@ import * as React from 'react'
 import { withState } from 'recompose'
 import styled from 'styled-components'
 
-import AutoCompleteBox from './AutoCompleteBox'
-import DATA from './AutoCompleteBox.data'
+import AutoCompleteInput from './AutoCompleteInput'
+import DATA from './AutoCompleteInput.data'
 
 const Container = styled.div`
   width: 300px;
 `
 
-const AutoCompleteBoxWithState = ({ value = '', ...props }) => {
+const AutoCompleteInputWithState = ({ value = '', ...props }) => {
   const Component = withState('value', 'onChange', value)(newProps => (
-    <AutoCompleteBox
+    <AutoCompleteInput
       {...newProps}
       onChange={value => newProps.onChange(value)}
     />
@@ -25,8 +25,8 @@ const AutoCompleteBoxWithState = ({ value = '', ...props }) => {
   )
 }
 
-storiesOf('Inputs|AutoCompleteBox', module).add('basic', () => (
-  <AutoCompleteBoxWithState
+storiesOf('Inputs|AutoCompleteInput', module).add('basic', () => (
+  <AutoCompleteInputWithState
     value=""
     options={DATA}
     placeholder="French cities"

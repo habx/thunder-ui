@@ -5,14 +5,14 @@ import { isClientSide, ssrDOMRect } from '../_internal/ssr'
 import { searchInString } from '../_internal/strings'
 import TextInput from '../TextInput'
 
-import AutoCompleteBoxProps, {
-  AutoCompleteBoxState,
-} from './AutoCompleteBox.interface'
+import AutoCompleteInputProps, {
+  AutoCompleteInputState,
+} from './AutoCompleteInput.interface'
 import {
-  AutoCompleteBoxContainer,
+  AutoCompleteInputContainer,
   Options,
   OptionsContent,
-} from './AutoCompleteBox.style'
+} from './AutoCompleteInput.style'
 import Option from './Option'
 
 const INITIAL_STATE = {
@@ -24,7 +24,7 @@ const INITIAL_STATE = {
 
 const EMPTY_OPTIONS = []
 
-const AutoCompleteBox: React.FunctionComponent<AutoCompleteBoxProps> = ({
+const AutoCompleteInput: React.FunctionComponent<AutoCompleteInputProps> = ({
   options = EMPTY_OPTIONS,
   inputComponent: Input = TextInput,
   onChange,
@@ -61,14 +61,14 @@ const AutoCompleteBox: React.FunctionComponent<AutoCompleteBoxProps> = ({
 
       default: {
         throw new Error(
-          `Thunder AutoCompleteBox : Unknown action ${action.type}`
+          `Thunder AutoCompleteInput : Unknown action ${action.type}`
         )
       }
     }
   }
 
   const [state, dispatch] = React.useReducer(reducer, INITIAL_STATE) as [
-    AutoCompleteBoxState,
+    AutoCompleteInputState,
     any
   ]
 
@@ -195,16 +195,16 @@ const AutoCompleteBox: React.FunctionComponent<AutoCompleteBoxProps> = ({
           </React.Fragment>,
           document.body
         )}
-      <AutoCompleteBoxContainer ref={wrapperRef}>
+      <AutoCompleteInputContainer ref={wrapperRef}>
         <Input
           {...rest}
           onFocus={handleFocus}
           onChange={onChange}
           value={value}
         />
-      </AutoCompleteBoxContainer>
+      </AutoCompleteInputContainer>
     </React.Fragment>
   )
 }
 
-export default AutoCompleteBox
+export default AutoCompleteInput

@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import zIndex from '../_internal/zIndex'
 import theme from '../theme'
 
-export const AutoCompleteBoxContainer = styled.span``
+export const AutoCompleteInputContainer = styled.span``
 
 export const Options = styled.div`
   position: fixed;
