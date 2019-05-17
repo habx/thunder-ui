@@ -49,13 +49,14 @@ export const NavBarItemContainer = styled.li`
   color: #f9f9fb;
   outline: none;
 
-  &.active ${IconContainer}, &[data-active='true'] ${IconContainer} {
-    background-color: ${({ activebackgroundcolor }) => activebackgroundcolor};
-  }
-
   &:focus ${IconContainer} {
     background-color: ${({ activebackgroundcolor }) => activebackgroundcolor};
     opacity: 0.6;
+  }
+
+  &.active ${IconContainer}, &[data-active='true'] ${IconContainer} {
+    background-color: ${({ activebackgroundcolor }) => activebackgroundcolor};
+    opacity: 1;
   }
 
   ${({ active }) =>
@@ -64,6 +65,7 @@ export const NavBarItemContainer = styled.li`
       ${IconContainer} {
         background-color: ${({ activebackgroundcolor }) =>
           activebackgroundcolor};
+        opacity: 1;
 
         @media (max-width: 600px) {
           background-color: initial;
