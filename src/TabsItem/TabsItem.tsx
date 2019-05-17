@@ -42,7 +42,12 @@ const StyledTabsItem = styled(tag.li).attrs(prepareProps)`
       text-decoration: line-through;
     `}
 
-  &.active, &:focus {
+  &:focus {
+    opacity: 0.7;
+  }
+
+  &.active,
+  &:focus {
     color: ${({ activeColor }) => activeColor};
 
     &::after {
@@ -52,14 +57,14 @@ const StyledTabsItem = styled(tag.li).attrs(prepareProps)`
     }
   }
 
+  &.active {
+    opacity: 1;
+  }
+
   &:hover,
   &:focus {
     text-decoration: none;
     color: ${({ hoverColor }) => hoverColor};
-  }
-
-  &:focus {
-    opacity: 0.7;
   }
 
   &::after {
