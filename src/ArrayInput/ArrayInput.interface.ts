@@ -4,10 +4,15 @@ import { styledTheme } from '../_internal/types'
 
 import { ItemComponentProps } from './Item/Item.interface'
 
+export interface AddButtonComponentProps {
+  onAppend: () => void
+}
+
 export default interface ArrayInputProps
   extends React.HTMLAttributes<HTMLUListElement> {
   items?: any[]
   addButtonLabel?: string
+  addButtonComponent?: React.ComponentType<AddButtonComponentProps>
   canBeReordered?: boolean
   disabled?: boolean
   onDelete?: (position: number) => void

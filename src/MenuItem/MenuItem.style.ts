@@ -6,6 +6,7 @@ import theme from '../theme'
 export const MenuItemContainer = styled.li`
   display: flex;
   align-items: flex-start;
+  flex: 0 0 auto;
 
   padding: 12px 16px;
 

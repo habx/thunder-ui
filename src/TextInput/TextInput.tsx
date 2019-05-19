@@ -57,6 +57,7 @@ const TextInput: React.ComponentType<
 
 TextInput.defaultProps = {
   onChange: () => null,
+  value: '',
 }
 
 export default withLabel()(withTheme(TextInput) as React.FunctionComponent<

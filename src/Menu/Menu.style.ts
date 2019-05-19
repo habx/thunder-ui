@@ -29,7 +29,7 @@ const preparePropsMobile = ({ position, wrapperRect }) => ({
 })
 
 export const MenuContainerDesktop = styled.div.attrs(prepareProps)`
-  position: absolute;
+  position: fixed;
   top: ${({ top }) => top};
   bottom: ${({ bottom }) => bottom};
   left: ${({ left }) => left};

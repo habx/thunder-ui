@@ -7,6 +7,7 @@ export const ArrayInputAction = styled.div`
   padding-top: 24px;
   display: flex;
   justify-content: center;
+  align-items: center;
   flex-direction: column;
 `
 
