@@ -6,6 +6,7 @@ import { ItemComponentProps } from './Item/Item.interface'
 
 export interface AddButtonComponentProps {
   onAppend: () => void
+  disabled?: boolean
 }
 
 export default interface ArrayInputProps

@@ -61,7 +61,7 @@ const ArrayInput: React.FunctionComponent<ArrayInputInnerProps> = ({
       ))}
       <ArrayInputAction>
         {AddButtonComponent ? (
-          <AddButtonComponent onAppend={onAppend} />
+          <AddButtonComponent onAppend={onAppend} disabled={disabled} />
         ) : (
           <TextButton
             data-testid="array-input-add"
