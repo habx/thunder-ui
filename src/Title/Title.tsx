@@ -6,7 +6,7 @@ import theme from '../theme'
 import TitleProps from './Title.interface'
 
 const BaseTitle = styled.h1`
-  color: ${theme.get('neutralStronger')};
+  color: ${theme.get('neutralStronger', { dynamic: true })};
   margin: 0;
 
   ${({ underline }) =>
@@ -17,7 +17,7 @@ const BaseTitle = styled.h1`
 
       &::after {
         content: '';
-        background-color: ${theme.get('neutralStronger')};
+        background-color: ${theme.get('neutralStronger', { dynamic: true })};
       }
     `}
 `

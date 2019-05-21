@@ -3,7 +3,7 @@ import * as React from 'react'
 import { createPortal } from 'react-dom'
 import { withTheme } from 'styled-components'
 
-import { isNil, has } from '../_internal/data'
+import { isNil, has, isString } from '../_internal/data'
 import { isClientSide, ssrDOMRect } from '../_internal/ssr'
 import { searchInString } from '../_internal/strings'
 import { formOption, styledTheme } from '../_internal/types'
@@ -92,7 +92,8 @@ const useVisibleOptions = ({ query, options }) =>
   React.useMemo((): formOption[] => {
     return options.filter((option: formOption) => {
       const matchValue = searchInString(`${option.value}`, query)
-      const matchLabel = searchInString(option.label, query)
+      const matchLabel =
+        isString(option.label) && searchInString(option.label, query)
       return matchValue || matchLabel
     })
   }, [options, query])

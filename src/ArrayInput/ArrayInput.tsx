@@ -15,8 +15,9 @@ const ArrayInput: React.FunctionComponent<ArrayInputInnerProps> = ({
   onAppend,
   onDelete,
   onReorder,
-  addButtonLabel,
   disabled,
+  addButtonLabel,
+  addButtonComponent: AddButtonComponent,
   itemTitleComponent: ItemTitleComponent,
   itemComponent: ItemComponent,
   renderItem: rawRenderItem,
@@ -59,13 +60,17 @@ const ArrayInput: React.FunctionComponent<ArrayInputInnerProps> = ({
         />
       ))}
       <ArrayInputAction>
-        <TextButton
-          data-testid="array-input-add"
-          disabled={disabled}
-          onClick={onAppend}
-        >
-          {addButtonLabel}
-        </TextButton>
+        {AddButtonComponent ? (
+          <AddButtonComponent onAppend={onAppend} disabled={disabled} />
+        ) : (
+          <TextButton
+            data-testid="array-input-add"
+            disabled={disabled}
+            onClick={() => onAppend()}
+          >
+            {addButtonLabel}
+          </TextButton>
+        )}
       </ArrayInputAction>
     </ExpansionPanel>
   )

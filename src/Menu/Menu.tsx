@@ -1,8 +1,10 @@
 import * as React from 'react'
 import { createPortal } from 'react-dom'
 
+import { isFunction } from '../_internal/data'
 import { useIsSmallScreen } from '../_internal/hooks'
 import { isClientSide, ssrDOMRect } from '../_internal/ssr'
+import { RemoveBodyScroll } from '../Modal/Modal.style'
 
 import MenuProps from './Menu.interface'
 import {
@@ -27,10 +29,15 @@ const Menu: React.FunctionComponent<MenuProps> = ({
   )
   const [open, setOpen] = React.useState(false)
 
+  const updateWrapperReact = React.useCallback(
+    () => setWrapperRect(wrapperRef.current.getBoundingClientRect()),
+    []
+  )
+
   React.useEffect(() => {
     const handleWrapperChange = () => {
       if (open) {
-        setWrapperRect(wrapperRef.current.getBoundingClientRect())
+        updateWrapperReact()
       }
     }
 
@@ -41,7 +48,7 @@ const Menu: React.FunctionComponent<MenuProps> = ({
     return () => {
       document.removeEventListener('resize', handleWrapperChange)
     }
-  }, [open])
+  }, [open, updateWrapperReact])
 
   const isSmallScreen = useIsSmallScreen()
 
@@ -53,9 +60,10 @@ const Menu: React.FunctionComponent<MenuProps> = ({
         e.preventDefault()
         e.stopPropagation()
       }
+      updateWrapperReact()
       setOpen(wasOpen => !wasOpen)
     },
-    [setOpen]
+    [updateWrapperReact]
   )
 
   const triggerElementWithAction = React.cloneElement(triggerElement, {
@@ -75,15 +83,20 @@ const Menu: React.FunctionComponent<MenuProps> = ({
       wrapperRect={wrapperRect}
     >
       <MenuContent {...props} onClick={persistent ? null : handleClose}>
-        {children}
+        {isFunction(children) ? children({ open }) : children}
       </MenuContent>
     </MenuContainer>
   )
+
   return (
     <React.Fragment>
-      {open &&
-        isClientSide() &&
-        createPortal(<Overlay onClick={handleToggle} />, document.body)}
+      {open && (
+        <React.Fragment>
+          {isClientSide() &&
+            createPortal(<Overlay onClick={handleToggle} />, document.body)}
+          <RemoveBodyScroll />
+        </React.Fragment>
+      )}
       <MenuWrapper ref={wrapperRef}>
         {isTriggerElementBeforeMenu && triggerElementWithAction}
         {portal && isClientSide() ? createPortal(menu, document.body) : menu}

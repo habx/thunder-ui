@@ -35,7 +35,7 @@ const withLabel = ({ padding = 4 }: Options = {}) => <Props extends object>(
 
     if (label) {
       return (
-        <FieldWithLabelContainer>
+        <FieldWithLabelContainer className="thunder-label-line">
           <LabelContainer
             padding={padding}
             color={labelColor ? labelColor : undefined}

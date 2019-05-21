@@ -9,14 +9,14 @@ const prepareProps = ({ position, wrapperRect }) => ({
     ? `${wrapperRect.left + 4}px`
     : 'unset',
   right: ['right', 'top-right'].includes(position)
-    ? `calc(100% - ${wrapperRect.right + 4}px)`
+    ? `calc(100% - ${wrapperRect.right - 4}px)`
     : 'unset',
   bottom: ['top-left', 'top-right'].includes(position)
-    ? `calc(100% - ${wrapperRect.top + 4}px)`
+    ? `calc(100% - ${wrapperRect.top - 4}px)`
     : 'unset',
   top: ['top-left', 'top-right'].includes(position)
     ? 'unset'
-    : `calc(${wrapperRect.top}px + ${wrapperRect.height + 4}px)`,
+    : `calc(${wrapperRect.top}px + ${wrapperRect.height - 4}px)`,
 })
 
 const preparePropsMobile = ({ position, wrapperRect }) => ({
@@ -29,7 +29,7 @@ const preparePropsMobile = ({ position, wrapperRect }) => ({
 })
 
 export const MenuContainerDesktop = styled.div.attrs(prepareProps)`
-  position: absolute;
+  position: fixed;
   top: ${({ top }) => top};
   bottom: ${({ bottom }) => bottom};
   left: ${({ left }) => left};
