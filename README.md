@@ -4,8 +4,14 @@
 
 
 ## What is it ?
-
+![Npm badge](https://img.shields.io/bundlephobia/min/@habx/thunder-ui.svg)
+![Npm badge](https://img.shields.io/npm/v/@habx/thunder-ui.svg)
+![Build badge](https://img.shields.io/circleci/build/github/habx/thunder-ui.svg)
 [![Greenkeeper badge](https://badges.greenkeeper.io/habx/thunder-ui.svg)](https://greenkeeper.io/)
+
+
+
+
 
 Thunder UI contains all the [React](https://github.com/facebook/react) components we use to build our backoffice at [Habx](https://habx.fr). It provides a lot of ways to get your project started like theming.
 
