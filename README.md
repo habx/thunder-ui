@@ -6,6 +6,9 @@
 ## What is it ?
 
 [![Greenkeeper badge](https://badges.greenkeeper.io/habx/thunder-ui.svg)](https://greenkeeper.io/)
+[![Build badge](https://img.shields.io/circleci/build/github/habx/thunder-ui.svg
+)](https://greenkeeper.io/)
+
 
 Thunder UI contains all the [React](https://github.com/facebook/react) components we use to build our backoffice at [Habx](https://habx.fr). It provides a lot of ways to get your project started like theming.
 
