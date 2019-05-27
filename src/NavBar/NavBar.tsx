@@ -1,5 +1,4 @@
 import * as React from 'react'
-import { ReactElement } from 'react'
 import { withTheme } from 'styled-components'
 
 import { styledTheme } from '../_internal/types'
