@@ -18,6 +18,7 @@ const NavBarItem: React.FunctionComponent<NavBarItemProps> = rawProps => {
     tooltip,
     activeBackgroundColor,
     isInsideANavBar,
+    bottom,
     ...props
   } = useMergedContext(NavBarContext, rawProps as NavBarItemProps)
 
@@ -32,6 +33,7 @@ const NavBarItem: React.FunctionComponent<NavBarItemProps> = rawProps => {
       activeClassName="active"
       tabIndex={0}
       activebackgroundcolor={activeBackgroundColor}
+      data-bottom={bottom}
       {...props}
     >
       <IconContainer>{icon}</IconContainer>

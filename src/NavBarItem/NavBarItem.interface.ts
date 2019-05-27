@@ -7,4 +7,5 @@ export default interface NavBarItemProps
   icon?: React.ReactNode
   tooltip?: React.ReactNode
   active?: boolean
+  bottom?: boolean
 }
