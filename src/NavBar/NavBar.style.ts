@@ -57,6 +57,8 @@ export const NavBarSideContainer = styled.nav`
   flex: 0 0 auto;
   height: 100vh;
   width: 64px;
+  display: flex;
+  flex-direction: column;
 
   background-color: ${({ backgroundcolor }) => backgroundcolor};
   color: white;
@@ -97,6 +99,7 @@ export const NavBarItemsContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  flex: 1;
 
   @media (max-width: 600px) {
     align-items: flex-start;

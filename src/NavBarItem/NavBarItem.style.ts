@@ -49,6 +49,13 @@ export const NavBarItemContainer = styled.li`
   color: #f9f9fb;
   outline: none;
 
+  &[data-bottom='true'] {
+    margin-top: auto;
+  }
+  &[data-bottom='true'] + [data-bottom='true'] {
+    margin-top: initial;
+  }
+
   &:focus ${IconContainer} {
     background-color: ${({ activebackgroundcolor }) => activebackgroundcolor};
     opacity: 0.6;

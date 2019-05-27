@@ -64,3 +64,10 @@ storiesOf('Navigation|NavBar', module)
       <NavBarItem icon={<FontIcon icon="person" />} tooltip="Profil" />
     </NavBar>
   ))
+  .add('with bottom elements', () => (
+    <NavBar title={<span>H</span>}>
+      <NavBarItem icon={<FontIcon icon="home" />} tooltip="Accueil" active />
+      <NavBarItem icon={<FontIcon icon="person" />} tooltip="Profil" />
+      <NavBarItem icon={<FontIcon icon="rss_feed" />} tooltip="Feed" bottom />
+    </NavBar>
+  ))
