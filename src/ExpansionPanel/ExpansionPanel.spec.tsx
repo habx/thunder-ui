@@ -1,5 +1,5 @@
+import { render, within, fireEvent, act } from '@testing-library/react'
 import * as React from 'react'
-import { render, within, fireEvent, act } from 'react-testing-library'
 import sinon from 'sinon'
 
 import * as validityCheck from '../_internal/validityCheck'

@@ -1,5 +1,5 @@
+import { render, within, act, fireEvent } from '@testing-library/react'
 import * as React from 'react'
-import { render, within, act, fireEvent } from 'react-testing-library'
 
 import ThunderProvider from '../ThunderProvider'
 

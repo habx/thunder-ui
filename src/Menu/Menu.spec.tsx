@@ -1,5 +1,5 @@
+import { render, fireEvent } from '@testing-library/react'
 import * as React from 'react'
-import { render, fireEvent } from 'react-testing-library'
 
 import Button from '../Button'
 import MenuItem from '../MenuItem'
