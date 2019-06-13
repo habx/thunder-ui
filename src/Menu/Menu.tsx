@@ -84,7 +84,10 @@ const Menu: React.FunctionComponent<MenuProps> = ({
     >
       <MenuContent {...props} onClick={persistent ? null : handleClose}>
         {isFunction(children)
-          ? children({ open, toggle: handleToggle })
+          ? children({
+              state: open ? 'open' : 'close',
+              close: () => setOpen(false),
+            })
           : children}
       </MenuContent>
     </MenuContainer>

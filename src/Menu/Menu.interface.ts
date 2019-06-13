@@ -1,8 +1,8 @@
 import * as React from 'react'
 
 export interface MenuState {
-  open: boolean
-  toggle: (e: Event) => void
+  state: 'open' | 'close'
+  close: () => void
 }
 
 export default interface MenuProps
