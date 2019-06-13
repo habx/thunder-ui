@@ -15,6 +15,7 @@ import {
   DescriptionAnnotation,
   EmptyOptions,
   SelectAllOption,
+  MAX_HEIGHT,
 } from './Options.style'
 
 const Options: React.FunctionComponent<OptionsProps> = ({
@@ -36,9 +37,19 @@ const Options: React.FunctionComponent<OptionsProps> = ({
   wrapperRect,
 }) => {
   const isSmallScreen = useIsSmallScreen()
-
+  const position =
+    isClientSide() &&
+    !isSmallScreen &&
+    wrapperRect.top + MAX_HEIGHT > window.innerHeight &&
+    wrapperRect.top - MAX_HEIGHT > 0
+      ? 'top'
+      : 'bottom'
+  const maxHeight =
+    position === 'bottom'
+      ? window.innerHeight - wrapperRect.top - wrapperRect.height - 32
+      : null
   const content = (
-    <OptionsContent noMaxHeight={isSmallScreen}>
+    <OptionsContent noMaxHeight={isSmallScreen} maxHeight={maxHeight}>
       {description && (
         <Description>
           <div>{description}</div>
@@ -86,12 +97,13 @@ const Options: React.FunctionComponent<OptionsProps> = ({
       </Modal>
     )
   }
-
   const optionsContainer = (
     <OptionsContainer
       data-testid="options-container"
       data-open={open}
+      data-position={position}
       wrapperRect={wrapperRect}
+      maxHeight={maxHeight}
     >
       {content}
     </OptionsContainer>

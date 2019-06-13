@@ -2,11 +2,19 @@ import { action } from '@storybook/addon-actions'
 import { storiesOf } from '@storybook/react'
 import * as React from 'react'
 import { withState } from 'recompose'
+import styled from 'styled-components'
 
 import FontIcon from '../FontIcon'
 
 import Select from './index'
 import { longData, shortData } from './Select.data'
+
+const BottomContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  height: 90vh;
+`
 
 const SelectWithState = ({ value = null, ...props }) => {
   const Component = withState('value', 'onChange', value)(newProps => (
@@ -46,4 +54,9 @@ storiesOf('Inputs|Select', module)
   ))
   .add('with disabled options', () => (
     <SelectWithState optionDisabled={option => option.value > 1} />
+  ))
+  .add('adapt when no space', () => (
+    <BottomContainer>
+      <SelectWithState compact options={longData} />
+    </BottomContainer>
   ))
