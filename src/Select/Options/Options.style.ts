@@ -5,6 +5,8 @@ import fontSizes from '../../fontSizes'
 import theme from '../../theme'
 import Option from '../Option'
 
+export const MAX_HEIGHT = 300
+
 export const OptionsContainer = styled.div`
   position: fixed;
   z-index: ${zIndex.highest};
@@ -16,19 +18,26 @@ export const OptionsContainer = styled.div`
   margin-top: -1px;
 
   background-color: ${theme.get('neutralLightest')};
-  border-radius: 0 0 4px 4px;
-  border-top: 1px solid ${theme.get('neutral', { dynamic: true })};
   max-height: 0;
   min-width: ${({ wrapperRect }) => `${wrapperRect.width}px`};
-  top: ${({ wrapperRect }) => `${wrapperRect.top + wrapperRect.height}px`};
   left: ${({ wrapperRect }) => `${wrapperRect.left}px`};
 
   transition: max-height ease-in-out 300ms, opacity ease-in-out 300ms;
 
   &[data-open='true'] {
-    max-height: 324px;
+    max-height: ${({ maxHeight }) => (maxHeight || MAX_HEIGHT) + 24}px;
     opacity: 1;
     pointer-events: unset;
+  }
+  &[data-position='bottom'] {
+    top: ${({ wrapperRect }) => `${wrapperRect.bottom}px`};
+    border-top: 1px solid ${theme.get('neutral', { dynamic: true })};
+    border-radius: 0 0 4px 4px;
+  }
+  &[data-position='top'] {
+    border-radius: 4px 4px 0 0;
+    bottom: ${({ wrapperRect }) => `${window.innerHeight - wrapperRect.top}px`};
+    border-bottom: 1px solid ${theme.get('neutral', { dynamic: true })};
   }
 
   & * {
@@ -41,7 +50,8 @@ export const OptionsContent = styled.ul`
   overflow-y: auto;
   overflow-x: hidden;
   padding: 12px 0;
-  max-height: ${({ noMaxHeight }) => (noMaxHeight ? 'unset' : '300px')};
+  max-height: ${({ noMaxHeight, maxHeight }) =>
+    noMaxHeight ? 'unset' : `${maxHeight || MAX_HEIGHT}px`};
 `
 
 export const OptionsModalContent = styled.div``
