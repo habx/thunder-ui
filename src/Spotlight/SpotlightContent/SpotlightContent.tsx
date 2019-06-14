@@ -65,7 +65,7 @@ const SpotlightContent: React.FunctionComponent<SpotlightContentProps> = ({
     (sectionName: string, itemKey: number) => {
       items.current = {
         ...items.current,
-        [sectionName]: omit(items.current[sectionName], [itemKey]),
+        [sectionName]: omit(items.current[sectionName], [itemKey.toString()]),
       }
     },
     []

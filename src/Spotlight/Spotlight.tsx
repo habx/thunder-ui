@@ -63,7 +63,10 @@ const Spotlight: React.FunctionComponent<SpotlightProps> = ({
           DOUBLE_KEY_PRESS_DURATION
         ) {
           dispatch({ type: 'OPEN' })
-          inputRef.current.focus()
+
+          if (inputRef.current) {
+            inputRef.current.focus()
+          }
 
           if (isFunction(onOpen)) {
             onOpen()
