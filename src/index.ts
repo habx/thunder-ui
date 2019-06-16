@@ -22,7 +22,7 @@ export { default as TabsSeparator } from './TabsSeparator'
 /*
   Actions
  */
-export { default as Button } from './Button'
+export { default as Button, ButtonProps } from './Button'
 export { default as TextButton } from './TextButton'
 export { default as IconButton } from './IconButton'
 export { default as Menu } from './Menu'
@@ -32,12 +32,12 @@ export { default as MenuItem } from './MenuItem'
   Inputs
  */
 export { default as AutoCompleteInput } from './AutoCompleteInput'
-export { default as TextInput } from './TextInput'
+export { default as TextInput, TextInputProps } from './TextInput'
 export { default as TextArea } from './TextArea'
 export { default as Select } from './Select'
 export { default as RadioSelect } from './RadioSelect'
 export { default as Slider } from './Slider'
-export { default as ArrayInput } from './ArrayInput'
+export { default as ArrayInput, ArrayInputProps } from './ArrayInput'
 
 /*
   Miscellaneous
