@@ -27,7 +27,10 @@ export const mapValues = (
   )
 
 export const isFunction = (value: any): value is (...args: any[]) => any =>
-  value && {}.toString.call(value) === '[object Function]'
+  value &&
+  ['[object Function]', '[object AsyncFunction]'].includes(
+    {}.toString.call(value)
+  )
 
 export const isString = (value?: any): value is string =>
   (value || value === '') &&

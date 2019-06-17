@@ -5,12 +5,13 @@ import { styledTheme } from '../_internal/types'
 import { ItemComponentProps } from './Item/Item.interface'
 
 export interface AddButtonComponentProps {
-  onAppend: () => void
+  onAppend: (value?: any) => void
   disabled?: boolean
 }
 
 export default interface ArrayInputProps
   extends React.HTMLAttributes<HTMLUListElement> {
+  error?: boolean
   items?: any[]
   addButtonLabel?: string
   addButtonComponent?: React.ComponentType<AddButtonComponentProps>
@@ -18,7 +19,7 @@ export default interface ArrayInputProps
   disabled?: boolean
   onDelete?: (position: number) => void
   onReorder?: (oldPosition: number, newPosition: number) => void
-  onAppend?: () => void
+  onAppend?: (value?: any) => void
   itemComponent?: React.ComponentType<ItemComponentProps>
   itemTitleComponent?: React.ComponentType<ItemComponentProps>
   renderItem?: (itemProps: ItemComponentProps) => JSX.Element
