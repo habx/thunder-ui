@@ -1,62 +1,74 @@
 /*
   Provider
  */
-export { default as ThunderProvider } from './ThunderProvider'
+export {
+  default as ThunderProvider,
+  ThunderProviderProps,
+} from './ThunderProvider'
 
 /*
   Typography
  */
-export { default as Title } from './Title'
-export { default as FontIcon } from './FontIcon'
+export { default as Title, TitleProps } from './Title'
+export { default as FontIcon, FontIconProps } from './FontIcon'
 
 /*
   Navigation
  */
-export { default as NavBar } from './NavBar'
-export { default as NavBarItem } from './NavBarItem'
-export { default as Tabs } from './Tabs'
-export { default as TabsItem } from './TabsItem'
-export { default as TabsSection } from './TabsSection'
-export { default as TabsSeparator } from './TabsSeparator'
+export { default as NavBar, NavBarProps } from './NavBar'
+export { default as NavBarItem, NavBarItemProps } from './NavBarItem'
+export { default as Tabs, TabsProps } from './Tabs'
+export { default as TabsItem, TabsItemProps } from './TabsItem'
+export { default as TabsSection, TabsSectionProps } from './TabsSection'
+export { default as TabsSeparator, TabsSeparatorProps } from './TabsSeparator'
 
 /*
   Actions
  */
 export { default as Button, ButtonProps } from './Button'
-export { default as TextButton } from './TextButton'
-export { default as IconButton } from './IconButton'
-export { default as Menu } from './Menu'
-export { default as MenuItem } from './MenuItem'
+export { default as TextButton, TextButtonProps } from './TextButton'
+export { default as IconButton, IconButtonProps } from './IconButton'
+export { default as Menu, MenuProps } from './Menu'
+export { default as MenuItem, MenuItemProps } from './MenuItem'
 
 /*
   Inputs
  */
-export { default as AutoCompleteInput } from './AutoCompleteInput'
+export {
+  default as AutoCompleteInput,
+  AutoCompleteInputProps,
+} from './AutoCompleteInput'
 export { default as TextInput, TextInputProps } from './TextInput'
-export { default as TextArea } from './TextArea'
-export { default as Select } from './Select'
-export { default as RadioSelect } from './RadioSelect'
-export { default as Slider } from './Slider'
+export { default as TextArea, TextAreaProps } from './TextArea'
+export { default as Select, SelectProps } from './Select'
+export { default as RadioSelect, RadioSelectProps } from './RadioSelect'
+export { default as Slider, SliderProps } from './Slider'
 export { default as ArrayInput, ArrayInputProps } from './ArrayInput'
 
 /*
   Miscellaneous
  */
-export { default as Tag } from './Tag/index'
-export { default as Notification } from './Notification'
-export { default as Spinner } from './Spinner'
+export { default as Tag, TagProps } from './Tag'
+export { default as Notification, NotificationProps } from './Notification'
+export { default as Spinner, SpinnerProps } from './Spinner'
 
 /*
   Layouts
  */
-export { default as Card } from './Card'
-export { default as Modal } from './Modal'
-export { default as Drawer } from './Drawer'
-export { default as SlideShow } from './SlideShow'
-export { default as List } from './List'
-export { default as ListItem } from './ListItem'
-export { default as ExpansionPanel } from './ExpansionPanel'
-export { default as ExpansionPanelItem } from './ExpansionPanelItem'
+export { default as Card, CardProps } from './Card'
+export { default as Modal, ModalProps } from './Modal'
+export { default as Drawer, DrawerProps } from './Drawer'
+export { default as SlideShow, SlideShowProps } from './SlideShow'
+export { default as List, ListProps } from './List'
+export { default as ListItem, ListItemProps } from './ListItem'
+export {
+  default as ExpansionPanel,
+  ExpansionPanelProps,
+} from './ExpansionPanel'
+export {
+  default as ExpansionPanelItem,
+  ExpansionPanelItemProps,
+} from './ExpansionPanelItem'
 
 /*
   Events
@@ -67,13 +79,23 @@ export { default as notify } from './notify'
 /*
   Spotlight
  */
-export { default as Spotlight } from './Spotlight'
-export { default as SpotlightSection } from './SpotlightSection'
-export { default as SpotlightItem } from './SpotlightItem'
-export { default as SpotlightSectionTitle } from './SpotlightSectionTitle'
-export { default as SpotlightWelcomeMessage } from './SpotlightWelcomeMessage'
+export { default as Spotlight, SpotlightProps } from './Spotlight'
+export {
+  default as SpotlightSection,
+  SpotlightSectionProps,
+} from './SpotlightSection'
+export { default as SpotlightItem, SpotlightItemProps } from './SpotlightItem'
+export {
+  default as SpotlightSectionTitle,
+  SpotlightSectionTitleProps,
+} from './SpotlightSectionTitle'
+export {
+  default as SpotlightWelcomeMessage,
+  SpotlightWelcomeMessageProps,
+} from './SpotlightWelcomeMessage'
 export {
   default as SpotlightSectionPlaceholder,
+  SpotlightSectionPlaceholderProps,
 } from './SpotlightSectionPlaceholder'
 
 /*

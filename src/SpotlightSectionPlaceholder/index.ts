@@ -1,3 +1,7 @@
-import SectionPlaceholder from './SectionPlaceholder'
+import SpotlightSectionPlaceholder from './SpotlightSectionPlaceholder'
 
-export default SectionPlaceholder
+export {
+  default as SpotlightSectionPlaceholderProps,
+} from './SpotlightSectionPlaceholder.interface'
+
+export default SpotlightSectionPlaceholder
