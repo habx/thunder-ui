@@ -31,7 +31,7 @@
       {
         "newlinesBetween": "always",
         "groups": [
-          ["builtin", "external", "internal"],
+          ["module"],
           ["/^@habx/"],
           ["parent"],
           ["sibling", "index"]
