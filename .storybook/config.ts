@@ -1,4 +1,4 @@
-import { configure, addDecorator, addParameters } from '@storybook/react'
+import { configure, addDecorator, addParameters, StoryDecorator } from '@storybook/react'
 import { withInfo } from '@storybook/addon-info'
 import centered from '@storybook/addon-centered'
 import { create } from '@storybook/theming'
@@ -10,7 +10,7 @@ import providerDecorator from './providerDecorator'
 const thunderTheme = process.env.STORYBOOK_THEME === 'dark' ? theme.dark : theme.light
 
 addDecorator(withInfo)
-addDecorator(centered)
+addDecorator(centered as StoryDecorator)
 addDecorator(providerDecorator(thunderTheme.name as 'light' | 'dark'))
 
 addParameters({
