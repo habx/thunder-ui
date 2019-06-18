@@ -29,7 +29,7 @@
     "import-helpers/order-imports": [
       "warn",
       {
-        "newlines-between": "always",
+        "newlinesBetween": "always",
         "groups": [
           ["builtin", "external", "internal"],
           ["/^@habx/"],
