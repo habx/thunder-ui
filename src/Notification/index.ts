@@ -1,3 +1,5 @@
-import Notifcation from './Notification'
+import Notification from './Notification'
 
-export default Notifcation
+export { default as NotificationProps } from './Notification.interface'
+
+export default Notification

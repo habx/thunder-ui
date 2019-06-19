@@ -3,8 +3,10 @@ import styled from 'styled-components'
 
 import theme from '../theme'
 
+import SpotlightWelcomeMessageProps from './SpotlightWelcomeMessage.interface'
+
 const SpotlightWelcomeMessage: React.FunctionComponent<
-  React.HTMLAttributes<HTMLDivElement>
+  SpotlightWelcomeMessageProps
 > = styled.div`
   background-color: ${theme.get('primary')};
   color: ${theme.get('neutralLighter')};
