@@ -108,8 +108,8 @@ const withItemBehavior = <Props extends ItemInjectedProps>(
 
     return (
       <WrappedComponent
-        {...rest as Props}
-        {...wrappedActions as ItemActions}
+        {...(rest as Props)}
+        {...(wrappedActions as ItemActions)}
         selected={selected}
         registerActions={registerActions}
         query={spotlight.query}
