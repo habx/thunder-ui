@@ -13,7 +13,7 @@ export type ModalParams = {
 
 export type ModalState = {
   state: 'opened' | 'closed' | 'opening' | 'closing'
-  close: (e?: Event) => void
+  close: (e?: React.SyntheticEvent<HTMLElement>) => void
   overlayClick: (e: React.MouseEvent<HTMLElement>) => void
   ref: React.RefObject<HTMLDivElement>
 }

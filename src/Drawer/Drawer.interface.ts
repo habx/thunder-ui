@@ -1,14 +1,11 @@
 import * as React from 'react'
 
-interface InjectedRenderProps {
-  state: 'opened' | 'closed' | 'opening' | 'closing'
-  close: (e?: Event) => void
-}
+import { ModalState } from '../_internal/useModal'
 
 export default interface DrawerInterface {
   title?: string
-  children?: React.ReactNode | ((props: InjectedRenderProps) => JSX.Element)
-  closeButton?: React.ReactNode | ((props: InjectedRenderProps) => JSX.Element)
+  children?: React.ReactNode | ((props: ModalState) => JSX.Element)
+  closeButton?: React.ReactNode | ((props: ModalState) => JSX.Element)
   onClose?: (e: React.FormEvent<HTMLInputElement>) => void
   open?: boolean
   portal?: boolean
