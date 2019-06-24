@@ -1,6 +1,7 @@
 import get from 'lodash.get'
 import * as React from 'react'
 
+import { isString } from '../_internal/data'
 import { useIsMounted, useTimeout } from '../_internal/hooks'
 import { subscribe, types } from '../ThunderProvider/ThunderProvider.events'
 
@@ -64,11 +65,7 @@ const NotificationList: React.FunctionComponent<{}> = () => {
   return (
     <NotificationListContainer>
       {notifications.map(notification => {
-        const NotificationContent =
-          notification.message === 'string' ||
-          React.isValidElement(notification.message)
-            ? () => <span>{notification.message}</span>
-            : (notification.message as React.ComponentType<any>)
+        const NotificationContent = notification.message as React.ComponentType
         return (
           <Notification
             key={notification.id}
@@ -77,7 +74,12 @@ const NotificationList: React.FunctionComponent<{}> = () => {
             onClose={() => handleClose(notification)}
             data-closing={!notification.open}
           >
-            <NotificationContent />
+            {isString(notification.message) ||
+            React.isValidElement(notification.message) ? (
+              notification.message
+            ) : (
+              <NotificationContent />
+            )}
           </Notification>
         )
       })}
