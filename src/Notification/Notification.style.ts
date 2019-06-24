@@ -15,7 +15,7 @@ export const NotificationContainer = styled.div`
   box-shadow: ${theme.get('shadow')};
 `
 
-export const NotificationContent = styled.p`
+export const NotificationContent = styled.div`
   margin: 0;
   padding: 0 16px 0 0;
   font-size: ${fontSizes.regular};
