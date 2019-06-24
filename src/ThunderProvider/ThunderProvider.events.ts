@@ -15,7 +15,7 @@ export const subscribe = (messageType, callback) => {
 export const dispatch = (
   messageType: string,
   returnPromise: boolean,
-  message: string | React.ComponentType<any>,
+  message: string | React.ComponentType<any> | React.ReactElement,
   options = {}
 ) => {
   if (isFunction(subscriptions[messageType])) {

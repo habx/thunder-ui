@@ -6,7 +6,7 @@ export type NotificationOptions = {
 }
 
 export type StateNotification = {
-  message: string | React.ComponentType<any>
+  message: string | React.ComponentType<any> | React.ReactElement
   options: NotificationOptions
   open: boolean
   id: number
