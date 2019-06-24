@@ -1,8 +1,12 @@
+import * as React from 'react'
+
 import { dispatch, types } from '../ThunderProvider/ThunderProvider.events'
 
 import { NotificationOptions } from './NotificationList.interface'
 
-const notify = (message: string, options: NotificationOptions = {}) =>
-  dispatch(types.NOTIFY, false, message, options)
+const notify = (
+  message: string | React.ComponentType<any>,
+  options: NotificationOptions = {}
+) => dispatch(types.NOTIFY, false, message, options)
 
 export default notify

@@ -1,3 +1,5 @@
+import * as React from 'react'
+
 import { isFunction } from '../_internal/data'
 
 let subscriptions = {}
@@ -13,7 +15,7 @@ export const subscribe = (messageType, callback) => {
 export const dispatch = (
   messageType: string,
   returnPromise: boolean,
-  message: string,
+  message: string | React.ComponentType<any>,
   options = {}
 ) => {
   if (isFunction(subscriptions[messageType])) {

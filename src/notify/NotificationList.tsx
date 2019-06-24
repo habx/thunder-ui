@@ -63,17 +63,24 @@ const NotificationList: React.FunctionComponent<{}> = () => {
 
   return (
     <NotificationListContainer>
-      {notifications.map(notification => (
-        <Notification
-          key={notification.id}
-          error={get(notification, 'options.type') === 'error'}
-          warning={get(notification, 'options.type') === 'warning'}
-          onClose={() => handleClose(notification)}
-          data-closing={!notification.open}
-        >
-          {notification.message}
-        </Notification>
-      ))}
+      {notifications.map(notification => {
+        const NotificationContent =
+          notification.message === 'string' ||
+          React.isValidElement(notification.message)
+            ? () => <span>{notification.message}</span>
+            : (notification.message as React.ComponentType<any>)
+        return (
+          <Notification
+            key={notification.id}
+            error={get(notification, 'options.type') === 'error'}
+            warning={get(notification, 'options.type') === 'warning'}
+            onClose={() => handleClose(notification)}
+            data-closing={!notification.open}
+          >
+            <NotificationContent />
+          </Notification>
+        )
+      })}
     </NotificationListContainer>
   )
 }
