@@ -11,7 +11,7 @@ export const NotificationContainer = styled.div`
   align-items: flex-start;
   padding: 16px 16px 16px 32px;
   max-width: 500px;
-
+  justify-content: space-between;
   box-shadow: ${theme.get('shadow')};
 `
 
@@ -29,4 +29,5 @@ export const CloseContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  justify-self: flex-end;
 `
