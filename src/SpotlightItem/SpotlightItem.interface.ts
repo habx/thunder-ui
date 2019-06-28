@@ -1,6 +1,7 @@
 import * as React from 'react'
 
-export default interface ItemProps extends React.HTMLAttributes<HTMLLIElement> {
+export default interface ItemProps
+  extends React.LiHTMLAttributes<HTMLLIElement> {
   index: number
   title: string
   subtitle?: string

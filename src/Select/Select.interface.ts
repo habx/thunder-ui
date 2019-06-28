@@ -1,12 +1,10 @@
 import * as React from 'react'
 
-import { Input, formOption, styledTheme } from '../_internal/types'
-
-type S = React.HTMLAttributes<HTMLElement>
+import { Input, formOption, styledTheme, Except } from '../_internal/types'
 
 export default interface SelectProps
   extends Input<any>,
-    Pick<S, Exclude<keyof S, keyof Input<any>>> {
+    Except<React.SelectHTMLAttributes<HTMLSelectElement>, keyof Input<any>> {
   options: any[]
   description?: string
   placeholderClassName?: string

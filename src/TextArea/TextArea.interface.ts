@@ -1,11 +1,12 @@
 import * as React from 'react'
 
-import { Input } from '../_internal/types'
-
-type Base = React.TextareaHTMLAttributes<HTMLTextAreaElement>
+import { Except, Input } from '../_internal/types'
 
 export default interface TextAreaProps
   extends Input<string | number>,
-    Pick<Base, Exclude<keyof Base, 'value' | 'onChange'>> {
+    Except<
+      React.TextareaHTMLAttributes<HTMLTextAreaElement>,
+      keyof Input<any>
+    > {
   small?: boolean
 }

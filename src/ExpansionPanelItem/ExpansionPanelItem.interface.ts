@@ -3,7 +3,7 @@ import * as React from 'react'
 import { styledTheme } from '../_internal/types'
 
 export default interface ExpansionPanelItem
-  extends React.HTMLAttributes<HTMLLIElement> {
+  extends React.LiHTMLAttributes<HTMLLIElement> {
   title?: string
   header?: React.ReactNode
   error?: boolean

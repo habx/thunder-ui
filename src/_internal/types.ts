@@ -2,6 +2,11 @@ import * as React from 'react'
 
 import ThunderUITheme from '../theme/theme.interface'
 
+export type Except<BaseType, ExcludedElements> = Pick<
+  BaseType,
+  Exclude<keyof BaseType, ExcludedElements>
+>
+
 export type formOption = { value: any; label: string }
 
 export type formValue = formOption | string | number
@@ -26,7 +31,7 @@ export interface Input<valueType> {
   color?: string
 }
 
-export interface Button extends React.HTMLAttributes<HTMLButtonElement> {
+export interface Button extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   error?: boolean
   warning?: boolean
   info?: boolean
@@ -36,6 +41,4 @@ export interface Button extends React.HTMLAttributes<HTMLButtonElement> {
 
   color?: string
   hoverColor?: string
-
-  type?: string
 }
