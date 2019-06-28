@@ -1,11 +1,10 @@
 import * as React from 'react'
 
+import { Except } from '../_internal/types'
 import { SpotlightContextProps } from '../Spotlight/Spotlight.interface'
 
-type D = React.HTMLAttributes<HTMLDivElement>
-
 export default interface SpotlightSectionProps
-  extends Pick<D, Exclude<keyof D, 'title'>> {
+  extends Except<React.HTMLAttributes<HTMLDivElement>, 'title'> {
   name: string
   title?: React.ReactNode
   maxItems?: number

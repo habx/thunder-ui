@@ -1,12 +1,10 @@
 import * as React from 'react'
 
-import { Input, styledTheme } from '../_internal/types'
-
-type Base = React.HTMLAttributes<HTMLInputElement>
+import { Except, Input, styledTheme } from '../_internal/types'
 
 export default interface TextInputProps
   extends Input<string | number>,
-    Pick<Base, Exclude<keyof Base, 'value' | 'onChange'>> {
+    Except<React.InputHTMLAttributes<HTMLInputElement>, keyof Input<any>> {
   rightElement?: React.ReactNode
   rightHoverElement?: React.ReactNode
   borderColor?: string

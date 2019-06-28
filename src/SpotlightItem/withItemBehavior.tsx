@@ -1,6 +1,7 @@
 import * as React from 'react'
 
 import { mapValues } from '../_internal/data'
+import { Except } from '../_internal/types'
 import SpotlightContext from '../Spotlight/Spotlight.context'
 import SpotlightSectionContext from '../SpotlightSection/SpotlightSection.context'
 
@@ -60,8 +61,7 @@ const withItemBehavior = <Props extends ItemInjectedProps>(
   WrappedComponent: React.ComponentType<Props>
 ) => {
   const Component: React.FunctionComponent<
-    Pick<Props, Exclude<keyof Props, keyof ItemInjectedProps>> &
-      ItemReceivedProps
+    Except<Props, keyof ItemInjectedProps> & ItemReceivedProps
   > = props => {
     const {
       index,

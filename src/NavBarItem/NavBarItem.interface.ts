@@ -1,7 +1,7 @@
 import * as React from 'react'
 
 export default interface NavBarItemProps
-  extends React.HTMLAttributes<HTMLLIElement> {
+  extends React.LiHTMLAttributes<HTMLLIElement> {
   backgroundColor?: string
   activeBackgroundColor?: string
   icon?: React.ReactNode

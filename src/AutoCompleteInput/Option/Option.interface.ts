@@ -1,7 +1,7 @@
 import * as React from 'react'
 
 export default interface OptionProps
-  extends React.HTMLAttributes<HTMLLIElement> {
+  extends React.LiHTMLAttributes<HTMLLIElement> {
   focused: boolean
   label: string
 }

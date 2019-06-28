@@ -1,6 +1,7 @@
 import { storiesOf } from '@storybook/react'
 import * as React from 'react'
 
+import { Except } from '../_internal/types'
 import colors from '../colors'
 
 import RadioSelect from './RadioSelect'
@@ -8,7 +9,7 @@ import { simpleOptions, cardinalPoints, manyOptions } from './RadioSelect.data'
 import RadioSelectProps from './RadioSelect.interface'
 
 const RadioSelectWithState: React.FunctionComponent<
-  Pick<RadioSelectProps, Exclude<keyof RadioSelectProps, 'onChange'>>
+  Except<RadioSelectProps, 'onChange'>
 > = ({ value, ...props }) => {
   const [localValue, setLocalValue] = React.useState(value)
 
