@@ -5,7 +5,7 @@ import sinon from 'sinon'
 import Select from './Select'
 import { longData } from './Select.data'
 
-import 'jest-dom/extend-expect'
+import '@testing-library/jest-dom/extend-expect'
 
 const renderOpenedSelect = element => {
   const result = render(element)

@@ -3,7 +3,7 @@ import * as React from 'react'
 
 import Slider from './Slider'
 
-import 'jest-dom/extend-expect'
+import '@testing-library/jest-dom/extend-expect'
 
 describe('Slider component', () => {
   describe('UI: range = false', () => {
