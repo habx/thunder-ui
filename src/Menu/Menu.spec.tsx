@@ -5,7 +5,7 @@ import Button from '../Button'
 import MenuItem from '../MenuItem'
 
 import Menu from './Menu'
-import 'jest-dom/extend-expect'
+import '@testing-library/jest-dom/extend-expect'
 
 describe('Menu component', () => {
   it('should render the trigger element', () => {

@@ -6,7 +6,7 @@ import * as validityCheck from '../_internal/validityCheck'
 import ExpansionPanelItem from '../ExpansionPanelItem'
 
 import ExpansionPanel from './index'
-import 'jest-dom/extend-expect'
+import '@testing-library/jest-dom/extend-expect'
 
 jest.useFakeTimers()
 const sinonSandbox = sinon.createSandbox()
