@@ -44,6 +44,7 @@ export { default as Select, SelectProps } from './Select'
 export { default as RadioSelect, RadioSelectProps } from './RadioSelect'
 export { default as Slider, SliderProps } from './Slider'
 export { default as ArrayInput, ArrayInputProps } from './ArrayInput'
+export { default as Checkbox } from './Checkbox'
 
 /*
   Miscellaneous

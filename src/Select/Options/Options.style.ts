@@ -51,7 +51,9 @@ export const OptionsContent = styled.ul`
   overflow-x: hidden;
   padding: 12px 0;
   max-height: ${({ noMaxHeight, maxHeight }) =>
-    noMaxHeight ? 'unset' : `${maxHeight || MAX_HEIGHT}px`};
+    noMaxHeight
+      ? 'unset'
+      : `${maxHeight < MAX_HEIGHT ? maxHeight : MAX_HEIGHT}px`};
 `
 
 export const OptionsModalContent = styled.div``
