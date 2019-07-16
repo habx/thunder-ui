@@ -24,6 +24,8 @@ const TextInput: React.ComponentType<
     disabled,
     placeholder,
     small,
+    className,
+    style,
     ...rest
   } = props
 
@@ -32,7 +34,11 @@ const TextInput: React.ComponentType<
   ])
 
   return (
-    <InputContainer {...rest} data-disabled={disabled}>
+    <InputContainer
+      className={className}
+      style={style}
+      data-disabled={disabled}
+    >
       <Input
         value={value}
         onChange={handleChange}
@@ -41,6 +47,7 @@ const TextInput: React.ComponentType<
         disabled={disabled}
         placeholder={placeholder}
         small={small}
+        {...rest}
       />
       {loading && <InputSpinner size={small ? 15 : 18} />}
       {rightHoverElement && (
