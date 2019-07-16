@@ -13,7 +13,7 @@ const Tag: React.FunctionComponent<TagProps> = styled.div`
 
   padding: 2px 16px;
   border-radius: 12px;
-  display: flex;
+  display: inline-flex;
   justify-content: center;
   align-items: center;
 
