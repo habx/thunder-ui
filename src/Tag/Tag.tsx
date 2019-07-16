@@ -12,8 +12,10 @@ const Tag: React.FunctionComponent<TagProps> = styled.div`
     color || generateColorFromSeed(colorSeed)};
 
   padding: 2px 16px;
-  display: inline;
   border-radius: 12px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
 
   font-weight: ${({ bold }) => (bold ? 'bold' : 'normal')};
 

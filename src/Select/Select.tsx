@@ -27,13 +27,6 @@ import {
 const FORMAT_VALUE_FULL = 'full'
 const FORMAT_VALUE_SIMPLE = 'simple'
 
-const INITIAL_STATE = {
-  isOpened: false,
-  query: '',
-  focusedItem: null,
-  wrapperRect: typeof DOMRect === 'function' ? new DOMRect() : ssrDOMRect,
-}
-
 const useOptions = ({ rawOptions }) =>
   React.useMemo(() => {
     if (!rawOptions) {
@@ -169,6 +162,9 @@ const BaseSelect: React.FunctionComponent<SelectInnerProps> = ({
       }
 
       case 'ADD_FOCUS_ITEM': {
+        if (!action.value) {
+          return state
+        }
         return { ...state, focusedItem: action.value }
       }
 
@@ -185,10 +181,15 @@ const BaseSelect: React.FunctionComponent<SelectInnerProps> = ({
     }
   }
 
-  const [state, dispatch] = React.useReducer(reducer, INITIAL_STATE) as [
-    SelectState,
-    any
-  ]
+  const [state, dispatch] = React.useReducer(reducer, {
+    isOpened: false,
+    query: '',
+    wrapperRect: typeof DOMRect === 'function' ? new DOMRect() : ssrDOMRect,
+    focusedItem:
+      rawValueFormat === 'simple'
+        ? get(rawValue, 'value') || rawValue
+        : rawValue,
+  }) as [SelectState, any]
 
   const options = useOptions({ rawOptions })
   const value = useValue({ rawValue, multi, options })
@@ -218,8 +219,9 @@ const BaseSelect: React.FunctionComponent<SelectInnerProps> = ({
     option => {
       const cleanOption = getCleanValue(option)
       onChange(cleanOption)
+      dispatch({ type: 'ADD_FOCUS_ITEM', value: cleanOption })
     },
-    [getCleanValue, onChange]
+    [dispatch, getCleanValue, onChange]
   )
 
   const handleSelectMulti = React.useCallback(
@@ -283,7 +285,10 @@ const BaseSelect: React.FunctionComponent<SelectInnerProps> = ({
 
       if (state.isOpened) {
         const focusedIndex = visibleOptions.findIndex(
-          el => el === state.focusedItem
+          el =>
+            el === state.focusedItem ||
+            get(state, 'focusedItem.value') === get(el, 'value') ||
+            get(el, 'value') === state.focusedItem
         )
 
         if (key === 'ArrowDown' && focusedIndex < options.length) {
@@ -319,6 +324,7 @@ const BaseSelect: React.FunctionComponent<SelectInnerProps> = ({
     dispatch,
     handleSelect,
     options,
+    state,
     state.focusedItem,
     state.isOpened,
     visibleOptions,
