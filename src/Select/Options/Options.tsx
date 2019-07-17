@@ -37,17 +37,25 @@ const Options: React.FunctionComponent<OptionsProps> = ({
   wrapperRect,
 }) => {
   const isSmallScreen = useIsSmallScreen()
-  const position =
-    isClientSide() &&
-    !isSmallScreen &&
-    wrapperRect.top + MAX_HEIGHT > window.innerHeight &&
-    wrapperRect.top - MAX_HEIGHT > 0
+  const position = React.useMemo(() => {
+    if (!open) {
+      return 'bottom'
+    }
+    return isClientSide() &&
+      !isSmallScreen &&
+      wrapperRect.top + MAX_HEIGHT > window.innerHeight &&
+      wrapperRect.top - MAX_HEIGHT > 0
       ? 'top'
       : 'bottom'
-  const maxHeight =
-    position === 'bottom'
-      ? window.innerHeight - wrapperRect.top - wrapperRect.height - 32
-      : null
+  }, [isSmallScreen, open]) // eslint-disable-line
+
+  const maxHeight = React.useMemo(
+    () =>
+      position === 'bottom' && open
+        ? window.innerHeight - wrapperRect.top - wrapperRect.height - 32
+        : null,
+    [open, position] // eslint-disable-line
+  )
   const content = (
     <OptionsContent noMaxHeight={isSmallScreen} maxHeight={maxHeight}>
       {description && (
@@ -102,7 +110,7 @@ const Options: React.FunctionComponent<OptionsProps> = ({
       data-testid="options-container"
       data-open={open}
       data-position={position}
-      wrapperRect={wrapperRect}
+      wrapperRect={open ? wrapperRect : {}}
       maxHeight={maxHeight}
     >
       {content}
