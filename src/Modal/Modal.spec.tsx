@@ -1,4 +1,4 @@
-import { render, within, act } from '@testing-library/react'
+import { render, within, act, fireEvent } from '@testing-library/react'
 import * as React from 'react'
 import sinon from 'sinon'
 
@@ -8,9 +8,51 @@ jest.useFakeTimers()
 
 describe('Modal component', () => {
   describe('with react node children', () => {
-    it('should pass children', () => {
+    it('should not render if not opened once', () => {
       const { queryByTestId } = render(
-        <Modal onClick={() => null}>
+        <Modal onClose={() => null}>
+          <div data-testid="content">CONTENT</div>
+        </Modal>
+      )
+
+      const modalContainer = queryByTestId('modal-container')
+
+      expect(modalContainer).toBeNull()
+    })
+    it('should render if opened once', () => {
+      const { queryByTestId, getByTestId } = render(
+        <Modal
+          onClose={() => null}
+          triggerElement={
+            <button data-testid="modal-trigger-element">show</button>
+          }
+        >
+          <div data-testid="content">CONTENT</div>
+        </Modal>
+      )
+
+      fireEvent.click(getByTestId('modal-trigger-element'))
+      fireEvent.click(getByTestId('modal-overlay'))
+
+      const modalContainer = queryByTestId('modal-container')
+
+      expect(modalContainer).toBeTruthy()
+      expect(within(modalContainer).queryByTestId('content')).toBeTruthy()
+    })
+    it('should not render if not opened once', () => {
+      const { queryByTestId } = render(
+        <Modal onClose={() => null}>
+          <div data-testid="content">CONTENT</div>
+        </Modal>
+      )
+
+      const modalContainer = queryByTestId('modal-container')
+
+      expect(modalContainer).toBeNull()
+    })
+    it('should render children if prop', () => {
+      const { queryByTestId } = render(
+        <Modal onClick={() => null} alwaysRenderChildren>
           <div data-testid="content">CONTENT</div>
         </Modal>
       )

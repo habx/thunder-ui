@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
-import zIndex from '../_internal/zIndex'
 import BaseNotification from '../Notification'
+import zIndex from '../zIndex'
 
 export const ANIMATION_DURATION = 500
 

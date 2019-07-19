@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
-import zIndex from '../_internal/zIndex'
 import theme from '../theme'
+import zIndex from '../zIndex'
 
 export const AutoCompleteInputContainer = styled.span``
 

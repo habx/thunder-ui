@@ -24,6 +24,7 @@ const Modal: React.FunctionComponent<ModalProps> = ({
   portal,
   persistent,
   onClose,
+  alwaysRenderChildren,
   ...props
 }) => {
   const modal = useModal({
@@ -40,6 +41,7 @@ const Modal: React.FunctionComponent<ModalProps> = ({
         data-state={modal.state}
         data-animated={animated}
         onClick={modal.overlayClick}
+        data-testid="modal-overlay"
       >
         <ModalCard
           data-testid="modal-container"
@@ -55,12 +57,17 @@ const Modal: React.FunctionComponent<ModalProps> = ({
               {closeButton}
             </CloseButtonContainer>
           )}
+
           {isFunction(children) ? children(modal as ModalState) : children}
         </ModalCard>
       </Overlay>
       {open && <RemoveBodyScroll />}
     </React.Fragment>
   )
+
+  if (!alwaysRenderChildren && !modal.hasAlreadyBeenOpened) {
+    return null
+  }
 
   if (portal && isClientSide()) {
     return createPortal(modalContent, document.body)

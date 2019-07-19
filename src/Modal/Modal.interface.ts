@@ -12,4 +12,5 @@ export default interface ModalProps extends CardProps {
   onClose?: (e: React.SyntheticEvent<HTMLElement>) => void
   animated?: boolean
   portal?: boolean
+  alwaysRenderChildren?: boolean
 }
