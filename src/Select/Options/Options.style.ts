@@ -53,7 +53,7 @@ export const OptionsContent = styled.ul`
   max-height: ${({ noMaxHeight, maxHeight }) =>
     noMaxHeight
       ? 'unset'
-      : `${maxHeight < MAX_HEIGHT ? maxHeight : MAX_HEIGHT}px`};
+      : `${maxHeight && maxHeight < MAX_HEIGHT ? maxHeight : MAX_HEIGHT}px`};
 `
 
 export const OptionsModalContent = styled.div``

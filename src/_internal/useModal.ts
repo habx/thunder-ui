@@ -16,6 +16,7 @@ export type ModalState = {
   close: (e?: React.SyntheticEvent<HTMLElement>) => void
   overlayClick: (e: React.MouseEvent<HTMLElement>) => void
   ref: React.RefObject<HTMLDivElement>
+  hasAlreadyBeenOpened: boolean
 }
 
 const ESCAPE_KEY = 27
@@ -42,7 +43,7 @@ const useModal = ({
   if (!hasAlreadyRendered.current && animated) {
     params.open = false
   }
-
+  const [hasAlreadyBeenOpened, setHasAlreadyBeenOpened] = React.useState(false)
   const [isLocalOpened, setLocalOpened] = React.useState(false)
 
   React.useEffect(() => {
@@ -120,11 +121,18 @@ const useModal = ({
     return 'opened'
   }, [isLocalOpened, params.open])
 
+  React.useEffect(() => {
+    if (restParams.open) {
+      setHasAlreadyBeenOpened(true)
+    }
+  }, [restParams.open])
+
   return {
     state,
     close: handleClose,
     overlayClick: handleOverlayClick,
     ref: domRef,
+    hasAlreadyBeenOpened,
   }
 }
 
