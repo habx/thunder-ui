@@ -9,7 +9,7 @@ export type Except<BaseType, ExcludedElements> = Pick<
 
 export type formOption = { value: any; label: string }
 
-export type formValue = formOption | string | number
+export type formValue = formOption | string | number | boolean
 
 export type styledTheme = {
   thunderUI: ThunderUITheme

@@ -1,61 +1,55 @@
+import { action } from '@storybook/addon-actions'
 import { withKnobs, boolean } from '@storybook/addon-knobs'
 import { storiesOf } from '@storybook/react'
 import * as React from 'react'
 
-import colors from '../colors'
+import StorybookGallery from '../_internal/StorybookGallery'
 import FontIcon from '../FontIcon'
 
-import IconButton from './index'
+import RawButton from './IconButton'
+import IconButtonProps from './IconButton.interface'
 
-const props = () => ({
-  disabled: boolean('Disabled', false),
-  small: boolean('Small', false),
-  large: boolean('Large', false),
-  error: boolean('Error', false),
-  warning: boolean('Warning', false),
-})
+const IconButton: React.FunctionComponent<IconButtonProps> = props => (
+  <RawButton onClick={action('onClick')} {...props}>
+    <FontIcon
+      icon="delete"
+      color="white"
+      size={props.small ? 16 : props.large ? 32 : 24}
+    />
+  </RawButton>
+)
 
 storiesOf('Actions|IconButton', module)
   .addDecorator(withKnobs)
-  .add('full example', () => {
-    const storyProps = props()
-    return (
-      <IconButton {...storyProps}>
-        <FontIcon
-          icon="delete"
-          color="white"
-          size={storyProps.small ? 16 : storyProps.large ? 32 : 24}
-        />
-      </IconButton>
-    )
-  })
-  .add('disabled', () => (
-    <IconButton disabled>
-      <FontIcon icon="delete" color="white" />
-    </IconButton>
+  .add('gallery', () => (
+    <StorybookGallery
+      renderLine={lineProps => (
+        <React.Fragment>
+          <IconButton {...lineProps}>Submit</IconButton>
+          <IconButton {...lineProps} error>
+            Submit
+          </IconButton>
+          <IconButton {...lineProps} warning>
+            Submit
+          </IconButton>
+          <IconButton {...lineProps} disabled>
+            Submit
+          </IconButton>
+        </React.Fragment>
+      )}
+      lines={[
+        { title: 'Regular', props: {} },
+        { title: 'Small', props: { small: true } },
+        { title: 'Large', props: { large: true } },
+      ]}
+    />
   ))
-  .add('small', () => (
-    <IconButton small>
-      <FontIcon icon="delete" color="white" size={16} />
-    </IconButton>
-  ))
-  .add('large', () => (
-    <IconButton large>
-      <FontIcon icon="delete" color="white" size={32} />
-    </IconButton>
-  ))
-  .add('error', () => (
-    <IconButton error>
-      <FontIcon icon="delete" color="white" />
-    </IconButton>
-  ))
-  .add('warning', () => (
-    <IconButton warning>
-      <FontIcon icon="delete" color="white" />
-    </IconButton>
-  ))
-  .add('with manual color', () => (
-    <IconButton color={colors.maastrichtBlue}>
-      <FontIcon icon="delete" color="white" />
-    </IconButton>
+  .add('dynamic', () => (
+    <IconButton
+      disabled={boolean('Disabled', false)}
+      small={boolean('Small', false)}
+      large={boolean('Large', false)}
+      error={boolean('Error', false)}
+      warning={boolean('Warning', false)}
+    />
   ))

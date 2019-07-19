@@ -1,31 +1,50 @@
+import { action } from '@storybook/addon-actions'
 import { withKnobs, boolean } from '@storybook/addon-knobs'
 import { storiesOf } from '@storybook/react'
 import * as React from 'react'
 
-import colors from '../colors'
+import StorybookGallery from '../_internal/StorybookGallery'
 
-import TextButton from './index'
+import RawButton from './TextButton'
+import TextButtonProps from './TextButton.interface'
 
-const props = () => ({
-  disabled: boolean('Disabled', false),
-  small: boolean('Small', false),
-  large: boolean('Large', false),
-  error: boolean('Error', false),
-  warning: boolean('Warning', false),
-})
+const IconButton: React.FunctionComponent<TextButtonProps> = props => (
+  <RawButton onClick={action('onClick')} {...props}>
+    Submit
+  </RawButton>
+)
 
 storiesOf('Actions|TextButton', module)
   .addDecorator(withKnobs)
-  .add('full example', () => (
-    <TextButton {...props()}>Click on me !</TextButton>
+  .add('gallery', () => (
+    <StorybookGallery
+      renderLine={lineProps => (
+        <React.Fragment>
+          <IconButton {...lineProps}>Submit</IconButton>
+          <IconButton {...lineProps} error>
+            Submit
+          </IconButton>
+          <IconButton {...lineProps} warning>
+            Submit
+          </IconButton>
+          <IconButton {...lineProps} disabled>
+            Submit
+          </IconButton>
+        </React.Fragment>
+      )}
+      lines={[
+        { title: 'Regular', props: {} },
+        { title: 'Small', props: { small: true } },
+        { title: 'Large', props: { large: true } },
+      ]}
+    />
   ))
-  .add('disabled', () => (
-    <TextButton disabled>{"Don't click one me !"}</TextButton>
-  ))
-  .add('small', () => <TextButton small>Click on me !</TextButton>)
-  .add('large', () => <TextButton large>Click on me !</TextButton>)
-  .add('error', () => <TextButton error>Click on me !</TextButton>)
-  .add('warning', () => <TextButton warning>Click on me !</TextButton>)
-  .add('with manual color', () => (
-    <TextButton color={colors.brightCerualean}>Click on me !</TextButton>
+  .add('dynamic', () => (
+    <IconButton
+      disabled={boolean('Disabled', false)}
+      small={boolean('Small', false)}
+      large={boolean('Large', false)}
+      error={boolean('Error', false)}
+      warning={boolean('Warning', false)}
+    />
   ))

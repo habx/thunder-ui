@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components'
+import styled from 'styled-components'
 
 import borderRadius from '../borderRadius'
 import { FontIconContainer } from '../FontIcon/FontIcon.style'
@@ -48,7 +48,6 @@ export const ButtonContainer = styled.button.attrs(prepareProps)`
   vertical-align: middle;
   text-align: left;
   text-decoration: none;
-  line-height: 22px;
   color: ${({ textColor }) => textColor};
 
   background-color: ${({ backgroundColor }) => backgroundColor};
@@ -56,6 +55,22 @@ export const ButtonContainer = styled.button.attrs(prepareProps)`
   transition: background-color 150ms ease-in-out;
 
   margin: 0 4px;
+  padding: 12px 20px;
+  font-size: ${fontSizes.regular};
+  line-height: 1.17;
+
+  &[data-small='true'] {
+    padding: 6px 16px;
+    font-size: ${fontSizes.small};
+    line-height: 1.25;
+    border-radius: ${borderRadius.round};
+  }
+
+  &[data-large='true'] {
+    padding: 16px 24px;
+    font-size: ${fontSizes.large};
+    line-height: 1.11;
+  }
 
   &:hover,
   &:active {
@@ -68,38 +83,11 @@ export const ButtonContainer = styled.button.attrs(prepareProps)`
 
   &:disabled {
     pointer-events: none;
-    ${({ loading }) =>
-      !loading &&
-      css`
-        filter: grayscale();
-      `}}
+
+    &:not([data-loading='true']) {
+      filter: grayscale();
+    }
   }
-
-  ${({ small }) =>
-    small &&
-    css`
-      padding: 6px 16px;
-      font-size: ${fontSizes.small};
-      line-height: 1.25;
-      border-radius: ${borderRadius.round};
-    `};
-
-  ${({ large }) =>
-    large &&
-    css`
-      padding: 16px 24px;
-      font-size: ${fontSizes.large};
-      line-height: 1.11;
-    `};
-
-  ${({ small, large }) =>
-    !small &&
-    !large &&
-    css`
-      padding: 12px 20px;
-      font-size: ${fontSizes.regular};
-      line-height: 1.17;
-    `};
 
   ${FontIconContainer} {
     font-size: 18px;
