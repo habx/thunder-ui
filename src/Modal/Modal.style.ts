@@ -1,9 +1,9 @@
 import styled, { createGlobalStyle } from 'styled-components'
 
 import { FADE_IN } from '../_internal/animations'
-import zIndex from '../_internal/zIndex'
 import Card from '../Card'
 import theme from '../theme'
+import zIndex from '../zIndex'
 
 export const ANIMATION_DURATION = 300
 

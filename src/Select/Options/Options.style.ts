@@ -1,8 +1,8 @@
 import styled from 'styled-components'
 
-import zIndex from '../../_internal/zIndex'
 import fontSizes from '../../fontSizes'
 import theme from '../../theme'
+import zIndex from '../../zIndex'
 import Option from '../Option'
 
 export const MAX_HEIGHT = 300

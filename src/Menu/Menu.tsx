@@ -21,6 +21,7 @@ const Menu: React.FunctionComponent<MenuProps> = ({
   position,
   persistent,
   portal,
+  alwaysRenderChildren,
   ...props
 }) => {
   const wrapperRef = React.useRef(null)

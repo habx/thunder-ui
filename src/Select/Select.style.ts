@@ -1,9 +1,9 @@
 import styled from 'styled-components'
 
-import zIndex from '../_internal/zIndex'
 import FontIcon from '../FontIcon'
 import fontSizes from '../fontSizes'
 import theme from '../theme'
+import zIndex from '../zIndex'
 
 export const SelectContainer = styled.div`
   position: relative;

@@ -24,6 +24,7 @@ const Drawer: React.FunctionComponent<DrawerProps> = ({
   portal,
   onClose,
   contentContainerComponent,
+  alwaysRenderChildren,
   ...props
 }) => {
   const modal = useModal({
@@ -53,6 +54,10 @@ const Drawer: React.FunctionComponent<DrawerProps> = ({
       </DrawerContainer>
     </Overlay>
   )
+
+  if (!alwaysRenderChildren && !modal.hasAlreadyBeenOpened) {
+    return null
+  }
 
   if (portal && isClientSide()) {
     return createPortal(drawerContent, document.body)

@@ -1,8 +1,8 @@
 import styled from 'styled-components'
 
-import zIndex from '../_internal/zIndex'
 import theme from '../theme'
 import Title from '../Title'
+import zIndex from '../zIndex'
 
 export const ANIMATION_DURATION = 200
 
