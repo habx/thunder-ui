@@ -11,7 +11,7 @@ interface StorybookGalleryProps {
 const StorybookGalleryContainer = styled.div`
   display: flex;
   flex-direction: column;
-  margin-top: 24px;
+  margin: 24px;
 `
 
 const StorybookGalleryLine = styled.div``

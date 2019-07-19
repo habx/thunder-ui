@@ -26,6 +26,7 @@ const TextInput: React.ComponentType<
     small,
     className,
     style,
+    error,
     ...rest
   } = props
 
@@ -38,6 +39,7 @@ const TextInput: React.ComponentType<
       className={className}
       style={style}
       data-disabled={disabled}
+      error={error}
     >
       <Input
         value={value}
