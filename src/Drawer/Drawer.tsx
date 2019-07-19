@@ -36,7 +36,11 @@ const Drawer: React.FunctionComponent<DrawerProps> = ({
   })
 
   const drawerContent = (
-    <Overlay data-state={modal.state} onClick={modal.overlayClick}>
+    <Overlay
+      data-state={modal.state}
+      onClick={modal.overlayClick}
+      data-testid="drawer-overlay"
+    >
       <DrawerContainer
         data-testid="drawer-container"
         data-state={modal.state}

@@ -41,6 +41,7 @@ const Modal: React.FunctionComponent<ModalProps> = ({
         data-state={modal.state}
         data-animated={animated}
         onClick={modal.overlayClick}
+        data-testid="modal-overlay"
       >
         <ModalCard
           data-testid="modal-container"
