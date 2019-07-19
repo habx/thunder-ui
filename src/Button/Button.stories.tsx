@@ -6,9 +6,12 @@ import * as React from 'react'
 import StorybookGallery from '../_internal/StorybookGallery'
 import FontIcon from '../FontIcon'
 
-import RawButton from './index'
+import RawButton from './Button'
+import ButtonProps from './Button.interface'
 
-const Button = props => <RawButton onClick={action('onClick')} {...props} />
+const Button: React.FunctionComponent<ButtonProps> = props => (
+  <RawButton onClick={action('onClick')} {...props} />
+)
 
 storiesOf('Actions|Button', module)
   .addDecorator(withKnobs)

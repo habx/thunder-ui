@@ -36,6 +36,9 @@ const IconButton: React.FunctionComponent<
   height: ${({ diameter }) => diameter}px;
   width: ${({ diameter }) => diameter}px;
   border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   background-color: ${({ color }) => color};
   box-shadow: ${theme.get('shadowLight')};
