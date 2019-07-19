@@ -1,21 +1,24 @@
+import { withKnobs, boolean } from '@storybook/addon-knobs'
 import { storiesOf } from '@storybook/react'
 import * as React from 'react'
 
-import { Except } from '../_internal/types'
-import colors from '../colors'
+import { isNil } from '../_internal/data'
+import StorybookGallery from '../_internal/StorybookGallery'
 
-import RadioSelect from './RadioSelect'
-import { simpleOptions, cardinalPoints, manyOptions } from './RadioSelect.data'
-import RadioSelectProps from './RadioSelect.interface'
+import RawRadioSelect from './RadioSelect'
+import { booleanOptions, cardinalPoints, manyOptions } from './RadioSelect.data'
 
-const RadioSelectWithState: React.FunctionComponent<
-  Except<RadioSelectProps, 'onChange'>
-> = ({ value, ...props }) => {
-  const [localValue, setLocalValue] = React.useState(value)
+const RadioSelect = ({ value = null, options = booleanOptions, ...props }) => {
+  const realValue = isNil(value) ? options[0].value : value
+
+  const [localValue, setLocalValue] = React.useState(
+    props.multi ? [realValue] : realValue
+  )
 
   return (
-    <RadioSelect
+    <RawRadioSelect
       {...props}
+      options={options}
       onChange={val => setLocalValue(val)}
       value={localValue}
     />
@@ -23,36 +26,41 @@ const RadioSelectWithState: React.FunctionComponent<
 }
 
 storiesOf('Inputs|RadioSelect', module)
-  .add('basic', () => (
-    <RadioSelectWithState value={1} options={simpleOptions} />
-  ))
-  .add('disabled', () => (
-    <RadioSelectWithState value={1} options={simpleOptions} disabled />
-  ))
-  .add('error', () => (
-    <RadioSelectWithState value={1} options={simpleOptions} error />
-  ))
-  .add('with custom color', () => (
-    <RadioSelectWithState
-      value={1}
-      options={simpleOptions}
-      color={colors.maastrichtBlue}
+  .addDecorator(withKnobs)
+  .add('gallery', () => (
+    <StorybookGallery
+      renderLine={lineProps => (
+        <React.Fragment>
+          <RadioSelect {...lineProps} />
+          <RadioSelect {...lineProps} error />
+          <RadioSelect {...lineProps} disabled />
+        </React.Fragment>
+      )}
+      lines={[
+        {
+          title: 'Boolean',
+          props: { options: booleanOptions, canBeEmpty: false },
+        },
+        {
+          title: 'Cardinal points',
+          props: { options: cardinalPoints, canBeEmpty: false },
+        },
+        {
+          title: 'Cardinal points (can be empty)',
+          props: { options: cardinalPoints },
+        },
+        {
+          title: 'Many options (multi)',
+          props: { options: manyOptions, canBeEmpty: false, multi: true },
+        },
+      ]}
     />
   ))
-  .add("can't be empty", () => (
-    <RadioSelectWithState
-      value={1}
-      options={simpleOptions}
-      canBeEmpty={false}
-    />
-  ))
-  .add('with many option', () => (
-    <RadioSelectWithState value={4} options={manyOptions} />
-  ))
-  .add('with multi selection', () => (
-    <RadioSelectWithState
-      value={['E', 'W', 'S']}
-      options={cardinalPoints}
-      multi
+  .add('dynamic', () => (
+    <RadioSelect
+      disabled={boolean('Disabled', false)}
+      error={boolean('Error', false)}
+      canBeEmpty={boolean('Can be empty', false)}
+      options={booleanOptions}
     />
   ))
