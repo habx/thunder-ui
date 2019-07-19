@@ -40,11 +40,15 @@ const useModal = ({
   const params = { animated, animationDuration, ...restParams } as ModalParams
   const paramsRef = React.useRef(params)
 
+  const hasAlreadyBeenOpened = React.useRef<boolean>(false)
+  const [isLocalOpened, setLocalOpened] = React.useState<boolean>(false)
+
+  if (!hasAlreadyBeenOpened.current && restParams.open) {
+    hasAlreadyBeenOpened.current = true
+  }
   if (!hasAlreadyRendered.current && animated) {
     params.open = false
   }
-  const [hasAlreadyBeenOpened, setHasAlreadyBeenOpened] = React.useState(false)
-  const [isLocalOpened, setLocalOpened] = React.useState(false)
 
   React.useEffect(() => {
     paramsRef.current = params
@@ -121,18 +125,12 @@ const useModal = ({
     return 'opened'
   }, [isLocalOpened, params.open])
 
-  React.useEffect(() => {
-    if (restParams.open) {
-      setHasAlreadyBeenOpened(true)
-    }
-  }, [restParams.open])
-
   return {
     state,
     close: handleClose,
     overlayClick: handleOverlayClick,
     ref: domRef,
-    hasAlreadyBeenOpened,
+    hasAlreadyBeenOpened: hasAlreadyBeenOpened.current,
   }
 }
 
