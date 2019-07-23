@@ -6,6 +6,14 @@ import theme from '../theme'
 import SpinnerProps, { SpinnerInnerProps } from './Spinner.interface'
 
 const SpinnerContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+`
+
+const SpinnerElementContainer = styled.div`
   position: relative;
   width: ${({ size }) => size}px;
   height: ${({ size }) => size}px;
@@ -53,18 +61,20 @@ const Spinner: React.FunctionComponent<SpinnerInnerProps> = ({
   size = 50,
   ...props
 }) => (
-  <SpinnerContainer {...props} size={size}>
-    <SpinnerElement viewBox={`0 0 ${size} ${size}`} size={size}>
-      <circle
-        className="path"
-        cx={size / 2}
-        cy={size / 2}
-        r={size / 2 - size / 10}
-        fill="none"
-        strokeWidth={size / 15}
-        stroke={theme.get('primary')(props)}
-      />
-    </SpinnerElement>
+  <SpinnerContainer {...props}>
+    <SpinnerElementContainer size={size}>
+      <SpinnerElement viewBox={`0 0 ${size} ${size}`} size={size}>
+        <circle
+          className="path"
+          cx={size / 2}
+          cy={size / 2}
+          r={size / 2 - size / 10}
+          fill="none"
+          strokeWidth={size / 15}
+          stroke={theme.get('primary')(props)}
+        />
+      </SpinnerElement>
+    </SpinnerElementContainer>
   </SpinnerContainer>
 )
 
