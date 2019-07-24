@@ -1,7 +1,7 @@
 import * as React from 'react'
 
 export default interface ExpansionPanel
-  extends React.HTMLAttributes<HTMLUListElement> {
+  extends React.HTMLAttributes<HTMLDivElement> {
   multiOpen?: boolean
   disabled?: boolean
 }

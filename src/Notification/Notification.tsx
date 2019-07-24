@@ -12,7 +12,6 @@ import {
 const Notification: React.FunctionComponent<NotificationProps> = ({
   children,
   onClose,
-  backgroundColor,
   closeIcon,
   error,
   warning,
@@ -20,7 +19,6 @@ const Notification: React.FunctionComponent<NotificationProps> = ({
 }) => (
   <NotificationContainer
     data-testid="notification-container"
-    backgroundColor={backgroundColor}
     error={error}
     warning={warning}
     {...props}

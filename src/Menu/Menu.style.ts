@@ -28,7 +28,10 @@ const preparePropsMobile = ({ position, wrapperRect }) => ({
     : `translateY(${wrapperRect.top + wrapperRect.height + 4}px)`,
 })
 
-export const MenuContainerDesktop = styled.div.attrs(prepareProps)`
+export const MenuContainerDesktop = styled.div.attrs(prepareProps)<{
+  position: string
+  wrapperRect: DOMRect
+}>`
   position: fixed;
   top: ${({ top }) => top};
   bottom: ${({ bottom }) => bottom};
@@ -51,7 +54,10 @@ export const MenuContainerDesktop = styled.div.attrs(prepareProps)`
   }
 `
 
-export const MobileMenuContainer = styled.div.attrs(preparePropsMobile)`
+export const MobileMenuContainer = styled.div.attrs(preparePropsMobile)<{
+  position: string
+  wrapperRect: DOMRect
+}>`
   display: none;
   position: absolute;
   left: ${({ left }) => left};
