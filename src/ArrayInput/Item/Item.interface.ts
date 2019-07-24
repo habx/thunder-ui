@@ -7,7 +7,7 @@ export interface ItemComponentProps {
 }
 
 export default interface ItemProps
-  extends React.LiHTMLAttributes<HTMLLIElement> {
+  extends React.HTMLAttributes<HTMLDivElement> {
   index: number
   open: boolean
   item: any

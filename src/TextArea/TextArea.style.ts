@@ -4,7 +4,7 @@ import borderRadius from '../borderRadius'
 import fontSizes from '../fontSizes'
 import theme from '../theme'
 
-export const StyledTextArea = styled.textarea`
+export const StyledTextArea = styled.textarea<{ small?: boolean }>`
   flex: 1 1 100%;
   height: 100%;
   width: 100%;
