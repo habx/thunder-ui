@@ -4,7 +4,7 @@ import { isFunction } from '../_internal/data'
 import FontIcon from '../FontIcon'
 
 import Highlight from './Highlight'
-import ItemProps from './SpotlightItem.interface'
+import { ItemInnerProps } from './SpotlightItem.interface'
 import {
   ItemContainer,
   ItemContent,
@@ -43,7 +43,7 @@ const INITIAL_STATE = {
 
 const preventDefault = e => e.preventDefault()
 
-const SpotlightItem: React.FunctionComponent<ItemProps> = ({
+const SpotlightItem: React.FunctionComponent<ItemInnerProps> = ({
   title,
   subtitle,
   icon,
