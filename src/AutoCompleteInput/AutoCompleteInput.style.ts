@@ -5,7 +5,7 @@ import zIndex from '../zIndex'
 
 export const AutoCompleteInputContainer = styled.span``
 
-export const Options = styled.div`
+export const Options = styled.div<{ wrapperRect: DOMRect }>`
   position: fixed;
   z-index: ${zIndex.highest};
   pointer-events: none;
@@ -36,7 +36,7 @@ export const Options = styled.div`
   }
 `
 
-export const OptionsContent = styled.ul`
+export const OptionsContent = styled.ul<{ noMaxHeight?: boolean }>`
   list-style-type: none;
   overflow-y: auto;
   overflow-x: hidden;

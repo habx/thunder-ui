@@ -12,11 +12,11 @@ export type formOption = { value: any; label: string }
 export type formValue = formOption | string | number | boolean
 
 export type styledTheme = {
-  thunderUI: ThunderUITheme
+  thunderUI?: ThunderUITheme
 }
 
 export type themeAccessor = (props: {
-  theme: styledTheme
+  theme?: styledTheme
   warning?: boolean
   error?: boolean
 }) => string

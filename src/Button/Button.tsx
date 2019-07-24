@@ -12,28 +12,23 @@ const Button: React.FunctionComponent<ButtonProps> = ({
   loading,
   small,
   large,
-  reverse,
   disabled,
+  reverse,
   ...otherProps
 }) => {
   const { neutral, neutralLightest } = useTheme()
 
   return (
     <ButtonContainer
-      data-small={small}
-      data-large={large}
-      data-loading={loading}
+      small={small}
+      large={large}
+      loading={loading}
       disabled={disabled || loading}
       reverse={reverse}
       {...otherProps}
     >
       {iconLeft && (
-        <IconContainer
-          data-testid="icon-left-container"
-          position="left"
-          small={small}
-          large={large}
-        >
+        <IconContainer data-testid="icon-left-container" position="left">
           {iconLeft}
         </IconContainer>
       )}
@@ -50,11 +45,7 @@ const Button: React.FunctionComponent<ButtonProps> = ({
         />
       )}
       {iconRight && (
-        <IconContainer
-          data-testid="icon-right-container"
-          position="right"
-          small={small}
-        >
+        <IconContainer data-testid="icon-right-container" position="right">
           {iconRight}
         </IconContainer>
       )}

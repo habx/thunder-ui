@@ -1,11 +1,11 @@
 import * as React from 'react'
-import { withTheme } from 'styled-components'
 
 import { styledTheme } from '../_internal/types'
 import theme from '../theme'
 import Title from '../Title'
+import useTheme from '../useTheme'
 
-import CardProps, { CardInnerProps } from './Card.interface'
+import CardProps from './Card.interface'
 import {
   CardContainer,
   TitleContainer,
@@ -13,9 +13,12 @@ import {
   TitleCount,
 } from './Card.style'
 
-const Card: React.ComponentType<
-  CardInnerProps & React.ClassAttributes<any>
-> = React.forwardRef((props, ref) => {
+const Card = React.forwardRef<HTMLDivElement, CardProps>((props, ref) => {
+  const thunderUi = useTheme()
+  const fullTheme = { thunderUi } as styledTheme
+
+  const fullProps = { ...props, theme: fullTheme }
+
   const {
     headerPosition,
     action,
@@ -26,9 +29,9 @@ const Card: React.ComponentType<
     error,
     warning,
     ...rest
-  } = props
+  } = fullProps
 
-  const color = theme.get('neutralStronger', { dynamic: true })(props)
+  const color = theme.get('neutralStronger', { dynamic: true })(fullProps)
 
   const titleElement = title && (
     <TitleContainer>
@@ -62,7 +65,6 @@ const Card: React.ComponentType<
 
 Card.defaultProps = {
   headerPosition: 'inside',
-  theme: {} as styledTheme,
 }
 
-export default withTheme(Card) as React.FunctionComponent<CardProps>
+export default Card

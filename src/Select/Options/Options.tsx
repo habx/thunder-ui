@@ -110,7 +110,7 @@ const Options: React.FunctionComponent<OptionsProps> = ({
       data-testid="options-container"
       data-open={open}
       data-position={position}
-      wrapperRect={open ? wrapperRect : {}}
+      wrapperRect={open ? wrapperRect : ({} as DOMRect)}
       maxHeight={maxHeight}
     >
       {content}

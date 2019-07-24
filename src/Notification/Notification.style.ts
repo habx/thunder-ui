@@ -4,7 +4,10 @@ import borderRadius from '../borderRadius'
 import fontSizes from '../fontSizes'
 import theme from '../theme'
 
-export const NotificationContainer = styled.div`
+export const NotificationContainer = styled.div<{
+  warning?: boolean
+  error?: boolean
+}>`
   background-color: ${theme.get('primary', { dynamic: true })};
   border-radius: ${borderRadius.narrow};
   display: flex;

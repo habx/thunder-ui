@@ -8,7 +8,10 @@ export const SlideshowContainer = styled.div`
   overflow-x: hidden;
 `
 
-export const SlideshowContent = styled.div`
+export const SlideshowContent = styled.div<{
+  transitionDuration: number
+  length: number
+}>`
   width: 100%;
   display: flex;
   transition: transform ease-in-out
@@ -35,7 +38,7 @@ export const SlideshowElement = styled.div`
   margin-top: auto;
 `
 
-export const NavigationDotsContainer = styled.div`
+export const NavigationDotsContainer = styled.div<{ canNavigate?: boolean }>`
   display: flex;
   justify-content: center;
   margin-top: 32px;

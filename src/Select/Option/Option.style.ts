@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import fontSizes from '../../fontSizes'
 import theme from '../../theme'
 
-export const OptionContainer = styled.li`
+export const OptionContainer = styled.li<{ compact?: boolean }>`
   transition: background-color ease-in 150ms;
   outline: none;
   cursor: pointer;

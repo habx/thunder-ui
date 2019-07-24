@@ -9,7 +9,7 @@ const FieldWithLabelContainer = styled.div`
   flex-direction: column;
 `
 
-const LabelContainer = styled.div`
+const LabelContainer = styled.div<{ padding: number }>`
   font-size: ${fontSizes.tiny};
   font-weight: 500;
   color: ${theme.get('neutral', { dynamic: true })};
@@ -42,12 +42,12 @@ const withLabel = ({ padding = 4 }: Options = {}) => <Props extends object>(
           >
             {label}
           </LabelContainer>
-          <WrappedComponent {...rest as Props} />
+          <WrappedComponent {...(rest as Props)} />
         </FieldWithLabelContainer>
       )
     }
 
-    return <WrappedComponent {...rest as Props} />
+    return <WrappedComponent {...(rest as Props)} />
   }
 
   Field.displayName = WrappedComponent.displayName || WrappedComponent.name

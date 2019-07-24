@@ -53,7 +53,7 @@ const Modal: React.FunctionComponent<ModalProps> = ({
           onClick={e => e.stopPropagation()}
         >
           {closeButton && (
-            <CloseButtonContainer hasTitle={title} onClick={modal.close}>
+            <CloseButtonContainer hasTitle={!!title} onClick={modal.close}>
               {closeButton}
             </CloseButtonContainer>
           )}

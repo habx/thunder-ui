@@ -66,7 +66,7 @@ export const RemoveBodyScroll = createGlobalStyle`
   }
 `
 
-export const CloseButtonContainer = styled.div`
+export const CloseButtonContainer = styled.div<{ hasTitle?: boolean }>`
   position: absolute;
   top: ${({ hasTitle }) => (hasTitle ? '32px' : '16px')};
   right: ${({ hasTitle }) => (hasTitle ? '32px' : '16px')};
