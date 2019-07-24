@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components'
 
 import zIndex from '../_internal/zIndex'
 
-export const NavBarItemTooltip = styled.span`
+export const NavBarItemTooltip = styled.span<{ activebackgroundcolor: string }>`
   max-width: 44px;
   overflow: hidden;
   position: absolute;
@@ -41,7 +41,10 @@ export const IconContainer = styled.div`
   border-radius: 50%;
 `
 
-export const NavBarItemContainer = styled.li`
+export const NavBarItemContainer = styled.li<{
+  activebackgroundcolor: string
+  active?: boolean
+}>`
   position: relative;
   font-size: 12px;
   font-weight: bold;
@@ -68,7 +71,7 @@ export const NavBarItemContainer = styled.li`
 
   ${({ active }) =>
     active &&
-    css`
+    css<{ activebackgroundcolor: string }>`
       ${IconContainer} {
         background-color: ${({ activebackgroundcolor }) =>
           activebackgroundcolor};

@@ -16,7 +16,10 @@ export const RadioSelectContainer = styled.div`
   }
 `
 
-export const Option = styled.div`
+export const Option = styled.div<{
+  isNextSelected?: boolean
+  isPreviousSelected?: boolean
+}>`
   overflow: hidden;
   text-align: center;
   user-select: none;

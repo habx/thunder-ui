@@ -21,12 +21,7 @@ const Button: React.FunctionComponent<ButtonProps> = ({
     {...otherProps}
   >
     {iconLeft && (
-      <IconContainer
-        data-testid="icon-left-container"
-        position="left"
-        small={small}
-        large={large}
-      >
+      <IconContainer data-testid="icon-left-container" position="left">
         {iconLeft}
       </IconContainer>
     )}
@@ -38,11 +33,7 @@ const Button: React.FunctionComponent<ButtonProps> = ({
     </span>
     {loading && <ButtonSpinner color="white" size={small ? 16 : 24} />}
     {iconRight && (
-      <IconContainer
-        data-testid="icon-right-container"
-        position="right"
-        small={small}
-      >
+      <IconContainer data-testid="icon-right-container" position="right">
         {iconRight}
       </IconContainer>
     )}

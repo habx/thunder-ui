@@ -7,7 +7,11 @@ import colors from '../colors'
 
 import TagProps from './Tag.interface'
 
-const Tag: React.FunctionComponent<TagProps> = styled.div`
+const Tag: React.FunctionComponent<TagProps> = styled.div<{
+  colorSeed: string
+  bold?: boolean
+  color: string
+}>`
   background-color: ${({ colorSeed, color }) =>
     color || generateColorFromSeed(colorSeed)};
 

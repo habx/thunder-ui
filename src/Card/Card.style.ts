@@ -3,7 +3,10 @@ import styled, { css } from 'styled-components'
 import borderRadius from '../borderRadius'
 import theme from '../theme'
 
-export const CardContainer = styled.div`
+export const CardContainer = styled.div<{
+  noPadding?: boolean
+  interactive?: boolean
+}>`
   box-shadow: ${theme.get('shadow')};
   border-radius: ${borderRadius.narrow};
   background-color: ${theme.get('neutralLightest', {

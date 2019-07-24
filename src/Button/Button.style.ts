@@ -24,7 +24,7 @@ const prepareProps = props => {
   }
 }
 
-export const IconContainer = styled.span`
+export const IconContainer = styled.span<{ position?: string }>`
   display: flex;
   flex-direction: column;
   align-self: stretch;
@@ -33,7 +33,11 @@ export const IconContainer = styled.span`
   margin-left: ${({ position }) => (position === 'right' ? '8px' : 0)};
 `
 
-export const ButtonContainer = styled.button.attrs(prepareProps)`
+export const ButtonContainer = styled.button.attrs(prepareProps)<{
+  small?: boolean
+  large?: boolean
+  loading?: boolean
+}>`
   display: flex;
   justify-content: center;
   align-items: center;

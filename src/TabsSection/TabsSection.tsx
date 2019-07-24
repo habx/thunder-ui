@@ -27,13 +27,10 @@ const TabsContainer = styled.div`
 const TabsSection: React.FunctionComponent<TabsSectionProps> = ({
   children,
   label,
-  labelColor,
   ...props
 }) => (
   <TabsSectionContainer>
-    {label && (
-      <TabsSectionLabel labelColor={labelColor}>{label}</TabsSectionLabel>
-    )}
+    {label && <TabsSectionLabel>{label}</TabsSectionLabel>}
     <TabsContainer {...props}>{children}</TabsContainer>
   </TabsSectionContainer>
 )

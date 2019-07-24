@@ -17,7 +17,7 @@ const prepareProps = props => {
 
 const TextButton: React.FunctionComponent<
   TextButtonProps
-> = styled.button.attrs(prepareProps)`
+> = styled.button.attrs(prepareProps)<{ small?: boolean; large?: boolean }>`
   border: none;
   outline: none;
   background-color: unset;
