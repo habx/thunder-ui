@@ -7,7 +7,6 @@
 ![Npm badge](https://img.shields.io/bundlephobia/min/@habx/thunder-ui.svg)
 ![Npm badge](https://img.shields.io/npm/v/@habx/thunder-ui.svg)
 ![Build badge](https://img.shields.io/circleci/build/github/habx/thunder-ui.svg)
-[![Greenkeeper badge](https://badges.greenkeeper.io/habx/thunder-ui.svg)](https://greenkeeper.io/)
 
 
 

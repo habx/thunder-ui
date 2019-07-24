@@ -29,7 +29,7 @@ export const Input = styled.input<{ small?: boolean }>`
   line-height: 1.5;
 `
 
-export const InputContainer = styled.div`
+export const InputContainer = styled.div<{ error: boolean }>`
   position: relative;
   display: flex;
   flex-direction: column;

@@ -11,4 +11,5 @@ export default interface DrawerInterface {
   portal?: boolean
   contentContainerComponent?: React.ComponentType
   position?: 'right' | 'left' | 'top' | 'bottom'
+  alwaysRenderChildren?: boolean
 }

@@ -3,39 +3,68 @@ import { withKnobs, boolean, text } from '@storybook/addon-knobs'
 import { storiesOf } from '@storybook/react'
 import * as React from 'react'
 
-import colors from '../colors'
+import StorybookGallery from '../_internal/StorybookGallery'
 import FontIcon from '../FontIcon'
 
-import Button from './index'
+import RawButton from './Button'
+import ButtonProps from './Button.interface'
 
-const props = () => ({
-  children: text('Content', 'Click on me !'),
-  disabled: boolean('Disabled', false),
-  small: boolean('Small', false),
-  large: boolean('Large', false),
-  reverse: boolean('Reverse', false),
-  loading: boolean('Loading', false),
-  error: boolean('Error', false),
-  warning: boolean('Warning', false),
-  onClick: action('onClick'),
-})
+const Button: React.FunctionComponent<ButtonProps> = props => (
+  <RawButton onClick={action('onClick')} {...props} />
+)
 
 storiesOf('Actions|Button', module)
   .addDecorator(withKnobs)
-  .add('full example', () => <Button {...props()} />)
-  .add('disabled', () => <Button disabled>{"Don't click one me !"}</Button>)
-  .add('small', () => <Button small>Click on me !</Button>)
-  .add('large', () => <Button large>Click on me !</Button>)
-  .add('error', () => <Button error>Click on me !</Button>)
-  .add('warning', () => <Button warning>Click on me !</Button>)
-  .add('loading', () => <Button loading>Click on me !</Button>)
-  .add('reverse', () => <Button reverse>Click on me !</Button>)
-  .add('with manual background color', () => (
-    <Button color={colors.maastrichtBlue}>Click on me !</Button>
+  .add('gallery', () => (
+    <StorybookGallery
+      renderLine={lineProps => (
+        <React.Fragment>
+          <Button {...lineProps}>Submit</Button>
+          <Button {...lineProps} error>
+            Submit
+          </Button>
+          <Button {...lineProps} warning>
+            Submit
+          </Button>
+          <Button {...lineProps} disabled>
+            Submit
+          </Button>
+          <Button {...lineProps} loading>
+            Submit
+          </Button>
+          <Button
+            {...lineProps}
+            iconRight={<FontIcon size={16} icon="delete" />}
+          >
+            Submit
+          </Button>
+          <Button
+            {...lineProps}
+            iconLeft={<FontIcon size={16} icon="delete" />}
+          >
+            Submit
+          </Button>
+        </React.Fragment>
+      )}
+      lines={[
+        { title: 'Regular', props: {} },
+        { title: 'Regular reverse', props: { reverse: true } },
+        { title: 'Small', props: { small: true } },
+        { title: 'Small reverse', props: { small: true, reverse: true } },
+        { title: 'Large', props: { large: true } },
+        { title: 'Large reverse', props: { large: true, reverse: true } },
+      ]}
+    />
   ))
-  .add('with icon on the left', () => (
-    <Button iconLeft={<FontIcon size={16} icon="delete" />}>Supprimer</Button>
-  ))
-  .add('with icon on the right', () => (
-    <Button iconRight={<FontIcon size={16} icon="delete" />}>Supprimer</Button>
+  .add('dynamic', () => (
+    <Button
+      children={text('Content', 'Submit')}
+      disabled={boolean('Disabled', false)}
+      small={boolean('Small', false)}
+      large={boolean('Large', false)}
+      reverse={boolean('Reverse', false)}
+      loading={boolean('Loading', false)}
+      error={boolean('Error', false)}
+      warning={boolean('Warning', false)}
+    />
   ))

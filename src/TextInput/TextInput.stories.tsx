@@ -1,11 +1,13 @@
+import { withKnobs, boolean, text } from '@storybook/addon-knobs'
 import { storiesOf } from '@storybook/react'
 import * as React from 'react'
 import { withState } from 'recompose'
 import styled from 'styled-components'
 
+import StorybookGallery from '../_internal/StorybookGallery'
 import FontIcon from '../FontIcon'
 
-import TextInput from './index'
+import RawTextInput from './TextInput'
 
 const CONTENT = 'Hello world'
 
@@ -13,42 +15,49 @@ const Container = styled.div`
   width: 300px;
 `
 
-const TextInputWithState = ({ value = '', ...props }) => {
+const TextInput = ({ value = '', ...props }) => {
   const Component = withState('value', 'onChange', value)(newProps => (
-    <TextInput {...newProps} onChange={value => newProps.onChange(value)} />
+    <RawTextInput {...newProps} onChange={value => newProps.onChange(value)} />
   ))
 
   return (
     <Container>
-      <Component {...props} />
+      <Component placeholder="your@mail.com" {...props} />
     </Container>
   )
 }
 
 storiesOf('Inputs|TextInput', module)
-  .add('basic', () => <TextInputWithState value={CONTENT} />)
-  .add('disabled', () => <TextInputWithState disabled value={CONTENT} />)
-  .add('small', () => <TextInputWithState small value={CONTENT} />)
-  .add('placeholder', () => (
-    <TextInputWithState value="" placeholder="Type something here" />
-  ))
-  .add('error', () => (
-    <TextInputWithState
-      error
-      value={CONTENT}
-      placeholder="Type something here"
+  .addDecorator(withKnobs)
+  .add('gallery', () => (
+    <StorybookGallery
+      renderLine={lineProps => (
+        <React.Fragment>
+          <TextInput {...lineProps} value={CONTENT} />
+          <TextInput {...lineProps} error value={CONTENT} />
+          <TextInput {...lineProps} disabled value={CONTENT} />
+          <TextInput
+            value={CONTENT}
+            rightElement={<FontIcon icon="edit" size={18} />}
+          />
+          <TextInput
+            value={CONTENT}
+            rightHoverElement={<FontIcon icon="edit" size={18} />}
+          />
+        </React.Fragment>
+      )}
+      lines={[
+        { title: 'Regular', props: {} },
+        { title: 'Small', props: { small: true } },
+      ]}
     />
   ))
-  .add('with loader', () => <TextInputWithState loading value={CONTENT} />)
-  .add('with icon', () => (
-    <TextInputWithState
-      value={CONTENT}
-      rightElement={<FontIcon icon="edit" size={18} />}
-    />
-  ))
-  .add('with hover icon', () => (
-    <TextInputWithState
-      value={CONTENT}
-      rightHoverElement={<FontIcon icon="edit" size={18} />}
+  .add('dynamic', () => (
+    <TextInput
+      disabled={boolean('Disabled', false)}
+      small={boolean('Small', false)}
+      placeholder={text('Placeholder', 'your@mail.com')}
+      error={boolean('Error', false)}
+      loading={boolean('Loading', false)}
     />
   ))

@@ -1,5 +1,7 @@
 import * as React from 'react'
 
+import useTheme from '../useTheme'
+
 import ButtonProps from './Button.interface'
 import { ButtonContainer, IconContainer, ButtonSpinner } from './Button.style'
 
@@ -11,34 +13,45 @@ const Button: React.FunctionComponent<ButtonProps> = ({
   small,
   large,
   disabled,
+  reverse,
   ...otherProps
-}) => (
-  <ButtonContainer
-    small={small}
-    large={large}
-    loading={loading}
-    disabled={disabled || loading}
-    {...otherProps}
-  >
-    {iconLeft && (
-      <IconContainer data-testid="icon-left-container" position="left">
-        {iconLeft}
-      </IconContainer>
-    )}
-    <span
-      data-testid="label-container"
-      style={{ visibility: loading ? 'hidden' : 'visible' }}
+}) => {
+  const { neutral, neutralLightest } = useTheme()
+
+  return (
+    <ButtonContainer
+      small={small}
+      large={large}
+      loading={loading}
+      disabled={disabled || loading}
+      reverse={reverse}
+      {...otherProps}
     >
-      {children}
-    </span>
-    {loading && <ButtonSpinner color="white" size={small ? 16 : 24} />}
-    {iconRight && (
-      <IconContainer data-testid="icon-right-container" position="right">
-        {iconRight}
-      </IconContainer>
-    )}
-  </ButtonContainer>
-)
+      {iconLeft && (
+        <IconContainer data-testid="icon-left-container" position="left">
+          {iconLeft}
+        </IconContainer>
+      )}
+      <span
+        data-testid="label-container"
+        style={{ visibility: loading ? 'hidden' : 'visible' }}
+      >
+        {children}
+      </span>
+      {loading && (
+        <ButtonSpinner
+          color={reverse ? neutral : neutralLightest}
+          size={small ? 16 : 24}
+        />
+      )}
+      {iconRight && (
+        <IconContainer data-testid="icon-right-container" position="right">
+          {iconRight}
+        </IconContainer>
+      )}
+    </ButtonContainer>
+  )
+}
 
 Button.defaultProps = {
   type: 'button',

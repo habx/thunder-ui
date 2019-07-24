@@ -1,8 +1,8 @@
 import styled from 'styled-components'
 
-import zIndex from '../_internal/zIndex'
 import borderRadius from '../borderRadius'
 import theme from '../theme'
+import zIndex from '../zIndex'
 
 const prepareProps = ({ position, wrapperRect }) => ({
   left: ['left', 'top-left'].includes(position)

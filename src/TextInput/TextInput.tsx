@@ -25,6 +25,7 @@ const TextInput = React.forwardRef<HTMLInputElement, TextInputInnerProps>(
       small,
       className,
       style,
+      error,
       ...rest
     } = props
 
@@ -37,6 +38,7 @@ const TextInput = React.forwardRef<HTMLInputElement, TextInputInnerProps>(
         className={className}
         style={style}
         data-disabled={disabled}
+        error={error}
       >
         <Input
           value={value}

@@ -112,6 +112,7 @@ export { default as colors } from './colors'
 export { default as fontSizes } from './fontSizes'
 export { default as shadows } from './shadows'
 export { default as borderRadius } from './borderRadius'
+export { default as zIndex } from './zIndex'
 export { default as theme } from './theme'
 export { default as useTheme } from './useTheme'
 

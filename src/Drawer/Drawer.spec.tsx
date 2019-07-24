@@ -1,4 +1,4 @@
-import { act, render, within } from '@testing-library/react'
+import { act, render, within, fireEvent } from '@testing-library/react'
 import * as React from 'react'
 import sinon from 'sinon'
 
@@ -8,9 +8,51 @@ jest.useFakeTimers()
 
 describe('Drawer component', () => {
   describe('with react node children', () => {
-    it('should pass children', () => {
+    it('should not render if not opened once', () => {
       const { queryByTestId } = render(
         <Drawer onClose={() => null}>
+          <div data-testid="content">CONTENT</div>
+        </Drawer>
+      )
+
+      const modalContainer = queryByTestId('drawer-container')
+
+      expect(modalContainer).toBeNull()
+    })
+    it('should render if opened once', () => {
+      const { queryByTestId, getByTestId } = render(
+        <Drawer
+          onClose={() => null}
+          triggerElement={
+            <button data-testid="drawer-trigger-element">show</button>
+          }
+        >
+          <div data-testid="content">CONTENT</div>
+        </Drawer>
+      )
+
+      fireEvent.click(getByTestId('drawer-trigger-element'))
+      fireEvent.click(getByTestId('drawer-overlay'))
+
+      const modalContainer = queryByTestId('drawer-container')
+
+      expect(modalContainer).toBeTruthy()
+      expect(within(modalContainer).queryByTestId('content')).toBeTruthy()
+    })
+    it('should not render if not opened once', () => {
+      const { queryByTestId } = render(
+        <Drawer onClose={() => null}>
+          <div data-testid="content">CONTENT</div>
+        </Drawer>
+      )
+
+      const modalContainer = queryByTestId('drawer-container')
+
+      expect(modalContainer).toBeNull()
+    })
+    it('should pass children if prop', () => {
+      const { queryByTestId } = render(
+        <Drawer onClose={() => null} alwaysRenderChildren>
           <div data-testid="content">CONTENT</div>
         </Drawer>
       )
