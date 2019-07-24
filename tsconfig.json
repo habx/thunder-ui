@@ -13,7 +13,7 @@
     "target": "esnext",
     "module": "commonjs",
     "esModuleInterop": true,
-    "strict":false
+    "skipLibCheck": true
   },
   "files": ["./src/index.ts"]
 }
