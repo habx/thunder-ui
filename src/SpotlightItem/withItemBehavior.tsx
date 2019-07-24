@@ -1,29 +1,17 @@
 import * as React from 'react'
 
 import { mapValues } from '../_internal/data'
-import { Except } from '../_internal/types'
 import SpotlightContext from '../Spotlight/Spotlight.context'
+import { SpotlightContextProps } from '../Spotlight/Spotlight.interface'
 import SpotlightSectionContext from '../SpotlightSection/SpotlightSection.context'
+import { SpotlightSectionContextProps } from '../SpotlightSection/SpotlightSection.interface'
 
-export interface ItemInjectedProps {
-  query: string
-  selected: boolean
-  registerActions: (
-    actionName: string,
-    actionCallback: (e: React.FormEvent<HTMLInputElement>) => void
-  ) => void
-}
-
-export interface ItemActions {
-  onSubmit?: (e: React.UIEvent<HTMLInputElement>) => void
-  onBlur?: (e: React.UIEvent<HTMLInputElement>) => void
-  onFocus?: (e: React.UIEvent<HTMLInputElement>) => void
-  onClick?: (e: React.UIEvent<HTMLInputElement>) => void
-}
-
-export interface ItemReceivedProps extends ItemActions {
-  index: number
-}
+import {
+  ItemActions,
+  ItemReceivedProps,
+  ItemInjectedProps,
+  WithItemBehaviorProps,
+} from './SpotlightItem.interface'
 
 const useWrappedActions = ({
   spotlight,
@@ -32,8 +20,8 @@ const useWrappedActions = ({
   onFocus,
   onBlur,
 }) => {
-  const spotlightRef = React.useRef(null)
-  const sectionRef = React.useRef(null)
+  const spotlightRef = React.useRef<SpotlightContextProps>(null)
+  const sectionRef = React.useRef<SpotlightSectionContextProps>(null)
 
   React.useEffect(() => {
     spotlightRef.current = spotlight
@@ -61,7 +49,7 @@ const withItemBehavior = <Props extends ItemInjectedProps>(
   WrappedComponent: React.ComponentType<Props>
 ) => {
   const Component: React.FunctionComponent<
-    Except<Props, keyof ItemInjectedProps> & ItemReceivedProps
+    WithItemBehaviorProps<Props>
   > = props => {
     const {
       index,

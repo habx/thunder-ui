@@ -76,7 +76,7 @@ const SpotlightContent: React.FunctionComponent<SpotlightContentProps> = ({
     onClose()
   }, [onClose])
 
-  const context: SpotlightContextProps = React.useMemo(
+  const context = React.useMemo<SpotlightContextProps>(
     () => ({
       query,
       selectedItemKey,

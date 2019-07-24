@@ -20,4 +20,5 @@ export interface SpotlightContextProps {
   selectedItemKey: number
   registerItem: (sectionName: string, item: ItemRegistrationData) => void
   unRegisterItem: (sectionName: string, itemKey: number) => void
+  close: () => void
 }
