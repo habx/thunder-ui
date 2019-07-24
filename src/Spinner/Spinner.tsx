@@ -5,13 +5,13 @@ import theme from '../theme'
 
 import SpinnerProps, { SpinnerInnerProps } from './Spinner.interface'
 
-const SpinnerContainer = styled.div`
+const SpinnerContainer = styled.div<{ size: number }>`
   position: relative;
   width: ${({ size }) => size}px;
   height: ${({ size }) => size}px;
 `
 
-const SpinnerElement = styled.svg`
+const SpinnerElement = styled.svg<{ size: number }>`
   animation: rotate 2s linear infinite;
   z-index: 2;
   position: absolute;

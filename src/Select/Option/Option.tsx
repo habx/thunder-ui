@@ -27,7 +27,7 @@ const Option: React.FunctionComponent<OptionProps> = ({
       data-selected={selected}
       data-disabled={disabled}
       ref={ref}
-      tabIndex="0"
+      tabIndex={0}
       {...props}
     >
       {multi && <Toggle state={selected ? 'full' : 'empty'} />}

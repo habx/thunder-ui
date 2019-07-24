@@ -24,7 +24,7 @@ export const TitleBar = styled.div`
   user-select: none;
 `
 
-export const ExpansionPanelItemContent = styled.div`
+export const ExpansionPanelItemContent = styled.div<{ height: number }>`
   transition: max-height ${ANIMATION_DURATION}ms ease-in-out;
   overflow: hidden;
 

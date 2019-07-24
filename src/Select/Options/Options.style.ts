@@ -7,7 +7,10 @@ import Option from '../Option'
 
 export const MAX_HEIGHT = 300
 
-export const OptionsContainer = styled.div`
+export const OptionsContainer = styled.div<{
+  wrapperRect: DOMRect
+  maxHeight?: number
+}>`
   position: fixed;
   z-index: ${zIndex.highest};
   pointer-events: none;
@@ -45,7 +48,10 @@ export const OptionsContainer = styled.div`
   }
 `
 
-export const OptionsContent = styled.ul`
+export const OptionsContent = styled.ul<{
+  noMaxHeight?: boolean
+  maxHeight?: number
+}>`
   list-style-type: none;
   overflow-y: auto;
   overflow-x: hidden;

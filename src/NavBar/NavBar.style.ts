@@ -53,7 +53,7 @@ export const NavBarContainer = styled.ul`
   height: 100vh;
 `
 
-export const NavBarSideContainer = styled.nav`
+export const NavBarSideContainer = styled.nav<{ backgroundcolor?: string }>`
   flex: 0 0 auto;
   height: 100vh;
   width: 64px;

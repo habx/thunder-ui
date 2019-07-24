@@ -5,7 +5,7 @@ import theme from '../theme'
 
 import TitleProps from './Title.interface'
 
-const BaseTitle = styled.h1`
+const BaseTitle = styled.h1<{ underline: boolean }>`
   color: ${theme.get('neutralStronger', { dynamic: true })};
   margin: 0;
 

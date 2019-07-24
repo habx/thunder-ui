@@ -2,7 +2,10 @@ import styled, { css } from 'styled-components'
 
 import theme from '../theme'
 
-export const FontIconContainer = styled.i`
+export const FontIconContainer = styled.i<{
+  size?: number
+  interactive?: boolean
+}>`
   font-family: 'Material Icons';
   font-weight: normal;
   font-style: normal;

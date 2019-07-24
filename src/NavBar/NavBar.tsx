@@ -20,67 +20,67 @@ import {
   NavBarTopBarSquare,
 } from './NavBar.style'
 
-const NavBar: React.ComponentType<
-  NavBarInnerProps & React.ClassAttributes<any>
-> = React.forwardRef((props, ref) => {
-  const {
-    children,
-    title,
-    backgroundColor: rawBackgroundColor,
-    ...rest
-  } = props
+const NavBar = React.forwardRef<HTMLUListElement, NavBarInnerProps>(
+  (props, ref) => {
+    const {
+      children,
+      title,
+      backgroundColor: rawBackgroundColor,
+      ...rest
+    } = props
 
-  const [isOpenedOnMobile, setOpenedOnMobile] = React.useState(false)
+    const [isOpenedOnMobile, setOpenedOnMobile] = React.useState(false)
 
-  const handleMobileToggle = React.useCallback(
-    () => setOpenedOnMobile(prev => !prev),
-    []
-  )
+    const handleMobileToggle = React.useCallback(
+      () => setOpenedOnMobile(prev => !prev),
+      []
+    )
 
-  const backgroundColor = theme.get('primary', { propName: 'backgroundColor' })(
-    props
-  )
-  const activeBackgroundColor = theme.getActive(
-    props.activeBackgroundColor,
-    backgroundColor
-  )
+    const backgroundColor = theme.get('primary', {
+      propName: 'backgroundColor',
+    })(props)
+    const activeBackgroundColor = theme.getActive(
+      props.activeBackgroundColor,
+      backgroundColor
+    )
 
-  const context = React.useMemo(
-    () => ({ activeBackgroundColor, isInsideANavBar: true }),
-    [activeBackgroundColor]
-  )
+    const context = React.useMemo(
+      () => ({ activeBackgroundColor, isInsideANavBar: true }),
+      [activeBackgroundColor]
+    )
 
-  return (
-    <NavBarContext.Provider value={context}>
-      <NavBarContainer data-testid="nav-bar-container" {...rest} ref={ref}>
-        <NavBarPaddingTop />
+    return (
+      <NavBarContext.Provider value={context}>
+        <NavBarContainer data-testid="nav-bar-container" {...rest} ref={ref}>
+          <NavBarPaddingTop />
 
-        <NavBarTopBar>
-          <NavBarTopBarSquare>
-            <TextButton onClick={handleMobileToggle}>
-              <FontIcon icon="menu" />
-            </TextButton>
-          </NavBarTopBarSquare>
+          <NavBarTopBar>
+            <NavBarTopBarSquare>
+              <TextButton onClick={handleMobileToggle}>
+                <FontIcon icon="menu" />
+              </TextButton>
+            </NavBarTopBarSquare>
 
-          {title && <NavBarTopBarTitle>{title}</NavBarTopBarTitle>}
+            {title && <NavBarTopBarTitle>{title}</NavBarTopBarTitle>}
 
-          <NavBarTopBarSquare />
-        </NavBarTopBar>
+            <NavBarTopBarSquare />
+          </NavBarTopBar>
 
-        <NavBarSideContainer
-          backgroundcolor={backgroundColor}
-          data-mobile-open={isOpenedOnMobile}
-        >
-          <NavBarClose>
-            <FontIcon icon="arrow_back" onClick={handleMobileToggle} />
-          </NavBarClose>
-          {title && <NavBarTitle>{title}</NavBarTitle>}
-          <NavBarItemsContainer>{children}</NavBarItemsContainer>
-        </NavBarSideContainer>
-      </NavBarContainer>
-    </NavBarContext.Provider>
-  )
-})
+          <NavBarSideContainer
+            backgroundcolor={backgroundColor}
+            data-mobile-open={isOpenedOnMobile}
+          >
+            <NavBarClose>
+              <FontIcon icon="arrow_back" onClick={handleMobileToggle} />
+            </NavBarClose>
+            {title && <NavBarTitle>{title}</NavBarTitle>}
+            <NavBarItemsContainer>{children}</NavBarItemsContainer>
+          </NavBarSideContainer>
+        </NavBarContainer>
+      </NavBarContext.Provider>
+    )
+  }
+)
 
 NavBar.defaultProps = {
   theme: {} as styledTheme,

@@ -17,7 +17,7 @@ export const RightElementContainer = styled.div`
   top: 4px;
 `
 
-export const Input = styled.input`
+export const Input = styled.input<{ small?: boolean }>`
   border: 0;
   display: block;
   flex-direction: column;

@@ -7,5 +7,5 @@ export default interface OptionProps
   compact: boolean
   label: string
   selected: boolean
-  disabled: boolean
+  disabled?: boolean
 }

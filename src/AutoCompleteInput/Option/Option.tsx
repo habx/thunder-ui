@@ -20,7 +20,7 @@ const Option: React.FunctionComponent<OptionProps> = ({
     <OptionContainer
       data-testid="option-container"
       ref={ref}
-      tabIndex="0"
+      tabIndex={0}
       {...props}
     >
       {label}
