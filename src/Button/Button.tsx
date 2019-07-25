@@ -20,11 +20,11 @@ const Button: React.FunctionComponent<ButtonProps> = ({
 
   return (
     <ButtonContainer
-      small={small}
-      large={large}
-      loading={loading}
-      disabled={disabled || loading}
+      data-small={small}
+      data-large={large}
+      data-loading={loading}
       reverse={reverse}
+      disabled={disabled || loading}
       {...otherProps}
     >
       {iconLeft && (

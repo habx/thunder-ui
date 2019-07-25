@@ -34,9 +34,6 @@ export const IconContainer = styled.span<{ position?: string }>`
 `
 
 export const ButtonContainer = styled.button.attrs(prepareProps)<{
-  small?: boolean
-  large?: boolean
-  loading?: boolean
   reverse?: boolean
 }>`
   display: flex;
