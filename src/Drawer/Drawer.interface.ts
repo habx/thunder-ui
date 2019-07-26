@@ -2,7 +2,8 @@ import * as React from 'react'
 
 import { ModalState } from '../_internal/useModal'
 
-export default interface DrawerInterface {
+export default interface DrawerInterface
+  extends React.HTMLAttributes<HTMLDivElement> {
   title?: string
   children?: React.ReactNode | ((props: ModalState) => JSX.Element)
   closeButton?: React.ReactNode | ((props: ModalState) => JSX.Element)
