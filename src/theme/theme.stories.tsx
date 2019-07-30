@@ -34,7 +34,7 @@ const Shadow = styled.div`
   align-items: center;
 `
 
-const Card = styled.div`
+const Card = styled.div<{ shadow: string }>`
   width: 250px;
   height: 250px;
   margin-bottom: 24px;
