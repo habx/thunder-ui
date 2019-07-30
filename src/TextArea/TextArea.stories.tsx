@@ -32,7 +32,7 @@ storiesOf('Inputs|TextArea', module)
     <StorybookGallery
       renderLine={lineProps => (
         <React.Fragment>
-          <TextArea {...lineProps} value={CONTENT} />
+          <TextArea {...lineProps} value={CONTENT} label="Test label" />
           <TextArea {...lineProps} error value={CONTENT} />
           <TextArea {...lineProps} disabled value={CONTENT} />
         </React.Fragment>
