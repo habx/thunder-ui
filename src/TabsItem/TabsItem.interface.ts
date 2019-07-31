@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-import { Except } from '../_internal/types'
+import { Except, styledAs } from '../_internal/types'
 
 export default interface TabsItemProps
   extends Except<React.LiHTMLAttributes<HTMLLIElement>, 'is'> {
@@ -8,5 +8,5 @@ export default interface TabsItemProps
   hoverColor?: string
   closed?: boolean
   active?: boolean
-  is?: React.ComponentType<any>
+  is?: styledAs
 }

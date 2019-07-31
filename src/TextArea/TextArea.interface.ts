@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-import { Except, Input } from '../_internal/types'
+import { Except, Input, styledAs } from '../_internal/types'
 
 export default interface TextAreaProps
   extends Input<string | number>,
@@ -9,4 +9,5 @@ export default interface TextAreaProps
       keyof Input<any>
     > {
   small?: boolean
+  as?: styledAs
 }

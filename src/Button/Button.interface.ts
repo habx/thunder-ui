@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-import { Button } from '../_internal/types'
+import { Button, styledAs } from '../_internal/types'
 
 export default interface ButtonProps extends Button {
   reverse?: boolean
@@ -8,4 +8,5 @@ export default interface ButtonProps extends Button {
   textColor?: string
   iconLeft?: React.ReactNode
   iconRight?: React.ReactNode
+  as?: styledAs
 }
