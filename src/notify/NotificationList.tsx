@@ -50,7 +50,7 @@ const NotificationList: React.FunctionComponent<{}> = () => {
                 prev.filter(el => el.id !== notification.id)
               )
             }
-          }, ANIMATION_DURATION)
+          }, ANIMATION_DURATION * 2)
         )
       }
     },
