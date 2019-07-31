@@ -42,3 +42,5 @@ export interface Button extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   color?: string
   hoverColor?: string
 }
+
+export type styledAs = keyof JSX.IntrinsicElements | React.ComponentType<any>

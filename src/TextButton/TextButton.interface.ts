@@ -1,3 +1,5 @@
-import { Button } from '../_internal/types'
+import { Button, styledAs } from '../_internal/types'
 
-export default interface TextButtonProps extends Button {}
+export default interface TextButtonProps extends Button {
+  as?: styledAs
+}
