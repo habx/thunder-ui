@@ -1,6 +1,7 @@
 import * as React from 'react'
 import { withTheme } from 'styled-components'
 
+import { styledTheme } from '../_internal/types'
 import ExpansionPanel from '../ExpansionPanel'
 import TextButton from '../TextButton'
 import withLabel from '../withLabel'
@@ -76,6 +77,10 @@ const ArrayInput: React.FunctionComponent<ArrayInputInnerProps> = ({
       </ArrayInputAction>
     </ExpansionPanel>
   )
+}
+
+ArrayInput.defaultProps = {
+  theme: {} as styledTheme,
 }
 
 export default withLabel({ padding: 16 })(withTheme(

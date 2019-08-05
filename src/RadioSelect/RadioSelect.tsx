@@ -1,4 +1,3 @@
-import { boolean } from '@storybook/addon-knobs'
 import * as React from 'react'
 import { withTheme } from 'styled-components'
 
@@ -46,7 +45,7 @@ const getNewValueMulti = (
 }
 
 const getCurrentValue = (
-  value: formValue | formValue[],
+  value: formValue | formValue[] | undefined | null,
   { multi }: { multi: boolean }
 ) => {
   if (!value && value == null) {
@@ -64,7 +63,7 @@ export const BaseRadioSelect: React.FunctionComponent<
     options,
     onChange = () => {},
     multi = false,
-    value = false,
+    value,
     canBeEmpty = true,
     disabled = false,
     ...rest
@@ -73,10 +72,9 @@ export const BaseRadioSelect: React.FunctionComponent<
   const currentValue = getCurrentValue(value, { multi })
 
   const onItemClick = (item: formValue) => {
-    const newValue: formValue | formValue[] = multi
+    const newValue: formValue | formValue[] | null = multi
       ? getNewValueMulti(item, currentValue as formValue[], { canBeEmpty })
-      : getNewValueNotMulti(item, currentValue as formValue, { canBeEmpty }) ||
-        false
+      : getNewValueNotMulti(item, currentValue as formValue, { canBeEmpty })
 
     return onChange(newValue)
   }

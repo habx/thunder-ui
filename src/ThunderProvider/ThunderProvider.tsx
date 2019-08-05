@@ -43,6 +43,10 @@ const BaseProvider: React.FunctionComponent<ThunderProviderInnerProps> = ({
   )
 }
 
+BaseProvider.defaultProps = {
+  theme: {},
+}
+
 const EndhancedProvider = withTheme(BaseProvider)
 
 const ThunderProvider: React.FunctionComponent<ThunderProviderProps> = ({

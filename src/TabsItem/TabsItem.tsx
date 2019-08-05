@@ -1,5 +1,3 @@
-// @ts-ignore
-import tag from 'clean-tag'
 import * as React from 'react'
 import styled, { css } from 'styled-components'
 
@@ -31,7 +29,11 @@ const prepareProps = (
   }
 }
 
-const StyledTabsItem = styled(tag.li).attrs(prepareProps)`
+const StyledTabsItem = styled.li.attrs(prepareProps)<{
+  closed?: boolean
+  hoverColor?: string
+  activeColor?: string
+}>`
   display: flex;
   position: relative;
   cursor: pointer;
@@ -99,14 +101,7 @@ const TabsItem: React.FunctionComponent<TabsItemProps> = rawProps => {
 
   assert(isInsideATabs, 'TabsItem should be used inside a Tabs')
 
-  return (
-    <StyledTabsItem
-      data-testid="tabs-item"
-      blacklist={['activeColor', 'hoverColor', 'closed']}
-      tabIndex={0}
-      {...props}
-    />
-  )
+  return <StyledTabsItem data-testid="tabs-item" tabIndex={0} {...props} />
 }
 
 export default TabsItem
