@@ -8,7 +8,7 @@ const Option: React.FunctionComponent<OptionProps> = ({
   focused,
   ...props
 }) => {
-  const ref = React.useRef(null)
+  const ref = React.useRef<HTMLLIElement>(null)
 
   React.useEffect(() => {
     if (focused && ref.current) {

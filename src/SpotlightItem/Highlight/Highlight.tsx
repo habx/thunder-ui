@@ -1,3 +1,4 @@
+import { number } from '@storybook/addon-knobs'
 import * as React from 'react'
 import styled from 'styled-components'
 
@@ -248,7 +249,7 @@ const rawRemovalMap = [
 ]
 
 const prepareMap = () => {
-  const removalMap = {}
+  const removalMap: { [letters: string]: string } = {}
   for (let i = 0; i < rawRemovalMap.length; i += 1) {
     const letters = rawRemovalMap[i].letters
     for (let j = 0; j < letters.length; j += 1) {
@@ -265,7 +266,7 @@ export const cleanString = (str: string) =>
   // eslint-disable-next-line no-control-regex
   str.replace(/[^\u0000-\u007E]/g, a => removalMap[a] || a)
 
-const findQueryInText = (rawText, rawQuery) => {
+const findQueryInText = (rawText: string, rawQuery: string) => {
   const query = cleanString(rawQuery)
     .toLowerCase()
     .split('')
@@ -309,13 +310,12 @@ const HighlightContainer = styled.div`
   }
 `
 
-const Highlight = ({ children, query }) => {
+const Highlight: React.FunctionComponent<{
+  query?: string
+  children?: string
+}> = ({ children = '', query = '' }) => {
   const { text } = findQueryInText(children, query)
   return <HighlightContainer dangerouslySetInnerHTML={{ __html: text }} />
-}
-
-Highlight.defaultProps = {
-  children: '',
 }
 
 export default Highlight

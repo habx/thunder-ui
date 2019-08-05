@@ -13,7 +13,7 @@ export default interface SpotlightSectionProps
   filter?: (
     query: string,
     element: any,
-    index: string,
+    index: number,
     elements: Array<any>
   ) => boolean
 }

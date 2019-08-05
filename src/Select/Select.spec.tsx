@@ -6,8 +6,9 @@ import Select from './Select'
 import { longData } from './Select.data'
 
 import '@testing-library/jest-dom/extend-expect'
+import SelectProps from './Select.interface'
 
-const renderOpenedSelect = element => {
+const renderOpenedSelect = (element: React.ReactElement<SelectProps>) => {
   const result = render(element)
 
   fireEvent.click(result.getByTestId('select-content'))
@@ -28,7 +29,7 @@ describe('Select component', () => {
         <Select options={longData} placeholder="Placeholder test content" />
       )
 
-      expect(queryByTestId('select-placeholder').textContent).toEqual(
+      expect((queryByTestId('select-placeholder') as Node).textContent).toEqual(
         'Placeholder test content'
       )
     })
@@ -42,7 +43,7 @@ describe('Select component', () => {
         />
       )
 
-      expect(queryByTestId('select-placeholder').textContent).toEqual(
+      expect((queryByTestId('select-placeholder') as Node).textContent).toEqual(
         longData[0].label
       )
     })
@@ -137,7 +138,7 @@ describe('Select component', () => {
         <Select options={longData} filterable />
       )
 
-      fireEvent.change(queryByTestId('select-input'), {
+      fireEvent.change(queryByTestId('select-input') as Element, {
         target: { value: 'ann' },
       })
       const options = queryAllByTestId('option-container')

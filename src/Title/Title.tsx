@@ -5,7 +5,7 @@ import theme from '../theme'
 
 import TitleProps from './Title.interface'
 
-const BaseTitle = styled.h1<{ underline: boolean }>`
+const BaseTitle = styled.h1<{ underline?: boolean }>`
   color: ${theme.get('neutralStronger', { dynamic: true })};
   margin: 0;
 
@@ -60,14 +60,10 @@ const components = {
   4: Title4,
 }
 
-const Title: React.FunctionComponent<TitleProps> = ({ size, ...props }) => {
+const Title: React.FunctionComponent<TitleProps> = ({ size = 1, ...props }) => {
   const TitleComponent = components[size] || Title
 
   return <TitleComponent {...props} />
-}
-
-Title.defaultProps = {
-  size: 1,
 }
 
 export default Title

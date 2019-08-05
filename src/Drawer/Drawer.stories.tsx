@@ -17,7 +17,7 @@ const Content = styled.div`
 const props = () => ({
   open: boolean('Open', true),
   onClose: action('onClose'),
-  position: select('Position', ['right', 'left', 'top', 'bottom']),
+  position: select('Position', ['right', 'left', 'top', 'bottom'], 'right'),
 })
 
 storiesOf('Layouts|Drawer', module)

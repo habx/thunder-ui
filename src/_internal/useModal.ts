@@ -33,7 +33,7 @@ const useModal = ({
   ...restParams
 }: ModalParams): ModalState => {
   const hasAlreadyRendered = React.useRef(false)
-  const domRef = React.useRef(null)
+  const domRef = React.useRef<HTMLDivElement>(null)
   const forceRender = useForceRender()
   const registerTimeout = useTimeout()
 
@@ -72,6 +72,7 @@ const useModal = ({
       if (
         !paramsRef.current.persistent &&
         paramsRef.current.open &&
+        domRef.current &&
         !domRef.current.contains(e.target)
       ) {
         handleClose(e)
@@ -84,7 +85,7 @@ const useModal = ({
     if (paramsRef.current.animated) {
       registerTimeout(
         setTimeout(
-          () => setLocalOpened(params.open),
+          () => setLocalOpened(!!params.open),
           paramsRef.current.animationDuration
         )
       )
@@ -92,7 +93,7 @@ const useModal = ({
   }, [params.open, registerTimeout])
 
   React.useEffect(() => {
-    const handleKeyDown = e => {
+    const handleKeyDown = (e: KeyboardEvent) => {
       if (
         !paramsRef.current.persistent &&
         paramsRef.current.open &&

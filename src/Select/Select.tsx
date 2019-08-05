@@ -6,13 +6,17 @@ import { withTheme } from 'styled-components'
 import { isNil, has, isString } from '../_internal/data'
 import { isClientSide, ssrDOMRect } from '../_internal/ssr'
 import { searchInString } from '../_internal/strings'
-import { formOption, styledTheme } from '../_internal/types'
+import { formOption, formValue, styledTheme } from '../_internal/types'
 import FontIcon from '../FontIcon'
 import theme from '../theme'
 import withLabel from '../withLabel'
 
 import Options from './Options'
-import SelectProps, { SelectInnerProps, SelectState } from './Select.interface'
+import SelectProps, {
+  SelectInnerProps,
+  SelectReducerState,
+  SelectState,
+} from './Select.interface'
 import {
   SelectContainer,
   SelectContent,
@@ -27,7 +31,7 @@ import {
 const FORMAT_VALUE_FULL = 'full'
 const FORMAT_VALUE_SIMPLE = 'simple'
 
-const useOptions = ({ rawOptions }) =>
+const useOptions = ({ rawOptions }: { rawOptions: formValue[] }) =>
   React.useMemo(() => {
     if (!rawOptions) {
       return []
@@ -39,14 +43,22 @@ const useOptions = ({ rawOptions }) =>
     }))
   }, [rawOptions])
 
-const useValue = ({ rawValue, multi, options }) =>
+const useValue = ({
+  rawValue,
+  multi,
+  options,
+}: {
+  rawValue: formValue | formValue[]
+  multi: boolean
+  options: formOption[]
+}) =>
   React.useMemo(() => {
-    const cleanValue = value => {
+    const cleanValue = (value: formValue) => {
       if (isNil(value)) {
         return { value, label: 'No value' }
       }
 
-      if (has(value, 'value')) {
+      if (has(value as formOption, 'value')) {
         return value
       }
 
@@ -54,36 +66,55 @@ const useValue = ({ rawValue, multi, options }) =>
       return {
         value,
         label: matchingOption ? matchingOption.label : value,
-      }
+      } as formValue
     }
 
     if (multi) {
-      return rawValue ? rawValue.map(cleanValue) : []
+      return rawValue ? (rawValue as formValue[]).map(cleanValue) : []
     }
 
-    return cleanValue(rawValue)
+    return cleanValue(rawValue as formValue)
   }, [multi, rawValue, options])
 
-const useValueFormat = ({ rawValueFormat, rawValue, multi }) =>
+const useValueFormat = ({
+  rawValueFormat,
+  rawValue,
+  multi,
+}: {
+  rawValue: formOption | formOption[]
+  multi: boolean
+  rawValueFormat: 'full' | 'simple' | undefined
+}) =>
   React.useMemo(() => {
-    if ([FORMAT_VALUE_FULL, FORMAT_VALUE_SIMPLE].includes(rawValueFormat)) {
+    if (
+      [FORMAT_VALUE_FULL, FORMAT_VALUE_SIMPLE].includes(rawValueFormat || '')
+    ) {
       return rawValueFormat
     }
 
     if (multi) {
-      if (!rawValue || rawValue.length === 0) {
+      if (!rawValue || (rawValue as formValue[]).length === 0) {
         return FORMAT_VALUE_SIMPLE
       }
 
-      return has(rawValue[0], 'value') ? FORMAT_VALUE_FULL : FORMAT_VALUE_SIMPLE
+      return (rawValue as formOption[]).length > 0 &&
+        has((rawValue as formOption[])[0], 'value')
+        ? FORMAT_VALUE_FULL
+        : FORMAT_VALUE_SIMPLE
     }
 
     return has(rawValue, 'value') ? FORMAT_VALUE_FULL : FORMAT_VALUE_SIMPLE
   }, [rawValueFormat, multi, rawValue])
 
-const useVisibleOptions = ({ query, options }) =>
+const useVisibleOptions = ({
+  query,
+  options,
+}: {
+  query: string
+  options: formOption[]
+}) =>
   React.useMemo((): formOption[] => {
-    return options.filter((option: formOption) => {
+    return options.filter(option => {
       const matchValue = searchInString(`${option.value}`, query)
       const matchLabel =
         isString(option.label) && searchInString(option.label, query)
@@ -91,20 +122,36 @@ const useVisibleOptions = ({ query, options }) =>
     })
   }, [options, query])
 
-const useSelectedOptions = ({ options, value, multi }) =>
+const useSelectedOptions = ({
+  options,
+  value,
+  multi,
+}: {
+  options: formOption[]
+  value: formValue | formValue[]
+  multi: boolean
+}) =>
   React.useMemo(() => {
     if (!value) {
       return null
     }
 
     if (multi) {
-      return options.filter(el => value.includes(el.value))
+      return options.filter(el => (value as formOption[]).includes(el.value))
     }
 
-    return options.find(el => el.value === value.value)
+    return options.find(el => el.value === (value as formOption).value)
   }, [multi, options, value])
 
-const usePlaceholder = ({ rawPlaceholder, selectedOptions, multi }) =>
+const usePlaceholder = ({
+  rawPlaceholder,
+  selectedOptions,
+  multi,
+}: {
+  rawPlaceholder?: string
+  selectedOptions?: formOption | formOption[] | null
+  multi: boolean
+}) =>
   React.useMemo(() => {
     if (multi) {
       return rawPlaceholder
@@ -116,29 +163,32 @@ const usePlaceholder = ({ rawPlaceholder, selectedOptions, multi }) =>
   }, [selectedOptions, rawPlaceholder, multi])
 
 const BaseSelect: React.FunctionComponent<SelectInnerProps> = ({
-  multi,
+  multi = false,
   description,
   placeholderClassName,
   icon,
   annotation,
-  canReset,
+  canReset = true,
   disabled,
-  filterable,
-  compact,
+  filterable = false,
+  compact = false,
   canSelectAll,
   selectAllLabel,
-  optionDisabled,
-  onChange,
+  optionDisabled = () => false,
   value: rawValue,
   options: rawOptions,
   valueFormat: rawValueFormat,
   placeholder: rawPlaceholder,
+  onChange = () => null,
   ...props
 }) => {
-  const inputRef = React.useRef(null)
-  const wrapperRef = React.useRef(null)
+  const inputRef = React.useRef<HTMLInputElement>(null)
+  const wrapperRef = React.useRef<HTMLDivElement>(null)
 
-  const reducer = (state, action) => {
+  const reducer = (
+    state: SelectReducerState,
+    action: { type: string; value: any }
+  ) => {
     switch (action.type) {
       case 'UPDATE_QUERY': {
         return { ...state, query: action.value, isOpened: true }
@@ -153,7 +203,9 @@ const BaseSelect: React.FunctionComponent<SelectInnerProps> = ({
           ...state,
           query: '',
           isOpened: !state.isOpened,
-          wrapperRect: wrapperRef.current.getBoundingClientRect(),
+          wrapperRect: wrapperRef.current
+            ? wrapperRef.current.getBoundingClientRect()
+            : ({} as DOMRect),
         }
       }
 
@@ -171,7 +223,9 @@ const BaseSelect: React.FunctionComponent<SelectInnerProps> = ({
       case 'RESIZE': {
         return {
           ...state,
-          wrapperRect: wrapperRef.current.getBoundingClientRect(),
+          wrapperRect: wrapperRef.current
+            ? wrapperRef.current.getBoundingClientRect()
+            : ({} as DOMRect),
         }
       }
 
@@ -226,19 +280,19 @@ const BaseSelect: React.FunctionComponent<SelectInnerProps> = ({
 
   const handleSelectMulti = React.useCallback(
     option => {
-      const isSelected = value.some(el =>
+      const isSelected = (value as formOption[]).some((el: formOption) =>
         has(el, 'value') ? el.value === option.value : el === option.value
       )
 
       if (isSelected) {
-        const newValue = value
-          .filter(el =>
+        const newValue = (value as formOption[])
+          .filter((el: formOption) =>
             has(el, 'value') ? el.value !== option.value : el !== option.value
           )
           .map(getCleanValue)
         onChange(newValue)
       } else {
-        const newValue = [...value, option].map(getCleanValue)
+        const newValue = [...(value as formOption[]), option].map(getCleanValue)
         onChange(newValue)
       }
     },
@@ -280,7 +334,7 @@ const BaseSelect: React.FunctionComponent<SelectInnerProps> = ({
   )
 
   React.useEffect(() => {
-    const handleKeyDown = event => {
+    const handleKeyDown = (event: KeyboardEvent) => {
       const { key } = event
 
       if (state.isOpened) {
@@ -333,10 +387,12 @@ const BaseSelect: React.FunctionComponent<SelectInnerProps> = ({
   const isOptionSelected = React.useCallback(
     option => {
       if (multi) {
-        return value.some(el => el.value === option.value)
+        return (value as formOption[]).some(
+          (el: formOption) => el.value === option.value
+        )
       }
 
-      return value ? option.value === value.value : false
+      return value ? option.value === (value as formOption).value : false
     },
     [multi, value]
   )
@@ -349,7 +405,7 @@ const BaseSelect: React.FunctionComponent<SelectInnerProps> = ({
 
   const areAllOptionsSelected = React.useMemo(() => {
     if (!multi || !value) return false
-    return options.length === value.length
+    return options.length === (value as formOption[]).length
   }, [multi, options.length, value])
 
   return (
@@ -420,12 +476,6 @@ const BaseSelect: React.FunctionComponent<SelectInnerProps> = ({
 }
 
 BaseSelect.defaultProps = {
-  multi: false,
-  canReset: true,
-  filterable: false,
-  compact: false,
-  optionDisabled: () => false,
-  onChange: () => null,
   theme: {} as styledTheme,
 }
 

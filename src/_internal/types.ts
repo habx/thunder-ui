@@ -15,11 +15,14 @@ export type styledTheme = {
   thunderUI?: ThunderUITheme
 }
 
-export type themeAccessor = (props: {
-  theme?: styledTheme
-  warning?: boolean
-  error?: boolean
-}) => string
+export type themeAccessor = (
+  props: {
+    theme?: styledTheme
+    warning?: boolean
+    error?: boolean
+  } & any, // I know it's cheating but I'm not able to fix it
+  runtimeConfig?: { isRecursive?: boolean }
+) => string
 
 export interface Input<valueType> {
   value?: valueType
@@ -44,3 +47,4 @@ export interface Button extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 export type styledAs = keyof JSX.IntrinsicElements | React.ComponentType<any>
+export type position = 'top' | 'right' | 'left' | 'bottom'

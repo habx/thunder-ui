@@ -22,9 +22,9 @@ const SelectWithState = ({ value = null, ...props }) => {
       options={shortData}
       placeholder="Options"
       {...newProps}
-      onChange={(...args) => {
-        action('onChange')(...args)
-        newProps.onChange(...args)
+      onChange={value => {
+        action('onChange')(value)
+        newProps.onChange(value)
       }}
     />
   ))
@@ -53,7 +53,9 @@ storiesOf('Inputs|Select', module)
     <SelectWithState multi canSelectAll />
   ))
   .add('with disabled options', () => (
-    <SelectWithState optionDisabled={option => option.value > 1} />
+    <SelectWithState
+      optionDisabled={(option: { value: number }) => option.value > 1}
+    />
   ))
   .add('adapt when no space', () => (
     <BottomContainer>

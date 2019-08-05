@@ -1,6 +1,8 @@
 import * as React from 'react'
 
-export type data = any[] | { [key: string]: any[] }
+import { actionSpotlightState } from '../../SpotlightItem/SpotlightItem.interface'
+
+export type data = { [key: string]: any[] }
 
 export default interface SpotlightContentProps {
   placeholder?: string
@@ -12,7 +14,10 @@ export default interface SpotlightContentProps {
 }
 
 export interface ItemRegistrationData {
-  onSubmit: (e: React.MouseEvent<HTMLInputElement>) => void
+  onSubmit: (
+    e: React.UIEvent<HTMLInputElement>,
+    state?: actionSpotlightState
+  ) => void
   index: number
   key: number
 }

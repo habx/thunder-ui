@@ -14,7 +14,7 @@ const SimpleIconContainer = styled.div`
   font-size: 22px;
 `
 
-const iconDecorator = storyFn => <Container>{storyFn()}</Container>
+const iconDecorator = (storyFn: Function) => <Container>{storyFn()}</Container>
 
 const icons = ['person']
 

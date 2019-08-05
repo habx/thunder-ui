@@ -18,20 +18,22 @@ import {
 const Menu: React.FunctionComponent<MenuProps> = ({
   triggerElement,
   children,
-  position,
+  position = 'left',
   persistent,
-  portal,
+  portal = true,
   alwaysRenderChildren,
   ...props
 }) => {
-  const wrapperRef = React.useRef(null)
-  const [wrapperRect, setWrapperRect] = React.useState(
+  const wrapperRef = React.useRef<HTMLDivElement>(null)
+  const [wrapperRect, setWrapperRect] = React.useState<DOMRect | ClientRect>(
     typeof DOMRect === 'function' ? new DOMRect() : ssrDOMRect
   )
   const [open, setOpen] = React.useState(false)
 
   const updateWrapperReact = React.useCallback(
-    () => setWrapperRect(wrapperRef.current.getBoundingClientRect()),
+    () =>
+      wrapperRef.current &&
+      setWrapperRect(wrapperRef.current.getBoundingClientRect()),
     []
   )
 
@@ -83,7 +85,7 @@ const Menu: React.FunctionComponent<MenuProps> = ({
       position={position}
       wrapperRect={wrapperRect}
     >
-      <MenuContent {...props} onClick={persistent ? null : handleClose}>
+      <MenuContent {...props} onClick={persistent ? undefined : handleClose}>
         {isFunction(children)
           ? children({
               state: open ? 'open' : 'close',
@@ -110,11 +112,6 @@ const Menu: React.FunctionComponent<MenuProps> = ({
       </MenuWrapper>
     </React.Fragment>
   )
-}
-
-Menu.defaultProps = {
-  position: 'left',
-  portal: true,
 }
 
 export default Menu

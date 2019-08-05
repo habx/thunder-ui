@@ -6,9 +6,9 @@ import { NavigationDotsContainer, Dot } from './SlideShow.style'
 const Navigation: React.FunctionComponent<NavigationProps> = ({
   length,
   active,
-  onClick,
+  onClick = () => {},
   color,
-  canNavigate,
+  canNavigate = true,
 }) => (
   <NavigationDotsContainer canNavigate={canNavigate}>
     {Array.from(Array(length)).map((_, index) => (
@@ -21,10 +21,5 @@ const Navigation: React.FunctionComponent<NavigationProps> = ({
     ))}
   </NavigationDotsContainer>
 )
-
-Navigation.defaultProps = {
-  canNavigate: true,
-  onClick: () => null,
-}
 
 export default Navigation

@@ -45,7 +45,7 @@ const GlobalStyle = createGlobalStyle`
   }
 `
 
-export default (theme = 'light' as 'light' | 'dark') => storyFn => (
+export default (theme = 'light' as 'light' | 'dark') => (storyFn: Function) => (
   <ThunderProvider theme={theme}>
     <GlobalStyle />
     {storyFn()}

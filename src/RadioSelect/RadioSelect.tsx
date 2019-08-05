@@ -1,3 +1,4 @@
+import { boolean } from '@storybook/addon-knobs'
 import * as React from 'react'
 import { withTheme } from 'styled-components'
 
@@ -13,7 +14,7 @@ import { RadioSelectContainer, Option } from './RadioSelect.style'
 const getNewValueNotMulti = (
   item: formValue,
   value: formValue,
-  { canBeEmpty }
+  { canBeEmpty }: { canBeEmpty: boolean }
 ) => {
   if (value === item && canBeEmpty) {
     return null
@@ -25,7 +26,7 @@ const getNewValueNotMulti = (
 const getNewValueMulti = (
   item: formValue,
   value: formValue[],
-  { canBeEmpty }
+  { canBeEmpty }: { canBeEmpty: boolean }
 ) => {
   if (value.includes(item)) {
     const newValue = value.filter(el => el !== item)
@@ -44,7 +45,10 @@ const getNewValueMulti = (
   return [...value, item]
 }
 
-const getCurrentValue = (value, { multi }) => {
+const getCurrentValue = (
+  value: formValue | formValue[],
+  { multi }: { multi: boolean }
+) => {
   if (!value && value == null) {
     // '==' to check undefined values, not just null
     return multi ? [] : null
@@ -58,27 +62,28 @@ export const BaseRadioSelect: React.FunctionComponent<
 > = props => {
   const {
     options,
-    onChange,
-    multi,
-    value,
-    canBeEmpty,
-    disabled,
+    onChange = () => {},
+    multi = false,
+    value = false,
+    canBeEmpty = true,
+    disabled = false,
     ...rest
   } = props
 
   const currentValue = getCurrentValue(value, { multi })
 
-  const onItemClick = item => {
-    const newValue = multi
+  const onItemClick = (item: formValue) => {
+    const newValue: formValue | formValue[] = multi
       ? getNewValueMulti(item, currentValue as formValue[], { canBeEmpty })
-      : getNewValueNotMulti(item, currentValue as formValue, { canBeEmpty })
+      : getNewValueNotMulti(item, currentValue as formValue, { canBeEmpty }) ||
+        false
 
     return onChange(newValue)
   }
 
   const selected = options.map(({ value }) => {
     if (multi) {
-      return currentValue.includes(value)
+      return (currentValue as formValue[]).includes(value)
     }
 
     return value === currentValue
@@ -106,10 +111,6 @@ export const BaseRadioSelect: React.FunctionComponent<
 }
 
 BaseRadioSelect.defaultProps = {
-  canBeEmpty: true,
-  multi: false,
-  disabled: false,
-  options: [],
   theme: {} as styledTheme,
 }
 

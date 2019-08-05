@@ -13,7 +13,7 @@ const Container = styled.div`
   width: 500px;
 `
 
-const navDecorator = storyFn => <Container>{storyFn()}</Container>
+const navDecorator = (storyFn: Function) => <Container>{storyFn()}</Container>
 
 const ControlledExpansionPanel = () => {
   const [firstOpen, setFirstOpen] = React.useState(false)

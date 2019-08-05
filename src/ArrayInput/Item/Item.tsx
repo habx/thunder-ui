@@ -24,7 +24,7 @@ const Item: React.FunctionComponent<ItemProps> = ({
   renderItemTitle,
   ...rest
 }) => {
-  const handleDelete = e => {
+  const handleDelete = (e: React.MouseEvent) => {
     e.stopPropagation()
 
     if (isFunction(onDelete)) {
@@ -32,7 +32,7 @@ const Item: React.FunctionComponent<ItemProps> = ({
     }
   }
 
-  const handleMoveUp = e => {
+  const handleMoveUp = (e: React.MouseEvent) => {
     e.stopPropagation()
 
     if (isFunction(onReorder) && index > 0) {

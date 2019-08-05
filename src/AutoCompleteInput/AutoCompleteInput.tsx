@@ -3,6 +3,7 @@ import { createPortal } from 'react-dom'
 
 import { isClientSide, ssrDOMRect } from '../_internal/ssr'
 import { searchInString } from '../_internal/strings'
+import { formOption } from '../_internal/types'
 import TextInput from '../TextInput'
 
 import AutoCompleteInputProps, {
@@ -17,29 +18,43 @@ import Option from './Option'
 
 const INITIAL_STATE = {
   isOpened: false,
-  query: '',
-  focusedItem: null,
+  focusedItem: undefined,
   wrapperRect: typeof DOMRect === 'function' ? new DOMRect() : ssrDOMRect,
 }
 
-const EMPTY_OPTIONS = []
+const EMPTY_OPTIONS: formOption[] = []
 
 const AutoCompleteInput: React.FunctionComponent<AutoCompleteInputProps> = ({
   options = EMPTY_OPTIONS,
   inputComponent: Input = TextInput,
-  onChange,
-  value,
+  onChange = () => {},
+  value = '',
   ...rest
 }) => {
-  const wrapperRef = React.useRef(null)
-  const optionsRef = React.useRef(null)
+  const wrapperRef = React.useRef<HTMLDivElement>(null)
+  const optionsRef = React.useRef<HTMLDivElement>(null)
 
-  const reducer = (state, action) => {
+  const reducer = (
+    state: {
+      wrapperRect: DOMRect | ClientRect
+      isOpened: boolean
+      focusedItem?: HTMLInputElement
+    },
+    action: { type: string; value?: any }
+  ): {
+    wrapperRect: DOMRect | ClientRect
+    isOpened: boolean
+    focusedItem?: HTMLInputElement
+  } => {
     switch (action.type) {
       case 'RESIZE': {
         return {
           ...state,
-          wrapperRect: wrapperRef.current.getBoundingClientRect(),
+          wrapperRect: wrapperRef.current
+            ? wrapperRef.current.getBoundingClientRect()
+            : typeof DOMRect === 'function'
+            ? new DOMRect()
+            : ssrDOMRect,
         }
       }
 
@@ -52,7 +67,7 @@ const AutoCompleteInput: React.FunctionComponent<AutoCompleteInputProps> = ({
       }
 
       case 'REMOVE_FOCUS_ITEM': {
-        return { ...state, focusedItem: null }
+        return { ...state, focusedItem: undefined }
       }
 
       case 'ADD_FOCUS_ITEM': {
@@ -104,17 +119,17 @@ const AutoCompleteInput: React.FunctionComponent<AutoCompleteInputProps> = ({
       dispatch({ type: 'RESIZE' })
     }
 
-    const handleClick = e => {
+    const handleClick = (e: MouseEvent) => {
       if (
         wrapperRef.current &&
-        !wrapperRef.current.contains(e.target) &&
-        (optionsRef.current && !optionsRef.current.contains(e.target))
+        !wrapperRef.current.contains(e.target as Node) &&
+        (optionsRef.current && !optionsRef.current.contains(e.target as Node))
       ) {
         handleClose()
       }
     }
 
-    const handleKeyDown = event => {
+    const handleKeyDown = (event: KeyboardEvent) => {
       const { key } = event
 
       if (state.isOpened) {

@@ -18,7 +18,9 @@ const Slide = styled.div`
   justify-content: center;
 `
 
-const slideShowDecorator = storyFn => <Container>{storyFn()}</Container>
+const slideShowDecorator = (storyFn: Function) => (
+  <Container>{storyFn()}</Container>
+)
 
 const props = () => ({
   active: number('Active slide', 0, { range: true, min: 0, max: 3, step: 1 }),

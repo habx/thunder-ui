@@ -5,6 +5,7 @@ import styled from 'styled-components'
 
 import Title from '../Title'
 
+import CheckboxProps from './Checkbox.interface'
 import Checkbox from './index'
 
 const StoryContainer = styled.div`
@@ -31,20 +32,22 @@ const CheckboxContainer = styled.div`
   padding-right: 24px;
 `
 
-const Label = props => <label {...props}>Check</label>
+const Label: React.FunctionComponent<
+  React.HTMLProps<HTMLLabelElement>
+> = props => <label {...props}>Check</label>
 
-const CheckboxWithLabel = props => {
+const CheckboxWithLabel = (props: CheckboxProps) => {
   const id = React.useRef(Math.random)
 
   return (
     <React.Fragment>
-      <Checkbox {...props} id={id.current} />
-      <Label htmlFor={id.current}>Exemple de label</Label>
+      <Checkbox {...props} id={`${id.current}`} />
+      <Label htmlFor={`${id.current}`}>Exemple de label</Label>
     </React.Fragment>
   )
 }
 
-const createLine = (title, props = {}) => {
+const createLine = (title: string, props = {}) => {
   const content = (
     <LineContainer>
       <Title size={3}>{title}</Title>
@@ -53,10 +56,15 @@ const createLine = (title, props = {}) => {
           <CheckboxWithLabel />
         </CheckboxContainer>
         <CheckboxContainer>
-          <CheckboxWithLabel value onChange={() => {}} {...props} />
+          <CheckboxWithLabel value="true" onChange={() => {}} {...props} />
         </CheckboxContainer>
         <CheckboxContainer>
-          <CheckboxWithLabel error value onChange={() => {}} {...props} />
+          <CheckboxWithLabel
+            error
+            value="true"
+            onChange={() => {}}
+            {...props}
+          />
         </CheckboxContainer>
         <CheckboxContainer>
           <CheckboxWithLabel disabled {...props} />
@@ -79,7 +87,7 @@ storiesOf('Inputs|Checkbox', module)
   .add('dynamic', () => (
     <CheckboxContainer>
       <CheckboxWithLabel
-        value={boolean('Value', true)}
+        value={boolean('Value', true) ? 'true' : 'false'}
         placeholder="votre numéro"
         error={boolean('Error', false)}
         disabled={boolean('Disabled', false)}

@@ -18,13 +18,13 @@ import {
 const SpotlightContent: React.FunctionComponent<SpotlightContentProps> = ({
   children,
   query,
-  data,
-  placeholder,
+  data = {},
+  placeholder = 'Search...',
   inputRef,
   onClose,
   onQueryChange,
 }) => {
-  const [selectedItem, setSelectedItem] = React.useState(-1)
+  const [selectedItem, setSelectedItem] = React.useState<number>(-1)
   const items: React.MutableRefObject<{
     [key: string]: ItemRegistrationData[]
   }> = React.useRef({})
@@ -53,7 +53,7 @@ const SpotlightContent: React.FunctionComponent<SpotlightContentProps> = ({
       items.current = {
         ...items.current,
         [sectionName]: {
-          ...get(items.current, sectionName, {}),
+          ...get(items.current, sectionName, []),
           [item.key]: item,
         },
       }
@@ -89,7 +89,7 @@ const SpotlightContent: React.FunctionComponent<SpotlightContentProps> = ({
   )
 
   React.useEffect(() => {
-    const handleKeyDown = event => {
+    const handleKeyDown = (event: KeyboardEvent) => {
       const { key, shiftKey } = event
 
       if (['ArrowUp', 'ArrowDown', 'Tab'].includes(key)) {
@@ -104,7 +104,7 @@ const SpotlightContent: React.FunctionComponent<SpotlightContentProps> = ({
             return prev < getAllItemKeys().length - 1 ? prev + 1 : -1
           }
 
-          return null
+          return -1
         })
       }
     }
@@ -162,11 +162,6 @@ const SpotlightContent: React.FunctionComponent<SpotlightContentProps> = ({
       <SpotlightSections>{children}</SpotlightSections>
     </SpotlightContext.Provider>
   )
-}
-
-SpotlightContent.defaultProps = {
-  data: {},
-  placeholder: 'Search...',
 }
 
 export default SpotlightContent

@@ -1,12 +1,15 @@
 import styled from 'styled-components'
 
+import { styledTheme } from '../_internal/types'
 import borderRadius from '../borderRadius'
 import { FontIconContainer } from '../FontIcon/FontIcon.style'
 import fontSizes from '../fontSizes'
 import Spinner from '../Spinner'
 import theme from '../theme'
 
-const prepareProps = props => {
+const prepareProps = (
+  props: { reverse?: boolean; hoverColor: string } & styledTheme
+) => {
   const neutralColor = theme.get('neutralLightest', { propName: 'textColor' })(
     props
   )
@@ -39,6 +42,7 @@ export const ButtonContainer = styled.button.attrs(prepareProps)<{
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
 
   border-radius: ${borderRadius.narrow};
   border: none;

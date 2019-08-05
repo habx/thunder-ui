@@ -14,7 +14,7 @@ describe('RadioSelect component', () => {
         <RadioSelect
           options={cardinalPoints}
           onChange={spyOnChange}
-          value={null}
+          value={undefined}
         />
       )
 
@@ -85,7 +85,7 @@ describe('RadioSelect component', () => {
         <RadioSelect
           options={cardinalPoints}
           onChange={spyOnChange}
-          value={null}
+          value={undefined}
           multi
         />
       )

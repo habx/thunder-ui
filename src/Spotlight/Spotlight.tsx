@@ -8,10 +8,13 @@ import SpotlightContent from './SpotlightContent'
 
 const DOUBLE_KEY_PRESS_DURATION = 200
 
-const reducer = (state, action) => {
+const reducer = (
+  state: { query: string; isOpened: boolean },
+  action: { type: string; value?: string }
+): { query: string; isOpened: boolean } => {
   switch (action.type) {
     case 'UPDATE_QUERY': {
-      return { ...state, query: action.value }
+      return { ...state, query: action.value as string }
     }
 
     case 'OPEN': {
@@ -52,10 +55,10 @@ const Spotlight: React.FunctionComponent<SpotlightProps> = ({
   }, [])
 
   const lastOpenKeyPress = React.useRef(0)
-  const inputRef = React.useRef(null)
+  const inputRef = React.useRef<HTMLInputElement>(null)
 
   React.useEffect(() => {
-    const handleKeyDown = ({ key }) => {
+    const handleKeyDown = ({ key }: KeyboardEvent) => {
       if (key === 'Shift') {
         const currentTime = Date.now()
         if (

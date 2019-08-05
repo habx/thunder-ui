@@ -10,7 +10,7 @@ export default interface SpotlightProps extends ModalProps {
   open?: boolean
   onClose?: () => void
   onOpen?: () => void
-  onFetchData?: ({ query: string }) => void
+  onFetchData?: ({ query }: { query: string }) => void
   placeholder?: string
 }
 

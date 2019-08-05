@@ -14,8 +14,8 @@ import {
 const TextInput = React.forwardRef<HTMLInputElement, TextInputInnerProps>(
   (props, ref) => {
     const {
-      onChange,
-      value,
+      onChange = () => null,
+      value = '',
       loading,
       rightHoverElement,
       rightElement,
@@ -62,11 +62,6 @@ const TextInput = React.forwardRef<HTMLInputElement, TextInputInnerProps>(
     )
   }
 )
-
-TextInput.defaultProps = {
-  onChange: () => null,
-  value: '',
-}
 
 export default withLabel()(withTheme(TextInput) as React.FunctionComponent<
   TextInputProps

@@ -5,7 +5,6 @@ import fontSizes from './fontSizes'
 import theme from './theme'
 
 const FieldWithLabelContainer = styled.div``
-
 const LabelContainer = styled.div<{ padding: number }>`
   font-size: ${fontSizes.tiny};
   font-weight: 500;

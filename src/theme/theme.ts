@@ -68,16 +68,18 @@ const getter = (
 ): themeAccessor => {
   const { propName = 'color', dynamic = false } = config
 
-  return (props, runtimeConfig: { isRecursive?: boolean } = {}) => {
+  return (props, runtimeConfig = {}) => {
     const { theme = {} as { thunderUI: ThunderUITheme } } = props
     const thunderTheme = theme.thunderUI || LIGHT_THEME
 
     if (propName && props[propName] && !runtimeConfig.isRecursive) {
       if (isFunction(props[propName])) {
-        return props[propName](props, { isRecursive: true })
+        return (props[propName] as themeAccessor)(props, {
+          isRecursive: true,
+        })
       }
 
-      return props[propName]
+      return props[propName] as string
     }
 
     if (dynamic && props.warning) {
@@ -97,7 +99,7 @@ const getter = (
 }
 
 const activeGetter = (
-  customColor: string,
+  customColor?: string,
   baseColor?: string,
   config: { reverse?: boolean } = {}
 ) => {

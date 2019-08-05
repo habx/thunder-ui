@@ -6,7 +6,7 @@ import ThunderProvider from '../ThunderProvider'
 
 import notify from './index'
 
-const thunderDecorator = storyFn => (
+const thunderDecorator = (storyFn: Function) => (
   <ThunderProvider>{storyFn()}</ThunderProvider>
 )
 

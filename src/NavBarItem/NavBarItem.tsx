@@ -31,14 +31,16 @@ const NavBarItem: React.FunctionComponent<NavBarItemProps> = rawProps => {
     <NavBarItemContainer
       data-testid="nav-bar-item"
       tabIndex={0}
-      activebackgroundcolor={activeBackgroundColor}
+      activebackgroundcolor={activeBackgroundColor as string}
       data-bottom={bottom}
       {...props}
     >
       <IconContainer>{icon}</IconContainer>
       {tooltip && (
         <React.Fragment>
-          <NavBarItemTooltip activebackgroundcolor={activeBackgroundColor}>
+          <NavBarItemTooltip
+            activebackgroundcolor={activeBackgroundColor as string}
+          >
             <IconContainer>{icon}</IconContainer>
             <NavBarItemTooltipContent>{tooltip}</NavBarItemTooltipContent>
           </NavBarItemTooltip>

@@ -1,6 +1,12 @@
 import * as React from 'react'
 
-import { Input, formOption, styledTheme, Except } from '../_internal/types'
+import {
+  Input,
+  formOption,
+  styledTheme,
+  Except,
+  formValue,
+} from '../_internal/types'
 
 export default interface SelectProps
   extends Input<any>,
@@ -33,4 +39,11 @@ export interface SelectState {
   options: formOption[]
   value: formOption | formOption[]
   wrapperRect: DOMRect
+}
+
+export interface SelectReducerState {
+  isOpened: boolean
+  query: string
+  wrapperRect: ClientRect | DOMRect
+  focusedItem: formValue
 }

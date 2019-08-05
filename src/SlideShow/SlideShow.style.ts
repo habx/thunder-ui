@@ -9,7 +9,7 @@ export const SlideshowContainer = styled.div`
 `
 
 export const SlideshowContent = styled.div<{
-  transitionDuration: number
+  transitionDuration?: number
   length: number
 }>`
   width: 100%;

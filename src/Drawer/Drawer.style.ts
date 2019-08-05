@@ -1,12 +1,13 @@
 import styled from 'styled-components'
 
+import { position as positionType } from '../_internal/types'
 import theme from '../theme'
 import Title from '../Title'
 import zIndex from '../zIndex'
 
 export const ANIMATION_DURATION = 200
 
-const prepareProps = ({ position }) => {
+const prepareProps = ({ position }: { position: positionType }) => {
   let transformBefore = ''
   let transformAfter = ''
   switch (position) {

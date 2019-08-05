@@ -13,7 +13,7 @@ export interface ItemInjectedProps {
   ) => void
 }
 
-type actionSpotlightState = {
+export type actionSpotlightState = {
   spotlight: SpotlightContextProps
   section: SpotlightSectionContextProps
 }

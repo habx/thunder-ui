@@ -39,8 +39,10 @@ export const useIsMounted = () => {
 }
 
 export const useTimeout = () => {
-  const timeouts = React.useRef([])
-  const register = React.useRef(timeout => timeouts.current.push(timeout))
+  const timeouts = React.useRef<number[]>([])
+  const register = React.useRef((timeout: number) =>
+    timeouts.current.push(timeout)
+  )
 
   React.useEffect(() => {
     return () => {

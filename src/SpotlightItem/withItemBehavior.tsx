@@ -11,17 +11,33 @@ import {
   ItemReceivedProps,
   ItemInjectedProps,
   WithItemBehaviorProps,
+  actionSpotlightState,
 } from './SpotlightItem.interface'
 
 const useWrappedActions = ({
   spotlight,
   section,
-  onClick,
-  onFocus,
-  onBlur,
+  onClick = () => {},
+  onFocus = () => {},
+  onBlur = () => {},
+}: {
+  spotlight: SpotlightContextProps
+  section: SpotlightSectionContextProps
+  onClick?: (
+    e: React.UIEvent<HTMLInputElement>,
+    state: actionSpotlightState
+  ) => void
+  onFocus?: (
+    e: React.UIEvent<HTMLInputElement>,
+    state: actionSpotlightState
+  ) => void
+  onBlur?: (
+    e: React.UIEvent<HTMLInputElement>,
+    state: actionSpotlightState
+  ) => void
 }) => {
-  const spotlightRef = React.useRef<SpotlightContextProps>(null)
-  const sectionRef = React.useRef<SpotlightSectionContextProps>(null)
+  const spotlightRef = React.useRef<SpotlightContextProps>()
+  const sectionRef = React.useRef<SpotlightSectionContextProps>()
 
   React.useEffect(() => {
     spotlightRef.current = spotlight
@@ -31,12 +47,8 @@ const useWrappedActions = ({
   return React.useMemo(() => {
     const actions = { onClick, onFocus, onBlur }
 
-    return mapValues(actions, (action, actionName) => {
-      if (!action) {
-        return null
-      }
-
-      return e =>
+    return mapValues(actions, action => {
+      return (e: React.UIEvent<HTMLElement>) =>
         action(e, {
           spotlight: spotlightRef.current,
           section: sectionRef.current,
@@ -53,15 +65,20 @@ const withItemBehavior = <Props extends ItemInjectedProps>(
   > = props => {
     const {
       index,
-      onClick,
-      onFocus,
-      onBlur,
+      onClick = () => {},
+      onFocus = () => {},
+      onBlur = () => {},
       ...rest
     } = props as ItemReceivedProps
 
     const id = React.useRef(Math.random())
-    const actions = React.useRef({
-      submit: (...args) => null,
+    const actions = React.useRef<{
+      [action: string]: (
+        e: React.UIEvent<HTMLInputElement>,
+        state: actionSpotlightState
+      ) => void
+    }>({
+      submit: () => {},
     })
     const spotlight = React.useContext(SpotlightContext)
     const section = React.useContext(SpotlightSectionContext)
@@ -74,7 +91,10 @@ const withItemBehavior = <Props extends ItemInjectedProps>(
       spotlight.registerItem(section.name, {
         index,
         key: id.current,
-        onSubmit: (...args) => actions.current.submit(...args),
+        onSubmit: (
+          e: React.UIEvent<HTMLInputElement>,
+          state: actionSpotlightState = {} as actionSpotlightState
+        ) => actions.current.submit(e, state),
       })
 
       return () => {

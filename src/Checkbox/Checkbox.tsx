@@ -32,7 +32,7 @@ const Checkbox: React.FunctionComponent<CheckboxProps> = ({
         id={id}
       />
       <FontIcon icon="check" />
-      <FakeInput tabIndex={disabled ? null : 0} htmlFor={id} />
+      <FakeInput tabIndex={disabled ? undefined : 0} htmlFor={id} />
     </FakeInputContainer>
   )
 }
