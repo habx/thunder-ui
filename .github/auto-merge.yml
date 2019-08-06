@@ -1,0 +1,13 @@
+# see https://github.com/bobvanderlinden/probot-auto-merge
+updateBranch: true
+reportStatus: true
+blockingTitleRegex: '\bWIP\b'
+deleteBranchAfterMerge: true
+rules:
+- minApprovals:
+  - OWNER: 1
+  - COLLABORATOR: 1
+- requiredLabels:
+  - merge
+  - dependencies
+
