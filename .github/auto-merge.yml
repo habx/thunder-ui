@@ -5,7 +5,7 @@ blockingTitleRegex: '\bWIP\b'
 deleteBranchAfterMerge: true
 rules:
 - minApprovals:
-  OWNER: 1
+    OWNER: 1
 - requiredLabels:
     - merge
     - dependencies
