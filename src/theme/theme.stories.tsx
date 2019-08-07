@@ -3,9 +3,11 @@ import * as React from 'react'
 import styled from 'styled-components'
 
 import { omit, pick } from '../_internal/data'
+import { styledTheme, themeAccessor } from '../_internal/types'
 import Title from '../Title'
 
 import theme from './theme'
+import ThunderUITheme from './theme.interface'
 
 const Container = styled.div`
   display: flex;
@@ -53,7 +55,7 @@ const Label = styled.div`
   padding-top: 8px;
 `
 
-const prepareTheme = currentTheme => {
+const prepareTheme = (currentTheme: ThunderUITheme) => {
   const colors = omit(currentTheme, [
     'shadow',
     'shadowLight',
@@ -64,7 +66,7 @@ const prepareTheme = currentTheme => {
   const shadows = pick(currentTheme, ['shadow', 'shadowLight', 'shadowStrong'])
 
   const preparedColors = Object.entries(colors).reduce(
-    (acc, [themeKey, color]) => {
+    (acc: { [key: string]: any }, [themeKey, color]) => {
       const category =
         ['primary', 'neutral'].find(category =>
           themeKey.startsWith(category)
@@ -84,7 +86,9 @@ const prepareTheme = currentTheme => {
   }
 }
 
-const ThemeGallery = props => {
+const ThemeGallery: React.FunctionComponent<{
+  theme: ThunderUITheme
+}> = props => {
   const { colors, shadows } = prepareTheme(props.theme)
 
   return (
@@ -92,12 +96,14 @@ const ThemeGallery = props => {
       <Title size={2}>Colors</Title>
       {Object.entries(colors).map(([_, categoryColors]) => (
         <Line>
-          {Object.entries(categoryColors).map(([name, color]) => (
-            <Color>
-              <Circle color={color} />
-              <Label>{name}</Label>
-            </Color>
-          ))}
+          {Object.entries(categoryColors as [string, string]).map(
+            ([name, color]) => (
+              <Color>
+                <Circle color={color} />
+                <Label>{name}</Label>
+              </Color>
+            )
+          )}
         </Line>
       ))}
       <Title size={2}>Box Shadows</Title>

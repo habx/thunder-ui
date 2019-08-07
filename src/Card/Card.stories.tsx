@@ -19,8 +19,12 @@ const ACTIONS = {
 const props = () => ({
   title: text('Title', 'Concerning Hobbits'),
   subtitle: text('Subtitle', 'Chapter 1'),
-  titleCount: text('Title count', undefined),
-  headerPosition: select('Position of the header', HEADER_POSITIONS, 'inside'),
+  titleCount: text('Title count', null),
+  headerPosition: select(
+    'Position of the header',
+    HEADER_POSITIONS,
+    'inside'
+  ) as 'inside' | 'outside',
   action: select('Action', ACTIONS, ACTIONS.Without),
   interactive: boolean('Interactive', false),
   error: boolean('Error', false),

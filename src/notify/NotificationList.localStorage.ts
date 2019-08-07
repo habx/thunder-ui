@@ -4,7 +4,9 @@ export const LOCAL_STORAGE_KEY = 'thunder_notifications'
 export const getLocalStorageNotificationIds = () => {
   if (isClientSide()) {
     try {
-      return JSON.parse(window.localStorage.getItem(LOCAL_STORAGE_KEY)) as {
+      return JSON.parse(
+        window.localStorage.getItem(LOCAL_STORAGE_KEY) || '{}'
+      ) as {
         [key: string]: string | number
       }
     } catch (e) {}
@@ -39,10 +41,10 @@ export const removeLocalStorageNotificationId = (id: string | number) => {
 export const getLocalStorageNotificationsRemovedIdsFromEvent = (
   e: StorageEvent
 ): string[] => {
-  let removedIds = []
+  let removedIds: string[] = []
   try {
-    const oldValue = JSON.parse(e.oldValue)
-    const newValue = JSON.parse(e.newValue)
+    const oldValue = JSON.parse(e.oldValue || '{}')
+    const newValue = JSON.parse(e.newValue || '{}')
     Object.keys(oldValue).forEach(id => {
       if (!newValue[id]) {
         removedIds.push(id)

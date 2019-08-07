@@ -6,7 +6,7 @@ import TextAreaProps from './TextArea.interface'
 import { StyledTextArea } from './TextArea.style'
 
 const TextArea: React.FunctionComponent<TextAreaProps> = ({
-  onChange,
+  onChange = () => {},
   ...props
 }) => {
   const handleChange = React.useCallback(e => onChange(e.target.value, e), [

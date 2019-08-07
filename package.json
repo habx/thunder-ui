@@ -43,7 +43,12 @@
   },
   "homepage": "https://github.com/habx/thunder-ui#readme",
   "dependencies": {
-    "clean-tag": "3.1.0",
+    "@types/color": "^3.0.0",
+    "@types/lodash.deburr": "^4.1.6",
+    "@types/lodash.get": "^4.4.6",
+    "@types/recompose": "^0.30.6",
+    "@types/storybook__addon-info": "^4.1.2",
+    "@types/storybook__addon-knobs": "^5.0.3",
     "color": "^3.1.2",
     "lodash.deburr": "^4.1.0",
     "lodash.get": "^4.4.2",

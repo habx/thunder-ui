@@ -48,7 +48,7 @@ const ExpansionPanelItem: React.FunctionComponent<
   )
 
   const itemRef = React.useRef(Math.random())
-  const contentRef = React.useRef(null)
+  const contentRef = React.useRef<HTMLDivElement>(null)
   const [contentHeight, setItemHeight] = React.useState(0)
   const open = isControlled ? rawOpen : openedItems.includes(itemRef.current)
   const panel = useModal({
@@ -70,7 +70,7 @@ const ExpansionPanelItem: React.FunctionComponent<
   })
 
   const handleToggle = React.useCallback(
-    e => {
+    (e?: React.MouseEvent) => {
       if (!isControlled) {
         if (multiOpen) {
           setOpenedItems(prev =>

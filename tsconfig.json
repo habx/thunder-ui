@@ -8,6 +8,7 @@
     "moduleResolution": "node",
     "removeComments": true,
     "sourceMap": true,
+    "strict": true,
     "declaration": true,
     "declarationMap": true,
     "target": "esnext",
@@ -15,5 +16,10 @@
     "esModuleInterop": true,
     "skipLibCheck": true
   },
-  "files": ["./src/index.ts"]
+  "files": ["./src/index.ts"],
+  "exclude": [
+    "node_modules",
+    "**/*.spec.ts",
+    "**/*.stories.tsx"
+  ]
 }

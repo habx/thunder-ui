@@ -147,7 +147,7 @@ storiesOf('Spotlight|SpotlightItem', module)
               title={country}
               index={index}
               icon={showIcons && <FontIcon icon="favorite" />}
-              subtitle={showSubtitle && `Subtitle for ${country}`}
+              subtitle={showSubtitle ? `Subtitle for ${country}` : ''}
             />
           )}
           maxItems={5}

@@ -8,6 +8,7 @@ import FontIcon from '../FontIcon'
 import MenuItem from '../MenuItem'
 
 import Menu from './index'
+import MenuProps from './Menu.interface'
 
 const StoryContainer = styled.div`
   width: 100vw;
@@ -21,21 +22,24 @@ const Container = styled.div`
   position: relative;
 `
 
-const props = () => ({
-  position: select(
-    'Position',
-    {
-      Left: 'left',
-      Right: 'right',
-      'Top Right': 'top-right',
-      'Top Left': 'top-left',
-    },
-    'left'
-  ),
-  persistent: boolean("Don't close after inside click"),
-})
+const props = () =>
+  ({
+    position: select(
+      'Position',
+      {
+        Left: 'left',
+        Right: 'right',
+        'Top Right': 'top-right',
+        'Top Left': 'top-left',
+      },
+      'left'
+    ),
+    persistent: boolean("Don't close after inside click", false),
+  } as MenuProps)
 
-const withContainer = storyFn => <StoryContainer>{storyFn()}</StoryContainer>
+const withContainer = (storyFn: Function) => (
+  <StoryContainer>{storyFn()}</StoryContainer>
+)
 
 storiesOf('Actions|Menu', module)
   .addDecorator(withKnobs)

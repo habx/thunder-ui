@@ -1,12 +1,12 @@
 import * as React from 'react'
 
-import { Except, styledAs } from '../_internal/types'
+import { styledAs } from '../_internal/types'
 
 export default interface TabsItemProps
-  extends Except<React.LiHTMLAttributes<HTMLLIElement>, 'is'> {
+  extends React.LiHTMLAttributes<HTMLLIElement> {
   activeColor?: string
   hoverColor?: string
   closed?: boolean
   active?: boolean
-  is?: styledAs
+  as?: styledAs
 }

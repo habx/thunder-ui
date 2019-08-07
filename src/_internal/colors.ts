@@ -1,6 +1,6 @@
 import colors from '../colors'
 
-export const generateColorFromSeed = seed => {
+export const generateColorFromSeed = (seed?: string) => {
   if (!seed) {
     return colors.trueBlue
   }

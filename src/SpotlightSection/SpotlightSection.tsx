@@ -13,7 +13,7 @@ const SpotlightSection: React.FunctionComponent<SpotlightSectionProps> = ({
   filter,
   render,
   renderItem,
-  maxItems,
+  maxItems = -1,
 }) => {
   const spotlight = React.useContext(SpotlightContext)
 

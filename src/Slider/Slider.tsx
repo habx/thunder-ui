@@ -24,8 +24,12 @@ const getTooltip = ({
   tooltipSuffix: suffix,
   min,
   max,
+}: SliderProps & {
+  localValue: number | [number, number]
+  min: number
+  max: number
 }) => {
-  const getValue = (value: number, rangeIndex?: 0 | 1) => {
+  const getValue = (value: number, rangeIndex?: 0 | 1): number => {
     if (isNil(value)) {
       return rangeIndex === 1 ? max : min
     }
@@ -33,7 +37,7 @@ const getTooltip = ({
     return value
   }
 
-  const getDotLabel = (value, rangeIndex?: 0 | 1) => {
+  const getDotLabel = (value: number, rangeIndex?: 0 | 1) => {
     const sanitizedValue = getValue(value, rangeIndex)
 
     return customValues ? customValues[sanitizedValue] || '' : sanitizedValue
@@ -41,13 +45,14 @@ const getTooltip = ({
 
   const buildRawTooltip = () => {
     if (range) {
-      const from = getDotLabel(localValue[0], 0)
-      const to = getDotLabel(localValue[1], 1)
+      const rangeLocalValue = localValue as [number, number]
+      const from = getDotLabel(rangeLocalValue[0], 0)
+      const to = getDotLabel(rangeLocalValue[1], 1)
 
       return `${from}${rangeSeparator}${to}${suffix}`
     }
 
-    return `${getDotLabel(localValue)}${suffix}`
+    return `${getDotLabel(localValue as number)}${suffix}`
   }
 
   const rawTooltip = buildRawTooltip()
@@ -57,17 +62,17 @@ const getTooltip = ({
 const EMPTY_RANGE = [null, null]
 
 const Slider: React.FunctionComponent<SliderProps> = ({
-  disabled,
-  range,
-  onChange,
+  disabled = false,
+  range = false,
+  onChange = () => {},
   tooltipFormatter,
-  tooltipRangeSeparator,
-  tooltipSuffix,
+  tooltipRangeSeparator = ' to ',
+  tooltipSuffix = '',
   customValues,
-  indicators,
-  min,
-  max: rawMax,
-  step: rawStep,
+  indicators = [],
+  min = 0,
+  max: rawMax = 100,
+  step: rawStep = 5,
   dots: rawDots,
   value: rawValue,
   ...props
@@ -77,11 +82,12 @@ const Slider: React.FunctionComponent<SliderProps> = ({
   const dots = customValues ? true : rawDots
   const value = !Array.isArray(rawValue) && range ? EMPTY_RANGE : rawValue
 
-  const barRef = React.useRef(null)
+  const barRef = React.useRef<HTMLDivElement>(null)
   const [localValue, setLocalValue] = React.useState(value)
   const localValueRef = React.useRef(value)
   const hasValue = range
-    ? !isNil(localValue[0]) && !isNil(localValue[1])
+    ? !isNil((localValue as [number, number])[0]) &&
+      !isNil((localValue as [number, number])[1])
     : isNil(localValue)
 
   React.useEffect(() => {
@@ -108,17 +114,21 @@ const Slider: React.FunctionComponent<SliderProps> = ({
     return Math.round(exactValue / step) * step
   }
 
-  const buildDot = (rangeIndex?: number) => {
-    const getDotValue = () => {
+  const buildDot = (rangeIndex: 0 | 1 = 0) => {
+    const getDotValue = (): number => {
       if (range) {
         if (rangeIndex === 1) {
-          return isNil(localValue[1]) ? max : localValue[1]
+          return isNil((localValue as [number, number])[1])
+            ? max
+            : (localValue as [number, number])[1]
         }
 
-        return isNil(localValue[0]) ? min : localValue[0]
+        return isNil((localValue as [number, number])[0])
+          ? min
+          : (localValue as [number, number])[0]
       }
 
-      return isNil(localValue) ? min : localValue
+      return isNil(localValue) ? min : (localValue as number)
     }
 
     const dotValue = getDotValue()
@@ -131,16 +141,22 @@ const Slider: React.FunctionComponent<SliderProps> = ({
     const position = getPositionFromValue(dotValue)
 
     const handlePositionChange = (delta: number) => {
-      const newPosition = position + (delta / barRef.current.offsetWidth) * 100
+      const newPosition =
+        position +
+        (delta /
+          (barRef.current
+            ? (barRef.current as HTMLDivElement).offsetWidth
+            : 0)) *
+          100
 
       const newValue = getValueFromPosition(newPosition)
 
-      setLocalValue(prev =>
+      setLocalValue((prev: number | [number, number]) =>
         range
           ? [
-              ...prev.slice(0, rangeIndex),
+              ...(prev as [number, number]).slice(0, rangeIndex),
               newValue,
-              ...prev.slice(rangeIndex + 1),
+              ...(prev as [number, number]).slice(rangeIndex + 1),
             ]
           : newValue
       )
@@ -152,13 +168,13 @@ const Slider: React.FunctionComponent<SliderProps> = ({
         position={position}
         onMove={handlePositionChange}
         onRest={() => handleChange(localValueRef.current)}
-        innerColor={matchingIndicator ? matchingIndicator.color : null}
+        innerColor={matchingIndicator ? matchingIndicator.color : undefined}
       />
     )
   }
 
   const handleBarClick = (e: React.MouseEvent<HTMLDivElement>) => {
-    const setValue = val => {
+    const setValue = (val: [number, number] | number) => {
       setLocalValue(val)
       handleChange(val)
     }
@@ -190,7 +206,7 @@ const Slider: React.FunctionComponent<SliderProps> = ({
     }
   }
 
-  const handleChange = val => {
+  const handleChange = (val: [number, number] | number) => {
     const sanitizedValue =
       Array.isArray(val) && val[0] > val[1] ? [val[1], val[0]] : val
 
@@ -198,7 +214,7 @@ const Slider: React.FunctionComponent<SliderProps> = ({
   }
 
   const buildBar = () => {
-    const getComponent = ({ from, to }) => (
+    const getComponent = ({ from, to }: { from: number; to: number }) => (
       <SliderBar
         from={getPositionFromValue(from)}
         to={getPositionFromValue(to)}
@@ -293,18 +309,6 @@ const Slider: React.FunctionComponent<SliderProps> = ({
       </SliderContent>
     </SliderContainer>
   )
-}
-
-Slider.defaultProps = {
-  tooltipRangeSeparator: ' to ',
-  tooltipSuffix: '',
-  range: false,
-  customValues: null,
-  value: null,
-  min: 0,
-  max: 100,
-  step: 5,
-  indicators: [],
 }
 
 export default withLabel()(Slider)

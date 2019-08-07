@@ -10,26 +10,40 @@ type Listeners = {
   touchend?: EventListener
 }
 
-const getTouchPosition = e => e.touches[0].pageX
-const getMousePosition = e => e.pageX
+const getTouchPosition = (e: TouchEvent | React.TouchEvent) =>
+  e.touches[0].pageX
+const getMousePosition = (e: MouseEvent | React.MouseEvent) => e.pageX
 
-const useMouseMove = ({ onMove, onRest }) => {
+const useMouseMove = ({
+  onMove,
+  onRest,
+}: {
+  onMove: (position: number) => void
+  onRest: () => void
+}) => {
   const listeners: React.MutableRefObject<Listeners> = React.useRef({})
   const restPosition: React.MutableRefObject<number> = React.useRef(0)
 
-  const addListener = (listenerName: keyof Listeners, listener) => {
+  const addListener = (
+    listenerName: keyof Listeners,
+    listener: EventListener
+  ) => {
     document.addEventListener(listenerName, listener)
     listeners.current[listenerName] = listener
   }
 
   const removeListener = (listenerName: keyof Listeners) => {
-    document.removeEventListener(listenerName, listeners.current[listenerName])
-    listeners.current[listenerName] = null
+    if (listeners.current[listenerName]) {
+      document.removeEventListener(listenerName, listeners.current[
+        listenerName
+      ] as EventListener)
+      delete listeners.current[listenerName]
+    }
   }
 
-  const handleMouseDown = e => {
-    const handleMouseMove = e => {
-      onMove(getMousePosition(e) - restPosition.current)
+  const handleMouseDown = (e: React.MouseEvent) => {
+    const handleMouseMove = (e: Event) => {
+      onMove(getMousePosition(e as MouseEvent) - restPosition.current)
       e.preventDefault()
     }
 
@@ -45,9 +59,9 @@ const useMouseMove = ({ onMove, onRest }) => {
     restPosition.current = getMousePosition(e)
   }
 
-  const handleTouchStart = e => {
-    const handleTouchMove = e => {
-      onMove(getTouchPosition(e) - restPosition.current)
+  const handleTouchStart = (e: React.TouchEvent) => {
+    const handleTouchMove = (e: Event) => {
+      onMove(getTouchPosition(e as TouchEvent) - restPosition.current)
       e.preventDefault()
     }
 

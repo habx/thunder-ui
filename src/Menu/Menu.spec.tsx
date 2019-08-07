@@ -28,7 +28,7 @@ describe('Menu component', () => {
       <Menu triggerElement={<Button data-testid="triggerElement" />} />
     )
 
-    fireEvent.click(queryByTestId('triggerElement'))
+    fireEvent.click(queryByTestId('triggerElement') as HTMLElement)
     expect(getByTestId('menu-container')).toHaveAttribute('data-open', 'true')
   })
 

@@ -7,9 +7,10 @@ import theme from '../theme'
 
 import ThunderProviderProps, {
   ThunderProviderInnerProps,
+  theme as themeType,
 } from './ThunderProvider.interface'
 
-const getCustomTheme = customTheme => {
+const getCustomTheme = (customTheme: Partial<themeType>) => {
   if (customTheme === 'light') {
     return theme.light
   }
@@ -22,7 +23,7 @@ const getCustomTheme = customTheme => {
 }
 
 const BaseProvider: React.FunctionComponent<ThunderProviderInnerProps> = ({
-  customTheme,
+  customTheme = {},
   theme,
   children,
 }) => {

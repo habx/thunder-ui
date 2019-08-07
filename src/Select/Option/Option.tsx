@@ -13,7 +13,7 @@ const Option: React.FunctionComponent<OptionProps> = ({
   disabled,
   ...props
 }) => {
-  const ref = React.useRef(null)
+  const ref = React.useRef<HTMLLIElement>(null)
 
   React.useEffect(() => {
     if (focused && ref.current) {

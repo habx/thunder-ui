@@ -11,18 +11,18 @@ import { ArrayInputAction } from './ArrayInput.style'
 import Item from './Item'
 
 const ArrayInput: React.FunctionComponent<ArrayInputInnerProps> = ({
-  items,
-  onAppend,
-  onDelete,
+  items = [],
+  onAppend = () => {},
+  onDelete = () => {},
   onReorder,
   disabled,
-  addButtonLabel,
+  addButtonLabel = 'Ajouter un élément',
   addButtonComponent: AddButtonComponent,
   itemTitleComponent: ItemTitleComponent,
   itemComponent: ItemComponent,
   renderItem: rawRenderItem,
   renderItemTitle: rawRenderItemTitle,
-  canBeReordered,
+  canBeReordered = false,
 }) => {
   const [openedItem, setOpenedItem] = React.useState(-1)
   const itemsRef: React.MutableRefObject<any[]> = React.useRef(items)
@@ -37,10 +37,13 @@ const ArrayInput: React.FunctionComponent<ArrayInputInnerProps> = ({
   }, [items])
 
   const renderItem =
-    rawRenderItem || (ItemComponent && (props => <ItemComponent {...props} />))
+    rawRenderItem ||
+    (ItemComponent && (props => <ItemComponent {...props} />)) ||
+    (() => <div />)
   const renderItemTitle =
     rawRenderItemTitle ||
-    (ItemTitleComponent && (props => <ItemTitleComponent {...props} />))
+    (ItemTitleComponent && (props => <ItemTitleComponent {...props} />)) ||
+    (() => <div />)
 
   return (
     <ExpansionPanel disabled={disabled} data-testid="array-input">
@@ -77,9 +80,6 @@ const ArrayInput: React.FunctionComponent<ArrayInputInnerProps> = ({
 }
 
 ArrayInput.defaultProps = {
-  addButtonLabel: 'Ajouter un élément',
-  canBeReordered: false,
-  items: [],
   theme: {} as styledTheme,
 }
 

@@ -53,7 +53,7 @@ const Options: React.FunctionComponent<OptionsProps> = ({
     () =>
       position === 'bottom' && open
         ? window.innerHeight - wrapperRect.top - wrapperRect.height - 32
-        : null,
+        : undefined,
     [open, position] // eslint-disable-line
   )
   const content = (

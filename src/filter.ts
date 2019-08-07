@@ -2,7 +2,7 @@ import { pick } from './_internal/data'
 import { searchInString } from './_internal/strings'
 
 export default {
-  some: (...keys) => (query, object) => {
+  some: (...keys: string[]) => (query: string, object: any) => {
     if (!object) {
       return false
     }

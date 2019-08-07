@@ -19,7 +19,7 @@ const ConfirmModal: React.FunctionComponent<{}> = () => {
   const isMounted = useIsMounted()
   const registerTimeout = useTimeout()
 
-  const [modals, setModals] = React.useState([] as StateModal[])
+  const [modals, setModals] = React.useState<StateModal[]>([])
 
   const handleResponse = React.useCallback(
     (modal, response: boolean) => {
@@ -66,7 +66,7 @@ const ConfirmModal: React.FunctionComponent<{}> = () => {
               id: Math.random(),
             }
 
-            setModals(prev => [...prev, modal])
+            setModals(prev => [...prev, modal as StateModal])
           })
       ),
     []

@@ -14,7 +14,9 @@ const Container = styled.div`
 
 const enhance = withState('value', 'onChange', 0)
 
-const sliderDecorator = storyFn => <Container>{storyFn()}</Container>
+const sliderDecorator = (storyFn: Function) => (
+  <Container>{storyFn()}</Container>
+)
 
 storiesOf('Inputs|Slider', module)
   .addDecorator(sliderDecorator)

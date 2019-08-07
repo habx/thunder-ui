@@ -1,11 +1,12 @@
 import * as React from 'react'
 import styled from 'styled-components'
 
+import { styledTheme } from '../_internal/types'
 import theme from '../theme'
 
 import IconButtonProps from './IconButton.interface'
 
-const getDiameter = props => {
+const getDiameter = (props: { small?: boolean; large?: boolean }) => {
   if (props.small) {
     return 32
   }
@@ -17,7 +18,9 @@ const getDiameter = props => {
   return 48
 }
 
-const prepareProps = props => {
+const prepareProps = (
+  props: { hoverColor: string; small?: boolean; large?: boolean } & styledTheme
+) => {
   const color = theme.get('primary', { dynamic: true })(props)
 
   return {

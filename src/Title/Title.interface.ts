@@ -4,7 +4,7 @@ import { styledAs } from '../_internal/types'
 
 export default interface TitleProps
   extends React.HTMLAttributes<HTMLHeadingElement> {
-  size?: number
+  size?: 1 | 2 | 3 | 4
   color?: string
   underline?: boolean
   error?: boolean

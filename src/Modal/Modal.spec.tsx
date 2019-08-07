@@ -34,7 +34,7 @@ describe('Modal component', () => {
       fireEvent.click(getByTestId('modal-trigger-element'))
       fireEvent.click(getByTestId('modal-overlay'))
 
-      const modalContainer = queryByTestId('modal-container')
+      const modalContainer = queryByTestId('modal-container') as HTMLElement
 
       expect(modalContainer).toBeTruthy()
       expect(within(modalContainer).queryByTestId('content')).toBeTruthy()
@@ -57,7 +57,7 @@ describe('Modal component', () => {
         </Modal>
       )
 
-      const modalContainer = queryByTestId('modal-container')
+      const modalContainer = queryByTestId('modal-container') as HTMLElement
 
       expect(modalContainer).toBeTruthy()
       expect(within(modalContainer).queryByTestId('content')).toBeTruthy()

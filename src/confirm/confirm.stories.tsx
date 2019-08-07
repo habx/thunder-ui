@@ -7,7 +7,7 @@ import ThunderProvider from '../ThunderProvider'
 
 import confirm from './index'
 
-const thunderDecorator = storyFn => (
+const thunderDecorator = (storyFn: Function) => (
   <ThunderProvider>{storyFn()}</ThunderProvider>
 )
 

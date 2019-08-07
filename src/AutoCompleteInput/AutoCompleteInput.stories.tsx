@@ -11,12 +11,14 @@ const Container = styled.div`
 `
 
 const AutoCompleteInputWithState = ({ value = '', ...props }) => {
-  const Component = withState('value', 'onChange', value)(newProps => (
-    <AutoCompleteInput
-      {...newProps}
-      onChange={value => newProps.onChange(value)}
-    />
-  ))
+  const Component = withState('value', 'onChange', value)(
+    (newProps: { value: string; onChange: Function }) => (
+      <AutoCompleteInput
+        {...newProps}
+        onChange={value => newProps.onChange(value)}
+      />
+    )
+  )
 
   return (
     <Container>

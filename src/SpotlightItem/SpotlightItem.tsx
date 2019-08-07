@@ -16,10 +16,13 @@ import {
   Subtitle,
 } from './SpotlightItem.style'
 
-const reducer = (state, action) => {
+const reducer = (
+  state: { isEditing: boolean; value: string },
+  action: { type: string; value?: string }
+): { isEditing: boolean; value: string } => {
   switch (action.type) {
     case 'START_EDITING': {
-      return { ...state, isEditing: true, value: action.value }
+      return { ...state, isEditing: true, value: action.value || '' }
     }
 
     case 'STOP_EDITING': {
@@ -27,7 +30,7 @@ const reducer = (state, action) => {
     }
 
     case 'UPDATE_VALUE': {
-      return { ...state, value: action.value }
+      return { ...state, value: action.value || '' }
     }
 
     default: {
@@ -41,7 +44,7 @@ const INITIAL_STATE = {
   value: '',
 }
 
-const preventDefault = e => e.preventDefault()
+const preventDefault = (e: Event | React.MouseEvent) => e.preventDefault()
 
 const SpotlightItem: React.FunctionComponent<ItemInnerProps> = ({
   title,
@@ -51,18 +54,18 @@ const SpotlightItem: React.FunctionComponent<ItemInnerProps> = ({
   onEdit,
   onClick,
   href,
-  as,
+  as = 'div',
   query,
   selected,
   registerActions,
   focusOnMount,
-  refPropName,
+  refPropName = 'ref',
   ...props
 }) => {
   const [state, dispatch] = React.useReducer(reducer, INITIAL_STATE)
-  const itemContainerRef = React.useRef(null)
-  const inputRef = React.useRef(null)
-  const containerRef = React.useRef(null)
+  const itemContainerRef = React.useRef<HTMLLIElement>(null)
+  const inputRef = React.useRef<HTMLInputElement>(null)
+  const containerRef = React.useRef<HTMLDivElement>(null)
 
   const handleSubmit = React.useCallback(
     event => {
@@ -77,23 +80,23 @@ const SpotlightItem: React.FunctionComponent<ItemInnerProps> = ({
     [onClick]
   )
 
-  const handleEdit = e => {
+  const handleEdit = (e: React.MouseEvent) => {
     e.preventDefault()
     dispatch({ type: 'START_EDITING', value: title })
   }
 
-  const handleDelete = e => {
+  const handleDelete = (e: React.MouseEvent) => {
     e.preventDefault()
     if (isFunction(onDelete)) {
-      onDelete(e)
+      onDelete()
     }
   }
 
-  const handleChange = e => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     dispatch({ type: 'UPDATE_VALUE', value: e.target.value })
   }
 
-  const handleKeyPress = e => {
+  const handleKeyPress = (e: React.KeyboardEvent) => {
     if (
       e.key === 'Enter' &&
       document.activeElement === itemContainerRef.current
@@ -102,7 +105,7 @@ const SpotlightItem: React.FunctionComponent<ItemInnerProps> = ({
     }
   }
 
-  const handleInputKeyPress = e => {
+  const handleInputKeyPress = (e: React.KeyboardEvent) => {
     if (e.key === 'Enter') {
       handleStopEditing()
     }
@@ -120,21 +123,21 @@ const SpotlightItem: React.FunctionComponent<ItemInnerProps> = ({
   }, [handleSubmit, registerActions])
 
   React.useLayoutEffect(() => {
-    if (focusOnMount) {
+    if (focusOnMount && inputRef.current) {
       inputRef.current.focus()
       inputRef.current.select()
     }
   }, [focusOnMount])
 
   React.useLayoutEffect(() => {
-    if (state.isEditing) {
+    if (state.isEditing && inputRef.current) {
       inputRef.current.focus()
       inputRef.current.select()
     }
   }, [state.isEditing])
 
   React.useLayoutEffect(() => {
-    if (selected) {
+    if (selected && itemContainerRef.current) {
       itemContainerRef.current.focus()
     }
   }, [selected])
@@ -198,11 +201,6 @@ const SpotlightItem: React.FunctionComponent<ItemInnerProps> = ({
       </ItemContainer>
     </Container>
   )
-}
-
-SpotlightItem.defaultProps = {
-  refPropName: 'ref',
-  as: 'div',
 }
 
 export default SpotlightItem

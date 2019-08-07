@@ -94,7 +94,7 @@ const NotificationList: React.FunctionComponent<{}> = () => {
       notification => notification.options.identifier
     )
     if (isInClientSide && hasNotificationWithIdentifier) {
-      const handleStorageChange: EventListener = (e: StorageEvent) => {
+      const handleStorageChange = (e: StorageEvent) => {
         if (e.key === LOCAL_STORAGE_KEY) {
           const removedIds = getLocalStorageNotificationsRemovedIdsFromEvent(e)
           removedIds.forEach(id => {

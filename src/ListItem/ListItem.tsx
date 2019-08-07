@@ -17,7 +17,7 @@ const ListItem: React.FunctionComponent<ListItemProps> = rawProps => {
 
   return (
     <ListItemContainer
-      tabIndex={clickable ? 0 : null}
+      tabIndex={clickable ? 0 : undefined}
       data-selected={selected}
       data-clickable={clickable}
       {...props}

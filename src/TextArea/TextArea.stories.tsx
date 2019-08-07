@@ -7,6 +7,7 @@ import styled from 'styled-components'
 import StorybookGallery from '../_internal/StorybookGallery'
 
 import RawTextArea from './TextArea'
+import TextAreaProps from './TextArea.interface'
 
 const CONTENT = 'Hello world'
 
@@ -16,8 +17,11 @@ const Container = styled.div`
 
 const TextArea = ({ value = '', ...props }) => {
   const Component = withState('value', 'onChange', value)(newProps => (
-    <RawTextArea {...newProps} onChange={value => newProps.onChange(value)} />
-  ))
+    <RawTextArea
+      {...newProps}
+      onChange={value => newProps.onChange(value as string)}
+    />
+  )) as React.ComponentType<TextAreaProps>
 
   return (
     <Container>

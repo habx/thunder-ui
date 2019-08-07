@@ -21,7 +21,7 @@ const Content = styled.div`
   flex: 1 1 100%;
 `
 
-const navDecorator = storyFn => (
+const navDecorator = (storyFn: Function) => (
   <Container>
     {storyFn()}
     <Content />

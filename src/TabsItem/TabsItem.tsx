@@ -1,7 +1,7 @@
-import tag from 'clean-tag'
 import * as React from 'react'
 import styled, { css } from 'styled-components'
 
+import { styledTheme } from '../_internal/types'
 import useMergedContext from '../_internal/useMergedContext'
 import { assert } from '../_internal/validityCheck'
 import fontSizes from '../fontSizes'
@@ -10,7 +10,13 @@ import theme from '../theme'
 
 import TabsItemProps from './TabsItem.interface'
 
-const prepareProps = props => {
+const prepareProps = (
+  props: styledTheme & {
+    hoverColor?: string
+    className?: string
+    active?: boolean
+  }
+) => {
   const color = theme.get('neutral')(props)
   const activeColor = theme.get('primary', { propName: 'activeColor' })(props)
 
@@ -23,7 +29,11 @@ const prepareProps = props => {
   }
 }
 
-const StyledTabsItem = styled(tag.li).attrs(prepareProps)`
+const StyledTabsItem = styled.li.attrs(prepareProps)<{
+  closed?: boolean
+  hoverColor?: string
+  activeColor?: string
+}>`
   display: flex;
   position: relative;
   cursor: pointer;
@@ -82,24 +92,16 @@ const StyledTabsItem = styled(tag.li).attrs(prepareProps)`
 `
 
 const TabsItem: React.FunctionComponent<TabsItemProps> = rawProps => {
-  const { isInsideATabs, ...props } = useMergedContext(TabsContext, rawProps)
+  const { isInsideATabs, ...props } = useMergedContext(TabsContext, {
+    activeColor: null,
+    hoverColor: null,
+    closed: false,
+    ...rawProps,
+  })
 
   assert(isInsideATabs, 'TabsItem should be used inside a Tabs')
 
-  return (
-    <StyledTabsItem
-      data-testid="tabs-item"
-      blacklist={['activeColor', 'hoverColor', 'closed']}
-      tabIndex={0}
-      {...props}
-    />
-  )
-}
-
-TabsItem.defaultProps = {
-  activeColor: null,
-  hoverColor: null,
-  closed: false,
+  return <StyledTabsItem data-testid="tabs-item" tabIndex={0} {...props} />
 }
 
 export default TabsItem

@@ -34,8 +34,7 @@ describe('Drawer component', () => {
       fireEvent.click(getByTestId('drawer-trigger-element'))
       fireEvent.click(getByTestId('drawer-overlay'))
 
-      const modalContainer = queryByTestId('drawer-container')
-
+      const modalContainer = queryByTestId('drawer-container') as HTMLElement
       expect(modalContainer).toBeTruthy()
       expect(within(modalContainer).queryByTestId('content')).toBeTruthy()
     })
@@ -57,7 +56,7 @@ describe('Drawer component', () => {
         </Drawer>
       )
 
-      const modalContainer = queryByTestId('drawer-container')
+      const modalContainer = queryByTestId('drawer-container') as HTMLElement
 
       expect(modalContainer).toBeTruthy()
       expect(within(modalContainer).queryByTestId('content')).toBeTruthy()

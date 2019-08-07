@@ -8,7 +8,9 @@ describe('TextButton component', () => {
   it('should display the right label', () => {
     const { container } = render(<TextButton>Custom label</TextButton>)
 
-    expect(container.firstChild.textContent).toEqual('Custom label')
+    expect((container.firstChild as ChildNode).textContent).toEqual(
+      'Custom label'
+    )
   })
 
   it('should call the onClick property when clicked', () => {

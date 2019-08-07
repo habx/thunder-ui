@@ -7,8 +7,13 @@ import StorybookGallery from '../_internal/StorybookGallery'
 
 import RawRadioSelect from './RadioSelect'
 import { booleanOptions, cardinalPoints, manyOptions } from './RadioSelect.data'
+import RadioSelectProps from './RadioSelect.interface'
 
-const RadioSelect = ({ value = null, options = booleanOptions, ...props }) => {
+const RadioSelect = ({
+  value,
+  options = booleanOptions,
+  ...props
+}: RadioSelectProps) => {
   const realValue = isNil(value) ? options[0].value : value
 
   const [localValue, setLocalValue] = React.useState(
@@ -19,7 +24,7 @@ const RadioSelect = ({ value = null, options = booleanOptions, ...props }) => {
     <RawRadioSelect
       {...props}
       options={options}
-      onChange={val => setLocalValue(val)}
+      onChange={val => setLocalValue(Number(val))}
       value={localValue}
     />
   )
@@ -31,9 +36,9 @@ storiesOf('Inputs|RadioSelect', module)
     <StorybookGallery
       renderLine={lineProps => (
         <React.Fragment>
-          <RadioSelect {...lineProps} />
-          <RadioSelect {...lineProps} error />
-          <RadioSelect {...lineProps} disabled />
+          <RadioSelect {...(lineProps as RadioSelectProps)} />
+          <RadioSelect {...(lineProps as RadioSelectProps)} error />
+          <RadioSelect {...(lineProps as RadioSelectProps)} disabled />
         </React.Fragment>
       )}
       lines={[

@@ -8,6 +8,7 @@ import StorybookGallery from '../_internal/StorybookGallery'
 import FontIcon from '../FontIcon'
 
 import RawTextInput from './TextInput'
+import TextInputProps from './TextInput.interface'
 
 const CONTENT = 'Hello world'
 
@@ -17,8 +18,11 @@ const Container = styled.div`
 
 const TextInput = ({ value = '', ...props }) => {
   const Component = withState('value', 'onChange', value)(newProps => (
-    <RawTextInput {...newProps} onChange={value => newProps.onChange(value)} />
-  ))
+    <RawTextInput
+      {...newProps}
+      onChange={value => newProps.onChange(value as string)}
+    />
+  )) as React.ComponentType<TextInputProps>
 
   return (
     <Container>

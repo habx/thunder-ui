@@ -2,13 +2,18 @@ import * as React from 'react'
 
 import { isFunction } from '../_internal/data'
 
-let subscriptions = {}
+import { subscriptionCallback } from './ThunderProvider.interface'
 
-export const subscribe = (messageType, callback) => {
+let subscriptions: { [key: string]: subscriptionCallback } = {}
+
+export const subscribe = (
+  messageType: string,
+  callback: subscriptionCallback
+) => {
   subscriptions[messageType] = callback
 
   return () => {
-    subscriptions[messageType] = null
+    delete subscriptions[messageType]
   }
 }
 
@@ -17,7 +22,7 @@ export const dispatch = (
   returnPromise: boolean,
   message: string | React.ComponentType<any> | React.ReactElement,
   options = {}
-) => {
+): Promise<any> | void => {
   if (isFunction(subscriptions[messageType])) {
     return subscriptions[messageType](message, options)
   }

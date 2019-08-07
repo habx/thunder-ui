@@ -9,7 +9,7 @@ export default interface AutoCompleteInputProps {
   inputComponent?: React.ComponentType<any>
   options?: option[]
   value?: string
-  onChange: (e: React.ChangeEvent) => void
+  onChange: (e: React.ReactText) => void
 }
 
 export interface AutoCompleteInputState {

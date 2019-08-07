@@ -4,7 +4,13 @@ import borderRadius from '../borderRadius'
 import theme from '../theme'
 import zIndex from '../zIndex'
 
-const prepareProps = ({ position, wrapperRect }) => ({
+const prepareProps = ({
+  position,
+  wrapperRect,
+}: {
+  position: string
+  wrapperRect: DOMRect | ClientRect
+}) => ({
   left: ['left', 'top-left'].includes(position)
     ? `${wrapperRect.left + 4}px`
     : 'unset',
@@ -19,7 +25,13 @@ const prepareProps = ({ position, wrapperRect }) => ({
     : `calc(${wrapperRect.top}px + ${wrapperRect.height - 4}px)`,
 })
 
-const preparePropsMobile = ({ position, wrapperRect }) => ({
+const preparePropsMobile = ({
+  position,
+  wrapperRect,
+}: {
+  position: string
+  wrapperRect: DOMRect | ClientRect
+}) => ({
   left: '0px',
   right: '0px',
   marginTop: ['left', 'right'].includes(position) ? '4px' : '0',
@@ -30,7 +42,7 @@ const preparePropsMobile = ({ position, wrapperRect }) => ({
 
 export const MenuContainerDesktop = styled.div.attrs(prepareProps)<{
   position: string
-  wrapperRect: DOMRect
+  wrapperRect: DOMRect | ClientRect
 }>`
   position: fixed;
   top: ${({ top }) => top};
@@ -56,7 +68,7 @@ export const MenuContainerDesktop = styled.div.attrs(prepareProps)<{
 
 export const MobileMenuContainer = styled.div.attrs(preparePropsMobile)<{
   position: string
-  wrapperRect: DOMRect
+  wrapperRect: DOMRect | ClientRect
 }>`
   display: none;
   position: absolute;
