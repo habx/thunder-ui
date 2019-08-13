@@ -2,7 +2,7 @@ import { render, within, act, fireEvent } from '@testing-library/react'
 import * as React from 'react'
 import sinon from 'sinon'
 
-import Modal from './index'
+import Modal from './Modal'
 
 jest.useFakeTimers()
 
@@ -89,27 +89,22 @@ describe('Modal component', () => {
       expect(spyChildren.lastCall.args[0].state).toEqual('opening')
     })
 
-    it('should have state="opened" if opened for more than 1 second"', done => {
+    it('should have state="opened" if opened for more than 1 second"', () => {
       const spyChildren = sinon.spy()
-
       render(
         <Modal onClose={() => null} open>
           {spyChildren}
         </Modal>
       )
 
-      setTimeout(async () => {
-        await Promise.resolve()
-        expect(spyChildren.lastCall.args[0].state).toEqual('opened')
-        done()
-      }, 1000)
-
       act(() => {
-        jest.runAllTimers()
+        jest.advanceTimersByTime(2000)
       })
+
+      expect(spyChildren.lastCall.args[0].state).toEqual('opened')
     })
 
-    it('should have state="closing" if open just switched to "false"', done => {
+    it('should have state="closing" if open just switched to "false"', () => {
       const spyChildren = sinon.spy()
 
       const { rerender } = render(
@@ -118,22 +113,17 @@ describe('Modal component', () => {
         </Modal>
       )
 
-      setTimeout(async () => {
-        rerender(
-          <Modal onClose={() => null} open={false}>
-            {spyChildren}
-          </Modal>
-        )
-
-        await Promise.resolve()
-
-        expect(spyChildren.lastCall.args[0].state).toEqual('closing')
-        done()
-      }, 1000)
-
       act(() => {
-        jest.runAllTimers()
+        jest.advanceTimersByTime(1000)
       })
+
+      rerender(
+        <Modal onClose={() => null} open={false}>
+          {spyChildren}
+        </Modal>
+      )
+
+      expect(spyChildren.lastCall.args[0].state).toEqual('closing')
     })
   })
 })
