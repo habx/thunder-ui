@@ -41,7 +41,7 @@ const Options: React.FunctionComponent<OptionsProps> = ({
     if (!open) {
       return 'bottom'
     }
-    return isClientSide() &&
+    return isClientSide &&
       !isSmallScreen &&
       wrapperRect.top + MAX_HEIGHT > window.innerHeight &&
       wrapperRect.top - MAX_HEIGHT > 0
@@ -117,7 +117,7 @@ const Options: React.FunctionComponent<OptionsProps> = ({
     </OptionsContainer>
   )
 
-  if (isClientSide()) {
+  if (isClientSide) {
     return createPortal(optionsContainer, document.body)
   }
 

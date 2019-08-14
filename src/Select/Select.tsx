@@ -451,7 +451,7 @@ const BaseSelect: React.FunctionComponent<SelectInnerProps> = ({
         </LabelIcons>
       </SelectContent>
       {state.isOpened &&
-        isClientSide() &&
+        isClientSide &&
         createPortal(<Overlay onClick={handleToggle} />, document.body)}
       <Options
         optionDisabled={optionDisabled}

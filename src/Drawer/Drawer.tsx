@@ -65,7 +65,7 @@ const Drawer: React.FunctionComponent<DrawerProps> = ({
     return null
   }
 
-  if (portal && isClientSide()) {
+  if (portal && isClientSide) {
     return createPortal(drawerContent, document.body)
   }
 

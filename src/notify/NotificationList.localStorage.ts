@@ -2,7 +2,7 @@ import { isClientSide } from '../_internal/ssr'
 
 export const LOCAL_STORAGE_KEY = 'thunder_notifications'
 export const getLocalStorageNotificationIds = () => {
-  if (isClientSide()) {
+  if (isClientSide) {
     try {
       return JSON.parse(
         window.localStorage.getItem(LOCAL_STORAGE_KEY) || '{}'
@@ -15,7 +15,7 @@ export const getLocalStorageNotificationIds = () => {
 }
 
 export const addLocalStorageNotificationId = (id: string | number) => {
-  if (isClientSide()) {
+  if (isClientSide) {
     const notificationIds = getLocalStorageNotificationIds()
     try {
       window.localStorage.setItem(
@@ -26,7 +26,7 @@ export const addLocalStorageNotificationId = (id: string | number) => {
   }
 }
 export const removeLocalStorageNotificationId = (id: string | number) => {
-  if (isClientSide()) {
+  if (isClientSide) {
     const notificationIds = getLocalStorageNotificationIds()
     delete notificationIds[id]
     try {
