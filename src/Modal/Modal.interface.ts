@@ -5,7 +5,9 @@ import CardProps from '../Card/Card.interface'
 
 export default interface ModalProps extends CardProps {
   headerPosition?: never
-  children?: React.ReactNode | ((props: ModalState) => JSX.Element)
+  children?:
+    | React.ReactNode
+    | ((props: ModalState<HTMLDivElement>) => JSX.Element)
   persistent?: boolean
   closeButton?: JSX.Element
   open?: boolean
