@@ -11,11 +11,11 @@ export type ModalParams = {
   onClose?: (e: React.FormEvent<HTMLInputElement>) => void
 }
 
-export type ModalState = {
+export type ModalState<RefElement> = {
   state: 'opened' | 'closed' | 'opening' | 'closing'
   close: (e?: React.SyntheticEvent<HTMLElement>) => void
-  overlayClick: (e: React.MouseEvent<HTMLElement>) => void
-  ref: React.RefObject<HTMLDivElement>
+  overlayClick: (e: React.MouseEvent<HTMLElement> | MouseEvent) => void
+  ref: React.RefObject<RefElement>
   hasAlreadyBeenOpened: boolean
 }
 
@@ -27,13 +27,13 @@ const useForceRender = () => {
   return React.useCallback(() => setState(null), [])
 }
 
-const useModal = ({
+const useModal = <RefElement extends HTMLElement>({
   animated,
   animationDuration,
   ...restParams
-}: ModalParams): ModalState => {
+}: ModalParams): ModalState<RefElement> => {
   const hasAlreadyRendered = React.useRef(false)
-  const domRef = React.useRef<HTMLDivElement>(null)
+  const domRef = React.useRef<RefElement>(null)
   const forceRender = useForceRender()
   const registerTimeout = useTimeout()
 

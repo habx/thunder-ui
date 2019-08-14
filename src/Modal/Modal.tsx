@@ -27,7 +27,7 @@ const Modal: React.FunctionComponent<ModalProps> = ({
   alwaysRenderChildren,
   ...props
 }) => {
-  const modal = useModal({
+  const modal = useModal<HTMLDivElement>({
     open,
     onClose,
     persistent,
@@ -58,7 +58,9 @@ const Modal: React.FunctionComponent<ModalProps> = ({
             </CloseButtonContainer>
           )}
 
-          {isFunction(children) ? children(modal as ModalState) : children}
+          {isFunction(children)
+            ? children(modal as ModalState<HTMLDivElement>)
+            : children}
         </ModalCard>
       </Overlay>
       {open && <RemoveBodyScroll />}

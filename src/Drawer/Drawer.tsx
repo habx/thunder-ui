@@ -27,7 +27,7 @@ const Drawer: React.FunctionComponent<DrawerProps> = ({
   alwaysRenderChildren,
   ...props
 }) => {
-  const modal = useModal({
+  const modal = useModal<HTMLDivElement>({
     open,
     onClose,
     persistent: false,
@@ -53,7 +53,9 @@ const Drawer: React.FunctionComponent<DrawerProps> = ({
           <DrawerClose onClick={modal.close}>{closeButton}</DrawerClose>
         )}
         <DrawerContent as={contentContainerComponent}>
-          {isFunction(children) ? children(modal as ModalState) : children}
+          {isFunction(children)
+            ? children(modal as ModalState<HTMLDivElement>)
+            : children}
         </DrawerContent>
       </DrawerContainer>
     </Overlay>
