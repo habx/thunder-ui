@@ -10,4 +10,4 @@ export const ssrDOMRect = {
   toJSON: () => null,
 }
 
-export const isClientSide = (): boolean => typeof document === 'object'
+export const isClientSide: boolean = typeof document === 'object'

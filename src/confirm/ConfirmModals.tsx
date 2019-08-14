@@ -107,7 +107,7 @@ const ConfirmModal: React.FunctionComponent<{}> = () => {
           </Modal>
         )
 
-        if (isClientSide()) {
+        if (isClientSide) {
           return createPortal(content, document.body)
         }
 

@@ -187,7 +187,7 @@ const AutoCompleteInput: React.FunctionComponent<AutoCompleteInputProps> = ({
   return (
     <React.Fragment>
       {state.isOpened &&
-        isClientSide() &&
+        isClientSide &&
         createPortal(
           <React.Fragment>
             <Options

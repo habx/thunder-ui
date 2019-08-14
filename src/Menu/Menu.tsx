@@ -100,14 +100,14 @@ const Menu: React.FunctionComponent<MenuProps> = ({
     <React.Fragment>
       {open && (
         <React.Fragment>
-          {isClientSide() &&
+          {isClientSide &&
             createPortal(<Overlay onClick={handleToggle} />, document.body)}
           <RemoveBodyScroll />
         </React.Fragment>
       )}
       <MenuWrapper ref={wrapperRef}>
         {isTriggerElementBeforeMenu && triggerElementWithAction}
-        {portal && isClientSide() ? createPortal(menu, document.body) : menu}
+        {portal && isClientSide ? createPortal(menu, document.body) : menu}
         {!isTriggerElementBeforeMenu && triggerElementWithAction}
       </MenuWrapper>
     </React.Fragment>

@@ -88,12 +88,11 @@ const NotificationList: React.FunctionComponent<{}> = () => {
     [registerTimeout, handleClose]
   )
 
-  const isInClientSide = isClientSide()
   React.useEffect(() => {
     const hasNotificationWithIdentifier = notifications.some(
       notification => notification.options.identifier
     )
-    if (isInClientSide && hasNotificationWithIdentifier) {
+    if (isClientSide && hasNotificationWithIdentifier) {
       const handleStorageChange = (e: StorageEvent) => {
         if (e.key === LOCAL_STORAGE_KEY) {
           const removedIds = getLocalStorageNotificationsRemovedIdsFromEvent(e)
@@ -110,7 +109,7 @@ const NotificationList: React.FunctionComponent<{}> = () => {
       window.addEventListener('storage', handleStorageChange)
       return () => window.removeEventListener('storage', handleStorageChange)
     }
-  }, [handleClose, isInClientSide, notifications])
+  }, [handleClose, notifications])
 
   return (
     <NotificationListContainer>

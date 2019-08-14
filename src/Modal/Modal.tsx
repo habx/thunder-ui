@@ -71,7 +71,7 @@ const Modal: React.FunctionComponent<ModalProps> = ({
     return null
   }
 
-  if (portal && isClientSide()) {
+  if (portal && isClientSide) {
     return createPortal(modalContent, document.body)
   }
 
