@@ -1,9 +1,9 @@
+import useModal, { Modal } from '@delangle/use-modal'
 import * as React from 'react'
 import { createPortal } from 'react-dom'
 
 import { isFunction } from '../_internal/data'
 import { isClientSide } from '../_internal/ssr'
-import useModal, { ModalState } from '../_internal/useModal'
 import withTriggerElement from '../withTriggerElement'
 
 import DrawerProps from './Drawer.interface'
@@ -27,7 +27,7 @@ const Drawer: React.FunctionComponent<DrawerProps> = ({
   alwaysRenderChildren,
   ...props
 }) => {
-  const modal = useModal<HTMLDivElement>({
+  const modal = useModal({
     open,
     onClose,
     persistent: false,
@@ -36,11 +36,7 @@ const Drawer: React.FunctionComponent<DrawerProps> = ({
   })
 
   const drawerContent = (
-    <Overlay
-      data-state={modal.state}
-      onClick={modal.overlayClick}
-      data-testid="drawer-overlay"
-    >
+    <Overlay data-state={modal.state} data-testid="drawer-overlay">
       <DrawerContainer
         data-testid="drawer-container"
         data-state={modal.state}
@@ -53,9 +49,7 @@ const Drawer: React.FunctionComponent<DrawerProps> = ({
           <DrawerClose onClick={modal.close}>{closeButton}</DrawerClose>
         )}
         <DrawerContent as={contentContainerComponent}>
-          {isFunction(children)
-            ? children(modal as ModalState<HTMLDivElement>)
-            : children}
+          {isFunction(children) ? children(modal as Modal) : children}
         </DrawerContent>
       </DrawerContainer>
     </Overlay>

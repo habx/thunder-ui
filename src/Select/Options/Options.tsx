@@ -105,12 +105,13 @@ const Options: React.FunctionComponent<OptionsProps> = ({
       </Modal>
     )
   }
+
   const optionsContainer = (
     <OptionsContainer
       data-testid="options-container"
       data-open={open}
       data-position={position}
-      wrapperRect={open ? wrapperRect : ({} as DOMRect)}
+      wrapperRect={wrapperRect}
       maxHeight={maxHeight}
     >
       {content}

@@ -9,7 +9,7 @@ const prepareProps = ({
   wrapperRect,
 }: {
   position: string
-  wrapperRect: DOMRect | ClientRect
+  wrapperRect: ClientRect
 }) => ({
   left: ['left', 'top-left'].includes(position)
     ? `${wrapperRect.left + 4}px`
@@ -30,7 +30,7 @@ const preparePropsMobile = ({
   wrapperRect,
 }: {
   position: string
-  wrapperRect: DOMRect | ClientRect
+  wrapperRect: ClientRect
 }) => ({
   left: '0px',
   right: '0px',
@@ -42,7 +42,7 @@ const preparePropsMobile = ({
 
 export const MenuContainerDesktop = styled.div.attrs(prepareProps)<{
   position: string
-  wrapperRect: DOMRect | ClientRect
+  wrapperRect: ClientRect
 }>`
   position: fixed;
   top: ${({ top }) => top};
@@ -68,7 +68,7 @@ export const MenuContainerDesktop = styled.div.attrs(prepareProps)<{
 
 export const MobileMenuContainer = styled.div.attrs(preparePropsMobile)<{
   position: string
-  wrapperRect: DOMRect | ClientRect
+  wrapperRect: ClientRect
 }>`
   display: none;
   position: absolute;

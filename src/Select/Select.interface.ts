@@ -36,14 +36,18 @@ export interface SelectState {
   isOpened: boolean
   query: string
   focusedItem: any
-  options: formOption[]
-  value: formOption | formOption[]
-  wrapperRect: DOMRect
+  wrapperRect: ClientRect
 }
 
-export interface SelectReducerState {
-  isOpened: boolean
-  query: string
-  wrapperRect: ClientRect | DOMRect
-  focusedItem: formValue
+export enum ActionType {
+  UpdateQuery = 'UPDATE_QUERY',
+  ToggleVisibility = 'TOGGLE_VISIBILITY',
+  RemoveFocusItem = 'REMOVE_FOCUS_ITEM',
+  AddFocusItem = 'ADD_FOCUS_ITEM',
+  Resize = 'RESIZE',
+}
+
+export interface SelectAction {
+  type: ActionType
+  value?: any
 }

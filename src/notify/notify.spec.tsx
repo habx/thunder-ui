@@ -64,7 +64,7 @@ describe('notify function', () => {
     ).toEqual(MESSAGE_2)
   })
 
-  it('should remove notification after timeout', done => {
+  it('should remove notification after timeout', () => {
     const { queryAllByTestId, rerender } = render(<ThunderProvider />)
 
     const duration = 200
@@ -73,16 +73,12 @@ describe('notify function', () => {
       notify(MESSAGE_1, { duration })
     })
 
-    setTimeout(async () => {
-      rerender(<ThunderProvider />)
-      await Promise.resolve()
-      const notifications = queryAllByTestId('notification-container')
-      expect(notifications).toHaveLength(0)
-      done()
-    }, ANIMATION_DURATION + duration + 5000)
-
     act(() => {
-      jest.runAllTimers()
+      jest.advanceTimersByTime(ANIMATION_DURATION + duration + 5000)
     })
+
+    rerender(<ThunderProvider />)
+    const notifications = queryAllByTestId('notification-container')
+    expect(notifications).toHaveLength(0)
   })
 })

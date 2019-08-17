@@ -3,7 +3,7 @@ import { createPortal } from 'react-dom'
 
 import { isFunction } from '../_internal/data'
 import { useIsSmallScreen } from '../_internal/hooks'
-import { isClientSide, ssrDOMRect } from '../_internal/ssr'
+import { isClientSide, ssrClientRect } from '../_internal/ssr'
 import { RemoveBodyScroll } from '../Modal/Modal.style'
 
 import MenuProps from './Menu.interface'
@@ -25,8 +25,8 @@ const Menu: React.FunctionComponent<MenuProps> = ({
   ...props
 }) => {
   const wrapperRef = React.useRef<HTMLDivElement>(null)
-  const [wrapperRect, setWrapperRect] = React.useState<DOMRect | ClientRect>(
-    typeof DOMRect === 'function' ? new DOMRect() : ssrDOMRect
+  const [wrapperRect, setWrapperRect] = React.useState<ClientRect>(
+    typeof DOMRect === 'function' ? new DOMRect() : ssrClientRect
   )
   const [open, setOpen] = React.useState(false)
 

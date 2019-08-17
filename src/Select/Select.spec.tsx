@@ -4,9 +4,9 @@ import sinon from 'sinon'
 
 import Select from './Select'
 import { longData } from './Select.data'
+import SelectProps from './Select.interface'
 
 import '@testing-library/jest-dom/extend-expect'
-import SelectProps from './Select.interface'
 
 const renderOpenedSelect = (element: React.ReactElement<SelectProps>) => {
   const result = render(element)

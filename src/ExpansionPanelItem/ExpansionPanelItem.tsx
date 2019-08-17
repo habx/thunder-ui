@@ -1,9 +1,9 @@
+import useModal from '@delangle/use-modal'
 import * as React from 'react'
 import { withTheme } from 'styled-components'
 
 import { isFunction, isNil } from '../_internal/data'
 import { styledTheme } from '../_internal/types'
-import useModal from '../_internal/useModal'
 import { assert } from '../_internal/validityCheck'
 import { ExpansionPanelContext } from '../ExpansionPanel/ExpansionPanel.context'
 import FontIcon from '../FontIcon'
