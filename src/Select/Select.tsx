@@ -4,7 +4,7 @@ import { createPortal } from 'react-dom'
 import { withTheme } from 'styled-components'
 
 import { isNil, has, isString } from '../_internal/data'
-import { isClientSide, ssrDOMRect } from '../_internal/ssr'
+import { isClientSide, ssrClientRect } from '../_internal/ssr'
 import { searchInString } from '../_internal/strings'
 import { formOption, formValue, styledTheme } from '../_internal/types'
 import FontIcon from '../FontIcon'
@@ -14,8 +14,9 @@ import withLabel from '../withLabel'
 import Options from './Options'
 import SelectProps, {
   SelectInnerProps,
-  SelectReducerState,
   SelectState,
+  SelectAction,
+  ActionType,
 } from './Select.interface'
 import {
   SelectContainer,
@@ -185,16 +186,13 @@ const BaseSelect: React.FunctionComponent<SelectInnerProps> = ({
   const inputRef = React.useRef<HTMLInputElement>(null)
   const wrapperRef = React.useRef<HTMLDivElement>(null)
 
-  const reducer = (
-    state: SelectReducerState,
-    action: { type: string; value: any }
-  ) => {
+  const reducer: React.Reducer<SelectState, SelectAction> = (state, action) => {
     switch (action.type) {
-      case 'UPDATE_QUERY': {
+      case ActionType.UpdateQuery: {
         return { ...state, query: action.value, isOpened: true }
       }
 
-      case 'TOGGLE_VISIBILITY': {
+      case ActionType.ToggleVisibility: {
         if (!state.isOpened && inputRef.current) {
           inputRef.current.focus()
         }
@@ -205,27 +203,46 @@ const BaseSelect: React.FunctionComponent<SelectInnerProps> = ({
           isOpened: !state.isOpened,
           wrapperRect: wrapperRef.current
             ? wrapperRef.current.getBoundingClientRect()
-            : ({} as DOMRect),
+            : ({} as ClientRect),
         }
       }
 
-      case 'REMOVE_FOCUS_ITEM': {
+      case ActionType.RemoveFocusItem: {
         return { ...state, focusedItem: null }
       }
 
-      case 'ADD_FOCUS_ITEM': {
+      case ActionType.AddFocusItem: {
         if (!action.value) {
           return state
         }
         return { ...state, focusedItem: action.value }
       }
 
-      case 'RESIZE': {
+      case ActionType.Resize: {
+        const wrapperRect = wrapperRef.current
+          ? wrapperRef.current.getBoundingClientRect()
+          : ({} as ClientRect)
+
+        const CLIENT_RECT_KEYS: (keyof ClientRect)[] = [
+          'height',
+          'width',
+          'top',
+          'left',
+          'right',
+          'bottom',
+        ]
+
+        if (
+          CLIENT_RECT_KEYS.every(
+            key => wrapperRect[key] === state.wrapperRect[key]
+          )
+        ) {
+          return state
+        }
+
         return {
           ...state,
-          wrapperRect: wrapperRef.current
-            ? wrapperRef.current.getBoundingClientRect()
-            : ({} as DOMRect),
+          wrapperRect,
         }
       }
 
@@ -235,15 +252,17 @@ const BaseSelect: React.FunctionComponent<SelectInnerProps> = ({
     }
   }
 
-  const [state, dispatch] = React.useReducer(reducer, {
+  const initialState: SelectState = {
     isOpened: false,
     query: '',
-    wrapperRect: typeof DOMRect === 'function' ? new DOMRect() : ssrDOMRect,
+    wrapperRect: typeof DOMRect === 'function' ? new DOMRect() : ssrClientRect,
     focusedItem:
       rawValueFormat === 'simple'
         ? get(rawValue, 'value') || rawValue
         : rawValue,
-  }) as [SelectState, any]
+  }
+
+  const [state, dispatch] = React.useReducer(reducer, initialState)
 
   const options = useOptions({ rawOptions })
   const value = useValue({ rawValue, multi, options })
@@ -260,20 +279,20 @@ const BaseSelect: React.FunctionComponent<SelectInnerProps> = ({
 
   const handleSearch = React.useCallback(
     e => {
-      dispatch({ type: 'UPDATE_QUERY', value: e.target.value })
+      dispatch({ type: ActionType.UpdateQuery, value: e.target.value })
     },
     [dispatch]
   )
 
   const handleToggle = React.useCallback(() => {
-    dispatch({ type: 'TOGGLE_VISIBILITY' })
+    dispatch({ type: ActionType.ToggleVisibility })
   }, [dispatch])
 
   const handleSelectOne = React.useCallback(
     option => {
       const cleanOption = getCleanValue(option)
       onChange(cleanOption)
-      dispatch({ type: 'ADD_FOCUS_ITEM', value: cleanOption })
+      dispatch({ type: ActionType.AddFocusItem, value: cleanOption })
     },
     [dispatch, getCleanValue, onChange]
   )
@@ -301,7 +320,7 @@ const BaseSelect: React.FunctionComponent<SelectInnerProps> = ({
 
   const handleSelect = React.useCallback(
     option => {
-      dispatch({ type: 'REMOVE_FOCUS_ITEM' })
+      dispatch({ type: ActionType.RemoveFocusItem })
 
       if (multi) {
         handleSelectMulti(option)
@@ -347,12 +366,18 @@ const BaseSelect: React.FunctionComponent<SelectInnerProps> = ({
 
         if (key === 'ArrowDown' && focusedIndex < options.length) {
           event.preventDefault()
-          dispatch({ type: 'ADD_FOCUS_ITEM', value: options[focusedIndex + 1] })
+          dispatch({
+            type: ActionType.AddFocusItem,
+            value: options[focusedIndex + 1],
+          })
         }
 
         if (key === 'ArrowUp' && focusedIndex > 0) {
           event.preventDefault()
-          dispatch({ type: 'ADD_FOCUS_ITEM', value: options[focusedIndex - 1] })
+          dispatch({
+            type: ActionType.RemoveFocusItem,
+            value: options[focusedIndex - 1],
+          })
         }
 
         if (key === 'Enter' && focusedIndex >= 0) {
@@ -362,7 +387,7 @@ const BaseSelect: React.FunctionComponent<SelectInnerProps> = ({
     }
 
     const handleResize = () => {
-      dispatch({ type: 'RESIZE' })
+      dispatch({ type: ActionType.Resize })
     }
 
     window.addEventListener('keydown', handleKeyDown)

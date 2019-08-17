@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { createPortal } from 'react-dom'
 
-import { isClientSide, ssrDOMRect } from '../_internal/ssr'
+import { isClientSide, ssrClientRect } from '../_internal/ssr'
 import { searchInString } from '../_internal/strings'
 import { formOption } from '../_internal/types'
 import TextInput from '../TextInput'
@@ -19,7 +19,7 @@ import Option from './Option'
 const INITIAL_STATE = {
   isOpened: false,
   focusedItem: undefined,
-  wrapperRect: typeof DOMRect === 'function' ? new DOMRect() : ssrDOMRect,
+  wrapperRect: typeof DOMRect === 'function' ? new DOMRect() : ssrClientRect,
 }
 
 const EMPTY_OPTIONS: formOption[] = []
@@ -36,13 +36,13 @@ const AutoCompleteInput: React.FunctionComponent<AutoCompleteInputProps> = ({
 
   const reducer = (
     state: {
-      wrapperRect: DOMRect | ClientRect
+      wrapperRect: ClientRect
       isOpened: boolean
       focusedItem?: HTMLInputElement
     },
     action: { type: string; value?: any }
   ): {
-    wrapperRect: DOMRect | ClientRect
+    wrapperRect: ClientRect
     isOpened: boolean
     focusedItem?: HTMLInputElement
   } => {
@@ -54,7 +54,7 @@ const AutoCompleteInput: React.FunctionComponent<AutoCompleteInputProps> = ({
             ? wrapperRef.current.getBoundingClientRect()
             : typeof DOMRect === 'function'
             ? new DOMRect()
-            : ssrDOMRect,
+            : ssrClientRect,
         }
       }
 

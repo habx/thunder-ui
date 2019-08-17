@@ -8,7 +8,7 @@ import Option from '../Option'
 export const MAX_HEIGHT = 300
 
 export const OptionsContainer = styled.div<{
-  wrapperRect: DOMRect
+  wrapperRect: ClientRect
   maxHeight?: number
 }>`
   position: fixed;
@@ -32,11 +32,13 @@ export const OptionsContainer = styled.div<{
     opacity: 1;
     pointer-events: unset;
   }
+
   &[data-position='bottom'] {
     top: ${({ wrapperRect }) => `${wrapperRect.bottom}px`};
     border-top: 1px solid ${theme.get('neutral', { dynamic: true })};
     border-radius: 0 0 4px 4px;
   }
+
   &[data-position='top'] {
     border-radius: 4px 4px 0 0;
     bottom: ${({ wrapperRect }) => `${window.innerHeight - wrapperRect.top}px`};

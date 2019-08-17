@@ -5,7 +5,7 @@ import zIndex from '../zIndex'
 
 export const AutoCompleteInputContainer = styled.span``
 
-export const Options = styled.div<{ wrapperRect: DOMRect }>`
+export const Options = styled.div<{ wrapperRect: ClientRect }>`
   position: fixed;
   z-index: ${zIndex.highest};
   pointer-events: none;

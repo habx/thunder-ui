@@ -15,5 +15,5 @@ export default interface AutoCompleteInputProps {
 export interface AutoCompleteInputState {
   isOpened: boolean
   focusedItem: any
-  wrapperRect: DOMRect
+  wrapperRect: ClientRect
 }
