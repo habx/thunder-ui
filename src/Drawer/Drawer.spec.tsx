@@ -88,7 +88,7 @@ describe('Drawer component', () => {
       expect(spyChildren.lastCall.args[0].state).toEqual('opening')
     })
 
-    it('should have state="opened" if opened for more than 1 second"', done => {
+    it('should have state="opened" if opened for more than 1 second"', () => {
       const spyChildren = sinon.spy()
 
       render(
@@ -97,19 +97,14 @@ describe('Drawer component', () => {
         </Drawer>
       )
 
-      setTimeout(async () => {
-        await Promise.resolve()
-
-        expect(spyChildren.lastCall.args[0].state).toEqual('opened')
-        done()
-      }, 1000)
-
       act(() => {
-        jest.runAllTimers()
+        jest.advanceTimersByTime(1000)
       })
+
+      expect(spyChildren.lastCall.args[0].state).toEqual('opened')
     })
 
-    it('should have state="closing" if open just switched to "false"', done => {
+    it('should have state="closing" if open just switched to "false"', () => {
       const spyChildren = sinon.spy()
 
       const { rerender } = render(
@@ -118,22 +113,17 @@ describe('Drawer component', () => {
         </Drawer>
       )
 
-      setTimeout(async () => {
-        rerender(
-          <Drawer onClose={() => null} open={false}>
-            {spyChildren}
-          </Drawer>
-        )
-
-        await Promise.resolve()
-
-        expect(spyChildren.lastCall.args[0].state).toEqual('closing')
-        done()
-      }, 1000)
-
       act(() => {
-        jest.runAllTimers()
+        jest.advanceTimersByTime(1000)
       })
+
+      rerender(
+        <Drawer onClose={() => null} open={false}>
+          {spyChildren}
+        </Drawer>
+      )
+
+      expect(spyChildren.lastCall.args[0].state).toEqual('closing')
     })
   })
 })
