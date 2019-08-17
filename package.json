@@ -43,6 +43,7 @@
   },
   "homepage": "https://github.com/habx/thunder-ui#readme",
   "dependencies": {
+    "@delangle/use-modal": "^0.1.1",
     "@types/color": "^3.0.0",
     "@types/lodash.deburr": "^4.1.6",
     "@types/lodash.get": "^4.4.6",

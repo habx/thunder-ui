@@ -1,17 +1,12 @@
+import { Modal } from '@delangle/use-modal'
 import * as React from 'react'
-
-import { ModalState } from '../_internal/useModal'
 
 export default interface DrawerInterface
   extends React.HTMLAttributes<HTMLDivElement> {
   title?: string
-  children?:
-    | React.ReactNode
-    | ((props: ModalState<HTMLDivElement>) => JSX.Element)
-  closeButton?:
-    | React.ReactNode
-    | ((props: ModalState<HTMLDivElement>) => JSX.Element)
-  onClose?: (e: React.FormEvent<HTMLInputElement>) => void
+  children?: React.ReactNode | ((modal: Modal) => JSX.Element)
+  closeButton?: React.ReactNode | ((modal: Modal) => JSX.Element)
+  onClose?: () => void
   open?: boolean
   portal?: boolean
   contentContainerComponent?: React.ComponentType
