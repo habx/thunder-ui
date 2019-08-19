@@ -9,27 +9,25 @@ import {
   CloseContainer,
 } from './Notification.style'
 
-const Notification: React.FunctionComponent<NotificationProps> = ({
-  children,
-  onClose,
-  closeIcon,
-  error,
-  warning,
-  ...props
-}) => (
-  <NotificationContainer
-    data-testid="notification-container"
-    error={error}
-    warning={warning}
-    {...props}
-  >
-    <NotificationContent data-testid="notification-content">
-      {children}
-    </NotificationContent>
-    <CloseContainer onClick={onClose}>
-      {closeIcon || <FontIcon icon="close" />}
-    </CloseContainer>
-  </NotificationContainer>
+const Notification = React.forwardRef<HTMLDivElement, NotificationProps>(
+  (props, ref) => {
+    const { children, onClose, closeIcon, ...rest } = props
+
+    return (
+      <NotificationContainer
+        data-testid="notification-container"
+        {...rest}
+        ref={ref}
+      >
+        <NotificationContent data-testid="notification-content">
+          {children}
+        </NotificationContent>
+        <CloseContainer onClick={onClose}>
+          {closeIcon || <FontIcon icon="close" />}
+        </CloseContainer>
+      </NotificationContainer>
+    )
+  }
 )
 
 export default Notification

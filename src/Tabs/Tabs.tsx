@@ -1,23 +1,12 @@
 import * as React from 'react'
-import styled from 'styled-components'
 
 import TabsContext from './Tabs.context'
 import TabsProps from './Tabs.interface'
+import { TabsContainer } from './Tabs.style'
 
-const TabsContainer = styled.ul`
-  display: flex;
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-`
+const Tabs = React.forwardRef<HTMLUListElement, TabsProps>((props, ref) => {
+  const { color, hoverColor, activeColor, children, ...rest } = props
 
-const Tabs: React.FunctionComponent<TabsProps> = ({
-  color,
-  hoverColor,
-  activeColor,
-  children,
-  ...other
-}) => {
   const context = React.useMemo(
     () => ({
       hoverColor,
@@ -30,9 +19,11 @@ const Tabs: React.FunctionComponent<TabsProps> = ({
 
   return (
     <TabsContext.Provider value={context}>
-      <TabsContainer {...other}>{children}</TabsContainer>
+      <TabsContainer {...rest} ref={ref}>
+        {children}
+      </TabsContainer>
     </TabsContext.Provider>
   )
-}
+})
 
 export default Tabs

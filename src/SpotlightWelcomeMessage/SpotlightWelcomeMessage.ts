@@ -1,13 +1,8 @@
-import * as React from 'react'
 import styled from 'styled-components'
 
 import theme from '../theme'
 
-import SpotlightWelcomeMessageProps from './SpotlightWelcomeMessage.interface'
-
-const SpotlightWelcomeMessage: React.FunctionComponent<
-  SpotlightWelcomeMessageProps
-> = styled.div`
+const SpotlightWelcomeMessage = styled.div`
   background-color: ${theme.get('primary')};
   color: ${theme.get('neutralLighter')};
   padding: 16px;

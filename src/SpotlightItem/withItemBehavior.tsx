@@ -60,9 +60,10 @@ const useWrappedActions = ({
 const withItemBehavior = <Props extends ItemInjectedProps>(
   WrappedComponent: React.ComponentType<Props>
 ) => {
-  const Component: React.FunctionComponent<
+  const Component = React.forwardRef<
+    HTMLDivElement,
     WithItemBehaviorProps<Props>
-  > = props => {
+  >((props, ref) => {
     const {
       index,
       onClick = () => {},
@@ -121,9 +122,10 @@ const withItemBehavior = <Props extends ItemInjectedProps>(
         selected={selected}
         registerActions={registerActions}
         query={spotlight.query}
+        ref={ref}
       />
     )
-  }
+  })
 
   return Component
 }

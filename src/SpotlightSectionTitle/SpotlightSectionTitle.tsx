@@ -1,10 +1,27 @@
-import * as React from 'react'
+import styled from 'styled-components'
 
-import SpotlightSectionTitleProps from './SpotlightSectionTitle.interface'
-import { SectionTitleContainer } from './SpotlightSectionTitle.style'
+import theme from '../theme'
 
-const SpotlightSectionTitle: React.FunctionComponent<
-  SpotlightSectionTitleProps
-> = ({ children }) => <SectionTitleContainer>{children}</SectionTitleContainer>
+export const SpotlightSectionTitle = styled.div`
+  padding: 16px 32px;
+  user-select: none;
+  color: ${theme.get('neutral')};
+
+  > i {
+    border-radius: 50%;
+    background-color: #5a6e85;
+    color: #f8f7f8;
+    padding: 4px;
+    font-size: 18px;
+    margin-left: 10px;
+    vertical-align: bottom;
+    transition: all ease-in 100ms;
+
+    &:hover {
+      opacity: 0.8;
+      cursor: pointer;
+    }
+  }
+`
 
 export default SpotlightSectionTitle

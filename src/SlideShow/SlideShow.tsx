@@ -8,40 +8,44 @@ import {
   SlideshowElement,
 } from './SlideShow.style'
 
-const SlideShow: React.FunctionComponent<SlideShowProps> = ({
-  children,
-  active,
-  color,
-  transitionDuration,
-  isNavigationVisible,
-  onNavigationClick,
-  ...rest
-}) => {
-  const childrenLength = React.Children.toArray(children).length
+const SlideShow = React.forwardRef<HTMLDivElement, SlideShowProps>(
+  (props, ref) => {
+    const {
+      children,
+      active,
+      color,
+      transitionDuration,
+      isNavigationVisible,
+      onNavigationClick,
+      ...rest
+    } = props
 
-  return (
-    <SlideshowContainer {...rest}>
-      <SlideshowContent
-        length={childrenLength}
-        transitionDuration={transitionDuration}
-        data-index={active}
-      >
-        {React.Children.map(children, child => (
-          <SlideshowElement>{child}</SlideshowElement>
-        ))}
-      </SlideshowContent>
-      {isNavigationVisible && (
-        <Navigation
-          canNavigate={!!onNavigationClick}
-          color={color}
+    const childrenLength = React.Children.toArray(children).length
+
+    return (
+      <SlideshowContainer {...rest} ref={ref}>
+        <SlideshowContent
           length={childrenLength}
-          active={active}
-          onClick={onNavigationClick}
-        />
-      )}
-    </SlideshowContainer>
-  )
-}
+          transitionDuration={transitionDuration}
+          data-index={active}
+        >
+          {React.Children.map(children, child => (
+            <SlideshowElement>{child}</SlideshowElement>
+          ))}
+        </SlideshowContent>
+        {isNavigationVisible && (
+          <Navigation
+            canNavigate={!!onNavigationClick}
+            color={color}
+            length={childrenLength}
+            active={active}
+            onClick={onNavigationClick}
+          />
+        )}
+      </SlideshowContainer>
+    )
+  }
+)
 
 SlideShow.defaultProps = {
   isNavigationVisible: true,

@@ -61,22 +61,24 @@ const getTooltip = ({
 
 const EMPTY_RANGE = [null, null]
 
-const Slider: React.FunctionComponent<SliderProps> = ({
-  disabled = false,
-  range = false,
-  onChange = () => {},
-  tooltipFormatter,
-  tooltipRangeSeparator = ' to ',
-  tooltipSuffix = '',
-  customValues,
-  indicators = [],
-  min = 0,
-  max: rawMax = 100,
-  step: rawStep = 5,
-  dots: rawDots,
-  value: rawValue,
-  ...props
-}) => {
+const Slider = React.forwardRef<HTMLDivElement, SliderProps>((props, ref) => {
+  const {
+    disabled = false,
+    range = false,
+    onChange = () => {},
+    tooltipFormatter,
+    tooltipRangeSeparator = ' to ',
+    tooltipSuffix = '',
+    customValues,
+    indicators = [],
+    min = 0,
+    max: rawMax = 100,
+    step: rawStep = 5,
+    dots: rawDots,
+    value: rawValue,
+    ...rest
+  } = props
+
   const max = customValues ? customValues.length - 1 : rawMax
   const step = customValues ? 1 : rawStep
   const dots = customValues ? true : rawDots
@@ -285,9 +287,10 @@ const Slider: React.FunctionComponent<SliderProps> = ({
   return (
     <SliderContainer>
       <SliderContent
-        {...props}
+        {...rest}
         data-disabled={disabled}
         onClick={handleBarClick}
+        ref={ref}
       >
         <SliderMainBar ref={barRef} />
         {valueDots}
@@ -309,6 +312,6 @@ const Slider: React.FunctionComponent<SliderProps> = ({
       </SliderContent>
     </SliderContainer>
   )
-}
+})
 
 export default withLabel()(Slider)
