@@ -23,34 +23,32 @@ type Options = {
   padding?: number
 }
 
-const withLabel = ({ padding = 4 }: Options = {}) => <Props extends object>(
+const withLabel = <RefElement extends HTMLElement>({
+  padding = 4,
+}: Options = {}) => <Props extends object>(
   WrappedComponent: React.ComponentType<Props>
 ) => {
-  const Field: React.FunctionComponent<Props & LabelReceivedProps> = props => {
-    const { label, labelColor, ...rest } = props as LabelReceivedProps
+  const Field = React.forwardRef<RefElement, Props & LabelReceivedProps>(
+    (props, ref) => {
+      const { label, labelColor, ...rest } = props as LabelReceivedProps
 
-    if (label) {
-      return (
-        <FieldWithLabelContainer className="thunder-label-line">
-          <LabelContainer
-            padding={padding}
-            color={labelColor ? labelColor : undefined}
-          >
-            {label}
-          </LabelContainer>
-          <WrappedComponent {...(rest as Props)} />
-        </FieldWithLabelContainer>
-      )
+      if (label) {
+        return (
+          <FieldWithLabelContainer className="thunder-label-line">
+            <LabelContainer
+              padding={padding}
+              color={labelColor ? labelColor : undefined}
+            >
+              {label}
+            </LabelContainer>
+            <WrappedComponent {...(rest as Props)} ref={ref} />
+          </FieldWithLabelContainer>
+        )
+      }
+
+      return <WrappedComponent {...(rest as Props)} ref={ref} />
     }
-
-    return <WrappedComponent {...(rest as Props)} />
-  }
-
-  Field.displayName = WrappedComponent.displayName || WrappedComponent.name
-
-  Field.defaultProps = WrappedComponent.defaultProps
-
-  Field.propTypes = WrappedComponent.propTypes
+  )
 
   return Field
 }

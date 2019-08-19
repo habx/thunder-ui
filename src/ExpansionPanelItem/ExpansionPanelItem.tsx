@@ -1,6 +1,5 @@
 import useModal from '@delangle/use-modal'
 import * as React from 'react'
-import { withTheme } from 'styled-components'
 
 import { isFunction, isNil } from '../_internal/data'
 import { styledTheme } from '../_internal/types'
@@ -9,10 +8,9 @@ import { ExpansionPanelContext } from '../ExpansionPanel/ExpansionPanel.context'
 import FontIcon from '../FontIcon'
 import theme from '../theme'
 import Title from '../Title'
+import useTheme from '../useTheme'
 
-import ExpansionPanelItemProps, {
-  ExpansionPanelItemInnerProps,
-} from './ExpansionPanelItem.interface'
+import ExpansionPanelItemProps from './ExpansionPanelItem.interface'
 import {
   ExpansionPanelItemContainer,
   TitleBar,
@@ -21,18 +19,26 @@ import {
   ANIMATION_DURATION,
 } from './ExpansionPanelItem.style'
 
-const ExpansionPanelItem: React.FunctionComponent<
-  ExpansionPanelItemInnerProps
-> = ({
-  children,
-  title,
-  expandIcon,
-  collapseIcon,
-  open: rawOpen,
-  header,
-  onToggle,
-  ...props
-}) => {
+const ExpansionPanelItem = React.forwardRef<
+  HTMLDivElement,
+  ExpansionPanelItemProps
+>((baseProps, ref) => {
+  const thunderUi = useTheme()
+  const fullTheme = { thunderUi } as styledTheme
+
+  const props = { ...baseProps, theme: fullTheme }
+
+  const {
+    children,
+    title,
+    expandIcon,
+    collapseIcon,
+    open: rawOpen,
+    header,
+    onToggle,
+    ...rest
+  } = props
+
   const isControlled = !isNil(rawOpen)
 
   const {
@@ -92,9 +98,13 @@ const ExpansionPanelItem: React.FunctionComponent<
     [isControlled, onToggle, multiOpen, setOpenedItems]
   )
 
-  const color = theme.get('neutralStronger', { dynamic: true })(props)
+  const color = theme.get('neutralStronger', { dynamic: true })(rest)
   return (
-    <ExpansionPanelItemContainer data-testid="expansion-panel-item" {...props}>
+    <ExpansionPanelItemContainer
+      data-testid="expansion-panel-item"
+      {...rest}
+      ref={ref}
+    >
       <TitleBar
         data-testid="expansion-panel-item-title-bar"
         onClick={handleToggle}
@@ -128,12 +138,6 @@ const ExpansionPanelItem: React.FunctionComponent<
       </ExpansionPanelItemContent>
     </ExpansionPanelItemContainer>
   )
-}
+})
 
-ExpansionPanelItem.defaultProps = {
-  theme: {} as styledTheme,
-}
-
-export default withTheme(ExpansionPanelItem) as React.FunctionComponent<
-  ExpansionPanelItemProps
->
+export default ExpansionPanelItem

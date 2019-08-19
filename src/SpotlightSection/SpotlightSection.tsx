@@ -7,14 +7,20 @@ import SpotlightSectionContext from './SpotlightSection.context'
 import SpotlightSectionProps from './SpotlightSection.interface'
 import { SectionContainer } from './SpotlightSection.style'
 
-const SpotlightSection: React.FunctionComponent<SpotlightSectionProps> = ({
-  title,
-  name,
-  filter,
-  render,
-  renderItem,
-  maxItems = -1,
-}) => {
+const SpotlightSection = React.forwardRef<
+  HTMLDivElement,
+  SpotlightSectionProps
+>((props, ref) => {
+  const {
+    title,
+    name,
+    filter,
+    render,
+    renderItem,
+    maxItems = -1,
+    ...rest
+  } = props
+
   const spotlight = React.useContext(SpotlightContext)
 
   const context = React.useMemo(() => ({ name }), [name])
@@ -52,12 +58,12 @@ const SpotlightSection: React.FunctionComponent<SpotlightSectionProps> = ({
 
   return (
     <SpotlightSectionContext.Provider value={context}>
-      <SectionContainer>
+      <SectionContainer {...rest} ref={ref}>
         {title && <SpotlightSectionTitle>{title}</SpotlightSectionTitle>}
         {content}
       </SectionContainer>
     </SpotlightSectionContext.Provider>
   )
-}
+})
 
 export default SpotlightSection

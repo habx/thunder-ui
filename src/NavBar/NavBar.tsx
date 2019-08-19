@@ -1,13 +1,13 @@
 import * as React from 'react'
-import { withTheme } from 'styled-components'
 
 import { styledTheme } from '../_internal/types'
 import FontIcon from '../FontIcon'
 import TextButton from '../TextButton'
 import theme from '../theme'
+import useTheme from '../useTheme'
 
 import NavBarContext from './NavBar.context'
-import NavBarProps, { NavBarInnerProps } from './NavBar.interface'
+import NavBarProps from './NavBar.interface'
 import {
   NavBarContainer,
   NavBarSideContainer,
@@ -20,8 +20,13 @@ import {
   NavBarTopBarSquare,
 } from './NavBar.style'
 
-const NavBar = React.forwardRef<HTMLUListElement, NavBarInnerProps>(
-  (props, ref) => {
+const NavBar = React.forwardRef<HTMLUListElement, NavBarProps>(
+  (baseProps, ref) => {
+    const thunderUi = useTheme()
+    const fullTheme = { thunderUi } as styledTheme
+
+    const props = { ...baseProps, theme: fullTheme }
+
     const {
       children,
       title,
@@ -82,8 +87,4 @@ const NavBar = React.forwardRef<HTMLUListElement, NavBarInnerProps>(
   }
 )
 
-NavBar.defaultProps = {
-  theme: {} as styledTheme,
-}
-
-export default withTheme(NavBar) as React.FunctionComponent<NavBarProps>
+export default NavBar

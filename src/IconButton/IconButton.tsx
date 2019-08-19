@@ -1,72 +1,29 @@
 import * as React from 'react'
-import styled from 'styled-components'
 
-import { styledTheme } from '../_internal/types'
 import theme from '../theme'
 
 import IconButtonProps from './IconButton.interface'
+import { IconButtonContainer } from './IconButton.style'
 
-const getDiameter = (props: { small?: boolean; large?: boolean }) => {
-  if (props.small) {
-    return 32
+const IconButton = React.forwardRef<HTMLButtonElement, IconButtonProps>(
+  (props, ref) => {
+    const { small, large, ...rest } = props
+
+    const color = theme.get('primary', { dynamic: true })(props)
+    const hoverColor = theme.getActive(props.hoverColor, color)
+
+    return (
+      <IconButtonContainer
+        data-small={small}
+        data-large={large}
+        {...rest}
+        color={color}
+        hoverColor={hoverColor}
+        ref={ref}
+      />
+    )
   }
-
-  if (props.large) {
-    return 64
-  }
-
-  return 48
-}
-
-const prepareProps = (
-  props: { hoverColor: string; small?: boolean; large?: boolean } & styledTheme
-) => {
-  const color = theme.get('primary', { dynamic: true })(props)
-
-  return {
-    color,
-    hoverColor: theme.getActive(props.hoverColor, color),
-    diameter: getDiameter(props),
-  }
-}
-
-const IconButton: React.FunctionComponent<
-  IconButtonProps
-> = styled.button.attrs(prepareProps)`
-  border: none;
-  outline: none;
-  transition: all 150ms ease-in-out;
-  height: ${({ diameter }) => diameter}px;
-  width: ${({ diameter }) => diameter}px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  background-color: ${({ color }) => color};
-  box-shadow: ${theme.get('shadowLight')};
-
-  cursor: pointer;
-  user-select: none;
-
-  &:hover {
-    box-shadow: ${theme.get('shadowStrong')};
-  }
-
-  &:active {
-    box-shadow: ${theme.get('shadowStrong')};
-  }
-
-  &:hover,
-  &:active {
-    background-color: ${({ hoverColor }) => hoverColor};
-  }
-
-  &:disabled {
-    pointer-events: none;
-    filter: grayscale();
-  }
-`
+)
 
 IconButton.defaultProps = {
   type: 'button',

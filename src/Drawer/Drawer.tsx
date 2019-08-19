@@ -16,18 +16,21 @@ import {
   ANIMATION_DURATION,
 } from './Drawer.style'
 
-const Drawer: React.FunctionComponent<DrawerProps> = ({
-  children,
-  title,
-  open,
-  closeButton,
-  portal,
-  onClose,
-  contentContainerComponent,
-  alwaysRenderChildren,
-  ...props
-}) => {
+const Drawer = React.forwardRef<HTMLDivElement, DrawerProps>((props, ref) => {
+  const {
+    children,
+    title,
+    open,
+    closeButton,
+    portal,
+    onClose,
+    contentContainerComponent,
+    alwaysRenderChildren,
+    ...rest
+  } = props
+
   const modal = useModal({
+    ref,
     open,
     onClose,
     persistent: false,
@@ -40,9 +43,9 @@ const Drawer: React.FunctionComponent<DrawerProps> = ({
       <DrawerContainer
         data-testid="drawer-container"
         data-state={modal.state}
-        ref={modal.ref}
         onClick={e => e.stopPropagation()}
-        {...props}
+        ref={modal.ref}
+        {...rest}
       >
         {title && <DrawerTitle size={3}>{title}</DrawerTitle>}
         {closeButton && (
@@ -64,11 +67,11 @@ const Drawer: React.FunctionComponent<DrawerProps> = ({
   }
 
   return drawerContent
-}
+})
 
 Drawer.defaultProps = {
   position: 'right',
   portal: true,
 }
 
-export default withTriggerElement(Drawer)
+export default withTriggerElement<HTMLDivElement>()(Drawer)

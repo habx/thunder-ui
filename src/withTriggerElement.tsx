@@ -11,55 +11,54 @@ type TriggerState = {
   open: boolean
 }
 
-const withTriggerElement = <Props extends object>(
+const withTriggerElement = <RefElement extends HTMLElement>() => <
+  Props extends object
+>(
   WrappedComponent: React.ComponentType<Props>
 ) => {
-  const Wrapper: React.FunctionComponent<
-    Props & TriggerReceivedProps
-  > = props => {
-    const { triggerElement, onClose, ...rest } = props as TriggerReceivedProps
+  const Wrapper = React.forwardRef<RefElement, Props & TriggerReceivedProps>(
+    (props, ref) => {
+      const { triggerElement, onClose, ...rest } = props as TriggerReceivedProps
 
-    const [open, setOpen] = React.useState(false)
+      const [open, setOpen] = React.useState(false)
 
-    const handleToggle = React.useCallback(
-      () => setOpen(wasOpen => !wasOpen),
-      []
-    )
+      const handleToggle = React.useCallback(
+        () => setOpen(wasOpen => !wasOpen),
+        []
+      )
 
-    const handleClose = React.useCallback(
-      e => {
-        if (isFunction(onClose)) {
-          onClose(e)
-        }
+      const handleClose = React.useCallback(
+        e => {
+          if (isFunction(onClose)) {
+            onClose(e)
+          }
 
-        setOpen(false)
-      },
-      [onClose]
-    )
+          setOpen(false)
+        },
+        [onClose]
+      )
 
-    if (!triggerElement) {
-      return <WrappedComponent {...rest as Props} onClose={onClose} />
+      if (!triggerElement) {
+        return (
+          <WrappedComponent {...(rest as Props)} onClose={onClose} ref={ref} />
+        )
+      }
+
+      return (
+        <React.Fragment>
+          {isFunction(triggerElement)
+            ? triggerElement({ open })
+            : React.cloneElement(triggerElement, { onClick: handleToggle })}
+          <WrappedComponent
+            {...(rest as Props)}
+            open={open}
+            onClose={handleClose}
+            ref={ref}
+          />
+        </React.Fragment>
+      )
     }
-
-    return (
-      <React.Fragment>
-        {isFunction(triggerElement)
-          ? triggerElement({ open })
-          : React.cloneElement(triggerElement, { onClick: handleToggle })}
-        <WrappedComponent
-          {...rest as Props}
-          open={open}
-          onClose={handleClose}
-        />
-      </React.Fragment>
-    )
-  }
-
-  Wrapper.displayName = WrappedComponent.displayName || WrappedComponent.name
-
-  Wrapper.defaultProps = WrappedComponent.defaultProps
-
-  Wrapper.propTypes = WrappedComponent.propTypes
+  )
 
   return Wrapper
 }

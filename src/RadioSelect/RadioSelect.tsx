@@ -1,13 +1,11 @@
 import * as React from 'react'
-import { withTheme } from 'styled-components'
 
 import { formValue, styledTheme } from '../_internal/types'
 import theme from '../theme'
+import useTheme from '../useTheme'
 import withLabel from '../withLabel'
 
-import RadioSelectProps, {
-  RadioSelectInnerProps,
-} from './RadioSelect.interface'
+import RadioSelectProps from './RadioSelect.interface'
 import { RadioSelectContainer, Option } from './RadioSelect.style'
 
 const getNewValueNotMulti = (
@@ -56,9 +54,15 @@ const getCurrentValue = (
   return value
 }
 
-export const BaseRadioSelect: React.FunctionComponent<
-  RadioSelectInnerProps
-> = props => {
+export const BaseRadioSelect = React.forwardRef<
+  HTMLDivElement,
+  RadioSelectProps
+>((baseProps, ref) => {
+  const thunderUi = useTheme()
+  const fullTheme = { thunderUi } as styledTheme
+
+  const props = { ...baseProps, theme: fullTheme }
+
   const {
     options,
     onChange = () => {},
@@ -90,7 +94,12 @@ export const BaseRadioSelect: React.FunctionComponent<
   const color = theme.get('primary', { dynamic: true })(props)
 
   return (
-    <RadioSelectContainer color={color} data-disabled={disabled} {...rest}>
+    <RadioSelectContainer
+      color={color}
+      data-disabled={disabled}
+      {...rest}
+      ref={ref}
+    >
       {options.map(({ value, label }, index) => (
         <Option
           data-testid="radio-select-option"
@@ -106,12 +115,6 @@ export const BaseRadioSelect: React.FunctionComponent<
       ))}
     </RadioSelectContainer>
   )
-}
+})
 
-BaseRadioSelect.defaultProps = {
-  theme: {} as styledTheme,
-}
-
-export default withLabel({ padding: 12 })(withTheme(
-  BaseRadioSelect
-) as React.FunctionComponent<RadioSelectProps>)
+export default withLabel<HTMLDivElement>({ padding: 12 })(BaseRadioSelect)

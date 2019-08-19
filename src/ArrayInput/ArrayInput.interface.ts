@@ -10,7 +10,7 @@ export interface AddButtonComponentProps {
 }
 
 export default interface ArrayInputProps
-  extends React.HTMLAttributes<HTMLUListElement> {
+  extends React.HTMLAttributes<HTMLDivElement> {
   error?: boolean
   items?: any[]
   addButtonLabel?: string
@@ -24,8 +24,4 @@ export default interface ArrayInputProps
   itemTitleComponent?: React.ComponentType<ItemComponentProps>
   renderItem?: (itemProps: ItemComponentProps) => JSX.Element
   renderItemTitle?: (itemProps: ItemComponentProps) => JSX.Element
-}
-
-export interface ArrayInputInnerProps extends ArrayInputProps {
-  theme: styledTheme
 }

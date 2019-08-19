@@ -36,99 +36,104 @@ const INITIAL_STATE = {
   isOpened: false,
 }
 
-const Spotlight: React.FunctionComponent<SpotlightProps> = ({
-  onFetchData,
-  onClose,
-  onOpen,
-  open: propOpen,
-  placeholder,
-  data,
-  children,
-  ...rest
-}) => {
-  const [state, dispatch] = React.useReducer(reducer, INITIAL_STATE)
-  const isOpenControlled = isFunction(onClose) || isBoolean(propOpen)
-  const isOpened = isOpenControlled ? propOpen : state.isOpened
+const Spotlight = React.forwardRef<HTMLDivElement, SpotlightProps>(
+  (props, ref) => {
+    const {
+      onFetchData,
+      onClose,
+      onOpen,
+      open: propOpen,
+      placeholder,
+      data,
+      children,
+      ...rest
+    } = props
 
-  const handleQueryChange = React.useCallback((newQuery: string) => {
-    dispatch({ type: 'UPDATE_QUERY', value: newQuery })
-  }, [])
+    const [state, dispatch] = React.useReducer(reducer, INITIAL_STATE)
+    const isOpenControlled = isFunction(onClose) || isBoolean(propOpen)
+    const isOpened = isOpenControlled ? propOpen : state.isOpened
 
-  const lastOpenKeyPress = React.useRef(0)
-  const inputRef = React.useRef<HTMLInputElement>(null)
+    const handleQueryChange = React.useCallback((newQuery: string) => {
+      dispatch({ type: 'UPDATE_QUERY', value: newQuery })
+    }, [])
 
-  React.useEffect(() => {
-    const handleKeyDown = ({ key }: KeyboardEvent) => {
-      if (key === 'Shift') {
-        const currentTime = Date.now()
-        if (
-          currentTime - lastOpenKeyPress.current <
-          DOUBLE_KEY_PRESS_DURATION
-        ) {
-          dispatch({ type: 'OPEN' })
+    const lastOpenKeyPress = React.useRef(0)
+    const inputRef = React.useRef<HTMLInputElement>(null)
 
-          if (inputRef.current) {
-            inputRef.current.focus()
+    React.useEffect(() => {
+      const handleKeyDown = ({ key }: KeyboardEvent) => {
+        if (key === 'Shift') {
+          const currentTime = Date.now()
+          if (
+            currentTime - lastOpenKeyPress.current <
+            DOUBLE_KEY_PRESS_DURATION
+          ) {
+            dispatch({ type: 'OPEN' })
+
+            if (inputRef.current) {
+              inputRef.current.focus()
+            }
+
+            if (isFunction(onOpen)) {
+              onOpen()
+            }
           }
-
-          if (isFunction(onOpen)) {
-            onOpen()
-          }
+          lastOpenKeyPress.current = currentTime
         }
-        lastOpenKeyPress.current = currentTime
+
+        if (key === 'Escape') {
+          dispatch({ type: 'CLOSE' })
+        }
       }
 
-      if (key === 'Escape') {
+      window.addEventListener('keydown', handleKeyDown)
+
+      return () => {
+        window.removeEventListener('keydown', handleKeyDown)
+      }
+    }, [onOpen])
+
+    React.useLayoutEffect(() => {
+      if (isOpened && isFunction(onFetchData)) {
+        onFetchData({ query: state.query })
+      }
+    }, [state.query, isOpened]) // eslint-disable-line react-hooks/exhaustive-deps
+
+    const handleClose = React.useCallback(() => {
+      if (isOpenControlled) {
+        if (isFunction(onClose)) {
+          onClose()
+        }
+      } else {
         dispatch({ type: 'CLOSE' })
       }
-    }
+    }, [isOpenControlled, onClose])
 
-    window.addEventListener('keydown', handleKeyDown)
-
-    return () => {
-      window.removeEventListener('keydown', handleKeyDown)
-    }
-  }, [onOpen])
-
-  React.useLayoutEffect(() => {
-    if (isOpened && isFunction(onFetchData)) {
-      onFetchData({ query: state.query })
-    }
-  }, [state.query, isOpened]) // eslint-disable-line react-hooks/exhaustive-deps
-
-  const handleClose = React.useCallback(() => {
-    if (isOpenControlled) {
-      if (isFunction(onClose)) {
-        onClose()
-      }
-    } else {
-      dispatch({ type: 'CLOSE' })
-    }
-  }, [isOpenControlled, onClose])
-
-  return (
-    <SpotlightModal
-      open={isOpened}
-      onClose={handleClose}
-      animated={false}
-      {...rest}
-    >
-      {modal =>
-        modal.state !== 'closed' && (
-          <SpotlightContent
-            inputRef={inputRef}
-            onClose={handleClose}
-            onQueryChange={handleQueryChange}
-            query={state.query}
-            data={data}
-            placeholder={placeholder}
-          >
-            {children}
-          </SpotlightContent>
-        )
-      }
-    </SpotlightModal>
-  )
-}
+    return (
+      <SpotlightModal
+        open={isOpened}
+        onClose={handleClose}
+        animated={false}
+        {...rest}
+        ref={ref}
+      >
+        {modal =>
+          modal.state !== 'closed' && (
+            <SpotlightContent
+              inputRef={inputRef}
+              onClose={handleClose}
+              onQueryChange={handleQueryChange}
+              query={state.query}
+              data={data}
+              placeholder={placeholder}
+            >
+              {children}
+            </SpotlightContent>
+          )
+        }
+      </SpotlightModal>
+    )
+  }
+)
 
 export default Spotlight

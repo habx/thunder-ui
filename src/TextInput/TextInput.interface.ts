@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-import { Except, Input, styledAs, styledTheme } from '../_internal/types'
+import { Except, Input, styledAs } from '../_internal/types'
 
 export default interface TextInputProps
   extends Input<string | number>,
@@ -13,8 +13,4 @@ export default interface TextInputProps
   loading?: boolean
   small?: boolean
   as?: styledAs
-}
-
-export interface TextInputInnerProps extends TextInputProps {
-  theme: styledTheme
 }

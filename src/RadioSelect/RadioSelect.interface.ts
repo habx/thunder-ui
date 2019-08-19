@@ -1,12 +1,8 @@
-import { formValue, formOption, Input, styledTheme } from '../_internal/types'
+import { formValue, formOption, Input } from '../_internal/types'
 
 export default interface RadioSelectProps
   extends Input<formValue | formValue[] | null> {
   options: formOption[]
   canBeEmpty?: boolean
   multi?: boolean
-}
-
-export interface RadioSelectInnerProps extends RadioSelectProps {
-  theme: styledTheme
 }

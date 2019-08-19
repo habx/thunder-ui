@@ -6,28 +6,31 @@ import ListContext from '../List/List.context'
 import ListItemProps from './ListItem.interface'
 import { ListItemContainer, RightElementContainer } from './ListItem.style'
 
-const ListItem: React.FunctionComponent<ListItemProps> = rawProps => {
-  const {
-    children,
-    selected,
-    rightElement,
-    clickable,
-    ...props
-  } = useMergedContext(ListContext, rawProps)
+const ListItem = React.forwardRef<HTMLLIElement, ListItemProps>(
+  (props, ref) => {
+    const {
+      children,
+      selected,
+      rightElement,
+      clickable,
+      ...rest
+    } = useMergedContext(ListContext, props)
 
-  return (
-    <ListItemContainer
-      tabIndex={clickable ? 0 : undefined}
-      data-selected={selected}
-      data-clickable={clickable}
-      {...props}
-    >
-      <div>{children}</div>
-      {rightElement && (
-        <RightElementContainer>{rightElement}</RightElementContainer>
-      )}
-    </ListItemContainer>
-  )
-}
+    return (
+      <ListItemContainer
+        tabIndex={clickable ? 0 : undefined}
+        data-selected={selected}
+        data-clickable={clickable}
+        {...rest}
+        ref={ref}
+      >
+        <div>{children}</div>
+        {rightElement && (
+          <RightElementContainer>{rightElement}</RightElementContainer>
+        )}
+      </ListItemContainer>
+    )
+  }
+)
 
 export default ListItem

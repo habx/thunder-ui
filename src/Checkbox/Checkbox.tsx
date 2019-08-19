@@ -10,31 +10,29 @@ import {
   FontIcon,
 } from './Checkbox.style'
 
-const Checkbox: React.FunctionComponent<CheckboxProps> = ({
-  error,
-  value,
-  checked,
-  disabled,
-  id,
-  ...props
-}) => {
-  const theme = useTheme()
+const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
+  (props, ref) => {
+    const { error, value, checked, disabled, id, ...rest } = props
 
-  return (
-    <FakeInputContainer>
-      <Input
-        {...props}
-        data-error={error}
-        data-background={theme.neutralLightest !== '#fff'}
-        checked={!!value || !!checked}
-        disabled={disabled}
-        type="checkbox"
-        id={id}
-      />
-      <FontIcon icon="check" />
-      <FakeInput tabIndex={disabled ? undefined : 0} htmlFor={id} />
-    </FakeInputContainer>
-  )
-}
+    const theme = useTheme()
+
+    return (
+      <FakeInputContainer>
+        <Input
+          {...rest}
+          data-error={error}
+          data-background={theme.neutralLightest !== '#fff'}
+          checked={!!value || !!checked}
+          disabled={disabled}
+          type="checkbox"
+          id={id}
+          ref={ref}
+        />
+        <FontIcon icon="check" />
+        <FakeInput tabIndex={disabled ? undefined : 0} htmlFor={id} />
+      </FakeInputContainer>
+    )
+  }
+)
 
 export default Checkbox
