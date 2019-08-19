@@ -314,4 +314,4 @@ const Slider = React.forwardRef<HTMLDivElement, SliderProps>((props, ref) => {
   )
 })
 
-export default withLabel()(Slider)
+export default withLabel<HTMLDivElement>()(Slider)

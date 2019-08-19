@@ -78,4 +78,4 @@ const Modal = React.forwardRef<HTMLDivElement, ModalProps>((props, ref) => {
   return modalContent
 })
 
-export default withTriggerElement(Modal)
+export default withTriggerElement<HTMLDivElement>()(Modal)

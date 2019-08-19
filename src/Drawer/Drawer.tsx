@@ -74,4 +74,4 @@ Drawer.defaultProps = {
   portal: true,
 }
 
-export default withTriggerElement(Drawer)
+export default withTriggerElement<HTMLDivElement>()(Drawer)

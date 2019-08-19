@@ -60,10 +60,12 @@ const components = {
   4: Title4,
 }
 
-const Title: React.FunctionComponent<TitleProps> = ({ size = 1, ...props }) => {
+const Title = React.forwardRef<HTMLHeadingElement, TitleProps>((props, ref) => {
+  const { size = 1, ...rest } = props
+
   const TitleComponent = components[size] || Title
 
-  return <TitleComponent {...props} />
-}
+  return <TitleComponent {...rest} />
+})
 
 export default Title

@@ -1,9 +1,10 @@
 import * as React from 'react'
-import { withTheme } from 'styled-components'
 
+import { styledTheme } from '../_internal/types'
+import useTheme from '../useTheme'
 import withLabel from '../withLabel'
 
-import TextInputProps, { TextInputInnerProps } from './TextInput.interface'
+import TextInputProps from './TextInput.interface'
 import {
   InputContainer,
   Input,
@@ -11,8 +12,13 @@ import {
   RightElementContainer,
 } from './TextInput.style'
 
-const TextInput = React.forwardRef<HTMLInputElement, TextInputInnerProps>(
-  (props, ref) => {
+const TextInput = React.forwardRef<HTMLInputElement, TextInputProps>(
+  (baseProps, ref) => {
+    const thunderUi = useTheme()
+    const fullTheme = { thunderUi } as styledTheme
+
+    const props = { ...baseProps, theme: fullTheme }
+
     const {
       onChange = () => null,
       value = '',
@@ -63,6 +69,4 @@ const TextInput = React.forwardRef<HTMLInputElement, TextInputInnerProps>(
   }
 )
 
-export default withLabel()(withTheme(TextInput) as React.FunctionComponent<
-  TextInputProps
->)
+export default withLabel<HTMLInputElement>()(TextInput)

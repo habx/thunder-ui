@@ -1,7 +1,6 @@
 import get from 'lodash.get'
 import * as React from 'react'
 import { createPortal } from 'react-dom'
-import { withTheme } from 'styled-components'
 
 import { isNil, has, isString } from '../_internal/data'
 import { isClientSide, ssrClientRect } from '../_internal/ssr'
@@ -9,11 +8,11 @@ import { searchInString } from '../_internal/strings'
 import { formOption, formValue, styledTheme } from '../_internal/types'
 import FontIcon from '../FontIcon'
 import theme from '../theme'
+import useTheme from '../useTheme'
 import withLabel from '../withLabel'
 
 import Options from './Options'
 import SelectProps, {
-  SelectInnerProps,
   SelectState,
   SelectAction,
   ActionType,
@@ -163,344 +162,362 @@ const usePlaceholder = ({
       : rawPlaceholder
   }, [selectedOptions, rawPlaceholder, multi])
 
-const BaseSelect: React.FunctionComponent<SelectInnerProps> = ({
-  multi = false,
-  description,
-  placeholderClassName,
-  icon,
-  annotation,
-  canReset = true,
-  disabled,
-  filterable = false,
-  compact = false,
-  canSelectAll,
-  selectAllLabel,
-  optionDisabled = () => false,
-  value: rawValue,
-  options: rawOptions,
-  valueFormat: rawValueFormat,
-  placeholder: rawPlaceholder,
-  onChange = () => null,
-  ...props
-}) => {
-  const inputRef = React.useRef<HTMLInputElement>(null)
-  const wrapperRef = React.useRef<HTMLDivElement>(null)
+const Select = React.forwardRef<HTMLDivElement, SelectProps>(
+  (baseProps, ref) => {
+    const thunderUi = useTheme()
+    const fullTheme = { thunderUi } as styledTheme
 
-  const reducer: React.Reducer<SelectState, SelectAction> = (state, action) => {
-    switch (action.type) {
-      case ActionType.UpdateQuery: {
-        return { ...state, query: action.value, isOpened: true }
-      }
+    const props = { ...baseProps, theme: fullTheme }
 
-      case ActionType.ToggleVisibility: {
-        if (!state.isOpened && inputRef.current) {
-          inputRef.current.focus()
+    const {
+      multi = false,
+      description,
+      placeholderClassName,
+      icon,
+      annotation,
+      canReset = true,
+      disabled,
+      filterable = false,
+      compact = false,
+      canSelectAll,
+      selectAllLabel,
+      optionDisabled = () => false,
+      value: rawValue,
+      options: rawOptions,
+      valueFormat: rawValueFormat,
+      placeholder: rawPlaceholder,
+      onChange = () => null,
+      ...rest
+    } = props
+
+    const inputRef = React.useRef<HTMLInputElement>(null)
+    const wrapperRef = React.useRef<HTMLDivElement>(null)
+
+    const reducer: React.Reducer<SelectState, SelectAction> = (
+      state,
+      action
+    ) => {
+      switch (action.type) {
+        case ActionType.UpdateQuery: {
+          return { ...state, query: action.value, isOpened: true }
         }
 
-        return {
-          ...state,
-          query: '',
-          isOpened: !state.isOpened,
-          wrapperRect: wrapperRef.current
+        case ActionType.ToggleVisibility: {
+          if (!state.isOpened && inputRef.current) {
+            inputRef.current.focus()
+          }
+
+          return {
+            ...state,
+            query: '',
+            isOpened: !state.isOpened,
+            wrapperRect: wrapperRef.current
+              ? wrapperRef.current.getBoundingClientRect()
+              : ({} as ClientRect),
+          }
+        }
+
+        case ActionType.RemoveFocusItem: {
+          return { ...state, focusedItem: null }
+        }
+
+        case ActionType.AddFocusItem: {
+          if (!action.value) {
+            return state
+          }
+          return { ...state, focusedItem: action.value }
+        }
+
+        case ActionType.Resize: {
+          const wrapperRect = wrapperRef.current
             ? wrapperRef.current.getBoundingClientRect()
-            : ({} as ClientRect),
-        }
-      }
+            : ({} as ClientRect)
 
-      case ActionType.RemoveFocusItem: {
-        return { ...state, focusedItem: null }
-      }
+          const CLIENT_RECT_KEYS: (keyof ClientRect)[] = [
+            'height',
+            'width',
+            'top',
+            'left',
+            'right',
+            'bottom',
+          ]
 
-      case ActionType.AddFocusItem: {
-        if (!action.value) {
-          return state
-        }
-        return { ...state, focusedItem: action.value }
-      }
+          if (
+            CLIENT_RECT_KEYS.every(
+              key => wrapperRect[key] === state.wrapperRect[key]
+            )
+          ) {
+            return state
+          }
 
-      case ActionType.Resize: {
-        const wrapperRect = wrapperRef.current
-          ? wrapperRef.current.getBoundingClientRect()
-          : ({} as ClientRect)
-
-        const CLIENT_RECT_KEYS: (keyof ClientRect)[] = [
-          'height',
-          'width',
-          'top',
-          'left',
-          'right',
-          'bottom',
-        ]
-
-        if (
-          CLIENT_RECT_KEYS.every(
-            key => wrapperRect[key] === state.wrapperRect[key]
-          )
-        ) {
-          return state
+          return {
+            ...state,
+            wrapperRect,
+          }
         }
 
-        return {
-          ...state,
-          wrapperRect,
+        default: {
+          throw new Error('Thunder Select : Unknown action')
         }
-      }
-
-      default: {
-        throw new Error('Thunder Select : Unknown action')
       }
     }
-  }
 
-  const initialState: SelectState = {
-    isOpened: false,
-    query: '',
-    wrapperRect: typeof DOMRect === 'function' ? new DOMRect() : ssrClientRect,
-    focusedItem:
-      rawValueFormat === 'simple'
-        ? get(rawValue, 'value') || rawValue
-        : rawValue,
-  }
+    const initialState: SelectState = {
+      isOpened: false,
+      query: '',
+      wrapperRect:
+        typeof DOMRect === 'function' ? new DOMRect() : ssrClientRect,
+      focusedItem:
+        rawValueFormat === 'simple'
+          ? get(rawValue, 'value') || rawValue
+          : rawValue,
+    }
 
-  const [state, dispatch] = React.useReducer(reducer, initialState)
+    const [state, dispatch] = React.useReducer(reducer, initialState)
 
-  const options = useOptions({ rawOptions })
-  const value = useValue({ rawValue, multi, options })
-  const valueFormat = useValueFormat({ rawValueFormat, rawValue, multi })
-  const visibleOptions = useVisibleOptions({ query: state.query, options })
-  const selectedOptions = useSelectedOptions({ options, value, multi })
-  const placeholder = usePlaceholder({ rawPlaceholder, selectedOptions, multi })
+    const options = useOptions({ rawOptions })
+    const value = useValue({ rawValue, multi, options })
+    const valueFormat = useValueFormat({ rawValueFormat, rawValue, multi })
+    const visibleOptions = useVisibleOptions({ query: state.query, options })
+    const selectedOptions = useSelectedOptions({ options, value, multi })
+    const placeholder = usePlaceholder({
+      rawPlaceholder,
+      selectedOptions,
+      multi,
+    })
 
-  const getCleanValue = React.useCallback(
-    newValue =>
-      valueFormat === FORMAT_VALUE_FULL ? newValue : get(newValue, 'value'),
-    [valueFormat]
-  )
+    const getCleanValue = React.useCallback(
+      newValue =>
+        valueFormat === FORMAT_VALUE_FULL ? newValue : get(newValue, 'value'),
+      [valueFormat]
+    )
 
-  const handleSearch = React.useCallback(
-    e => {
-      dispatch({ type: ActionType.UpdateQuery, value: e.target.value })
-    },
-    [dispatch]
-  )
+    const handleSearch = React.useCallback(
+      e => {
+        dispatch({ type: ActionType.UpdateQuery, value: e.target.value })
+      },
+      [dispatch]
+    )
 
-  const handleToggle = React.useCallback(() => {
-    dispatch({ type: ActionType.ToggleVisibility })
-  }, [dispatch])
+    const handleToggle = React.useCallback(() => {
+      dispatch({ type: ActionType.ToggleVisibility })
+    }, [dispatch])
 
-  const handleSelectOne = React.useCallback(
-    option => {
-      const cleanOption = getCleanValue(option)
-      onChange(cleanOption)
-      dispatch({ type: ActionType.AddFocusItem, value: cleanOption })
-    },
-    [dispatch, getCleanValue, onChange]
-  )
+    const handleSelectOne = React.useCallback(
+      option => {
+        const cleanOption = getCleanValue(option)
+        onChange(cleanOption)
+        dispatch({ type: ActionType.AddFocusItem, value: cleanOption })
+      },
+      [dispatch, getCleanValue, onChange]
+    )
 
-  const handleSelectMulti = React.useCallback(
-    option => {
-      const isSelected = (value as formOption[]).some((el: formOption) =>
-        has(el, 'value') ? el.value === option.value : el === option.value
-      )
-
-      if (isSelected) {
-        const newValue = (value as formOption[])
-          .filter((el: formOption) =>
-            has(el, 'value') ? el.value !== option.value : el !== option.value
-          )
-          .map(getCleanValue)
-        onChange(newValue)
-      } else {
-        const newValue = [...(value as formOption[]), option].map(getCleanValue)
-        onChange(newValue)
-      }
-    },
-    [getCleanValue, onChange, value]
-  )
-
-  const handleSelect = React.useCallback(
-    option => {
-      dispatch({ type: ActionType.RemoveFocusItem })
-
-      if (multi) {
-        handleSelectMulti(option)
-      } else {
-        handleSelectOne(option)
-        handleToggle()
-      }
-    },
-    [dispatch, handleSelectMulti, handleSelectOne, handleToggle, multi]
-  )
-
-  const handleSelectAll = React.useCallback(
-    (selectAll: boolean) => {
-      if (selectAll) {
-        onChange(options.map(getCleanValue))
-      } else {
-        onChange([])
-      }
-    },
-    [getCleanValue, onChange, options]
-  )
-
-  const handleReset = React.useCallback(
-    e => {
-      e.stopPropagation()
-
-      onChange(multi ? [] : null)
-    },
-    [multi, onChange]
-  )
-
-  React.useEffect(() => {
-    const handleKeyDown = (event: KeyboardEvent) => {
-      const { key } = event
-
-      if (state.isOpened) {
-        const focusedIndex = visibleOptions.findIndex(
-          el =>
-            el === state.focusedItem ||
-            get(state, 'focusedItem.value') === get(el, 'value') ||
-            get(el, 'value') === state.focusedItem
+    const handleSelectMulti = React.useCallback(
+      option => {
+        const isSelected = (value as formOption[]).some((el: formOption) =>
+          has(el, 'value') ? el.value === option.value : el === option.value
         )
 
-        if (key === 'ArrowDown' && focusedIndex < options.length) {
-          event.preventDefault()
-          dispatch({
-            type: ActionType.AddFocusItem,
-            value: options[focusedIndex + 1],
-          })
+        if (isSelected) {
+          const newValue = (value as formOption[])
+            .filter((el: formOption) =>
+              has(el, 'value') ? el.value !== option.value : el !== option.value
+            )
+            .map(getCleanValue)
+          onChange(newValue)
+        } else {
+          const newValue = [...(value as formOption[]), option].map(
+            getCleanValue
+          )
+          onChange(newValue)
         }
+      },
+      [getCleanValue, onChange, value]
+    )
 
-        if (key === 'ArrowUp' && focusedIndex > 0) {
-          event.preventDefault()
-          dispatch({ type: ActionType.RemoveFocusItem })
+    const handleSelect = React.useCallback(
+      option => {
+        dispatch({ type: ActionType.RemoveFocusItem })
+
+        if (multi) {
+          handleSelectMulti(option)
+        } else {
+          handleSelectOne(option)
+          handleToggle()
         }
+      },
+      [dispatch, handleSelectMulti, handleSelectOne, handleToggle, multi]
+    )
 
-        if (key === 'Enter' && focusedIndex >= 0) {
-          handleSelect(state.focusedItem)
+    const handleSelectAll = React.useCallback(
+      (selectAll: boolean) => {
+        if (selectAll) {
+          onChange(options.map(getCleanValue))
+        } else {
+          onChange([])
+        }
+      },
+      [getCleanValue, onChange, options]
+    )
+
+    const handleReset = React.useCallback(
+      e => {
+        e.stopPropagation()
+
+        onChange(multi ? [] : null)
+      },
+      [multi, onChange]
+    )
+
+    React.useEffect(() => {
+      const handleKeyDown = (event: KeyboardEvent) => {
+        const { key } = event
+
+        if (state.isOpened) {
+          const focusedIndex = visibleOptions.findIndex(
+            el =>
+              el === state.focusedItem ||
+              get(state, 'focusedItem.value') === get(el, 'value') ||
+              get(el, 'value') === state.focusedItem
+          )
+
+          if (key === 'ArrowDown' && focusedIndex < options.length) {
+            event.preventDefault()
+            dispatch({
+              type: ActionType.AddFocusItem,
+              value: options[focusedIndex + 1],
+            })
+          }
+
+          if (key === 'ArrowUp' && focusedIndex > 0) {
+            event.preventDefault()
+            dispatch({ type: ActionType.RemoveFocusItem })
+          }
+
+          if (key === 'Enter' && focusedIndex >= 0) {
+            handleSelect(state.focusedItem)
+          }
         }
       }
-    }
 
-    const handleResize = () => {
-      dispatch({ type: ActionType.Resize })
-    }
-
-    window.addEventListener('keydown', handleKeyDown)
-    window.addEventListener('resize', handleResize)
-
-    handleResize()
-
-    return () => {
-      window.removeEventListener('keydown', handleKeyDown)
-      window.removeEventListener('resize', handleResize)
-    }
-  }, [
-    dispatch,
-    handleSelect,
-    options,
-    state,
-    state.focusedItem,
-    state.isOpened,
-    visibleOptions,
-  ])
-
-  const isOptionSelected = React.useCallback(
-    option => {
-      if (multi) {
-        return (value as formOption[]).some(
-          (el: formOption) => el.value === option.value
-        )
+      const handleResize = () => {
+        dispatch({ type: ActionType.Resize })
       }
 
-      return value ? option.value === (value as formOption).value : false
-    },
-    [multi, value]
-  )
+      window.addEventListener('keydown', handleKeyDown)
+      window.addEventListener('resize', handleResize)
 
-  const color = theme.get('neutral', { dynamic: true })(props)
-  const darkColor = theme.get('neutralStronger')(props)
-  const hasValue = multi
-    ? Array.isArray(rawValue) && rawValue.length > 0
-    : !isNil(rawValue)
+      handleResize()
 
-  const areAllOptionsSelected = React.useMemo(() => {
-    if (!multi || !value) return false
-    return options.length === (value as formOption[]).length
-  }, [multi, options.length, value])
+      return () => {
+        window.removeEventListener('keydown', handleKeyDown)
+        window.removeEventListener('resize', handleResize)
+      }
+    }, [
+      dispatch,
+      handleSelect,
+      options,
+      state,
+      state.focusedItem,
+      state.isOpened,
+      visibleOptions,
+    ])
 
-  return (
-    <SelectContainer ref={wrapperRef} data-disabled={disabled} {...props}>
-      <SelectContent
-        data-testid="select-content"
-        data-open={state.isOpened}
-        className={placeholderClassName}
-        onClick={handleToggle}
+    const isOptionSelected = React.useCallback(
+      option => {
+        if (multi) {
+          return (value as formOption[]).some(
+            (el: formOption) => el.value === option.value
+          )
+        }
+
+        return value ? option.value === (value as formOption).value : false
+      },
+      [multi, value]
+    )
+
+    const color = theme.get('neutral', { dynamic: true })(rest)
+    const darkColor = theme.get('neutralStronger')(rest)
+    const hasValue = multi
+      ? Array.isArray(rawValue) && rawValue.length > 0
+      : !isNil(rawValue)
+
+    const areAllOptionsSelected = React.useMemo(() => {
+      if (!multi || !value) return false
+      return options.length === (value as formOption[]).length
+    }, [multi, options.length, value])
+
+    return (
+      <SelectContainer
+        ref={wrapperRef}
+        data-disabled={disabled}
+        {...rest}
+        ref={ref}
       >
-        {icon && <CustomIconContainer>{icon}</CustomIconContainer>}
-        {filterable ? (
-          <SearchInput
-            data-testid="select-input"
-            value={state.query}
-            placeholder={placeholder}
-            onChange={handleSearch}
-            color={hasValue ? darkColor : color}
-            ref={inputRef}
-          />
-        ) : (
-          <Placeholder
-            data-testid="select-placeholder"
-            color={hasValue ? darkColor : color}
-          >
-            {placeholder}
-          </Placeholder>
-        )}
-        <LabelIcons>
-          {canReset && (
-            <ResetIcon
-              data-testid="select-reset-icon"
-              data-visible={!disabled && hasValue}
-              onClick={handleReset}
-              icon="close"
-              size={20}
+        <SelectContent
+          data-testid="select-content"
+          data-open={state.isOpened}
+          className={placeholderClassName}
+          onClick={handleToggle}
+        >
+          {icon && <CustomIconContainer>{icon}</CustomIconContainer>}
+          {filterable ? (
+            <SearchInput
+              data-testid="select-input"
+              value={state.query}
+              placeholder={placeholder}
+              onChange={handleSearch}
+              color={hasValue ? darkColor : color}
+              ref={inputRef}
             />
+          ) : (
+            <Placeholder
+              data-testid="select-placeholder"
+              color={hasValue ? darkColor : color}
+            >
+              {placeholder}
+            </Placeholder>
           )}
-          <FontIcon
-            icon={state.isOpened ? 'arrow_drop_up' : 'arrow_drop_down'}
-            color={theme.get('neutralStronger', { dynamic: true })(props)}
-          />
-        </LabelIcons>
-      </SelectContent>
-      {state.isOpened &&
-        isClientSide &&
-        createPortal(<Overlay onClick={handleToggle} />, document.body)}
-      <Options
-        optionDisabled={optionDisabled}
-        options={visibleOptions}
-        open={state.isOpened}
-        multi={multi}
-        allSelected={areAllOptionsSelected}
-        onSelect={handleSelect}
-        onSelectAll={handleSelectAll}
-        isOptionSelected={isOptionSelected}
-        focusedItem={state.focusedItem}
-        annotation={annotation}
-        description={description}
-        compact={compact}
-        canSelectAll={!!canSelectAll}
-        selectAllLabel={selectAllLabel}
-        onClose={handleToggle}
-        wrapperRect={state.wrapperRect}
-      />
-    </SelectContainer>
-  )
-}
+          <LabelIcons>
+            {canReset && (
+              <ResetIcon
+                data-testid="select-reset-icon"
+                data-visible={!disabled && hasValue}
+                onClick={handleReset}
+                icon="close"
+                size={20}
+              />
+            )}
+            <FontIcon
+              icon={state.isOpened ? 'arrow_drop_up' : 'arrow_drop_down'}
+              color={theme.get('neutralStronger', { dynamic: true })(rest)}
+            />
+          </LabelIcons>
+        </SelectContent>
+        {state.isOpened &&
+          isClientSide &&
+          createPortal(<Overlay onClick={handleToggle} />, document.body)}
+        <Options
+          optionDisabled={optionDisabled}
+          options={visibleOptions}
+          open={state.isOpened}
+          multi={multi}
+          allSelected={areAllOptionsSelected}
+          onSelect={handleSelect}
+          onSelectAll={handleSelectAll}
+          isOptionSelected={isOptionSelected}
+          focusedItem={state.focusedItem}
+          annotation={annotation}
+          description={description}
+          compact={compact}
+          canSelectAll={!!canSelectAll}
+          selectAllLabel={selectAllLabel}
+          onClose={handleToggle}
+          wrapperRect={state.wrapperRect}
+        />
+      </SelectContainer>
+    )
+  }
+)
 
-BaseSelect.defaultProps = {
-  theme: {} as styledTheme,
-}
-
-export default withLabel({ padding: 12 })(withTheme(
-  BaseSelect
-) as React.ComponentType<SelectProps>)
+export default withLabel<HTMLDivElement>({ padding: 12 })(Select)

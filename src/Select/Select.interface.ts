@@ -1,12 +1,6 @@
 import * as React from 'react'
 
-import {
-  Input,
-  formOption,
-  styledTheme,
-  Except,
-  formValue,
-} from '../_internal/types'
+import { Input, styledTheme, Except } from '../_internal/types'
 
 export default interface SelectProps
   extends Input<any>,
@@ -26,10 +20,6 @@ export default interface SelectProps
   selectAllLabel?: string
 
   optionDisabled?: (option: any) => boolean
-}
-
-export interface SelectInnerProps extends SelectProps {
-  theme: styledTheme
 }
 
 export interface SelectState {

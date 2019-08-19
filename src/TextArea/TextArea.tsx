@@ -17,4 +17,4 @@ const TextArea = React.forwardRef<HTMLTextAreaElement, TextAreaProps>(
   }
 )
 
-export default withLabel({ padding: 12 })(TextArea)
+export default withLabel<HTMLTextAreaElement>({ padding: 12 })(TextArea)
