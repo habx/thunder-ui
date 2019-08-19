@@ -4,6 +4,7 @@ import { createPortal } from 'react-dom'
 import { isClientSide, ssrClientRect } from '../_internal/ssr'
 import { searchInString } from '../_internal/strings'
 import { formOption } from '../_internal/types'
+import useMergedRef from '../_internal/useMergedRef'
 import TextInput from '../TextInput'
 
 import AutoCompleteInputProps, {
@@ -24,14 +25,18 @@ const INITIAL_STATE = {
 
 const EMPTY_OPTIONS: formOption[] = []
 
-const AutoCompleteInput: React.FunctionComponent<AutoCompleteInputProps> = ({
-  options = EMPTY_OPTIONS,
-  inputComponent: Input = TextInput,
-  onChange = () => {},
-  value = '',
-  ...rest
-}) => {
-  const wrapperRef = React.useRef<HTMLDivElement>(null)
+const AutoCompleteInput = React.forwardRef<
+  HTMLInputElement,
+  AutoCompleteInputProps
+>((props, ref) => {
+  const {
+    options = EMPTY_OPTIONS,
+    inputComponent: Input = TextInput,
+    onChange = () => {},
+    value = '',
+    ...rest
+  } = props
+  const wrapperRef = useMergedRef<HTMLDivElement>(ref)
   const optionsRef = React.useRef<HTMLDivElement>(null)
 
   const reducer = (
@@ -48,13 +53,30 @@ const AutoCompleteInput: React.FunctionComponent<AutoCompleteInputProps> = ({
   } => {
     switch (action.type) {
       case 'RESIZE': {
+        const wrapperRect = wrapperRef.current
+          ? wrapperRef.current.getBoundingClientRect()
+          : ({} as ClientRect)
+
+        const CLIENT_RECT_KEYS: (keyof ClientRect)[] = [
+          'height',
+          'width',
+          'top',
+          'left',
+          'right',
+          'bottom',
+        ]
+
+        if (
+          CLIENT_RECT_KEYS.every(
+            key => wrapperRect[key] === state.wrapperRect[key]
+          )
+        ) {
+          return state
+        }
+
         return {
           ...state,
-          wrapperRect: wrapperRef.current
-            ? wrapperRef.current.getBoundingClientRect()
-            : typeof DOMRect === 'function'
-            ? new DOMRect()
-            : ssrClientRect,
+          wrapperRect,
         }
       }
 
@@ -182,6 +204,7 @@ const AutoCompleteInput: React.FunctionComponent<AutoCompleteInputProps> = ({
     state.focusedItem,
     state.isOpened,
     visibleOptions,
+    wrapperRef,
   ])
 
   return (
@@ -220,6 +243,6 @@ const AutoCompleteInput: React.FunctionComponent<AutoCompleteInputProps> = ({
       </AutoCompleteInputContainer>
     </React.Fragment>
   )
-}
+})
 
 export default AutoCompleteInput

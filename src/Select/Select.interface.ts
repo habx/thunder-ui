@@ -47,7 +47,9 @@ export enum ActionType {
   Resize = 'RESIZE',
 }
 
-export interface SelectAction {
-  type: ActionType
-  value?: any
-}
+export type SelectAction =
+  | { type: ActionType.ToggleVisibility }
+  | { type: ActionType.RemoveFocusItem }
+  | { type: ActionType.Resize }
+  | { type: ActionType.UpdateQuery; value: string }
+  | { type: ActionType.AddFocusItem; value: any }

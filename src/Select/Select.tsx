@@ -247,7 +247,7 @@ const BaseSelect: React.FunctionComponent<SelectInnerProps> = ({
       }
 
       default: {
-        throw new Error(`Thunder Select : Unknown action ${action.type}`)
+        throw new Error('Thunder Select : Unknown action')
       }
     }
   }
@@ -374,10 +374,7 @@ const BaseSelect: React.FunctionComponent<SelectInnerProps> = ({
 
         if (key === 'ArrowUp' && focusedIndex > 0) {
           event.preventDefault()
-          dispatch({
-            type: ActionType.RemoveFocusItem,
-            value: options[focusedIndex - 1],
-          })
+          dispatch({ type: ActionType.RemoveFocusItem })
         }
 
         if (key === 'Enter' && focusedIndex >= 0) {

@@ -13,11 +13,11 @@ import {
   TitleCount,
 } from './Card.style'
 
-const Card = React.forwardRef<HTMLDivElement, CardProps>((props, ref) => {
+const Card = React.forwardRef<HTMLDivElement, CardProps>((baseProps, ref) => {
   const thunderUi = useTheme()
   const fullTheme = { thunderUi } as styledTheme
 
-  const fullProps = { ...props, theme: fullTheme }
+  const props = { ...baseProps, theme: fullTheme }
 
   const {
     headerPosition,
@@ -29,9 +29,9 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>((props, ref) => {
     error,
     warning,
     ...rest
-  } = fullProps
+  } = props
 
-  const color = theme.get('neutralStronger', { dynamic: true })(fullProps)
+  const color = theme.get('neutralStronger', { dynamic: true })(props)
 
   const titleElement = title && (
     <TitleContainer>

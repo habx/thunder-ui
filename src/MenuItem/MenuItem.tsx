@@ -7,20 +7,22 @@ import {
   IconContainer,
 } from './MenuItem.style'
 
-const MenuItem: React.FunctionComponent<MenuItemProps> = ({
-  children,
-  disabled,
-  icon,
-  ...props
-}) => (
-  <MenuItemContainer
-    data-testid="menu-item-container"
-    data-disabled={disabled}
-    {...props}
-  >
-    {icon && <IconContainer>{icon}</IconContainer>}
-    <MenuItemContent>{children}</MenuItemContent>
-  </MenuItemContainer>
+const MenuItem = React.forwardRef<HTMLLIElement, MenuItemProps>(
+  (props, ref) => {
+    const { children, disabled, icon, ...rest } = props
+
+    return (
+      <MenuItemContainer
+        data-testid="menu-item-container"
+        data-disabled={disabled}
+        {...rest}
+        ref={ref}
+      >
+        {icon && <IconContainer>{icon}</IconContainer>}
+        <MenuItemContent>{children}</MenuItemContent>
+      </MenuItemContainer>
+    )
+  }
 )
 
 export default MenuItem

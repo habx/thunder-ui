@@ -15,15 +15,17 @@ import {
   Overlay,
 } from './Menu.style'
 
-const Menu: React.FunctionComponent<MenuProps> = ({
-  triggerElement,
-  children,
-  position = 'left',
-  persistent,
-  portal = true,
-  alwaysRenderChildren,
-  ...props
-}) => {
+const Menu = React.forwardRef<HTMLDivElement, MenuProps>((props, ref) => {
+  const {
+    triggerElement,
+    children,
+    position = 'left',
+    persistent,
+    portal = true,
+    alwaysRenderChildren,
+    ...rest
+  } = props
+
   const wrapperRef = React.useRef<HTMLDivElement>(null)
   const [wrapperRect, setWrapperRect] = React.useState<ClientRect>(
     typeof DOMRect === 'function' ? new DOMRect() : ssrClientRect
@@ -84,8 +86,9 @@ const Menu: React.FunctionComponent<MenuProps> = ({
       data-open={open}
       position={position}
       wrapperRect={wrapperRect}
+      ref={ref}
     >
-      <MenuContent {...props} onClick={persistent ? undefined : handleClose}>
+      <MenuContent {...rest} onClick={persistent ? undefined : handleClose}>
         {isFunction(children)
           ? children({
               state: open ? 'open' : 'close',
@@ -112,6 +115,6 @@ const Menu: React.FunctionComponent<MenuProps> = ({
       </MenuWrapper>
     </React.Fragment>
   )
-}
+})
 
 export default Menu
