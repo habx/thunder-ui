@@ -6,6 +6,7 @@ import { isNil, has, isString } from '../_internal/data'
 import { isClientSide, ssrClientRect } from '../_internal/ssr'
 import { searchInString } from '../_internal/strings'
 import { formOption, formValue, styledTheme } from '../_internal/types'
+import useMergedRef from '../_internal/useMergedRef'
 import FontIcon from '../FontIcon'
 import theme from '../theme'
 import useTheme from '../useTheme'
@@ -191,7 +192,7 @@ const Select = React.forwardRef<HTMLDivElement, SelectProps>(
     } = props
 
     const inputRef = React.useRef<HTMLInputElement>(null)
-    const wrapperRef = React.useRef<HTMLDivElement>(null)
+    const wrapperRef = useMergedRef<HTMLDivElement>(ref)
 
     const reducer: React.Reducer<SelectState, SelectAction> = (
       state,
@@ -448,12 +449,7 @@ const Select = React.forwardRef<HTMLDivElement, SelectProps>(
     }, [multi, options.length, value])
 
     return (
-      <SelectContainer
-        ref={wrapperRef}
-        data-disabled={disabled}
-        {...rest}
-        ref={ref}
-      >
+      <SelectContainer ref={wrapperRef} data-disabled={disabled} {...rest}>
         <SelectContent
           data-testid="select-content"
           data-open={state.isOpened}
