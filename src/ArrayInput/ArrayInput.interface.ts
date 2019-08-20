@@ -1,7 +1,5 @@
 import * as React from 'react'
 
-import { styledTheme } from '../_internal/types'
-
 import { ItemComponentProps } from './Item/Item.interface'
 
 export interface AddButtonComponentProps {

@@ -3,7 +3,6 @@ import * as React from 'react'
 import styled from 'styled-components'
 
 import { omit, pick } from '../_internal/data'
-import { styledTheme, themeAccessor } from '../_internal/types'
 import Title from '../Title'
 
 import theme from './theme'
