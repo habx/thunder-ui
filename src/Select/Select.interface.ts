@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-import { Input, styledTheme, Except } from '../_internal/types'
+import { Input, Except } from '../_internal/types'
 
 export default interface SelectProps
   extends Input<any>,
