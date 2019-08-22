@@ -91,17 +91,26 @@ const StyledTabsItem = styled.li.attrs(prepareProps)<{
   }
 `
 
-const TabsItem: React.FunctionComponent<TabsItemProps> = rawProps => {
-  const { isInsideATabs, ...props } = useMergedContext(TabsContext, {
-    activeColor: null,
-    hoverColor: null,
-    closed: false,
-    ...rawProps,
-  })
+const TabsItem = React.forwardRef<HTMLLIElement, TabsItemProps>(
+  (props, ref) => {
+    const { isInsideATabs, ...rest } = useMergedContext(TabsContext, {
+      activeColor: null,
+      hoverColor: null,
+      closed: false,
+      ...props,
+    })
 
-  assert(isInsideATabs, 'TabsItem should be used inside a Tabs')
+    assert(isInsideATabs, 'TabsItem should be used inside a Tabs')
 
-  return <StyledTabsItem data-testid="tabs-item" tabIndex={0} {...props} />
-}
+    return (
+      <StyledTabsItem
+        data-testid="tabs-item"
+        tabIndex={0}
+        {...rest}
+        ref={ref}
+      />
+    )
+  }
+)
 
 export default TabsItem

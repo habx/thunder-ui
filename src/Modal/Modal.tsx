@@ -15,44 +15,50 @@ import {
   ANIMATION_DURATION,
 } from './Modal.style'
 
-const Modal: React.FunctionComponent<ModalProps> = ({
-  children,
-  title,
-  open,
-  closeButton,
-  animated,
-  portal,
-  persistent,
-  onClose,
-  alwaysRenderChildren,
-  ...props
-}) => {
+const Modal = React.forwardRef<HTMLDivElement, ModalProps>((props, ref) => {
+  const {
+    children,
+    title,
+    open,
+    closeButton,
+    onClose,
+    animated = true,
+    portal = true,
+    persistent = false,
+    alwaysRenderChildren = false,
+    ...rest
+  } = props
+
   const modal = useModal({
+    ref,
     open,
     onClose,
-    persistent,
+    persistent: true,
     animated,
     animationDuration: ANIMATION_DURATION,
   })
-
   const modalContent = (
     <React.Fragment>
       <Overlay
         data-state={modal.state}
         data-animated={animated}
         data-testid="modal-overlay"
+        onClick={modal.close}
       >
         <ModalCard
           data-testid="modal-container"
           data-animated={animated}
           title={title}
           headerPosition="inside"
-          {...props}
+          {...rest}
           ref={modal.ref}
           onClick={e => e.stopPropagation()}
         >
           {closeButton && (
-            <CloseButtonContainer hasTitle={!!title} onClick={modal.close}>
+            <CloseButtonContainer
+              hasTitle={!!title}
+              onClick={!persistent ? modal.close : () => {}}
+            >
               {closeButton}
             </CloseButtonContainer>
           )}
@@ -73,12 +79,6 @@ const Modal: React.FunctionComponent<ModalProps> = ({
   }
 
   return modalContent
-}
+})
 
-Modal.defaultProps = {
-  persistent: false,
-  animated: true,
-  portal: true,
-}
-
-export default withTriggerElement(Modal)
+export default withTriggerElement<HTMLDivElement>()(Modal)

@@ -1,11 +1,8 @@
-import * as React from 'react'
 import styled, { css } from 'styled-components'
 
 import { styledTheme } from '../_internal/types'
 import fontSizes from '../fontSizes'
 import theme from '../theme'
-
-import TextButtonProps from './TextButton.interface'
 
 const prepareProps = (props: styledTheme & { hoverColor?: string }) => {
   const color = theme.get('primary', { dynamic: true })(props)
@@ -16,9 +13,10 @@ const prepareProps = (props: styledTheme & { hoverColor?: string }) => {
   }
 }
 
-const TextButton: React.FunctionComponent<
-  TextButtonProps
-> = styled.button.attrs(prepareProps)<{ small?: boolean; large?: boolean }>`
+const TextButton = styled.button.attrs(prepareProps)<{
+  small?: boolean
+  large?: boolean
+}>`
   border: none;
   outline: none;
   background-color: unset;

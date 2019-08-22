@@ -1,12 +1,6 @@
 import * as React from 'react'
 
-import {
-  Input,
-  formOption,
-  styledTheme,
-  Except,
-  formValue,
-} from '../_internal/types'
+import { Input, Except } from '../_internal/types'
 
 export default interface SelectProps
   extends Input<any>,
@@ -28,10 +22,6 @@ export default interface SelectProps
   optionDisabled?: (option: any) => boolean
 }
 
-export interface SelectInnerProps extends SelectProps {
-  theme: styledTheme
-}
-
 export interface SelectState {
   isOpened: boolean
   query: string
@@ -47,7 +37,9 @@ export enum ActionType {
   Resize = 'RESIZE',
 }
 
-export interface SelectAction {
-  type: ActionType
-  value?: any
-}
+export type SelectAction =
+  | { type: ActionType.ToggleVisibility }
+  | { type: ActionType.RemoveFocusItem }
+  | { type: ActionType.Resize }
+  | { type: ActionType.UpdateQuery; value: string }
+  | { type: ActionType.AddFocusItem; value: any }

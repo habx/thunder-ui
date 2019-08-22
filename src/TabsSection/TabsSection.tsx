@@ -24,15 +24,19 @@ const TabsContainer = styled.div`
   overflow-x: auto;
 `
 
-const TabsSection: React.FunctionComponent<TabsSectionProps> = ({
-  children,
-  label,
-  ...props
-}) => (
-  <TabsSectionContainer>
-    {label && <TabsSectionLabel>{label}</TabsSectionLabel>}
-    <TabsContainer {...props}>{children}</TabsContainer>
-  </TabsSectionContainer>
+const TabsSection = React.forwardRef<HTMLDivElement, TabsSectionProps>(
+  (props, ref) => {
+    const { children, label, ...rest } = props
+
+    return (
+      <TabsSectionContainer>
+        {label && <TabsSectionLabel>{label}</TabsSectionLabel>}
+        <TabsContainer {...rest} ref={ref}>
+          {children}
+        </TabsContainer>
+      </TabsSectionContainer>
+    )
+  }
 )
 
 export default TabsSection

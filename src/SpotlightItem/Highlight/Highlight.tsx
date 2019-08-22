@@ -1,4 +1,3 @@
-import { number } from '@storybook/addon-knobs'
 import * as React from 'react'
 import styled from 'styled-components'
 

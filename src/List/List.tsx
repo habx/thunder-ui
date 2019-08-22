@@ -11,12 +11,9 @@ const ListContainer = styled.ul`
   margin: 0;
 `
 
-const List: React.FunctionComponent<ListProps> = ({
-  hoverColor,
-  clickable,
-  itemsAs,
-  children,
-}) => {
+const List = React.forwardRef<HTMLUListElement, ListProps>((props, ref) => {
+  const { hoverColor, clickable, itemsAs, children, ...rest } = props
+
   const context = React.useMemo(
     () => ({
       clickable,
@@ -28,9 +25,11 @@ const List: React.FunctionComponent<ListProps> = ({
 
   return (
     <ListContext.Provider value={context}>
-      <ListContainer>{children}</ListContainer>
+      <ListContainer {...rest} ref={ref}>
+        {children}
+      </ListContainer>
     </ListContext.Provider>
   )
-}
+})
 
 export default List
