@@ -1,9 +1,9 @@
+import useModal, { Modal } from '@delangle/use-modal'
 import * as React from 'react'
 import { createPortal } from 'react-dom'
 
 import { isFunction } from '../_internal/data'
 import { isClientSide } from '../_internal/ssr'
-import useModal, { Modal } from '../useModal'
 import withTriggerElement from '../withTriggerElement'
 
 import DrawerProps from './Drawer.interface'
@@ -33,7 +33,7 @@ const Drawer = React.forwardRef<HTMLDivElement, DrawerProps>((props, ref) => {
     ref,
     open,
     onClose,
-    persistent: false,
+    persistent: true,
     animated: true,
     animationDuration: ANIMATION_DURATION,
   })

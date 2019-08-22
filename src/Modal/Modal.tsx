@@ -1,9 +1,9 @@
+import useModal, { Modal as ModalType } from '@delangle/use-modal'
 import * as React from 'react'
 import { createPortal } from 'react-dom'
 
 import { isFunction } from '../_internal/data'
 import { isClientSide } from '../_internal/ssr'
-import useModal, { Modal as ModalType } from '../useModal'
 import withTriggerElement from '../withTriggerElement'
 
 import ModalProps from './Modal.interface'
@@ -33,7 +33,7 @@ const Modal = React.forwardRef<HTMLDivElement, ModalProps>((props, ref) => {
     ref,
     open,
     onClose,
-    persistent,
+    persistent: true,
     animated,
     animationDuration: ANIMATION_DURATION,
   })
@@ -55,7 +55,10 @@ const Modal = React.forwardRef<HTMLDivElement, ModalProps>((props, ref) => {
           onClick={e => e.stopPropagation()}
         >
           {closeButton && (
-            <CloseButtonContainer hasTitle={!!title} onClick={modal.close}>
+            <CloseButtonContainer
+              hasTitle={!!title}
+              onClick={!persistent ? modal.close : () => {}}
+            >
               {closeButton}
             </CloseButtonContainer>
           )}
