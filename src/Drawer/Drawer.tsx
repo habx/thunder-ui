@@ -1,9 +1,9 @@
-import useModal, { Modal } from '@delangle/use-modal'
 import * as React from 'react'
 import { createPortal } from 'react-dom'
 
 import { isFunction } from '../_internal/data'
 import { isClientSide } from '../_internal/ssr'
+import useModal, { Modal } from '../useModal'
 import withTriggerElement from '../withTriggerElement'
 
 import DrawerProps from './Drawer.interface'
@@ -39,7 +39,11 @@ const Drawer = React.forwardRef<HTMLDivElement, DrawerProps>((props, ref) => {
   })
 
   const drawerContent = (
-    <Overlay data-state={modal.state} data-testid="drawer-overlay">
+    <Overlay
+      data-state={modal.state}
+      data-testid="drawer-overlay"
+      onClick={modal.close}
+    >
       <DrawerContainer
         data-testid="drawer-container"
         data-state={modal.state}

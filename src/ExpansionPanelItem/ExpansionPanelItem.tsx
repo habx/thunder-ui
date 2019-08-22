@@ -1,4 +1,3 @@
-import useModal from '@delangle/use-modal'
 import * as React from 'react'
 
 import { isFunction, isNil } from '../_internal/data'
@@ -8,6 +7,7 @@ import { ExpansionPanelContext } from '../ExpansionPanel/ExpansionPanel.context'
 import FontIcon from '../FontIcon'
 import theme from '../theme'
 import Title from '../Title'
+import useModal from '../useModal'
 import useTheme from '../useTheme'
 
 import ExpansionPanelItemProps from './ExpansionPanelItem.interface'
