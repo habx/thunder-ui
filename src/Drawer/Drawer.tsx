@@ -33,13 +33,17 @@ const Drawer = React.forwardRef<HTMLDivElement, DrawerProps>((props, ref) => {
     ref,
     open,
     onClose,
-    persistent: false,
+    persistent: true,
     animated: true,
     animationDuration: ANIMATION_DURATION,
   })
 
   const drawerContent = (
-    <Overlay data-state={modal.state} data-testid="drawer-overlay">
+    <Overlay
+      data-state={modal.state}
+      data-testid="drawer-overlay"
+      onClick={modal.close}
+    >
       <DrawerContainer
         data-testid="drawer-container"
         data-state={modal.state}
