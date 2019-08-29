@@ -33,17 +33,17 @@ const Modal = React.forwardRef<HTMLDivElement, ModalProps>((props, ref) => {
     ref,
     open,
     onClose,
-    persistent: true,
+    persistent,
     animated,
     animationDuration: ANIMATION_DURATION,
   })
+
   const modalContent = (
     <React.Fragment>
       <Overlay
         data-state={modal.state}
         data-animated={animated}
         data-testid="modal-overlay"
-        onClick={modal.close}
       >
         <ModalCard
           data-testid="modal-container"
