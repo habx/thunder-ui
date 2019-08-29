@@ -8,6 +8,7 @@
     "moduleResolution": "node",
     "removeComments": true,
     "sourceMap": true,
+    "strict": true,
     "declaration": true,
     "declarationMap": true,
     "target": "esnext",
