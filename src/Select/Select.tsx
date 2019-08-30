@@ -392,7 +392,10 @@ const Select = React.forwardRef<HTMLDivElement, SelectProps>(
 
           if (key === 'ArrowUp' && focusedIndex > 0) {
             event.preventDefault()
-            dispatch({ type: ActionType.RemoveFocusItem })
+            dispatch({
+              type: ActionType.AddFocusItem,
+              value: options[focusedIndex - 1],
+            })
           }
 
           if (key === 'Enter' && focusedIndex >= 0) {
