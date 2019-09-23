@@ -1,3 +1,4 @@
+// @ts-ignore
 import { configure, addDecorator, addParameters, StoryDecorator } from '@storybook/react'
 import { withInfo } from '@storybook/addon-info'
 import centered from '@storybook/addon-centered'

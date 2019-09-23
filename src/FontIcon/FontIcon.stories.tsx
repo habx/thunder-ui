@@ -21,6 +21,7 @@ const icons = ['person']
 storiesOf('Miscellaneous|FontIcon', module)
   .addDecorator(iconDecorator)
   .add('simple icons', () =>
+    // @ts-ignore
     icons.map(icon => (
       <SimpleIconContainer key={icon}>
         <FontIcon icon={icon} />
