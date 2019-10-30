@@ -16,7 +16,7 @@ const FIELDS = [
 const DEFAULT_FIELD = { name: '', country: '' }
 
 const Context = React.createContext({
-  onChange: (value: field, index: number) => {},
+  onChange: (_value, _index) => {},
 })
 
 const Container = styled.div`

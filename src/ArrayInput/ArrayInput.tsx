@@ -30,7 +30,7 @@ const ArrayInput = React.forwardRef<HTMLDivElement, ArrayInputProps>(
       renderItem: rawRenderItem,
       renderItemTitle: rawRenderItemTitle,
       canBeReordered = false,
-      onChange,
+      onChange: _onChange,
       ...rest
     } = props
 
