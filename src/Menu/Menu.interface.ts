@@ -12,5 +12,4 @@ export default interface MenuProps
   position?: 'left' | 'right' | 'top-left' | 'top-right'
   persistent?: boolean
   portal?: boolean
-  alwaysRenderChildren?: boolean
 }

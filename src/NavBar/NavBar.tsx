@@ -27,12 +27,7 @@ const NavBar = React.forwardRef<HTMLUListElement, NavBarProps>(
 
     const props = { ...baseProps, theme: fullTheme }
 
-    const {
-      children,
-      title,
-      backgroundColor: rawBackgroundColor,
-      ...rest
-    } = props
+    const { children, title, ...rest } = props
 
     const [isOpenedOnMobile, setOpenedOnMobile] = React.useState(false)
 

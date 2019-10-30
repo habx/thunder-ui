@@ -22,7 +22,6 @@ const Menu = React.forwardRef<HTMLDivElement, MenuProps>((props, ref) => {
     position = 'left',
     persistent,
     portal = true,
-    alwaysRenderChildren,
     ...rest
   } = props
 

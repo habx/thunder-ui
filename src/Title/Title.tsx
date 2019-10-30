@@ -65,7 +65,7 @@ const Title = React.forwardRef<HTMLHeadingElement, TitleProps>((props, ref) => {
 
   const TitleComponent = components[size] || Title
 
-  return <TitleComponent {...rest} />
+  return <TitleComponent ref={ref} {...rest} />
 })
 
 export default Title
