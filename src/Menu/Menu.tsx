@@ -74,7 +74,7 @@ const Menu = React.forwardRef<HTMLDivElement, MenuProps>((props, ref) => {
     onClick: handleToggle,
   })
 
-  const MenuContainer = isSmallScreen
+  const MenuContainer: React.ComponentType<any> = isSmallScreen
     ? MobileMenuContainer
     : MenuContainerDesktop
   const isTriggerElementBeforeMenu = ['right', 'left'].includes(position)
