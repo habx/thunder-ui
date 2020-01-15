@@ -1,11 +1,10 @@
 /* eslint-disable no-console */
 
 const fs = require('fs')
-const omit = require('lodash/omit')
-const pick = require('lodash/pick')
+const { omit, pick } = require('lodash')
 const path = require('path')
 
-const PEER_DEPENDENCIES = ['react', 'react-dom', 'styled-components']
+const PEER_DEPENDENCIES = ['react', 'styled-components', '@habx/ui-core']
 
 const transfomPackageJSON = packageJSON => ({
   ...omit(packageJSON, ['scripts', 'devDependencies', 'jest']),
