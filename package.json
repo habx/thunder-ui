@@ -63,7 +63,7 @@
     "@testing-library/jest-dom": "^5.0.2",
     "@testing-library/react": "^9.1.4",
     "@types/color": "^3.0.0",
-    "@types/jest": "^24.0.15",
+    "@types/jest": "^25.1.0",
     "@types/lodash": "^4.14.134",
     "@types/lodash.deburr": "^4.1.6",
     "@types/lodash.get": "^4.4.6",
