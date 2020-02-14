@@ -15,7 +15,7 @@
     "storybook": "start-storybook -p 9001 -c .storybook",
     "storybook:dark": "cross-env STORYBOOK_THEME=dark npm run storybook",
     "storybook:build": "build-storybook -c .storybook -o .storybook-static",
-    "storybook:deploy": "storybook-to-ghpages -s storybook:build --ci -t=GITHUB_TOKEN",
+    "storybook:deploy": "storybook-to-ghpages -s storybook:build --ci -t=GITHUB_TOKEN --existing-output-dir=.storybook-static",
     "test": "jest",
     "test:coverage": "jest --coverage",
     "lint": "eslint \"src/**\""
@@ -80,6 +80,7 @@
     "jest": "^25.1.0",
     "lint-staged": "^10.0.0",
     "lodash": "^4.17.0",
+    "react-docgen-typescript-loader": "^3.6.0",
     "recompose": "^0.30.0",
     "rimraf": "^3.0.0",
     "rollup-plugin-typescript2": "^0.26.0",
