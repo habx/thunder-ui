@@ -71,7 +71,7 @@
     "@types/react-dom": "^16.8.4",
     "@types/recompose": "^0.30.6",
     "@types/sinon": "^7.0.13",
-    "@types/styled-components": "^4.1.18",
+    "@types/styled-components": "^5.0.0",
     "@types/webpack-env": "^1.13.9",
     "awesome-typescript-loader": "^5.2.1",
     "bili": "^4.8.0",
