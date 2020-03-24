@@ -51,7 +51,7 @@
     "styled-components": "^5.0.0"
   },
   "devDependencies": {
-    "@habx/eslint-config-client": "^2.0.6",
+    "@habx/eslint-config-client": "^3.0.1",
     "@storybook/addon-actions": "^5.2.1",
     "@storybook/addon-centered": "^5.2.1",
     "@storybook/addon-info": "^5.2.1",
