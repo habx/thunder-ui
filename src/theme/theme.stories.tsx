@@ -67,9 +67,7 @@ const prepareTheme = (currentTheme: ThunderUITheme) => {
   const preparedColors = Object.entries(colors).reduce(
     (acc: { [key: string]: any }, [themeKey, color]) => {
       const category =
-        ['primary', 'neutral'].find(category =>
-          themeKey.startsWith(category)
-        ) || 'misc'
+        ['primary', 'neutral'].find(cat => themeKey.startsWith(cat)) || 'misc'
 
       return {
         ...acc,

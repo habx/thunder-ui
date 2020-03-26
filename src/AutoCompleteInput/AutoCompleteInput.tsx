@@ -128,9 +128,9 @@ const AutoCompleteInput = React.forwardRef<
   ])
 
   const handleChange = React.useCallback(
-    value => {
+    newValue => {
       handleClose()
-      onChange(value)
+      onChange(newValue)
       dispatch({ type: 'REMOVE_FOCUS_ITEM' })
     },
     [dispatch, handleClose, onChange]
