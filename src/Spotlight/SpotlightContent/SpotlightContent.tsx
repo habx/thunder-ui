@@ -137,9 +137,9 @@ const SpotlightContent: React.FunctionComponent<SpotlightContentProps> = ({
       const { key } = event
 
       if (key === 'Enter') {
-        const items = getAllItemKeys()
-        if (items.length > 0) {
-          items[0].onSubmit(event)
+        const allItems = getAllItemKeys()
+        if (allItems.length > 0) {
+          allItems[0].onSubmit(event)
         }
       }
     },

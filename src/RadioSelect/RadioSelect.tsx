@@ -83,9 +83,9 @@ export const BaseRadioSelect = React.forwardRef<
     return onChange(newValue)
   }
 
-  const selected = options.map(({ value }) => {
+  const selected = options.map(option => {
     if (multi) {
-      return (currentValue as formValue[]).includes(value)
+      return (currentValue as formValue[]).includes(option.value)
     }
 
     return value === currentValue
@@ -100,17 +100,17 @@ export const BaseRadioSelect = React.forwardRef<
       {...rest}
       ref={ref}
     >
-      {options.map(({ value, label }, index) => (
+      {options.map((option, index) => (
         <Option
           data-testid="radio-select-option"
           isNextSelected={index < options.length - 1 && selected[index + 1]}
           isPreviousSelected={index > 0 && selected[index - 1]}
-          key={value}
+          key={option.value}
           color={color}
-          onClick={() => onItemClick(value)}
+          onClick={() => onItemClick(option.value)}
           data-checked={selected[index]}
         >
-          {label}
+          {option.label}
         </Option>
       ))}
     </RadioSelectContainer>

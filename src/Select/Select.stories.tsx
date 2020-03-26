@@ -22,9 +22,9 @@ const SelectWithState = ({ value = null, ...props }) => {
       options={shortData}
       placeholder="Options"
       {...newProps}
-      onChange={value => {
-        action('onChange')(value)
-        newProps.onChange(value)
+      onChange={newValue => {
+        action('onChange')(newValue)
+        newProps.onChange(newValue)
       }}
     />
   ))

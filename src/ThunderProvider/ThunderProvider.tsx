@@ -24,12 +24,12 @@ const getCustomTheme = (customTheme: Partial<themeType>) => {
 
 const BaseProvider: React.FunctionComponent<ThunderProviderInnerProps> = ({
   customTheme = {},
-  theme,
+  theme: currentTheme,
   children,
 }) => {
   const fullTheme = React.useMemo(
-    () => ({ ...theme, thunderUI: getCustomTheme(customTheme) }),
-    [customTheme, theme]
+    () => ({ ...currentTheme, thunderUI: getCustomTheme(customTheme) }),
+    [customTheme, currentTheme]
   )
 
   return (
@@ -50,8 +50,8 @@ BaseProvider.defaultProps = {
 const EndhancedProvider = withTheme(BaseProvider)
 
 const ThunderProvider: React.FunctionComponent<ThunderProviderProps> = ({
-  theme,
+  theme: customTheme,
   ...props
-}) => <EndhancedProvider customTheme={theme} {...props} />
+}) => <EndhancedProvider customTheme={customTheme} {...props} />
 
 export default ThunderProvider

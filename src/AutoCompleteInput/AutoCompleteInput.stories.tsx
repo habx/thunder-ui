@@ -15,7 +15,7 @@ const AutoCompleteInputWithState = ({ value = '', ...props }) => {
     (newProps: { value: string; onChange: Function }) => (
       <AutoCompleteInput
         {...newProps}
-        onChange={value => newProps.onChange(value)}
+        onChange={newValue => newProps.onChange(newValue)}
       />
     )
   )

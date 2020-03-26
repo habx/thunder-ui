@@ -20,7 +20,7 @@ const TextInput = ({ value = '', ...props }) => {
   const Component = withState('value', 'onChange', value)(newProps => (
     <RawTextInput
       {...newProps}
-      onChange={value => newProps.onChange(value as string)}
+      onChange={newValue => newProps.onChange(newValue as string)}
     />
   )) as React.ComponentType<TextInputProps>
 

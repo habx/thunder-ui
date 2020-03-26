@@ -136,8 +136,9 @@ const Slider = React.forwardRef<HTMLDivElement, SliderProps>((props, ref) => {
     const dotValue = getDotValue()
 
     const matchingIndicator = indicators.find(
-      ({ range }) =>
-        Math.min(...range) <= dotValue && Math.max(...range) >= dotValue
+      indicator =>
+        Math.min(...indicator.range) <= dotValue &&
+        Math.max(...indicator.range) >= dotValue
     )
 
     const position = getPositionFromValue(dotValue)
@@ -186,24 +187,24 @@ const Slider = React.forwardRef<HTMLDivElement, SliderProps>((props, ref) => {
         e.pageX - barRef.current.getBoundingClientRect().left
       const newPosition = (eventPosition / barRef.current.offsetWidth) * 100
 
-      const value = getValueFromPosition(newPosition)
+      const newValue = getValueFromPosition(newPosition)
 
       if (range) {
         if (!hasValue) {
-          setValue([min, value])
+          setValue([min, newValue])
         } else {
           const isUpdatingFirstElement =
-            Math.abs(value - (localValue[0] || 0)) <
-            Math.abs(value - (localValue[1] || 0))
+            Math.abs(newValue - (localValue[0] || 0)) <
+            Math.abs(newValue - (localValue[1] || 0))
 
           setValue(
             isUpdatingFirstElement
-              ? [value, localValue[1]]
-              : [localValue[0], value]
+              ? [newValue, localValue[1]]
+              : [localValue[0], newValue]
           )
         }
       } else {
-        setValue(value)
+        setValue(newValue)
       }
     }
   }
@@ -241,15 +242,16 @@ const Slider = React.forwardRef<HTMLDivElement, SliderProps>((props, ref) => {
   }
 
   const buildIndicator = () =>
-    indicators.map(({ color, range }) => {
-      const indicatorMinInRange = Math.min(...range)
-      const indicatorMaxInRange = Math.max(...range)
+    indicators.map(indicator => {
+      const indicatorMinInRange = Math.min(...indicator.range)
+      const indicatorMaxInRange = Math.max(...indicator.range)
       const indicatorMin = indicatorMinInRange > min ? indicatorMinInRange : min
       const indicatorMax = indicatorMaxInRange < max ? indicatorMaxInRange : max
+
       return (
         <SliderIndicator
-          key={range.join('.')}
-          color={color}
+          key={indicator.range.join('.')}
+          color={indicator.color}
           style={{
             left: `${((indicatorMin - min) / (max - min)) * 100}%`,
             right: `${(1 - (indicatorMax - min) / (max - min)) * 100}%`,
@@ -303,10 +305,10 @@ const Slider = React.forwardRef<HTMLDivElement, SliderProps>((props, ref) => {
           {tooltip}
         </SliderTooltip>
         {dots &&
-          possibleValues.map((value, index) => (
+          possibleValues.map((possibleValue, index) => (
             <SliderBackgroundDot
               key={index}
-              style={{ left: `${getPositionFromValue(value)}%` }}
+              style={{ left: `${getPositionFromValue(possibleValue)}%` }}
             />
           ))}
       </SliderContent>

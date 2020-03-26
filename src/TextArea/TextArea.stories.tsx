@@ -19,7 +19,7 @@ const TextArea = ({ value = '', ...props }) => {
   const Component = withState('value', 'onChange', value)(newProps => (
     <RawTextArea
       {...newProps}
-      onChange={value => newProps.onChange(value as string)}
+      onChange={newValue => newProps.onChange(newValue as string)}
     />
   )) as React.ComponentType<TextAreaProps>
 
