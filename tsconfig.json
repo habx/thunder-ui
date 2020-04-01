@@ -1,25 +1,24 @@
 {
   "compilerOptions": {
     "jsx": "react",
-    "rootDirs": ["./src", "./.storybook"],
-    "outDir": "./dist",
+    "outDir": "./dist/esm",
     "declarationDir": "./dist/typings",
-    "lib": ["es7", "dom"],
-    "moduleResolution": "node",
+    "baseUrl": "typings",
+    "target": "ES5",
+    "module": "ES2015",
+    "moduleResolution": "Node",
+    "lib": ["ESNext", "DOM"],
+    "typeRoots": ["./node_modules/@types", "./typings"],
+    "strict": false,
     "removeComments": true,
     "sourceMap": true,
-    "strict": false,
     "declaration": true,
     "declarationMap": true,
-    "target": "esnext",
-    "module": "commonjs",
+    "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "resolveJsonModule": true
   },
-  "files": ["./src/index.ts"],
-  "exclude": [
-    "node_modules",
-    "**/*.spec.ts",
-    "**/*.stories.tsx"
-  ]
+  "include": ["./src/**/*"],
+  "exclude": ["./src/**/*.stories.tsx", "./src/**/*.spec.tsx"]
 }
