@@ -5,7 +5,7 @@ import styledNormalize from 'styled-normalize'
 import ThunderProvider from '../src/ThunderProvider'
 import theme from '../src/theme'
 
-const FONT_ROOT = 'https://cdn.habx.fr/assets/fonts'
+const FONT_ROOT = 'https://cdn.habx.com/assets/fonts'
 
 const GlobalStyle = createGlobalStyle`
   ${styledNormalize};
