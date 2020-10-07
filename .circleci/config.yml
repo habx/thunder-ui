@@ -1,138 +1,166 @@
 version: 2.1
 
-workflows:
-  deploy-to-kubernetes:
-    jobs:
-      - fetch-node-modules:
-          context: default_env_vars
-          filters:
-            tags:
-              only: /^v.*/
-            branches:
-              ignore: gh-pages
-      - lint:
-          context: default_env_vars
-          requires:
-          - fetch-node-modules
-          filters:
-            tags:
-              only: /^v.*/
-            branches:
-              ignore: gh-pages
-      - build:
-          context: default_env_vars
-          requires:
-          - lint
-          filters:
-            tags:
-              only: /^v.*/
-            branches:
-              ignore: gh-pages
-      - test:
-          context: default_env_vars
-          requires:
-          - build
-          filters:
-            tags:
-              only: /^v.*/
-            branches:
-              ignore: gh-pages
-      - publish-on-tag:
-          context: default_env_vars
-          requires:
-          - test
-          filters:
-            tags:
-              only: /^v.*/
-            branches:
-              ignore: /.*/
-      - publish-storybook-on-tag:
-          context: default_env_vars
-          requires:
-          - test
-          filters:
-            tags:
-              only: /^v.*/
-            branches:
-              ignore: /.*/
-
-jobs:
-  fetch-node-modules:
+# --- Anchor alias ---- #
+# - Docker configuration - #
+alias:
+# https://circleci.com/docs/2.0/circleci-images/#nodejs
+  - &docker_node14_configuration
     docker:
-      - image: habx/node-base:9-alpine-npm6
+      - image: circleci/node:14.0.0
+        user: root
+# - Jobs filters - #
+  - &filters_allow_tags
+    tags:
+      only: /^v.*/
+  - &filters_ignore_branches
+    branches:
+      ignore: /.*/
+  - &filters_ignore_tags
+    tags:
+      ignore: /.*/
+# - Step - #
+  - &preconfig-github-pkg
+    run:
+      name: Preconfigure environment ~/.npmrc
+      command: |
+        echo "@${GITHUB_PKG_NPM_ORG}:registry=https://npm.pkg.github.com/" > ~/.npmrc
+        echo "//npm.pkg.github.com/:_authToken=${GITHUB_TOKEN}" >> ~/.npmrc
+  - &preconfig-npmjs
+    run:
+      name: Preconfigure environment ~/.npmrc
+      command: |
+        echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > ~/.npmrc
+# - Node modules - #
+  - &install_node_modules_with_cache
+    node/with-cache:
+        dir: node_modules
+        cache-version: dev{{ .Environment.CACHE_VERSION }}
+        steps:
+          - run:
+              name: Install node module
+              command: npm install
+  - &install_node_modules_with_cache_production
+    node/with-cache:
+      dir: node_modules
+      cache-version: prod{{ .Environment.CACHE_VERSION }}
+      steps:
+        - run:
+            name: Install node module production
+            command: npm install --production
+  - &fetch_node_modules_with_cache_production
+    node/with-cache:
+      dir: node_modules
+      cache-version: prod{{ .Environment.CACHE_VERSION }}
+      steps:
+        - run: echo
+jobs:
+  build:
+    <<: *docker_node14_configuration
     steps:
       - checkout
-      - restore_cache:
-          name: Restore node modules cache
-          key: node_modules-{{ checksum "package-lock.json" }}
-      - run:
-          command: |
-            npm install
-      - save_cache:
-          name: Save node modules cache
-          key: node_modules-{{ checksum "package-lock.json" }}
-          paths:
-            - node_modules
+      - *install_node_modules_with_cache_production
+      - *install_node_modules_with_cache
+      - run: export NODE_ENV=production; npm run build
       - persist_to_workspace:
-          root: /root
+          root: ~/project
           paths:
-            - project
+            - dist
+
+  storybook-build:
+    <<: *docker_node14_configuration
+    steps:
+      - checkout
+      - *install_node_modules_with_cache
+      - attach_workspace:
+          at: ~/project
+      - *install_node_modules_with_cache
+      - run: npm run storybook:build
 
   lint:
-    docker:
-      - image: habx/node-base:9-alpine-npm6
+    <<: *docker_node14_configuration
     steps:
-      - attach_workspace:
-          at: /root/
-      - run:
-          command: |
-            npm run lint
+      - checkout
+      - *install_node_modules_with_cache
+      - run: npm run lint
 
+  tests:
+    <<: *docker_node14_configuration
+    steps:
+      - checkout
+      - *install_node_modules_with_cache
+      - run: npm run test
+
+  github-pkg-publish:
+    <<: *docker_node14_configuration
+    steps:
+      - checkout
+      - attach_workspace:
+          at: ~/project
+      - *preconfig-github-pkg
+      - *install_node_modules_with_cache
+      - run: npm publish
+
+  npmjs-publish:
+    <<: *docker_node14_configuration
+    steps:
+      - checkout
+      - attach_workspace:
+          at: ~/project
+      - *preconfig-npmjs
+      - *install_node_modules_with_cache
+      - run: jq -M 'del(.publishConfig)' package.json > _package.json; mv _package.json package.json
+      - run: npm publish
+
+  storybook-publish:
+    <<: *docker_node14_configuration
+    steps:
+      - checkout
+      - attach_workspace:
+          at: ~/project
+      - *install_node_modules_with_cache
+      - run: npm run storybook:deploy
+
+orbs:
+  node: circleci/node@1.0.1
+# --- END --- #
+# --------------------------------------------------- #
+# -------------- DEFINE YOUR WORKFLOW --------------- #
+# --------------------------------------------------- #
+workflows:
   build:
-    docker:
-      - image: habx/node-base:9-alpine-npm6
-    steps:
-      - attach_workspace:
-          at: /root/
-      - run:
-          command: |
-            npm run build
-          environment:
-            NODE_ENV: production
-      - persist_to_workspace:
-          root: /root
-          paths:
-            - project
-
-  test:
-    docker:
-      - image: habx/node-base:9-alpine-npm6
-    steps:
-      - attach_workspace:
-          at: /root/
-      - run:
-          command: |
-            npm run test
-          environment:
-            NODE_ENV: test
-
-  publish-on-tag:
-    docker:
-      - image: habx/node-base:9-alpine-npm6
-    steps:
-      - attach_workspace:
-          at: /root/
-      - run:
-          command: |
-            NPM_TOKEN=${NPM_TOKEN_RW} npm publish
-
-  publish-storybook-on-tag:
-    docker:
-      - image: habx/node-base:9-alpine-npm6
-    steps:
-      - attach_workspace:
-          at: /root/
-      - run:
-          command: |
-            npm run storybook:build
-            npm run storybook:deploy
+    jobs:
+      - build:
+          filters:
+            <<: *filters_allow_tags
+      - lint:
+          filters:
+            <<: *filters_allow_tags
+      - tests:
+          requires:
+            - build
+            - lint
+          filters:
+            <<: *filters_allow_tags
+      - npmjs-publish:
+          context: ts-lib-client-public
+          requires:
+            - lint
+            - build
+          filters:
+            <<: *filters_allow_tags
+            <<: *filters_ignore_branches
+      - github-pkg-publish:
+          context: ts-lib-client-public
+          requires:
+            - lint
+            - build
+          filters:
+            <<: *filters_allow_tags
+            <<: *filters_ignore_branches
+      - storybook-publish:
+          context: ts-lib-client-public
+          requires:
+            - tests
+          filters:
+            <<: *filters_allow_tags
+            <<: *filters_ignore_branches
