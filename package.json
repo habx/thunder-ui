@@ -55,7 +55,7 @@
     "lodash.get": "^4.4.2"
   },
   "devDependencies": {
-    "@habx/eslint-config-client": "^3.0.1",
+    "@habx/eslint-config-client": "^3.1.0",
     "@storybook/addon-actions": "^5.2.1",
     "@storybook/addon-centered": "^5.2.1",
     "@storybook/addon-info": "^5.2.1",
